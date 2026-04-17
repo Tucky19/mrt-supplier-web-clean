@@ -1,0 +1,1405 @@
+{
+  "version": 2,
+  "generatedAt": "2026-02-19T17:27:51.189Z",
+  "count": 45,
+  "mini": {
+    "donaldson-p555461": {
+      "id": "donaldson-p555461",
+      "partNo": "P555461",
+      "brand": "Donaldson",
+      "category": "filter",
+      "image": "/images/products/donaldson/p555461.webp"
+    },
+    "donaldson-x770088": {
+      "id": "donaldson-x770088",
+      "partNo": "X770088",
+      "brand": "Donaldson",
+      "category": "filter",
+      "image": "/images/products/donaldson/x770088.webp"
+    },
+    "donaldson-p828889": {
+      "id": "donaldson-p828889",
+      "partNo": "P828889",
+      "brand": "Donaldson",
+      "category": "filter",
+      "image": "/images/products/donaldson/p828889.webp"
+    },
+    "donaldson-p550148": {
+      "id": "donaldson-p550148",
+      "partNo": "P550148",
+      "brand": "Donaldson",
+      "category": "filter",
+      "image": "/images/products/donaldson/p550148.webp"
+    },
+    "donaldson-p558615": {
+      "id": "donaldson-p558615",
+      "partNo": "P558615",
+      "brand": "Donaldson",
+      "category": "filter",
+      "image": "/images/products/donaldson/p558615.webp"
+    },
+    "donaldson-c105004": {
+      "id": "donaldson-c105004",
+      "partNo": "C105004",
+      "brand": "Donaldson",
+      "category": "filter",
+      "image": "/images/products/donaldson/c105004.webp"
+    },
+    "donaldson-p565059": {
+      "id": "donaldson-p565059",
+      "partNo": "P565059",
+      "brand": "Donaldson",
+      "category": "filter",
+      "image": "/images/products/donaldson/p565059.webp"
+    },
+    "donaldson-p782105": {
+      "id": "donaldson-p782105",
+      "partNo": "P782105",
+      "brand": "Donaldson",
+      "category": "filter",
+      "image": "/images/products/donaldson/p782105.webp"
+    },
+    "donaldson-p554620": {
+      "id": "donaldson-p554620",
+      "partNo": "P554620",
+      "brand": "Donaldson",
+      "category": "filter",
+      "image": "/images/products/donaldson/p554620.webp"
+    },
+    "donaldson-p554685": {
+      "id": "donaldson-p554685",
+      "partNo": "P554685",
+      "brand": "Donaldson",
+      "category": "filter",
+      "image": "/images/products/donaldson/p554685.webp"
+    },
+    "donaldson-p559000": {
+      "id": "donaldson-p559000",
+      "partNo": "P559000",
+      "brand": "Donaldson",
+      "category": "filter",
+      "image": "/images/products/donaldson/p559000.webp"
+    },
+    "donaldson-p550881": {
+      "id": "donaldson-p550881",
+      "partNo": "P550881",
+      "brand": "Donaldson",
+      "category": "filter",
+      "image": "/images/products/donaldson/p550881.webp"
+    },
+    "donaldson-p782108": {
+      "id": "donaldson-p782108",
+      "partNo": "P782108",
+      "brand": "Donaldson",
+      "category": "filter",
+      "image": "/images/products/donaldson/p782108.webp"
+    },
+    "donaldson-p551102": {
+      "id": "donaldson-p551102",
+      "partNo": "P551102",
+      "brand": "Donaldson",
+      "category": "filter",
+      "image": "/images/products/donaldson/p551102.webp"
+    },
+    "donaldson-p181059": {
+      "id": "donaldson-p181059",
+      "partNo": "P181059",
+      "brand": "Donaldson",
+      "category": "filter",
+      "image": "/images/products/donaldson/p181059.webp"
+    },
+    "donaldson-p551670": {
+      "id": "donaldson-p551670",
+      "partNo": "P551670",
+      "brand": "Donaldson",
+      "category": "filter",
+      "image": "/images/products/donaldson/p551670.webp"
+    },
+    "donaldson-p550777": {
+      "id": "donaldson-p550777",
+      "partNo": "P550777",
+      "brand": "Donaldson",
+      "category": "filter",
+      "image": "/images/products/donaldson/p550777.webp"
+    
+
+    },
+    "donaldson-p502438": {
+      "id": "donaldson-p502438",
+      "partNo": "P502438",
+      "brand": "Donaldson",
+      "category": "filter",
+      "image": "/images/products/donaldson/p502438.webp"
+    },
+    "donaldson-p181063": {
+      "id": "donaldson-p181063",
+      "partNo": "P181063",
+      "brand": "Donaldson",
+      "category": "filter",
+      "image": "/images/products/donaldson/p181063.webp"
+    },
+    "donaldson-p551311": {
+      "id": "donaldson-p551311",
+      "partNo": "P551311",
+      "brand": "Donaldson",
+      "category": "filter",
+      "image": "/images/products/donaldson/p551311.webp"
+    },
+    "mann-w11102-36": {
+      "id": "mann-w11102-36",
+      "partNo": "W11102/36",
+      "brand": "MANN-FILTER",
+      "category": "filter",
+      "spec": "A108 B93 C103 | G 1 1/8-16 UN | H261 mm"
+    },
+    "mann-w13145-3": {
+      "id": "mann-w13145-3",
+      "partNo": "W13145/3",
+      "brand": "MANN-FILTER",
+      "category": "filter",
+      "spec": "A136 B100 C111 | G 1 1/2-16 UN | H308 mm | bypass 2.5"
+    },
+    "mann-w920-21": {
+      "id": "mann-w920-21",
+      "partNo": "W920/21",
+      "brand": "MANN-FILTER",
+      "category": "filter",
+      "spec": "A93 B62 C71 | G 3/4-16 UNF | H95 mm | bypass 0.8 | ADBV 1"
+    },
+    "mann-w940-5": {
+      "id": "mann-w940-5",
+      "partNo": "W940/5",
+      "brand": "MANN-FILTER",
+      "category": "filter",
+      "spec": "A93 B62 C71 | G 1-12 UNF | H157 mm | bypass 2.5 | ADBV 1"
+    },
+    "mann-w950": {
+      "id": "mann-w950",
+      "partNo": "W950",
+      "brand": "MANN-FILTER",
+      "category": "filter",
+      "spec": "A93 B62 C71 | G 1-12 UNF | H170 mm | bypass 2.5 | ADBV 1"
+    },
+    "mann-w962-14": {
+      "id": "mann-w962-14",
+      "partNo": "W962/14",
+      "brand": "MANN-FILTER",
+      "category": "filter",
+      "spec": "A93 B62 C71 | G 1-12 UNF | H210 mm"
+    },
+    "mann-w719-5": {
+      "id": "mann-w719-5",
+      "partNo": "W719/5",
+      "brand": "MANN-FILTER",
+      "category": "filter",
+      "spec": "A76 B62 C71 | G 3/4-16 UNF | H123 mm | bypass 2.5 | ADBV 1"
+    },
+    "mann-wd962": {
+      "id": "mann-wd962",
+      "partNo": "WD962",
+      "brand": "MANN-FILTER",
+      "category": "filter",
+      "spec": "A93 B62 C71 | G 1-12 UNF | H212 mm | high pressure"
+    },
+    "mann-wd13145": {
+      "id": "mann-wd13145",
+      "partNo": "WD13145",
+      "brand": "MANN-FILTER",
+      "category": "filter",
+      "spec": "A136 B100 C111 | G 1 1/2-16 UN | H302 mm | high pressure"
+    },
+    "mann-wd1374": {
+      "id": "mann-wd1374",
+      "partNo": "WD1374",
+      "brand": "MANN-FILTER",
+      "category": "filter",
+      "spec": "A136 B100 C111 | G 1 1/2-16 UN | H177 mm | high pressure"
+    },
+    "mann-wd920": {
+      "id": "mann-wd920",
+      "partNo": "WD920",
+      "brand": "MANN-FILTER",
+      "category": "filter",
+      "spec": "A3.7in B2.4in C2.8in | G 3/4-16 UNF | H3.8in | bypass 2.5"
+    },
+    "mann-c1112-2": {
+      "id": "mann-c1112-2",
+      "partNo": "C1112/2",
+      "brand": "MANN-FILTER",
+      "category": "filter",
+      "spec": "A98 B60 | H74 mm"
+    },
+    "mann-c1250": {
+      "id": "mann-c1250",
+      "partNo": "C1250",
+      "brand": "MANN-FILTER",
+      "category": "filter",
+      "spec": "A118 B67 C67 | H134 mm | Picolino"
+    },
+    "mann-c1337": {
+      "id": "mann-c1337",
+      "partNo": "C1337",
+      "brand": "MANN-FILTER",
+      "category": "filter",
+      "spec": "A128 B64 C64 | H125 mm"
+    },
+    "mann-c1633-1": {
+      "id": "mann-c1633-1",
+      "partNo": "C1633/1",
+      "brand": "MANN-FILTER",
+      "category": "filter",
+      "spec": "A159 B120 C120 | H75 mm"
+    },
+    "mann-c25710-3": {
+      "id": "mann-c25710-3",
+      "partNo": "C25710/3",
+      "brand": "MANN-FILTER",
+      "category": "filter",
+      "spec": "A240 B147 | H539 mm | EUROPICLON | secondary CF710"
+    },
+    "mann-c23610": {
+      "id": "mann-c23610",
+      "partNo": "C23610",
+      "brand": "MANN-FILTER",
+      "category": "filter",
+      "spec": "A220 B124 | H404 mm | EUROPICLON | secondary CF610"
+    },
+    "mann-c23115": {
+      "id": "mann-c23115",
+      "partNo": "C23115",
+      "brand": "MANN-FILTER",
+      "category": "filter",
+      "spec": "A228 B161 C161 D241 | H130 mm"
+    },
+    "ntn-6205zz": {
+      "id": "ntn-6205zz",
+      "partNo": "6205-ZZ",
+      "brand": "NTN",
+      "category": "bearing",
+      "spec": "25×52×15 mm, Double shield (ZZ)"
+    },
+    "ntn-6205llu": {
+      "id": "ntn-6205llu",
+      "partNo": "6205-LLU",
+      "brand": "NTN",
+      "category": "bearing",
+      "spec": "25×52×15 mm, Contact seal (LLU)"
+    },
+    "ntn-6204zz": {
+      "id": "ntn-6204zz",
+      "partNo": "6204-ZZ",
+      "brand": "NTN",
+      "category": "bearing",
+      "spec": "20×47×14 mm, Double Shield (ZZ)"
+    },
+    "ntn-6203zz": {
+      "id": "ntn-6203zz",
+      "partNo": "6203-ZZ",
+      "brand": "NTN",
+      "category": "bearing",
+      "spec": "17×40×12 mm, Double Shield (ZZ)"
+    },
+    "ntn-6305zz": {
+      "id": "ntn-6305zz",
+      "partNo": "6305-ZZ",
+      "brand": "NTN",
+      "category": "bearing",
+      "spec": "25×62×17 mm, Double Shield (ZZ)"
+    },
+    "ntn-6306zz": {
+      "id": "ntn-6306zz",
+      "partNo": "6306-ZZ",
+      "brand": "NTN",
+      "category": "bearing",
+      "spec": "30×72×19 mm, Double Shield (ZZ)"
+    }
+  },
+  "prefix": {
+    "p2": {
+      "62": [
+        "ntn-6205zz",
+        "ntn-6205llu",
+        "ntn-6204zz",
+        "ntn-6203zz"
+      ],
+      "63": [
+        "ntn-6305zz",
+        "ntn-6306zz"
+      ],
+      "p5": [
+        "donaldson-p555461",
+        "donaldson-p550148",
+        "donaldson-p558615",
+        "donaldson-p565059",
+        "donaldson-p554620",
+        "donaldson-p554685",
+        "donaldson-p559000",
+        "donaldson-p550881",
+        "donaldson-p551102",
+        "donaldson-p551670",
+        "donaldson-p550777",
+        "donaldson-p550615",
+        "donaldson-p502438",
+        "donaldson-p551311"
+      ],
+      "x7": [
+        "donaldson-x770088"
+      ],
+      "p8": [
+        "donaldson-p828889"
+      ],
+      "c1": [
+        "donaldson-c105004",
+        "mann-c1112-2",
+        "mann-c1250",
+        "mann-c1337",
+        "mann-c1633-1"
+      ],
+      "p7": [
+        "donaldson-p782105",
+        "donaldson-p782108"
+      ],
+      "p1": [
+        "donaldson-p181059",
+        "donaldson-p181063"
+      ],
+      "w1": [
+        "mann-w11102-36",
+        "mann-w13145-3"
+      ],
+      "w9": [
+        "mann-w920-21",
+        "mann-w940-5",
+        "mann-w950",
+        "mann-w962-14"
+      ],
+      "w7": [
+        "mann-w719-5"
+      ],
+      "wd": [
+        "mann-wd962",
+        "mann-wd13145",
+        "mann-wd1374",
+        "mann-wd920"
+      ],
+      "c2": [
+        "mann-c25710-3",
+        "mann-c23610",
+        "mann-c23115"
+      ]
+    },
+    "p3": {
+      "620": [
+        "ntn-6205zz",
+        "ntn-6205llu",
+        "ntn-6204zz",
+        "ntn-6203zz"
+      ],
+      "630": [
+        "ntn-6305zz",
+        "ntn-6306zz"
+      ],
+      "p55": [
+        "donaldson-p555461",
+        "donaldson-p550148",
+        "donaldson-p558615",
+        "donaldson-p554620",
+        "donaldson-p554685",
+        "donaldson-p559000",
+        "donaldson-p550881",
+        "donaldson-p551102",
+        "donaldson-p551670",
+        "donaldson-p550777",
+        "donaldson-p550615",
+        "donaldson-p551311"
+      ],
+      "x77": [
+        "donaldson-x770088"
+      ],
+      "p82": [
+        "donaldson-p828889"
+      ],
+      "c10": [
+        "donaldson-c105004"
+      ],
+      "p56": [
+        "donaldson-p565059"
+      ],
+      "p78": [
+        "donaldson-p782105",
+        "donaldson-p782108"
+      ],
+      "p18": [
+        "donaldson-p181059",
+        "donaldson-p181063"
+      ],
+      "p50": [
+        "donaldson-p502438"
+      ],
+      "w11": [
+        "mann-w11102-36"
+      ],
+      "w13": [
+        "mann-w13145-3"
+      ],
+      "w92": [
+        "mann-w920-21"
+      ],
+      "w94": [
+        "mann-w940-5"
+      ],
+      "w95": [
+        "mann-w950"
+      ],
+      "w96": [
+        "mann-w962-14"
+      ],
+      "w71": [
+        "mann-w719-5"
+      ],
+      "wd9": [
+        "mann-wd962",
+        "mann-wd920"
+      ],
+      "wd1": [
+        "mann-wd13145",
+        "mann-wd1374"
+      ],
+      "c11": [
+        "mann-c1112-2"
+      ],
+      "c12": [
+        "mann-c1250"
+      ],
+      "c13": [
+        "mann-c1337"
+      ],
+      "c16": [
+        "mann-c1633-1"
+      ],
+      "c25": [
+        "mann-c25710-3"
+      ],
+      "c23": [
+        "mann-c23610",
+        "mann-c23115"
+      ]
+    },
+    "p4": {
+      "6203": [
+        "ntn-6203zz"
+      ],
+      "6204": [
+        "ntn-6204zz"
+      ],
+      "6205": [
+        "ntn-6205zz",
+        "ntn-6205llu"
+      ],
+      "6305": [
+        "ntn-6305zz"
+      ],
+      "6306": [
+        "ntn-6306zz"
+      ],
+      "p555": [
+        "donaldson-p555461"
+      ],
+      "x770": [
+        "donaldson-x770088"
+      ],
+      "p828": [
+        "donaldson-p828889"
+      ],
+      "p550": [
+        "donaldson-p550148",
+        "donaldson-p550881",
+        "donaldson-p550777",
+        "donaldson-p550615"
+      ],
+      "p558": [
+        "donaldson-p558615"
+      ],
+      "c105": [
+        "donaldson-c105004"
+      ],
+      "p565": [
+        "donaldson-p565059"
+      ],
+      "p782": [
+        "donaldson-p782105",
+        "donaldson-p782108"
+      ],
+      "p554": [
+        "donaldson-p554620",
+        "donaldson-p554685"
+      ],
+      "p559": [
+        "donaldson-p559000"
+      ],
+      "p551": [
+        "donaldson-p551102",
+        "donaldson-p551670",
+        "donaldson-p551311"
+      ],
+      "p181": [
+        "donaldson-p181059",
+        "donaldson-p181063"
+      ],
+      "p502": [
+        "donaldson-p502438"
+      ],
+      "w111": [
+        "mann-w11102-36"
+      ],
+      "w131": [
+        "mann-w13145-3"
+      ],
+      "w920": [
+        "mann-w920-21"
+      ],
+      "w940": [
+        "mann-w940-5"
+      ],
+      "w950": [
+        "mann-w950"
+      ],
+      "w962": [
+        "mann-w962-14"
+      ],
+      "w719": [
+        "mann-w719-5"
+      ],
+      "wd96": [
+        "mann-wd962"
+      ],
+      "wd13": [
+        "mann-wd13145",
+        "mann-wd1374"
+      ],
+      "wd92": [
+        "mann-wd920"
+      ],
+      "c111": [
+        "mann-c1112-2"
+      ],
+      "c125": [
+        "mann-c1250"
+      ],
+      "c133": [
+        "mann-c1337"
+      ],
+      "c163": [
+        "mann-c1633-1"
+      ],
+      "c257": [
+        "mann-c25710-3"
+      ],
+      "c236": [
+        "mann-c23610"
+      ],
+      "c231": [
+        "mann-c23115"
+      ]
+    }
+  },
+  "xref": {},
+  "oem": {},
+  "inv": {
+    "1": [
+      "mann-w11102-36",
+      "mann-w13145-3",
+      "mann-w920-21",
+      "mann-w940-5",
+      "mann-w950",
+      "mann-w962-14",
+      "mann-w719-5",
+      "mann-wd962",
+      "mann-wd13145",
+      "mann-wd1374",
+      "mann-c1633-1"
+    ],
+    "2": [
+      "mann-w13145-3",
+      "mann-wd13145",
+      "mann-wd1374",
+      "mann-c1112-2"
+    ],
+    "3": [
+      "mann-w13145-3",
+      "mann-w920-21",
+      "mann-w719-5",
+      "mann-wd920",
+      "mann-c25710-3"
+    ],
+    "4": [
+      "mann-w920-21",
+      "mann-w719-5",
+      "mann-wd920"
+    ],
+    "5": [
+      "mann-w940-5",
+      "mann-w719-5"
+    ],
+    "8": [
+      "mann-w11102-36"
+    ],
+    "11": [
+      "mann-w11102-36"
+    ],
+    "12": [
+      "mann-w940-5",
+      "mann-w950",
+      "mann-w962-14",
+      "mann-wd962"
+    ],
+    "13": [
+      "mann-w13145-3",
+      "mann-wd13145"
+    ],
+    "14": [
+      "mann-w962-14"
+    ],
+    "16": [
+      "mann-w11102-36",
+      "mann-w13145-3",
+      "mann-w920-21",
+      "mann-w719-5",
+      "mann-wd13145",
+      "mann-wd1374",
+      "mann-wd920"
+    ],
+    "21": [
+      "mann-w920-21"
+    ],
+    "23": [
+      "mann-c23610",
+      "mann-c23115"
+    ],
+    "25": [
+      "mann-c25710-3"
+    ],
+    "36": [
+      "mann-w11102-36"
+    ],
+    "102": [
+      "mann-w11102-36"
+    ],
+    "115": [
+      "mann-c23115"
+    ],
+    "145": [
+      "mann-w13145-3",
+      "mann-wd13145"
+    ],
+    "610": [
+      "mann-c23610"
+    ],
+    "710": [
+      "mann-c25710-3"
+    ],
+    "719": [
+      "mann-w719-5"
+    ],
+    "920": [
+      "mann-w920-21",
+      "mann-wd920"
+    ],
+    "940": [
+      "mann-w940-5"
+    ],
+    "950": [
+      "mann-w950"
+    ],
+    "962": [
+      "mann-w962-14",
+      "mann-wd962"
+    ],
+    "1112": [
+      "mann-c1112-2"
+    ],
+    "1250": [
+      "mann-c1250"
+    ],
+    "1337": [
+      "mann-c1337"
+    ],
+    "1374": [
+      "mann-wd1374"
+    ],
+    "1633": [
+      "mann-c1633-1"
+    ],
+    "6203": [
+      "ntn-6203zz"
+    ],
+    "6204": [
+      "ntn-6204zz"
+    ],
+    "6205": [
+      "ntn-6205zz",
+      "ntn-6205llu"
+    ],
+    "6305": [
+      "ntn-6305zz"
+    ],
+    "6306": [
+      "ntn-6306zz"
+    ],
+    "p555461": [
+      "donaldson-p555461"
+    ],
+    "donaldson": [
+      "donaldson-p555461",
+      "donaldson-x770088",
+      "donaldson-p828889",
+      "donaldson-p550148",
+      "donaldson-p558615",
+      "donaldson-c105004",
+      "donaldson-p565059",
+      "donaldson-p782105",
+      "donaldson-p554620",
+      "donaldson-p554685",
+      "donaldson-p559000",
+      "donaldson-p550881",
+      "donaldson-p782108",
+      "donaldson-p551102",
+      "donaldson-p181059",
+      "donaldson-p551670",
+      "donaldson-p550777",
+      "donaldson-p550615",
+      "donaldson-p502438",
+      "donaldson-p181063",
+      "donaldson-p551311"
+    ],
+    "filter": [
+      "donaldson-p555461",
+      "donaldson-x770088",
+      "donaldson-p828889",
+      "donaldson-p550148",
+      "donaldson-p558615",
+      "donaldson-c105004",
+      "donaldson-p565059",
+      "donaldson-p782105",
+      "donaldson-p554620",
+      "donaldson-p554685",
+      "donaldson-p559000",
+      "donaldson-p550881",
+      "donaldson-p782108",
+      "donaldson-p551102",
+      "donaldson-p181059",
+      "donaldson-p551670",
+      "donaldson-p550777",
+      "donaldson-p550615",
+      "donaldson-p502438",
+      "donaldson-p181063",
+      "donaldson-p551311",
+      "mann-w11102-36",
+      "mann-w13145-3",
+      "mann-w920-21",
+      "mann-w940-5",
+      "mann-w950",
+      "mann-w962-14",
+      "mann-w719-5",
+      "mann-wd962",
+      "mann-wd13145",
+      "mann-wd1374",
+      "mann-wd920",
+      "mann-c1112-2",
+      "mann-c1250",
+      "mann-c1337",
+      "mann-c1633-1",
+      "mann-c25710-3",
+      "mann-c23610",
+      "mann-c23115"
+    ],
+    "x770088": [
+      "donaldson-x770088"
+    ],
+    "p828889": [
+      "donaldson-p828889"
+    ],
+    "p550148": [
+      "donaldson-p550148"
+    ],
+    "p558615": [
+      "donaldson-p558615"
+    ],
+    "c105004": [
+      "donaldson-c105004"
+    ],
+    "p565059": [
+      "donaldson-p565059"
+    ],
+    "p782105": [
+      "donaldson-p782105"
+    ],
+    "p554620": [
+      "donaldson-p554620"
+    ],
+    "p554685": [
+      "donaldson-p554685"
+    ],
+    "p559000": [
+      "donaldson-p559000"
+    ],
+    "p550881": [
+      "donaldson-p550881"
+    ],
+    "p782108": [
+      "donaldson-p782108"
+    ],
+    "p551102": [
+      "donaldson-p551102"
+    ],
+    "p181059": [
+      "donaldson-p181059"
+    ],
+    "p551670": [
+      "donaldson-p551670"
+    ],
+    "p550777": [
+      "donaldson-p550777"
+    ],
+    "p550615": [
+      "donaldson-p550615"
+    ],
+    "p502438": [
+      "donaldson-p502438"
+    ],
+    "p181063": [
+      "donaldson-p181063"
+    ],
+    "p551311": [
+      "donaldson-p551311"
+    ],
+    "w11102": [
+      "mann-w11102-36"
+    ],
+    "mann": [
+      "mann-w11102-36",
+      "mann-w13145-3",
+      "mann-w920-21",
+      "mann-w940-5",
+      "mann-w950",
+      "mann-w962-14",
+      "mann-w719-5",
+      "mann-wd962",
+      "mann-wd13145",
+      "mann-wd1374",
+      "mann-wd920",
+      "mann-c1112-2",
+      "mann-c1250",
+      "mann-c1337",
+      "mann-c1633-1",
+      "mann-c25710-3",
+      "mann-c23610",
+      "mann-c23115"
+    ],
+    "oil": [
+      "mann-w11102-36",
+      "mann-w920-21",
+      "mann-w940-5",
+      "mann-w950",
+      "mann-w719-5",
+      "mann-wd13145"
+    ],
+    "w": [
+      "mann-w11102-36",
+      "mann-w13145-3",
+      "mann-w920-21",
+      "mann-w940-5",
+      "mann-w950",
+      "mann-w962-14",
+      "mann-w719-5"
+    ],
+    "a108": [
+      "mann-w11102-36"
+    ],
+    "b93": [
+      "mann-w11102-36"
+    ],
+    "c103": [
+      "mann-w11102-36"
+    ],
+    "|": [
+      "mann-w11102-36",
+      "mann-w13145-3",
+      "mann-w920-21",
+      "mann-w940-5",
+      "mann-w950",
+      "mann-w962-14",
+      "mann-w719-5",
+      "mann-wd962",
+      "mann-wd13145",
+      "mann-wd1374",
+      "mann-wd920",
+      "mann-c1112-2",
+      "mann-c1250",
+      "mann-c1337",
+      "mann-c1633-1",
+      "mann-c25710-3",
+      "mann-c23610",
+      "mann-c23115"
+    ],
+    "g": [
+      "mann-w11102-36",
+      "mann-w13145-3",
+      "mann-w920-21",
+      "mann-w940-5",
+      "mann-w950",
+      "mann-w962-14",
+      "mann-w719-5",
+      "mann-wd962",
+      "mann-wd13145",
+      "mann-wd1374",
+      "mann-wd920"
+    ],
+    "un": [
+      "mann-w11102-36",
+      "mann-w13145-3",
+      "mann-wd13145",
+      "mann-wd1374"
+    ],
+    "h261": [
+      "mann-w11102-36"
+    ],
+    "mm": [
+      "mann-w11102-36",
+      "mann-w13145-3",
+      "mann-w920-21",
+      "mann-w940-5",
+      "mann-w950",
+      "mann-w962-14",
+      "mann-w719-5",
+      "mann-wd962",
+      "mann-wd13145",
+      "mann-wd1374",
+      "mann-c1112-2",
+      "mann-c1250",
+      "mann-c1337",
+      "mann-c1633-1",
+      "mann-c25710-3",
+      "mann-c23610",
+      "mann-c23115"
+    ],
+    "w13145": [
+      "mann-w13145-3"
+    ],
+    "hydraulic": [
+      "mann-w13145-3",
+      "mann-wd962",
+      "mann-wd1374"
+    ],
+    "transmission": [
+      "mann-w13145-3",
+      "mann-wd962",
+      "mann-wd1374"
+    ],
+    "a136": [
+      "mann-w13145-3",
+      "mann-wd13145",
+      "mann-wd1374"
+    ],
+    "b100": [
+      "mann-w13145-3",
+      "mann-wd13145",
+      "mann-wd1374"
+    ],
+    "c111": [
+      "mann-w13145-3",
+      "mann-wd13145",
+      "mann-wd1374"
+    ],
+    "h308": [
+      "mann-w13145-3"
+    ],
+    "bypass": [
+      "mann-w13145-3",
+      "mann-w920-21",
+      "mann-w940-5",
+      "mann-w950",
+      "mann-w719-5",
+      "mann-wd920"
+    ],
+    "2.5": [
+      "mann-w13145-3",
+      "mann-w940-5",
+      "mann-w950",
+      "mann-w719-5",
+      "mann-wd920"
+    ],
+    "w920": [
+      "mann-w920-21"
+    ],
+    "a93": [
+      "mann-w920-21",
+      "mann-w940-5",
+      "mann-w950",
+      "mann-w962-14",
+      "mann-wd962"
+    ],
+    "b62": [
+      "mann-w920-21",
+      "mann-w940-5",
+      "mann-w950",
+      "mann-w962-14",
+      "mann-w719-5",
+      "mann-wd962"
+    ],
+    "c71": [
+      "mann-w920-21",
+      "mann-w940-5",
+      "mann-w950",
+      "mann-w962-14",
+      "mann-w719-5",
+      "mann-wd962"
+    ],
+    "unf": [
+      "mann-w920-21",
+      "mann-w940-5",
+      "mann-w950",
+      "mann-w962-14",
+      "mann-w719-5",
+      "mann-wd962",
+      "mann-wd920"
+    ],
+    "h95": [
+      "mann-w920-21"
+    ],
+    "0.8": [
+      "mann-w920-21"
+    ],
+    "adbv": [
+      "mann-w920-21",
+      "mann-w940-5",
+      "mann-w950",
+      "mann-w719-5"
+    ],
+    "w940": [
+      "mann-w940-5"
+    ],
+    "h157": [
+      "mann-w940-5"
+    ],
+    "w950": [
+      "mann-w950"
+    ],
+    "h170": [
+      "mann-w950"
+    ],
+    "w962": [
+      "mann-w962-14"
+    ],
+    "hydraulics": [
+      "mann-w962-14",
+      "mann-wd920"
+    ],
+    "h210": [
+      "mann-w962-14"
+    ],
+    "w719": [
+      "mann-w719-5"
+    ],
+    "a76": [
+      "mann-w719-5"
+    ],
+    "h123": [
+      "mann-w719-5"
+    ],
+    "wd962": [
+      "mann-wd962"
+    ],
+    "wd": [
+      "mann-wd962",
+      "mann-wd13145",
+      "mann-wd1374",
+      "mann-wd920"
+    ],
+    "h212": [
+      "mann-wd962"
+    ],
+    "high": [
+      "mann-wd962",
+      "mann-wd13145",
+      "mann-wd1374"
+    ],
+    "pressure": [
+      "mann-wd962",
+      "mann-wd13145",
+      "mann-wd1374"
+    ],
+    "wd13145": [
+      "mann-wd13145"
+    ],
+    "h302": [
+      "mann-wd13145"
+    ],
+    "wd1374": [
+      "mann-wd1374"
+    ],
+    "h177": [
+      "mann-wd1374"
+    ],
+    "wd920": [
+      "mann-wd920"
+    ],
+    "a3.7in": [
+      "mann-wd920"
+    ],
+    "b2.4in": [
+      "mann-wd920"
+    ],
+    "c2.8in": [
+      "mann-wd920"
+    ],
+    "h3.8in": [
+      "mann-wd920"
+    ],
+    "c1112": [
+      "mann-c1112-2"
+    ],
+    "air": [
+      "mann-c1112-2",
+      "mann-c1250",
+      "mann-c1337",
+      "mann-c1633-1",
+      "mann-c25710-3",
+      "mann-c23610",
+      "mann-c23115"
+    ],
+    "c": [
+      "mann-c1112-2",
+      "mann-c1250",
+      "mann-c1337",
+      "mann-c1633-1",
+      "mann-c25710-3",
+      "mann-c23610",
+      "mann-c23115"
+    ],
+    "a98": [
+      "mann-c1112-2"
+    ],
+    "b60": [
+      "mann-c1112-2"
+    ],
+    "h74": [
+      "mann-c1112-2"
+    ],
+    "c1250": [
+      "mann-c1250"
+    ],
+    "(picolino)": [
+      "mann-c1250"
+    ],
+    "a118": [
+      "mann-c1250"
+    ],
+    "b67": [
+      "mann-c1250"
+    ],
+    "c67": [
+      "mann-c1250"
+    ],
+    "h134": [
+      "mann-c1250"
+    ],
+    "picolino": [
+      "mann-c1250"
+    ],
+    "c1337": [
+      "mann-c1337"
+    ],
+    "a128": [
+      "mann-c1337"
+    ],
+    "b64": [
+      "mann-c1337"
+    ],
+    "c64": [
+      "mann-c1337"
+    ],
+    "h125": [
+      "mann-c1337"
+    ],
+    "c1633": [
+      "mann-c1633-1"
+    ],
+    "a159": [
+      "mann-c1633-1"
+    ],
+    "b120": [
+      "mann-c1633-1"
+    ],
+    "c120": [
+      "mann-c1633-1"
+    ],
+    "h75": [
+      "mann-c1633-1"
+    ],
+    "c25710": [
+      "mann-c25710-3"
+    ],
+    "(europiclon)": [
+      "mann-c25710-3",
+      "mann-c23610"
+    ],
+    "a240": [
+      "mann-c25710-3"
+    ],
+    "b147": [
+      "mann-c25710-3"
+    ],
+    "h539": [
+      "mann-c25710-3"
+    ],
+    "europiclon": [
+      "mann-c25710-3",
+      "mann-c23610"
+    ],
+    "secondary": [
+      "mann-c25710-3",
+      "mann-c23610"
+    ],
+    "cf710": [
+      "mann-c25710-3"
+    ],
+    "c23610": [
+      "mann-c23610"
+    ],
+    "a220": [
+      "mann-c23610"
+    ],
+    "b124": [
+      "mann-c23610"
+    ],
+    "h404": [
+      "mann-c23610"
+    ],
+    "cf610": [
+      "mann-c23610"
+    ],
+    "c23115": [
+      "mann-c23115"
+    ],
+    "a228": [
+      "mann-c23115"
+    ],
+    "b161": [
+      "mann-c23115"
+    ],
+    "c161": [
+      "mann-c23115"
+    ],
+    "d241": [
+      "mann-c23115"
+    ],
+    "h130": [
+      "mann-c23115"
+    ],
+    "zz": [
+      "ntn-6205zz",
+      "ntn-6204zz",
+      "ntn-6203zz",
+      "ntn-6305zz",
+      "ntn-6306zz"
+    ],
+    "ntn": [
+      "ntn-6205zz",
+      "ntn-6205llu",
+      "ntn-6204zz",
+      "ntn-6203zz",
+      "ntn-6305zz",
+      "ntn-6306zz"
+    ],
+    "deep": [
+      "ntn-6205zz",
+      "ntn-6205llu",
+      "ntn-6204zz",
+      "ntn-6203zz",
+      "ntn-6305zz",
+      "ntn-6306zz"
+    ],
+    "groove": [
+      "ntn-6205zz",
+      "ntn-6205llu",
+      "ntn-6204zz",
+      "ntn-6203zz",
+      "ntn-6305zz",
+      "ntn-6306zz"
+    ],
+    "ball": [
+      "ntn-6205zz",
+      "ntn-6205llu",
+      "ntn-6204zz",
+      "ntn-6203zz",
+      "ntn-6305zz",
+      "ntn-6306zz"
+    ],
+    "bearing": [
+      "ntn-6205zz",
+      "ntn-6205llu",
+      "ntn-6204zz",
+      "ntn-6203zz",
+      "ntn-6305zz",
+      "ntn-6306zz"
+    ],
+    "25×52×15": [
+      "ntn-6205zz",
+      "ntn-6205llu"
+    ],
+    "mm,": [
+      "ntn-6205zz",
+      "ntn-6205llu",
+      "ntn-6204zz",
+      "ntn-6203zz",
+      "ntn-6305zz",
+      "ntn-6306zz"
+    ],
+    "double": [
+      "ntn-6205zz",
+      "ntn-6204zz",
+      "ntn-6203zz",
+      "ntn-6305zz",
+      "ntn-6306zz"
+    ],
+    "shield": [
+      "ntn-6205zz",
+      "ntn-6204zz",
+      "ntn-6203zz",
+      "ntn-6305zz",
+      "ntn-6306zz"
+    ],
+    "(zz)": [
+      "ntn-6205zz",
+      "ntn-6204zz",
+      "ntn-6203zz",
+      "ntn-6305zz",
+      "ntn-6306zz"
+    ],
+    "llu": [
+      "ntn-6205llu"
+    ],
+    "contact": [
+      "ntn-6205llu"
+    ],
+    "seal": [
+      "ntn-6205llu"
+    ],
+    "(llu)": [
+      "ntn-6205llu"
+    ],
+    "20×47×14": [
+      "ntn-6204zz"
+    ],
+    "17×40×12": [
+      "ntn-6203zz"
+    ],
+    "25×62×17": [
+      "ntn-6305zz"
+    ],
+    "30×72×19": [
+      "ntn-6306zz"
+    ]
+  }
+}

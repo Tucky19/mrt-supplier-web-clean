@@ -1,0 +1,324 @@
+[
+  {
+    "id": "donaldson-p164384",
+    "partNo": "P164384",
+    "brand": "Donaldson",
+    "title": "Donaldson Hydraulic Filter P164384",
+    "category": "hydraulic_filter",
+    "filterType": "Hydraulic Spin-On Duramax",
+    "stockStatus": "in_stock",
+    "spec": "OD 97 mm | H 240 mm | Thread 1 3/8-12 UN | Gasket OD 70 mm | Gasket ID 63 mm",
+    "specs": {
+      "outer_diameter_mm": 97,
+      "height_mm": 240,
+      "thread": "1 3/8-12 UN",
+      "gasket_outer_diameter_mm": 70,
+      "gasket_inner_diameter_mm": 63
+    },
+    "applications": [
+      "CASE N9025",
+      "Caterpillar 9T5916",
+      "John Deere AH114973",
+      "John Deere RE34958"
+    ],
+    "cross_reference": [
+      { "brand": "Fleetguard", "partNo": "HF6555" },
+      { "brand": "Fleetguard", "partNo": "HF6565" },
+      { "brand": "Fleetguard", "partNo": "HF6567" },
+      { "brand": "Baldwin", "partNo": "BT744" },
+      { "brand": "Baldwin", "partNo": "BT758" },
+      { "brand": "Baldwin", "partNo": "BT8850MPG" },
+      { "brand": "Baldwin", "partNo": "BT8862" },
+      { "brand": "WIX", "partNo": "481" },
+      { "brand": "WIX", "partNo": "483" },
+      { "brand": "WIX", "partNo": "51481" },
+      { "brand": "WIX", "partNo": "51483" },
+      { "brand": "WIX", "partNo": "51495" }
+    ],
+    "verificationStatus": "verified",
+    "notes": "Hydraulic spin-on Duramax."
+  },
+  {
+    "id": "donaldson-p165876",
+    "partNo": "P165876",
+    "brand": "Donaldson",
+    "title": "Donaldson Hydraulic Filter P165876",
+    "category": "hydraulic_filter",
+    "filterType": "Hydraulic Spin-On",
+    "stockStatus": "in_stock",
+    "spec": "H 271 mm | Thread 1 1/2-16 UN | Gasket OD 128 mm | Gasket ID 120 mm",
+    "specs": {
+      "height_mm": 271,
+      "thread": "1 1/2-16 UN",
+      "gasket_outer_diameter_mm": 128,
+      "gasket_inner_diameter_mm": 120
+    },
+    "applications": [
+      "PALL HC7500SUS8H",
+      "PALL HC7500SUK8H",
+      "DCI HBK05 assembly"
+    ],
+    "cross_reference": [
+      { "brand": "Fleetguard", "partNo": "HF35439" },
+      { "brand": "Fleetguard", "partNo": "HF6701SYN" },
+      { "brand": "Fleetguard", "partNo": "HF6713" },
+      { "brand": "Fleetguard", "partNo": "HF6731" },
+      { "brand": "Fleetguard", "partNo": "HF6780" },
+      { "brand": "Baldwin", "partNo": "BT8308MPG" },
+      { "brand": "Baldwin", "partNo": "BT8471MPG" },
+      { "brand": "WIX", "partNo": "51849" },
+      { "brand": "Sure Filter", "partNo": "SFH5876" }
+    ],
+    "verificationStatus": "verified",
+    "notes": "Hydraulic spin-on. Micron data varies by source, so omitted from web display."
+  },
+  {
+    "id": "donaldson-p181059",
+    "partNo": "P181059",
+    "brand": "Donaldson",
+    "title": "Donaldson Primary Air Filter P181059",
+    "category": "air_filter",
+    "filterType": "Primary Air Filter",
+    "stockStatus": "in_stock",
+    "spec": "OD 154 mm | ID 89 mm | H 381 mm | Gasket ID 113 mm",
+    "specs": {
+      "outer_diameter_mm": 154,
+      "inner_diameter_mm": 89,
+      "height_mm": 381,
+      "gasket_inner_diameter_mm": 113
+    },
+    "applications": [
+      "Donaldson FHG08 Cyclopac A/C"
+    ],
+    "cross_reference": [
+      { "brand": "FRAM", "partNo": "AF4059K" }
+    ],
+    "verificationStatus": "partial_verified",
+    "notes": "Primary air filter. Cross references for Fleetguard/WIX/Sure not yet confirmed from reliable source."
+  },
+  {
+    "id": "donaldson-p550084",
+    "partNo": "P550084",
+    "brand": "Donaldson",
+    "title": "Donaldson Hydraulic Cartridge Filter P550084",
+    "category": "hydraulic_filter",
+    "filterType": "Hydraulic Cartridge",
+    "stockStatus": "in_stock",
+    "spec": "OD 107.2 mm | ID 45.2 mm | H 228.7 mm",
+    "specs": {
+      "outer_diameter_mm": 107.2,
+      "inner_diameter_mm": 45.2,
+      "height_mm": 228.7
+    },
+    "applications": [
+      "Komatsu 4241611140",
+      "Komatsu wheel loader hydraulic systems"
+    ],
+    "cross_reference": [
+      { "brand": "Fleetguard", "partNo": "HF35255" },
+      { "brand": "Fleetguard", "partNo": "HF6332" },
+      { "brand": "Baldwin", "partNo": "PT510" },
+      { "brand": "MANN-FILTER", "partNo": "HD1164" },
+      { "brand": "Sure Filter", "partNo": "SFH1140" },
+      { "brand": "WIX", "partNo": "51412" }
+    ],
+    "verificationStatus": "verified",
+    "notes": "Hydraulic cartridge."
+  },
+  {
+    "id": "donaldson-p550148",
+    "partNo": "P550148",
+    "brand": "Donaldson",
+    "title": "Donaldson Hydraulic Filter P550148",
+    "category": "hydraulic_filter",
+    "filterType": "Hydraulic Spin-On",
+    "stockStatus": "in_stock",
+    "spec": "OD 128.9 mm | H 178 mm | Thread 1 1/4 BSP | Gasket OD 106.8-108 mm | Gasket ID 97-99 mm",
+    "specs": {
+      "outer_diameter_mm": 128.9,
+      "height_mm": 178,
+      "thread": "1 1/4 BSP",
+      "gasket_outer_diameter_mm": 106.8,
+      "gasket_inner_diameter_mm": 97
+    },
+    "applications": [
+      "UCC MX1591-4-10",
+      "JCB hydraulic applications",
+      "New Holland hydraulic applications",
+      "Liebherr hydraulic applications",
+      "Hitachi hydraulic applications"
+    ],
+    "cross_reference": [
+      { "brand": "Fleetguard", "partNo": "HF6177" },
+      { "brand": "Baldwin", "partNo": "BT351" },
+      { "brand": "Baldwin", "partNo": "BT8476" },
+      { "brand": "WIX", "partNo": "57476" },
+      { "brand": "Sure Filter", "partNo": "SFH1591" }
+    ],
+    "verificationStatus": "verified",
+    "notes": "Hydraulic spin-on. OEM/application should be confirmed by original machine number before ordering."
+  },
+  {
+    "id": "donaldson-p554004",
+    "partNo": "P554004",
+    "brand": "Donaldson",
+    "title": "Donaldson Lube Filter P554004",
+    "category": "lube_filter",
+    "filterType": "Lube Spin-On Full Flow",
+    "stockStatus": "in_stock",
+    "spec": "OD 108 mm | H 262 mm | Thread 1 1/8-16 UN",
+    "specs": {
+      "outer_diameter_mm": 108,
+      "height_mm": 262,
+      "thread": "1 1/8-16 UN"
+    },
+    "applications": [
+      "Caterpillar 1R0658",
+      "Caterpillar 2P4004",
+      "Heavy-duty diesel engines",
+      "Construction equipment"
+    ],
+    "cross_reference": [
+      { "brand": "Fleetguard", "partNo": "LF667" },
+      { "brand": "Baldwin", "partNo": "BT340" },
+      { "brand": "Baldwin", "partNo": "B7600" },
+      { "brand": "Baldwin", "partNo": "B76HPG" },
+      { "brand": "WIX", "partNo": "51788" },
+      { "brand": "WIX", "partNo": "51791" },
+      { "brand": "Sure Filter", "partNo": "SFO4004" }
+    ],
+    "verificationStatus": "verified",
+    "notes": "Lube spin-on full flow."
+  },
+  {
+    "id": "donaldson-p559000",
+    "partNo": "P559000",
+    "brand": "Donaldson",
+    "title": "Donaldson Lube Filter P559000",
+    "category": "lube_filter",
+    "filterType": "Lube Spin-On Combination",
+    "stockStatus": "in_stock",
+    "spec": "H 297 mm | Thread M95 x 2.5 | Gasket OD 119 mm | Gasket ID 102 mm",
+    "specs": {
+      "height_mm": 297,
+      "thread": "M95 x 2.5",
+      "gasket_outer_diameter_mm": 119,
+      "gasket_inner_diameter_mm": 102
+    },
+    "applications": [
+      "Fleetguard LF9000 / LF9001 equivalent applications",
+      "Cummins Signature 600"
+    ],
+    "cross_reference": [
+      { "brand": "WIX", "partNo": "57746XD" }
+    ],
+    "verificationStatus": "partial_verified",
+    "notes": "Lube spin-on combination. Additional Baldwin/Sure references need secondary verification before public display."
+  },
+  {
+    "id": "donaldson-p558615",
+    "partNo": "P558615",
+    "brand": "Donaldson",
+    "title": "Donaldson Lube Filter P558615",
+    "category": "lube_filter",
+    "filterType": "Lube Spin-On Full Flow",
+    "stockStatus": "in_stock",
+    "spec": "OD 93 mm | H 174 mm | Thread 1-16 UN | Gasket OD 71-72 mm | Gasket ID 61-62 mm",
+    "specs": {
+      "outer_diameter_mm": 93,
+      "height_mm": 174,
+      "thread": "1-16 UN",
+      "gasket_outer_diameter_mm": 71,
+      "gasket_inner_diameter_mm": 61
+    },
+    "applications": [
+      "Cummins 3932217",
+      "Cummins 3908615"
+    ],
+    "cross_reference": [
+      { "brand": "AC Delco", "partNo": "PF1070" },
+      { "brand": "AC Delco", "partNo": "PF1070F" },
+      { "brand": "AC Delco", "partNo": "X128" }
+    ],
+    "verificationStatus": "partial_verified",
+    "notes": "Lube spin-on full flow. Fleetguard/WIX/Sure cross references should be verified again before public display."
+  },
+  {
+    "id": "donaldson-p550881",
+    "partNo": "P550881",
+    "brand": "Donaldson",
+    "title": "Donaldson Fuel Filter P550881",
+    "category": "fuel_filter",
+    "filterType": "Fuel Spin-On",
+    "stockStatus": "in_stock",
+    "spec": "OD 93 mm | H 174 mm | Thread M20 x 1.5 | Gasket OD 72 mm | Gasket ID 62 mm",
+    "specs": {
+      "outer_diameter_mm": 93,
+      "height_mm": 174,
+      "thread": "M20 x 1.5",
+      "gasket_outer_diameter_mm": 72,
+      "gasket_inner_diameter_mm": 62
+    },
+    "applications": [
+      "Cummins 4897833",
+      "Iveco 2992241",
+      "DAF 1399760"
+    ],
+    "cross_reference": [
+      { "brand": "Fleetguard", "partNo": "FF165" },
+      { "brand": "Fleetguard", "partNo": "FF5420" },
+      { "brand": "Fleetguard", "partNo": "FF5421" },
+      { "brand": "Fleetguard", "partNo": "FF5485" },
+      { "brand": "Baldwin", "partNo": "BF7813" },
+      { "brand": "Baldwin", "partNo": "BF7957" },
+      { "brand": "Baldwin", "partNo": "BF7966" },
+      { "brand": "WIX", "partNo": "33654" },
+      { "brand": "WIX", "partNo": "33956" },
+      { "brand": "WIX", "partNo": "533654" }
+    ],
+    "verificationStatus": "verified",
+    "notes": "Fuel spin-on. Micron rating omitted because sources vary."
+  },
+  {
+    "id": "donaldson-p554685",
+    "partNo": "P554685",
+    "brand": "Donaldson",
+    "title": "Donaldson Coolant Filter P554685",
+    "category": "coolant_filter",
+    "filterType": "Coolant Spin-On Non-Chemical",
+    "stockStatus": "in_stock",
+    "spec": "OD 93 mm | H 136 mm | Thread 11/16-16 UN",
+    "specs": {
+      "outer_diameter_mm": 93,
+      "height_mm": 136,
+      "thread": "11/16-16 UN"
+    },
+    "applications": [
+      "Cummins 3300721",
+      "Cummins 3827423",
+      "Caterpillar 3I1300",
+      "Caterpillar 9Y4528",
+      "John Deere RE11992",
+      "Detroit Diesel 23524403"
+    ],
+    "cross_reference": [
+      { "brand": "Fleetguard", "partNo": "WF2061" },
+      { "brand": "Fleetguard", "partNo": "WF2064" },
+      { "brand": "Fleetguard", "partNo": "WF2077" },
+      { "brand": "Fleetguard", "partNo": "WF2101" },
+      { "brand": "Fleetguard", "partNo": "WF2107" },
+      { "brand": "Baldwin", "partNo": "B5089" },
+      { "brand": "Baldwin", "partNo": "B5134" },
+      { "brand": "Baldwin", "partNo": "BW5134" },
+      { "brand": "Sure Filter", "partNo": "SFC4685" },
+      { "brand": "WIX", "partNo": "24045" },
+      { "brand": "WIX", "partNo": "24069" },
+      { "brand": "WIX", "partNo": "24070" },
+      { "brand": "WIX", "partNo": "24087" },
+      { "brand": "WIX", "partNo": "524069" },
+      { "brand": "WIX", "partNo": "524087" }
+    ],
+    "verificationStatus": "verified",
+    "notes": "Coolant filter, spin-on non-chemical."
+  }
+]

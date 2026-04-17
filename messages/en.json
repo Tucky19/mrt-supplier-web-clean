@@ -1,0 +1,188 @@
+{
+  "nav": {
+    "home": "Home",
+    "brands": "Brands",
+    "products": "Products",
+    "applications": "Applications",
+    "about": "About Us",
+    "contact": "Contact",
+    "quote": "Request Quote",
+    "search": "Search"
+  },
+    "searchHero": {
+  "label": "Search Products",
+  "placeholder": "Search by part number, brand, or product keyword",
+  "button": "Search",
+  "hint": "Supports part number lookup, product type search, and brand-based sourcing"
+},
+   "hero": {
+    "badge": "Industrial Spare Parts • Bearings • Filtration",
+    "title": "Trusted industrial spare parts supplier for factories and maintenance operations",
+    "description": "We supply bearings, filtration products, and industrial spare parts from trusted brands, with responsive quotation support and sourcing assistance for procurement and maintenance teams.",
+    "primaryCta": "Request Quote",
+    "secondaryCta": "View Products",
+    "secondaryNote": "Support for part number search, brand reference, and industrial sourcing requirements",
+    "trust": {
+      "1": {
+        "label": "Core Brands",
+        "value": "NTN, Donaldson, MANN-FILTER"
+      },
+      "2": {
+        "label": "Response",
+        "value": "Fast quotation support"
+      },
+      "3": {
+        "label": "Built For",
+        "value": "Procurement and maintenance teams"
+      }
+    }
+
+  },
+ "brands": {
+  "title": "Trusted Brands",
+  "description": "We work with recognized industrial brands and present them in a clean, professional layout that is easy to scan and trust.",
+  "items": {
+    "donaldson": "Filtration solutions for engines, industrial systems, and heavy-duty equipment.",
+    "mann": "High-quality filters for automotive, industrial, and maintenance applications.",
+    "ntn": "Precision bearings for industrial and rotating equipment applications."
+  }
+
+  },
+  "products": {
+    "title": "Featured Products",
+    "description": "A clean product grid designed to help buyers quickly review brand, product type, and key specifications.",
+    "specLabel": "Key Specification",
+    "button": "View Details",
+    "empty": "No featured products available at the moment."
+  },
+  "applications": {
+    "title": "Industry Applications",
+    "description": "We support sourcing requirements for maintenance teams, factories, machinery service, and heavy equipment operations.",
+    "items": {
+      "factory": {
+        "title": "Factory Maintenance",
+        "description": "Support for routine replacement parts and preventive maintenance requirements."
+      },
+      "machinery": {
+        "title": "Industrial Machinery",
+        "description": "Suitable for rotating equipment, filtration systems, and machine service workflows."
+      },
+      "heavyDuty": {
+        "title": "Heavy-Duty Equipment",
+        "description": "Parts support for demanding environments and industrial field operations."
+      },
+      "procurement": {
+        "title": "Procurement Support",
+        "description": "Fast quotation workflow for purchasing and sourcing teams."
+      }
+    }
+  },
+  "whyUs": {
+    "title": "Why Choose MRT Supplier",
+    "description": "We focus on clear communication, trusted products, and responsive service for industrial customers.",
+    "items": {
+      "trusted": {
+        "title": "Trusted Industrial Brands",
+        "description": "We prioritize recognized brands that are widely used in industrial environments."
+      },
+      "response": {
+        "title": "Responsive Quotation Support",
+        "description": "We help customers move faster with clear RFQ handling and follow-up."
+      },
+      "clean": {
+        "title": "Clear Product Presentation",
+        "description": "Products are presented in a clean format so buyers can scan information quickly."
+      },
+      "b2b": {
+        "title": "Built for B2B Workflows",
+        "description": "Suitable for factory buyers, maintenance teams, and procurement departments."
+      }
+    }
+  },
+  "stats": {
+    "title": "Built for Industrial Sourcing",
+    "items": {
+      "brands": {
+        "label": "Trusted Brands",
+        "value": "Leading industrial brands"
+      },
+      "support": {
+        "label": "Quotation Support",
+        "value": "Fast and professional response"
+      },
+      "workflow": {
+        "label": "B2B Workflow",
+        "value": "Designed for procurement teams"
+      }
+    }
+  },
+ "quoteSection": {
+    "title": "Ready to support your industrial sourcing needs",
+    "description": "Send us your part number, current brand, machine model, or product requirement. Our team will review the details and respond with suitable options.",
+    "primaryCta": "Go to Quote Page",
+    "secondaryCta": "Contact Our Team",
+    "lineCta": "Add LINE"
+  },
+  "contact": {
+    "title": "Contact Us",
+    "description": "For quotation requests, sourcing support, or product inquiries, please contact our team.",
+    "phoneLabel": "Phone",
+    "emailLabel": "Email",
+    "lineLabel": "LINE",
+    "websiteLabel": "Website",
+    "addressLabel": "Address"
+  },
+  "searchSection": {
+    "title": "Search by part number or product type",
+    "description": "Use part number, brand, or product keywords to quickly find relevant industrial spare parts.",
+    "placeholder": "Enter part number, brand, or product keyword",
+    "button": "Search"
+  },
+  "productCard": {
+    "brandLabel": "Brand",
+    "partNoLabel": "Part Number",
+    "categoryLabel": "Category"
+  },
+  "rfq": {
+    "title": "Request for Quote",
+    "description": "Submit your requirement and our team will contact you as soon as possible.",
+    "company": "Company",
+    "name": "Contact Name",
+    "phone": "Phone Number",
+    "email": "Email",
+    "lineId": "LINE ID",
+    "note": "Additional Details",
+    "submit": "Submit Request",
+    "success": "Your request has been submitted successfully.",
+    "contactHint": "Please provide at least one contact method: phone, email, or LINE ID."
+  },
+  "footer": {
+    "company": "MRT Supplier",
+    "description": "Industrial spare parts sourcing for factories, maintenance teams, and procurement departments.",
+    "quickLinks": "Quick Links",
+    "contactTitle": "Contact Information",
+    "copyright": "© 2026 MRT Supplier. All rights reserved."
+  },
+  "common": {
+    "learnMore": "Learn More",
+    "viewAll": "View All",
+    "readMore": "Read More",
+    "backToHome": "Back to Home",
+    "language": "Language"
+  },
+  "productsPage": {
+  "title": "Our Products",
+  "description": "Browse industrial spare parts from trusted brands with essential information to help you search and request quotations more efficiently.",
+  "searchLabel": "Search Products",
+  "searchPlaceholder": "Enter part number, brand, category, or keyword",
+  "brandLabel": "Select Brand",
+  "allBrands": "All Brands",
+  "results": "Results",
+  "emptyTitle": "No matching products found",
+  "emptyDescription": "Try a different keyword or select another brand.",
+  "partNoLabel": "Part No",
+  "noSpec": "Please contact our team for more product details.",
+  "viewDetail": "View Details",
+  "requestQuote": "Request Quote"
+}
+}

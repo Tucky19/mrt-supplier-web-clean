@@ -1,0 +1,1545 @@
+[
+  {
+    "id": "donaldson-p550388",
+    "partNo": "P550388",
+    "brand": "Donaldson",
+    "title": "Spin-On Lube Filter",
+    "nameTh": "กรองน้ำมันเครื่อง Donaldson P550388",
+    "category": "filter",
+    "filterCategoryKey": "engine_oil",
+    "stockStatus": "request",
+    "spec": "OD 93mm × L 173mm × 1-12 UN",
+    "dimensions": {
+      "od_mm": 93,
+      "height_mm": 173
+    },
+    "thread": {
+      "raw": "1-12 UN",
+      "standard": "unf"
+    },
+    "specifications": [
+      {
+        "label": "Outer Diameter",
+        "value": 93,
+        "unit": "mm"
+      },
+      {
+        "label": "Length",
+        "value": 173,
+        "unit": "mm"
+      },
+      {
+        "label": "Thread Size",
+        "value": "1-12 UN"
+      },
+      {
+        "label": "Gasket OD",
+        "value": 71,
+        "unit": "mm"
+      },
+      {
+        "label": "Gasket ID",
+        "value": 62,
+        "unit": "mm"
+      }
+    ],
+    "cross_reference": [],
+    "applications": [],
+    "seo": {
+      "description_th": "กรอง Donaldson P550388 สำหรับงานอุตสาหกรรมและเครื่องจักร ช่วยลดสิ่งปนเปื้อนในระบบและเพิ่มความมั่นใจในการใช้งาน (โปรดตรวจสอบสเปกก่อนสั่งซื้อ)",
+      "keywords": [
+        "donaldson",
+        "p550388",
+        "กรองเครื่อง",
+        "oil filter",
+        "spin-on"
+      ]
+    },
+    "searchTokens": [
+      "p550388",
+      "550388",
+      "donaldson",
+      "lube filter",
+      "oil filter"
+    ],
+    "search_tokens": [
+      "p550388",
+      "550388",
+      "donaldson",
+      "lube",
+      "oil",
+      "filter",
+      "spinon"
+    ],
+    "notes": [
+      "TODO: verify cross references & applications"
+    ]
+  },
+  {
+    "id": "donaldson-p551381",
+    "partNo": "P551381",
+    "brand": "Donaldson",
+    "title": "Spin-On Fuel Filter",
+    "nameTh": "กรองเชื้อเพลิง Donaldson P551381",
+    "category": "filter",
+    "filterCategoryKey": "fuel",
+    "stockStatus": "request",
+    "spec": "OD 93mm × L 174mm × 1-14 UNS",
+    "dimensions": {
+      "od_mm": 93,
+      "height_mm": 174
+    },
+    "thread": {
+      "raw": "1-14 UNS",
+      "standard": "unf"
+    },
+    "specifications": [
+      {
+        "label": "Outer Diameter",
+        "value": 93,
+        "unit": "mm"
+      },
+      {
+        "label": "Length",
+        "value": 174,
+        "unit": "mm"
+      },
+      {
+        "label": "Thread Size",
+        "value": "1-14 UNS"
+      },
+      {
+        "label": "Efficiency",
+        "value": "Primary"
+      }
+    ],
+    "cross_reference": [],
+    "applications": [],
+    "seo": {
+      "description_th": "กรองเชื้อเพลิง Donaldson P551381 สำหรับระบบดีเซลและงานอุตสาหกรรม ช่วยดักจับสิ่งปนเปื้อนเพื่อลดความเสี่ยงการอุดตัน (โปรดตรวจสอบสเปกก่อนสั่งซื้อ)",
+      "keywords": [
+        "donaldson",
+        "p551381",
+        "กรองเชื้อเพลิง",
+        "fuel filter",
+        "spin-on"
+      ]
+    },
+    "searchTokens": [
+      "p551381",
+      "551381",
+      "donaldson",
+      "fuel filter"
+    ],
+    "search_tokens": [
+      "p551381",
+      "551381",
+      "donaldson",
+      "fuel",
+      "filter",
+      "spinon"
+    ],
+    "notes": [
+      "TODO: verify micron rating / cross references & applications"
+    ]
+  },
+  {
+    "id": "donaldson-p553000",
+    "partNo": "P553000",
+    "brand": "Donaldson",
+    "title": "Fuel Filter / Water Separator",
+    "nameTh": "กรองเชื้อเพลิง Donaldson P553000",
+    "category": "filter",
+    "filterCategoryKey": "fuel",
+    "stockStatus": "request",
+    "spec": "OD 108mm × L 260mm × 10µ",
+    "dimensions": {
+      "od_mm": 108,
+      "height_mm": 260
+    },
+    "thread": {
+      "raw": "1-14 UNS",
+      "standard": "unf"
+    },
+    "specifications": [
+      {
+        "label": "Outer Diameter",
+        "value": 108,
+        "unit": "mm"
+      },
+      {
+        "label": "Length",
+        "value": 260,
+        "unit": "mm"
+      },
+      {
+        "label": "Thread Size",
+        "value": "1-14 UNS"
+      },
+      {
+        "label": "Micron Rating",
+        "value": 10,
+        "unit": "µm"
+      }
+    ],
+    "cross_reference": [],
+    "applications": [],
+    "seo": {
+      "description_th": "กรองเชื้อเพลิง Donaldson P553000 สำหรับงานอุตสาหกรรม ช่วยจัดการสิ่งปนเปื้อนในระบบเชื้อเพลิงและเพิ่มความเสถียรในการใช้งาน (โปรดตรวจสอบสเปกก่อนสั่งซื้อ)",
+      "keywords": [
+        "donaldson",
+        "p553000",
+        "กรองเชื้อเพลิง",
+        "water separator",
+        "fuel filter"
+      ]
+    },
+    "searchTokens": [
+      "p553000",
+      "553000",
+      "donaldson",
+      "fuel filter",
+      "water separator"
+    ],
+    "search_tokens": [
+      "p553000",
+      "553000",
+      "donaldson",
+      "fuel",
+      "filter",
+      "waterseparator",
+      "10um"
+    ],
+    "notes": [
+      "TODO: verify cross references & applications"
+    ]
+  },
+  {
+    "id": "donaldson-p164384",
+    "partNo": "P164384",
+    "brand": "Donaldson",
+    "title": "Hydraulic Filter",
+    "nameTh": "กรองไฮดรอลิก Donaldson P164384",
+    "category": "filter",
+    "filterCategoryKey": "hydraulic",
+    "stockStatus": "request",
+    "spec": "OD 128mm × L 303mm",
+    "dimensions": {
+      "od_mm": 128,
+      "height_mm": 303
+    },
+    "specifications": [
+      {
+        "label": "Outer Diameter",
+        "value": 128,
+        "unit": "mm"
+      },
+      {
+        "label": "Length",
+        "value": 303,
+        "unit": "mm"
+      },
+      {
+        "label": "Media Type",
+        "value": "Cellulose"
+      }
+    ],
+    "cross_reference": [],
+    "applications": [],
+    "seo": {
+      "description_th": "กรองไฮดรอลิก Donaldson P164384 สำหรับระบบไฮดรอลิกงานอุตสาหกรรม ช่วยลดสิ่งปนเปื้อนและยืดอายุอุปกรณ์ (โปรดตรวจสอบสเปกก่อนสั่งซื้อ)",
+      "keywords": [
+        "donaldson",
+        "p164384",
+        "กรองไฮดรอลิก",
+        "hydraulic filter"
+      ]
+    },
+    "searchTokens": [
+      "p164384",
+      "164384",
+      "donaldson",
+      "hydraulic filter"
+    ],
+    "search_tokens": [
+      "p164384",
+      "164384",
+      "donaldson",
+      "hydraulic",
+      "filter"
+    ],
+    "notes": [
+      "TODO: verify thread/cross refs/applications"
+    ]
+  },
+  {
+    "id": "donaldson-p164378",
+    "partNo": "P164378",
+    "brand": "Donaldson",
+    "title": "Hydraulic Filter",
+    "nameTh": "กรองไฮดรอลิก Donaldson P164378",
+    "category": "filter",
+    "filterCategoryKey": "hydraulic",
+    "stockStatus": "request",
+    "spec": "OD 128mm × L 260mm",
+    "dimensions": {
+      "od_mm": 128,
+      "height_mm": 260
+    },
+    "specifications": [
+      {
+        "label": "Outer Diameter",
+        "value": 128,
+        "unit": "mm"
+      },
+      {
+        "label": "Length",
+        "value": 260,
+        "unit": "mm"
+      },
+      {
+        "label": "Media Type",
+        "value": "Cellulose"
+      }
+    ],
+    "cross_reference": [],
+    "applications": [],
+    "seo": {
+      "description_th": "กรองไฮดรอลิก Donaldson P164378 สำหรับงานอุตสาหกรรม ช่วยรักษาความสะอาดของน้ำมันไฮดรอลิกและลดการสึกหรอ (โปรดตรวจสอบสเปกก่อนสั่งซื้อ)",
+      "keywords": [
+        "donaldson",
+        "p164378",
+        "กรองไฮดรอลิก",
+        "hydraulic filter"
+      ]
+    },
+    "searchTokens": [
+      "p164378",
+      "164378",
+      "donaldson",
+      "hydraulic filter"
+    ],
+    "search_tokens": [
+      "p164378",
+      "164378",
+      "donaldson",
+      "hydraulic",
+      "filter"
+    ],
+    "notes": [
+      "TODO: verify thread/cross refs/applications"
+    ]
+  },
+  {
+    "id": "donaldson-p181104",
+    "partNo": "P181104",
+    "brand": "Donaldson",
+    "title": "RadialSeal Air Filter",
+    "nameTh": "กรองอากาศ Donaldson P181104",
+    "category": "filter",
+    "filterCategoryKey": "air",
+    "stockStatus": "request",
+    "spec": "OD 196mm × ID 104mm × L 406mm",
+    "dimensions": {
+      "od_mm": 196,
+      "id_mm": 104,
+      "height_mm": 406
+    },
+    "specifications": [
+      {
+        "label": "Outer Diameter",
+        "value": 196,
+        "unit": "mm"
+      },
+      {
+        "label": "Inner Diameter",
+        "value": 104,
+        "unit": "mm"
+      },
+      {
+        "label": "Length",
+        "value": 406,
+        "unit": "mm"
+      },
+      {
+        "label": "Seal Type",
+        "value": "RadialSeal"
+      }
+    ],
+    "cross_reference": [],
+    "applications": [],
+    "seo": {
+      "description_th": "กรองอากาศ Donaldson P181104 สำหรับงานอุตสาหกรรมและเครื่องจักร ช่วยลดฝุ่นและสิ่งปนเปื้อนเพื่อปกป้องเครื่องยนต์ (โปรดตรวจสอบสเปกก่อนสั่งซื้อ)",
+      "keywords": [
+        "donaldson",
+        "p181104",
+        "กรองอากาศ",
+        "air filter",
+        "radialseal"
+      ]
+    },
+    "searchTokens": [
+      "p181104",
+      "181104",
+      "donaldson",
+      "air filter"
+    ],
+    "search_tokens": [
+      "p181104",
+      "181104",
+      "donaldson",
+      "air",
+      "filter",
+      "radialseal"
+    ],
+    "notes": [
+      "TODO: verify cross refs/applications"
+    ]
+  },
+  {
+    "id": "donaldson-p537876",
+    "partNo": "P537876",
+    "brand": "Donaldson",
+    "title": "Cabin Air Filter",
+    "nameTh": "กรองอากาศ Donaldson P537876",
+    "category": "filter",
+    "filterCategoryKey": "air",
+    "stockStatus": "request",
+    "spec": "230 × 210 × 30 mm",
+    "dimensions": {
+      "length_mm": 230,
+      "width_mm": 210,
+      "height_mm": 30
+    },
+    "specifications": [
+      {
+        "label": "Length",
+        "value": 230,
+        "unit": "mm"
+      },
+      {
+        "label": "Width",
+        "value": 210,
+        "unit": "mm"
+      },
+      {
+        "label": "Height",
+        "value": 30,
+        "unit": "mm"
+      },
+      {
+        "label": "Media Type",
+        "value": "Synthetic"
+      }
+    ],
+    "cross_reference": [],
+    "applications": [],
+    "seo": {
+      "description_th": "กรองอากาศ Donaldson P537876 สำหรับงานอุตสาหกรรมและเครื่องจักร ช่วยรักษาคุณภาพอากาศและลดสิ่งปนเปื้อน (โปรดตรวจสอบสเปกก่อนสั่งซื้อ)",
+      "keywords": [
+        "donaldson",
+        "p537876",
+        "กรองอากาศ",
+        "cabin filter",
+        "air filter"
+      ]
+    },
+    "searchTokens": [
+      "p537876",
+      "537876",
+      "donaldson",
+      "cabin filter"
+    ],
+    "search_tokens": [
+      "p537876",
+      "537876",
+      "donaldson",
+      "air",
+      "filter",
+      "cabin"
+    ],
+    "notes": [
+      "TODO: confirm exact application/cross refs"
+    ]
+  },
+  {
+    "id": "donaldson-p537877",
+    "partNo": "P537877",
+    "brand": "Donaldson",
+    "title": "Cabin Air Filter (Carbon)",
+    "nameTh": "กรองอากาศ Donaldson P537877",
+    "category": "filter",
+    "filterCategoryKey": "air",
+    "stockStatus": "request",
+    "spec": "230 × 210 × 30 mm",
+    "dimensions": {
+      "length_mm": 230,
+      "width_mm": 210,
+      "height_mm": 30
+    },
+    "specifications": [
+      {
+        "label": "Length",
+        "value": 230,
+        "unit": "mm"
+      },
+      {
+        "label": "Width",
+        "value": 210,
+        "unit": "mm"
+      },
+      {
+        "label": "Height",
+        "value": 30,
+        "unit": "mm"
+      },
+      {
+        "label": "Media Type",
+        "value": "Activated Carbon"
+      }
+    ],
+    "cross_reference": [],
+    "applications": [],
+    "seo": {
+      "description_th": "กรองอากาศ Donaldson P537877 สำหรับงานอุตสาหกรรม ช่วยลดสิ่งปนเปื้อนและเพิ่มความสบายในการใช้งาน (โปรดตรวจสอบสเปกก่อนสั่งซื้อ)",
+      "keywords": [
+        "donaldson",
+        "p537877",
+        "กรองอากาศ",
+        "cabin filter",
+        "carbon"
+      ]
+    },
+    "searchTokens": [
+      "p537877",
+      "537877",
+      "donaldson",
+      "cabin filter",
+      "carbon"
+    ],
+    "search_tokens": [
+      "p537877",
+      "537877",
+      "donaldson",
+      "air",
+      "filter",
+      "cabin",
+      "carbon"
+    ],
+    "notes": [
+      "TODO: confirm exact application/cross refs"
+    ]
+  },
+  {
+    "id": "donaldson-p554004",
+    "partNo": "P554004",
+    "brand": "Donaldson",
+    "title": "Lube Filter",
+    "nameTh": "กรองน้ำมันเครื่อง Donaldson P554004",
+    "category": "filter",
+    "filterCategoryKey": "engine_oil",
+    "stockStatus": "request",
+    "spec": "OD 108mm × L 262mm × 1 1/8-16 UN",
+    "dimensions": {
+      "od_mm": 108,
+      "height_mm": 262
+    },
+    "thread": {
+      "raw": "1 1/8-16 UN",
+      "standard": "unf"
+    },
+    "specifications": [
+      {
+        "label": "Type",
+        "value": "Spin-On Full Flow"
+      },
+      {
+        "label": "Outer Diameter",
+        "value": 108,
+        "unit": "mm"
+      },
+      {
+        "label": "Length",
+        "value": 262,
+        "unit": "mm"
+      },
+      {
+        "label": "Thread Size",
+        "value": "1 1/8-16 UN"
+      },
+      {
+        "label": "Gasket OD",
+        "value": 99,
+        "unit": "mm"
+      },
+      {
+        "label": "Gasket ID",
+        "value": 90,
+        "unit": "mm"
+      },
+      {
+        "label": "Efficiency (99%)",
+        "value": 40,
+        "unit": "micron"
+      },
+      {
+        "label": "Efficiency Test Standard",
+        "value": "SAE J1858"
+      },
+      {
+        "label": "Collapse/Burst",
+        "value": "10.3 bar (149 psi)"
+      },
+      {
+        "label": "Style",
+        "value": "Spin-On"
+      },
+      {
+        "label": "Media Type",
+        "value": "Cellulose"
+      }
+    ],
+    "cross_reference": [
+      {
+        "brand": "Caterpillar",
+        "partNo": "2P4004"
+      },
+      {
+        "brand": "Fleetguard",
+        "partNo": "LF667"
+      }
+    ],
+    "applications": [
+      {
+        "make": "Caterpillar",
+        "model": "2P4004"
+      }
+    ],
+    "seo": {
+      "description_th": "กรองน้ำมันเครื่อง Donaldson P554004 แบบ Spin-On Full Flow ประสิทธิภาพ 99% ที่ 40 ไมครอน (SAE J1858) เหมาะสำหรับงานเครื่องจักรและอุตสาหกรรม รวมถึงใช้งานแทนเบอร์ CAT 2P4004",
+      "keywords": [
+        "donaldson",
+        "p554004",
+        "กรองเครื่อง",
+        "lube filter",
+        "spin-on",
+        "2p4004"
+      ]
+    },
+    "searchTokens": [
+      "p554004",
+      "554004",
+      "donaldson",
+      "lube filter",
+      "oil filter",
+      "spin-on",
+      "2p4004"
+    ],
+    "search_tokens": [
+      "p554004",
+      "554004",
+      "donaldson",
+      "lube",
+      "oil",
+      "filter",
+      "spinon",
+      "2p4004"
+    ]
+  },
+  {
+    "id": "donaldson-p557440",
+    "partNo": "P557440",
+    "brand": "Donaldson",
+    "title": "Spin-On Fuel Filter",
+    "nameTh": "กรองเชื้อเพลิง Donaldson P557440",
+    "category": "filter",
+    "filterCategoryKey": "fuel",
+    "stockStatus": "request",
+    "spec": "OD 93mm × L 174mm × 1-14 UN × 9µ",
+    "dimensions": {
+      "od_mm": 93,
+      "height_mm": 174
+    },
+    "thread": {
+      "raw": "1-14 UN",
+      "standard": "unf"
+    },
+    "specifications": [
+      {
+        "label": "Style",
+        "value": "Spin-On"
+      },
+      {
+        "label": "Outer Diameter",
+        "value": 93,
+        "unit": "mm"
+      },
+      {
+        "label": "Length",
+        "value": 174,
+        "unit": "mm"
+      },
+      {
+        "label": "Thread Size",
+        "value": "1-14 UN"
+      },
+      {
+        "label": "Gasket OD",
+        "value": 72,
+        "unit": "mm"
+      },
+      {
+        "label": "Gasket ID",
+        "value": 62,
+        "unit": "mm"
+      },
+      {
+        "label": "Efficiency (99%)",
+        "value": 9,
+        "unit": "micron"
+      },
+      {
+        "label": "Efficiency Test Standard",
+        "value": "SAE J1985"
+      },
+      {
+        "label": "Collapse/Burst",
+        "value": "6.9 bar (100 psi)"
+      },
+      {
+        "label": "Media Type",
+        "value": "Cellulose"
+      }
+    ],
+    "cross_reference": [
+      {
+        "brand": "Komatsu",
+        "partNo": "6003118290"
+      }
+    ],
+    "applications": [
+      {
+        "make": "Komatsu",
+        "model": "6003118290"
+      }
+    ],
+    "seo": {
+      "description_th": "กรองเชื้อเพลิง Donaldson P557440 แบบ Spin-On ประสิทธิภาพ 99% ที่ 9 ไมครอน ตามมาตรฐาน SAE J1985 เหมาะสำหรับเครื่องจักร Komatsu และงานอุตสาหกรรม",
+      "keywords": [
+        "donaldson",
+        "p557440",
+        "กรองเชื้อเพลิง",
+        "fuel filter",
+        "komatsu",
+        "6003118290"
+      ]
+    },
+    "searchTokens": [
+      "p557440",
+      "557440",
+      "donaldson",
+      "fuel filter",
+      "spin-on",
+      "komatsu",
+      "6003118290"
+    ],
+    "search_tokens": [
+      "p557440",
+      "557440",
+      "donaldson",
+      "fuel",
+      "filter",
+      "spinon",
+      "komatsu",
+      "6003118290",
+      "9micron"
+    ],
+    "notes": []
+  },
+  {
+    "id": "donaldson-p777868",
+    "partNo": "P777868",
+    "brand": "Donaldson",
+    "title": "Industrial Filter",
+    "nameTh": "ไส้กรอง Donaldson P777868",
+    "category": "filter",
+    "stockStatus": "request",
+    "spec": "",
+    "specifications": [],
+    "cross_reference": [],
+    "applications": [],
+    "seo": {
+      "description_th": "ไส้กรอง Donaldson P777868 สำหรับงานอุตสาหกรรมและเครื่องจักร รองรับการขอราคาและตรวจสอบสเปกก่อนสั่งซื้อ",
+      "keywords": [
+        "donaldson",
+        "p777868",
+        "filter"
+      ]
+    },
+    "searchTokens": [
+      "p777868",
+      "777868",
+      "donaldson",
+      "filter"
+    ],
+    "search_tokens": [
+      "p777868",
+      "777868",
+      "donaldson",
+      "filter"
+    ],
+    "notes": [
+      "TODO: add categoryKey/specs/thread/cross refs/applications"
+    ]
+  },
+  {
+    "id": "donaldson-p777869",
+    "partNo": "P777869",
+    "brand": "Donaldson",
+    "title": "Industrial Filter",
+    "nameTh": "ไส้กรอง Donaldson P777869",
+    "category": "filter",
+    "stockStatus": "request",
+    "spec": "",
+    "specifications": [],
+    "cross_reference": [],
+    "applications": [],
+    "seo": {
+      "description_th": "ไส้กรอง Donaldson P777869 สำหรับงานอุตสาหกรรมและเครื่องจักร รองรับการขอราคาและตรวจสอบสเปกก่อนสั่งซื้อ",
+      "keywords": [
+        "donaldson",
+        "p777869",
+        "filter"
+      ]
+    },
+    "searchTokens": [
+      "p777869",
+      "777869",
+      "donaldson",
+      "filter"
+    ],
+    "search_tokens": [
+      "p777869",
+      "777869",
+      "donaldson",
+      "filter"
+    ],
+    "notes": [
+      "TODO: add categoryKey/specs/thread/cross refs/applications"
+    ]
+  },
+  {
+    "id": "donaldson-p181035",
+    "partNo": "P181035",
+    "brand": "Donaldson",
+    "title": "Industrial Filter",
+    "nameTh": "ไส้กรอง Donaldson P181035",
+    "category": "filter",
+    "stockStatus": "request",
+    "spec": "",
+    "specifications": [],
+    "cross_reference": [],
+    "applications": [],
+    "seo": {
+      "description_th": "ไส้กรอง Donaldson P181035 สำหรับงานอุตสาหกรรมและเครื่องจักร รองรับการขอราคาและตรวจสอบสเปกก่อนสั่งซื้อ",
+      "keywords": [
+        "donaldson",
+        "p181035",
+        "filter"
+      ]
+    },
+    "searchTokens": [
+      "p181035",
+      "181035",
+      "donaldson",
+      "filter"
+    ],
+    "search_tokens": [
+      "p181035",
+      "181035",
+      "donaldson",
+      "filter"
+    ],
+    "notes": [
+      "TODO: add categoryKey/specs/thread/cross refs/applications"
+    ]
+  },
+  {
+    "id": "donaldson-p181046",
+    "partNo": "P181046",
+    "brand": "Donaldson",
+    "title": "Industrial Filter",
+    "nameTh": "ไส้กรอง Donaldson P181046",
+    "category": "filter",
+    "stockStatus": "request",
+    "spec": "",
+    "specifications": [],
+    "cross_reference": [],
+    "applications": [],
+    "seo": {
+      "description_th": "ไส้กรอง Donaldson P181046 สำหรับงานอุตสาหกรรมและเครื่องจักร รองรับการขอราคาและตรวจสอบสเปกก่อนสั่งซื้อ",
+      "keywords": [
+        "donaldson",
+        "p181046",
+        "filter"
+      ]
+    },
+    "searchTokens": [
+      "p181046",
+      "181046",
+      "donaldson",
+      "filter"
+    ],
+    "search_tokens": [
+      "p181046",
+      "181046",
+      "donaldson",
+      "filter"
+    ],
+    "notes": [
+      "TODO: add categoryKey/specs/thread/cross refs/applications"
+    ]
+  },
+  {
+    "id": "donaldson-p181052",
+    "partNo": "P181052",
+    "brand": "Donaldson",
+    "title": "Industrial Filter",
+    "nameTh": "ไส้กรอง Donaldson P181052",
+    "category": "filter",
+    "stockStatus": "request",
+    "spec": "",
+    "specifications": [],
+    "cross_reference": [],
+    "applications": [],
+    "seo": {
+      "description_th": "ไส้กรอง Donaldson P181052 สำหรับงานอุตสาหกรรมและเครื่องจักร รองรับการขอราคาและตรวจสอบสเปกก่อนสั่งซื้อ",
+      "keywords": [
+        "donaldson",
+        "p181052",
+        "filter"
+      ]
+    },
+    "searchTokens": [
+      "p181052",
+      "181052",
+      "donaldson",
+      "filter"
+    ],
+    "search_tokens": [
+      "p181052",
+      "181052",
+      "donaldson",
+      "filter"
+    ],
+    "notes": [
+      "TODO: add categoryKey/specs/thread/cross refs/applications"
+    ]
+  },
+  {
+    "id": "donaldson-p181054",
+    "partNo": "P181054",
+    "brand": "Donaldson",
+    "title": "Industrial Filter",
+    "nameTh": "ไส้กรอง Donaldson P181054",
+    "category": "filter",
+    "stockStatus": "request",
+    "spec": "",
+    "specifications": [],
+    "cross_reference": [],
+    "applications": [],
+    "seo": {
+      "description_th": "ไส้กรอง Donaldson P181054 สำหรับงานอุตสาหกรรมและเครื่องจักร รองรับการขอราคาและตรวจสอบสเปกก่อนสั่งซื้อ",
+      "keywords": [
+        "donaldson",
+        "p181054",
+        "filter"
+      ]
+    },
+    "searchTokens": [
+      "p181054",
+      "181054",
+      "donaldson",
+      "filter"
+    ],
+    "search_tokens": [
+      "p181054",
+      "181054",
+      "donaldson",
+      "filter"
+    ],
+    "notes": [
+      "TODO: add categoryKey/specs/thread/cross refs/applications"
+    ]
+  },
+  {
+    "id": "donaldson-p181059",
+    "partNo": "P181059",
+    "brand": "Donaldson",
+    "title": "Industrial Filter",
+    "nameTh": "ไส้กรอง Donaldson P181059",
+    "category": "filter",
+    "stockStatus": "request",
+    "spec": "",
+    "specifications": [],
+    "cross_reference": [],
+    "applications": [],
+    "seo": {
+      "description_th": "ไส้กรอง Donaldson P181059 สำหรับงานอุตสาหกรรมและเครื่องจักร รองรับการขอราคาและตรวจสอบสเปกก่อนสั่งซื้อ",
+      "keywords": [
+        "donaldson",
+        "p181059",
+        "filter"
+      ]
+    },
+    "searchTokens": [
+      "p181059",
+      "181059",
+      "donaldson",
+      "filter"
+    ],
+    "search_tokens": [
+      "p181059",
+      "181059",
+      "donaldson",
+      "filter"
+    ],
+    "notes": [
+      "TODO: add categoryKey/specs/thread/cross refs/applications"
+    ]
+  },
+  {
+    "id": "donaldson-p181063",
+    "partNo": "P181063",
+    "brand": "Donaldson",
+    "title": "Industrial Filter",
+    "nameTh": "ไส้กรอง Donaldson P181063",
+    "category": "filter",
+    "stockStatus": "request",
+    "spec": "",
+    "specifications": [],
+    "cross_reference": [],
+    "applications": [],
+    "seo": {
+      "description_th": "ไส้กรอง Donaldson P181063 สำหรับงานอุตสาหกรรมและเครื่องจักร รองรับการขอราคาและตรวจสอบสเปกก่อนสั่งซื้อ",
+      "keywords": [
+        "donaldson",
+        "p181063",
+        "filter"
+      ]
+    },
+    "searchTokens": [
+      "p181063",
+      "181063",
+      "donaldson",
+      "filter"
+    ],
+    "search_tokens": [
+      "p181063",
+      "181063",
+      "donaldson",
+      "filter"
+    ],
+    "notes": [
+      "TODO: add categoryKey/specs/thread/cross refs/applications"
+    ]
+  },
+  {
+    "id": "donaldson-p181064",
+    "partNo": "P181064",
+    "brand": "Donaldson",
+    "title": "Industrial Filter",
+    "nameTh": "ไส้กรอง Donaldson P181064",
+    "category": "filter",
+    "stockStatus": "request",
+    "spec": "",
+    "specifications": [],
+    "cross_reference": [],
+    "applications": [],
+    "seo": {
+      "description_th": "ไส้กรอง Donaldson P181064 สำหรับงานอุตสาหกรรมและเครื่องจักร รองรับการขอราคาและตรวจสอบสเปกก่อนสั่งซื้อ",
+      "keywords": [
+        "donaldson",
+        "p181064",
+        "filter"
+      ]
+    },
+    "searchTokens": [
+      "p181064",
+      "181064",
+      "donaldson",
+      "filter"
+    ],
+    "search_tokens": [
+      "p181064",
+      "181064",
+      "donaldson",
+      "filter"
+    ],
+    "notes": [
+      "TODO: add categoryKey/specs/thread/cross refs/applications"
+    ]
+  },
+  {
+    "id": "donaldson-p181082",
+    "partNo": "P181082",
+    "brand": "Donaldson",
+    "title": "Industrial Filter",
+    "nameTh": "ไส้กรอง Donaldson P181082",
+    "category": "filter",
+    "stockStatus": "request",
+    "spec": "",
+    "specifications": [],
+    "cross_reference": [],
+    "applications": [],
+    "seo": {
+      "description_th": "ไส้กรอง Donaldson P181082 สำหรับงานอุตสาหกรรมและเครื่องจักร รองรับการขอราคาและตรวจสอบสเปกก่อนสั่งซื้อ",
+      "keywords": [
+        "donaldson",
+        "p181082",
+        "filter"
+      ]
+    },
+    "searchTokens": [
+      "p181082",
+      "181082",
+      "donaldson",
+      "filter"
+    ],
+    "search_tokens": [
+      "p181082",
+      "181082",
+      "donaldson",
+      "filter"
+    ],
+    "notes": [
+      "TODO: add categoryKey/specs/thread/cross refs/applications"
+    ]
+  },
+  {
+    "id": "donaldson-p181103",
+    "partNo": "P181103",
+    "brand": "Donaldson",
+    "title": "Industrial Filter",
+    "nameTh": "ไส้กรอง Donaldson P181103",
+    "category": "filter",
+    "stockStatus": "request",
+    "spec": "",
+    "specifications": [],
+    "cross_reference": [],
+    "applications": [],
+    "seo": {
+      "description_th": "ไส้กรอง Donaldson P181103 สำหรับงานอุตสาหกรรมและเครื่องจักร รองรับการขอราคาและตรวจสอบสเปกก่อนสั่งซื้อ",
+      "keywords": [
+        "donaldson",
+        "p181103",
+        "filter"
+      ]
+    },
+    "searchTokens": [
+      "p181103",
+      "181103",
+      "donaldson",
+      "filter"
+    ],
+    "search_tokens": [
+      "p181103",
+      "181103",
+      "donaldson",
+      "filter"
+    ],
+    "notes": [
+      "TODO: add categoryKey/specs/thread/cross refs/applications"
+    ]
+  },
+  {
+    "id": "donaldson-p181191",
+    "partNo": "P181191",
+    "brand": "Donaldson",
+    "title": "Industrial Filter",
+    "nameTh": "ไส้กรอง Donaldson P181191",
+    "category": "filter",
+    "stockStatus": "request",
+    "spec": "",
+    "specifications": [],
+    "cross_reference": [],
+    "applications": [],
+    "seo": {
+      "description_th": "ไส้กรอง Donaldson P181191 สำหรับงานอุตสาหกรรมและเครื่องจักร รองรับการขอราคาและตรวจสอบสเปกก่อนสั่งซื้อ",
+      "keywords": [
+        "donaldson",
+        "p181191",
+        "filter"
+      ]
+    },
+    "searchTokens": [
+      "p181191",
+      "181191",
+      "donaldson",
+      "filter"
+    ],
+    "search_tokens": [
+      "p181191",
+      "181191",
+      "donaldson",
+      "filter"
+    ],
+    "notes": [
+      "TODO: add categoryKey/specs/thread/cross refs/applications"
+    ]
+  },
+  {
+    "id": "donaldson-p169478",
+    "partNo": "P169478",
+    "brand": "Donaldson",
+    "title": "Industrial Filter",
+    "nameTh": "ไส้กรอง Donaldson P169478",
+    "category": "filter",
+    "stockStatus": "request",
+    "spec": "",
+    "specifications": [],
+    "cross_reference": [],
+    "applications": [],
+    "seo": {
+      "description_th": "ไส้กรอง Donaldson P169478 สำหรับงานอุตสาหกรรมและเครื่องจักร รองรับการขอราคาและตรวจสอบสเปกก่อนสั่งซื้อ",
+      "keywords": [
+        "donaldson",
+        "p169478",
+        "filter"
+      ]
+    },
+    "searchTokens": [
+      "p169478",
+      "169478",
+      "donaldson",
+      "filter"
+    ],
+    "search_tokens": [
+      "p169478",
+      "169478",
+      "donaldson",
+      "filter"
+    ],
+    "notes": [
+      "TODO: add categoryKey/specs/thread/cross refs/applications"
+    ]
+  },
+  {
+    "id": "donaldson-p171734",
+    "partNo": "P171734",
+    "brand": "Donaldson",
+    "title": "Industrial Filter",
+    "nameTh": "ไส้กรอง Donaldson P171734",
+    "category": "filter",
+    "stockStatus": "request",
+    "spec": "",
+    "specifications": [],
+    "cross_reference": [],
+    "applications": [],
+    "seo": {
+      "description_th": "ไส้กรอง Donaldson P171734 สำหรับงานอุตสาหกรรมและเครื่องจักร รองรับการขอราคาและตรวจสอบสเปกก่อนสั่งซื้อ",
+      "keywords": [
+        "donaldson",
+        "p171734",
+        "filter"
+      ]
+    },
+    "searchTokens": [
+      "p171734",
+      "171734",
+      "donaldson",
+      "filter"
+    ],
+    "search_tokens": [
+      "p171734",
+      "171734",
+      "donaldson",
+      "filter"
+    ],
+    "notes": [
+      "TODO: add categoryKey/specs/thread/cross refs/applications"
+    ]
+  },
+  {
+    "id": "donaldson-p171735",
+    "partNo": "P171735",
+    "brand": "Donaldson",
+    "title": "Industrial Filter",
+    "nameTh": "ไส้กรอง Donaldson P171735",
+    "category": "filter",
+    "stockStatus": "request",
+    "spec": "",
+    "specifications": [],
+    "cross_reference": [],
+    "applications": [],
+    "seo": {
+      "description_th": "ไส้กรอง Donaldson P171735 สำหรับงานอุตสาหกรรมและเครื่องจักร รองรับการขอราคาและตรวจสอบสเปกก่อนสั่งซื้อ",
+      "keywords": [
+        "donaldson",
+        "p171735",
+        "filter"
+      ]
+    },
+    "searchTokens": [
+      "p171735",
+      "171735",
+      "donaldson",
+      "filter"
+    ],
+    "search_tokens": [
+      "p171735",
+      "171735",
+      "donaldson",
+      "filter"
+    ],
+    "notes": [
+      "TODO: add categoryKey/specs/thread/cross refs/applications"
+    ]
+  },
+  {
+    "id": "donaldson-p173689",
+    "partNo": "P173689",
+    "brand": "Donaldson",
+    "title": "Industrial Filter",
+    "nameTh": "ไส้กรอง Donaldson P173689",
+    "category": "filter",
+    "stockStatus": "request",
+    "spec": "",
+    "specifications": [],
+    "cross_reference": [],
+    "applications": [],
+    "seo": {
+      "description_th": "ไส้กรอง Donaldson P173689 สำหรับงานอุตสาหกรรมและเครื่องจักร รองรับการขอราคาและตรวจสอบสเปกก่อนสั่งซื้อ",
+      "keywords": [
+        "donaldson",
+        "p173689",
+        "filter"
+      ]
+    },
+    "searchTokens": [
+      "p173689",
+      "173689",
+      "donaldson",
+      "filter"
+    ],
+    "search_tokens": [
+      "p173689",
+      "173689",
+      "donaldson",
+      "filter"
+    ],
+    "notes": [
+      "TODO: add categoryKey/specs/thread/cross refs/applications"
+    ]
+  },
+  {
+    "id": "mann-w11102-36",
+    "partNo": "W11102/36",
+    "brand": "MANN-FILTER",
+    "title": "Oil Filter W 11 102/36",
+    "category": "filter",
+    "stockStatus": "request",
+    "spec": "A108 B93 C103 | G 1 1/8-16 UN | H261 mm"
+  },
+  {
+    "id": "mann-w13145-3",
+    "partNo": "W13145/3",
+    "brand": "MANN-FILTER",
+    "title": "Hydraulic Transmission Filter W 13 145/3",
+    "category": "filter",
+    "stockStatus": "request",
+    "spec": "A136 B100 C111 | G 1 1/2-16 UN | H308 mm | bypass 2.5"
+  },
+  {
+    "id": "mann-w920-21",
+    "partNo": "W920/21",
+    "brand": "MANN-FILTER",
+    "title": "Oil Filter W 920/21",
+    "category": "filter",
+    "stockStatus": "request",
+    "spec": "A93 B62 C71 | G 3/4-16 UNF | H95 mm | bypass 0.8 | ADBV 1"
+  },
+  {
+    "id": "mann-w940-5",
+    "partNo": "W940/5",
+    "brand": "MANN-FILTER",
+    "title": "Oil Filter W 940/5",
+    "category": "filter",
+    "stockStatus": "request",
+    "spec": "A93 B62 C71 | G 1-12 UNF | H157 mm | bypass 2.5 | ADBV 1"
+  },
+  {
+    "id": "mann-w950",
+    "partNo": "W950",
+    "brand": "MANN-FILTER",
+    "title": "Oil Filter W 950",
+    "category": "filter",
+    "stockStatus": "request",
+    "spec": "A93 B62 C71 | G 1-12 UNF | H170 mm | bypass 2.5 | ADBV 1"
+  },
+  {
+    "id": "mann-w962-14",
+    "partNo": "W962/14",
+    "brand": "MANN-FILTER",
+    "title": "Hydraulics Filter W 962/14",
+    "category": "filter",
+    "stockStatus": "request",
+    "spec": "A93 B62 C71 | G 1-12 UNF | H210 mm"
+  },
+  {
+    "id": "mann-w719-5",
+    "partNo": "W719/5",
+    "brand": "MANN-FILTER",
+    "title": "Oil Filter W 719/5",
+    "category": "filter",
+    "stockStatus": "request",
+    "spec": "A76 B62 C71 | G 3/4-16 UNF | H123 mm | bypass 2.5 | ADBV 1"
+  },
+  {
+    "id": "mann-wd962",
+    "partNo": "WD962",
+    "brand": "MANN-FILTER",
+    "title": "Hydraulic Transmission Filter WD 962",
+    "category": "filter",
+    "stockStatus": "request",
+    "spec": "A93 B62 C71 | G 1-12 UNF | H212 mm | high pressure"
+  },
+  {
+    "id": "mann-wd13145",
+    "partNo": "WD13145",
+    "brand": "MANN-FILTER",
+    "title": "Oil Filter WD 13 145",
+    "category": "filter",
+    "stockStatus": "request",
+    "spec": "A136 B100 C111 | G 1 1/2-16 UN | H302 mm | high pressure"
+  },
+  {
+    "id": "mann-wd1374",
+    "partNo": "WD1374",
+    "brand": "MANN-FILTER",
+    "title": "Hydraulic Transmission Filter WD 1374",
+    "category": "filter",
+    "stockStatus": "request",
+    "spec": "A136 B100 C111 | G 1 1/2-16 UN | H177 mm | high pressure"
+  },
+  {
+    "id": "mann-wd920",
+    "partNo": "WD920",
+    "brand": "MANN-FILTER",
+    "title": "Hydraulics Filter WD 920",
+    "category": "filter",
+    "stockStatus": "request",
+    "spec": "A3.7in B2.4in C2.8in | G 3/4-16 UNF | H3.8in | bypass 2.5"
+  },
+  {
+    "id": "mann-c1112-2",
+    "partNo": "C1112/2",
+    "brand": "MANN-FILTER",
+    "title": "Air Filter C 1112/2",
+    "category": "filter",
+    "stockStatus": "request",
+    "spec": "A98 B60 | H74 mm"
+  },
+  {
+    "id": "mann-c1250",
+    "partNo": "C1250",
+    "brand": "MANN-FILTER",
+    "title": "Air Filter C 1250 (Picolino)",
+    "category": "filter",
+    "stockStatus": "request",
+    "spec": "A118 B67 C67 | H134 mm | Picolino"
+  },
+  {
+    "id": "mann-c1337",
+    "partNo": "C1337",
+    "brand": "MANN-FILTER",
+    "title": "Air Filter C 1337",
+    "category": "filter",
+    "stockStatus": "request",
+    "spec": "A128 B64 C64 | H125 mm"
+  },
+  {
+    "id": "mann-c1633-1",
+    "partNo": "C1633/1",
+    "brand": "MANN-FILTER",
+    "title": "Air Filter C 1633/1",
+    "category": "filter",
+    "stockStatus": "request",
+    "spec": "A159 B120 C120 | H75 mm"
+  },
+  {
+    "id": "mann-c25710-3",
+    "partNo": "C25710/3",
+    "brand": "MANN-FILTER",
+    "title": "Air Filter C 25 710/3 (EUROPICLON)",
+    "category": "filter",
+    "stockStatus": "request",
+    "spec": "A240 B147 | H539 mm | EUROPICLON | secondary CF710"
+  },
+  {
+    "id": "mann-c23610",
+    "partNo": "C23610",
+    "brand": "MANN-FILTER",
+    "title": "Air Filter C 23 610 (EUROPICLON)",
+    "category": "filter",
+    "stockStatus": "request",
+    "spec": "A220 B124 | H404 mm | EUROPICLON | secondary CF610"
+  },
+  {
+    "id": "mann-c23115",
+    "partNo": "C23115",
+    "brand": "MANN-FILTER",
+    "title": "Air Filter C 23 115",
+    "category": "filter",
+    "stockStatus": "request",
+    "spec": "A228 B161 C161 D241 | H130 mm"
+  },
+  {
+    "id": "ntn-6205zz",
+    "partNo": "6205-ZZ",
+    "brand": "NTN",
+    "title": "Deep Groove Ball Bearing 6205-ZZ",
+    "category": "bearing",
+    "spec": "25×52×15 mm, Double shield (ZZ)"
+  },
+  {
+    "id": "ntn-6205llu",
+    "partNo": "6205-LLU",
+    "brand": "NTN",
+    "title": "Deep Groove Ball Bearing 6205-LLU",
+    "category": "bearing",
+    "spec": "25×52×15 mm, Contact seal (LLU)"
+  },
+  {
+    "id": "ntn-6204zz",
+    "partNo": "6204-ZZ",
+    "brand": "NTN",
+    "title": "Deep Groove Ball Bearing 6204-ZZ",
+    "category": "bearing",
+    "spec": "20×47×14 mm, Double Shield (ZZ)"
+  },
+  {
+    "id": "ntn-6203zz",
+    "partNo": "6203-ZZ",
+    "brand": "NTN",
+    "title": "Deep Groove Ball Bearing 6203-ZZ",
+    "category": "bearing",
+    "spec": "17×40×12 mm, Double Shield (ZZ)"
+  },
+  {
+    "id": "ntn-6305zz",
+    "partNo": "6305-ZZ",
+    "brand": "NTN",
+    "title": "Deep Groove Ball Bearing 6305-ZZ",
+    "category": "bearing",
+    "spec": "25×62×17 mm, Double Shield (ZZ)"
+  },
+  {
+    "id": "ntn-6306zz",
+    "partNo": "6306-ZZ",
+    "brand": "NTN",
+    "title": "Deep Groove Ball Bearing 6306-ZZ",
+    "category": "bearing",
+    "spec": "30×72×19 mm, Double Shield (ZZ)"
+  }
+]

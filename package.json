@@ -1,0 +1,47 @@
+{
+  "dependencies": {
+    "-": "^0.0.1",
+    "@prisma/client": "^6.6.0",
+    "@radix-ui/react-slot": "^1.2.4",
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.577.0",
+    "next": "^16.1.6",
+    "next-intl": "^4.9.0",
+    "nodemailer": "^8.0.4",
+    "prisma": "^6.6.0",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.3",
+    "react-hot-toast": "^2.6.0",
+    "xlsx": "^0.18.5",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.1.18",
+    "@types/node": "^20",
+    "@types/nodemailer": "^7.0.11",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "autoprefixer": "^10.4.24",
+    "eslint": "^9",
+    "eslint-config-next": "16.1.1",
+    "playwright": "^1.58.1",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.1.18",
+    "tsx": "^4.21.0",
+    "typescript": "^5"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "search:index": "...",
+    "export:products": "node scripts/export-products-json.js",
+    "build:index": "node scripts/build-search-index.js",
+    "verify:index": "node scripts/verify-search-index.js",
+    "verify:score": "tsx scripts/verify-search-score.ts",
+    "lint": "next lint",
+    "check:env": "node scripts/check-env.mjs",
+    "check:products": "tsx scripts/check-product-catalog.ts",
+    "build:search": "tsx scripts/build-search-index.ts"
+  }
+}

@@ -1,0 +1,1 @@
+import { searchProducts } from "../lib/search/search";

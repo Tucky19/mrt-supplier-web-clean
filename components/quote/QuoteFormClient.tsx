@@ -1,0 +1,511 @@
+"use client";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
+import Link from "next/link";
+import {
+  Mail,
+  Phone,
+  MessageCircle,
+  Loader2,
+  CheckCircle2,
+  AlertCircle,
+  PackageSearch,
+  Boxes,
+  Minus,
+  Plus,
+  Trash2,
+} from "lucide-react";
+import { useTranslations } from "next-intl";
+import { useQuote } from "@/providers/QuoteProvider";
+
+type Props = {
+  locale: string;
+};
+
+type FormState = {
+  company: string;
+  name: string;
+  phone: string;
+  email: string;
+  lineId: string;
+  note: string;
+};
+
+export default function QuoteFormClient({ locale }: Props) {
+  const t = useTranslations("rfq");
+  const { items, ready, setQty, removeItem, clear } = useQuote();
+
+  const [form, setForm] = useState<FormState>({
+    company: "",
+    name: "",
+    phone: "",
+    email: "",
+    lineId: "",
+    note: "",
+  });
+
+  const [submitting, setSubmitting] = useState(false);
+  const [successId, setSuccessId] = useState<string | null>(null);
+  const [error, setError] = useState("");
+
+  const lineUrl = "YOUR_LINE_URL";
+  const hasItems = items.length > 0;
+  const router = useRouter();
+  function update<K extends keyof FormState>(key: K, value: FormState[K]) {
+    setForm((prev) => ({ ...prev, [key]: value }));
+  }
+
+  function validate(): string {
+    if (!form.name.trim()) {
+      return locale === "th"
+        ? "กรุณากรอกชื่อผู้ติดต่อ"
+        : "Please enter contact name.";
+    }
+
+    const hasContact =
+      form.phone.trim() || form.email.trim() || form.lineId.trim();
+
+    if (!hasContact) {
+      return t("contactHint");
+    }
+
+    if (!hasItems) {
+      return locale === "th"
+        ? "กรุณาเลือกสินค้าอย่างน้อย 1 รายการก่อนส่งคำขอ"
+        : "Please add at least one item before submitting.";
+    }
+
+    return "";
+  }
+
+  async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setError("");
+    setSuccessId(null);
+
+    const validationError = validate();
+    if (validationError) {
+      setError(validationError);
+      return;
+    }
+
+    setSubmitting(true);
+
+    try {
+      const res = await fetch("/api/quote", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          locale,
+          items,
+          company: form.company.trim(),
+          name: form.name.trim(),
+          phone: form.phone.trim(),
+          email: form.email.trim(),
+          lineId: form.lineId.trim(),
+          note: form.note.trim(),
+        }),
+      });
+
+      const data = (await res.json()) as {
+        ok?: boolean;
+        requestId?: string;
+        error?: string;
+      };
+
+      if (!res.ok || !data.ok) {
+        throw new Error(
+          data.error ||
+            (locale === "th"
+              ? "ส่งคำขอไม่สำเร็จ กรุณาลองใหม่"
+              : "Failed to submit request. Please try again.")
+        );
+      }
+
+      const nextRequestId = data.requestId || "RFQ";
+
+setSuccessId(nextRequestId);
+setForm({
+  company: "",
+  name: "",
+  phone: "",
+  email: "",
+  lineId: "",
+  note: "",
+});
+clear();
+
+router.push(`/quote/success?rid=${encodeURIComponent(nextRequestId)}`);
+    } catch (err) {
+      setError(
+        err instanceof Error
+          ? err.message
+          : locale === "th"
+          ? "เกิดข้อผิดพลาด กรุณาลองใหม่"
+          : "Something went wrong. Please try again."
+      );
+    } finally {
+      setSubmitting(false);
+    }
+  }
+
+  return (
+    <section className="bg-slate-50">
+      <div className="mx-auto grid max-w-7xl gap-8 px-6 py-12 lg:grid-cols-[1.1fr_0.9fr] lg:px-8 lg:py-16">
+        <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm lg:p-8">
+          <div className="mb-6">
+            <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.12em] text-slate-600">
+              <Boxes className="h-3.5 w-3.5" />
+              {locale === "th" ? "รายการขอราคา" : "Quote Request"}
+            </div>
+
+            <h2 className="mt-4 text-2xl font-semibold text-slate-950">
+              {locale === "th" ? "ส่งคำขอราคา" : "Send a Quote Request"}
+            </h2>
+            <p className="mt-3 text-sm leading-7 text-slate-600">
+              {locale === "th"
+                ? "ตรวจสอบรายการสินค้า ปรับจำนวน และกรอกข้อมูลติดต่อเพื่อให้ทีมงานเสนอราคา"
+                : "Review selected items, adjust quantities, and enter your contact details for quotation support."}
+            </p>
+          </div>
+
+          <form className="space-y-6" onSubmit={onSubmit}>
+            <div className="rounded-3xl border border-slate-200 bg-slate-50 p-5">
+              <div className="flex items-center justify-between gap-4">
+                <div className="flex items-center gap-3">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-white text-slate-700 shadow-sm">
+                    <PackageSearch className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <p className="text-sm font-semibold text-slate-900">
+                      {locale === "th" ? "รายการที่เลือก" : "Selected Items"}
+                    </p>
+                    <p className="text-sm text-slate-600">
+                      {ready
+                        ? locale === "th"
+                          ? `${items.length} รายการ`
+                          : `${items.length} item(s)`
+                        : locale === "th"
+                        ? "กำลังโหลด..."
+                        : "Loading..."}
+                    </p>
+                  </div>
+                </div>
+
+                {hasItems ? (
+                  <button
+                    type="button"
+                    onClick={clear}
+                    className="text-sm font-medium text-slate-600 transition hover:text-slate-900"
+                  >
+                    {locale === "th" ? "ล้างทั้งหมด" : "Clear All"}
+                  </button>
+                ) : null}
+              </div>
+
+              {!ready ? null : hasItems ? (
+                <div className="mt-5 space-y-4">
+                  {items.map((item) => (
+                    <div
+                      key={item.productId}
+                      className="rounded-2xl border border-slate-200 bg-white p-4"
+                    >
+                      <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+                        <div className="min-w-0">
+                          <p className="text-sm font-semibold text-slate-900">
+                            {item.partNo}
+                          </p>
+                          {item.title ? (
+                            <p className="mt-1 text-sm text-slate-600">
+                              {item.title}
+                            </p>
+                          ) : null}
+                          {item.brand ? (
+                            <p className="mt-1 text-xs font-medium uppercase tracking-[0.08em] text-slate-500">
+                              {item.brand}
+                            </p>
+                          ) : null}
+                        </div>
+
+                        <div className="flex flex-wrap items-center gap-3">
+                          <div className="inline-flex items-center rounded-2xl border border-slate-300 bg-white shadow-sm">
+                            <button
+                              type="button"
+                              onClick={() => setQty(item.productId, item.qty - 1)}
+                              className="flex h-11 w-11 items-center justify-center text-slate-700 transition hover:bg-slate-50"
+                            >
+                              <Minus className="h-4 w-4" />
+                            </button>
+
+                            <input
+                              type="number"
+                              min={1}
+                              max={999}
+                              value={item.qty}
+                              onChange={(e) =>
+                                setQty(item.productId, Number(e.target.value) || 1)
+                              }
+                              className="h-11 w-20 border-x border-slate-300 text-center text-sm font-semibold text-slate-900 outline-none"
+                            />
+
+                            <button
+                              type="button"
+                              onClick={() => setQty(item.productId, item.qty + 1)}
+                              className="flex h-11 w-11 items-center justify-center text-slate-700 transition hover:bg-slate-50"
+                            >
+                              <Plus className="h-4 w-4" />
+                            </button>
+                          </div>
+
+                          <button
+                            type="button"
+                            onClick={() => removeItem(item.productId)}
+                            className="inline-flex items-center gap-2 rounded-full border border-slate-300 px-4 py-2 text-sm font-medium text-slate-700 transition hover:border-slate-400 hover:text-slate-900"
+                          >
+                            <Trash2 className="h-4 w-4" />
+                            {locale === "th" ? "ลบ" : "Remove"}
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <div className="mt-5 rounded-2xl border border-dashed border-slate-300 bg-white p-6 text-center">
+                  <p className="text-sm font-medium text-slate-900">
+                    {locale === "th"
+                      ? "ยังไม่มีรายการสินค้าในคำขอราคา"
+                      : "No items in your quote request yet"}
+                  </p>
+                  <p className="mt-2 text-sm text-slate-600">
+                    {locale === "th"
+                      ? "กลับไปหน้าสินค้าแล้วกด “ขอราคา” เพื่อเพิ่มรายการ"
+                      : "Go back to products and click “Request Quote” to add items."}
+                  </p>
+                  <Link
+                    href={`/${locale}/products`}
+                    className="mt-4 inline-flex rounded-full border border-slate-300 px-5 py-3 text-sm font-medium text-slate-700 transition hover:border-slate-400 hover:text-slate-900"
+                  >
+                    {locale === "th" ? "ไปหน้าสินค้า" : "Go to Products"}
+                  </Link>
+                </div>
+              )}
+            </div>
+
+            <div className="grid gap-5 md:grid-cols-2">
+              <div>
+                <label className="mb-2 block text-sm font-medium text-slate-800">
+                  {t("company")}
+                </label>
+                <input
+                  type="text"
+                  value={form.company}
+                  onChange={(e) => update("company", e.target.value)}
+                  placeholder={locale === "th" ? "ชื่อบริษัท" : "Company name"}
+                  className="w-full rounded-2xl border border-slate-300 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-slate-500"
+                />
+              </div>
+
+              <div>
+                <label className="mb-2 block text-sm font-medium text-slate-800">
+                  {t("name")}
+                </label>
+                <input
+                  type="text"
+                  value={form.name}
+                  onChange={(e) => update("name", e.target.value)}
+                  placeholder={locale === "th" ? "ชื่อผู้ติดต่อ" : "Contact name"}
+                  className="w-full rounded-2xl border border-slate-300 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-slate-500"
+                />
+              </div>
+            </div>
+
+            <div className="grid gap-5 md:grid-cols-2">
+              <div>
+                <label className="mb-2 block text-sm font-medium text-slate-800">
+                  {t("phone")}
+                </label>
+                <input
+                  type="text"
+                  value={form.phone}
+                  onChange={(e) => update("phone", e.target.value)}
+                  placeholder={locale === "th" ? "เบอร์โทรศัพท์" : "Phone number"}
+                  className="w-full rounded-2xl border border-slate-300 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-slate-500"
+                />
+              </div>
+
+              <div>
+                <label className="mb-2 block text-sm font-medium text-slate-800">
+                  {t("email")}
+                </label>
+                <input
+                  type="email"
+                  value={form.email}
+                  onChange={(e) => update("email", e.target.value)}
+                  placeholder={locale === "th" ? "อีเมล" : "Email"}
+                  className="w-full rounded-2xl border border-slate-300 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-slate-500"
+                />
+              </div>
+            </div>
+
+            <div>
+              <label className="mb-2 block text-sm font-medium text-slate-800">
+                {t("lineId")}
+              </label>
+              <input
+                type="text"
+                value={form.lineId}
+                onChange={(e) => update("lineId", e.target.value)}
+                placeholder={locale === "th" ? "LINE ID (ถ้ามี)" : "LINE ID (optional)"}
+                className="w-full rounded-2xl border border-slate-300 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-slate-500"
+              />
+            </div>
+
+            <div>
+              <label className="mb-2 block text-sm font-medium text-slate-800">
+                {t("note")}
+              </label>
+              <textarea
+                rows={4}
+                value={form.note}
+                onChange={(e) => update("note", e.target.value)}
+                placeholder={
+                  locale === "th"
+                    ? "ข้อมูลเพิ่มเติม เช่น ความต้องการใช้งาน สเปคเพิ่มเติม หรือเงื่อนไขอื่นๆ"
+                    : "Additional details such as application, extra specs, or other requirements"
+                }
+                className="w-full rounded-2xl border border-slate-300 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-slate-500"
+              />
+            </div>
+
+            <div className="rounded-2xl bg-slate-50 p-4">
+              <p className="text-sm font-medium text-slate-900">
+                {t("contactHint")}
+              </p>
+            </div>
+
+            {error ? (
+              <div className="flex items-start gap-3 rounded-2xl border border-rose-200 bg-rose-50 px-4 py-3 text-sm text-rose-700">
+                <AlertCircle className="mt-0.5 h-4 w-4 shrink-0" />
+                <span>{error}</span>
+              </div>
+            ) : null}
+
+            {successId ? (
+              <div className="flex items-start gap-3 rounded-2xl border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm text-emerald-700">
+                <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0" />
+                <div>
+                  <div>{t("success")}</div>
+                  <div className="mt-1 font-medium">
+                    {locale === "th" ? "เลขอ้างอิง" : "Reference"}: {successId}
+                  </div>
+                </div>
+              </div>
+            ) : null}
+
+            <div className="flex flex-wrap gap-3">
+              <button
+                type="submit"
+                disabled={submitting}
+                className="inline-flex items-center gap-2 rounded-full bg-slate-900 px-6 py-3 text-sm font-medium text-white transition hover:bg-slate-800 disabled:cursor-not-allowed disabled:opacity-60"
+              >
+                {submitting ? <Loader2 className="h-4 w-4 animate-spin" /> : null}
+                {t("submit")}
+              </button>
+
+              <a
+                href={lineUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-full border border-emerald-500 bg-emerald-50 px-6 py-3 text-sm font-medium text-emerald-700 transition hover:bg-emerald-100"
+              >
+                <MessageCircle className="h-4 w-4" />
+                {locale === "th" ? "เพิ่มเพื่อน LINE" : "Add LINE"}
+              </a>
+            </div>
+          </form>
+        </div>
+
+        <aside className="space-y-6">
+          <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm lg:p-8">
+            <h2 className="text-2xl font-semibold text-slate-950">
+              {locale === "th" ? "ติดต่อทางลัด" : "Quick Contact"}
+            </h2>
+
+            <div className="mt-6 space-y-4">
+              <a
+                href={lineUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-start gap-4 rounded-2xl border border-emerald-200 bg-emerald-50 p-4 transition hover:bg-emerald-100"
+              >
+                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-emerald-500 text-white">
+                  <MessageCircle className="h-5 w-5" />
+                </div>
+                <div>
+                  <p className="text-sm font-semibold text-slate-950">
+                    {locale === "th" ? "เพิ่มเพื่อน LINE" : "Add us on LINE"}
+                  </p>
+                  <p className="mt-1 text-sm leading-6 text-slate-600">
+                    {locale === "th"
+                      ? "เหมาะสำหรับส่งรายละเอียดสินค้าและคุยกับทีมงานได้เร็ว"
+                      : "Best for sending product details and chatting quickly with our team."}
+                  </p>
+                </div>
+              </a>
+
+              <a
+                href="tel:+66815581323"
+                className="flex items-start gap-4 rounded-2xl border border-slate-200 bg-slate-50 p-4 transition hover:bg-slate-100"
+              >
+                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-slate-900 text-white">
+                  <Phone className="h-5 w-5" />
+                </div>
+                <div>
+                  <p className="text-sm font-semibold text-slate-950">
+                    +66 81-558-1323
+                  </p>
+                  <p className="mt-1 text-sm leading-6 text-slate-600">
+                    {locale === "th"
+                      ? "โทรสอบถามทีมงานได้โดยตรง"
+                      : "Call our team directly."}
+                  </p>
+                </div>
+              </a>
+
+              <a
+                href="mailto:sales@mrtsupplier.com"
+                className="flex items-start gap-4 rounded-2xl border border-slate-200 bg-slate-50 p-4 transition hover:bg-slate-100"
+              >
+                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-slate-900 text-white">
+                  <Mail className="h-5 w-5" />
+                </div>
+                <div>
+                  <p className="text-sm font-semibold text-slate-950">
+                    sales@mrtsupplier.com
+                  </p>
+                  <p className="mt-1 text-sm leading-6 text-slate-600">
+                    {locale === "th"
+                      ? "เหมาะสำหรับส่งข้อมูลจัดซื้อหรือรายละเอียดงานอย่างเป็นทางการ"
+                      : "Recommended for formal procurement details and documentation."}
+                  </p>
+                </div>
+              </a>
+            </div>
+
+            <div className="mt-6 flex flex-wrap gap-3">
+              <Link
+                href={`/${locale}/products`}
+                className="rounded-full border border-slate-300 px-5 py-3 text-sm font-medium text-slate-700 hover:border-slate-400 hover:text-slate-900"
+              >
+                {locale === "th" ? "กลับไปเลือกสินค้าเพิ่ม" : "Add More Products"}
+              </Link>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+  );
+}
