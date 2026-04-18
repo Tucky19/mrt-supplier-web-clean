@@ -8,38 +8,39 @@ datasource db {
 }
 
 model Rfq {
-  id          String     @id @default(cuid())
-  requestId   String     @unique
-  createdAt   DateTime   @default(now())
-  company     String?
-  name        String?
-  phone       String?
-  email       String?
-  note        String?
-  contactPref String?
-  ipHash      String?
-  lineId      String?
-  source      String     @default("web")
-  status      RfqStatus  @default(new)
-  updatedAt   DateTime   @updatedAt
-  userAgent   String?
-  leadId      String?
-  quotedAt     DateTime?
-  quoteRef     String?
-  quotedBy     String?
-  quoteAmount  Decimal?  @db.Decimal(12, 2)
-  quoteCurrency String?
-  validUntil   DateTime?
+  id               String    @id @default(cuid())
+  requestId        String    @unique
+  createdAt        DateTime  @default(now())
+  company          String?
+  name             String?
+  phone            String?
+  email            String?
+  note             String?
+  contactPref      String?
+  ipHash           String?
+  lineId           String?
+  source           String    @default("web")
+  status           RfqStatus @default(new)
+  updatedAt        DateTime  @updatedAt
+  userAgent        String?
+  leadId           String?
+  quotedAt         DateTime?
+  quoteRef         String?
+  quotedBy         String?
+  quoteAmount      Decimal?  @db.Decimal(12, 2)
+  quoteCurrency    String?
+  validUntil       DateTime?
   quoteDocumentUrl String?
   quoteSentAt      DateTime?
   quoteSentNote    String?
-  followUps   FollowUp[]
-  lead        Lead?      @relation(fields: [leadId], references: [id])
-  events      RfqEvent[]
-  items       RfqItem[]
-  notes      RfqNote[]
   assignedTo       String?
   assignedAt       DateTime?
+
+  lead      Lead?      @relation(fields: [leadId], references: [id])
+  followUps FollowUp[]
+  events    RfqEvent[]
+  items     RfqItem[]
+  notes     RfqNote[]
 
   @@index([createdAt])
   @@index([status, createdAt])
@@ -49,7 +50,7 @@ model Rfq {
 model RfqItem {
   id        String   @id @default(cuid())
   rfqId     String
-  productId String
+  productId String?
   partNo    String
   brand     String?
   category  String?
@@ -58,10 +59,13 @@ model RfqItem {
   qty       Int
   createdAt DateTime @default(now())
   meta      Json?
-  rfq       Rfq      @relation(fields: [rfqId], references: [id], onDelete: Cascade)
+
+  rfq     Rfq      @relation(fields: [rfqId], references: [id], onDelete: Cascade)
+  product Product? @relation(fields: [productId], references: [id], onDelete: SetNull)
 
   @@index([rfqId])
   @@index([partNo])
+  @@index([productId])
 }
 
 model RfqEvent {
@@ -70,7 +74,8 @@ model RfqEvent {
   type      RfqEventType
   payload   Json?
   createdAt DateTime     @default(now())
-  rfq       Rfq          @relation(fields: [rfqId], references: [id], onDelete: Cascade)
+
+  rfq Rfq @relation(fields: [rfqId], references: [id], onDelete: Cascade)
 
   @@index([rfqId, createdAt])
   @@index([type, createdAt])
@@ -84,7 +89,8 @@ model FollowUp {
   doneAt    DateTime?
   createdAt DateTime  @default(now())
   updatedAt DateTime  @updatedAt
-  rfq       Rfq       @relation(fields: [rfqId], references: [id], onDelete: Cascade)
+
+  rfq Rfq @relation(fields: [rfqId], references: [id], onDelete: Cascade)
 
   @@index([rfqId, dueAt])
   @@index([doneAt, dueAt])
@@ -111,9 +117,120 @@ model Lead {
   note      String?
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  rfqs      Rfq[]
+
+  rfqs Rfq[]
 
   @@index([createdAt])
+}
+
+model RfqNote {
+  id        String   @id @default(cuid())
+  rfqId     String
+  body      String   @db.Text
+  createdAt DateTime @default(now())
+
+  rfq Rfq @relation(fields: [rfqId], references: [id], onDelete: Cascade)
+
+  @@index([rfqId, createdAt])
+}
+
+model Product {
+  id               String        @id @default(cuid())
+  partNo           String
+  normalizedPartNo String        @unique
+  brand            String
+  category         String?
+  title            String
+  titleTh          String?
+  titleEn          String?
+  spec             String?
+  description      String?       @db.Text
+  unit             String?
+  status           ProductStatus @default(active)
+  isFeatured       Boolean       @default(false)
+  createdAt        DateTime      @default(now())
+  updatedAt        DateTime      @updatedAt
+
+  rfqItems       RfqItem[]
+  supplierPrices SupplierPrice[]
+  crossRefsFrom  CrossReference[] @relation("CrossRefFrom")
+  crossRefsTo    CrossReference[] @relation("CrossRefTo")
+
+  @@index([partNo])
+  @@index([brand])
+  @@index([category])
+  @@index([brand, category])
+  @@index([createdAt])
+}
+
+model CrossReference {
+  id              String             @id @default(cuid())
+  fromProductId   String
+  toProductId     String
+  relationType    CrossReferenceType @default(equivalent)
+  confidenceScore Decimal?           @db.Decimal(5, 2)
+  note            String?            @db.Text
+  createdAt       DateTime           @default(now())
+  updatedAt       DateTime           @updatedAt
+
+  fromProduct Product @relation("CrossRefFrom", fields: [fromProductId], references: [id], onDelete: Cascade)
+  toProduct   Product @relation("CrossRefTo", fields: [toProductId], references: [id], onDelete: Cascade)
+
+  @@unique([fromProductId, toProductId])
+  @@index([fromProductId])
+  @@index([toProductId])
+}
+
+model Supplier {
+  id               String         @id @default(cuid())
+  name             String
+  code             String         @unique
+  contactName      String?
+  contactEmail     String?
+  contactPhone     String?
+  lineId           String?
+  currency         String         @default("THB")
+  reliabilityScore Decimal?       @db.Decimal(4, 2)
+  leadTimeMinDays  Int?
+  leadTimeMaxDays  Int?
+  note             String?        @db.Text
+  status           SupplierStatus @default(active)
+  createdAt        DateTime       @default(now())
+  updatedAt        DateTime       @updatedAt
+
+  prices SupplierPrice[]
+
+  @@index([name])
+  @@index([status])
+}
+
+model SupplierPrice {
+  id              String      @id @default(cuid())
+  supplierId      String
+  productId       String
+  supplierPartNo  String?
+  costAmount      Decimal     @db.Decimal(12, 2)
+  currency        String      @default("THB")
+  freightAmount   Decimal     @default(0) @db.Decimal(12, 2)
+  handlingAmount  Decimal     @default(0) @db.Decimal(12, 2)
+  importAmount    Decimal     @default(0) @db.Decimal(12, 2)
+  totalCostAmount Decimal     @db.Decimal(12, 2)
+  availableQty    Int?
+  minOrderQty     Int         @default(1)
+  leadTimeDays    Int?
+  isPreferred     Boolean     @default(false)
+  validUntil      DateTime?
+  stockStatus     StockStatus @default(in_stock)
+  createdAt       DateTime    @default(now())
+  updatedAt       DateTime    @updatedAt
+
+  supplier Supplier @relation(fields: [supplierId], references: [id], onDelete: Cascade)
+  product  Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+
+  @@unique([supplierId, productId, supplierPartNo])
+  @@index([supplierId])
+  @@index([productId])
+  @@index([stockStatus])
 }
 
 enum RfqStatus {
@@ -137,13 +254,26 @@ enum RfqEventType {
   quote_document
   owner_assigned
 }
-model RfqNote {
-  id         String   @id @default(cuid())
-  rfqId      String
-  body       String   @db.Text
-  createdAt  DateTime @default(now())
 
-  rfq        Rfq      @relation(fields: [rfqId], references: [id], onDelete: Cascade)
+enum ProductStatus {
+  active
+  inactive
+}
 
-  @@index([rfqId, createdAt])
+enum SupplierStatus {
+  active
+  inactive
+}
+
+enum CrossReferenceType {
+  equivalent
+  alternative
+  possible_match
+}
+
+enum StockStatus {
+  in_stock
+  limited
+  preorder
+  unavailable
 }
