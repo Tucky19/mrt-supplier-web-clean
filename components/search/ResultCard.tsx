@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useLocale } from "next-intl";
 
 type Product = {
   id: string;
@@ -24,6 +25,7 @@ type Props = {
 };
 
 export default function ResultCard({ hit }: Props) {
+  const locale = useLocale();
   const product = hit.product;
   const reasons = hit.reasons ?? [];
   const refs = Array.isArray(product.refs) ? product.refs : [];
@@ -34,7 +36,7 @@ export default function ResultCard({ hit }: Props) {
         <div className="min-w-0 flex-1">
           <div className="mt-3">
             <Link
-              href={`/products/${product.id}`}
+              href={`/${locale}/products/${product.id}`}
               className="inline-block text-xl font-bold tracking-tight text-white transition hover:text-blue-300"
             >
               {product.partNo}

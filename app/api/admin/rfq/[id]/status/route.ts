@@ -1,6 +1,12 @@
-import { NextResponse } from "next/server";
 import { z } from "zod";
-import prisma from "@/lib/prisma";
+import { prisma } from "@/lib/prisma";
+import {
+  errorJson,
+  getErrorMessage,
+  getTraceId,
+  jsonWithTrace,
+  logApiEvent,
+} from "@/lib/api/observability";
 
 const StatusSchema = z.object({
   status: z.enum(["new", "in_progress", "quoted", "closed", "spam"]),
@@ -11,19 +17,19 @@ type RouteProps = {
 };
 
 export async function POST(req: Request, { params }: RouteProps) {
+  const traceId = getTraceId(req);
+
   try {
     const { id } = await params;
     const json = await req.json();
     const parsed = StatusSchema.safeParse(json);
 
     if (!parsed.success) {
-      return NextResponse.json(
-        {
-          ok: false,
-          error: "Invalid status payload.",
-        },
-        { status: 400 }
-      );
+      return errorJson({
+        traceId,
+        status: 400,
+        error: "Invalid status payload.",
+      });
     }
 
     const existing = await prisma.rfq.findUnique({
@@ -32,13 +38,11 @@ export async function POST(req: Request, { params }: RouteProps) {
     });
 
     if (!existing) {
-      return NextResponse.json(
-        {
-          ok: false,
-          error: "RFQ not found.",
-        },
-        { status: 404 }
-      );
+      return errorJson({
+        traceId,
+        status: 404,
+        error: "RFQ not found.",
+      });
     }
 
     const nextStatus = parsed.data.status;
@@ -65,19 +69,34 @@ export async function POST(req: Request, { params }: RouteProps) {
       });
     }
 
-    return NextResponse.json({
-      ok: true,
-      rfq: updated,
+    logApiEvent("info", "admin.rfq.status.updated", {
+      traceId,
+      route: "/api/admin/rfq/[id]/status",
+      rfqId: id,
+      from: existing.status,
+      to: nextStatus,
+      requestId: updated.requestId,
     });
-  } catch (error) {
-    console.error("[ADMIN_RFQ_STATUS_ERROR]", error);
 
-    return NextResponse.json(
+    return jsonWithTrace(
       {
-        ok: false,
-        error: "Failed to update status.",
+        ok: true,
+        rfq: updated,
       },
-      { status: 500 }
+      undefined,
+      traceId
     );
+  } catch (error) {
+    logApiEvent("error", "admin.rfq.status.failed", {
+      traceId,
+      route: "/api/admin/rfq/[id]/status",
+      error: getErrorMessage(error, "Failed to update status."),
+    });
+
+    return errorJson({
+      traceId,
+      status: 500,
+      error: "Failed to update status.",
+    });
   }
 }

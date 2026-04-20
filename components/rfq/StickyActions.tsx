@@ -2,6 +2,7 @@
 "use client";
 
 import React from "react";
+import { useLocale } from "next-intl";
 
 export default function StickyActions({
   partNo,
@@ -20,6 +21,8 @@ export default function StickyActions({
   hasReferences: boolean;
   children: React.ReactNode; // AddToQuoteButton (passed from page)
 }) {
+  const locale = useLocale();
+
   return (
     <div className="fixed inset-x-0 bottom-0 z-40 border-t border-neutral-200 bg-white/90 backdrop-blur">
       <div className="mx-auto flex w-full max-w-6xl flex-col gap-3 px-4 py-3 sm:flex-row sm:items-center sm:justify-between">
@@ -71,7 +74,7 @@ export default function StickyActions({
           <div className="min-w-[180px]">{children}</div>
 
           <a
-            href={`/quote`}
+            href={`/${locale}/quote`}
             className="inline-flex h-10 items-center justify-center rounded-xl border border-neutral-300 bg-neutral-900 px-4 text-sm font-semibold text-white hover:opacity-90"
             title="Open Quote page to submit RFQ"
           >

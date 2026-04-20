@@ -1,12 +1,20 @@
-import { NextResponse } from "next/server";
 import { revalidatePath } from "next/cache";
-import prisma from "@/lib/prisma";
+import { prisma } from "@/lib/prisma";
+import {
+  errorJson,
+  getErrorMessage,
+  getTraceId,
+  jsonWithTrace,
+  logApiEvent,
+} from "@/lib/api/observability";
 
 type RouteProps = {
   params: Promise<{ followUpId: string }>;
 };
 
 export async function POST(_req: Request, { params }: RouteProps) {
+  const traceId = getTraceId(_req);
+
   try {
     const { followUpId } = await params;
 
@@ -20,10 +28,11 @@ export async function POST(_req: Request, { params }: RouteProps) {
     });
 
     if (!existing) {
-      return NextResponse.json(
-        { ok: false, error: "Follow-up not found." },
-        { status: 404 }
-      );
+      return errorJson({
+        traceId,
+        status: 404,
+        error: "Follow-up not found.",
+      });
     }
 
     if (!existing.doneAt) {
@@ -50,15 +59,32 @@ export async function POST(_req: Request, { params }: RouteProps) {
     revalidatePath(`/admin/rfq/${existing.rfqId}`);
     revalidatePath("/admin/rfq");
 
-    return NextResponse.json({
-      ok: true,
+    logApiEvent("info", "admin.rfq.follow_up.done", {
+      traceId,
+      route: "/api/admin/rfq/follow-up/[followUpId]/done",
+      followUpId,
+      rfqId: existing.rfqId,
+      alreadyDone: Boolean(existing.doneAt),
     });
-  } catch (error) {
-    console.error("[ADMIN_RFQ_FOLLOWUP_DONE_ERROR]", error);
 
-    return NextResponse.json(
-      { ok: false, error: "Failed to mark follow-up as done." },
-      { status: 500 }
+    return jsonWithTrace(
+      {
+        ok: true,
+      },
+      undefined,
+      traceId
     );
+  } catch (error) {
+    logApiEvent("error", "admin.rfq.follow_up.done_failed", {
+      traceId,
+      route: "/api/admin/rfq/follow-up/[followUpId]/done",
+      error: getErrorMessage(error, "Failed to mark follow-up as done."),
+    });
+
+    return errorJson({
+      traceId,
+      status: 500,
+      error: "Failed to mark follow-up as done.",
+    });
   }
 }

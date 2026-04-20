@@ -2,6 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { useEffect, useState, useTransition } from "react";
+import { useLocale } from "next-intl";
 
 function safeStr(v: any) {
   return String(v ?? "").trim();
@@ -27,6 +28,7 @@ export default function DualSearch({
   initialMode,
 }: Props) {
   const router = useRouter();
+  const locale = useLocale();
   const [isPending, startTransition] = useTransition();
 
   const [partQ, setPartQ] = useState(initialPartQ ?? "");
@@ -55,7 +57,7 @@ export default function DualSearch({
     if (!qq) return;
 
     startTransition(() => {
-      router.push(`/search?q=${encodeURIComponent(qq)}&mode=${mode}`);
+      router.push(`/${locale}/products?q=${encodeURIComponent(qq)}&mode=${mode}`);
     });
   }
 

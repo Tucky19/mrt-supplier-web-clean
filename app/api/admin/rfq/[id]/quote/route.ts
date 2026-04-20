@@ -1,7 +1,13 @@
-import { NextResponse } from "next/server";
 import { revalidatePath } from "next/cache";
 import { z } from "zod";
-import prisma from "@/lib/prisma";
+import { prisma } from "@/lib/prisma";
+import {
+  errorJson,
+  getErrorMessage,
+  getTraceId,
+  jsonWithTrace,
+  logApiEvent,
+} from "@/lib/api/observability";
 
 const QuoteWorkflowSchema = z.object({
   note: z.string().trim().max(5000).optional().or(z.literal("")),
@@ -13,16 +19,19 @@ type RouteProps = {
 };
 
 export async function POST(req: Request, { params }: RouteProps) {
+  const traceId = getTraceId(req);
+
   try {
     const { id } = await params;
     const json = await req.json();
     const parsed = QuoteWorkflowSchema.safeParse(json);
 
     if (!parsed.success) {
-      return NextResponse.json(
-        { ok: false, error: "Invalid quotation payload." },
-        { status: 400 }
-      );
+      return errorJson({
+        traceId,
+        status: 400,
+        error: "Invalid quotation payload.",
+      });
     }
 
     const existing = await prisma.rfq.findUnique({
@@ -34,17 +43,19 @@ export async function POST(req: Request, { params }: RouteProps) {
     });
 
     if (!existing) {
-      return NextResponse.json(
-        { ok: false, error: "RFQ not found." },
-        { status: 404 }
-      );
+      return errorJson({
+        traceId,
+        status: 404,
+        error: "RFQ not found.",
+      });
     }
 
     if (existing.status === "closed" || existing.status === "spam") {
-      return NextResponse.json(
-        { ok: false, error: "This RFQ cannot be quoted." },
-        { status: 400 }
-      );
+      return errorJson({
+        traceId,
+        status: 400,
+        error: "This RFQ cannot be quoted.",
+      });
     }
 
     const note = parsed.data.note?.trim() || "";
@@ -56,10 +67,11 @@ export async function POST(req: Request, { params }: RouteProps) {
       const dueAt = new Date(nextFollowUpAtRaw);
 
       if (Number.isNaN(dueAt.getTime())) {
-        return NextResponse.json(
-          { ok: false, error: "Invalid next follow-up date." },
-          { status: 400 }
-        );
+        return errorJson({
+          traceId,
+          status: 400,
+          error: "Invalid next follow-up date.",
+        });
       }
 
       followUpDueAt = dueAt;
@@ -143,26 +155,53 @@ export async function POST(req: Request, { params }: RouteProps) {
     }
 
     const result = await prisma.$transaction(operations);
+    const sideEffectFailures: string[] = [];
 
-    revalidatePath(`/admin/rfq/${id}`);
-    revalidatePath("/admin/rfq");
+    try {
+      revalidatePath(`/admin/rfq/${id}`);
+      revalidatePath("/admin/rfq");
+    } catch (error) {
+      sideEffectFailures.push("revalidate_admin_rfq");
+      logApiEvent("error", "admin.rfq.quote_workflow.revalidate_failed", {
+        traceId,
+        route: "/api/admin/rfq/[id]/quote",
+        rfqId: id,
+        error: getErrorMessage(error, "Failed to revalidate admin quote pages."),
+      });
+    }
 
-    return NextResponse.json({
-      ok: true,
-      result,
+    logApiEvent("info", "admin.rfq.quote_workflow.completed", {
+      traceId,
+      route: "/api/admin/rfq/[id]/quote",
+      rfqId: id,
+      previousStatus: existing.status,
+      noteAdded: Boolean(note),
+      nextFollowUpAt: followUpDueAt?.toISOString() ?? null,
+      partialFailure: sideEffectFailures.length > 0,
+      sideEffectFailures,
     });
-  } catch (error) {
-    console.error("[ADMIN_RFQ_QUOTE_WORKFLOW_ERROR]", error);
 
-    return NextResponse.json(
+    return jsonWithTrace(
       {
-        ok: false,
-        error:
-          error instanceof Error
-            ? error.message
-            : "Failed to process quotation workflow.",
+        ok: true,
+        result,
+        partialFailure: sideEffectFailures.length > 0,
+        sideEffectFailures,
       },
-      { status: 500 }
+      undefined,
+      traceId
     );
+  } catch (error) {
+    logApiEvent("error", "admin.rfq.quote_workflow.failed", {
+      traceId,
+      route: "/api/admin/rfq/[id]/quote",
+      error: getErrorMessage(error, "Failed to process quotation workflow."),
+    });
+
+    return errorJson({
+      traceId,
+      status: 500,
+      error: getErrorMessage(error, "Failed to process quotation workflow."),
+    });
   }
 }

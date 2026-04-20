@@ -1,16 +1,18 @@
 "use client";
 
 import Link from "next/link";
+import { useLocale } from "next-intl";
 import { useQuote } from "@/providers/QuoteProvider";
 
 export default function StickyQuoteButton() {
+  const locale = useLocale();
   const { totalItems } = useQuote();
 
   if (!totalItems) return null;
 
   return (
     <Link
-      href="/quote"
+      href={`/${locale}/quote`}
       className="
         fixed bottom-6 right-6 z-50
         rounded-xl

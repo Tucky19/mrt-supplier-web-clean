@@ -5,14 +5,14 @@
     "products": "สินค้า",
     "applications": "การใช้งาน",
     "about": "เกี่ยวกับเรา",
-    "contact": "ติดต่อ",
-    "quote": "ขอใบเสนอราคา",
-    "search": "ค้นหา"
+    "contact": "Contact",
+    "quote": "ขอ Quote",
+    "search": "Search"
   },
  "searchHero": {
   "label": "ค้นหาสินค้า",
-  "placeholder": "ค้นหาด้วย Part Number, แบรนด์ หรือรหัสสินค้า",
-  "button": "ค้นหา",
+  "placeholder": "Part Number, Cross Reference, Description",
+  "button": "Search",
   "hint": "รองรับการค้นหาด้วย Part Number, ประเภทสินค้า และคำค้นที่เกี่ยวข้อง"
 },
 "hero": {
@@ -127,18 +127,18 @@
     "viewAll": "ดูทั้งหมด",
     "readMore": "อ่านเพิ่มเติม",
     "backToHome": "กลับหน้าแรก",
-    "language": "ภาษา"
+    "language": "ภาษา / Language"
   },
   "productsPage": {
     "title": "สินค้าของเรา",
     "description": "รวมสินค้าอะไหล่อุตสาหกรรมจากแบรนด์ที่เชื่อถือได้ พร้อมข้อมูลพื้นฐานเพื่อช่วยให้ค้นหาและส่งขอราคาได้รวดเร็วขึ้น",
-    "searchLabel": "ค้นหาสินค้า",
-    "searchPlaceholder": "กรอก Part Number, แบรนด์, หมวดสินค้า หรือคำค้น",
+    "searchLabel": "Search Product",
+    "searchPlaceholder": "Part Number, Cross Reference, Description",
     "brandLabel": "เลือกแบรนด์",
     "allBrands": "ทุกแบรนด์",
     "results": "จำนวนรายการ",
-    "emptyTitle": "ไม่พบสินค้าที่ตรงกับคำค้น",
-    "emptyDescription": "ลองเปลี่ยนคำค้นหรือเลือกแบรนด์อื่น แล้วตรวจสอบอีกครั้ง",
+    "emptyTitle": "ยังไม่พบ Product ที่ตรงกับคำค้น",
+    "emptyDescription": "ลองส่ง Part Number, Cross Reference หรือ product list มาให้ทีมงาน แล้วเราช่วยเช็กตัวเลือกและเตรียม Quote ให้ได้",
     "partNoLabel": "Part No",
     "noSpec": "กรุณาติดต่อทีมงานเพื่อขอรายละเอียดสินค้าเพิ่มเติม",
     "viewDetail": "ดูรายละเอียด",

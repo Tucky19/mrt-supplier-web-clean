@@ -1,10 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import SearchHero from "@/components/home/SearchHero";
 
 export default function HeroSection() {
   const t = useTranslations("hero");
+  const locale = useLocale();
 
   return (
     <section className="relative overflow-hidden bg-slate-50">
@@ -28,14 +29,14 @@ export default function HeroSection() {
 
           <div className="mt-6 flex flex-wrap gap-3">
             <Link
-              href="/th/quote"
+              href={`/${locale}/quote`}
               className="rounded-full border border-slate-300 bg-white px-5 py-3 text-sm font-medium text-slate-700 transition hover:border-slate-400 hover:text-slate-900"
             >
               {t("primaryCta")}
             </Link>
 
             <Link
-              href="/th/contact"
+              href={`/${locale}/contact`}
               className="rounded-full border border-slate-300 bg-white px-5 py-3 text-sm font-medium text-slate-700 transition hover:border-slate-400 hover:text-slate-900"
             >
               {t("secondaryCta")}

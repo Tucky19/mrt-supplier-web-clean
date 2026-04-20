@@ -1,7 +1,13 @@
-import { NextResponse } from "next/server";
 import { revalidatePath } from "next/cache";
 import { z } from "zod";
-import prisma from "@/lib/prisma";
+import { prisma } from "@/lib/prisma";
+import {
+  errorJson,
+  getErrorMessage,
+  getTraceId,
+  jsonWithTrace,
+  logApiEvent,
+} from "@/lib/api/observability";
 
 const FollowUpSchema = z.object({
   dueAt: z.string().min(1, "Due date is required"),
@@ -13,16 +19,19 @@ type RouteProps = {
 };
 
 export async function POST(req: Request, { params }: RouteProps) {
+  const traceId = getTraceId(req);
+
   try {
     const { id } = await params;
     const json = await req.json();
     const parsed = FollowUpSchema.safeParse(json);
 
     if (!parsed.success) {
-      return NextResponse.json(
-        { ok: false, error: "Invalid follow-up payload." },
-        { status: 400 }
-      );
+      return errorJson({
+        traceId,
+        status: 400,
+        error: "Invalid follow-up payload.",
+      });
     }
 
     const rfq = await prisma.rfq.findUnique({
@@ -31,19 +40,21 @@ export async function POST(req: Request, { params }: RouteProps) {
     });
 
     if (!rfq) {
-      return NextResponse.json(
-        { ok: false, error: "RFQ not found." },
-        { status: 404 }
-      );
+      return errorJson({
+        traceId,
+        status: 404,
+        error: "RFQ not found.",
+      });
     }
 
     const dueAt = new Date(parsed.data.dueAt);
 
     if (Number.isNaN(dueAt.getTime())) {
-      return NextResponse.json(
-        { ok: false, error: "Invalid due date." },
-        { status: 400 }
-      );
+      return errorJson({
+        traceId,
+        status: 400,
+        error: "Invalid due date.",
+      });
     }
 
     const noteValue = parsed.data.note?.trim() || null;
@@ -72,16 +83,33 @@ export async function POST(req: Request, { params }: RouteProps) {
     revalidatePath(`/admin/rfq/${id}`);
     revalidatePath("/admin/rfq");
 
-    return NextResponse.json({
-      ok: true,
-      followUp,
+    logApiEvent("info", "admin.rfq.follow_up.created", {
+      traceId,
+      route: "/api/admin/rfq/[id]/follow-up",
+      rfqId: id,
+      followUpId: followUp.id,
+      dueAt: followUp.dueAt.toISOString(),
     });
-  } catch (error) {
-    console.error("[ADMIN_RFQ_FOLLOWUP_CREATE_ERROR]", error);
 
-    return NextResponse.json(
-      { ok: false, error: "Failed to create follow-up." },
-      { status: 500 }
+    return jsonWithTrace(
+      {
+        ok: true,
+        followUp,
+      },
+      undefined,
+      traceId
     );
+  } catch (error) {
+    logApiEvent("error", "admin.rfq.follow_up.failed", {
+      traceId,
+      route: "/api/admin/rfq/[id]/follow-up",
+      error: getErrorMessage(error, "Failed to create follow-up."),
+    });
+
+    return errorJson({
+      traceId,
+      status: 500,
+      error: "Failed to create follow-up.",
+    });
   }
 }

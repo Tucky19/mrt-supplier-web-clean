@@ -1,6 +1,12 @@
-import { NextResponse } from "next/server";
 import { revalidatePath } from "next/cache";
-import prisma from "@/lib/prisma";
+import { prisma } from "@/lib/prisma";
+import {
+  errorJson,
+  getErrorMessage,
+  getTraceId,
+  jsonWithTrace,
+  logApiEvent,
+} from "@/lib/api/observability";
 
 const ALLOWED = ["new", "in_progress", "quoted", "closed", "spam"] as const;
 type AllowedStatus = (typeof ALLOWED)[number];
@@ -10,6 +16,8 @@ function isAllowedStatus(value: string): value is AllowedStatus {
 }
 
 export async function POST(req: Request) {
+  const traceId = getTraceId(req);
+
   try {
     const json = (await req.json().catch(() => null)) as
       | {
@@ -28,17 +36,19 @@ export async function POST(req: Request) {
       typeof json?.nextStatus === "string" ? json.nextStatus : "";
 
     if (ids.length === 0) {
-      return NextResponse.json(
-        { ok: false, error: "No RFQs selected." },
-        { status: 400 }
-      );
+      return errorJson({
+        traceId,
+        status: 400,
+        error: "No RFQs selected.",
+      });
     }
 
     if (!isAllowedStatus(nextStatus)) {
-      return NextResponse.json(
-        { ok: false, error: "Invalid target status." },
-        { status: 400 }
-      );
+      return errorJson({
+        traceId,
+        status: 400,
+        error: "Invalid target status.",
+      });
     }
 
     const existing = await prisma.rfq.findMany({
@@ -52,10 +62,11 @@ export async function POST(req: Request) {
     });
 
     if (existing.length === 0) {
-      return NextResponse.json(
-        { ok: false, error: "No matching RFQs found." },
-        { status: 404 }
-      );
+      return errorJson({
+        traceId,
+        status: 404,
+        error: "No matching RFQs found.",
+      });
     }
 
     const toUpdate = existing.filter(
@@ -63,10 +74,21 @@ export async function POST(req: Request) {
     );
 
     if (toUpdate.length === 0) {
-      return NextResponse.json({
-        ok: true,
-        updatedCount: 0,
+      logApiEvent("info", "admin.rfq.bulk_status.noop", {
+        traceId,
+        route: "/api/admin/rfq/bulk-status",
+        nextStatus,
+        requestedCount: ids.length,
       });
+
+      return jsonWithTrace(
+        {
+          ok: true,
+          updatedCount: 0,
+        },
+        undefined,
+        traceId
+      );
     }
 
     await prisma.$transaction([
@@ -101,19 +123,34 @@ export async function POST(req: Request) {
       revalidatePath(`/admin/rfq/${row.id}`);
     }
 
-    return NextResponse.json({
-      ok: true,
+    logApiEvent("info", "admin.rfq.bulk_status.updated", {
+      traceId,
+      route: "/api/admin/rfq/bulk-status",
+      nextStatus,
+      requestedCount: ids.length,
       updatedCount: toUpdate.length,
+      rfqIds: toUpdate.map((row: (typeof toUpdate)[number]) => row.id),
     });
-  } catch (error) {
-    console.error("[ADMIN_RFQ_BULK_STATUS_ERROR]", error);
 
-    return NextResponse.json(
+    return jsonWithTrace(
       {
-        ok: false,
-        error: "Failed to update selected RFQs.",
+        ok: true,
+        updatedCount: toUpdate.length,
       },
-      { status: 500 }
+      undefined,
+      traceId
     );
+  } catch (error) {
+    logApiEvent("error", "admin.rfq.bulk_status.failed", {
+      traceId,
+      route: "/api/admin/rfq/bulk-status",
+      error: getErrorMessage(error, "Failed to update selected RFQs."),
+    });
+
+    return errorJson({
+      traceId,
+      status: 500,
+      error: "Failed to update selected RFQs.",
+    });
   }
 }

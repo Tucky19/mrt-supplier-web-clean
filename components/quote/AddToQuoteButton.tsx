@@ -1,56 +1,74 @@
 "use client";
 
-import { FilePlus2 } from "lucide-react";
-import toast from "react-hot-toast";
+import { useState } from "react";
 import { useQuote } from "@/providers/QuoteProvider";
 
 type Props = {
-  locale: string;
   product: {
     id: string;
-    partNo?: string;
+    partNo: string;
     brand?: string;
     title?: string;
   };
-  className?: string;
-  label?: string;
 };
 
-export default function AddToQuoteButton({
-  locale,
-  product,
-  className,
-  label,
-}: Props) {
+export default function AddToQuoteButton({ product }: Props) {
   const { addItem } = useQuote();
 
-  function onClick() {
-    addItem({
-      productId: product.id,
-      partNo: product.partNo || product.id,
-      brand: product.brand,
-      title: product.title,
-      qty: 1,
-    });
+  const [loading, setLoading] = useState(false);
+  const [added, setAdded] = useState(false);
 
-    toast.success(
-      locale === "th"
-        ? `เพิ่ม ${product.partNo || product.id} ในใบขอราคาแล้ว`
-        : `Added ${product.partNo || product.id} to quote`
-    );
+  function handleAdd() {
+    if (loading) return;
+
+    setLoading(true);
+
+    try {
+      addItem({
+        productId: product.id,
+        partNo: product.partNo,
+        brand: product.brand,
+        title: product.title,
+        qty: 1,
+      });
+
+      setAdded(true);
+
+      setTimeout(() => {
+        setAdded(false);
+      }, 1500);
+    } finally {
+      setLoading(false);
+    }
   }
 
   return (
     <button
-      type="button"
-      onClick={onClick}
-      className={
-        className ||
-        "inline-flex items-center gap-2 rounded-full bg-slate-900 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-slate-800"
-      }
+      onClick={handleAdd}
+      disabled={loading}
+      className={`
+        relative overflow-hidden
+        rounded-xl px-4 py-2 text-sm font-medium text-white
+        transition-all duration-200
+        ${
+          added
+            ? "bg-emerald-600"
+            : "bg-blue-600 hover:bg-blue-700 active:scale-95"
+        }
+        disabled:opacity-50
+      `}
     >
-      <FilePlus2 className="h-4 w-4" />
-      {label || (locale === "th" ? "เพิ่มในใบขอราคา" : "Add to Quote")}
+      <span className="relative z-10">
+        {loading
+          ? "กำลังเพิ่ม..."
+          : added
+          ? "เพิ่มแล้ว ✓"
+          : "เพิ่มในใบขอราคา"}
+      </span>
+
+      {loading && (
+        <span className="absolute inset-0 animate-pulse bg-white/10" />
+      )}
     </button>
   );
 }

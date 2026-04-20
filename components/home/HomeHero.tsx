@@ -2,11 +2,13 @@
 
 import { FormEvent, useState } from "react";
 import { useRouter } from "next/navigation";
+import { useLocale } from "next-intl";
 import Input from "@/components/ui/Input";
 import Button from "@/components/ui/Button";
 
 export default function HomeHero() {
   const router = useRouter();
+  const locale = useLocale();
   const [query, setQuery] = useState("");
 
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
@@ -15,7 +17,7 @@ export default function HomeHero() {
     const q = query.trim();
     if (!q) return;
 
-    router.push(`/search?q=${encodeURIComponent(q)}`);
+    router.push(`/${locale}/products?q=${encodeURIComponent(q)}`);
   }
 
   return (

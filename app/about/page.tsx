@@ -2,7 +2,10 @@ import Page from "@/components/layout/Page";
 import Section from "@/components/layout/Section";
 import Button from "@/components/ui/Button";
 import Link from "next/link";
+import { useLocale } from "next-intl";
 export default function AboutPage() {
+  const locale = useLocale();
+
   return (
     <Page
       title="About MRT Supplier"
@@ -14,7 +17,7 @@ export default function AboutPage() {
           </Button>
 
           <Button asChild>
-          <Link href="/search">Search</Link>
+          <Link href={`/${locale}/products`}>Search</Link>
           </Button>
         </>
       }

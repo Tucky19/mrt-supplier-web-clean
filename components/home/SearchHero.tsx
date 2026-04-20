@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Search, ArrowRight } from "lucide-react";
+import { Search } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
 
@@ -46,10 +46,10 @@ export default function SearchHero() {
 
         <button
           type="submit"
-          className="inline-flex min-h-14 items-center justify-center gap-2 rounded-2xl bg-slate-900 px-6 text-sm font-medium text-white transition hover:bg-slate-800"
+          aria-label={t("button")}
+          className="inline-flex min-h-14 w-14 items-center justify-center rounded-2xl bg-slate-900 text-white transition hover:bg-slate-800"
         >
-          {t("button")}
-          <ArrowRight className="h-4 w-4" />
+          <Search className="h-5 w-5" />
         </button>
       </form>
 
@@ -65,7 +65,9 @@ export default function SearchHero() {
         ))}
       </div>
 
-      <p className="mt-4 text-sm leading-6 text-slate-500">{t("hint")}</p>
+      <p className="mt-4 text-sm leading-6 text-slate-500">
+        ค้นหาด้วย Part Number, Cross Reference หรือ Description
+      </p>
     </div>
   );
 }

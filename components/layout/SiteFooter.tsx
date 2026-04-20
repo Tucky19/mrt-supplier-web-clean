@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { useLocale, useTranslations } from "next-intl";
 
+const LINE_URL = "https://lin.ee/R3vfZW0";
+
 export default function SiteFooter() {
   const t = useTranslations("footer");
   const nav = useTranslations("nav");
@@ -33,7 +35,7 @@ export default function SiteFooter() {
             <Link href={`/${locale}/contact`} className="block hover:text-white">
               {nav("contact")}
             </Link>
-            <Link href={`/quote`} className="block hover:text-white">
+            <Link href={`/${locale}/quote`} className="block hover:text-white">
               {nav("quote")}
             </Link>
           </div>
@@ -46,7 +48,14 @@ export default function SiteFooter() {
           <div className="mt-4 space-y-3 text-sm text-slate-400">
             <p>sales@mrtsupplier.com</p>
             <p>+66 81-558-1323</p>
-            <p>@mrt-supplier</p>
+            <a
+              href={LINE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block hover:text-white"
+            >
+              LINE: @mrt-supplier
+            </a>
             <p>www.mrtsupplier.com</p>
           </div>
         </div>

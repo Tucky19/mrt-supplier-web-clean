@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { FileText, ShoppingBag } from "lucide-react";
 import { useMemo } from "react";
+import { useLocale } from "next-intl";
 import { useQuote } from "@/providers/QuoteProvider";
 
 type QuoteItem = {
@@ -10,6 +11,7 @@ type QuoteItem = {
 };
 
 export default function StickyRFQ() {
+  const locale = useLocale();
   const { items } = useQuote() as { items: QuoteItem[] };
 
   const itemCount = items.length;
@@ -49,7 +51,7 @@ export default function StickyRFQ() {
 
             <div className="flex gap-3">
               <Link
-                href="/search"
+                href={`/${locale}/products`}
                 className="inline-flex items-center justify-center rounded-2xl border border-neutral-800 px-4 py-3 text-sm font-medium text-neutral-300 transition hover:border-neutral-700 hover:bg-neutral-900 hover:text-white"
               >
                 Continue search

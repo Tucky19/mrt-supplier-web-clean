@@ -3,6 +3,7 @@
 import Link from "next/link";
 import React, { useMemo } from "react";
 import { usePathname } from "next/navigation";
+import { useLocale } from "next-intl";
 import { useQuote } from "@/providers/QuoteProvider";
 
 function cn(...xs: Array<string | false | null | undefined>) {
@@ -11,12 +12,13 @@ function cn(...xs: Array<string | false | null | undefined>) {
 
 export default function StickyQuoteBar() {
   const { items, totalItems } = useQuote();
+  const locale = useLocale();
   const pathname = usePathname();
 
   const list = (items ?? []) as Array<{ qty?: number }>;
   const totalQty = list.reduce((sum, item) => sum + Number(item.qty ?? 0), 0);
 
-  const show = totalQty > 0 && pathname !== "/quote";
+  const show = totalQty > 0 && !pathname.endsWith("/quote");
 
   const label = useMemo(() => {
     if (totalQty <= 0) return "";
@@ -42,7 +44,7 @@ export default function StickyQuoteBar() {
         </div>
 
         <Link
-          href="/quote"
+          href={`/${locale}/quote`}
           className="inline-flex shrink-0 items-center justify-center rounded-xl bg-white px-4 py-2 text-sm font-semibold text-neutral-900 transition hover:opacity-90"
         >
           Open Quote

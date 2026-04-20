@@ -236,20 +236,17 @@ export default async function ProductDetailPage({ params }: PageProps) {
               </div>
 
               <div className="mt-6 flex flex-wrap gap-3">
-                <AddToQuoteButton
-                  locale={locale}
-                  label={locale === "th" ? "เพิ่มในใบขอราคา" : "Add to Quote"}
-                  product={{
-                    id: product.id,
-                    partNo: product.partNo,
-                    brand: product.brand,
-                    title,
-                  }}
-                  className="inline-flex items-center gap-2 rounded-full bg-slate-900 px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-slate-800"
-                />
+               <AddToQuoteButton
+                 product={{
+                   id: product.id,
+                   partNo: product.partNo ?? "",
+                   brand: product.brand,
+                   title: product.title,
+                 }}
+               />
 
                 <Link
-                  href={`/quote`}
+                  href={`/${locale}/quote`}
                   className="rounded-full border border-slate-300 px-5 py-3 text-sm font-medium text-slate-700 transition hover:border-slate-400 hover:text-slate-900"
                 >
                   {locale === "th" ? "ดูใบขอราคา" : "View Quote"}

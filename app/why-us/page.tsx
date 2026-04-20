@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { useLocale } from "next-intl";
 
 export const dynamic = "force-dynamic";
 
@@ -10,6 +11,8 @@ export const metadata: Metadata = {
 };
 
 export default function WhyUsPage() {
+  const locale = useLocale();
+
   return (
     <main className="bg-white text-gray-900">
       <section className="border-b bg-gray-50">
@@ -25,7 +28,7 @@ export default function WhyUsPage() {
 
           <div className="mt-6 flex flex-wrap gap-3">
             <Link
-              href="/search"
+              href={`/${locale}/products`}
               className="rounded-xl bg-gray-900 px-5 py-3 text-sm font-semibold text-white hover:bg-gray-800"
             >
               Search parts
@@ -85,7 +88,7 @@ export default function WhyUsPage() {
             </p>
             <div className="mt-4 flex gap-3">
               <Link
-                href="/search"
+                href={`/${locale}/products`}
                 className="rounded-xl bg-gray-900 px-4 py-2.5 text-sm font-semibold text-white hover:bg-gray-800"
               >
                 Open Search

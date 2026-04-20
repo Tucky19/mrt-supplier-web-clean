@@ -1,11 +1,26 @@
-import { NextResponse } from "next/server";
+import { getTraceId, jsonWithTrace, logApiEvent } from "@/lib/api/observability";
 
-export async function GET() {
-  return NextResponse.json(
+export async function GET(req: Request) {
+  const traceId = getTraceId(req);
+
+  logApiEvent("warn", "rfq.detail_public_deprecated", {
+    traceId,
+    route: "/api/rfq/[rid]",
+  });
+
+  return jsonWithTrace(
     {
       ok: false,
-      message: "RFQ detail route is not configured yet",
+      error:
+        "Deprecated endpoint. RFQ detail lookup is not exposed on this public route.",
+      traceId,
     },
-    { status: 501 }
+    {
+      status: 410,
+      headers: {
+        "X-MRT-Deprecated": "true",
+      },
+    },
+    traceId
   );
 }

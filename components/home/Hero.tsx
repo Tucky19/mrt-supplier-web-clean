@@ -1,8 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
+import { useLocale } from "next-intl";
 import SingleSearch from "@/components/search/SingleSearch";
 
 export default function Hero() {
+  const locale = useLocale();
+
   return (
     <section className="border-b border-white/10 bg-neutral-950">
       <div className="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-4 py-12 sm:px-6 sm:py-16 lg:grid-cols-2 lg:items-center lg:gap-12 lg:px-8 lg:py-20">
@@ -46,14 +49,14 @@ export default function Hero() {
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <Link
-              href="/search"
+              href={`/${locale}/products`}
               className="inline-flex items-center justify-center rounded-xl bg-cyan-500 px-5 py-3 text-sm font-semibold text-neutral-950 transition hover:bg-cyan-400"
             >
               เริ่มค้นหาสินค้า
             </Link>
 
             <Link
-              href={`/quote`}
+              href={`/${locale}/quote`}
               className="inline-flex items-center justify-center rounded-xl border border-white/10 bg-white/5 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
             >
               ขอใบเสนอราคา

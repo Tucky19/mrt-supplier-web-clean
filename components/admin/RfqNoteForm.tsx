@@ -1,29 +1,20 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter } from "next/navigation";
 
-type Props = {
+type RfqNoteFormProps = {
   rfqId: string;
 };
 
-export default function RfqNoteForm({ rfqId }: Props) {
-  const router = useRouter();
-  const [body, setBody] = useState("");
+export default function RfqNoteForm({ rfqId }: RfqNoteFormProps) {
+  const [note, setNote] = useState("");
   const [submitting, setSubmitting] = useState(false);
-  const [error, setError] = useState("");
+  const [error, setError] = useState<string | null>(null);
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setError("");
-
-    const trimmed = body.trim();
-    if (!trimmed) {
-      setError("Please enter a note.");
-      return;
-    }
-
     setSubmitting(true);
+    setError(null);
 
     try {
       const res = await fetch(`/api/admin/rfq/${rfqId}/note`, {
@@ -31,22 +22,17 @@ export default function RfqNoteForm({ rfqId }: Props) {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({
-          body: trimmed,
-        }),
+        body: JSON.stringify({ note }),
       });
 
-      const data = (await res.json()) as {
-        ok?: boolean;
-        error?: string;
-      };
+      const data = await res.json().catch(() => null);
 
-      if (!res.ok || !data.ok) {
-        throw new Error(data.error || "Failed to save note.");
+      if (!res.ok) {
+        throw new Error(data?.error || "Failed to save note.");
       }
 
-      setBody("");
-      router.refresh();
+      setNote("");
+      window.location.reload();
     } catch (err) {
       setError(err instanceof Error ? err.message : "Failed to save note.");
     } finally {
@@ -55,33 +41,26 @@ export default function RfqNoteForm({ rfqId }: Props) {
   }
 
   return (
-    <form onSubmit={onSubmit} className="space-y-4">
+    <form onSubmit={onSubmit} className="space-y-3">
       <div>
-        <label className="mb-2 block text-sm font-medium text-slate-800">
-          Add Internal Note
-        </label>
-
+        <label className="mb-1 block text-sm font-medium">Note</label>
         <textarea
-          rows={5}
-          value={body}
-          onChange={(e) => setBody(e.target.value)}
-          placeholder="Write internal note for this RFQ..."
-          className="w-full rounded-2xl border border-slate-300 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-slate-500"
+          value={note}
+          onChange={(e) => setNote(e.target.value)}
+          rows={4}
+          className="w-full rounded-lg border border-neutral-300 px-3 py-2 text-sm"
+          placeholder="Add internal note..."
         />
       </div>
 
-      {error ? (
-        <div className="rounded-2xl border border-rose-200 bg-rose-50 px-4 py-3 text-sm text-rose-700">
-          {error}
-        </div>
-      ) : null}
+      {error ? <p className="text-sm text-red-600">{error}</p> : null}
 
       <button
         type="submit"
-        disabled={submitting}
-        className="inline-flex rounded-full bg-slate-900 px-5 py-3 text-sm font-medium text-white transition hover:bg-slate-800 disabled:cursor-not-allowed disabled:opacity-60"
+        disabled={submitting || !note.trim()}
+        className="rounded-lg bg-black px-4 py-2 text-sm font-medium text-white disabled:opacity-50"
       >
-        {submitting ? "Saving..." : "Add Note"}
+        {submitting ? "Saving..." : "Save note"}
       </button>
     </form>
   );

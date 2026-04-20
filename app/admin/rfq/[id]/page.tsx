@@ -1,13 +1,14 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import prisma from "@/lib/prisma";
-import RfqNoteForm from "@/components/admin/RfqNoteForm";
-import RfqFollowUpForm from "@/components/admin/RfqFollowUpForm";
+import { prisma } from "@/lib/prisma";
+import { RfqFollowUpForm } from '@/components/admin/RfqFollowUpForm';
 import FollowUpDoneButton from "@/components/admin/FollowUpDoneButton";
 import QuoteRecordForm from "@/components/admin/QuoteRecordForm";
 import QuoteDocumentForm from "@/components/admin/QuoteDocumentForm";
 import OwnerAssignmentForm from "@/components/admin/OwnerAssignmentForm";
-
+import { RfqStatusForm } from '@/components/admin/rfq-status-form';
+import { RfqQuoteForm } from '@/components/admin/rfq-quote-form';
+import RfqNoteForm from "@/components/admin/RfqNoteForm";
 type PageProps = {
   params: Promise<{ id: string }>;
 };

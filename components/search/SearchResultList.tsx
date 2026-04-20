@@ -1,11 +1,14 @@
 import ResultCard from "@/components/search/ResultCard";
 import type { SearchProductResult } from "@/features/search/types";
+import { useLocale } from "next-intl";
 
 type Props = {
   result: SearchProductResult;
 };
 
 export default function SearchResultList({ result }: Props) {
+  const locale = useLocale();
+
   if (result.total === 0) {
     return (
       <section className="rounded-3xl border border-white/10 bg-neutral-900/70 p-6">
@@ -24,14 +27,14 @@ export default function SearchResultList({ result }: Props) {
 
         <div className="mt-5 flex flex-col gap-3 sm:flex-row">
           <a
-            href={`/quote`}
+            href={`/${locale}/quote`}
             className="inline-flex items-center justify-center rounded-xl bg-cyan-500 px-4 py-3 text-sm font-semibold text-neutral-950 transition hover:bg-cyan-400"
           >
             Request Quote
           </a>
 
           <a
-            href="/contact"
+            href={`/${locale}/contact`}
             className="inline-flex items-center justify-center rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm font-medium text-white transition hover:border-white/20 hover:bg-white/10"
           >
             Contact Sales

@@ -2,9 +2,11 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { useLocale } from "next-intl";
 import { useQuote } from "@/providers/QuoteProvider";
 
 export default function StickyRFQBar() {
+  const locale = useLocale();
   const { totalItems } = useQuote();
 
   const [pulse, setPulse] = useState(false);
@@ -41,7 +43,7 @@ export default function StickyRFQBar() {
           </Link>
 
           <Link
-            href={`/quote`}
+            href={`/${locale}/quote`}
             className="rounded-lg bg-blue-600 px-3 py-2 text-sm font-semibold text-white hover:bg-blue-500"
           >
             Open RFQ

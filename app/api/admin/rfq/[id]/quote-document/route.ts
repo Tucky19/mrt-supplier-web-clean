@@ -1,7 +1,13 @@
-import { NextResponse } from "next/server";
 import { revalidatePath } from "next/cache";
 import { z } from "zod";
-import prisma from "@/lib/prisma";
+import { prisma } from "@/lib/prisma";
+import {
+  errorJson,
+  getErrorMessage,
+  getTraceId,
+  jsonWithTrace,
+  logApiEvent,
+} from "@/lib/api/observability";
 
 const QuoteDocumentSchema = z.object({
   quoteDocumentUrl: z.string().trim().url().optional().or(z.literal("")),
@@ -14,16 +20,19 @@ type RouteProps = {
 };
 
 export async function POST(req: Request, { params }: RouteProps) {
+  const traceId = getTraceId(req);
+
   try {
     const { id } = await params;
     const json = await req.json();
     const parsed = QuoteDocumentSchema.safeParse(json);
 
     if (!parsed.success) {
-      return NextResponse.json(
-        { ok: false, error: "Invalid quote document payload." },
-        { status: 400 }
-      );
+      return errorJson({
+        traceId,
+        status: 400,
+        error: "Invalid quote document payload.",
+      });
     }
 
     const existing = await prisma.rfq.findUnique({
@@ -35,17 +44,19 @@ export async function POST(req: Request, { params }: RouteProps) {
     });
 
     if (!existing) {
-      return NextResponse.json(
-        { ok: false, error: "RFQ not found." },
-        { status: 404 }
-      );
+      return errorJson({
+        traceId,
+        status: 404,
+        error: "RFQ not found.",
+      });
     }
 
     if (existing.status === "closed" || existing.status === "spam") {
-      return NextResponse.json(
-        { ok: false, error: "This RFQ cannot be updated." },
-        { status: 400 }
-      );
+      return errorJson({
+        traceId,
+        status: 400,
+        error: "This RFQ cannot be updated.",
+      });
     }
 
     const quoteDocumentUrl = parsed.data.quoteDocumentUrl?.trim() || null;
@@ -56,10 +67,11 @@ export async function POST(req: Request, { params }: RouteProps) {
       : new Date();
 
     if (Number.isNaN(quoteSentAt.getTime())) {
-      return NextResponse.json(
-        { ok: false, error: "Invalid quote sent date." },
-        { status: 400 }
-      );
+      return errorJson({
+        traceId,
+        status: 400,
+        error: "Invalid quote sent date.",
+      });
     }
 
     const updated = await prisma.rfq.update({
@@ -71,38 +83,75 @@ export async function POST(req: Request, { params }: RouteProps) {
         quoteSentNote,
       },
     });
+    const sideEffectFailures: string[] = [];
 
-    await prisma.rfqEvent.create({
-      data: {
-        rfqId: id,
-        type: "quote_document",
-        payload: {
-          quoteDocumentUrl,
-          quoteSentAt: quoteSentAt.toISOString(),
-          quoteSentNote,
+    try {
+      await prisma.rfqEvent.create({
+        data: {
+          rfqId: id,
+          type: "quote_document",
+          payload: {
+            quoteDocumentUrl,
+            quoteSentAt: quoteSentAt.toISOString(),
+            quoteSentNote,
+          },
         },
-      },
+      });
+    } catch (error) {
+      sideEffectFailures.push("event_quote_document");
+      logApiEvent("error", "admin.rfq.quote_document.side_effect_failed", {
+        traceId,
+        route: "/api/admin/rfq/[id]/quote-document",
+        rfqId: id,
+        sideEffect: "event_quote_document",
+        error: getErrorMessage(error, "Quote document side effect failed."),
+      });
+    }
+
+    try {
+      revalidatePath(`/admin/rfq/${id}`);
+      revalidatePath("/admin/rfq");
+    } catch (error) {
+      sideEffectFailures.push("revalidate_admin_rfq");
+      logApiEvent("error", "admin.rfq.quote_document.revalidate_failed", {
+        traceId,
+        route: "/api/admin/rfq/[id]/quote-document",
+        rfqId: id,
+        error: getErrorMessage(error, "Failed to revalidate quote document pages."),
+      });
+    }
+
+    logApiEvent("info", "admin.rfq.quote_document.saved", {
+      traceId,
+      route: "/api/admin/rfq/[id]/quote-document",
+      rfqId: id,
+      hasDocumentUrl: Boolean(quoteDocumentUrl),
+      quoteSentAt: quoteSentAt.toISOString(),
+      partialFailure: sideEffectFailures.length > 0,
+      sideEffectFailures,
     });
 
-    revalidatePath(`/admin/rfq/${id}`);
-    revalidatePath("/admin/rfq");
-
-    return NextResponse.json({
-      ok: true,
-      rfq: updated,
-    });
-  } catch (error) {
-    console.error("[ADMIN_RFQ_QUOTE_DOCUMENT_ERROR]", error);
-
-    return NextResponse.json(
+    return jsonWithTrace(
       {
-        ok: false,
-        error:
-          error instanceof Error
-            ? error.message
-            : "Failed to save quote document.",
+        ok: true,
+        rfq: updated,
+        partialFailure: sideEffectFailures.length > 0,
+        sideEffectFailures,
       },
-      { status: 500 }
+      undefined,
+      traceId
     );
+  } catch (error) {
+    logApiEvent("error", "admin.rfq.quote_document.failed", {
+      traceId,
+      route: "/api/admin/rfq/[id]/quote-document",
+      error: getErrorMessage(error, "Failed to save quote document."),
+    });
+
+    return errorJson({
+      traceId,
+      status: 500,
+      error: getErrorMessage(error, "Failed to save quote document."),
+    });
   }
 }

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
+import { useLocale } from "next-intl";
 
 const brands = [
   {
@@ -24,6 +25,8 @@ const brands = [
 ];
 
 export default function BrandStrip() {
+  const locale = useLocale();
+
   return (
     <section className="border-b border-neutral-200 bg-white">
       <div className="mx-auto max-w-6xl px-4 py-10 md:py-12">
@@ -52,7 +55,7 @@ export default function BrandStrip() {
           {brands.map((brand) => (
             <Link
               key={brand.name}
-              href={`/search?q=${encodeURIComponent(brand.query)}`}
+              href={`/${locale}/products?q=${encodeURIComponent(brand.query)}`}
               className="group rounded-3xl border border-neutral-200 bg-white p-6 shadow-sm transition duration-200 hover:-translate-y-0.5 hover:border-neutral-300 hover:shadow-md"
             >
               <div className="flex h-full flex-col">

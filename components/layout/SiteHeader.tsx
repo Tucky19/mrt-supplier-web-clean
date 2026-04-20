@@ -6,6 +6,8 @@ import { Globe, MessageCircle } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import { usePathname } from "next/navigation";
 
+const LINE_URL = "https://lin.ee/R3vfZW0";
+
 function swapLocale(pathname: string, nextLocale: "th" | "en") {
   const segments = pathname.split("/").filter(Boolean);
 
@@ -68,7 +70,7 @@ export default function SiteHeader() {
             href={`/${locale}/products`}
             className="text-sm text-slate-700 transition hover:text-slate-950"
           >
-            {locale === "th" ? "ค้นหาสินค้า" : "Search Products"}
+            {locale === "th" ? "Search Product" : "Search Products"}
           </Link>
 
           <Link
@@ -81,13 +83,13 @@ export default function SiteHeader() {
 
         <div className="flex items-center gap-3">
           <a
-            href="YOUR_LINE_URL"
+            href={LINE_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="hidden items-center gap-2 rounded-full border border-emerald-500 bg-emerald-50 px-4 py-2.5 text-sm font-medium text-emerald-700 transition hover:bg-emerald-100 md:inline-flex"
           >
             <MessageCircle className="h-4 w-4" />
-            เพิ่มเพื่อน LINE
+            Add LINE
           </a>
 
           <div className="flex items-center rounded-full border border-slate-200 bg-white p-1 shadow-sm">
@@ -103,7 +105,7 @@ export default function SiteHeader() {
                   : "text-slate-600 hover:text-slate-900"
               }`}
             >
-              TH
+              ไทย
             </Link>
 
             <Link
@@ -114,12 +116,12 @@ export default function SiteHeader() {
                   : "text-slate-600 hover:text-slate-900"
               }`}
             >
-              EN
+              English
             </Link>
           </div>
 
           <Link
-            href={`/quote`}
+            href={`/${locale}/quote`}
             className="hidden rounded-full bg-slate-900 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-slate-800 md:inline-flex"
           >
             {t("quote")}

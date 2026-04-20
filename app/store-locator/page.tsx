@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { useLocale } from "next-intl";
 
 export const dynamic = "force-dynamic";
 
@@ -26,6 +27,7 @@ const STORE = {
 };
 
 export default function StoreLocatorPage() {
+  const locale = useLocale();
   const jsonLd = {
     "@contexs": "https://schema.org",
     "@type": "LocalBusiness",
@@ -131,7 +133,7 @@ export default function StoreLocatorPage() {
                   </p>
                   <div className="mt-4 flex gap-3">
                     <a
-                      href="/search"
+                      href={`/${locale}/products`}
                       className="rounded-xl bg-gray-900 px-4 py-2.5 text-sm font-semibold text-white hover:bg-gray-800"
                     >
                       Search parts

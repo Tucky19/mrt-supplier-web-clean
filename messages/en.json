@@ -11,7 +11,7 @@
   },
     "searchHero": {
   "label": "Search Products",
-  "placeholder": "Search by part number, brand, or product keyword",
+  "placeholder": "Part Number, Cross Reference, Description",
   "button": "Search",
   "hint": "Supports part number lookup, product type search, and brand-based sourcing"
 },
@@ -168,18 +168,18 @@
     "viewAll": "View All",
     "readMore": "Read More",
     "backToHome": "Back to Home",
-    "language": "Language"
+    "language": "Thai / English"
   },
   "productsPage": {
   "title": "Our Products",
   "description": "Browse industrial spare parts from trusted brands with essential information to help you search and request quotations more efficiently.",
   "searchLabel": "Search Products",
-  "searchPlaceholder": "Enter part number, brand, category, or keyword",
+  "searchPlaceholder": "Part Number, Cross Reference, Description",
   "brandLabel": "Select Brand",
   "allBrands": "All Brands",
   "results": "Results",
-  "emptyTitle": "No matching products found",
-  "emptyDescription": "Try a different keyword or select another brand.",
+  "emptyTitle": "No matching product found",
+  "emptyDescription": "Send the part number, cross reference, or product list to our team and we can help check options and prepare a quote.",
   "partNoLabel": "Part No",
   "noSpec": "Please contact our team for more product details.",
   "viewDetail": "View Details",

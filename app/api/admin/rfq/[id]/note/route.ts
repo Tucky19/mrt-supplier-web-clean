@@ -1,7 +1,13 @@
-import { NextResponse } from "next/server";
 import { revalidatePath } from "next/cache";
 import { z } from "zod";
-import prisma from "@/lib/prisma";
+import { prisma } from "@/lib/prisma";
+import {
+  errorJson,
+  getErrorMessage,
+  getTraceId,
+  jsonWithTrace,
+  logApiEvent,
+} from "@/lib/api/observability";
 
 const NoteSchema = z.object({
   body: z.string().trim().min(1).max(5000),
@@ -12,19 +18,19 @@ type RouteProps = {
 };
 
 export async function POST(req: Request, { params }: RouteProps) {
+  const traceId = getTraceId(req);
+
   try {
     const { id } = await params;
     const json = await req.json();
     const parsed = NoteSchema.safeParse(json);
 
     if (!parsed.success) {
-      return NextResponse.json(
-        {
-          ok: false,
-          error: "Invalid note payload.",
-        },
-        { status: 400 }
-      );
+      return errorJson({
+        traceId,
+        status: 400,
+        error: "Invalid note payload.",
+      });
     }
 
     const existing = await prisma.rfq.findUnique({
@@ -33,13 +39,11 @@ export async function POST(req: Request, { params }: RouteProps) {
     });
 
     if (!existing) {
-      return NextResponse.json(
-        {
-          ok: false,
-          error: "RFQ not found.",
-        },
-        { status: 404 }
-      );
+      return errorJson({
+        traceId,
+        status: 404,
+        error: "RFQ not found.",
+      });
     }
 
     const note = await prisma.rfqNote.create({
@@ -63,19 +67,33 @@ export async function POST(req: Request, { params }: RouteProps) {
     revalidatePath(`/admin/rfq/${id}`);
     revalidatePath("/admin/rfq");
 
-    return NextResponse.json({
-      ok: true,
-      note,
+    logApiEvent("info", "admin.rfq.note.created", {
+      traceId,
+      route: "/api/admin/rfq/[id]/note",
+      rfqId: id,
+      noteId: note.id,
+      bodyLength: note.body.length,
     });
-  } catch (error) {
-    console.error("[ADMIN_RFQ_NOTE_ERROR]", error);
 
-    return NextResponse.json(
+    return jsonWithTrace(
       {
-        ok: false,
-        error: "Failed to create note.",
+        ok: true,
+        note,
       },
-      { status: 500 }
+      undefined,
+      traceId
     );
+  } catch (error) {
+    logApiEvent("error", "admin.rfq.note.failed", {
+      traceId,
+      route: "/api/admin/rfq/[id]/note",
+      error: getErrorMessage(error, "Failed to create note."),
+    });
+
+    return errorJson({
+      traceId,
+      status: 500,
+      error: "Failed to create note.",
+    });
   }
 }

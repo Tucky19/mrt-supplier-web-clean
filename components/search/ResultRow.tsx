@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { useLocale } from "next-intl";
 import AddToQuoteButton from "@/components/rfq/AddToQuoteButton";
 
 type Product = {
@@ -19,6 +20,7 @@ type Props = {
 };
 
 export default function ResultRow({ item }: Props) {
+  const locale = useLocale();
   const p = item;
 
   return (
@@ -59,7 +61,7 @@ export default function ResultRow({ item }: Props) {
           ) : null}
 
           <Link
-            href={`/products/${p.id}`}
+            href={`/${locale}/products/${p.id}`}
             className="inline-flex items-center gap-1 rounded-xl border border-white/10 px-3 py-2 text-sm text-neutral-200 transition hover:border-white/20 hover:text-white"
           >
             Detail

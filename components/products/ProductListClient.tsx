@@ -1,28 +1,18 @@
 "use client";
 
-import { useMemo, useState } from "react";
 import Link from "next/link";
-import { Search } from "lucide-react";
+import { Loader2, Search } from "lucide-react";
 import { useTranslations } from "next-intl";
 import AddToQuoteButton from "@/components/quote/AddToQuoteButton";
+import {
+  useProductSearch,
+  type ProductSearchItem,
+} from "@/hooks/useProductSearch";
 
-type Product = {
-  id: string;
-  partNo?: string;
-  brand?: string;
-  category?: string;
-  title?: string;
-  spec?: string;
-  officialUrl?: string;
-  stockStatus?: "in_stock" | "low_stock" | "request";
-};
-
-function normalize(value: string | undefined | null) {
-  return String(value ?? "").trim().toLowerCase();
-}
+const LINE_URL = "https://lin.ee/R3vfZW0";
 
 function getStockLabel(
-  status: Product["stockStatus"],
+  status: ProductSearchItem["stockStatus"],
   locale: string
 ): string | null {
   if (!status) return null;
@@ -38,7 +28,7 @@ function getStockLabel(
   return "Request";
 }
 
-function getStockClass(status: Product["stockStatus"]) {
+function getStockClass(status: ProductSearchItem["stockStatus"]) {
   if (status === "in_stock") {
     return "bg-emerald-50 text-emerald-700 border border-emerald-200";
   }
@@ -52,52 +42,33 @@ export default function ProductListClient({
   locale,
   products,
   initialQuery = "",
+  initialBrand = "",
+  initialMode = "all",
 }: {
   locale: string;
-  products: Product[];
+  products: ProductSearchItem[];
   initialQuery?: string;
+  initialBrand?: string;
+  initialMode?: string;
 }) {
   const t = useTranslations("productsPage");
-  const [query, setQuery] = useState(initialQuery);
-  const [brandFilter, setBrandFilter] = useState("all");
-
-  const brands = useMemo(() => {
-    const unique = Array.from(
-      new Set(
-        products
-          .map((product) => product.brand?.trim())
-          .filter((brand): brand is string => Boolean(brand))
-      )
-    );
-
-    return unique.sort((a, b) => a.localeCompare(b));
-  }, [products]);
-
-  const filteredProducts = useMemo(() => {
-    const needle = normalize(query);
-
-    return products.filter((product) => {
-      const matchesBrand =
-        brandFilter === "all" ||
-        normalize(product.brand) === normalize(brandFilter);
-
-      if (!matchesBrand) return false;
-      if (!needle) return true;
-
-      const haystack = [
-        product.id,
-        product.partNo,
-        product.brand,
-        product.category,
-        product.title,
-        product.spec,
-      ]
-        .map((value) => normalize(value))
-        .join(" ");
-
-      return haystack.includes(needle);
-    });
-  }, [products, query, brandFilter]);
+  const {
+    query,
+    setQuery,
+    brandFilter,
+    setBrandFilter,
+    brands,
+    isSearching,
+    totalResults,
+    visibleProducts,
+    hasMoreResults,
+    maxRenderedResults,
+  } = useProductSearch({
+    products,
+    initialQuery,
+    initialBrand,
+    initialMode,
+  });
 
   return (
     <section className="bg-slate-50">
@@ -141,26 +112,56 @@ export default function ProductListClient({
             </div>
           </div>
 
-          <div className="mt-5 text-sm text-slate-600">
-            {t("results")}{" "}
-            <span className="font-semibold text-slate-900">
-              {filteredProducts.length}
+          <div className="mt-5 flex flex-wrap items-center gap-3 text-sm text-slate-600">
+            <span>
+              {t("results")}{" "}
+              <span className="font-semibold text-slate-900">{totalResults}</span>
             </span>
+            {isSearching ? (
+              <span className="inline-flex items-center gap-2 text-slate-500">
+                <Loader2 className="h-4 w-4 animate-spin" />
+                {locale === "th" ? "กำลังค้นหา..." : "Searching..."}
+              </span>
+            ) : null}
           </div>
+
+          {hasMoreResults ? (
+            <p className="mt-2 text-xs leading-6 text-slate-500">
+              {locale === "th"
+                ? `แสดงผล ${maxRenderedResults} รายการแรกจากทั้งหมด ${totalResults} รายการ`
+                : `Showing the first ${maxRenderedResults} of ${totalResults} results`}
+            </p>
+          ) : null}
         </div>
 
-        {filteredProducts.length === 0 ? (
+        {visibleProducts.length === 0 ? (
           <div className="mt-8 rounded-3xl border border-slate-200 bg-white p-10 text-center shadow-sm">
             <h2 className="text-xl font-semibold text-slate-950">
-              {t("emptyTitle")}
+              ไม่พบสินค้าที่ค้นหา
             </h2>
             <p className="mt-3 text-sm leading-7 text-slate-600">
-              {t("emptyDescription")}
+              ส่ง Part Number หรือรายการสินค้ามาให้ทีมงานช่วยตรวจสอบเพิ่มเติมได้
             </p>
+            <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
+              <Link
+                href={`/${locale}/quote`}
+                className="inline-flex min-w-[220px] items-center justify-center rounded-full bg-slate-900 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
+              >
+                ไปหน้าใบขอราคา (RFQ)
+              </Link>
+              <a
+                href={LINE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex min-w-[220px] items-center justify-center rounded-full border border-emerald-300 bg-emerald-50 px-5 py-3 text-sm font-semibold text-emerald-800 transition hover:border-emerald-400 hover:bg-emerald-100"
+              >
+                ส่งรายการทาง LINE
+              </a>
+            </div>
           </div>
         ) : (
           <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-4">
-            {filteredProducts.map((product) => {
+            {visibleProducts.map((product) => {
               const title =
                 product.title || product.partNo || product.id || "Product";
               const effectiveStock = product.stockStatus ?? "in_stock";
@@ -224,18 +225,16 @@ export default function ProductListClient({
                       </Link>
 
                       <AddToQuoteButton
-                        locale={locale}
-                        label={locale === "th" ? "เพิ่มในใบขอราคา" : "Add to Quote"}
                         product={{
                           id: product.id,
-                          partNo: product.partNo,
+                          partNo: product.partNo ?? "",
                           brand: product.brand,
-                          title,
+                          title: product.title,
                         }}
                       />
 
                       <Link
-                        href={`/quote`}
+                        href={`/${locale}/quote`}
                         className="rounded-full border border-slate-300 px-4 py-2 text-sm font-medium text-slate-700 transition hover:border-slate-400 hover:text-slate-900"
                       >
                         {locale === "th" ? "ดูใบขอราคา" : "View Quote"}

@@ -2,9 +2,11 @@
 
 import Link from "next/link";
 import { ShoppingCart } from "lucide-react";
+import { useLocale } from "next-intl";
 import { useQuote } from "@/providers/QuoteProvider";
 
 export default function StickyRFQ() {
+  const locale = useLocale();
   const q = useQuote() as any;
 
   const items = Array.isArray(q?.items) ? q.items : [];
@@ -38,7 +40,7 @@ export default function StickyRFQ() {
           </div>
 
           <Link
-            href={`/quote`}
+            href={`/${locale}/quote`}
             className="inline-flex h-11 shrink-0 items-center justify-center rounded-xl bg-amber-400 px-4 text-sm font-semibold text-neutral-950 transition hover:opacity-90"
           >
             View Quote
@@ -49,7 +51,7 @@ export default function StickyRFQ() {
       {/* Desktop floating button */}
       <div className="fixed bottom-6 right-6 z-40 hidden lg:block">
         <Link
-          href={`/quote`}
+          href={`/${locale}/quote`}
           className="inline-flex items-center gap-3 rounded-2xl border border-neutral-800 bg-neutral-950/95 px-4 py-3 text-sm font-medium text-white shadow-lg backdrop-blur transition hover:border-neutral-700 hover:bg-neutral-900"
         >
           <span className="flex h-10 w-10 items-center justify-center rounded-xl border border-neutral-800 bg-neutral-900 text-neutral-200">

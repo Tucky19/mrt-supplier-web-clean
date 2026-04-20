@@ -21,6 +21,10 @@ function isProtectedAdminApiPath(pathname: string) {
   return pathname.startsWith("/api/admin/");
 }
 
+function isApiPath(pathname: string) {
+  return pathname.startsWith("/api/");
+}
+
 function decodeBase64(value: string) {
   try {
     return atob(value);
@@ -67,9 +71,13 @@ export default function proxy(req: NextRequest) {
     return NextResponse.next();
   }
 
+  if (isApiPath(pathname)) {
+    return NextResponse.next();
+  }
+
   return intlMiddleware(req);
 }
 
 export const config = {
-  matcher: ["/((?!_next|.*\\..*).*)", "/api/admin/:path*"],
+  matcher: ["/((?!api|_next|.*\\..*).*)", "/api/admin/:path*"],
 };

@@ -1,33 +1,22 @@
-import { NextResponse } from "next/server";
-import { searchProductsPRO } from "@/data/search/search";
+import { GET as canonicalSuggestGet } from "@/app/api/search/suggest/route";
 
 export const dynamic = "force-dynamic";
 
 export async function GET(req: Request) {
-  const { searchParams } = new URL(req.url);
-  const q = String(searchParams.get("q") ?? "").trim();
+  const forwardedReq = new Request(
+    req.url.replace("/api/search-suggest", "/api/search/suggest"),
+    {
+      method: "GET",
+      headers: req.headers,
+    }
+  );
 
-  if (!q) {
-    return NextResponse.json({ ok: true, q, items: [], matchType: "none" });
-  }
+  const response = await canonicalSuggestGet(forwardedReq as any);
+  response.headers.set("X-MRT-Deprecated", "true");
+  response.headers.set(
+    "X-MRT-Deprecated-Use",
+    "/api/search/suggest"
+  );
 
-  const res = searchProductsPRO(q, { limit: 50 });
-
-  const items = res.items.map((p) => ({
-    id: p.id,
-    partNo: p.partNo,
-    brand: p.brand,
-    category: p.category ?? "",
-    spec: p.spec ?? "",
-    stockStatus: p.stockStatus ?? "request",
-    image: p.image,
-    matchType: p.matchType,
-    matchLabel: p.matchLabel,
-  }));
-
-  return NextResponse.json({
-    ok: true,
-    q,
-    items,
-  });
+  return response;
 }

@@ -2,6 +2,7 @@
 
 import { useRouter, useSearchParams } from "next/navigation";
 import { useMemo, useState } from "react";
+import { useLocale } from "next-intl";
 
 function safeNum(v: any) {
   const s = String(v ?? "").trim();
@@ -24,6 +25,7 @@ export default function BearingBuilder({
   defaultOpen?: boolean;
 }) {
   const router = useRouter();
+  const locale = useLocale();
   const sp = useSearchParams();
 
   const [open, setOpen] = useState(defaultOpen);
@@ -48,7 +50,7 @@ export default function BearingBuilder({
     const next = new URLSearchParams(sp.toString());
     next.set("q", triple);
     next.set("mode", "spec"); // spec mode แต่ engine บังคับ exact
-    router.push(`/search?${next.toString()}`);
+    router.push(`/${locale}/products?${next.toString()}`);
   }
 
   return (

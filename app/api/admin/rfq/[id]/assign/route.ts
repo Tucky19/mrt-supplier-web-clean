@@ -1,7 +1,13 @@
-import { NextResponse } from "next/server";
 import { revalidatePath } from "next/cache";
 import { z } from "zod";
-import prisma from "@/lib/prisma";
+import { prisma } from "@/lib/prisma";
+import {
+  errorJson,
+  getErrorMessage,
+  getTraceId,
+  jsonWithTrace,
+  logApiEvent,
+} from "@/lib/api/observability";
 
 const AssignSchema = z.object({
   assignedTo: z.string().trim().max(100).optional().or(z.literal("")),
@@ -12,16 +18,19 @@ type RouteProps = {
 };
 
 export async function POST(req: Request, { params }: RouteProps) {
+  const traceId = getTraceId(req);
+
   try {
     const { id } = await params;
     const json = await req.json();
     const parsed = AssignSchema.safeParse(json);
 
     if (!parsed.success) {
-      return NextResponse.json(
-        { ok: false, error: "Invalid assignment payload." },
-        { status: 400 }
-      );
+      return errorJson({
+        traceId,
+        status: 400,
+        error: "Invalid assignment payload.",
+      });
     }
 
     const existing = await prisma.rfq.findUnique({
@@ -33,10 +42,11 @@ export async function POST(req: Request, { params }: RouteProps) {
     });
 
     if (!existing) {
-      return NextResponse.json(
-        { ok: false, error: "RFQ not found." },
-        { status: 404 }
-      );
+      return errorJson({
+        traceId,
+        status: 404,
+        error: "RFQ not found.",
+      });
     }
 
     const assignedTo = parsed.data.assignedTo?.trim() || null;
@@ -67,20 +77,33 @@ export async function POST(req: Request, { params }: RouteProps) {
     revalidatePath(`/admin/rfq/${id}`);
     revalidatePath("/admin/rfq");
 
-    return NextResponse.json({
-      ok: true,
-      rfq: updated,
+    logApiEvent("info", "admin.rfq.assign.updated", {
+      traceId,
+      route: "/api/admin/rfq/[id]/assign",
+      rfqId: id,
+      from: existing.assignedTo,
+      to: assignedTo,
     });
-  } catch (error) {
-    console.error("[ADMIN_RFQ_ASSIGN_ERROR]", error);
 
-    return NextResponse.json(
+    return jsonWithTrace(
       {
-        ok: false,
-        error:
-          error instanceof Error ? error.message : "Failed to assign owner.",
+        ok: true,
+        rfq: updated,
       },
-      { status: 500 }
+      undefined,
+      traceId
     );
+  } catch (error) {
+    logApiEvent("error", "admin.rfq.assign.failed", {
+      traceId,
+      route: "/api/admin/rfq/[id]/assign",
+      error: getErrorMessage(error, "Failed to assign owner."),
+    });
+
+    return errorJson({
+      traceId,
+      status: 500,
+      error: getErrorMessage(error, "Failed to assign owner."),
+    });
   }
 }

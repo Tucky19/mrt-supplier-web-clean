@@ -9,7 +9,8 @@ import {
   useRef,
   useState,
 } from "react";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
+import { useLocale } from "next-intl";
 import {
   autocompleteProducts,
   type AutocompleteItem,
@@ -53,7 +54,7 @@ export default function SingleSearch({
   placeholder = "Search by part number, cross reference, brand, or application",
 }: Props) {
   const router = useRouter();
-  const pathname = usePathname();
+  const locale = useLocale();
   const sp = useSearchParams();
 
   const currentQ = useMemo(() => safeStr(sp.get("q")), [sp]);
@@ -102,7 +103,7 @@ export default function SingleSearch({
     params.delete("page");
 
     const qs = params.toString();
-    const href = qs ? `/search?${qs}` : "/search";
+    const href = qs ? `/${locale}/products?${qs}` : `/${locale}/products`;
     router.push(href);
     setIsFocused(false);
     setActiveIndex(-1);
@@ -113,7 +114,9 @@ export default function SingleSearch({
 
     if (showSuggestions && activeIndex >= 0 && suggestions[activeIndex]) {
       const selected = suggestions[activeIndex];
-      router.push(`/products/${encodeURIComponent(selected.id || selected.partNo)}`);
+      router.push(
+        `/${locale}/products/${encodeURIComponent(selected.id || selected.partNo)}`
+      );
       setIsFocused(false);
       setActiveIndex(-1);
       return;
@@ -125,7 +128,7 @@ export default function SingleSearch({
   function clearSearch() {
     setQ("");
     setActiveIndex(-1);
-    router.push("/search");
+    router.push(`/${locale}/products`);
     inputRef.current?.focus();
   }
 
@@ -241,7 +244,9 @@ export default function SingleSearch({
 
           <div className="max-h-[360px] overflow-y-auto py-1">
             {suggestions.map((item, index) => {
-              const href = `/products/${encodeURIComponent(item.id || item.partNo)}`;
+              const href = `/${locale}/products/${encodeURIComponent(
+                item.id || item.partNo
+              )}`;
               const isActive = index === activeIndex;
 
               return (

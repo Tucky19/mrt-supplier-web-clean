@@ -18,7 +18,7 @@ type Product = {
 
 type PageProps = {
   params: Promise<{ locale: string }>;
-  searchParams: Promise<{ q?: string }>;
+  searchParams: Promise<{ q?: string; brand?: string; mode?: string }>;
 };
 
 function resolveProducts(): Product[] {
@@ -67,7 +67,7 @@ export default async function ProductsPage({
   searchParams,
 }: PageProps) {
   const { locale } = await params;
-  const { q = "" } = await searchParams;
+  const { q = "", brand = "", mode } = await searchParams;
 
   const t = await getTranslations({
     locale,
@@ -100,6 +100,8 @@ export default async function ProductsPage({
         locale={locale}
         products={products}
         initialQuery={q}
+        initialBrand={brand}
+        initialMode={mode}
       />
 
       <SiteFooter />

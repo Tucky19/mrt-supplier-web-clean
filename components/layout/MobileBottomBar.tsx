@@ -2,10 +2,12 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useLocale } from "next-intl";
 
 export default function MobileBottomBar() {
+  const locale = useLocale();
   const pathname = usePathname();
-  const hidden = pathname.startsWith("/quote"); // ไม่รบกวนตอนอยู่หน้า quote
+  const hidden = pathname.endsWith("/quote"); // ไม่รบกวนตอนอยู่หน้า quote
 
   if (hidden) return null;
 
@@ -16,7 +18,7 @@ export default function MobileBottomBar() {
           Search
         </Link>
         <Link
-          href={`/quote`}
+          href={`/${locale}/quote`}
           className="rounded-xl bg-slate-900 px-4 py-2 text-sm font-semibold text-white"
         >
           RFQ

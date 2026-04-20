@@ -25,7 +25,7 @@ export default function QuoteCTASection() {
 
           <div className="mt-8 flex flex-wrap gap-4">
             <Link
-              href={`/quote`}
+              href={`/${locale}/quote`}
               className="rounded-full bg-white px-6 py-3 text-sm font-medium text-slate-900 transition hover:bg-slate-100"
             >
               {t("primaryCta")}

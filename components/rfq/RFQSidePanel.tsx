@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useLocale } from "next-intl";
 import { useQuote } from "@/providers/QuoteProvider";
 
 type Props = {
@@ -18,6 +19,7 @@ function miniText(x: unknown) {
 }
 
 export default function RFQSidePanel({ className }: Props) {
+  const locale = useLocale();
   const { items, totalItems, clear, removeItem } = useQuote();
 
   const list = (items ?? []) as Array<{
@@ -97,7 +99,7 @@ export default function RFQSidePanel({ className }: Props) {
 
             <div className="mt-5 flex flex-wrap gap-3">
               <Link
-                href="/quote"
+                href={`/${locale}/quote`}
                 className="inline-flex items-center justify-center rounded-xl bg-white px-4 py-2 text-sm font-semibold text-neutral-900 transition hover:opacity-90"
               >
                 Open Quote

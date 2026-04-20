@@ -2,10 +2,12 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useLocale } from "next-intl";
 import { useQuote } from "@/providers/QuoteProvider";
 
 export default function StickyQuoteWrapper() {
   const pathname = usePathname() || "";
+  const locale = useLocale();
   const { totalItems } = useQuote();
 
   // ✅ hook-safe: คำนวณ hidden หลังเรียก hooks แล้ว
@@ -41,7 +43,7 @@ export default function StickyQuoteWrapper() {
 
             <div className="flex items-center gap-2">
               <Link
-                href="/search"
+                href={`/${locale}/products`}
                 className="rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
               >
                 Search

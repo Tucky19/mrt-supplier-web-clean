@@ -2,6 +2,7 @@
 
 import { useRouter, useSearchParams } from "next/navigation";
 import { useState, useEffect } from "react";
+import { useLocale } from "next-intl";
 
 type Tab = "part" | "spec";
 
@@ -29,6 +30,7 @@ export default function SearchPanel({
   defaultMode,
 }: Props) {
   const router = useRouter();
+  const locale = useLocale();
   const sp = useSearchParams();
 
   const [tab, setTab] = useState<Tab>(defaultMode || defaultTab);
@@ -52,7 +54,7 @@ export default function SearchPanel({
     if (brand) params.set("brand", brand);
     if (tab) params.set("mode", tab);
 
-    router.push(`/search?${params.toString()}`);
+    router.push(`/${locale}/products?${params.toString()}`);
   }
 
   function handleEnter(e: React.KeyboardEvent<HTMLInputElement>) {

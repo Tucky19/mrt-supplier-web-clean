@@ -3,6 +3,7 @@
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { ArrowLeft, Copy, Search } from "lucide-react";
+import { useLocale } from "next-intl";
 
 type Props = {
   partNo: string;
@@ -10,6 +11,7 @@ type Props = {
 
 export default function ProductHeaderActions({ partNo }: Props) {
   const router = useRouter();
+  const locale = useLocale();
   const [copied, setCopied] = useState(false);
 
   async function onCopy() {
@@ -43,7 +45,7 @@ export default function ProductHeaderActions({ partNo }: Props) {
       </button>
 
       <a
-        href={`/search?q=${encodeURIComponent(partNo)}`}
+        href={`/${locale}/products?q=${encodeURIComponent(partNo)}`}
         className="inline-flex items-center gap-2 rounded-lg border border-neutral-300 bg-white px-3 py-2 text-sm font-medium text-neutral-800 shadow-sm transition hover:bg-neutral-100"
       >
         <Search className="h-4 w-4" strokeWidth={2} />
