@@ -43,6 +43,8 @@
     "check:products": "tsx scripts/check-product-catalog.ts",
     "build:search": "tsx scripts/build-search-index.ts",
     "seed": "tsx prisma/seed.ts",
+     "postinstall": "prisma generate",
     "search:tuning": "tsx scripts/run-search-tuning.ts"
+
   }
 }
