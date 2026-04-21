@@ -14,7 +14,7 @@ type RouteContext = {
     id: string;
   }>;
 };
-
+export const dynamic = "force-dynamic";
 export async function PATCH(request: Request, context: RouteContext) {
   const traceId = getTraceId(request);
   let id = "";

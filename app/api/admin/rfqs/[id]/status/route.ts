@@ -5,7 +5,7 @@ type RouteContext = {
     id: string;
   }>;
 };
-
+export const dynamic = "force-dynamic";
 export async function PATCH(request: Request, context: RouteContext) {
   const { id } = await context.params;
   const forwardedReq = new Request(

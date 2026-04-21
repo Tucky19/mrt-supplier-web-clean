@@ -35,7 +35,7 @@ function mapLegacyRfqBody(body: LegacyRfqBody) {
     items: Array.isArray(body.items) ? body.items : [],
   };
 }
-
+export const dynamic = "force-dynamic";
 export async function POST(req: Request) {
   const traceId = getTraceId(req);
   const deprecatedHeaders = {
