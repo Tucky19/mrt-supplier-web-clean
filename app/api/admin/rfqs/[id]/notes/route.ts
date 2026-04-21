@@ -9,7 +9,7 @@ type RouteContext = {
 export async function POST(request: Request, context: RouteContext) {
   const { id } = await context.params;
   const forwardedReq = new Request(
-    request.url.replace(`/api/admin/rgqs/${id}/notes`, `/api/admin/rfq/${id}/note`),
+    request.url.replace(`/api/admin/rfqs/${id}/notes`, `/api/admin/rfq/${id}/note`),
     {
       method: "POST",
       headers: request.headers,

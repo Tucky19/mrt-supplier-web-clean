@@ -426,9 +426,7 @@ const ownerOptions = Array.from(
 
   <div>
     <label className="mb-2 block text-sm font-medium text-slate-800">
-      <th className="px-5 py-4 text-left text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">
-       Owner
-    </th>
+      Owner
     </label>
     <select
       name="owner"
@@ -519,6 +517,9 @@ const ownerOptions = Array.from(
                           Items
                         </th>
                         <th className="px-5 py-4 text-left text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">
+                          Owner
+                        </th>
+                        <th className="px-5 py-4 text-left text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">
                           Follow-up
                         </th>
                         <th className="px-5 py-4 text-left text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">
@@ -574,14 +575,14 @@ const ownerOptions = Array.from(
                             </span>{" "}
                             item(s)
                           </td>
-                        <td className="px-5 py-4">
-                          <div className="text-sm font-medium text-slate-900">
+                          <td className="px-5 py-4">
+                            <div className="text-sm font-medium text-slate-900">
                               {rfq.assignedTo || "-"}
-                          </div>
-                          <div className="mt-1 text-xs text-slate-500">
+                            </div>
+                            <div className="mt-1 text-xs text-slate-500">
                               {rfq.assignedAt ? `Assigned: ${formatDate(rfq.assignedAt)}` : "Unassigned"}
-                          </div>
-                        </td>
+                            </div>
+                          </td>
                           <td className="px-5 py-4">
                             <div className="flex flex-wrap gap-2">
                               {rfq.hasOverdueFollowUp ? (

@@ -80,37 +80,51 @@ export async function GET(request: NextRequest) {
 
     const items = itemsRaw as AdminRfqListItem[];
 
-    return NextResponse.json({
-      ok: true,
-      items: items.map((rfq: AdminRfqListItem) => ({
-        id: rfq.id,
-        requestId: rfq.requestId,
-        createdAt: rfq.createdAt,
-        status: rfq.status,
-        company: rfq.company,
-        name: rfq.name,
-        email: rfq.email,
-        phone: rfq.phone,
-        lineId: rfq.lineId,
-        itemCount: rfq._count?.items ?? 0,
-      })),
-      pagination: {
-        page,
-        pageSize: take,
-        total,
-        totalPages: Math.max(1, Math.ceil(total / take)),
+    return NextResponse.json(
+      {
+        ok: true,
+        items: items.map((rfq: AdminRfqListItem) => ({
+          id: rfq.id,
+          requestId: rfq.requestId,
+          createdAt: rfq.createdAt,
+          status: rfq.status,
+          company: rfq.company,
+          name: rfq.name,
+          email: rfq.email,
+          phone: rfq.phone,
+          lineId: rfq.lineId,
+          itemCount: rfq._count?.items ?? 0,
+        })),
+        pagination: {
+          page,
+          pageSize: take,
+          total,
+          totalPages: Math.max(1, Math.ceil(total / take)),
+        },
+        filters: {
+          status: status || "all",
+          q,
+        },
       },
-      filters: {
-        status: status || "all",
-        q,
-      },
-    });
+      {
+        headers: {
+          "X-MRT-Deprecated": "true",
+          "X-MRT-Deprecated-Use": "/admin/rfq",
+        },
+      }
+    );
   } catch (error) {
     console.error("[admin-rfqs-list-get]", error);
 
     return NextResponse.json(
       { ok: false, error: "Failed to load RFQs" },
-      { status: 500 }
+      {
+        status: 500,
+        headers: {
+          "X-MRT-Deprecated": "true",
+          "X-MRT-Deprecated-Use": "/admin/rfq",
+        },
+      }
     );
   }
 }

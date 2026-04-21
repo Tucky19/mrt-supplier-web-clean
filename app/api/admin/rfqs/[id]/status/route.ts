@@ -9,7 +9,7 @@ type RouteContext = {
 export async function PATCH(request: Request, context: RouteContext) {
   const { id } = await context.params;
   const forwardedReq = new Request(
-    request.url.replace(`/api/admin/rgqs/${id}/status`, `/api/admin/rfq/${id}/status`),
+    request.url.replace(`/api/admin/rfqs/${id}/status`, `/api/admin/rfq/${id}/status`),
     {
       method: "POST",
       headers: request.headers,

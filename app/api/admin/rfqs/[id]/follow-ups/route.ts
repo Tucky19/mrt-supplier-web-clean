@@ -10,7 +10,7 @@ export async function POST(request: Request, context: RouteContext) {
   const { id } = await context.params;
   const forwardedReq = new Request(
     request.url.replace(
-      `/api/admin/rgqs/${id}/follow-ups`,
+      `/api/admin/rfqs/${id}/follow-ups`,
       `/api/admin/rfq/${id}/follow-up`
     ),
     {

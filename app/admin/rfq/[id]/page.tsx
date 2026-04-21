@@ -6,7 +6,7 @@ import FollowUpDoneButton from "@/components/admin/FollowUpDoneButton";
 import QuoteRecordForm from "@/components/admin/QuoteRecordForm";
 import QuoteDocumentForm from "@/components/admin/QuoteDocumentForm";
 import OwnerAssignmentForm from "@/components/admin/OwnerAssignmentForm";
-import { RfqStatusForm } from '@/components/admin/rfq-status-form';
+import { RfqStatusForm } from "@/components/admin/rfq-status-form";
 import { RfqQuoteForm } from '@/components/admin/rfq-quote-form';
 import RfqNoteForm from "@/components/admin/RfqNoteForm";
 type PageProps = {
@@ -167,45 +167,6 @@ function getTimelineDescription(type: string, payload: unknown) {
 }
 
   return null;
-}
-
-async function updateStatus(formData: FormData) {
-  "use server";
-
-  const id = String(formData.get("id") || "");
-  const status = String(formData.get("status") || "");
-
-  if (!id || !status) return;
-
-  const allowed = ["new", "in_progress", "quoted", "closed", "spam"];
-  if (!allowed.includes(status)) return;
-
-  const existing = await prisma.rfq.findUnique({
-    where: { id },
-    select: { id: true, status: true },
-  });
-
-  if (!existing) return;
-
-  await prisma.rfq.update({
-    where: { id },
-    data: {
-      status: status as "new" | "in_progress" | "quoted" | "closed" | "spam",
-    },
-  });
-
-  if (existing.status !== status) {
-    await prisma.rfqEvent.create({
-      data: {
-        rfqId: id,
-        type: "status_changed",
-        payload: {
-          from: existing.status,
-          to: status,
-        },
-      },
-    });
-  }
 }
 
 export const dynamic = "force-dynamic";
@@ -510,34 +471,7 @@ export default async function AdminRfqDetailPage({ params }: PageProps) {
                 </span>
               </div>
 
-              <form action={updateStatus} className="space-y-4">
-                <input type="hidden" name="id" value={rfq.id} />
-
-                <div>
-                  <label className="mb-2 block text-sm font-medium text-slate-800">
-                    Change Status
-                  </label>
-
-                  <select
-                    name="status"
-                    defaultValue={rfq.status}
-                    className="w-full rounded-2xl border border-slate-300 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-slate-500"
-                  >
-                    <option value="new">New</option>
-                    <option value="in_progress">In Progress</option>
-                    <option value="quoted">Quoted</option>
-                    <option value="closed">Closed</option>
-                    <option value="spam">Spam</option>
-                  </select>
-                </div>
-
-                <button
-                  type="submit"
-                  className="inline-flex rounded-full bg-slate-900 px-5 py-3 text-sm font-medium text-white transition hover:bg-slate-800"
-                >
-                  Update Status
-                </button>
-              </form>
+              <RfqStatusForm rfqId={rfq.id} currentStatus={rfq.status} />
             </div>
           </div>
 

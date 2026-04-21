@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import {
   ChevronDown,
   Search,
@@ -160,6 +161,12 @@ function FAQAccordionItem({
 
 export default function FAQClient() {
   const [openKey, setOpenKey] = useState<string>("0-0");
+  const pathname = usePathname();
+  const locale = pathname?.startsWith("/en")
+    ? "en"
+    : pathname?.startsWith("/th")
+    ? "th"
+    : "th";
 
   return (
     <main className="bg-[#F7F8FA]">
@@ -180,14 +187,14 @@ export default function FAQClient() {
 
           <div className="mt-6 flex flex-wrap gap-3">
             <Link
-              href="/products"
+              href={`/${locale}/products`}
               className="inline-flex items-center rounded-xl border border-neutral-300 bg-white px-4 py-2.5 text-sm font-medium text-neutral-700 transition hover:bg-neutral-100"
             >
               Go to Search
             </Link>
 
             <Link
-              href="/quote"
+              href={`/${locale}/quote`}
               className="inline-flex items-center rounded-xl bg-slate-900 px-4 py-2.5 text-sm font-medium text-white transition hover:bg-slate-800"
             >
               Go to RFQ
@@ -285,14 +292,14 @@ export default function FAQClient() {
 
             <div className="flex flex-wrap gap-3">
               <Link
-                href="/products"
+                href={`/${locale}/products`}
                 className="inline-flex items-center rounded-xl border border-neutral-300 bg-white px-4 py-2.5 text-sm font-medium text-neutral-700 transition hover:bg-neutral-100"
               >
                 Search Parts
               </Link>
 
               <Link
-                href="/quote"
+                href={`/${locale}/quote`}
                 className="inline-flex items-center rounded-xl bg-slate-900 px-4 py-2.5 text-sm font-medium text-white transition hover:bg-slate-800"
               >
                 Send RFQ

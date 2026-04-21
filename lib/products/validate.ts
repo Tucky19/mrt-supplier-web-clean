@@ -1,6 +1,10 @@
-import { Product, StockStatus } from "@/types/product";
+import { Product } from "@/types/product";
 
-const ALLOWED_STOCK: StockStatus[] = ["in_stock", "low_stock", "request"];
+const ALLOWED_STOCK: NonNullable<Product["stockStatus"]>[] = [
+  "in_stock",
+  "low_stock",
+  "request",
+];
 
 export type ProductValidationIssue = {
   index: number;
@@ -85,14 +89,14 @@ export function validateProduct(
     }
   }
 
-  if (product.imageUrl) {
+  if (product.officialImageUrl) {
     try {
-      new URL(product.imageUrl);
+      new URL(product.officialImageUrl);
     } catch {
       issues.push({
         index,
-        field: "imageUrl",
-        message: "imageUrl must be a valid URL",
+        field: "officialImageUrl",
+        message: "officialImageUrl must be a valid URL",
         product,
       });
     }

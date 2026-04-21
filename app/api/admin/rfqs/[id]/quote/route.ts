@@ -24,14 +24,14 @@ export async function PATCH(request: Request, context: RouteContext) {
     const bodyText = await request.text();
     const body = JSON.parse(bodyText || "{}");
 
-    logApiEvent("info", "admin.rgqs.quote_wrapper.received", {
+    logApiEvent("info", "admin.rfqs.quote_wrapper.received", {
       traceId,
-      route: "/api/admin/rgqs/[id]/quote",
+      route: "/api/admin/rfqs/[id]/quote",
       rfqId: id,
     });
 
     const recordReq = new Request(
-      request.url.replace(`/api/admin/rgqs/${id}/quote`, `/api/admin/rfq/${id}/quote-record`),
+      request.url.replace(`/api/admin/rfqs/${id}/quote`, `/api/admin/rfq/${id}/quote-record`),
       {
         method: "POST",
         headers: forwardTraceHeaders(request.headers, traceId),
@@ -52,9 +52,9 @@ export async function PATCH(request: Request, context: RouteContext) {
 
     const recordPayload = await recordRes.json().catch(() => null);
     if (!recordRes.ok || !recordPayload?.ok) {
-      logApiEvent("warn", "admin.rgqs.quote_wrapper.record_failed", {
+      logApiEvent("warn", "admin.rfqs.quote_wrapper.record_failed", {
         traceId,
-        route: "/api/admin/rgqs/[id]/quote",
+        route: "/api/admin/rfqs/[id]/quote",
         rfqId: id,
         upstreamStatus: recordRes.status,
         error: recordPayload?.error,
@@ -80,7 +80,7 @@ export async function PATCH(request: Request, context: RouteContext) {
     }
 
     const documentReq = new Request(
-      request.url.replace(`/api/admin/rgqs/${id}/quote`, `/api/admin/rfq/${id}/quote-document`),
+      request.url.replace(`/api/admin/rfqs/${id}/quote`, `/api/admin/rfq/${id}/quote-document`),
       {
         method: "POST",
         headers: forwardTraceHeaders(request.headers, traceId),
@@ -98,9 +98,9 @@ export async function PATCH(request: Request, context: RouteContext) {
 
     const documentPayload = await documentRes.json().catch(() => null);
     if (!documentRes.ok || !documentPayload?.ok) {
-      logApiEvent("error", "admin.rgqs.quote_wrapper.partial_failure", {
+      logApiEvent("error", "admin.rfqs.quote_wrapper.partial_failure", {
         traceId,
-        route: "/api/admin/rgqs/[id]/quote",
+        route: "/api/admin/rfqs/[id]/quote",
         rfqId: id,
         recordSaved: true,
         documentSaved: false,
@@ -133,9 +133,9 @@ export async function PATCH(request: Request, context: RouteContext) {
       );
     }
 
-    logApiEvent("info", "admin.rgqs.quote_wrapper.completed", {
+    logApiEvent("info", "admin.rfqs.quote_wrapper.completed", {
       traceId,
-      route: "/api/admin/rgqs/[id]/quote",
+      route: "/api/admin/rfqs/[id]/quote",
       rfqId: id,
     });
 
@@ -158,9 +158,9 @@ export async function PATCH(request: Request, context: RouteContext) {
       traceId
     );
   } catch (error) {
-    logApiEvent("error", "admin.rgqs.quote_wrapper.failed", {
+    logApiEvent("error", "admin.rfqs.quote_wrapper.failed", {
       traceId,
-      route: "/api/admin/rgqs/[id]/quote",
+      route: "/api/admin/rfqs/[id]/quote",
       rfqId: id || undefined,
       error: getErrorMessage(error, "Failed to update quote info"),
     });
