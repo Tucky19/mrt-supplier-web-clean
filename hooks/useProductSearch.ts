@@ -18,7 +18,7 @@ export type ProductSearchItem = {
 type SearchMode = "part" | "spec" | "all";
 
 type UseProductSearchArgs = {
-  products: ProductSearchItem[];
+  products?: ProductSearchItem[];
   initialQuery?: string;
   initialBrand?: string;
   initialMode?: string;
@@ -32,7 +32,7 @@ function normalize(value: string | undefined | null) {
 }
 
 export function useProductSearch({
-  products,
+  products = [],
   initialQuery = "",
   initialBrand = "",
   initialMode = "all",

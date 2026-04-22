@@ -19,12 +19,14 @@ export default function ProductListClient({
   initialMode = "all",
 }: {
   locale: string;
-  products: ProductSearchItem[];
+  products?: ProductSearchItem[];
   initialQuery?: string;
   initialBrand?: string;
   initialMode?: string;
 }) {
   const t = useTranslations("productsPage");
+  const safeProducts = Array.isArray(products) ? products : [];
+
   const {
     query,
     setQuery,
@@ -37,7 +39,7 @@ export default function ProductListClient({
     hasMoreResults,
     maxRenderedResults,
   } = useProductSearch({
-    products,
+    products: safeProducts,
     initialQuery,
     initialBrand,
     initialMode,
@@ -90,10 +92,11 @@ export default function ProductListClient({
               {t("results")}{" "}
               <span className="font-semibold text-slate-900">{totalResults}</span>
             </span>
+
             {isSearching ? (
               <span className="inline-flex items-center gap-2 text-slate-500">
                 <Loader2 className="h-4 w-4 animate-spin" />
-                {locale === "th" ? "เธเธณเธฅเธฑเธเธเนเธเธซเธฒ..." : "Searching..."}
+                {locale === "th" ? "กำลังค้นหา..." : "Searching..."}
               </span>
             ) : null}
           </div>
@@ -101,7 +104,7 @@ export default function ProductListClient({
           {hasMoreResults ? (
             <p className="mt-2 text-xs leading-6 text-slate-500">
               {locale === "th"
-                ? `เนเธชเธ”เธเธเธฅ ${maxRenderedResults} เธฃเธฒเธขเธเธฒเธฃเนเธฃเธเธเธฒเธเธ—เธฑเนเธเธซเธกเธ” ${totalResults} เธฃเธฒเธขเธเธฒเธฃ`
+                ? `แสดงผล ${maxRenderedResults} รายการแรกจากทั้งหมด ${totalResults} รายการ`
                 : `Showing the first ${maxRenderedResults} of ${totalResults} results`}
             </p>
           ) : null}
@@ -110,25 +113,30 @@ export default function ProductListClient({
         {visibleProducts.length === 0 ? (
           <div className="mt-8 rounded-3xl border border-slate-200 bg-white p-10 text-center shadow-sm">
             <h2 className="text-xl font-semibold text-slate-950">
-              เนเธกเนเธเธเธชเธดเธเธเนเธฒเธ—เธตเนเธเนเธเธซเธฒ
+              {locale === "th" ? "ไม่พบสินค้าที่ค้นหา" : "No matching products found"}
             </h2>
+
             <p className="mt-3 text-sm leading-7 text-slate-600">
-              เธชเนเธ Part Number เธซเธฃเธทเธญเธฃเธฒเธขเธเธฒเธฃเธชเธดเธเธเนเธฒเธกเธฒเนเธซเนเธ—เธตเธกเธเธฒเธเธเนเธงเธขเธ•เธฃเธงเธเธชเธญเธเน€เธเธดเนเธกเน€เธ•เธดเธกเนเธ”เน
+              {locale === "th"
+                ? "ส่ง Part Number หรือรายการสินค้ามาให้ทีมงานช่วยตรวจสอบเพิ่มเติมได้"
+                : "Send us the part number or product list and our team can help verify the item for you."}
             </p>
+
             <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <Link
                 href={`/${locale}/quote`}
                 className="inline-flex min-w-[220px] items-center justify-center rounded-full bg-slate-900 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
               >
-                เนเธเธซเธเนเธฒเนเธเธเธญเธฃเธฒเธเธฒ (RFQ)
+                {locale === "th" ? "ไปหน้าใบขอราคา (RFQ)" : "Go to RFQ"}
               </Link>
+
               <a
                 href={LINE_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex min-w-[220px] items-center justify-center rounded-full border border-emerald-300 bg-emerald-50 px-5 py-3 text-sm font-semibold text-emerald-800 transition hover:border-emerald-400 hover:bg-emerald-100"
               >
-                เธชเนเธเธฃเธฒเธขเธเธฒเธฃเธ—เธฒเธ LINE
+                {locale === "th" ? "ส่งรายการทาง LINE" : "Send via LINE"}
               </a>
             </div>
           </div>
