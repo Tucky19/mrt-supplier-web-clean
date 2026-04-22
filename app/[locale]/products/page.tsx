@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
-import { products } from "@/data/products";
+import { products as catalogProducts } from "@/data/products/index";
 import SiteHeader from "@/components/layout/SiteHeader";
 import SiteFooter from "@/components/layout/SiteFooter";
 import ProductListClient from "@/components/products/ProductListClient";
@@ -38,6 +38,8 @@ export default async function ProductsPage({
     locale,
     namespace: "productsPage",
   });
+
+  const products = Array.isArray(catalogProducts) ? catalogProducts : [];
 
   return (
     <main className="min-h-screen bg-slate-50">
