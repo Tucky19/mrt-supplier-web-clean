@@ -8,6 +8,8 @@ import {
   logApiEvent,
 } from "@/lib/api/observability";
 
+export const dynamic = "force-dynamic";
+
 const ALLOWED = ["new", "in_progress", "quoted", "closed", "spam"] as const;
 type AllowedStatus = (typeof ALLOWED)[number];
 

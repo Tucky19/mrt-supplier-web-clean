@@ -9,6 +9,8 @@ import {
   logApiEvent,
 } from "@/lib/api/observability";
 
+export const dynamic = "force-dynamic";
+
 const FollowUpSchema = z.object({
   dueAt: z.string().min(1, "Due date is required"),
   note: z.string().trim().max(2000).optional().or(z.literal("")),

@@ -17,6 +17,8 @@ import {
   logApiEvent,
 } from "@/lib/api/observability";
 
+export const dynamic = "force-dynamic";
+
 function hashIp(ip: string) {
   const salt = process.env.RATE_LIMIT_SECRET || "rfq";
   return crypto

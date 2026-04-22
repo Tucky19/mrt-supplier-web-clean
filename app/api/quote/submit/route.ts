@@ -7,6 +7,8 @@ import {
   type EmailRfqItem,
 } from "@/lib/email/sendRfqEmails";
 
+export const dynamic = "force-dynamic";
+
 type SubmitItem = {
   productId?: string;
   partNo?: string;

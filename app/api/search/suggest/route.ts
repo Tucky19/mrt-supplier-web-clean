@@ -2,6 +2,8 @@ import { NextRequest, NextResponse } from "next/server";
 import { products } from "@/data/products";
 import { searchProducts } from "@/lib/search/search";
 
+export const dynamic = "force-dynamic";
+
 export async function GET(req: NextRequest) {
   const { searchParams } = new URL(req.url);
 

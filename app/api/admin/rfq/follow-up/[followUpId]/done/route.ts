@@ -8,6 +8,8 @@ import {
   logApiEvent,
 } from "@/lib/api/observability";
 
+export const dynamic = "force-dynamic";
+
 type RouteProps = {
   params: Promise<{ followUpId: string }>;
 };

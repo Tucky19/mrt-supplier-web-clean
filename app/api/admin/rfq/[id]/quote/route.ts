@@ -9,6 +9,8 @@ import {
   logApiEvent,
 } from "@/lib/api/observability";
 
+export const dynamic = "force-dynamic";
+
 const QuoteWorkflowSchema = z.object({
   note: z.string().trim().max(5000).optional().or(z.literal("")),
   nextFollowUpAt: z.string().optional().or(z.literal("")),

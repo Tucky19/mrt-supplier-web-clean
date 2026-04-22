@@ -1,6 +1,8 @@
 import { NextResponse } from "next/server";
 import { sendAdminRfqEmail } from "@/lib/mail";
 
+export const dynamic = "force-dynamic";
+
 export async function GET() {
   try {
     await sendAdminRfqEmail({

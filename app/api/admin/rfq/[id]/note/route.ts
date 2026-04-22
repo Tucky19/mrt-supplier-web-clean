@@ -9,6 +9,8 @@ import {
   logApiEvent,
 } from "@/lib/api/observability";
 
+export const dynamic = "force-dynamic";
+
 const NoteSchema = z.object({
   body: z.string().trim().min(1).max(5000),
 });

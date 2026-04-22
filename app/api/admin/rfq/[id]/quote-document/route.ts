@@ -9,6 +9,8 @@ import {
   logApiEvent,
 } from "@/lib/api/observability";
 
+export const dynamic = "force-dynamic";
+
 const QuoteDocumentSchema = z.object({
   quoteDocumentUrl: z.string().trim().url().optional().or(z.literal("")),
   quoteSentAt: z.string().optional().or(z.literal("")),

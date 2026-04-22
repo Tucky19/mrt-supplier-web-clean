@@ -8,6 +8,8 @@ import {
   logApiEvent,
 } from "@/lib/api/observability";
 
+export const dynamic = "force-dynamic";
+
 const StatusSchema = z.object({
   status: z.enum(["new", "in_progress", "quoted", "closed", "spam"]),
 });

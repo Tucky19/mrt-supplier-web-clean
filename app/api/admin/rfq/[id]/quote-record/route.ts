@@ -9,6 +9,8 @@ import {
   logApiEvent,
 } from "@/lib/api/observability";
 
+export const dynamic = "force-dynamic";
+
 const QuoteRecordSchema = z.object({
   quoteRef: z.string().trim().max(100).optional().or(z.literal("")),
   quotedBy: z.string().trim().max(100).optional().or(z.literal("")),

@@ -7,6 +7,8 @@ import {
   getErrorMessage,
 } from "@/lib/api/observability";
 
+export const dynamic = "force-dynamic";
+
 export async function POST(req: Request) {
   const traceId = getTraceId(req);
 
