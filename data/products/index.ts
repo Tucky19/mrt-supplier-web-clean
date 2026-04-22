@@ -1,4 +1,4 @@
-import { Product } from "@/types/product";
+import type { Product } from "@/types/product";
 import { donaldsonProducts } from "@/data/products/brand-donaldson";
 import { ntnProducts } from "@/data/products/brand-ntn";
 import { mannProducts } from "@/data/products/brand-mann";
