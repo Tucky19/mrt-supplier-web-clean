@@ -22,18 +22,20 @@ export type SearchHit<TProduct extends SearchableProduct = SearchableProduct> = 
 };
 
 const SCORE = {
-  PART_EXACT: 1200,
-  XREF_EXACT: 1050,
-  PART_PREFIX: 780,
-  XREF_PREFIX: 700,
-  PART_CONTAINS: 460,
-  XREF_CONTAINS: 420,
+  PART_EXACT: 1400,
+  XREF_EXACT: 1180,
+
+  PART_PREFIX: 820,
+  XREF_PREFIX: 720,
+
+  PART_CONTAINS: 480,
+  XREF_CONTAINS: 430,
 
   TOKEN_PART: 150,
   TOKEN_XREF: 120,
   TOKEN_BRAND: 90,
   TOKEN_CATEGORY: 80,
-  TOKEN_TITLE: 70,
+  TOKEN_TITLE: 75,
   TOKEN_SPEC: 55,
 
   MULTI_TOKEN_2: 180,
@@ -42,7 +44,7 @@ const SCORE = {
   FIELD_COVERAGE_2: 100,
   FIELD_COVERAGE_3: 80,
 
-  SPEC_EXACT: 220,
+  SPEC_EXACT: 240,
   SPEC_TOKEN: 140,
   SPEC_TITLE: 95,
   SPEC_CATEGORY: 85,
@@ -91,14 +93,17 @@ function buildSearchTexts(product: SearchableProduct) {
     title,
     spec,
     refs,
+
     partNoNorm: normalize(partNo),
     brandNorm: normalize(brand),
     categoryNorm: normalize(category),
     titleNorm: normalize(title),
     specNorm: normalize(spec),
     refsNorm: refs.map((ref) => normalize(ref)),
+
     partNoCompact: compactNormalize(partNo),
     refsCompact: refs.map((ref) => compactNormalize(ref)),
+
     blob: normalize([partNo, brand, category, title, spec, ...refs].join(" ")),
   };
 }
@@ -135,7 +140,12 @@ function getIntentMultiplier(
 ): number {
   if (intent === "part") {
     if (field === "part" || field === "xref") return 1.2;
-    if (field === "brand" || field === "category" || field === "title" || field === "spec") {
+    if (
+      field === "brand" ||
+      field === "category" ||
+      field === "title" ||
+      field === "spec"
+    ) {
       return 0.8;
     }
     if (field === "typo") return 0.9;
@@ -150,7 +160,12 @@ function getIntentMultiplier(
 
   if (intent === "mixed") {
     if (field === "part" || field === "xref") return 1.1;
-    if (field === "brand" || field === "category" || field === "title" || field === "spec") {
+    if (
+      field === "brand" ||
+      field === "category" ||
+      field === "title" ||
+      field === "spec"
+    ) {
       return 1;
     }
     if (field === "typo") return 0.85;
@@ -171,7 +186,7 @@ function getTokenWeight(token: string): number {
     "อะไหล่",
   ]);
 
-  if (/^\d+(mm|cm|in)?$/.test(token)) return 1.35;
+  if (/^\d+(mm|cm|in|μ|um)?$/.test(token)) return 1.35;
   if (/[0-9]/.test(token) && /[a-z]/i.test(token)) return 1.4;
   if (token.length >= 6) return 1.15;
   if (genericTokens.has(token)) return 0.75;
@@ -203,6 +218,7 @@ function applyScore(base: number, multiplier: number): number {
 
 function editDistanceWithinOne(a: string, b: string): boolean {
   if (!a || !b) return false;
+
   const al = a.length;
   const bl = b.length;
 
@@ -242,14 +258,15 @@ function editDistanceWithinOne(a: string, b: string): boolean {
 
 function scorePartMode(
   product: SearchableProduct,
-  query: string,
+  rawQuery: string,
+  normalizedQuery: string,
+  compactQuery: string,
   expandedQueries: string[],
   intent: QueryIntent
 ): SearchHit<SearchableProduct> | null {
   const texts = buildSearchTexts(product);
-  const compactQuery = compactNormalize(query);
   const tokens = uniqueStrings([
-    ...tokenize(query),
+    ...tokenize(rawQuery),
     ...expandedQueries.flatMap(tokenize),
   ]);
 
@@ -260,6 +277,7 @@ function scorePartMode(
 
   if (!compactQuery) return null;
 
+  // Exact part number should dominate.
   if (texts.partNoCompact === compactQuery) {
     score += applyScore(SCORE.PART_EXACT, getIntentMultiplier(intent, "part"));
     reasons.push("partNo:exact");
@@ -272,7 +290,11 @@ function scorePartMode(
     matchedFields.add("xref");
   }
 
-  if (texts.partNoCompact.startsWith(compactQuery) && compactQuery.length >= 2) {
+  if (
+    texts.partNoCompact.startsWith(compactQuery) &&
+    compactQuery.length >= 2 &&
+    texts.partNoCompact !== compactQuery
+  ) {
     score += applyScore(SCORE.PART_PREFIX, getIntentMultiplier(intent, "part"));
     reasons.push("partNo:prefix");
     matchedFields.add("partNo");
@@ -280,7 +302,7 @@ function scorePartMode(
 
   if (
     texts.refsCompact.some(
-      (ref) => ref.startsWith(compactQuery) && compactQuery.length >= 2
+      (ref) => ref.startsWith(compactQuery) && compactQuery.length >= 2 && ref !== compactQuery
     )
   ) {
     score += applyScore(SCORE.XREF_PREFIX, getIntentMultiplier(intent, "xref"));
@@ -288,7 +310,11 @@ function scorePartMode(
     matchedFields.add("xref");
   }
 
-  if (texts.partNoCompact.includes(compactQuery) && compactQuery.length >= 3) {
+  if (
+    texts.partNoCompact.includes(compactQuery) &&
+    compactQuery.length >= 3 &&
+    !texts.partNoCompact.startsWith(compactQuery)
+  ) {
     score += applyScore(SCORE.PART_CONTAINS, getIntentMultiplier(intent, "part"));
     reasons.push("partNo:contains");
     matchedFields.add("partNo");
@@ -296,7 +322,10 @@ function scorePartMode(
 
   if (
     texts.refsCompact.some(
-      (ref) => ref.includes(compactQuery) && compactQuery.length >= 3
+      (ref) =>
+        ref.includes(compactQuery) &&
+        compactQuery.length >= 3 &&
+        !ref.startsWith(compactQuery)
     )
   ) {
     score += applyScore(SCORE.XREF_CONTAINS, getIntentMultiplier(intent, "xref"));
@@ -399,6 +428,12 @@ function scorePartMode(
     reasons.push("typo:near");
   }
 
+  // Small bonus when normalized exact string matches whole normalized part no.
+  if (texts.partNoNorm === normalizedQuery) {
+    score += 40;
+    reasons.push("partNo:normExact");
+  }
+
   if (score < minScoreForIntent(intent, "part")) return null;
 
   return {
@@ -410,13 +445,14 @@ function scorePartMode(
 
 function scoreSpecMode(
   product: SearchableProduct,
-  query: string,
+  rawQuery: string,
+  normalizedQuery: string,
   expandedQueries: string[],
   intent: QueryIntent
 ): SearchHit<SearchableProduct> | null {
   const texts = buildSearchTexts(product);
   const tokens = uniqueStrings([
-    ...tokenize(query),
+    ...tokenize(rawQuery),
     ...expandedQueries.flatMap(tokenize),
   ]);
 
@@ -481,7 +517,7 @@ function scoreSpecMode(
     }
   }
 
-  if (texts.specNorm === normalize(query) && query.trim()) {
+  if (texts.specNorm === normalizedQuery && rawQuery.trim()) {
     score += applyScore(SCORE.SPEC_EXACT, getIntentMultiplier(intent, "spec"));
     reasons.push("spec:exact");
     matchedFields.add("spec");
@@ -536,23 +572,33 @@ export function searchProducts<TProduct extends SearchableProduct>(
   mode: SearchMode = "all",
   limit = 48
 ): SearchHit<TProduct>[] {
-  const normalizedQuery = normalize(query);
-  if (!normalizedQuery) return [];
+  const rawQuery = query.trim();
+  if (!rawQuery) return [];
 
-  const intent = detectQueryIntent(normalizedQuery);
-  const expandedQueries = getSynonymExpansions(normalizedQuery);
+  const normalizedQuery = normalize(rawQuery);
+  const compactQuery = compactNormalize(rawQuery);
+
+  const intent = detectQueryIntent(rawQuery);
+  const expandedQueries = getSynonymExpansions(rawQuery);
 
   const hits = products
     .map((product) => {
       const partHit =
         mode === "spec"
           ? null
-          : scorePartMode(product, normalizedQuery, expandedQueries, intent);
+          : scorePartMode(
+              product,
+              rawQuery,
+              normalizedQuery,
+              compactQuery,
+              expandedQueries,
+              intent
+            );
 
       const specHit =
         mode === "part"
           ? null
-          : scoreSpecMode(product, normalizedQuery, expandedQueries, intent);
+          : scoreSpecMode(product, rawQuery, normalizedQuery, expandedQueries, intent);
 
       if (!partHit && !specHit) {
         return null;
