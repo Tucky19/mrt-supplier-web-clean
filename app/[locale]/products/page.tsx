@@ -1,49 +1,14 @@
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
-import * as productSource from "@/data/products";
+import { products } from "@/data/products";
 import SiteHeader from "@/components/layout/SiteHeader";
 import SiteFooter from "@/components/layout/SiteFooter";
 import ProductListClient from "@/components/products/ProductListClient";
-
-type Product = {
-  id: string;
-  partNo?: string;
-  brand?: string;
-  category?: string;
-  title?: string;
-  spec?: string;
-  image?: string;
-  officialUrl?: string;
-};
 
 type PageProps = {
   params: Promise<{ locale: string }>;
   searchParams: Promise<{ q?: string; brand?: string; mode?: string }>;
 };
-
-function resolveProducts(): Product[] {
-  const source = productSource as Record<string, unknown>;
-
-  if (Array.isArray(source.default)) {
-    return source.default as Product[];
-  }
-
-  if (Array.isArray(source.products)) {
-    return source.products as Product[];
-  }
-
-  if (Array.isArray(source.allProducts)) {
-    return source.allProducts as Product[];
-  }
-
-  if (Array.isArray(source.featuredProducts)) {
-    return source.featuredProducts as Product[];
-  }
-
-  return [];
-}
-
-const products = resolveProducts();
 
 export async function generateMetadata({
   params,
