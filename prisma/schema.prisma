@@ -60,8 +60,7 @@ model RfqItem {
   createdAt DateTime @default(now())
   meta      Json?
 
-  rfq     Rfq      @relation(fields: [rfqId], references: [id], onDelete: Cascade)
-  product Product? @relation(fields: [productId], references: [id], onDelete: SetNull)
+  rfq       Rfq      @relation(fields: [rfqId], references: [id], onDelete: Cascade)
 
   @@index([rfqId])
   @@index([partNo])
@@ -151,7 +150,6 @@ model Product {
   createdAt        DateTime      @default(now())
   updatedAt        DateTime      @updatedAt
 
-  rfqItems       RfqItem[]
   supplierPrices SupplierPrice[]
   crossRefsFrom  CrossReference[] @relation("CrossRefFrom")
   crossRefsTo    CrossReference[] @relation("CrossRefTo")
@@ -276,4 +274,17 @@ enum StockStatus {
   limited
   preorder
   unavailable
+}
+model AnalyticsEvent {
+  id        String   @id @default(cuid())
+  type      String   // search | click | rfq
+  query     String?
+  partNo    String?
+  productId String?
+  sessionId String
+  createdAt DateTime @default(now())
+
+  @@index([type])
+  @@index([query])
+  @@index([createdAt])
 }

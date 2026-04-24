@@ -35,7 +35,7 @@
     "**/*.mts",
     "**/*.ts",
     "**/*.tsx"
-  ],
+, "scripts/verify-search-score.ts"  ],
   "exclude": [
     "node_modules"
   ]

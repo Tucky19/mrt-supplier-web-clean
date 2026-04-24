@@ -14,7 +14,7 @@ import { useLocale } from "next-intl";
 import {
   autocompleteProducts,
   type AutocompleteItem,
-} from "@/lib/search/autocomplete";
+} from "@/data/search/autocomplete";
 
 type Props = {
   className?: string;
@@ -88,7 +88,8 @@ export default function SingleSearch({
     return autocompleteProducts(nextQ, 8);
   }, [q]);
 
-  const showSuggestions = isFocused && suggestions.length > 0 && safeStr(q).length >= 2;
+  const showSuggestions =
+    isFocused && suggestions.length > 0 && safeStr(q).length >= 2;
 
   function goToSearch(nextQ: string) {
     const cleaned = safeStr(nextQ);
@@ -109,16 +110,18 @@ export default function SingleSearch({
     setActiveIndex(-1);
   }
 
+  function goToProduct(partNo: string) {
+    router.push(`/${locale}/products/${encodeURIComponent(partNo)}`);
+    setIsFocused(false);
+    setActiveIndex(-1);
+  }
+
   function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
     if (showSuggestions && activeIndex >= 0 && suggestions[activeIndex]) {
       const selected = suggestions[activeIndex];
-      router.push(
-        `/${locale}/products/${encodeURIComponent(selected.id || selected.partNo)}`
-      );
-      setIsFocused(false);
-      setActiveIndex(-1);
+      goToProduct(selected.partNo);
       return;
     }
 
@@ -133,7 +136,13 @@ export default function SingleSearch({
   }
 
   function onKeyDown(e: KeyboardEvent<HTMLInputElement>) {
-    if (!showSuggestions) return;
+    if (!showSuggestions) {
+      if (e.key === "Escape") {
+        setIsFocused(false);
+        setActiveIndex(-1);
+      }
+      return;
+    }
 
     if (e.key === "ArrowDown") {
       e.preventDefault();
@@ -244,9 +253,7 @@ export default function SingleSearch({
 
           <div className="max-h-[360px] overflow-y-auto py-1">
             {suggestions.map((item, index) => {
-              const href = `/${locale}/products/${encodeURIComponent(
-                item.id || item.partNo
-              )}`;
+              const href = `/${locale}/products/${encodeURIComponent(item.partNo)}`;
               const isActive = index === activeIndex;
 
               return (
