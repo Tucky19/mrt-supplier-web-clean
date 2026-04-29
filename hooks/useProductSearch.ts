@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import { isBestConvertingProduct } from "@/data/merchandising/productHighlights";
 
 export type ProductSearchItem = {
   id: string;
@@ -76,7 +77,7 @@ export function useProductSearch({
   const filteredProducts = useMemo(() => {
     const normalizedQuery = normalize(debouncedQuery);
 
-    return products.filter((product) => {
+    const filtered = products.filter((product) => {
       const matchesBrand =
         debouncedBrandFilter === "all" ||
         normalize(product.brand) === normalize(debouncedBrandFilter);
@@ -105,6 +106,15 @@ export function useProductSearch({
       }
 
       return searchableText.includes(normalizedQuery);
+    });
+
+    return [...filtered].sort((a, b) => {
+      const aBoost = isBestConvertingProduct(a.partNo) ? 1 : 0;
+      const bBoost = isBestConvertingProduct(b.partNo) ? 1 : 0;
+
+      if (bBoost !== aBoost) return bBoost - aBoost;
+
+      return 0;
     });
   }, [debouncedBrandFilter, debouncedQuery, mode, products]);
 

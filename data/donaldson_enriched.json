@@ -1403,19 +1403,7 @@
     "officialUrl": "https://shop.donaldson.com/store/en-th/search?query=P550132",
     "error": "locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('a[href*=\"/product/\"]').first()\u001b[22m\n\u001b[2m    - locator resolved to <a class=\"commonLinkClass donaldson-part-details\" href=\"/store/en-th/product/B150101/prod3020082\">…</a>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    57 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n"
   },
-  {
-    "ok": false,
-    "partNo": "P550148",
-    "brand": "DONALDSON",
-    "category": "filter",
-    "title": "Donaldson Part - P550148",
-    "spec": "Filter/Part (verify application via RFQ)",
-    "stockStatus": "request",
-    "prefix": "P",
-    "refs": [],
-    "officialUrl": "https://shop.donaldson.com/store/en-th/search?query=P550148",
-    "error": "locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('a[href*=\"/product/\"]').first()\u001b[22m\n\u001b[2m    - locator resolved to <a class=\"commonLinkClass donaldson-part-details\" href=\"/store/en-th/product/B150101/prod3020082\">…</a>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    58 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n"
-  },
+  
   {
     "ok": false,
     "partNo": "P550162",
@@ -1452,7 +1440,7 @@
     "stockStatus": "request",
     "prefix": "P",
     "refs": [],
-    "officialUrl": "https://shop.donaldson.com/store/en-th/search?query=P550223",
+    "officialUrl": "https://shop.donaldson.com/store/en-th/product/P550223/20218",
     "error": "locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('a[href*=\"/product/\"]').first()\u001b[22m\n\u001b[2m    - locator resolved to <a class=\"commonLinkClass donaldson-part-details\" href=\"/store/en-th/product/B150101/prod3020082\">…</a>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    57 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n"
   },
   {

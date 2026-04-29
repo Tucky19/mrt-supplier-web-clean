@@ -18,6 +18,9 @@ import {
 } from "@/lib/api/observability";
 
 export const dynamic = "force-dynamic";
+const RFQ_DEV_MOCK_ENABLED =
+  process.env.NODE_ENV === "development" &&
+  process.env.RFQ_DEV_MOCK_BYPASS === "true";
 
 function hashIp(ip: string) {
   const salt = process.env.RATE_LIMIT_SECRET || "rfq";
@@ -137,13 +140,25 @@ export async function POST(req: Request) {
       });
     }
 
+    
     // 3) Duplicate guard (2 นาที)
+let last = null;
+
+if (!RFQ_DEV_MOCK_ENABLED) {
+  try {
     const since = new Date(Date.now() - 2 * 60 * 1000);
-    const last = await prisma.rfq.findFirst({
+
+    last = await prisma.rfq.findFirst({
       where: { ipHash, createdAt: { gte: since } },
       orderBy: { createdAt: "desc" },
       include: { items: true },
     });
+  } catch (error) {
+    console.error("[RFQ_DUPLICATE_CHECK_ERROR]", error);
+    // fail-open: ไม่ block flow
+    last = null;
+  }
+}
 
     if (last) {
       const candidate = {
@@ -190,6 +205,30 @@ export async function POST(req: Request) {
           traceId
         );
       }
+    }
+    if (process.env.NODE_ENV === "development" && RFQ_DEV_MOCK_ENABLED) {
+      requestId = genRequestId();
+
+      logApiEvent("warn", "rfq.submit.dev_mock_bypass", {
+        traceId,
+        route: "/api/rfq/submit",
+        requestId,
+      });
+
+      return jsonWithTrace(
+        {
+          ok: true,
+          requestId,
+          rfqId: "dev-mock",
+          adminEmailOk: false,
+          customerEmailOk: false,
+          partialFailure: false,
+          sideEffectFailures: [],
+          devMock: true,
+        },
+        undefined,
+        traceId
+      );
     }
 
     // 4) Save DB
@@ -294,7 +333,7 @@ export async function POST(req: Request) {
 
       adminEmailOk = true;
       await safeLogRfqEvent("emailed_admin", {
-        to: process.env.EMAIL_TO_ADMIN,
+        to: process.env.RFQ_TO_EMAIL,
       }, "event_emailed_admin");
       logApiEvent("info", "rfq.submit.admin_email_sent", {
         traceId,

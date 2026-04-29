@@ -1,15 +1,8 @@
-"use client";
+'use client';
 
-import {
-  createContext,
-  useContext,
-  useEffect,
-  useMemo,
-  useState,
-  type ReactNode,
-} from "react";
+import { createContext, useContext, useEffect, useState } from 'react';
 
-export type QuoteItem = {
+type QuoteItem = {
   productId: string;
   partNo: string;
   brand?: string;
@@ -21,112 +14,127 @@ type QuoteContextValue = {
   items: QuoteItem[];
   ready: boolean;
   totalItems: number;
-  addItem: (item: Omit<QuoteItem, "qty"> & { qty?: number }) => void;
+  addItem: (item: Omit<QuoteItem, 'qty'> & { qty?: number }) => void;
   setQty: (productId: string, qty: number) => void;
+  updateQty: (productId: string, qty: number) => void; // 🔥 ใช้ใน UI ใหม่
   removeItem: (productId: string) => void;
   clear: () => void;
 };
 
 const QuoteContext = createContext<QuoteContextValue | null>(null);
-const LS_KEY = "mrt_quote_v1";
 
-export function QuoteProvider({ children }: { children: ReactNode }) {
+const LS_KEY = 'mrt_quote_v1';
+
+export function QuoteProvider({ children }: { children: React.ReactNode }) {
   const [items, setItems] = useState<QuoteItem[]>([]);
   const [ready, setReady] = useState(false);
 
+  /* =========================
+     Load from localStorage
+  ========================= */
   useEffect(() => {
     try {
       const raw = localStorage.getItem(LS_KEY);
       if (raw) {
-        const parsed = JSON.parse(raw) as QuoteItem[];
-        if (Array.isArray(parsed)) {
-          setItems(
-            parsed.map((item) => ({
-              ...item,
-              qty: Math.max(1, Math.min(999, Number(item.qty) || 1)),
-            }))
-          );
-        }
+        setItems(JSON.parse(raw));
       }
-    } catch {
-      // ignore
-    } finally {
-      setReady(true);
-    }
+    } catch {}
+    setReady(true);
   }, []);
 
+  /* =========================
+     Persist
+  ========================= */
   useEffect(() => {
     if (!ready) return;
     localStorage.setItem(LS_KEY, JSON.stringify(items));
   }, [items, ready]);
 
-  function addItem(item: Omit<QuoteItem, "qty"> & { qty?: number }) {
-    const nextQty = Math.max(1, Math.min(999, Number(item.qty) || 1));
-
+  /* =========================
+     Add Item
+  ========================= */
+  const addItem: QuoteContextValue['addItem'] = (item) => {
     setItems((prev) => {
-      const index = prev.findIndex((x) => x.productId === item.productId);
+      const existing = prev.find((i) => i.productId === item.productId);
 
-      if (index >= 0) {
-        const next = [...prev];
-        next[index] = {
-          ...next[index],
-          qty: Math.max(1, Math.min(999, next[index].qty + nextQty)),
-        };
-        return next;
+      if (existing) {
+        return prev.map((i) =>
+          i.productId === item.productId
+            ? { ...i, qty: i.qty + (item.qty ?? 1) }
+            : i
+        );
       }
 
       return [
         ...prev,
         {
-          productId: item.productId,
-          partNo: item.partNo,
-          brand: item.brand,
-          title: item.title,
-          qty: nextQty,
+          ...item,
+          qty: item.qty ?? 1,
         },
       ];
     });
-  }
-
-  function setQty(productId: string, qty: number) {
-    const nextQty = Math.max(1, Math.min(999, Number(qty) || 1));
-    setItems((prev) =>
-      prev.map((item) =>
-        item.productId === productId ? { ...item, qty: nextQty } : item
-      )
-    );
-  }
-
-  function removeItem(productId: string) {
-    setItems((prev) => prev.filter((item) => item.productId !== productId));
-  }
-
-  function clear() {
-    setItems([]);
-  }
-
-  const totalItems = useMemo(
-    () => items.reduce((sum, item) => sum + item.qty, 0),
-    [items]
-  );
-
-  const value: QuoteContextValue = {
-    items,
-    ready,
-    totalItems,
-    addItem,
-    setQty,
-    removeItem,
-    clear,
   };
 
-  return <QuoteContext.Provider value={value}>{children}</QuoteContext.Provider>;
+  /* =========================
+     Set Qty
+  ========================= */
+  const setQty = (productId: string, qty: number) => {
+    setItems((prev) =>
+      prev.map((item) =>
+        item.productId === productId
+          ? { ...item, qty: Math.max(1, qty) }
+          : item
+      )
+    );
+  };
+
+  /* =========================
+     Alias for new UI
+  ========================= */
+  const updateQty = setQty;
+
+  /* =========================
+     Remove
+  ========================= */
+  const removeItem = (productId: string) => {
+    setItems((prev) => prev.filter((i) => i.productId !== productId));
+  };
+
+  /* =========================
+     Clear
+  ========================= */
+  const clear = () => {
+    setItems([]);
+  };
+
+  const totalItems = items.reduce((sum, i) => sum + i.qty, 0);
+
+  return (
+    <QuoteContext.Provider
+      value={{
+        items,
+        ready,
+        totalItems,
+        addItem,
+        setQty,
+        updateQty, // 🔥 สำคัญ
+        removeItem,
+        clear,
+      }}
+    >
+      {children}
+    </QuoteContext.Provider>
+  );
 }
+
+/* =========================
+   Hook
+========================= */
 
 export function useQuote() {
   const ctx = useContext(QuoteContext);
   if (!ctx) {
-    throw new Error("useQuote must be used within QuoteProvider");
+    throw new Error('useQuote must be used within QuoteProvider');
   }
   return ctx;
 }

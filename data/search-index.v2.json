@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generatedAt": "2026-04-22T11:21:21.549Z",
+  "generatedAt": "2026-04-28T17:38:13.107Z",
   "counts": {
     "items": 331,
     "prefix2": 28,
@@ -18,7 +18,8 @@
       "title": "Donaldson Filter Element - P105609",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p107844",
@@ -28,7 +29,8 @@
       "title": "Donaldson Filter Element - P107844",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p107845",
@@ -38,7 +40,8 @@
       "title": "Donaldson Filter Element - P107845",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p107846",
@@ -48,7 +51,8 @@
       "title": "Donaldson Filter Element - P107846",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p113343",
@@ -58,7 +62,8 @@
       "title": "Donaldson Filter Element - P113343",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p116446",
@@ -68,7 +73,8 @@
       "title": "Donaldson Filter Element - P116446",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p119373",
@@ -78,7 +84,8 @@
       "title": "Donaldson Filter Element - P119373",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p119374",
@@ -88,7 +95,8 @@
       "title": "Donaldson Filter Element - P119374",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p123160",
@@ -98,7 +106,8 @@
       "title": "Donaldson Filter Element - P123160",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p124046",
@@ -108,7 +117,8 @@
       "title": "Donaldson Filter Element - P124046",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p128408",
@@ -118,7 +128,8 @@
       "title": "Donaldson Filter Element - P128408",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p131337",
@@ -128,7 +139,8 @@
       "title": "Donaldson Filter Element - P131337",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p133138",
@@ -138,7 +150,8 @@
       "title": "Donaldson Filter Element - P133138",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p134353",
@@ -148,7 +161,8 @@
       "title": "Donaldson Filter Element - P134353",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p134354",
@@ -158,7 +172,8 @@
       "title": "Donaldson Filter Element - P134354",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p136255",
@@ -168,7 +183,8 @@
       "title": "Donaldson Filter Element - P136255",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p141319",
@@ -178,7 +194,8 @@
       "title": "Donaldson Filter Element - P141319",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p158324",
@@ -188,7 +205,8 @@
       "title": "Donaldson Filter Element - P158324",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p158661",
@@ -198,7 +216,8 @@
       "title": "Donaldson Filter Element - P158661",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p158669",
@@ -208,7 +227,8 @@
       "title": "Donaldson Filter Element - P158669",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p158670",
@@ -218,7 +238,8 @@
       "title": "Donaldson Filter Element - P158670",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p158914",
@@ -228,7 +249,8 @@
       "title": "Donaldson Filter Element - P158914",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p164166",
@@ -238,7 +260,8 @@
       "title": "Donaldson Filter Element - P164166",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p164375",
@@ -248,7 +271,8 @@
       "title": "Donaldson Filter Element - P164375",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p164378",
@@ -258,7 +282,8 @@
       "title": "Donaldson Filter Element - P164378",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p164384",
@@ -268,7 +293,8 @@
       "title": "Donaldson Filter Element - P164384",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p165136",
@@ -278,7 +304,8 @@
       "title": "Donaldson Filter Element - P165136",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p165138",
@@ -288,7 +315,8 @@
       "title": "Donaldson Filter Element - P165138",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p165876",
@@ -298,7 +326,8 @@
       "title": "Donaldson Filter Element - P165876",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p167410",
@@ -308,7 +337,8 @@
       "title": "Donaldson Filter Element - P167410",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p169478",
@@ -318,7 +348,8 @@
       "title": "Donaldson Filter Element - P169478",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p170480",
@@ -328,7 +359,8 @@
       "title": "Donaldson Filter Element - P170480",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p170546",
@@ -338,7 +370,8 @@
       "title": "Donaldson Filter Element - P170546",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p170601",
@@ -348,7 +381,8 @@
       "title": "Donaldson Filter Element - P170601",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p170604",
@@ -358,7 +392,8 @@
       "title": "Donaldson Filter Element - P170604",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p170606",
@@ -368,7 +403,8 @@
       "title": "Donaldson Filter Element - P170606",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p170608",
@@ -378,7 +414,8 @@
       "title": "Donaldson Filter Element - P170608",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p170614",
@@ -388,7 +425,8 @@
       "title": "Donaldson Filter Element - P170614",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p171735",
@@ -398,7 +436,8 @@
       "title": "Donaldson Filter Element - P171735",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p172465",
@@ -408,7 +447,8 @@
       "title": "Donaldson Filter Element - P172465",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p173238",
@@ -418,7 +458,8 @@
       "title": "Donaldson Filter Element - P173238",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p173489",
@@ -428,7 +469,8 @@
       "title": "Donaldson Filter Element - P173489",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p181034",
@@ -438,7 +480,8 @@
       "title": "Donaldson Filter Element - P181034",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p181035",
@@ -448,7 +491,8 @@
       "title": "Donaldson Filter Element - P181035",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p181042",
@@ -458,7 +502,8 @@
       "title": "Donaldson Filter Element - P181042",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p181045",
@@ -468,7 +513,8 @@
       "title": "Donaldson Filter Element - P181045",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p181046",
@@ -478,7 +524,8 @@
       "title": "Donaldson Filter Element - P181046",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p181049",
@@ -488,7 +535,8 @@
       "title": "Donaldson Filter Element - P181049",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p181052",
@@ -498,7 +546,8 @@
       "title": "Donaldson Filter Element - P181052",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p181056",
@@ -508,7 +557,8 @@
       "title": "Donaldson Filter Element - P181056",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p181059",
@@ -518,7 +568,8 @@
       "title": "Donaldson Filter Element - P181059",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p181063",
@@ -528,7 +579,8 @@
       "title": "Donaldson Filter Element - P181063",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p181073",
@@ -538,7 +590,8 @@
       "title": "Donaldson Filter Element - P181073",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p181103",
@@ -548,7 +601,8 @@
       "title": "Donaldson Filter Element - P181103",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p181104",
@@ -558,7 +612,8 @@
       "title": "Donaldson Filter Element - P181104",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p181118",
@@ -568,7 +623,8 @@
       "title": "Donaldson Filter Element - P181118",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p182034",
@@ -578,7 +634,8 @@
       "title": "Donaldson Filter Element - P182034",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p182049",
@@ -588,7 +645,8 @@
       "title": "Donaldson Filter Element - P182049",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p182050",
@@ -598,7 +656,8 @@
       "title": "Donaldson Filter Element - P182050",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p182059",
@@ -608,7 +667,8 @@
       "title": "Donaldson Filter Element - P182059",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p182063",
@@ -618,7 +678,8 @@
       "title": "Donaldson Filter Element - P182063",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p500194",
@@ -628,7 +689,8 @@
       "title": "Donaldson Filter Element - P500194",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p500195",
@@ -638,7 +700,8 @@
       "title": "Donaldson Filter Element - P500195",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p500196",
@@ -648,7 +711,8 @@
       "title": "Donaldson Filter Element - P500196",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p500202",
@@ -658,7 +722,8 @@
       "title": "Donaldson Filter Element - P500202",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p502009",
@@ -668,7 +733,8 @@
       "title": "Donaldson Filter Element - P502009",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p502016",
@@ -678,7 +744,8 @@
       "title": "Donaldson Filter Element - P502016",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p502072",
@@ -688,7 +755,8 @@
       "title": "Donaldson Filter Element - P502072",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p502083",
@@ -698,7 +766,8 @@
       "title": "Donaldson Filter Element - P502083",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p502084",
@@ -708,7 +777,8 @@
       "title": "Donaldson Filter Element - P502084",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p502088",
@@ -718,7 +788,8 @@
       "title": "Donaldson Filter Element - P502088",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p502170",
@@ -728,7 +799,8 @@
       "title": "Donaldson Filter Element - P502170",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p502190",
@@ -738,7 +810,8 @@
       "title": "Donaldson Filter Element - P502190",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p502344",
@@ -748,7 +821,8 @@
       "title": "Donaldson Filter Element - P502344",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p502382",
@@ -758,7 +832,8 @@
       "title": "Donaldson Filter Element - P502382",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p502422",
@@ -768,7 +843,8 @@
       "title": "Donaldson Filter Element - P502422",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p502458",
@@ -778,7 +854,8 @@
       "title": "Donaldson Filter Element - P502458",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p502463",
@@ -788,7 +865,8 @@
       "title": "Donaldson Filter Element - P502463",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p502464",
@@ -798,7 +876,8 @@
       "title": "Donaldson Filter Element - P502464",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p502502",
@@ -808,7 +887,8 @@
       "title": "Donaldson Filter Element - P502502",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p502504",
@@ -818,7 +898,8 @@
       "title": "Donaldson Filter Element - P502504",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p502516",
@@ -828,7 +909,8 @@
       "title": "Donaldson Filter Element - P502516",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p502594",
@@ -838,7 +920,8 @@
       "title": "Donaldson Filter Element - P502594",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p502649",
@@ -848,7 +931,8 @@
       "title": "Donaldson Filter Element - P502649",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p505957",
@@ -858,7 +942,8 @@
       "title": "Donaldson Filter Element - P505957",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p509129",
@@ -868,7 +953,8 @@
       "title": "Donaldson Filter Element - P509129",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p526428",
@@ -878,7 +964,8 @@
       "title": "Donaldson Filter Element - P526428",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p526432",
@@ -888,7 +975,8 @@
       "title": "Donaldson Filter Element - P526432",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p526840",
@@ -898,7 +986,8 @@
       "title": "Donaldson Filter Element - P526840",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p527596",
@@ -908,7 +997,8 @@
       "title": "Donaldson Filter Element - P527596",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p532473",
@@ -918,7 +1008,8 @@
       "title": "Donaldson Filter Element - P532473",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p532499",
@@ -928,7 +1019,8 @@
       "title": "Donaldson Filter Element - P532499",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p532500",
@@ -938,7 +1030,8 @@
       "title": "Donaldson Filter Element - P532500",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p532501",
@@ -948,7 +1041,8 @@
       "title": "Donaldson Filter Element - P532501",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p532502",
@@ -958,7 +1052,8 @@
       "title": "Donaldson Filter Element - P532502",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p532503",
@@ -968,7 +1063,8 @@
       "title": "Donaldson Filter Element - P532503",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p532504",
@@ -978,7 +1074,8 @@
       "title": "Donaldson Filter Element - P532504",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p536492",
@@ -988,7 +1085,8 @@
       "title": "Donaldson Filter Element - P536492",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p537405",
@@ -998,7 +1096,8 @@
       "title": "Donaldson Filter Element - P537405",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p537876",
@@ -1008,7 +1107,8 @@
       "title": "Donaldson Filter Element - P537876",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p537877",
@@ -1018,7 +1118,8 @@
       "title": "Donaldson Filter Element - P537877",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p538259",
@@ -1028,7 +1129,8 @@
       "title": "Donaldson Filter Element - P538259",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p550057",
@@ -1038,7 +1140,8 @@
       "title": "Donaldson Filter Element - P550057",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p550065",
@@ -1048,7 +1151,8 @@
       "title": "Donaldson Filter Element - P550065",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p550084",
@@ -1058,7 +1162,8 @@
       "title": "Donaldson Filter Element - P550084",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p550086",
@@ -1068,7 +1173,8 @@
       "title": "Donaldson Filter Element - P550086",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p550105",
@@ -1078,7 +1184,8 @@
       "title": "Donaldson Filter Element - P550105",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p550132",
@@ -1088,7 +1195,8 @@
       "title": "Donaldson Filter Element - P550132",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p550148",
@@ -1098,7 +1206,8 @@
       "title": "Donaldson Filter Element - P550148",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p550162",
@@ -1108,7 +1217,8 @@
       "title": "Donaldson Filter Element - P550162",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p550222",
@@ -1118,7 +1228,8 @@
       "title": "Donaldson Filter Element - P550222",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p550223",
@@ -1128,7 +1239,8 @@
       "title": "Donaldson Filter Element - P550223",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p550226",
@@ -1138,7 +1250,8 @@
       "title": "Donaldson Filter Element - P550226",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p550227",
@@ -1148,7 +1261,8 @@
       "title": "Donaldson Filter Element - P550227",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p550268",
@@ -1158,7 +1272,8 @@
       "title": "Donaldson Filter Element - P550268",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p550318",
@@ -1168,7 +1283,8 @@
       "title": "Donaldson Filter Element - P550318",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p550365",
@@ -1178,7 +1294,8 @@
       "title": "Donaldson Filter Element - P550365",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p550367",
@@ -1188,7 +1305,8 @@
       "title": "Donaldson Filter Element - P550367",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p550372",
@@ -1198,7 +1316,8 @@
       "title": "Donaldson Filter Element - P550372",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p550382",
@@ -1208,7 +1327,8 @@
       "title": "Donaldson Filter Element - P550382",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p550388",
@@ -1218,7 +1338,8 @@
       "title": "Donaldson Filter Element - P550388",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p550391",
@@ -1228,7 +1349,8 @@
       "title": "Donaldson Filter Element - P550391",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p550408",
@@ -1238,7 +1360,8 @@
       "title": "Donaldson Filter Element - P550408",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p550416",
@@ -1248,7 +1371,8 @@
       "title": "Donaldson Filter Element - P550416",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p550425",
@@ -1258,7 +1382,8 @@
       "title": "Donaldson Filter Element - P550425",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p550428",
@@ -1268,7 +1393,8 @@
       "title": "Donaldson Filter Element - P550428",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p550440",
@@ -1278,7 +1404,8 @@
       "title": "Donaldson Filter Element - P550440",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p550445",
@@ -1288,7 +1415,8 @@
       "title": "Donaldson Filter Element - P550445",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p550467",
@@ -1298,7 +1426,8 @@
       "title": "Donaldson Filter Element - P550467",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p550478",
@@ -1308,7 +1437,8 @@
       "title": "Donaldson Filter Element - P550478",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p550519",
@@ -1318,7 +1448,8 @@
       "title": "Donaldson Filter Element - P550519",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p550520",
@@ -1328,7 +1459,8 @@
       "title": "Donaldson Filter Element - P550520",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p550529",
@@ -1338,7 +1470,8 @@
       "title": "Donaldson Filter Element - P550529",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p550576",
@@ -1348,7 +1481,8 @@
       "title": "Donaldson Filter Element - P550576",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p550595",
@@ -1358,7 +1492,8 @@
       "title": "Donaldson Filter Element - P550595",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p550596",
@@ -1368,7 +1503,8 @@
       "title": "Donaldson Filter Element - P550596",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p550639",
@@ -1378,7 +1514,8 @@
       "title": "Donaldson Filter Element - P550639",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p550708",
@@ -1388,7 +1525,8 @@
       "title": "Donaldson Filter Element - P550708",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p550719",
@@ -1398,7 +1536,8 @@
       "title": "Donaldson Filter Element - P550719",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p550762",
@@ -1408,7 +1547,8 @@
       "title": "Donaldson Filter Element - P550762",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p550769",
@@ -1418,7 +1558,8 @@
       "title": "Donaldson Filter Element - P550769",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p550774",
@@ -1428,7 +1569,8 @@
       "title": "Donaldson Filter Element - P550774",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p550777",
@@ -1438,7 +1580,8 @@
       "title": "Donaldson Filter Element - P550777",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p550779",
@@ -1448,7 +1591,8 @@
       "title": "Donaldson Filter Element - P550779",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p550848",
@@ -1458,7 +1602,8 @@
       "title": "Donaldson Filter Element - P550848",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p550861",
@@ -1468,7 +1613,8 @@
       "title": "Donaldson Filter Element - P550861",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p550881",
@@ -1478,7 +1624,8 @@
       "title": "Donaldson Filter Element - P550881",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p550903",
@@ -1488,7 +1635,8 @@
       "title": "Donaldson Filter Element - P550903",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p550904",
@@ -1498,7 +1646,8 @@
       "title": "Donaldson Filter Element - P550904",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p550928",
@@ -1508,7 +1657,8 @@
       "title": "Donaldson Filter Element - P550928",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p550958",
@@ -1518,7 +1668,8 @@
       "title": "Donaldson Filter Element - P550958",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p550959",
@@ -1528,7 +1679,8 @@
       "title": "Donaldson Filter Element - P550959",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p551000",
@@ -1538,7 +1690,8 @@
       "title": "Donaldson Filter Element - P551000",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p551026",
@@ -1548,7 +1701,8 @@
       "title": "Donaldson Filter Element - P551026",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p551039",
@@ -1558,7 +1712,8 @@
       "title": "Donaldson Filter Element - P551039",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p551102",
@@ -1568,7 +1723,8 @@
       "title": "Donaldson Filter Element - P551102",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p551103",
@@ -1578,7 +1734,8 @@
       "title": "Donaldson Filter Element - P551103",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p551124",
@@ -1588,7 +1745,8 @@
       "title": "Donaldson Filter Element - P551124",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p551133",
@@ -1598,7 +1756,8 @@
       "title": "Donaldson Filter Element - P551133",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p551245",
@@ -1608,7 +1767,8 @@
       "title": "Donaldson Filter Element - P551245",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p551253",
@@ -1618,7 +1778,8 @@
       "title": "Donaldson Filter Element - P551253",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p551311",
@@ -1628,7 +1789,8 @@
       "title": "Donaldson Filter Element - P551311",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p551315",
@@ -1638,7 +1800,8 @@
       "title": "Donaldson Filter Element - P551315",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p551329",
@@ -1648,7 +1811,8 @@
       "title": "Donaldson Filter Element - P551329",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p551352",
@@ -1658,7 +1822,8 @@
       "title": "Donaldson Filter Element - P551352",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p551381",
@@ -1668,7 +1833,8 @@
       "title": "Donaldson Filter Element - P551381",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p551421",
@@ -1678,7 +1844,8 @@
       "title": "Donaldson Filter Element - P551421",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p551425",
@@ -1688,7 +1855,8 @@
       "title": "Donaldson Filter Element - P551425",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p551550",
@@ -1698,7 +1866,8 @@
       "title": "Donaldson Filter Element - P551550",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p551551",
@@ -1708,7 +1877,8 @@
       "title": "Donaldson Filter Element - P551551",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p551670",
@@ -1718,7 +1888,8 @@
       "title": "Donaldson Filter Element - P551670",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p551712",
@@ -1728,7 +1899,8 @@
       "title": "Donaldson Filter Element - P551712",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p551740",
@@ -1738,7 +1910,8 @@
       "title": "Donaldson Filter Element - P551740",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p551807",
@@ -1748,7 +1921,8 @@
       "title": "Donaldson Filter Element - P551807",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p551861",
@@ -1758,7 +1932,8 @@
       "title": "Donaldson Filter Element - P551861",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p552251",
@@ -1768,7 +1943,8 @@
       "title": "Donaldson Filter Element - P552251",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p552564",
@@ -1778,7 +1954,8 @@
       "title": "Donaldson Filter Element - P552564",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p552819",
@@ -1788,7 +1965,8 @@
       "title": "Donaldson Filter Element - P552819",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p553000",
@@ -1798,7 +1976,8 @@
       "title": "Donaldson Filter Element - P553000",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p553004",
@@ -1808,7 +1987,8 @@
       "title": "Donaldson Filter Element - P553004",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p553161",
@@ -1818,7 +1998,8 @@
       "title": "Donaldson Filter Element - P553161",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p553191",
@@ -1828,7 +2009,8 @@
       "title": "Donaldson Filter Element - P553191",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p553411",
@@ -1838,7 +2020,8 @@
       "title": "Donaldson Filter Element - P553411",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p553500",
@@ -1848,7 +2031,8 @@
       "title": "Donaldson Filter Element - P553500",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p553771",
@@ -1858,7 +2042,8 @@
       "title": "Donaldson Filter Element - P553771",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p553995",
@@ -1868,7 +2053,8 @@
       "title": "Donaldson Filter Element - P553995",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p554004",
@@ -1878,7 +2064,8 @@
       "title": "Donaldson Filter Element - P554004",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p554005",
@@ -1888,7 +2075,8 @@
       "title": "Donaldson Filter Element - P554005",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p554403",
@@ -1898,7 +2086,8 @@
       "title": "Donaldson Filter Element - P554403",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p554620",
@@ -1908,7 +2097,8 @@
       "title": "Donaldson Filter Element - P554620",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p554685",
@@ -1918,7 +2108,8 @@
       "title": "Donaldson Filter Element - P554685",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p554865",
@@ -1928,7 +2119,8 @@
       "title": "Donaldson Filter Element - P554865",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p555570",
@@ -1938,7 +2130,8 @@
       "title": "Donaldson Filter Element - P555570",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p555706",
@@ -1948,7 +2141,8 @@
       "title": "Donaldson Filter Element - P555706",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p556005",
@@ -1958,7 +2152,8 @@
       "title": "Donaldson Filter Element - P556005",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p556064",
@@ -1968,7 +2163,8 @@
       "title": "Donaldson Filter Element - P556064",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p556745",
@@ -1978,7 +2174,8 @@
       "title": "Donaldson Filter Element - P556745",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p557440",
@@ -1988,7 +2185,8 @@
       "title": "Donaldson Filter Element - P557440",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p557826",
@@ -1998,7 +2196,8 @@
       "title": "Donaldson Filter Element - P557826",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p558000",
@@ -2008,7 +2207,8 @@
       "title": "Donaldson Filter Element - P558000",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p558615",
@@ -2018,7 +2218,8 @@
       "title": "Donaldson Filter Element - P558615",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p558616",
@@ -2028,7 +2229,8 @@
       "title": "Donaldson Filter Element - P558616",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p559000",
@@ -2038,7 +2240,8 @@
       "title": "Donaldson Filter Element - P559000",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p559100",
@@ -2048,7 +2251,8 @@
       "title": "Donaldson Filter Element - P559100",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p559128",
@@ -2058,7 +2262,8 @@
       "title": "Donaldson Filter Element - P559128",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p559740",
@@ -2068,7 +2273,8 @@
       "title": "Donaldson Filter Element - P559740",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p565059",
@@ -2078,7 +2284,8 @@
       "title": "Donaldson Filter Element - P565059",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p565243",
@@ -2088,7 +2295,8 @@
       "title": "Donaldson Filter Element - P565243",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p565245",
@@ -2098,7 +2306,8 @@
       "title": "Donaldson Filter Element - P565245",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p566037",
@@ -2108,7 +2317,8 @@
       "title": "Donaldson Filter Element - P566037",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p566400",
@@ -2118,7 +2328,8 @@
       "title": "Donaldson Filter Element - P566400",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p566968",
@@ -2128,7 +2339,8 @@
       "title": "Donaldson Filter Element - P566968",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p567091",
@@ -2138,7 +2350,8 @@
       "title": "Donaldson Filter Element - P567091",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p571271",
@@ -2148,7 +2361,8 @@
       "title": "Donaldson Filter Element - P571271",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p573481",
@@ -2158,7 +2372,8 @@
       "title": "Donaldson Filter Element - P573481",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p576047",
@@ -2168,7 +2383,8 @@
       "title": "Donaldson Filter Element - P576047",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p576918",
@@ -2178,7 +2394,8 @@
       "title": "Donaldson Filter Element - P576918",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p582064",
@@ -2188,7 +2405,8 @@
       "title": "Donaldson Filter Element - P582064",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p608533",
@@ -2198,7 +2416,8 @@
       "title": "Donaldson Filter Element - P608533",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p613334",
@@ -2208,7 +2427,8 @@
       "title": "Donaldson Filter Element - P613334",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p613335",
@@ -2218,7 +2438,8 @@
       "title": "Donaldson Filter Element - P613335",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p626096",
@@ -2228,7 +2449,8 @@
       "title": "Donaldson Filter Element - P626096",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p633483",
@@ -2238,7 +2460,8 @@
       "title": "Donaldson Filter Element - P633483",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p753389",
@@ -2248,7 +2471,8 @@
       "title": "Donaldson Filter Element - P753389",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p762921",
@@ -2258,7 +2482,8 @@
       "title": "Donaldson Filter Element - P762921",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p763995",
@@ -2268,7 +2493,8 @@
       "title": "Donaldson Filter Element - P763995",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p764729",
@@ -2278,7 +2504,8 @@
       "title": "Donaldson Filter Element - P764729",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p771561",
@@ -2288,7 +2515,8 @@
       "title": "Donaldson Filter Element - P771561",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p772522",
@@ -2298,7 +2526,8 @@
       "title": "Donaldson Filter Element - P772522",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p776158",
@@ -2308,7 +2537,8 @@
       "title": "Donaldson Filter Element - P776158",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p777409",
@@ -2318,7 +2548,8 @@
       "title": "Donaldson Filter Element - P777409",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p777639",
@@ -2328,7 +2559,8 @@
       "title": "Donaldson Filter Element - P777639",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p777868",
@@ -2338,7 +2570,8 @@
       "title": "Donaldson Filter Element - P777868",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p777869",
@@ -2348,7 +2581,8 @@
       "title": "Donaldson Filter Element - P777869",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p778335",
@@ -2358,7 +2592,8 @@
       "title": "Donaldson Filter Element - P778335",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p780385",
@@ -2368,7 +2603,8 @@
       "title": "Donaldson Filter Element - P780385",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p781039",
@@ -2378,7 +2614,8 @@
       "title": "Donaldson Filter Element - P781039",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p781466",
@@ -2388,7 +2625,8 @@
       "title": "Donaldson Filter Element - P781466",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p783388",
@@ -2398,7 +2636,8 @@
       "title": "Donaldson Filter Element - P783388",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p812368",
@@ -2408,7 +2647,8 @@
       "title": "Donaldson Filter Element - P812368",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p812924",
@@ -2418,7 +2658,8 @@
       "title": "Donaldson Filter Element - P812924",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p821575",
@@ -2428,7 +2669,8 @@
       "title": "Donaldson Filter Element - P821575",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p822768",
@@ -2438,7 +2680,8 @@
       "title": "Donaldson Filter Element - P822768",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p822769",
@@ -2448,7 +2691,8 @@
       "title": "Donaldson Filter Element - P822769",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p822858",
@@ -2458,7 +2702,8 @@
       "title": "Donaldson Filter Element - P822858",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p827653",
@@ -2468,7 +2713,8 @@
       "title": "Donaldson Filter Element - P827653",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p828889",
@@ -2478,7 +2724,8 @@
       "title": "Donaldson Filter Element - P828889",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p953215",
@@ -2488,7 +2735,8 @@
       "title": "Donaldson Filter Element - P953215",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-p955606",
@@ -2498,7 +2746,8 @@
       "title": "Donaldson Filter Element - P955606",
       "category": "filter",
       "spec": "Filter Element — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-r000958",
@@ -2508,7 +2757,8 @@
       "title": "Donaldson Filtration Part - R000958",
       "category": "filter",
       "spec": "Filtration Part — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-r002290",
@@ -2518,7 +2768,8 @@
       "title": "Donaldson Filtration Part - R002290",
       "category": "filter",
       "spec": "Filtration Part — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-r010077",
@@ -2528,7 +2779,8 @@
       "title": "Donaldson Filtration Part - R010077",
       "category": "filter",
       "spec": "Filtration Part — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "don-x770088",
@@ -2538,7 +2790,8 @@
       "title": "Donaldson Hydraulic Filter - X770088",
       "category": "filter",
       "spec": "Hydraulic Filter — verify application/spec via RFQ",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "man-w11102",
@@ -2548,7 +2801,8 @@
       "title": "MANN Filter - W11102",
       "category": "filter",
       "spec": "Oil Filter W 11 102 | G var dataLayerName = 'adobeDataLayer' || 'adobeDataLayer'; window[dataLayerName] = window[dataLayerName] || []; window[dataLayerName].push({ page: JSON.parse(\"{\\x22page\\u002Dfa75cbd291\\x22:{\\x22xdm:isErrorPage\\x22:false,\\x22xdm:tags\\x22:[],\\x22repo:path\\x22:\\x22\\/content\\/mann\\u002Dfilter\\/mann\\u002Dfilter\\u002Dcom\\/en\\/catalog\\/international\\/search\\u002Dresults\\/product.html\\x22,\\x22xdm:language\\x22:\\x22en\\x22,\\x22@type\\x22:\\x22mannfilter\\/components\\/structure\\/content\\u002Dpage\\x22,\\x22dc:title\\x22:\\x22Product\\x22,\\x22repo:modifyDate\\x22:\\x222026\\u002D01\\u002D08T08:49:08Z\\x22,\\x22statusCode\\x22:200,\\x22xdm:country\\x22:\\x22\\x22,\\x22xdm:template\\x22:\\x22\\/conf\\/mannfilter\\/settings\\/wcm\\/templates\\/content\\u002Dpage\\x22}}\"), event:'cmp:show', eventInfo: { path: 'page.page\\u002Dfa75cbd291' } });",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "man-w11102-36",
@@ -2558,7 +2812,8 @@
       "title": "MANN Filter - W11102/36",
       "category": "filter",
       "spec": "Oil Filter W 11 102/36 | G var dataLayerName = 'adobeDataLayer' || 'adobeDataLayer'; window[dataLayerName] = window[dataLayerName] || []; window[dataLayerName].push({ page: JSON.parse(\"{\\x22page\\u002Dfa75cbd291\\x22:{\\x22xdm:isErrorPage\\x22:false,\\x22xdm:tags\\x22:[],\\x22repo:path\\x22:\\x22\\/content\\/mann\\u002Dfilter\\/mann\\u002Dfilter\\u002Dcom\\/en\\/catalog\\/international\\/search\\u002Dresults\\/product.html\\x22,\\x22xdm:language\\x22:\\x22en\\x22,\\x22@type\\x22:\\x22mannfilter\\/components\\/structure\\/content\\u002Dpage\\x22,\\x22dc:title\\x22:\\x22Product\\x22,\\x22repo:modifyDate\\x22:\\x222026\\u002D01\\u002D08T08:49:08Z\\x22,\\x22statusCode\\x22:200,\\x22xdm:country\\x22:\\x22\\x22,\\x22xdm:template\\x22:\\x22\\/conf\\/mannfilter\\/settings\\/wcm\\/templates\\/content\\u002Dpage\\x22}}\"), event:'cmp:show', eventInfo: { path: 'page.page\\u002Dfa75cbd291' } });",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "man-w1160",
@@ -2568,7 +2823,8 @@
       "title": "MANN Filter - W1160",
       "category": "filter",
       "spec": "Oil Filter W 1160 | G var dataLayerName = 'adobeDataLayer' || 'adobeDataLayer'; window[dataLayerName] = window[dataLayerName] || []; window[dataLayerName].push({ page: JSON.parse(\"{\\x22page\\u002Dfa75cbd291\\x22:{\\x22xdm:isErrorPage\\x22:false,\\x22xdm:tags\\x22:[],\\x22repo:path\\x22:\\x22\\/content\\/mann\\u002Dfilter\\/mann\\u002Dfilter\\u002Dcom\\/en\\/catalog\\/international\\/search\\u002Dresults\\/product.html\\x22,\\x22xdm:language\\x22:\\x22en\\x22,\\x22@type\\x22:\\x22mannfilter\\/components\\/structure\\/content\\u002Dpage\\x22,\\x22dc:title\\x22:\\x22Product\\x22,\\x22repo:modifyDate\\x22:\\x222026\\u002D01\\u002D08T08:49:08Z\\x22,\\x22statusCode\\x22:200,\\x22xdm:country\\x22:\\x22\\x22,\\x22xdm:template\\x22:\\x22\\/conf\\/mannfilter\\/settings\\/wcm\\/templates\\/content\\u002Dpage\\x22}}\"), event:'cmp:show', eventInfo: { path: 'page.page\\u002Dfa75cbd291' } });",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "man-w13145-3",
@@ -2578,7 +2834,8 @@
       "title": "MANN Filter - W13145/3",
       "category": "filter",
       "spec": "Hydraulic Transmission Filter W 13 145/3 | G var dataLayerName = 'adobeDataLayer' || 'adobeDataLayer'; window[dataLayerName] = window[dataLayerName] || []; window[dataLayerName].push({ page: JSON.parse(\"{\\x22page\\u002Dfa75cbd291\\x22:{\\x22xdm:isErrorPage\\x22:false,\\x22xdm:tags\\x22:[],\\x22repo:path\\x22:\\x22\\/content\\/mann\\u002Dfilter\\/mann\\u002Dfilter\\u002Dcom\\/en\\/catalog\\/international\\/search\\u002Dresults\\/product.html\\x22,\\x22xdm:language\\x22:\\x22en\\x22,\\x22@type\\x22:\\x22mannfilter\\/components\\/structure\\/content\\u002Dpage\\x22,\\x22dc:title\\x22:\\x22Product\\x22,\\x22repo:modifyDate\\x22:\\x222026\\u002D01\\u002D08T08:49:08Z\\x22,\\x22statusCode\\x22:200,\\x22xdm:country\\x22:\\x22\\x22,\\x22xdm:template\\x22:\\x22\\/conf\\/mannfilter\\/settings\\/wcm\\/templates\\/content\\u002Dpage\\x22}}\"), event:'cmp:show', eventInfo: { path: 'page.page\\u002Dfa75cbd291' } });",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "man-w719-5",
@@ -2588,7 +2845,8 @@
       "title": "MANN Filter - W719/5",
       "category": "filter",
       "spec": "Oil Filter W 719/5 | G var dataLayerName = 'adobeDataLayer' || 'adobeDataLayer'; window[dataLayerName] = window[dataLayerName] || []; window[dataLayerName].push({ page: JSON.parse(\"{\\x22page\\u002Dfa75cbd291\\x22:{\\x22xdm:isErrorPage\\x22:false,\\x22xdm:tags\\x22:[],\\x22repo:path\\x22:\\x22\\/content\\/mann\\u002Dfilter\\/mann\\u002Dfilter\\u002Dcom\\/en\\/catalog\\/international\\/search\\u002Dresults\\/product.html\\x22,\\x22xdm:language\\x22:\\x22en\\x22,\\x22@type\\x22:\\x22mannfilter\\/components\\/structure\\/content\\u002Dpage\\x22,\\x22dc:title\\x22:\\x22Product\\x22,\\x22repo:modifyDate\\x22:\\x222026\\u002D01\\u002D08T08:49:08Z\\x22,\\x22statusCode\\x22:200,\\x22xdm:country\\x22:\\x22\\x22,\\x22xdm:template\\x22:\\x22\\/conf\\/mannfilter\\/settings\\/wcm\\/templates\\/content\\u002Dpage\\x22}}\"), event:'cmp:show', eventInfo: { path: 'page.page\\u002Dfa75cbd291' } });",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "man-w920-21",
@@ -2598,7 +2856,8 @@
       "title": "MANN Filter - W920/21",
       "category": "filter",
       "spec": "Oil Filter W 920/21 | G var dataLayerName = 'adobeDataLayer' || 'adobeDataLayer'; window[dataLayerName] = window[dataLayerName] || []; window[dataLayerName].push({ page: JSON.parse(\"{\\x22page\\u002Dfa75cbd291\\x22:{\\x22xdm:isErrorPage\\x22:false,\\x22xdm:tags\\x22:[],\\x22repo:path\\x22:\\x22\\/content\\/mann\\u002Dfilter\\/mann\\u002Dfilter\\u002Dcom\\/en\\/catalog\\/international\\/search\\u002Dresults\\/product.html\\x22,\\x22xdm:language\\x22:\\x22en\\x22,\\x22@type\\x22:\\x22mannfilter\\/components\\/structure\\/content\\u002Dpage\\x22,\\x22dc:title\\x22:\\x22Product\\x22,\\x22repo:modifyDate\\x22:\\x222026\\u002D01\\u002D08T08:49:08Z\\x22,\\x22statusCode\\x22:200,\\x22xdm:country\\x22:\\x22\\x22,\\x22xdm:template\\x22:\\x22\\/conf\\/mannfilter\\/settings\\/wcm\\/templates\\/content\\u002Dpage\\x22}}\"), event:'cmp:show', eventInfo: { path: 'page.page\\u002Dfa75cbd291' } });",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "man-w940",
@@ -2608,7 +2867,8 @@
       "title": "MANN Filter - W940",
       "category": "filter",
       "spec": "Oil Filter W 940 | G var dataLayerName = 'adobeDataLayer' || 'adobeDataLayer'; window[dataLayerName] = window[dataLayerName] || []; window[dataLayerName].push({ page: JSON.parse(\"{\\x22page\\u002Dfa75cbd291\\x22:{\\x22xdm:isErrorPage\\x22:false,\\x22xdm:tags\\x22:[],\\x22repo:path\\x22:\\x22\\/content\\/mann\\u002Dfilter\\/mann\\u002Dfilter\\u002Dcom\\/en\\/catalog\\/international\\/search\\u002Dresults\\/product.html\\x22,\\x22xdm:language\\x22:\\x22en\\x22,\\x22@type\\x22:\\x22mannfilter\\/components\\/structure\\/content\\u002Dpage\\x22,\\x22dc:title\\x22:\\x22Product\\x22,\\x22repo:modifyDate\\x22:\\x222026\\u002D01\\u002D08T08:49:08Z\\x22,\\x22statusCode\\x22:200,\\x22xdm:country\\x22:\\x22\\x22,\\x22xdm:template\\x22:\\x22\\/conf\\/mannfilter\\/settings\\/wcm\\/templates\\/content\\u002Dpage\\x22}}\"), event:'cmp:show', eventInfo: { path: 'page.page\\u002Dfa75cbd291' } });",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "man-w940-1",
@@ -2618,7 +2878,8 @@
       "title": "MANN Filter - W940/1",
       "category": "filter",
       "spec": "Oil Filter W 940/1 | G var dataLayerName = 'adobeDataLayer' || 'adobeDataLayer'; window[dataLayerName] = window[dataLayerName] || []; window[dataLayerName].push({ page: JSON.parse(\"{\\x22page\\u002Dfa75cbd291\\x22:{\\x22xdm:isErrorPage\\x22:false,\\x22xdm:tags\\x22:[],\\x22repo:path\\x22:\\x22\\/content\\/mann\\u002Dfilter\\/mann\\u002Dfilter\\u002Dcom\\/en\\/catalog\\/international\\/search\\u002Dresults\\/product.html\\x22,\\x22xdm:language\\x22:\\x22en\\x22,\\x22@type\\x22:\\x22mannfilter\\/components\\/structure\\/content\\u002Dpage\\x22,\\x22dc:title\\x22:\\x22Product\\x22,\\x22repo:modifyDate\\x22:\\x222026\\u002D01\\u002D08T08:49:08Z\\x22,\\x22statusCode\\x22:200,\\x22xdm:country\\x22:\\x22\\x22,\\x22xdm:template\\x22:\\x22\\/conf\\/mannfilter\\/settings\\/wcm\\/templates\\/content\\u002Dpage\\x22}}\"), event:'cmp:show', eventInfo: { path: 'page.page\\u002Dfa75cbd291' } });",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "man-w940-21",
@@ -2628,7 +2889,8 @@
       "title": "MANN Filter - W940/21",
       "category": "filter",
       "spec": "Oil Filter W 940/21 | G var dataLayerName = 'adobeDataLayer' || 'adobeDataLayer'; window[dataLayerName] = window[dataLayerName] || []; window[dataLayerName].push({ page: JSON.parse(\"{\\x22page\\u002Dfa75cbd291\\x22:{\\x22xdm:isErrorPage\\x22:false,\\x22xdm:tags\\x22:[],\\x22repo:path\\x22:\\x22\\/content\\/mann\\u002Dfilter\\/mann\\u002Dfilter\\u002Dcom\\/en\\/catalog\\/international\\/search\\u002Dresults\\/product.html\\x22,\\x22xdm:language\\x22:\\x22en\\x22,\\x22@type\\x22:\\x22mannfilter\\/components\\/structure\\/content\\u002Dpage\\x22,\\x22dc:title\\x22:\\x22Product\\x22,\\x22repo:modifyDate\\x22:\\x222026\\u002D01\\u002D08T08:49:08Z\\x22,\\x22statusCode\\x22:200,\\x22xdm:country\\x22:\\x22\\x22,\\x22xdm:template\\x22:\\x22\\/conf\\/mannfilter\\/settings\\/wcm\\/templates\\/content\\u002Dpage\\x22}}\"), event:'cmp:show', eventInfo: { path: 'page.page\\u002Dfa75cbd291' } });",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "man-w940-5",
@@ -2638,7 +2900,8 @@
       "title": "MANN Filter - W940/5",
       "category": "filter",
       "spec": "Oil Filter W 940/5 | G var dataLayerName = 'adobeDataLayer' || 'adobeDataLayer'; window[dataLayerName] = window[dataLayerName] || []; window[dataLayerName].push({ page: JSON.parse(\"{\\x22page\\u002Dfa75cbd291\\x22:{\\x22xdm:isErrorPage\\x22:false,\\x22xdm:tags\\x22:[],\\x22repo:path\\x22:\\x22\\/content\\/mann\\u002Dfilter\\/mann\\u002Dfilter\\u002Dcom\\/en\\/catalog\\/international\\/search\\u002Dresults\\/product.html\\x22,\\x22xdm:language\\x22:\\x22en\\x22,\\x22@type\\x22:\\x22mannfilter\\/components\\/structure\\/content\\u002Dpage\\x22,\\x22dc:title\\x22:\\x22Product\\x22,\\x22repo:modifyDate\\x22:\\x222026\\u002D01\\u002D08T08:49:08Z\\x22,\\x22statusCode\\x22:200,\\x22xdm:country\\x22:\\x22\\x22,\\x22xdm:template\\x22:\\x22\\/conf\\/mannfilter\\/settings\\/wcm\\/templates\\/content\\u002Dpage\\x22}}\"), event:'cmp:show', eventInfo: { path: 'page.page\\u002Dfa75cbd291' } });",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "man-w950",
@@ -2648,7 +2911,8 @@
       "title": "MANN Filter - W950",
       "category": "filter",
       "spec": "Oil Filter W 950 | G var dataLayerName = 'adobeDataLayer' || 'adobeDataLayer'; window[dataLayerName] = window[dataLayerName] || []; window[dataLayerName].push({ page: JSON.parse(\"{\\x22page\\u002Dfa75cbd291\\x22:{\\x22xdm:isErrorPage\\x22:false,\\x22xdm:tags\\x22:[],\\x22repo:path\\x22:\\x22\\/content\\/mann\\u002Dfilter\\/mann\\u002Dfilter\\u002Dcom\\/en\\/catalog\\/international\\/search\\u002Dresults\\/product.html\\x22,\\x22xdm:language\\x22:\\x22en\\x22,\\x22@type\\x22:\\x22mannfilter\\/components\\/structure\\/content\\u002Dpage\\x22,\\x22dc:title\\x22:\\x22Product\\x22,\\x22repo:modifyDate\\x22:\\x222026\\u002D01\\u002D08T08:49:08Z\\x22,\\x22statusCode\\x22:200,\\x22xdm:country\\x22:\\x22\\x22,\\x22xdm:template\\x22:\\x22\\/conf\\/mannfilter\\/settings\\/wcm\\/templates\\/content\\u002Dpage\\x22}}\"), event:'cmp:show', eventInfo: { path: 'page.page\\u002Dfa75cbd291' } });",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "man-w962-14",
@@ -2658,7 +2922,8 @@
       "title": "MANN Filter - W962/14",
       "category": "filter",
       "spec": "Hydraulics W 962/14 | G var dataLayerName = 'adobeDataLayer' || 'adobeDataLayer'; window[dataLayerName] = window[dataLayerName] || []; window[dataLayerName].push({ page: JSON.parse(\"{\\x22page\\u002Dfa75cbd291\\x22:{\\x22xdm:isErrorPage\\x22:false,\\x22xdm:tags\\x22:[],\\x22repo:path\\x22:\\x22\\/content\\/mann\\u002Dfilter\\/mann\\u002Dfilter\\u002Dcom\\/en\\/catalog\\/international\\/search\\u002Dresults\\/product.html\\x22,\\x22xdm:language\\x22:\\x22en\\x22,\\x22@type\\x22:\\x22mannfilter\\/components\\/structure\\/content\\u002Dpage\\x22,\\x22dc:title\\x22:\\x22Product\\x22,\\x22repo:modifyDate\\x22:\\x222026\\u002D01\\u002D08T08:49:08Z\\x22,\\x22statusCode\\x22:200,\\x22xdm:country\\x22:\\x22\\x22,\\x22xdm:template\\x22:\\x22\\/conf\\/mannfilter\\/settings\\/wcm\\/templates\\/content\\u002Dpage\\x22}}\"), event:'cmp:show', eventInfo: { path: 'page.page\\u002Dfa75cbd291' } });",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "man-wd13145",
@@ -2668,7 +2933,8 @@
       "title": "MANN Filter - WD13145",
       "category": "filter",
       "spec": "Oil Filter WD 13 145 | G var dataLayerName = 'adobeDataLayer' || 'adobeDataLayer'; window[dataLayerName] = window[dataLayerName] || []; window[dataLayerName].push({ page: JSON.parse(\"{\\x22page\\u002Dfa75cbd291\\x22:{\\x22xdm:isErrorPage\\x22:false,\\x22xdm:tags\\x22:[],\\x22repo:path\\x22:\\x22\\/content\\/mann\\u002Dfilter\\/mann\\u002Dfilter\\u002Dcom\\/en\\/catalog\\/international\\/search\\u002Dresults\\/product.html\\x22,\\x22xdm:language\\x22:\\x22en\\x22,\\x22@type\\x22:\\x22mannfilter\\/components\\/structure\\/content\\u002Dpage\\x22,\\x22dc:title\\x22:\\x22Product\\x22,\\x22repo:modifyDate\\x22:\\x222026\\u002D01\\u002D08T08:49:08Z\\x22,\\x22statusCode\\x22:200,\\x22xdm:country\\x22:\\x22\\x22,\\x22xdm:template\\x22:\\x22\\/conf\\/mannfilter\\/settings\\/wcm\\/templates\\/content\\u002Dpage\\x22}}\"), event:'cmp:show', eventInfo: { path: 'page.page\\u002Dfa75cbd291' } });",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "man-wd1374",
@@ -2678,7 +2944,8 @@
       "title": "MANN Filter - WD1374",
       "category": "filter",
       "spec": "Hydraulic Transmission Filter WD 1374 | G var dataLayerName = 'adobeDataLayer' || 'adobeDataLayer'; window[dataLayerName] = window[dataLayerName] || []; window[dataLayerName].push({ page: JSON.parse(\"{\\x22page\\u002Dfa75cbd291\\x22:{\\x22xdm:isErrorPage\\x22:false,\\x22xdm:tags\\x22:[],\\x22repo:path\\x22:\\x22\\/content\\/mann\\u002Dfilter\\/mann\\u002Dfilter\\u002Dcom\\/en\\/catalog\\/international\\/search\\u002Dresults\\/product.html\\x22,\\x22xdm:language\\x22:\\x22en\\x22,\\x22@type\\x22:\\x22mannfilter\\/components\\/structure\\/content\\u002Dpage\\x22,\\x22dc:title\\x22:\\x22Product\\x22,\\x22repo:modifyDate\\x22:\\x222026\\u002D01\\u002D08T08:49:08Z\\x22,\\x22statusCode\\x22:200,\\x22xdm:country\\x22:\\x22\\x22,\\x22xdm:template\\x22:\\x22\\/conf\\/mannfilter\\/settings\\/wcm\\/templates\\/content\\u002Dpage\\x22}}\"), event:'cmp:show', eventInfo: { path: 'page.page\\u002Dfa75cbd291' } });",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "man-wd920",
@@ -2688,7 +2955,8 @@
       "title": "MANN Filter - WD920",
       "category": "filter",
       "spec": "Hydraulics WD 920 | G var dataLayerName = 'adobeDataLayer' || 'adobeDataLayer'; window[dataLayerName] = window[dataLayerName] || []; window[dataLayerName].push({ page: JSON.parse(\"{\\x22page\\u002Dfa75cbd291\\x22:{\\x22xdm:isErrorPage\\x22:false,\\x22xdm:tags\\x22:[],\\x22repo:path\\x22:\\x22\\/content\\/mann\\u002Dfilter\\/mann\\u002Dfilter\\u002Dcom\\/en\\/catalog\\/international\\/search\\u002Dresults\\/product.html\\x22,\\x22xdm:language\\x22:\\x22en\\x22,\\x22@type\\x22:\\x22mannfilter\\/components\\/structure\\/content\\u002Dpage\\x22,\\x22dc:title\\x22:\\x22Product\\x22,\\x22repo:modifyDate\\x22:\\x222026\\u002D01\\u002D08T08:49:08Z\\x22,\\x22statusCode\\x22:200,\\x22xdm:country\\x22:\\x22\\x22,\\x22xdm:template\\x22:\\x22\\/conf\\/mannfilter\\/settings\\/wcm\\/templates\\/content\\u002Dpage\\x22}}\"), event:'cmp:show', eventInfo: { path: 'page.page\\u002Dfa75cbd291' } });",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "man-wd940",
@@ -2698,7 +2966,8 @@
       "title": "MANN Filter - WD940",
       "category": "filter",
       "spec": "Hydraulics WD 940 | G var dataLayerName = 'adobeDataLayer' || 'adobeDataLayer'; window[dataLayerName] = window[dataLayerName] || []; window[dataLayerName].push({ page: JSON.parse(\"{\\x22page\\u002Dfa75cbd291\\x22:{\\x22xdm:isErrorPage\\x22:false,\\x22xdm:tags\\x22:[],\\x22repo:path\\x22:\\x22\\/content\\/mann\\u002Dfilter\\/mann\\u002Dfilter\\u002Dcom\\/en\\/catalog\\/international\\/search\\u002Dresults\\/product.html\\x22,\\x22xdm:language\\x22:\\x22en\\x22,\\x22@type\\x22:\\x22mannfilter\\/components\\/structure\\/content\\u002Dpage\\x22,\\x22dc:title\\x22:\\x22Product\\x22,\\x22repo:modifyDate\\x22:\\x222026\\u002D01\\u002D08T08:49:08Z\\x22,\\x22statusCode\\x22:200,\\x22xdm:country\\x22:\\x22\\x22,\\x22xdm:template\\x22:\\x22\\/conf\\/mannfilter\\/settings\\/wcm\\/templates\\/content\\u002Dpage\\x22}}\"), event:'cmp:show', eventInfo: { path: 'page.page\\u002Dfa75cbd291' } });",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "man-wd950",
@@ -2708,7 +2977,8 @@
       "title": "MANN Filter - WD950",
       "category": "filter",
       "spec": "Hydraulics WD 950 | G var dataLayerName = 'adobeDataLayer' || 'adobeDataLayer'; window[dataLayerName] = window[dataLayerName] || []; window[dataLayerName].push({ page: JSON.parse(\"{\\x22page\\u002Dfa75cbd291\\x22:{\\x22xdm:isErrorPage\\x22:false,\\x22xdm:tags\\x22:[],\\x22repo:path\\x22:\\x22\\/content\\/mann\\u002Dfilter\\/mann\\u002Dfilter\\u002Dcom\\/en\\/catalog\\/international\\/search\\u002Dresults\\/product.html\\x22,\\x22xdm:language\\x22:\\x22en\\x22,\\x22@type\\x22:\\x22mannfilter\\/components\\/structure\\/content\\u002Dpage\\x22,\\x22dc:title\\x22:\\x22Product\\x22,\\x22repo:modifyDate\\x22:\\x222026\\u002D01\\u002D08T08:49:08Z\\x22,\\x22statusCode\\x22:200,\\x22xdm:country\\x22:\\x22\\x22,\\x22xdm:template\\x22:\\x22\\/conf\\/mannfilter\\/settings\\/wcm\\/templates\\/content\\u002Dpage\\x22}}\"), event:'cmp:show', eventInfo: { path: 'page.page\\u002Dfa75cbd291' } });",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "man-wd962",
@@ -2718,7 +2988,8 @@
       "title": "MANN Filter - WD962",
       "category": "filter",
       "spec": "Hydraulic Transmission Filter WD 962 | G var dataLayerName = 'adobeDataLayer' || 'adobeDataLayer'; window[dataLayerName] = window[dataLayerName] || []; window[dataLayerName].push({ page: JSON.parse(\"{\\x22page\\u002Dfa75cbd291\\x22:{\\x22xdm:isErrorPage\\x22:false,\\x22xdm:tags\\x22:[],\\x22repo:path\\x22:\\x22\\/content\\/mann\\u002Dfilter\\/mann\\u002Dfilter\\u002Dcom\\/en\\/catalog\\/international\\/search\\u002Dresults\\/product.html\\x22,\\x22xdm:language\\x22:\\x22en\\x22,\\x22@type\\x22:\\x22mannfilter\\/components\\/structure\\/content\\u002Dpage\\x22,\\x22dc:title\\x22:\\x22Product\\x22,\\x22repo:modifyDate\\x22:\\x222026\\u002D01\\u002D08T08:49:08Z\\x22,\\x22statusCode\\x22:200,\\x22xdm:country\\x22:\\x22\\x22,\\x22xdm:template\\x22:\\x22\\/conf\\/mannfilter\\/settings\\/wcm\\/templates\\/content\\u002Dpage\\x22}}\"), event:'cmp:show', eventInfo: { path: 'page.page\\u002Dfa75cbd291' } });",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "man-wdk725",
@@ -2728,7 +2999,8 @@
       "title": "MANN Filter - WDK725",
       "category": "filter",
       "spec": "Fuel Filter WDK 725 | G var dataLayerName = 'adobeDataLayer' || 'adobeDataLayer'; window[dataLayerName] = window[dataLayerName] || []; window[dataLayerName].push({ page: JSON.parse(\"{\\x22page\\u002Dfa75cbd291\\x22:{\\x22xdm:isErrorPage\\x22:false,\\x22xdm:tags\\x22:[],\\x22repo:path\\x22:\\x22\\/content\\/mann\\u002Dfilter\\/mann\\u002Dfilter\\u002Dcom\\/en\\/catalog\\/international\\/search\\u002Dresults\\/product.html\\x22,\\x22xdm:language\\x22:\\x22en\\x22,\\x22@type\\x22:\\x22mannfilter\\/components\\/structure\\/content\\u002Dpage\\x22,\\x22dc:title\\x22:\\x22Product\\x22,\\x22repo:modifyDate\\x22:\\x222026\\u002D01\\u002D08T08:49:08Z\\x22,\\x22statusCode\\x22:200,\\x22xdm:country\\x22:\\x22\\x22,\\x22xdm:template\\x22:\\x22\\/conf\\/mannfilter\\/settings\\/wcm\\/templates\\/content\\u002Dpage\\x22}}\"), event:'cmp:show', eventInfo: { path: 'page.page\\u002Dfa75cbd291' } });",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "man-wdk9002",
@@ -2738,7 +3010,8 @@
       "title": "MANN Filter - WDK9002",
       "category": "filter",
       "spec": "Fuel Filter WDK 9002 | G var dataLayerName = 'adobeDataLayer' || 'adobeDataLayer'; window[dataLayerName] = window[dataLayerName] || []; window[dataLayerName].push({ page: JSON.parse(\"{\\x22page\\u002Dfa75cbd291\\x22:{\\x22xdm:isErrorPage\\x22:false,\\x22xdm:tags\\x22:[],\\x22repo:path\\x22:\\x22\\/content\\/mann\\u002Dfilter\\/mann\\u002Dfilter\\u002Dcom\\/en\\/catalog\\/international\\/search\\u002Dresults\\/product.html\\x22,\\x22xdm:language\\x22:\\x22en\\x22,\\x22@type\\x22:\\x22mannfilter\\/components\\/structure\\/content\\u002Dpage\\x22,\\x22dc:title\\x22:\\x22Product\\x22,\\x22repo:modifyDate\\x22:\\x222026\\u002D01\\u002D08T08:49:08Z\\x22,\\x22statusCode\\x22:200,\\x22xdm:country\\x22:\\x22\\x22,\\x22xdm:template\\x22:\\x22\\/conf\\/mannfilter\\/settings\\/wcm\\/templates\\/content\\u002Dpage\\x22}}\"), event:'cmp:show', eventInfo: { path: 'page.page\\u002Dfa75cbd291' } });",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "man-wdk962-16",
@@ -2748,7 +3021,8 @@
       "title": "MANN Filter - WDK962/16",
       "category": "filter",
       "spec": "Fuel Filter WDK 962/16 | G var dataLayerName = 'adobeDataLayer' || 'adobeDataLayer'; window[dataLayerName] = window[dataLayerName] || []; window[dataLayerName].push({ page: JSON.parse(\"{\\x22page\\u002Dfa75cbd291\\x22:{\\x22xdm:isErrorPage\\x22:false,\\x22xdm:tags\\x22:[],\\x22repo:path\\x22:\\x22\\/content\\/mann\\u002Dfilter\\/mann\\u002Dfilter\\u002Dcom\\/en\\/catalog\\/international\\/search\\u002Dresults\\/product.html\\x22,\\x22xdm:language\\x22:\\x22en\\x22,\\x22@type\\x22:\\x22mannfilter\\/components\\/structure\\/content\\u002Dpage\\x22,\\x22dc:title\\x22:\\x22Product\\x22,\\x22repo:modifyDate\\x22:\\x222026\\u002D01\\u002D08T08:49:08Z\\x22,\\x22statusCode\\x22:200,\\x22xdm:country\\x22:\\x22\\x22,\\x22xdm:template\\x22:\\x22\\/conf\\/mannfilter\\/settings\\/wcm\\/templates\\/content\\u002Dpage\\x22}}\"), event:'cmp:show', eventInfo: { path: 'page.page\\u002Dfa75cbd291' } });",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "man-wk1060-1",
@@ -2758,7 +3032,8 @@
       "title": "MANN Filter - WK1060/1",
       "category": "filter",
       "spec": "กรองน้ำมันเชื้อเพลิง WK 1060/1 | G var dataLayerName = 'adobeDataLayer' || 'adobeDataLayer'; window[dataLayerName] = window[dataLayerName] || []; window[dataLayerName].push({ page: JSON.parse(\"{\\x22page\\u002D72d2e6cfb6\\x22:{\\x22xdm:isErrorPage\\x22:false,\\x22xdm:tags\\x22:[],\\x22repo:path\\x22:\\x22\\/content\\/mann\\u002Dfilter\\/mann\\u002Dfilter\\u002Dcom\\/th\\u002Dth\\/catalog\\/search\\u002Dresults\\/product.html\\x22,\\x22xdm:language\\x22:\\x22th\\u002DTH\\x22,\\x22@type\\x22:\\x22mannfilter\\/components\\/structure\\/content\\u002Dpage\\x22,\\x22dc:title\\x22:\\x22Product\\x22,\\x22repo:modifyDate\\x22:\\x222026\\u002D01\\u002D08T09:14:43Z\\x22,\\x22statusCode\\x22:200,\\x22xdm:country\\x22:\\x22Thailand\\x22,\\x22xdm:template\\x22:\\x22\\/conf\\/mannfilter\\/settings\\/wcm\\/templates\\/content\\u002Dpage\\x22}}\"), event:'cmp:show', eventInfo: { path: 'page.page\\u002D72d2e6cfb6' } });",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "man-4900053601",
@@ -2768,7 +3043,8 @@
       "title": "MANN Filter - 4900053601",
       "category": "filter",
       "spec": "Compressed Air-Oil Separation 49 000 53 601 | G var dataLayerName = 'adobeDataLayer' || 'adobeDataLayer'; window[dataLayerName] = window[dataLayerName] || []; window[dataLayerName].push({ page: JSON.parse(\"{\\x22page\\u002Dfa75cbd291\\x22:{\\x22xdm:isErrorPage\\x22:false,\\x22xdm:tags\\x22:[],\\x22repo:path\\x22:\\x22\\/content\\/mann\\u002Dfilter\\/mann\\u002Dfilter\\u002Dcom\\/en\\/catalog\\/international\\/search\\u002Dresults\\/product.html\\x22,\\x22xdm:language\\x22:\\x22en\\x22,\\x22@type\\x22:\\x22mannfilter\\/components\\/structure\\/content\\u002Dpage\\x22,\\x22dc:title\\x22:\\x22Product\\x22,\\x22repo:modifyDate\\x22:\\x222026\\u002D01\\u002D08T08:49:08Z\\x22,\\x22statusCode\\x22:200,\\x22xdm:country\\x22:\\x22\\x22,\\x22xdm:template\\x22:\\x22\\/conf\\/mannfilter\\/settings\\/wcm\\/templates\\/content\\u002Dpage\\x22}}\"), event:'cmp:show', eventInfo: { path: 'page.page\\u002Dfa75cbd291' } });",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "man-bfu900x",
@@ -2778,7 +3054,8 @@
       "title": "MANN Filter - BFU900X",
       "category": "filter",
       "spec": "Fuel Filter BFU 900 x | G var dataLayerName = 'adobeDataLayer' || 'adobeDataLayer'; window[dataLayerName] = window[dataLayerName] || []; window[dataLayerName].push({ page: JSON.parse(\"{\\x22page\\u002Dfa75cbd291\\x22:{\\x22xdm:isErrorPage\\x22:false,\\x22xdm:tags\\x22:[],\\x22repo:path\\x22:\\x22\\/content\\/mann\\u002Dfilter\\/mann\\u002Dfilter\\u002Dcom\\/en\\/catalog\\/international\\/search\\u002Dresults\\/product.html\\x22,\\x22xdm:language\\x22:\\x22en\\x22,\\x22@type\\x22:\\x22mannfilter\\/components\\/structure\\/content\\u002Dpage\\x22,\\x22dc:title\\x22:\\x22Product\\x22,\\x22repo:modifyDate\\x22:\\x222026\\u002D01\\u002D08T08:49:08Z\\x22,\\x22statusCode\\x22:200,\\x22xdm:country\\x22:\\x22\\x22,\\x22xdm:template\\x22:\\x22\\/conf\\/mannfilter\\/settings\\/wcm\\/templates\\/content\\u002Dpage\\x22}}\"), event:'cmp:show', eventInfo: { path: 'page.page\\u002Dfa75cbd291' } });",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "man-c1112-2",
@@ -2788,7 +3065,8 @@
       "title": "MANN Filter - C1112/2",
       "category": "filter",
       "spec": "Air Filter C 1112/2 | G var dataLayerName = 'adobeDataLayer' || 'adobeDataLayer'; window[dataLayerName] = window[dataLayerName] || []; window[dataLayerName].push({ page: JSON.parse(\"{\\x22page\\u002Dfa75cbd291\\x22:{\\x22xdm:isErrorPage\\x22:false,\\x22xdm:tags\\x22:[],\\x22repo:path\\x22:\\x22\\/content\\/mann\\u002Dfilter\\/mann\\u002Dfilter\\u002Dcom\\/en\\/catalog\\/international\\/search\\u002Dresults\\/product.html\\x22,\\x22xdm:language\\x22:\\x22en\\x22,\\x22@type\\x22:\\x22mannfilter\\/components\\/structure\\/content\\u002Dpage\\x22,\\x22dc:title\\x22:\\x22Product\\x22,\\x22repo:modifyDate\\x22:\\x222026\\u002D01\\u002D08T08:49:08Z\\x22,\\x22statusCode\\x22:200,\\x22xdm:country\\x22:\\x22\\x22,\\x22xdm:template\\x22:\\x22\\/conf\\/mannfilter\\/settings\\/wcm\\/templates\\/content\\u002Dpage\\x22}}\"), event:'cmp:show', eventInfo: { path: 'page.page\\u002Dfa75cbd291' } });",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "man-c1131-1",
@@ -2798,7 +3076,8 @@
       "title": "MANN Filter - C1131/1",
       "category": "filter",
       "spec": "Air Filter C 1131/1 | G var dataLayerName = 'adobeDataLayer' || 'adobeDataLayer'; window[dataLayerName] = window[dataLayerName] || []; window[dataLayerName].push({ page: JSON.parse(\"{\\x22page\\u002Dfa75cbd291\\x22:{\\x22xdm:isErrorPage\\x22:false,\\x22xdm:tags\\x22:[],\\x22repo:path\\x22:\\x22\\/content\\/mann\\u002Dfilter\\/mann\\u002Dfilter\\u002Dcom\\/en\\/catalog\\/international\\/search\\u002Dresults\\/product.html\\x22,\\x22xdm:language\\x22:\\x22en\\x22,\\x22@type\\x22:\\x22mannfilter\\/components\\/structure\\/content\\u002Dpage\\x22,\\x22dc:title\\x22:\\x22Product\\x22,\\x22repo:modifyDate\\x22:\\x222026\\u002D01\\u002D08T08:49:08Z\\x22,\\x22statusCode\\x22:200,\\x22xdm:country\\x22:\\x22\\x22,\\x22xdm:template\\x22:\\x22\\/conf\\/mannfilter\\/settings\\/wcm\\/templates\\/content\\u002Dpage\\x22}}\"), event:'cmp:show', eventInfo: { path: 'page.page\\u002Dfa75cbd291' } });",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "man-c1140",
@@ -2808,7 +3087,8 @@
       "title": "MANN Filter - C1140",
       "category": "filter",
       "spec": "Air Filter C 1140 | G var dataLayerName = 'adobeDataLayer' || 'adobeDataLayer'; window[dataLayerName] = window[dataLayerName] || []; window[dataLayerName].push({ page: JSON.parse(\"{\\x22page\\u002Dfa75cbd291\\x22:{\\x22xdm:isErrorPage\\x22:false,\\x22xdm:tags\\x22:[],\\x22repo:path\\x22:\\x22\\/content\\/mann\\u002Dfilter\\/mann\\u002Dfilter\\u002Dcom\\/en\\/catalog\\/international\\/search\\u002Dresults\\/product.html\\x22,\\x22xdm:language\\x22:\\x22en\\x22,\\x22@type\\x22:\\x22mannfilter\\/components\\/structure\\/content\\u002Dpage\\x22,\\x22dc:title\\x22:\\x22Product\\x22,\\x22repo:modifyDate\\x22:\\x222026\\u002D01\\u002D08T08:49:08Z\\x22,\\x22statusCode\\x22:200,\\x22xdm:country\\x22:\\x22\\x22,\\x22xdm:template\\x22:\\x22\\/conf\\/mannfilter\\/settings\\/wcm\\/templates\\/content\\u002Dpage\\x22}}\"), event:'cmp:show', eventInfo: { path: 'page.page\\u002Dfa75cbd291' } });",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "man-c1213",
@@ -2818,7 +3098,8 @@
       "title": "MANN Filter - C1213",
       "category": "filter",
       "spec": "Air Filter C 1213 | G var dataLayerName = 'adobeDataLayer' || 'adobeDataLayer'; window[dataLayerName] = window[dataLayerName] || []; window[dataLayerName].push({ page: JSON.parse(\"{\\x22page\\u002Dfa75cbd291\\x22:{\\x22xdm:isErrorPage\\x22:false,\\x22xdm:tags\\x22:[],\\x22repo:path\\x22:\\x22\\/content\\/mann\\u002Dfilter\\/mann\\u002Dfilter\\u002Dcom\\/en\\/catalog\\/international\\/search\\u002Dresults\\/product.html\\x22,\\x22xdm:language\\x22:\\x22en\\x22,\\x22@type\\x22:\\x22mannfilter\\/components\\/structure\\/content\\u002Dpage\\x22,\\x22dc:title\\x22:\\x22Product\\x22,\\x22repo:modifyDate\\x22:\\x222026\\u002D01\\u002D08T08:49:08Z\\x22,\\x22statusCode\\x22:200,\\x22xdm:country\\x22:\\x22\\x22,\\x22xdm:template\\x22:\\x22\\/conf\\/mannfilter\\/settings\\/wcm\\/templates\\/content\\u002Dpage\\x22}}\"), event:'cmp:show', eventInfo: { path: 'page.page\\u002Dfa75cbd291' } });",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "man-c1250",
@@ -2828,7 +3109,8 @@
       "title": "MANN Filter - C1250",
       "category": "filter",
       "spec": "Air Filter C 1250 | G var dataLayerName = 'adobeDataLayer' || 'adobeDataLayer'; window[dataLayerName] = window[dataLayerName] || []; window[dataLayerName].push({ page: JSON.parse(\"{\\x22page\\u002Dfa75cbd291\\x22:{\\x22xdm:isErrorPage\\x22:false,\\x22xdm:tags\\x22:[],\\x22repo:path\\x22:\\x22\\/content\\/mann\\u002Dfilter\\/mann\\u002Dfilter\\u002Dcom\\/en\\/catalog\\/international\\/search\\u002Dresults\\/product.html\\x22,\\x22xdm:language\\x22:\\x22en\\x22,\\x22@type\\x22:\\x22mannfilter\\/components\\/structure\\/content\\u002Dpage\\x22,\\x22dc:title\\x22:\\x22Product\\x22,\\x22repo:modifyDate\\x22:\\x222026\\u002D01\\u002D08T08:49:08Z\\x22,\\x22statusCode\\x22:200,\\x22xdm:country\\x22:\\x22\\x22,\\x22xdm:template\\x22:\\x22\\/conf\\/mannfilter\\/settings\\/wcm\\/templates\\/content\\u002Dpage\\x22}}\"), event:'cmp:show', eventInfo: { path: 'page.page\\u002Dfa75cbd291' } });",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "man-c1337",
@@ -2838,7 +3120,8 @@
       "title": "MANN Filter - C1337",
       "category": "filter",
       "spec": "Air Filter C 1337 | G var dataLayerName = 'adobeDataLayer' || 'adobeDataLayer'; window[dataLayerName] = window[dataLayerName] || []; window[dataLayerName].push({ page: JSON.parse(\"{\\x22page\\u002Dfa75cbd291\\x22:{\\x22xdm:isErrorPage\\x22:false,\\x22xdm:tags\\x22:[],\\x22repo:path\\x22:\\x22\\/content\\/mann\\u002Dfilter\\/mann\\u002Dfilter\\u002Dcom\\/en\\/catalog\\/international\\/search\\u002Dresults\\/product.html\\x22,\\x22xdm:language\\x22:\\x22en\\x22,\\x22@type\\x22:\\x22mannfilter\\/components\\/structure\\/content\\u002Dpage\\x22,\\x22dc:title\\x22:\\x22Product\\x22,\\x22repo:modifyDate\\x22:\\x222026\\u002D01\\u002D08T08:49:08Z\\x22,\\x22statusCode\\x22:200,\\x22xdm:country\\x22:\\x22\\x22,\\x22xdm:template\\x22:\\x22\\/conf\\/mannfilter\\/settings\\/wcm\\/templates\\/content\\u002Dpage\\x22}}\"), event:'cmp:show', eventInfo: { path: 'page.page\\u002Dfa75cbd291' } });",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "man-c1368",
@@ -2848,7 +3131,8 @@
       "title": "MANN Filter - C1368",
       "category": "filter",
       "spec": "Air Filter C 1368 | G var dataLayerName = 'adobeDataLayer' || 'adobeDataLayer'; window[dataLayerName] = window[dataLayerName] || []; window[dataLayerName].push({ page: JSON.parse(\"{\\x22page\\u002Dfa75cbd291\\x22:{\\x22xdm:isErrorPage\\x22:false,\\x22xdm:tags\\x22:[],\\x22repo:path\\x22:\\x22\\/content\\/mann\\u002Dfilter\\/mann\\u002Dfilter\\u002Dcom\\/en\\/catalog\\/international\\/search\\u002Dresults\\/product.html\\x22,\\x22xdm:language\\x22:\\x22en\\x22,\\x22@type\\x22:\\x22mannfilter\\/components\\/structure\\/content\\u002Dpage\\x22,\\x22dc:title\\x22:\\x22Product\\x22,\\x22repo:modifyDate\\x22:\\x222026\\u002D01\\u002D08T08:49:08Z\\x22,\\x22statusCode\\x22:200,\\x22xdm:country\\x22:\\x22\\x22,\\x22xdm:template\\x22:\\x22\\/conf\\/mannfilter\\/settings\\/wcm\\/templates\\/content\\u002Dpage\\x22}}\"), event:'cmp:show', eventInfo: { path: 'page.page\\u002Dfa75cbd291' } });",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "man-c14200",
@@ -2858,7 +3142,8 @@
       "title": "MANN Filter - C14200",
       "category": "filter",
       "spec": "Air Filter C 14 200 | G var dataLayerName = 'adobeDataLayer' || 'adobeDataLayer'; window[dataLayerName] = window[dataLayerName] || []; window[dataLayerName].push({ page: JSON.parse(\"{\\x22page\\u002Dfa75cbd291\\x22:{\\x22xdm:isErrorPage\\x22:false,\\x22xdm:tags\\x22:[],\\x22repo:path\\x22:\\x22\\/content\\/mann\\u002Dfilter\\/mann\\u002Dfilter\\u002Dcom\\/en\\/catalog\\/international\\/search\\u002Dresults\\/product.html\\x22,\\x22xdm:language\\x22:\\x22en\\x22,\\x22@type\\x22:\\x22mannfilter\\/components\\/structure\\/content\\u002Dpage\\x22,\\x22dc:title\\x22:\\x22Product\\x22,\\x22repo:modifyDate\\x22:\\x222026\\u002D01\\u002D08T08:49:08Z\\x22,\\x22statusCode\\x22:200,\\x22xdm:country\\x22:\\x22\\x22,\\x22xdm:template\\x22:\\x22\\/conf\\/mannfilter\\/settings\\/wcm\\/templates\\/content\\u002Dpage\\x22}}\"), event:'cmp:show', eventInfo: { path: 'page.page\\u002Dfa75cbd291' } });",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "man-c15124-1",
@@ -2868,7 +3153,8 @@
       "title": "MANN Filter - C15124/1",
       "category": "filter",
       "spec": "Air Filter C 15 124/1 | G var dataLayerName = 'adobeDataLayer' || 'adobeDataLayer'; window[dataLayerName] = window[dataLayerName] || []; window[dataLayerName].push({ page: JSON.parse(\"{\\x22page\\u002Dfa75cbd291\\x22:{\\x22xdm:isErrorPage\\x22:false,\\x22xdm:tags\\x22:[],\\x22repo:path\\x22:\\x22\\/content\\/mann\\u002Dfilter\\/mann\\u002Dfilter\\u002Dcom\\/en\\/catalog\\/international\\/search\\u002Dresults\\/product.html\\x22,\\x22xdm:language\\x22:\\x22en\\x22,\\x22@type\\x22:\\x22mannfilter\\/components\\/structure\\/content\\u002Dpage\\x22,\\x22dc:title\\x22:\\x22Product\\x22,\\x22repo:modifyDate\\x22:\\x222026\\u002D01\\u002D08T08:49:08Z\\x22,\\x22statusCode\\x22:200,\\x22xdm:country\\x22:\\x22\\x22,\\x22xdm:template\\x22:\\x22\\/conf\\/mannfilter\\/settings\\/wcm\\/templates\\/content\\u002Dpage\\x22}}\"), event:'cmp:show', eventInfo: { path: 'page.page\\u002Dfa75cbd291' } });",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "man-c15300",
@@ -2878,7 +3164,8 @@
       "title": "MANN Filter - C15300",
       "category": "filter",
       "spec": "Air Filter C 15 300 | G var dataLayerName = 'adobeDataLayer' || 'adobeDataLayer'; window[dataLayerName] = window[dataLayerName] || []; window[dataLayerName].push({ page: JSON.parse(\"{\\x22page\\u002Dfa75cbd291\\x22:{\\x22xdm:isErrorPage\\x22:false,\\x22xdm:tags\\x22:[],\\x22repo:path\\x22:\\x22\\/content\\/mann\\u002Dfilter\\/mann\\u002Dfilter\\u002Dcom\\/en\\/catalog\\/international\\/search\\u002Dresults\\/product.html\\x22,\\x22xdm:language\\x22:\\x22en\\x22,\\x22@type\\x22:\\x22mannfilter\\/components\\/structure\\/content\\u002Dpage\\x22,\\x22dc:title\\x22:\\x22Product\\x22,\\x22repo:modifyDate\\x22:\\x222026\\u002D01\\u002D08T08:49:08Z\\x22,\\x22statusCode\\x22:200,\\x22xdm:country\\x22:\\x22\\x22,\\x22xdm:template\\x22:\\x22\\/conf\\/mannfilter\\/settings\\/wcm\\/templates\\/content\\u002Dpage\\x22}}\"), event:'cmp:show', eventInfo: { path: 'page.page\\u002Dfa75cbd291' } });",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "man-c1574",
@@ -2888,7 +3175,8 @@
       "title": "MANN Filter - C1574",
       "category": "filter",
       "spec": "Air Filter C 1574 | G var dataLayerName = 'adobeDataLayer' || 'adobeDataLayer'; window[dataLayerName] = window[dataLayerName] || []; window[dataLayerName].push({ page: JSON.parse(\"{\\x22page\\u002Dfa75cbd291\\x22:{\\x22xdm:isErrorPage\\x22:false,\\x22xdm:tags\\x22:[],\\x22repo:path\\x22:\\x22\\/content\\/mann\\u002Dfilter\\/mann\\u002Dfilter\\u002Dcom\\/en\\/catalog\\/international\\/search\\u002Dresults\\/product.html\\x22,\\x22xdm:language\\x22:\\x22en\\x22,\\x22@type\\x22:\\x22mannfilter\\/components\\/structure\\/content\\u002Dpage\\x22,\\x22dc:title\\x22:\\x22Product\\x22,\\x22repo:modifyDate\\x22:\\x222026\\u002D01\\u002D08T08:49:08Z\\x22,\\x22statusCode\\x22:200,\\x22xdm:country\\x22:\\x22\\x22,\\x22xdm:template\\x22:\\x22\\/conf\\/mannfilter\\/settings\\/wcm\\/templates\\/content\\u002Dpage\\x22}}\"), event:'cmp:show', eventInfo: { path: 'page.page\\u002Dfa75cbd291' } });",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "man-c1633-1",
@@ -2898,7 +3186,8 @@
       "title": "MANN Filter - C1633/1",
       "category": "filter",
       "spec": "Air Filter C 1633/1 | G var dataLayerName = 'adobeDataLayer' || 'adobeDataLayer'; window[dataLayerName] = window[dataLayerName] || []; window[dataLayerName].push({ page: JSON.parse(\"{\\x22page\\u002Dfa75cbd291\\x22:{\\x22xdm:isErrorPage\\x22:false,\\x22xdm:tags\\x22:[],\\x22repo:path\\x22:\\x22\\/content\\/mann\\u002Dfilter\\/mann\\u002Dfilter\\u002Dcom\\/en\\/catalog\\/international\\/search\\u002Dresults\\/product.html\\x22,\\x22xdm:language\\x22:\\x22en\\x22,\\x22@type\\x22:\\x22mannfilter\\/components\\/structure\\/content\\u002Dpage\\x22,\\x22dc:title\\x22:\\x22Product\\x22,\\x22repo:modifyDate\\x22:\\x222026\\u002D01\\u002D08T08:49:08Z\\x22,\\x22statusCode\\x22:200,\\x22xdm:country\\x22:\\x22\\x22,\\x22xdm:template\\x22:\\x22\\/conf\\/mannfilter\\/settings\\/wcm\\/templates\\/content\\u002Dpage\\x22}}\"), event:'cmp:show', eventInfo: { path: 'page.page\\u002Dfa75cbd291' } });",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "man-c16400",
@@ -2908,7 +3197,8 @@
       "title": "MANN Filter - C16400",
       "category": "filter",
       "spec": "Air Filter C 16 400 | G var dataLayerName = 'adobeDataLayer' || 'adobeDataLayer'; window[dataLayerName] = window[dataLayerName] || []; window[dataLayerName].push({ page: JSON.parse(\"{\\x22page\\u002Dfa75cbd291\\x22:{\\x22xdm:isErrorPage\\x22:false,\\x22xdm:tags\\x22:[],\\x22repo:path\\x22:\\x22\\/content\\/mann\\u002Dfilter\\/mann\\u002Dfilter\\u002Dcom\\/en\\/catalog\\/international\\/search\\u002Dresults\\/product.html\\x22,\\x22xdm:language\\x22:\\x22en\\x22,\\x22@type\\x22:\\x22mannfilter\\/components\\/structure\\/content\\u002Dpage\\x22,\\x22dc:title\\x22:\\x22Product\\x22,\\x22repo:modifyDate\\x22:\\x222026\\u002D01\\u002D08T08:49:08Z\\x22,\\x22statusCode\\x22:200,\\x22xdm:country\\x22:\\x22\\x22,\\x22xdm:template\\x22:\\x22\\/conf\\/mannfilter\\/settings\\/wcm\\/templates\\/content\\u002Dpage\\x22}}\"), event:'cmp:show', eventInfo: { path: 'page.page\\u002Dfa75cbd291' } });",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "man-c1760",
@@ -2918,7 +3208,8 @@
       "title": "MANN Filter - C1760",
       "category": "filter",
       "spec": "Air Filter C 1760 | G var dataLayerName = 'adobeDataLayer' || 'adobeDataLayer'; window[dataLayerName] = window[dataLayerName] || []; window[dataLayerName].push({ page: JSON.parse(\"{\\x22page\\u002Dfa75cbd291\\x22:{\\x22xdm:isErrorPage\\x22:false,\\x22xdm:tags\\x22:[],\\x22repo:path\\x22:\\x22\\/content\\/mann\\u002Dfilter\\/mann\\u002Dfilter\\u002Dcom\\/en\\/catalog\\/international\\/search\\u002Dresults\\/product.html\\x22,\\x22xdm:language\\x22:\\x22en\\x22,\\x22@type\\x22:\\x22mannfilter\\/components\\/structure\\/content\\u002Dpage\\x22,\\x22dc:title\\x22:\\x22Product\\x22,\\x22repo:modifyDate\\x22:\\x222026\\u002D01\\u002D08T08:49:08Z\\x22,\\x22statusCode\\x22:200,\\x22xdm:country\\x22:\\x22\\x22,\\x22xdm:template\\x22:\\x22\\/conf\\/mannfilter\\/settings\\/wcm\\/templates\\/content\\u002Dpage\\x22}}\"), event:'cmp:show', eventInfo: { path: 'page.page\\u002Dfa75cbd291' } });",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "man-c20105",
@@ -2928,7 +3219,8 @@
       "title": "MANN Filter - C20105",
       "category": "filter",
       "spec": "Air Filter C 20 105 | G var dataLayerName = 'adobeDataLayer' || 'adobeDataLayer'; window[dataLayerName] = window[dataLayerName] || []; window[dataLayerName].push({ page: JSON.parse(\"{\\x22page\\u002Dfa75cbd291\\x22:{\\x22xdm:isErrorPage\\x22:false,\\x22xdm:tags\\x22:[],\\x22repo:path\\x22:\\x22\\/content\\/mann\\u002Dfilter\\/mann\\u002Dfilter\\u002Dcom\\/en\\/catalog\\/international\\/search\\u002Dresults\\/product.html\\x22,\\x22xdm:language\\x22:\\x22en\\x22,\\x22@type\\x22:\\x22mannfilter\\/components\\/structure\\/content\\u002Dpage\\x22,\\x22dc:title\\x22:\\x22Product\\x22,\\x22repo:modifyDate\\x22:\\x222026\\u002D01\\u002D08T08:49:08Z\\x22,\\x22statusCode\\x22:200,\\x22xdm:country\\x22:\\x22\\x22,\\x22xdm:template\\x22:\\x22\\/conf\\/mannfilter\\/settings\\/wcm\\/templates\\/content\\u002Dpage\\x22}}\"), event:'cmp:show', eventInfo: { path: 'page.page\\u002Dfa75cbd291' } });",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "man-c20325-2",
@@ -2938,7 +3230,8 @@
       "title": "MANN Filter - C20325/2",
       "category": "filter",
       "spec": "Air Filter C 20 325/2 | G var dataLayerName = 'adobeDataLayer' || 'adobeDataLayer'; window[dataLayerName] = window[dataLayerName] || []; window[dataLayerName].push({ page: JSON.parse(\"{\\x22page\\u002Dfa75cbd291\\x22:{\\x22xdm:isErrorPage\\x22:false,\\x22xdm:tags\\x22:[],\\x22repo:path\\x22:\\x22\\/content\\/mann\\u002Dfilter\\/mann\\u002Dfilter\\u002Dcom\\/en\\/catalog\\/international\\/search\\u002Dresults\\/product.html\\x22,\\x22xdm:language\\x22:\\x22en\\x22,\\x22@type\\x22:\\x22mannfilter\\/components\\/structure\\/content\\u002Dpage\\x22,\\x22dc:title\\x22:\\x22Product\\x22,\\x22repo:modifyDate\\x22:\\x222026\\u002D01\\u002D08T08:49:08Z\\x22,\\x22statusCode\\x22:200,\\x22xdm:country\\x22:\\x22\\x22,\\x22xdm:template\\x22:\\x22\\/conf\\/mannfilter\\/settings\\/wcm\\/templates\\/content\\u002Dpage\\x22}}\"), event:'cmp:show', eventInfo: { path: 'page.page\\u002Dfa75cbd291' } });",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "man-c20500",
@@ -2948,7 +3241,8 @@
       "title": "MANN Filter - C20500",
       "category": "filter",
       "spec": "Air Filter C 20 500 | G var dataLayerName = 'adobeDataLayer' || 'adobeDataLayer'; window[dataLayerName] = window[dataLayerName] || []; window[dataLayerName].push({ page: JSON.parse(\"{\\x22page\\u002Dfa75cbd291\\x22:{\\x22xdm:isErrorPage\\x22:false,\\x22xdm:tags\\x22:[],\\x22repo:path\\x22:\\x22\\/content\\/mann\\u002Dfilter\\/mann\\u002Dfilter\\u002Dcom\\/en\\/catalog\\/international\\/search\\u002Dresults\\/product.html\\x22,\\x22xdm:language\\x22:\\x22en\\x22,\\x22@type\\x22:\\x22mannfilter\\/components\\/structure\\/content\\u002Dpage\\x22,\\x22dc:title\\x22:\\x22Product\\x22,\\x22repo:modifyDate\\x22:\\x222026\\u002D01\\u002D08T08:49:08Z\\x22,\\x22statusCode\\x22:200,\\x22xdm:country\\x22:\\x22\\x22,\\x22xdm:template\\x22:\\x22\\/conf\\/mannfilter\\/settings\\/wcm\\/templates\\/content\\u002Dpage\\x22}}\"), event:'cmp:show', eventInfo: { path: 'page.page\\u002Dfa75cbd291' } });",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "man-c21138-1",
@@ -2958,7 +3252,8 @@
       "title": "MANN Filter - C21138/1",
       "category": "filter",
       "spec": "Air Filter C 21 138/1 | G var dataLayerName = 'adobeDataLayer' || 'adobeDataLayer'; window[dataLayerName] = window[dataLayerName] || []; window[dataLayerName].push({ page: JSON.parse(\"{\\x22page\\u002Dfa75cbd291\\x22:{\\x22xdm:isErrorPage\\x22:false,\\x22xdm:tags\\x22:[],\\x22repo:path\\x22:\\x22\\/content\\/mann\\u002Dfilter\\/mann\\u002Dfilter\\u002Dcom\\/en\\/catalog\\/international\\/search\\u002Dresults\\/product.html\\x22,\\x22xdm:language\\x22:\\x22en\\x22,\\x22@type\\x22:\\x22mannfilter\\/components\\/structure\\/content\\u002Dpage\\x22,\\x22dc:title\\x22:\\x22Product\\x22,\\x22repo:modifyDate\\x22:\\x222026\\u002D01\\u002D08T08:49:08Z\\x22,\\x22statusCode\\x22:200,\\x22xdm:country\\x22:\\x22\\x22,\\x22xdm:template\\x22:\\x22\\/conf\\/mannfilter\\/settings\\/wcm\\/templates\\/content\\u002Dpage\\x22}}\"), event:'cmp:show', eventInfo: { path: 'page.page\\u002Dfa75cbd291' } });",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "man-c21600",
@@ -2968,7 +3263,8 @@
       "title": "MANN Filter - C21600",
       "category": "filter",
       "spec": "Air Filter C 21 600 | G var dataLayerName = 'adobeDataLayer' || 'adobeDataLayer'; window[dataLayerName] = window[dataLayerName] || []; window[dataLayerName].push({ page: JSON.parse(\"{\\x22page\\u002Dfa75cbd291\\x22:{\\x22xdm:isErrorPage\\x22:false,\\x22xdm:tags\\x22:[],\\x22repo:path\\x22:\\x22\\/content\\/mann\\u002Dfilter\\/mann\\u002Dfilter\\u002Dcom\\/en\\/catalog\\/international\\/search\\u002Dresults\\/product.html\\x22,\\x22xdm:language\\x22:\\x22en\\x22,\\x22@type\\x22:\\x22mannfilter\\/components\\/structure\\/content\\u002Dpage\\x22,\\x22dc:title\\x22:\\x22Product\\x22,\\x22repo:modifyDate\\x22:\\x222026\\u002D01\\u002D08T08:49:08Z\\x22,\\x22statusCode\\x22:200,\\x22xdm:country\\x22:\\x22\\x22,\\x22xdm:template\\x22:\\x22\\/conf\\/mannfilter\\/settings\\/wcm\\/templates\\/content\\u002Dpage\\x22}}\"), event:'cmp:show', eventInfo: { path: 'page.page\\u002Dfa75cbd291' } });",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "man-c23610",
@@ -2978,7 +3274,8 @@
       "title": "MANN Filter - C23610",
       "category": "filter",
       "spec": "Air Filter C 23 610 | G var dataLayerName = 'adobeDataLayer' || 'adobeDataLayer'; window[dataLayerName] = window[dataLayerName] || []; window[dataLayerName].push({ page: JSON.parse(\"{\\x22page\\u002Dfa75cbd291\\x22:{\\x22xdm:isErrorPage\\x22:false,\\x22xdm:tags\\x22:[],\\x22repo:path\\x22:\\x22\\/content\\/mann\\u002Dfilter\\/mann\\u002Dfilter\\u002Dcom\\/en\\/catalog\\/international\\/search\\u002Dresults\\/product.html\\x22,\\x22xdm:language\\x22:\\x22en\\x22,\\x22@type\\x22:\\x22mannfilter\\/components\\/structure\\/content\\u002Dpage\\x22,\\x22dc:title\\x22:\\x22Product\\x22,\\x22repo:modifyDate\\x22:\\x222026\\u002D01\\u002D08T08:49:08Z\\x22,\\x22statusCode\\x22:200,\\x22xdm:country\\x22:\\x22\\x22,\\x22xdm:template\\x22:\\x22\\/conf\\/mannfilter\\/settings\\/wcm\\/templates\\/content\\u002Dpage\\x22}}\"), event:'cmp:show', eventInfo: { path: 'page.page\\u002Dfa75cbd291' } });",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "man-c23632-1",
@@ -2988,7 +3285,8 @@
       "title": "MANN Filter - C23632/1",
       "category": "filter",
       "spec": "Air Filter C 23 632/1 | G var dataLayerName = 'adobeDataLayer' || 'adobeDataLayer'; window[dataLayerName] = window[dataLayerName] || []; window[dataLayerName].push({ page: JSON.parse(\"{\\x22page\\u002Dfa75cbd291\\x22:{\\x22xdm:isErrorPage\\x22:false,\\x22xdm:tags\\x22:[],\\x22repo:path\\x22:\\x22\\/content\\/mann\\u002Dfilter\\/mann\\u002Dfilter\\u002Dcom\\/en\\/catalog\\/international\\/search\\u002Dresults\\/product.html\\x22,\\x22xdm:language\\x22:\\x22en\\x22,\\x22@type\\x22:\\x22mannfilter\\/components\\/structure\\/content\\u002Dpage\\x22,\\x22dc:title\\x22:\\x22Product\\x22,\\x22repo:modifyDate\\x22:\\x222026\\u002D01\\u002D08T08:49:08Z\\x22,\\x22statusCode\\x22:200,\\x22xdm:country\\x22:\\x22\\x22,\\x22xdm:template\\x22:\\x22\\/conf\\/mannfilter\\/settings\\/wcm\\/templates\\/content\\u002Dpage\\x22}}\"), event:'cmp:show', eventInfo: { path: 'page.page\\u002Dfa75cbd291' } });",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "man-c25710-3",
@@ -2998,7 +3296,8 @@
       "title": "MANN Filter - C25710/3",
       "category": "filter",
       "spec": "Air Filter C 25 710/3 | G var dataLayerName = 'adobeDataLayer' || 'adobeDataLayer'; window[dataLayerName] = window[dataLayerName] || []; window[dataLayerName].push({ page: JSON.parse(\"{\\x22page\\u002Dfa75cbd291\\x22:{\\x22xdm:isErrorPage\\x22:false,\\x22xdm:tags\\x22:[],\\x22repo:path\\x22:\\x22\\/content\\/mann\\u002Dfilter\\/mann\\u002Dfilter\\u002Dcom\\/en\\/catalog\\/international\\/search\\u002Dresults\\/product.html\\x22,\\x22xdm:language\\x22:\\x22en\\x22,\\x22@type\\x22:\\x22mannfilter\\/components\\/structure\\/content\\u002Dpage\\x22,\\x22dc:title\\x22:\\x22Product\\x22,\\x22repo:modifyDate\\x22:\\x222026\\u002D01\\u002D08T08:49:08Z\\x22,\\x22statusCode\\x22:200,\\x22xdm:country\\x22:\\x22\\x22,\\x22xdm:template\\x22:\\x22\\/conf\\/mannfilter\\/settings\\/wcm\\/templates\\/content\\u002Dpage\\x22}}\"), event:'cmp:show', eventInfo: { path: 'page.page\\u002Dfa75cbd291' } });",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "man-c25860-6",
@@ -3008,7 +3307,8 @@
       "title": "MANN Filter - C25860/6",
       "category": "filter",
       "spec": "Air Filter C 25 860/6 | G var dataLayerName = 'adobeDataLayer' || 'adobeDataLayer'; window[dataLayerName] = window[dataLayerName] || []; window[dataLayerName].push({ page: JSON.parse(\"{\\x22page\\u002Dfa75cbd291\\x22:{\\x22xdm:isErrorPage\\x22:false,\\x22xdm:tags\\x22:[],\\x22repo:path\\x22:\\x22\\/content\\/mann\\u002Dfilter\\/mann\\u002Dfilter\\u002Dcom\\/en\\/catalog\\/international\\/search\\u002Dresults\\/product.html\\x22,\\x22xdm:language\\x22:\\x22en\\x22,\\x22@type\\x22:\\x22mannfilter\\/components\\/structure\\/content\\u002Dpage\\x22,\\x22dc:title\\x22:\\x22Product\\x22,\\x22repo:modifyDate\\x22:\\x222026\\u002D01\\u002D08T08:49:08Z\\x22,\\x22statusCode\\x22:200,\\x22xdm:country\\x22:\\x22\\x22,\\x22xdm:template\\x22:\\x22\\/conf\\/mannfilter\\/settings\\/wcm\\/templates\\/content\\u002Dpage\\x22}}\"), event:'cmp:show', eventInfo: { path: 'page.page\\u002Dfa75cbd291' } });",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "man-c25900",
@@ -3018,7 +3318,8 @@
       "title": "MANN Filter - C25900",
       "category": "filter",
       "spec": "Air Filter C 25 900 | G var dataLayerName = 'adobeDataLayer' || 'adobeDataLayer'; window[dataLayerName] = window[dataLayerName] || []; window[dataLayerName].push({ page: JSON.parse(\"{\\x22page\\u002Dfa75cbd291\\x22:{\\x22xdm:isErrorPage\\x22:false,\\x22xdm:tags\\x22:[],\\x22repo:path\\x22:\\x22\\/content\\/mann\\u002Dfilter\\/mann\\u002Dfilter\\u002Dcom\\/en\\/catalog\\/international\\/search\\u002Dresults\\/product.html\\x22,\\x22xdm:language\\x22:\\x22en\\x22,\\x22@type\\x22:\\x22mannfilter\\/components\\/structure\\/content\\u002Dpage\\x22,\\x22dc:title\\x22:\\x22Product\\x22,\\x22repo:modifyDate\\x22:\\x222026\\u002D01\\u002D08T08:49:08Z\\x22,\\x22statusCode\\x22:200,\\x22xdm:country\\x22:\\x22\\x22,\\x22xdm:template\\x22:\\x22\\/conf\\/mannfilter\\/settings\\/wcm\\/templates\\/content\\u002Dpage\\x22}}\"), event:'cmp:show', eventInfo: { path: 'page.page\\u002Dfa75cbd291' } });",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "man-c30703",
@@ -3028,7 +3329,8 @@
       "title": "MANN Filter - C30703",
       "category": "filter",
       "spec": "Air Filter C 30 703 | G var dataLayerName = 'adobeDataLayer' || 'adobeDataLayer'; window[dataLayerName] = window[dataLayerName] || []; window[dataLayerName].push({ page: JSON.parse(\"{\\x22page\\u002Dfa75cbd291\\x22:{\\x22xdm:isErrorPage\\x22:false,\\x22xdm:tags\\x22:[],\\x22repo:path\\x22:\\x22\\/content\\/mann\\u002Dfilter\\/mann\\u002Dfilter\\u002Dcom\\/en\\/catalog\\/international\\/search\\u002Dresults\\/product.html\\x22,\\x22xdm:language\\x22:\\x22en\\x22,\\x22@type\\x22:\\x22mannfilter\\/components\\/structure\\/content\\u002Dpage\\x22,\\x22dc:title\\x22:\\x22Product\\x22,\\x22repo:modifyDate\\x22:\\x222026\\u002D01\\u002D08T08:49:08Z\\x22,\\x22statusCode\\x22:200,\\x22xdm:country\\x22:\\x22\\x22,\\x22xdm:template\\x22:\\x22\\/conf\\/mannfilter\\/settings\\/wcm\\/templates\\/content\\u002Dpage\\x22}}\"), event:'cmp:show', eventInfo: { path: 'page.page\\u002Dfa75cbd291' } });",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "man-c30850-2",
@@ -3038,7 +3340,8 @@
       "title": "MANN Filter - C30850/2",
       "category": "filter",
       "spec": "Air Filter C 30 850/2 | G var dataLayerName = 'adobeDataLayer' || 'adobeDataLayer'; window[dataLayerName] = window[dataLayerName] || []; window[dataLayerName].push({ page: JSON.parse(\"{\\x22page\\u002Dfa75cbd291\\x22:{\\x22xdm:isErrorPage\\x22:false,\\x22xdm:tags\\x22:[],\\x22repo:path\\x22:\\x22\\/content\\/mann\\u002Dfilter\\/mann\\u002Dfilter\\u002Dcom\\/en\\/catalog\\/international\\/search\\u002Dresults\\/product.html\\x22,\\x22xdm:language\\x22:\\x22en\\x22,\\x22@type\\x22:\\x22mannfilter\\/components\\/structure\\/content\\u002Dpage\\x22,\\x22dc:title\\x22:\\x22Product\\x22,\\x22repo:modifyDate\\x22:\\x222026\\u002D01\\u002D08T08:49:08Z\\x22,\\x22statusCode\\x22:200,\\x22xdm:country\\x22:\\x22\\x22,\\x22xdm:template\\x22:\\x22\\/conf\\/mannfilter\\/settings\\/wcm\\/templates\\/content\\u002Dpage\\x22}}\"), event:'cmp:show', eventInfo: { path: 'page.page\\u002Dfa75cbd291' } });",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "man-c713",
@@ -3048,7 +3351,8 @@
       "title": "MANN Filter - C713",
       "category": "filter",
       "spec": "Air Filter C 713 | G var dataLayerName = 'adobeDataLayer' || 'adobeDataLayer'; window[dataLayerName] = window[dataLayerName] || []; window[dataLayerName].push({ page: JSON.parse(\"{\\x22page\\u002Dfa75cbd291\\x22:{\\x22xdm:isErrorPage\\x22:false,\\x22xdm:tags\\x22:[],\\x22repo:path\\x22:\\x22\\/content\\/mann\\u002Dfilter\\/mann\\u002Dfilter\\u002Dcom\\/en\\/catalog\\/international\\/search\\u002Dresults\\/product.html\\x22,\\x22xdm:language\\x22:\\x22en\\x22,\\x22@type\\x22:\\x22mannfilter\\/components\\/structure\\/content\\u002Dpage\\x22,\\x22dc:title\\x22:\\x22Product\\x22,\\x22repo:modifyDate\\x22:\\x222026\\u002D01\\u002D08T08:49:08Z\\x22,\\x22statusCode\\x22:200,\\x22xdm:country\\x22:\\x22\\x22,\\x22xdm:template\\x22:\\x22\\/conf\\/mannfilter\\/settings\\/wcm\\/templates\\/content\\u002Dpage\\x22}}\"), event:'cmp:show', eventInfo: { path: 'page.page\\u002Dfa75cbd291' } });",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "man-c75-2",
@@ -3058,7 +3362,8 @@
       "title": "MANN Filter - C75/2",
       "category": "filter",
       "spec": "Air Filter C 75/2 | G var dataLayerName = 'adobeDataLayer' || 'adobeDataLayer'; window[dataLayerName] = window[dataLayerName] || []; window[dataLayerName].push({ page: JSON.parse(\"{\\x22page\\u002Dfa75cbd291\\x22:{\\x22xdm:isErrorPage\\x22:false,\\x22xdm:tags\\x22:[],\\x22repo:path\\x22:\\x22\\/content\\/mann\\u002Dfilter\\/mann\\u002Dfilter\\u002Dcom\\/en\\/catalog\\/international\\/search\\u002Dresults\\/product.html\\x22,\\x22xdm:language\\x22:\\x22en\\x22,\\x22@type\\x22:\\x22mannfilter\\/components\\/structure\\/content\\u002Dpage\\x22,\\x22dc:title\\x22:\\x22Product\\x22,\\x22repo:modifyDate\\x22:\\x222026\\u002D01\\u002D08T08:49:08Z\\x22,\\x22statusCode\\x22:200,\\x22xdm:country\\x22:\\x22\\x22,\\x22xdm:template\\x22:\\x22\\/conf\\/mannfilter\\/settings\\/wcm\\/templates\\/content\\u002Dpage\\x22}}\"), event:'cmp:show', eventInfo: { path: 'page.page\\u002Dfa75cbd291' } });",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "man-cf1830",
@@ -3068,7 +3373,8 @@
       "title": "MANN Filter - CF1830",
       "category": "filter",
       "spec": "Secondary Element CF 1830 | B is well aware of | G var dataLayerName = 'adobeDataLayer' || 'adobeDataLayer'; window[dataLayerName] = window[dataLayerName] || []; window[dataLayerName].push({ page: JSON.parse(\"{\\x22page\\u002Dfa75cbd291\\x22:{\\x22xdm:isErrorPage\\x22:false,\\x22xdm:tags\\x22:[],\\x22repo:path\\x22:\\x22\\/content\\/mann\\u002Dfilter\\/mann\\u002Dfilter\\u002Dcom\\/en\\/catalog\\/international\\/search\\u002Dresults\\/product.html\\x22,\\x22xdm:language\\x22:\\x22en\\x22,\\x22@type\\x22:\\x22mannfilter\\/components\\/structure\\/content\\u002Dpage\\x22,\\x22dc:title\\x22:\\x22Product\\x22,\\x22repo:modifyDate\\x22:\\x222026\\u002D01\\u002D08T08:49:08Z\\x22,\\x22statusCode\\x22:200,\\x22xdm:country\\x22:\\x22\\x22,\\x22xdm:template\\x22:\\x22\\/conf\\/mannfilter\\/settings\\/wcm\\/templates\\/content\\u002Dpage\\x22}}\"), event:'cmp:show', eventInfo: { path: 'page.page\\u002Dfa75cbd291' } });",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "man-cf200",
@@ -3078,7 +3384,8 @@
       "title": "MANN Filter - CF200",
       "category": "filter",
       "spec": "Secondary Element CF 200 | B is well aware of | G var dataLayerName = 'adobeDataLayer' || 'adobeDataLayer'; window[dataLayerName] = window[dataLayerName] || []; window[dataLayerName].push({ page: JSON.parse(\"{\\x22page\\u002Dfa75cbd291\\x22:{\\x22xdm:isErrorPage\\x22:false,\\x22xdm:tags\\x22:[],\\x22repo:path\\x22:\\x22\\/content\\/mann\\u002Dfilter\\/mann\\u002Dfilter\\u002Dcom\\/en\\/catalog\\/international\\/search\\u002Dresults\\/product.html\\x22,\\x22xdm:language\\x22:\\x22en\\x22,\\x22@type\\x22:\\x22mannfilter\\/components\\/structure\\/content\\u002Dpage\\x22,\\x22dc:title\\x22:\\x22Product\\x22,\\x22repo:modifyDate\\x22:\\x222026\\u002D01\\u002D08T08:49:08Z\\x22,\\x22statusCode\\x22:200,\\x22xdm:country\\x22:\\x22\\x22,\\x22xdm:template\\x22:\\x22\\/conf\\/mannfilter\\/settings\\/wcm\\/templates\\/content\\u002Dpage\\x22}}\"), event:'cmp:show', eventInfo: { path: 'page.page\\u002Dfa75cbd291' } });",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "man-cf300",
@@ -3088,7 +3395,8 @@
       "title": "MANN Filter - CF300",
       "category": "filter",
       "spec": "Secondary Element CF 300 | G var dataLayerName = 'adobeDataLayer' || 'adobeDataLayer'; window[dataLayerName] = window[dataLayerName] || []; window[dataLayerName].push({ page: JSON.parse(\"{\\x22page\\u002Dfa75cbd291\\x22:{\\x22xdm:isErrorPage\\x22:false,\\x22xdm:tags\\x22:[],\\x22repo:path\\x22:\\x22\\/content\\/mann\\u002Dfilter\\/mann\\u002Dfilter\\u002Dcom\\/en\\/catalog\\/international\\/search\\u002Dresults\\/product.html\\x22,\\x22xdm:language\\x22:\\x22en\\x22,\\x22@type\\x22:\\x22mannfilter\\/components\\/structure\\/content\\u002Dpage\\x22,\\x22dc:title\\x22:\\x22Product\\x22,\\x22repo:modifyDate\\x22:\\x222026\\u002D01\\u002D08T08:49:08Z\\x22,\\x22statusCode\\x22:200,\\x22xdm:country\\x22:\\x22\\x22,\\x22xdm:template\\x22:\\x22\\/conf\\/mannfilter\\/settings\\/wcm\\/templates\\/content\\u002Dpage\\x22}}\"), event:'cmp:show', eventInfo: { path: 'page.page\\u002Dfa75cbd291' } });",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "man-cf400",
@@ -3098,7 +3406,8 @@
       "title": "MANN Filter - CF400",
       "category": "filter",
       "spec": "Secondary Element CF 400 | G var dataLayerName = 'adobeDataLayer' || 'adobeDataLayer'; window[dataLayerName] = window[dataLayerName] || []; window[dataLayerName].push({ page: JSON.parse(\"{\\x22page\\u002Dfa75cbd291\\x22:{\\x22xdm:isErrorPage\\x22:false,\\x22xdm:tags\\x22:[],\\x22repo:path\\x22:\\x22\\/content\\/mann\\u002Dfilter\\/mann\\u002Dfilter\\u002Dcom\\/en\\/catalog\\/international\\/search\\u002Dresults\\/product.html\\x22,\\x22xdm:language\\x22:\\x22en\\x22,\\x22@type\\x22:\\x22mannfilter\\/components\\/structure\\/content\\u002Dpage\\x22,\\x22dc:title\\x22:\\x22Product\\x22,\\x22repo:modifyDate\\x22:\\x222026\\u002D01\\u002D08T08:49:08Z\\x22,\\x22statusCode\\x22:200,\\x22xdm:country\\x22:\\x22\\x22,\\x22xdm:template\\x22:\\x22\\/conf\\/mannfilter\\/settings\\/wcm\\/templates\\/content\\u002Dpage\\x22}}\"), event:'cmp:show', eventInfo: { path: 'page.page\\u002Dfa75cbd291' } });",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "man-cf500",
@@ -3108,7 +3417,8 @@
       "title": "MANN Filter - CF500",
       "category": "filter",
       "spec": "Secondary Element CF 500 | G var dataLayerName = 'adobeDataLayer' || 'adobeDataLayer'; window[dataLayerName] = window[dataLayerName] || []; window[dataLayerName].push({ page: JSON.parse(\"{\\x22page\\u002Dfa75cbd291\\x22:{\\x22xdm:isErrorPage\\x22:false,\\x22xdm:tags\\x22:[],\\x22repo:path\\x22:\\x22\\/content\\/mann\\u002Dfilter\\/mann\\u002Dfilter\\u002Dcom\\/en\\/catalog\\/international\\/search\\u002Dresults\\/product.html\\x22,\\x22xdm:language\\x22:\\x22en\\x22,\\x22@type\\x22:\\x22mannfilter\\/components\\/structure\\/content\\u002Dpage\\x22,\\x22dc:title\\x22:\\x22Product\\x22,\\x22repo:modifyDate\\x22:\\x222026\\u002D01\\u002D08T08:49:08Z\\x22,\\x22statusCode\\x22:200,\\x22xdm:country\\x22:\\x22\\x22,\\x22xdm:template\\x22:\\x22\\/conf\\/mannfilter\\/settings\\/wcm\\/templates\\/content\\u002Dpage\\x22}}\"), event:'cmp:show', eventInfo: { path: 'page.page\\u002Dfa75cbd291' } });",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "man-cf610",
@@ -3118,7 +3428,8 @@
       "title": "MANN Filter - CF610",
       "category": "filter",
       "spec": "Secondary Element CF 610 | B (-&gt; 16001) | G var dataLayerName = 'adobeDataLayer' || 'adobeDataLayer'; window[dataLayerName] = window[dataLayerName] || []; window[dataLayerName].push({ page: JSON.parse(\"{\\x22page\\u002Dfa75cbd291\\x22:{\\x22xdm:isErrorPage\\x22:false,\\x22xdm:tags\\x22:[],\\x22repo:path\\x22:\\x22\\/content\\/mann\\u002Dfilter\\/mann\\u002Dfilter\\u002Dcom\\/en\\/catalog\\/international\\/search\\u002Dresults\\/product.html\\x22,\\x22xdm:language\\x22:\\x22en\\x22,\\x22@type\\x22:\\x22mannfilter\\/components\\/structure\\/content\\u002Dpage\\x22,\\x22dc:title\\x22:\\x22Product\\x22,\\x22repo:modifyDate\\x22:\\x222026\\u002D01\\u002D08T08:49:08Z\\x22,\\x22statusCode\\x22:200,\\x22xdm:country\\x22:\\x22\\x22,\\x22xdm:template\\x22:\\x22\\/conf\\/mannfilter\\/settings\\/wcm\\/templates\\/content\\u002Dpage\\x22}}\"), event:'cmp:show', eventInfo: { path: 'page.page\\u002Dfa75cbd291' } });",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "man-cf710",
@@ -3128,7 +3439,8 @@
       "title": "MANN Filter - CF710",
       "category": "filter",
       "spec": "Secondary Element CF 710 | G var dataLayerName = 'adobeDataLayer' || 'adobeDataLayer'; window[dataLayerName] = window[dataLayerName] || []; window[dataLayerName].push({ page: JSON.parse(\"{\\x22page\\u002Dfa75cbd291\\x22:{\\x22xdm:isErrorPage\\x22:false,\\x22xdm:tags\\x22:[],\\x22repo:path\\x22:\\x22\\/content\\/mann\\u002Dfilter\\/mann\\u002Dfilter\\u002Dcom\\/en\\/catalog\\/international\\/search\\u002Dresults\\/product.html\\x22,\\x22xdm:language\\x22:\\x22en\\x22,\\x22@type\\x22:\\x22mannfilter\\/components\\/structure\\/content\\u002Dpage\\x22,\\x22dc:title\\x22:\\x22Product\\x22,\\x22repo:modifyDate\\x22:\\x222026\\u002D01\\u002D08T08:49:08Z\\x22,\\x22statusCode\\x22:200,\\x22xdm:country\\x22:\\x22\\x22,\\x22xdm:template\\x22:\\x22\\/conf\\/mannfilter\\/settings\\/wcm\\/templates\\/content\\u002Dpage\\x22}}\"), event:'cmp:show', eventInfo: { path: 'page.page\\u002Dfa75cbd291' } });",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "man-h1290-1",
@@ -3138,7 +3450,8 @@
       "title": "MANN Filter - H1290/1",
       "category": "filter",
       "spec": "Hydraulics H 1290/1 | G var dataLayerName = 'adobeDataLayer' || 'adobeDataLayer'; window[dataLayerName] = window[dataLayerName] || []; window[dataLayerName].push({ page: JSON.parse(\"{\\x22page\\u002Dfa75cbd291\\x22:{\\x22xdm:isErrorPage\\x22:false,\\x22xdm:tags\\x22:[],\\x22repo:path\\x22:\\x22\\/content\\/mann\\u002Dfilter\\/mann\\u002Dfilter\\u002Dcom\\/en\\/catalog\\/international\\/search\\u002Dresults\\/product.html\\x22,\\x22xdm:language\\x22:\\x22en\\x22,\\x22@type\\x22:\\x22mannfilter\\/components\\/structure\\/content\\u002Dpage\\x22,\\x22dc:title\\x22:\\x22Product\\x22,\\x22repo:modifyDate\\x22:\\x222026\\u002D01\\u002D08T08:49:08Z\\x22,\\x22statusCode\\x22:200,\\x22xdm:country\\x22:\\x22\\x22,\\x22xdm:template\\x22:\\x22\\/conf\\/mannfilter\\/settings\\/wcm\\/templates\\/content\\u002Dpage\\x22}}\"), event:'cmp:show', eventInfo: { path: 'page.page\\u002Dfa75cbd291' } });",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "man-h729",
@@ -3148,7 +3461,8 @@
       "title": "MANN Filter - H729",
       "category": "filter",
       "spec": "Oil Filter H 729 | G var dataLayerName = 'adobeDataLayer' || 'adobeDataLayer'; window[dataLayerName] = window[dataLayerName] || []; window[dataLayerName].push({ page: JSON.parse(\"{\\x22page\\u002Dfa75cbd291\\x22:{\\x22xdm:isErrorPage\\x22:false,\\x22xdm:tags\\x22:[],\\x22repo:path\\x22:\\x22\\/content\\/mann\\u002Dfilter\\/mann\\u002Dfilter\\u002Dcom\\/en\\/catalog\\/international\\/search\\u002Dresults\\/product.html\\x22,\\x22xdm:language\\x22:\\x22en\\x22,\\x22@type\\x22:\\x22mannfilter\\/components\\/structure\\/content\\u002Dpage\\x22,\\x22dc:title\\x22:\\x22Product\\x22,\\x22repo:modifyDate\\x22:\\x222026\\u002D01\\u002D08T08:49:08Z\\x22,\\x22statusCode\\x22:200,\\x22xdm:country\\x22:\\x22\\x22,\\x22xdm:template\\x22:\\x22\\/conf\\/mannfilter\\/settings\\/wcm\\/templates\\/content\\u002Dpage\\x22}}\"), event:'cmp:show', eventInfo: { path: 'page.page\\u002Dfa75cbd291' } });",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "man-hu12007x",
@@ -3158,7 +3472,8 @@
       "title": "MANN Filter - HU12007X",
       "category": "filter",
       "spec": "Oil Filter HU 12 007 x | G var dataLayerName = 'adobeDataLayer' || 'adobeDataLayer'; window[dataLayerName] = window[dataLayerName] || []; window[dataLayerName].push({ page: JSON.parse(\"{\\x22page\\u002Dfa75cbd291\\x22:{\\x22xdm:isErrorPage\\x22:false,\\x22xdm:tags\\x22:[],\\x22repo:path\\x22:\\x22\\/content\\/mann\\u002Dfilter\\/mann\\u002Dfilter\\u002Dcom\\/en\\/catalog\\/international\\/search\\u002Dresults\\/product.html\\x22,\\x22xdm:language\\x22:\\x22en\\x22,\\x22@type\\x22:\\x22mannfilter\\/components\\/structure\\/content\\u002Dpage\\x22,\\x22dc:title\\x22:\\x22Product\\x22,\\x22repo:modifyDate\\x22:\\x222026\\u002D01\\u002D08T08:49:08Z\\x22,\\x22statusCode\\x22:200,\\x22xdm:country\\x22:\\x22\\x22,\\x22xdm:template\\x22:\\x22\\/conf\\/mannfilter\\/settings\\/wcm\\/templates\\/content\\u002Dpage\\x22}}\"), event:'cmp:show', eventInfo: { path: 'page.page\\u002Dfa75cbd291' } });",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "man-hu12008x",
@@ -3168,7 +3483,8 @@
       "title": "MANN Filter - HU12008X",
       "category": "filter",
       "spec": "Oil Filter HU 12 008 x | G var dataLayerName = 'adobeDataLayer' || 'adobeDataLayer'; window[dataLayerName] = window[dataLayerName] || []; window[dataLayerName].push({ page: JSON.parse(\"{\\x22page\\u002Dfa75cbd291\\x22:{\\x22xdm:isErrorPage\\x22:false,\\x22xdm:tags\\x22:[],\\x22repo:path\\x22:\\x22\\/content\\/mann\\u002Dfilter\\/mann\\u002Dfilter\\u002Dcom\\/en\\/catalog\\/international\\/search\\u002Dresults\\/product.html\\x22,\\x22xdm:language\\x22:\\x22en\\x22,\\x22@type\\x22:\\x22mannfilter\\/components\\/structure\\/content\\u002Dpage\\x22,\\x22dc:title\\x22:\\x22Product\\x22,\\x22repo:modifyDate\\x22:\\x222026\\u002D01\\u002D08T08:49:08Z\\x22,\\x22statusCode\\x22:200,\\x22xdm:country\\x22:\\x22\\x22,\\x22xdm:template\\x22:\\x22\\/conf\\/mannfilter\\/settings\\/wcm\\/templates\\/content\\u002Dpage\\x22}}\"), event:'cmp:show', eventInfo: { path: 'page.page\\u002Dfa75cbd291' } });",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "man-hu7016x",
@@ -3178,7 +3494,8 @@
       "title": "MANN Filter - HU7016X",
       "category": "filter",
       "spec": "Oil Filter HU 7016 x | G var dataLayerName = 'adobeDataLayer' || 'adobeDataLayer'; window[dataLayerName] = window[dataLayerName] || []; window[dataLayerName].push({ page: JSON.parse(\"{\\x22page\\u002Dfa75cbd291\\x22:{\\x22xdm:isErrorPage\\x22:false,\\x22xdm:tags\\x22:[],\\x22repo:path\\x22:\\x22\\/content\\/mann\\u002Dfilter\\/mann\\u002Dfilter\\u002Dcom\\/en\\/catalog\\/international\\/search\\u002Dresults\\/product.html\\x22,\\x22xdm:language\\x22:\\x22en\\x22,\\x22@type\\x22:\\x22mannfilter\\/components\\/structure\\/content\\u002Dpage\\x22,\\x22dc:title\\x22:\\x22Product\\x22,\\x22repo:modifyDate\\x22:\\x222026\\u002D01\\u002D08T08:49:08Z\\x22,\\x22statusCode\\x22:200,\\x22xdm:country\\x22:\\x22\\x22,\\x22xdm:template\\x22:\\x22\\/conf\\/mannfilter\\/settings\\/wcm\\/templates\\/content\\u002Dpage\\x22}}\"), event:'cmp:show', eventInfo: { path: 'page.page\\u002Dfa75cbd291' } });",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "man-hu931-5x",
@@ -3188,7 +3505,8 @@
       "title": "MANN Filter - HU931/5X",
       "category": "filter",
       "spec": "Oil Filter HU 931/5 x | G var dataLayerName = 'adobeDataLayer' || 'adobeDataLayer'; window[dataLayerName] = window[dataLayerName] || []; window[dataLayerName].push({ page: JSON.parse(\"{\\x22page\\u002Dfa75cbd291\\x22:{\\x22xdm:isErrorPage\\x22:false,\\x22xdm:tags\\x22:[],\\x22repo:path\\x22:\\x22\\/content\\/mann\\u002Dfilter\\/mann\\u002Dfilter\\u002Dcom\\/en\\/catalog\\/international\\/search\\u002Dresults\\/product.html\\x22,\\x22xdm:language\\x22:\\x22en\\x22,\\x22@type\\x22:\\x22mannfilter\\/components\\/structure\\/content\\u002Dpage\\x22,\\x22dc:title\\x22:\\x22Product\\x22,\\x22repo:modifyDate\\x22:\\x222026\\u002D01\\u002D08T08:49:08Z\\x22,\\x22statusCode\\x22:200,\\x22xdm:country\\x22:\\x22\\x22,\\x22xdm:template\\x22:\\x22\\/conf\\/mannfilter\\/settings\\/wcm\\/templates\\/content\\u002Dpage\\x22}}\"), event:'cmp:show', eventInfo: { path: 'page.page\\u002Dfa75cbd291' } });",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "man-lb11102-2",
@@ -3198,7 +3516,8 @@
       "title": "MANN Filter - LB11102/2",
       "category": "filter",
       "spec": "Compressed Air-Oil Separation LB 11 102/2 | G var dataLayerName = 'adobeDataLayer' || 'adobeDataLayer'; window[dataLayerName] = window[dataLayerName] || []; window[dataLayerName].push({ page: JSON.parse(\"{\\x22page\\u002Dfa75cbd291\\x22:{\\x22xdm:isErrorPage\\x22:false,\\x22xdm:tags\\x22:[],\\x22repo:path\\x22:\\x22\\/content\\/mann\\u002Dfilter\\/mann\\u002Dfilter\\u002Dcom\\/en\\/catalog\\/international\\/search\\u002Dresults\\/product.html\\x22,\\x22xdm:language\\x22:\\x22en\\x22,\\x22@type\\x22:\\x22mannfilter\\/components\\/structure\\/content\\u002Dpage\\x22,\\x22dc:title\\x22:\\x22Product\\x22,\\x22repo:modifyDate\\x22:\\x222026\\u002D01\\u002D08T08:49:08Z\\x22,\\x22statusCode\\x22:200,\\x22xdm:country\\x22:\\x22\\x22,\\x22xdm:template\\x22:\\x22\\/conf\\/mannfilter\\/settings\\/wcm\\/templates\\/content\\u002Dpage\\x22}}\"), event:'cmp:show', eventInfo: { path: 'page.page\\u002Dfa75cbd291' } });",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "man-lb13145-3",
@@ -3208,7 +3527,8 @@
       "title": "MANN Filter - LB13145/3",
       "category": "filter",
       "spec": "Compressed Air-Oil Separation LB 13 145/3 | G var dataLayerName = 'adobeDataLayer' || 'adobeDataLayer'; window[dataLayerName] = window[dataLayerName] || []; window[dataLayerName].push({ page: JSON.parse(\"{\\x22page\\u002Dfa75cbd291\\x22:{\\x22xdm:isErrorPage\\x22:false,\\x22xdm:tags\\x22:[],\\x22repo:path\\x22:\\x22\\/content\\/mann\\u002Dfilter\\/mann\\u002Dfilter\\u002Dcom\\/en\\/catalog\\/international\\/search\\u002Dresults\\/product.html\\x22,\\x22xdm:language\\x22:\\x22en\\x22,\\x22@type\\x22:\\x22mannfilter\\/components\\/structure\\/content\\u002Dpage\\x22,\\x22dc:title\\x22:\\x22Product\\x22,\\x22repo:modifyDate\\x22:\\x222026\\u002D01\\u002D08T08:49:08Z\\x22,\\x22statusCode\\x22:200,\\x22xdm:country\\x22:\\x22\\x22,\\x22xdm:template\\x22:\\x22\\/conf\\/mannfilter\\/settings\\/wcm\\/templates\\/content\\u002Dpage\\x22}}\"), event:'cmp:show', eventInfo: { path: 'page.page\\u002Dfa75cbd291' } });",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "man-lb13145-21",
@@ -3218,7 +3538,8 @@
       "title": "MANN Filter - LB13145/21",
       "category": "filter",
       "spec": "Compressed Air-Oil Separation LB 13 145/21 | G var dataLayerName = 'adobeDataLayer' || 'adobeDataLayer'; window[dataLayerName] = window[dataLayerName] || []; window[dataLayerName].push({ page: JSON.parse(\"{\\x22page\\u002Dfa75cbd291\\x22:{\\x22xdm:isErrorPage\\x22:false,\\x22xdm:tags\\x22:[],\\x22repo:path\\x22:\\x22\\/content\\/mann\\u002Dfilter\\/mann\\u002Dfilter\\u002Dcom\\/en\\/catalog\\/international\\/search\\u002Dresults\\/product.html\\x22,\\x22xdm:language\\x22:\\x22en\\x22,\\x22@type\\x22:\\x22mannfilter\\/components\\/structure\\/content\\u002Dpage\\x22,\\x22dc:title\\x22:\\x22Product\\x22,\\x22repo:modifyDate\\x22:\\x222026\\u002D01\\u002D08T08:49:08Z\\x22,\\x22statusCode\\x22:200,\\x22xdm:country\\x22:\\x22\\x22,\\x22xdm:template\\x22:\\x22\\/conf\\/mannfilter\\/settings\\/wcm\\/templates\\/content\\u002Dpage\\x22}}\"), event:'cmp:show', eventInfo: { path: 'page.page\\u002Dfa75cbd291' } });",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "man-lb1374-2",
@@ -3228,7 +3549,8 @@
       "title": "MANN Filter - LB1374/2",
       "category": "filter",
       "spec": "Compressed Air-Oil Separation LB 1374/2 | G var dataLayerName = 'adobeDataLayer' || 'adobeDataLayer'; window[dataLayerName] = window[dataLayerName] || []; window[dataLayerName].push({ page: JSON.parse(\"{\\x22page\\u002Dfa75cbd291\\x22:{\\x22xdm:isErrorPage\\x22:false,\\x22xdm:tags\\x22:[],\\x22repo:path\\x22:\\x22\\/content\\/mann\\u002Dfilter\\/mann\\u002Dfilter\\u002Dcom\\/en\\/catalog\\/international\\/search\\u002Dresults\\/product.html\\x22,\\x22xdm:language\\x22:\\x22en\\x22,\\x22@type\\x22:\\x22mannfilter\\/components\\/structure\\/content\\u002Dpage\\x22,\\x22dc:title\\x22:\\x22Product\\x22,\\x22repo:modifyDate\\x22:\\x222026\\u002D01\\u002D08T08:49:08Z\\x22,\\x22statusCode\\x22:200,\\x22xdm:country\\x22:\\x22\\x22,\\x22xdm:template\\x22:\\x22\\/conf\\/mannfilter\\/settings\\/wcm\\/templates\\/content\\u002Dpage\\x22}}\"), event:'cmp:show', eventInfo: { path: 'page.page\\u002Dfa75cbd291' } });",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "man-lb962-2",
@@ -3238,7 +3560,8 @@
       "title": "MANN Filter - LB962/2",
       "category": "filter",
       "spec": "Compressed Air-Oil Separation LB 962/2 | G var dataLayerName = 'adobeDataLayer' || 'adobeDataLayer'; window[dataLayerName] = window[dataLayerName] || []; window[dataLayerName].push({ page: JSON.parse(\"{\\x22page\\u002Dfa75cbd291\\x22:{\\x22xdm:isErrorPage\\x22:false,\\x22xdm:tags\\x22:[],\\x22repo:path\\x22:\\x22\\/content\\/mann\\u002Dfilter\\/mann\\u002Dfilter\\u002Dcom\\/en\\/catalog\\/international\\/search\\u002Dresults\\/product.html\\x22,\\x22xdm:language\\x22:\\x22en\\x22,\\x22@type\\x22:\\x22mannfilter\\/components\\/structure\\/content\\u002Dpage\\x22,\\x22dc:title\\x22:\\x22Product\\x22,\\x22repo:modifyDate\\x22:\\x222026\\u002D01\\u002D08T08:49:08Z\\x22,\\x22statusCode\\x22:200,\\x22xdm:country\\x22:\\x22\\x22,\\x22xdm:template\\x22:\\x22\\/conf\\/mannfilter\\/settings\\/wcm\\/templates\\/content\\u002Dpage\\x22}}\"), event:'cmp:show', eventInfo: { path: 'page.page\\u002Dfa75cbd291' } });",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "man-lb962-21",
@@ -3248,7 +3571,8 @@
       "title": "MANN Filter - LB962/21",
       "category": "filter",
       "spec": "Compressed Air-Oil Separation LB 962/21 | G var dataLayerName = 'adobeDataLayer' || 'adobeDataLayer'; window[dataLayerName] = window[dataLayerName] || []; window[dataLayerName].push({ page: JSON.parse(\"{\\x22page\\u002Dfa75cbd291\\x22:{\\x22xdm:isErrorPage\\x22:false,\\x22xdm:tags\\x22:[],\\x22repo:path\\x22:\\x22\\/content\\/mann\\u002Dfilter\\/mann\\u002Dfilter\\u002Dcom\\/en\\/catalog\\/international\\/search\\u002Dresults\\/product.html\\x22,\\x22xdm:language\\x22:\\x22en\\x22,\\x22@type\\x22:\\x22mannfilter\\/components\\/structure\\/content\\u002Dpage\\x22,\\x22dc:title\\x22:\\x22Product\\x22,\\x22repo:modifyDate\\x22:\\x222026\\u002D01\\u002D08T08:49:08Z\\x22,\\x22statusCode\\x22:200,\\x22xdm:country\\x22:\\x22\\x22,\\x22xdm:template\\x22:\\x22\\/conf\\/mannfilter\\/settings\\/wcm\\/templates\\/content\\u002Dpage\\x22}}\"), event:'cmp:show', eventInfo: { path: 'page.page\\u002Dfa75cbd291' } });",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "man-pu815x",
@@ -3258,7 +3582,8 @@
       "title": "MANN Filter - PU815X",
       "category": "filter",
       "spec": "Fuel Filter PU 815 x | G var dataLayerName = 'adobeDataLayer' || 'adobeDataLayer'; window[dataLayerName] = window[dataLayerName] || []; window[dataLayerName].push({ page: JSON.parse(\"{\\x22page\\u002Dfa75cbd291\\x22:{\\x22xdm:isErrorPage\\x22:false,\\x22xdm:tags\\x22:[],\\x22repo:path\\x22:\\x22\\/content\\/mann\\u002Dfilter\\/mann\\u002Dfilter\\u002Dcom\\/en\\/catalog\\/international\\/search\\u002Dresults\\/product.html\\x22,\\x22xdm:language\\x22:\\x22en\\x22,\\x22@type\\x22:\\x22mannfilter\\/components\\/structure\\/content\\u002Dpage\\x22,\\x22dc:title\\x22:\\x22Product\\x22,\\x22repo:modifyDate\\x22:\\x222026\\u002D01\\u002D08T08:49:08Z\\x22,\\x22statusCode\\x22:200,\\x22xdm:country\\x22:\\x22\\x22,\\x22xdm:template\\x22:\\x22\\/conf\\/mannfilter\\/settings\\/wcm\\/templates\\/content\\u002Dpage\\x22}}\"), event:'cmp:show', eventInfo: { path: 'page.page\\u002Dfa75cbd291' } });",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "man-wk1080-7x",
@@ -3268,7 +3593,8 @@
       "title": "MANN Filter - WK1080/7X",
       "category": "filter",
       "spec": "Fuel Filter WK 1080/7 x | C (671) | G var dataLayerName = 'adobeDataLayer' || 'adobeDataLayer'; window[dataLayerName] = window[dataLayerName] || []; window[dataLayerName].push({ page: JSON.parse(\"{\\x22page\\u002Dfa75cbd291\\x22:{\\x22xdm:isErrorPage\\x22:false,\\x22xdm:tags\\x22:[],\\x22repo:path\\x22:\\x22\\/content\\/mann\\u002Dfilter\\/mann\\u002Dfilter\\u002Dcom\\/en\\/catalog\\/international\\/search\\u002Dresults\\/product.html\\x22,\\x22xdm:language\\x22:\\x22en\\x22,\\x22@type\\x22:\\x22mannfilter\\/components\\/structure\\/content\\u002Dpage\\x22,\\x22dc:title\\x22:\\x22Product\\x22,\\x22repo:modifyDate\\x22:\\x222026\\u002D01\\u002D08T08:49:08Z\\x22,\\x22statusCode\\x22:200,\\x22xdm:country\\x22:\\x22\\x22,\\x22xdm:template\\x22:\\x22\\/conf\\/mannfilter\\/settings\\/wcm\\/templates\\/content\\u002Dpage\\x22}}\"), event:'cmp:show', eventInfo: { path: 'page.page\\u002Dfa75cbd291' } });",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "man-wk723",
@@ -3278,7 +3604,8 @@
       "title": "MANN Filter - WK723",
       "category": "filter",
       "spec": "Fuel Filter WK 723 | G var dataLayerName = 'adobeDataLayer' || 'adobeDataLayer'; window[dataLayerName] = window[dataLayerName] || []; window[dataLayerName].push({ page: JSON.parse(\"{\\x22page\\u002Dfa75cbd291\\x22:{\\x22xdm:isErrorPage\\x22:false,\\x22xdm:tags\\x22:[],\\x22repo:path\\x22:\\x22\\/content\\/mann\\u002Dfilter\\/mann\\u002Dfilter\\u002Dcom\\/en\\/catalog\\/international\\/search\\u002Dresults\\/product.html\\x22,\\x22xdm:language\\x22:\\x22en\\x22,\\x22@type\\x22:\\x22mannfilter\\/components\\/structure\\/content\\u002Dpage\\x22,\\x22dc:title\\x22:\\x22Product\\x22,\\x22repo:modifyDate\\x22:\\x222026\\u002D01\\u002D08T08:49:08Z\\x22,\\x22statusCode\\x22:200,\\x22xdm:country\\x22:\\x22\\x22,\\x22xdm:template\\x22:\\x22\\/conf\\/mannfilter\\/settings\\/wcm\\/templates\\/content\\u002Dpage\\x22}}\"), event:'cmp:show', eventInfo: { path: 'page.page\\u002Dfa75cbd291' } });",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "man-wk842-2",
@@ -3288,7 +3615,8 @@
       "title": "MANN Filter - WK842/2",
       "category": "filter",
       "spec": "Fuel Filter WK 842/2 | G var dataLayerName = 'adobeDataLayer' || 'adobeDataLayer'; window[dataLayerName] = window[dataLayerName] || []; window[dataLayerName].push({ page: JSON.parse(\"{\\x22page\\u002Dfa75cbd291\\x22:{\\x22xdm:isErrorPage\\x22:false,\\x22xdm:tags\\x22:[],\\x22repo:path\\x22:\\x22\\/content\\/mann\\u002Dfilter\\/mann\\u002Dfilter\\u002Dcom\\/en\\/catalog\\/international\\/search\\u002Dresults\\/product.html\\x22,\\x22xdm:language\\x22:\\x22en\\x22,\\x22@type\\x22:\\x22mannfilter\\/components\\/structure\\/content\\u002Dpage\\x22,\\x22dc:title\\x22:\\x22Product\\x22,\\x22repo:modifyDate\\x22:\\x222026\\u002D01\\u002D08T08:49:08Z\\x22,\\x22statusCode\\x22:200,\\x22xdm:country\\x22:\\x22\\x22,\\x22xdm:template\\x22:\\x22\\/conf\\/mannfilter\\/settings\\/wcm\\/templates\\/content\\u002Dpage\\x22}}\"), event:'cmp:show', eventInfo: { path: 'page.page\\u002Dfa75cbd291' } });",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "man-wp11102-3",
@@ -3298,7 +3626,8 @@
       "title": "MANN Filter - WP11102/3",
       "category": "filter",
       "spec": "Oil Filter WP 11 102/3 | G var dataLayerName = 'adobeDataLayer' || 'adobeDataLayer'; window[dataLayerName] = window[dataLayerName] || []; window[dataLayerName].push({ page: JSON.parse(\"{\\x22page\\u002Dfa75cbd291\\x22:{\\x22xdm:isErrorPage\\x22:false,\\x22xdm:tags\\x22:[],\\x22repo:path\\x22:\\x22\\/content\\/mann\\u002Dfilter\\/mann\\u002Dfilter\\u002Dcom\\/en\\/catalog\\/international\\/search\\u002Dresults\\/product.html\\x22,\\x22xdm:language\\x22:\\x22en\\x22,\\x22@type\\x22:\\x22mannfilter\\/components\\/structure\\/content\\u002Dpage\\x22,\\x22dc:title\\x22:\\x22Product\\x22,\\x22repo:modifyDate\\x22:\\x222026\\u002D01\\u002D08T08:49:08Z\\x22,\\x22statusCode\\x22:200,\\x22xdm:country\\x22:\\x22\\x22,\\x22xdm:template\\x22:\\x22\\/conf\\/mannfilter\\/settings\\/wcm\\/templates\\/content\\u002Dpage\\x22}}\"), event:'cmp:show', eventInfo: { path: 'page.page\\u002Dfa75cbd291' } });",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "ntn-6205",
@@ -3308,7 +3637,8 @@
       "title": "Deep Groove Ball Bearing",
       "category": "bearing",
       "spec": "25×52×15 mm",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     },
     {
       "id": "fleetguard-lf9009",
@@ -3318,7 +3648,8 @@
       "title": "Oil Filter",
       "category": "filter",
       "spec": "To be updated",
-      "stock": "request"
+      "stock": "request",
+      "crossReferences": []
     }
   ],
   "prefix2": {

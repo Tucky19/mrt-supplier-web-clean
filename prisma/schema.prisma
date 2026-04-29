@@ -288,3 +288,17 @@ model AnalyticsEvent {
   @@index([query])
   @@index([createdAt])
 }
+model SearchEvent {
+  id          String   @id @default(cuid())
+  type        String   // 'search' | 'click_result' | 'add_to_quote'
+  query       String?
+  partNo      String?
+  matchType   String?
+  resultCount Int?
+  ipHash      String?
+  userAgent   String?
+  createdAt   DateTime @default(now())
+
+  @@index([type, createdAt])
+  @@index([query])
+}

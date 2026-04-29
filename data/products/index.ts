@@ -1,31 +1,53 @@
-import type { Product } from "@/types/product";
-import { donaldsonProducts } from "@/data/products/brand-donaldson";
-import { ntnProducts } from "@/data/products/brand-ntn";
-import { mannProducts } from "@/data/products/brand-mann";
-import { batch4Products } from "./products.batch4";
+import { getProductImageUrl } from "@/lib/products/image";
+import { normalizeProducts } from "./normalize";
 import { batch4FeaturedProducts } from "./products.batch4.featured";
+import { batch4Products } from "./products.batch4";
+import { donaldsonProducts } from "./products.donaldson";
+import { donaldsonPriorityProducts } from "./products.donaldson.priority";
+import { generatedProducts } from "./products.generated";
+import { mannProducts } from "./products.mann";
+import { newProducts } from "./products.new";
+import { ntnProducts } from "./products.ntn";
+import { uploadedProducts } from "./products.uploaded";
 
-function normalizePartNo(value: string): string {
-  if (!value) return "";
-  return value.trim().toUpperCase().replace(/\s+/g, "");
+function normalizePartNo(value: string) {
+  return value.trim().toLowerCase().replace(/[\s/_-]+/g, "");
 }
 
-const rawProducts: Product[] = [
+const rawProducts = [
   ...donaldsonProducts,
-  ...ntnProducts,
   ...mannProducts,
+  ...ntnProducts,
+  ...newProducts,
   ...batch4Products,
   ...batch4FeaturedProducts,
-].filter((product): product is Product => {
-  return (
-    Boolean(product) &&
-    typeof product.partNo === "string" &&
-    product.partNo.trim() !== ""
-  );
-});
+  ...generatedProducts,
+  ...uploadedProducts,
+  ...donaldsonPriorityProducts,
+];
 
-export const products: Product[] = Array.from(
+export const products = Array.from(
   new Map(
-    rawProducts.map((product) => [normalizePartNo(product.partNo), product])
+    normalizeProducts(rawProducts).map((product) => {
+      const key = normalizePartNo(product.partNo);
+
+      return [
+        key,
+        {
+          ...product,
+          title: product.title || `${product.brand?.toUpperCase()} ${product.partNo}`,
+          description:
+            product.description ||
+            `Industrial part ${product.partNo} with OEM reference support.`,
+          imageUrl: getProductImageUrl(
+            product.brand,
+            product.partNo,
+            product.imageUrl
+          ),
+          refs: product.refs ?? [],
+          crossReferences: product.crossReferences ?? [],
+        },
+      ];
+    })
   ).values()
 );

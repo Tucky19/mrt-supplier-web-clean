@@ -58,7 +58,7 @@ export default function StickyRFQ() {
               </Link>
 
               <Link
-                href={`/quote`}
+                href={`/${locale}/quote`}
                 className="inline-flex items-center justify-center gap-2 rounded-2xl bg-emerald-400 px-4 py-3 text-sm font-semibold text-black transition hover:opacity-90"
               >
                 <FileText className="h-4 w-4" />

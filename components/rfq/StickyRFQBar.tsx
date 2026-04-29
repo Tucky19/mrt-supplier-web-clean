@@ -36,15 +36,15 @@ export default function StickyRFQBar() {
 
         <div className="flex items-center gap-2">
           <Link
-            href="/products"
-            className="rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
+            href={`/${locale}/products`}
+            className="rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm font-semibold text-slate-700 transition-colors hover:bg-slate-50"
           >
             Search
           </Link>
 
           <Link
             href={`/${locale}/quote`}
-            className="rounded-lg bg-blue-600 px-3 py-2 text-sm font-semibold text-white hover:bg-blue-500"
+            className="rounded-lg bg-blue-600 px-3 py-2 text-sm font-semibold text-white transition-colors hover:bg-blue-500"
           >
             Open RFQ
           </Link>

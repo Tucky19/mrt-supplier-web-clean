@@ -4,13 +4,19 @@ type RequiredEnvKey =
   | "ADMIN_BASIC_PASS";
 
 type OptionalEnvKey =
+  | "DIRECT_URL"
   | "SITE_URL"
   | "SMTP_HOST"
   | "SMTP_PORT"
+  | "SMTP_SECURE"
   | "SMTP_USER"
   | "SMTP_PASS"
   | "RFQ_TO_EMAIL"
+  | "RFQ_CC_EMAIL"
   | "RFQ_FROM_EMAIL"
+  | "LINE_CHANNEL_ACCESS_TOKEN"
+  | "LINE_TARGET_USER_ID"
+  | "RFQ_DEV_MOCK_BYPASS"
   | "NEXT_PUBLIC_GA4_ID";
 
 const REQUIRED_KEYS: RequiredEnvKey[] = [
@@ -20,13 +26,19 @@ const REQUIRED_KEYS: RequiredEnvKey[] = [
 ];
 
 const OPTIONAL_KEYS: OptionalEnvKey[] = [
+  "DIRECT_URL",
   "SITE_URL",
   "SMTP_HOST",
   "SMTP_PORT",
+  "SMTP_SECURE",
   "SMTP_USER",
   "SMTP_PASS",
   "RFQ_TO_EMAIL",
+  "RFQ_CC_EMAIL",
   "RFQ_FROM_EMAIL",
+  "LINE_CHANNEL_ACCESS_TOKEN",
+  "LINE_TARGET_USER_ID",
+  "RFQ_DEV_MOCK_BYPASS",
   "NEXT_PUBLIC_GA4_ID",
 ];
 

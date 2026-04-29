@@ -1,314 +1,173 @@
 "use client";
 
-import Link from "next/link";
-import {
-  FormEvent,
-  KeyboardEvent,
-  useEffect,
-  useMemo,
-  useRef,
-  useState,
-} from "react";
-import { useRouter, useSearchParams } from "next/navigation";
-import { useLocale } from "next-intl";
-import {
-  autocompleteProducts,
-  type AutocompleteItem,
-} from "@/data/search/autocomplete";
+import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 
-type Props = {
-  className?: string;
-  autoFocus?: boolean;
-  placeholder?: string;
+type Item = {
+  partNo: string;
+  brand?: string;
+  category?: string;
+  title?: string;
+  isBestConverting?: boolean;
 };
 
-function safeStr(v: unknown) {
-  return String(v ?? "").trim();
-}
-
-function cn(...xs: Array<string | false | null | undefined>) {
-  return xs.filter(Boolean).join(" ");
-}
-
-function highlight(text: string, query: string) {
-  const q = safeStr(query);
-  if (!q) return text;
-
-  const escaped = q.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-  const regex = new RegExp(`(${escaped})`, "ig");
-
-  return text.split(regex).map((part, i) =>
-    part.toLowerCase() === q.toLowerCase() ? (
-      <mark key={i} className="rounded-sm bg-yellow-200 px-0.5 text-inherit">
-        {part}
-      </mark>
-    ) : (
-      <span key={i}>{part}</span>
-    )
-  );
-}
-
 export default function SingleSearch({
-  className = "",
+  locale,
   autoFocus = false,
-  placeholder = "Search by part number, cross reference, brand, or application",
-}: Props) {
+}: {
+  locale: string;
+  autoFocus?: boolean;
+}) {
   const router = useRouter();
-  const locale = useLocale();
-  const sp = useSearchParams();
 
-  const currentQ = useMemo(() => safeStr(sp.get("q")), [sp]);
-  const [q, setQ] = useState(currentQ);
-  const [isFocused, setIsFocused] = useState(false);
-  const [activeIndex, setActiveIndex] = useState(-1);
-
-  const rootRef = useRef<HTMLDivElement | null>(null);
-  const inputRef = useRef<HTMLInputElement | null>(null);
+  const [query, setQuery] = useState("");
+  const [results, setResults] = useState<Item[]>([]);
+  const [open, setOpen] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
-    setQ(currentQ);
-  }, [currentQ]);
+    const cleaned = query.trim();
 
-  useEffect(() => {
-    function onClickOutside(e: MouseEvent) {
-      if (!rootRef.current) return;
-      if (!rootRef.current.contains(e.target as Node)) {
-        setIsFocused(false);
-        setActiveIndex(-1);
+    if (cleaned.length < 2) {
+      setResults([]);
+      setOpen(false);
+      return;
+    }
+
+    const timeoutId = window.setTimeout(async () => {
+      try {
+        const res = await fetch(
+          `/api/search/suggest?q=${encodeURIComponent(cleaned)}`
+        );
+        const data = await res.json();
+
+        setResults(Array.isArray(data.items) ? data.items : []);
+        setOpen(true);
+        setActiveIndex(0);
+      } catch {
+        setResults([]);
+        setOpen(false);
       }
-    }
+    }, 160);
 
-    document.addEventListener("mousedown", onClickOutside);
-    return () => document.removeEventListener("mousedown", onClickOutside);
-  }, []);
+    return () => window.clearTimeout(timeoutId);
+  }, [query]);
 
-  const suggestions = useMemo<AutocompleteItem[]>(() => {
-    const nextQ = safeStr(q);
-    if (nextQ.length < 2) return [];
-    return autocompleteProducts(nextQ, 8);
-  }, [q]);
-
-  const showSuggestions =
-    isFocused && suggestions.length > 0 && safeStr(q).length >= 2;
-
-  function goToSearch(nextQ: string) {
-    const cleaned = safeStr(nextQ);
-    const params = new URLSearchParams(sp.toString());
-
-    if (cleaned) {
-      params.set("q", cleaned);
-    } else {
-      params.delete("q");
-    }
-
-    params.delete("page");
-
-    const qs = params.toString();
-    const href = qs ? `/${locale}/products?${qs}` : `/${locale}/products`;
-    router.push(href);
-    setIsFocused(false);
-    setActiveIndex(-1);
-  }
-
-  function goToProduct(partNo: string) {
+  function goTo(partNo: string) {
     router.push(`/${locale}/products/${encodeURIComponent(partNo)}`);
-    setIsFocused(false);
-    setActiveIndex(-1);
+    setOpen(false);
   }
 
-  function onSubmit(e: FormEvent<HTMLFormElement>) {
-    e.preventDefault();
+  function goToSearch() {
+    const cleaned = query.trim();
 
-    if (showSuggestions && activeIndex >= 0 && suggestions[activeIndex]) {
-      const selected = suggestions[activeIndex];
-      goToProduct(selected.partNo);
-      return;
-    }
+    if (!cleaned) return;
 
-    goToSearch(q);
+    router.push(`/${locale}/products?q=${encodeURIComponent(cleaned)}`);
+    setOpen(false);
   }
 
-  function clearSearch() {
-    setQ("");
-    setActiveIndex(-1);
-    router.push(`/${locale}/products`);
-    inputRef.current?.focus();
-  }
+  function onKeyDown(e: React.KeyboardEvent<HTMLInputElement>) {
+    if (e.key === "Enter") {
+      e.preventDefault();
 
-  function onKeyDown(e: KeyboardEvent<HTMLInputElement>) {
-    if (!showSuggestions) {
-      if (e.key === "Escape") {
-        setIsFocused(false);
-        setActiveIndex(-1);
+      if (open && results[activeIndex]) {
+        goTo(results[activeIndex].partNo);
+        return;
       }
+
+      goToSearch();
       return;
     }
+
+    if (!open || results.length === 0) return;
 
     if (e.key === "ArrowDown") {
       e.preventDefault();
-      setActiveIndex((prev) => {
-        const next = prev + 1;
-        return next >= suggestions.length ? 0 : next;
-      });
-      return;
+      setActiveIndex((prev) => (prev + 1 >= results.length ? 0 : prev + 1));
     }
 
     if (e.key === "ArrowUp") {
       e.preventDefault();
-      setActiveIndex((prev) => {
-        const next = prev - 1;
-        return next < 0 ? suggestions.length - 1 : next;
-      });
-      return;
+      setActiveIndex((prev) => (prev - 1 < 0 ? results.length - 1 : prev - 1));
     }
 
     if (e.key === "Escape") {
-      setIsFocused(false);
-      setActiveIndex(-1);
+      setOpen(false);
     }
   }
 
-  const hasValue = q.length > 0;
-
   return (
-    <div ref={rootRef} className={cn("relative w-full", className)}>
-      <form onSubmit={onSubmit} role="search" aria-label="Product search">
-        <div
-          className={cn(
-            "group flex w-full items-center gap-2 rounded-2xl border bg-white px-3 py-3 shadow-sm transition",
-            isFocused
-              ? "border-slate-900 ring-2 ring-slate-900/10"
-              : "border-neutral-200 hover:border-neutral-300"
-          )}
-        >
-          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-neutral-100 text-neutral-500">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              className="h-5 w-5"
-              aria-hidden="true"
-            >
-              <circle cx="11" cy="11" r="7" />
-              <path d="m20 20-3.5-3.5" />
-            </svg>
-          </div>
+    <div className="relative w-full max-w-xl">
+      <input
+        value={query}
+        onChange={(e) => setQuery(e.target.value.toUpperCase())}
+        onFocus={() => results.length > 0 && setOpen(true)}
+        onBlur={() => window.setTimeout(() => setOpen(false), 140)}
+        onKeyDown={onKeyDown}
+        placeholder="Search part number..."
+        className="w-full rounded-lg border border-slate-300 px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-sky-500"
+        autoComplete="off"
+        spellCheck={false}
+        autoFocus={autoFocus}
+      />
 
-          <div className="min-w-0 flex-1">
-            <label htmlFor="single-search-input" className="sr-only">
-              Search products
-            </label>
+      {open && results.length > 0 ? (
+        <div className="absolute z-50 mt-1 w-full overflow-hidden rounded-xl border border-slate-200 bg-white shadow-lg">
+          {results.map((item, index) => {
+            const isActive = index === activeIndex;
 
-            <input
-              ref={inputRef}
-              id="single-search-input"
-              type="text"
-              value={q}
-              onChange={(e) => {
-                setQ(e.target.value);
-                setActiveIndex(-1);
-              }}
-              onFocus={() => setIsFocused(true)}
-              onKeyDown={onKeyDown}
-              autoFocus={autoFocus}
-              placeholder={placeholder}
-              className="w-full border-0 bg-transparent text-[15px] text-neutral-900 outline-none placeholder:text-neutral-400"
-              autoComplete="off"
-              spellCheck={false}
-            />
-
-            <div className="mt-1 text-xs text-neutral-500">
-              Exact part numbers work best, for example: P550084, 6205-2RS, LF3345
-            </div>
-          </div>
-
-          <div className="flex shrink-0 items-center gap-2">
-            {hasValue ? (
+            return (
               <button
+                key={item.partNo}
                 type="button"
-                onClick={clearSearch}
-                className="hidden rounded-xl border border-neutral-200 bg-white px-3 py-2 text-sm font-medium text-neutral-600 transition hover:bg-neutral-50 sm:inline-flex"
+                onMouseDown={(e) => {
+                  e.preventDefault();
+                  goTo(item.partNo);
+                }}
+                className={[
+                  "flex w-full items-start justify-between gap-3 px-4 py-3 text-left text-sm transition",
+                  isActive ? "bg-slate-100" : "hover:bg-slate-50",
+                ].join(" ")}
               >
-                Clear
-              </button>
-            ) : null}
+                <div className="min-w-0">
+                  <div className="flex items-center gap-2">
+                    <span className="font-semibold text-slate-900">
+                      {item.partNo}
+                    </span>
 
-            <button
-              type="submit"
-              className="inline-flex h-11 items-center justify-center rounded-xl bg-slate-900 px-4 text-sm font-semibold text-white transition hover:opacity-90"
-            >
-              Search
-            </button>
-          </div>
-        </div>
-      </form>
-
-      {showSuggestions ? (
-        <div className="absolute left-0 right-0 top-[calc(100%+8px)] z-50 overflow-hidden rounded-2xl border border-neutral-200 bg-white shadow-xl">
-          <div className="border-b border-neutral-100 px-4 py-2 text-xs font-medium uppercase tracking-[0.14em] text-neutral-500">
-            Suggestions
-          </div>
-
-          <div className="max-h-[360px] overflow-y-auto py-1">
-            {suggestions.map((item, index) => {
-              const href = `/${locale}/products/${encodeURIComponent(item.partNo)}`;
-              const isActive = index === activeIndex;
-
-              return (
-                <Link
-                  key={`${item.id}-${item.partNo}`}
-                  href={href}
-                  onMouseEnter={() => setActiveIndex(index)}
-                  onClick={() => {
-                    setIsFocused(false);
-                    setActiveIndex(-1);
-                  }}
-                  className={cn(
-                    "block px-4 py-3 transition",
-                    isActive ? "bg-neutral-50" : "bg-white hover:bg-neutral-50"
-                  )}
-                >
-                  <div className="flex items-start justify-between gap-3">
-                    <div className="min-w-0 flex-1">
-                      <div className="text-sm font-semibold text-neutral-900">
-                        {highlight(item.partNo, q)}
-                      </div>
-
-                      <div className="mt-0.5 truncate text-sm text-neutral-700">
-                        {item.title
-                          ? highlight(item.title, q)
-                          : item.brand || item.category || "Product"}
-                      </div>
-
-                      <div className="mt-1 flex flex-wrap items-center gap-2 text-xs text-neutral-500">
-                        {item.brand ? <span>{item.brand}</span> : null}
-                        {item.category ? (
-                          <>
-                            <span>•</span>
-                            <span>{item.category}</span>
-                          </>
-                        ) : null}
-                      </div>
-                    </div>
-
-                    <div className="shrink-0 text-xs font-medium text-neutral-400">
-                      Open
-                    </div>
+                    {item.isBestConverting ? (
+                      <span className="rounded-full border border-amber-200 bg-amber-50 px-2 py-0.5 text-[11px] font-semibold text-amber-700">
+                        Popular RFQ
+                      </span>
+                    ) : null}
                   </div>
-                </Link>
-              );
-            })}
-          </div>
+
+                  <div className="mt-0.5 truncate text-xs text-slate-500">
+                    {[item.brand, item.category].filter(Boolean).join(" • ")}
+                  </div>
+
+                  {item.title ? (
+                    <div className="mt-0.5 truncate text-xs text-slate-600">
+                      {item.title}
+                    </div>
+                  ) : null}
+                </div>
+
+                <span className="shrink-0 text-xs text-slate-400">Open</span>
+              </button>
+            );
+          })}
 
           <button
             type="button"
-            onMouseDown={(e) => e.preventDefault()}
-            onClick={() => goToSearch(q)}
-            className="flex w-full items-center justify-center border-t border-neutral-100 px-4 py-3 text-sm font-medium text-neutral-700 transition hover:bg-neutral-50"
+            onMouseDown={(e) => {
+              e.preventDefault();
+              goToSearch();
+            }}
+            className="flex w-full items-center justify-center border-t border-slate-100 px-4 py-3 text-sm font-medium text-slate-700 transition hover:bg-slate-50"
           >
-            Search all results for “{q}”
+            Search all results for “{query}”
           </button>
         </div>
       ) : null}

@@ -1,43 +1,53 @@
 export type Product = {
-  // Core identity
   id: string;
   partNo: string;
   brand: string;
-  category: string;
 
-  // Main display
-  title: string;
+  category?: string;
+
+  title?: string;
   shortDescription?: string;
   description?: string;
-
-  // Search + trust
-  crossReferences?: string[];
-  oemReferences?: string[];
-  keywords?: string[];
-
-  // Technical information
   spec?: string;
-  specifications?: {
+
+  specifications?: Array<{
     label: string;
-    value: string;
-  }[];
+    value: string | number;
+  }>;
 
-  // Equipment / application
-  equipment?: string[];
-  applications?: string[];
-
-  // Official reference
-  officialUrl?: string;
+  imageUrl?: string;
+  images?: string[];
+  media?: string[];
   officialImageUrl?: string | null;
 
-  // Commercial support
-  stockStatus?: "in_stock" | "low_stock" | "request";
-  isFeatured?: boolean;
+  refs?: string[];
+  crossReferences?: string[];
+  oemReferences?: string[];
 
-  // Metadata / source traceability
-  sourceType?: "official" | "catalog" | "internal" | "mixed";
+  officialUrl?: string;
+
+  application?: string[];
+  applications?: string[];
+  equipment?: string[];
+  thread?: string;
+
+  seo?: {
+    title?: string;
+    description?: string;
+    keywords?: string[];
+  };
+  seoTitle?: string;
+  seoDescription?: string;
+  keywords?: string[];
+
+  dataQuality?: "verified" | "draft" | "needs_review";
+  stockStatus?: "in_stock" | "low_stock" | "request" | string;
+  isFeatured?: boolean;
+  sourceType?: "official" | "catalog" | "internal" | "mixed" | string;
   sourceNote?: string;
 
-  // Search helpers
-  refs?: string[]; // backward-compatible alias / legacy support
+  type?: "cartridge" | "spin_on";
+  od_mm?: number;
+  id_mm?: number;
+  length_mm?: number;
 };

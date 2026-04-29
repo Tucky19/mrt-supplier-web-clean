@@ -152,17 +152,21 @@ function buildIndex(products) {
     const category = pickCategory(p);
     const spec = pickSpec(p);
 
-    const doc = {
-      id,
-      partNo,
-      partNoNorm,
-      brand,
-      title,
-      category,
-      spec,
-      stock: safeStr(p?.stock ?? p?.stockStatus ?? "request"),
-    };
+    const crossReferences = Array.isArray(p?.crossReferences)
+  ? p.crossReferences.filter(Boolean)
+  : [];
 
+const doc = {
+  id,
+  partNo,
+  partNoNorm,
+  brand,
+  title,
+  category,
+  spec,
+  stock: safeStr(p?.stock ?? p?.stockStatus ?? "request"),
+  crossReferences,
+};
     items.push(doc);
 
     const p2 = partNoNorm.slice(0, 2);
@@ -173,17 +177,31 @@ function buildIndex(products) {
     if (p3) pushMapList(prefix3, p3, id);
     if (p4) pushMapList(prefix4, p4, id);
 
-    const textBlob = [
+     const textBlob = [
       partNo,
       brand,
       title,
       category,
       spec,
+
       ...(Array.isArray(p?.applications)
         ? p.applications.map((x) => safeStr(x))
         : []),
+
+      ...(Array.isArray(p?.refs)
+        ? p.refs.map((x) => safeStr(x))
+        : []),
+
+      ...(Array.isArray(p?.crossReferences)
+        ? p.crossReferences.map((x) => safeStr(x))
+        : []),
+
+      ...(Array.isArray(p?.seo?.keywords)
+        ? p.seo.keywords.map((x) => safeStr(x))
+        : []),
     ].join(" ");
 
+   
     const toks = uniq([
       ...tokenize(textBlob),
       ...buildTokensFromPartNo(partNo),

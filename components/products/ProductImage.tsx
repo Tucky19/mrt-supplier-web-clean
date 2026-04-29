@@ -11,7 +11,7 @@ type Props = {
 export default function ProductImage({ src, alt }: Props) {
   const [error, setError] = useState(false);
 
-  const fallback = "/images/products/fallback-filter.webp";
+  const fallback = "/images/products/fallback-filter.jpg";
 
   const finalSrc = !src || error ? fallback : src;
 

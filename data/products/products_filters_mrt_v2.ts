@@ -1310,7 +1310,7 @@ export const filterProducts: Product[] = [
     
     prefix: "P",
     refs: [],
-    officialUrl: "https://shop.donaldson.com/store/en-th/search?query=P550132",
+    officialUrl: "https://shop.donaldson.com/store/en-th/product/P550148/20148",
   },
   {
     id: "don-p550148",
@@ -1322,7 +1322,7 @@ export const filterProducts: Product[] = [
     
     prefix: "P",
     refs: [],
-    officialUrl: "https://shop.donaldson.com/store/en-th/search?query=P550148",
+    officialUrl: "https://shop.donaldson.com/store/en-th/product/P550148/20148",
   },
   {
     id: "don-p550162",

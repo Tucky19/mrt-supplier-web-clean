@@ -2,7 +2,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { useLocale } from "next-intl";
 import SingleSearch from "@/components/search/SingleSearch";
+import GlobalSearch from '@/components/search/GlobalSearch';
 
+<GlobalSearch variant="hero" />
 export default function Hero() {
   const locale = useLocale();
 
@@ -15,20 +17,22 @@ export default function Hero() {
             Industrial Parts Supplier Platform
           </div>
 
-          <h1 className="mt-5 max-w-3xl text-3xl font-semibold leading-tight tracking-tight text-white sm:text-4xl lg:text-5xl">
-            ค้นหาอะไหล่อุตสาหกรรมได้รวดเร็ว
-            <br className="hidden sm:block" />
-            ด้วย Part Number และ Cross Reference
+          <h1 className="text-3xl font-semibold tracking-tight leading-relaxed text-slate-900">
+             ค้นหาอะไหล่อุตสาหกรรมได้รวดเร็ว
           </h1>
 
-          <p className="mt-4 max-w-2xl text-sm leading-7 text-neutral-300 sm:text-base">
-            ค้นหาไส้กรองและตลับลูกปืนด้วยรหัสสินค้า เบอร์เทียบ หรือรุ่นเครื่องจักร
-            รองรับแบรนด์หลัก เช่น NTN, Donaldson และ MANN-FILTER พร้อมระบบขอใบเสนอราคา
-            (RFQ) สำหรับงานจัดซื้อ
+           <p className="mt-2 text-sm text-slate-600">
+             ค้นหาด้วยรหัสสินค้า (Part Number) และส่งคำขอราคาได้ทันที
+          <br />
+          <span className="text-slate-400">
+             Search by part number and request a quotation instantly
+          </span>
           </p>
-
+            <p className="mt-2 text-xs text-slate-400">
+            ตัวอย่าง: P550084, 6205-2RS, LF17556
+          </p>
           <div className="mt-8 w-full max-w-2xl">
-            <SingleSearch autoFocus={false} />
+            <SingleSearch locale={locale} autoFocus={false} />
           </div>
 
           <div className="mt-3 text-sm text-neutral-400">

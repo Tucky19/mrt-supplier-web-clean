@@ -1,9 +1,6 @@
-import type { ReactNode } from "react";
-import { NextIntlClientProvider, hasLocale } from "next-intl";
-import { notFound } from "next/navigation";
-import { routing } from "@/i18n/routing";
-import { QuoteProvider } from "@/providers/QuoteProvider";
-import ToastProvider from "@/providers/ToastProvider";
+import { ReactNode } from "react";
+import { getMessages } from "next-intl/server";
+import AppProviders from "@/app/providers";
 
 type Props = {
   children: ReactNode;
@@ -12,25 +9,15 @@ type Props = {
 
 export default async function LocaleLayout({ children, params }: Props) {
   const { locale } = await params;
-
-  if (!hasLocale(routing.locales, locale)) {
-    notFound();
-  }
-
-  let messages;
-  try {
-    messages = (await import(`@/messages/${locale}.json`)).default;
-  } catch {
-    notFound();
-  }
+  const messages = await getMessages();
 
   return (
-   <NextIntlClientProvider locale={locale} messages={messages}>
-  <QuoteProvider>
-    <ToastProvider>
-      {children}
-    </ToastProvider>
-  </QuoteProvider>
-</NextIntlClientProvider>
+    <html lang={locale} data-scroll-behavior="smooth">
+      <body className="bg-slate-50 text-slate-950">
+        <AppProviders locale={locale} messages={messages}>
+          {children}
+        </AppProviders>
+      </body>
+    </html>
   );
 }

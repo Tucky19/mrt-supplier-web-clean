@@ -1,49 +1,54 @@
 import Link from "next/link";
-import { useLocale, useTranslations } from "next-intl";
 
 const LINE_URL = "https://lin.ee/R3vfZW0";
 
-export default function SiteFooter() {
-  const t = useTranslations("footer");
-  const nav = useTranslations("nav");
-  const locale = useLocale();
+type Props = {
+  locale?: string;
+};
+
+export default function SiteFooter({ locale = "en" }: Props) {
+  const isThai = locale === "th";
 
   return (
     <footer className="border-t border-slate-200 bg-slate-950 text-slate-200">
       <div className="mx-auto grid max-w-7xl gap-10 px-6 py-14 lg:grid-cols-[1.2fr_0.8fr_0.9fr] lg:px-8">
         <div>
-          <p className="text-lg font-semibold text-white">{t("company")}</p>
+          <p className="text-lg font-semibold text-white">
+            {isThai ? "MRT Supplier Co., Ltd." : "MRT Supplier"}
+          </p>
           <p className="mt-4 max-w-md text-sm leading-7 text-slate-400">
-            {t("description")}
+            {isThai
+              ? "บริการจัดหาอะไหล่อุตสาหกรรมสำหรับโรงงาน ทีมซ่อมบำรุง และฝ่ายจัดซื้อ พร้อมการตอบกลับอย่างมืออาชีพ"
+              : "Industrial spare parts sourcing for factories, maintenance teams, and procurement departments."}
           </p>
         </div>
 
         <div>
           <p className="text-sm font-semibold uppercase tracking-[0.14em] text-slate-400">
-            {t("quickLinks")}
+            {isThai ? "ลิงก์ด่วน" : "Quick Links"}
           </p>
           <div className="mt-4 space-y-3 text-sm">
             <Link href={`/${locale}`} className="block hover:text-white">
-              {nav("home")}
+              {isThai ? "หน้าแรก" : "Home"}
             </Link>
             <Link href={`/${locale}#brands`} className="block hover:text-white">
-              {nav("brands")}
+              {isThai ? "แบรนด์" : "Brands"}
             </Link>
             <Link href={`/${locale}#products`} className="block hover:text-white">
-              {nav("products")}
+              {isThai ? "สินค้า" : "Products"}
             </Link>
             <Link href={`/${locale}/contact`} className="block hover:text-white">
-              {nav("contact")}
+              {isThai ? "ติดต่อเรา" : "Contact"}
             </Link>
             <Link href={`/${locale}/quote`} className="block hover:text-white">
-              {nav("quote")}
+              {isThai ? "ขอใบเสนอราคา" : "Request Quote"}
             </Link>
           </div>
         </div>
 
         <div>
           <p className="text-sm font-semibold uppercase tracking-[0.14em] text-slate-400">
-            {t("contactTitle")}
+            {isThai ? "ข้อมูลติดต่อ" : "Contact Information"}
           </p>
           <div className="mt-4 space-y-3 text-sm text-slate-400">
             <p>sales@mrtsupplier.com</p>
@@ -63,7 +68,9 @@ export default function SiteFooter() {
 
       <div className="border-t border-slate-800">
         <div className="mx-auto max-w-7xl px-6 py-5 text-xs text-slate-500 lg:px-8">
-          {t("copyright")}
+          {isThai
+            ? "© 2026 MRT Supplier Co., Ltd. สงวนลิขสิทธิ์"
+            : "© 2026 MRT Supplier. All rights reserved."}
         </div>
       </div>
     </footer>

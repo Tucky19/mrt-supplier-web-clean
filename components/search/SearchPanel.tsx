@@ -45,7 +45,7 @@ export default function SearchPanel({
     if (q) setQuery(q);
     if (b) setBrand(b);
     if (m === "part" || m === "spec") setTab(m);
-  }, [sp]);
+  }, []);
 
   function submitSearch() {
     const params = new URLSearchParams();
