@@ -2,11 +2,12 @@
 
 import { useEffect, useMemo, useRef, useState, useTransition } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { useLocale } from "next-intl";
 import { gaSearch } from "@/lib/analytics/ga";
 import { useSearchSuggestions } from "@/hooks/useSearchSuggestions";
+import { getSearchUiText } from "@/lib/i18n/searchUi";
 
 type Props = {
+  locale: string;
   defaultValue?: string;
   className?: string;
   autoFocus?: boolean;
@@ -18,22 +19,28 @@ const RECENT_SEARCHES_KEY = "mrt_recent_searches_v1";
 const RECENT_SEARCHES_LIMIT = 5;
 const RESULTS_SECTION_ID = "results";
 
-function getSuggestionLabel(matchType?: string) {
+function getSuggestionLabel(
+  matchType: string | undefined,
+  text: ReturnType<typeof getSearchUiText>
+) {
   if (matchType === "Exact" || matchType === "Prefix") {
-    return "Part Number";
+    return text.partNumber;
   }
 
   if (matchType === "Cross Ref") {
-    return "Cross Ref";
+    return text.crossRef;
   }
 
-  return "Match";
+  return text.match;
 }
 
-function getSuggestionSectionTitle(label: string) {
-  if (label === "Part Number") return "Part Number Matches";
-  if (label === "Cross Ref") return "Cross References";
-  return "Related Matches";
+function getSuggestionSectionTitle(
+  label: string,
+  text: ReturnType<typeof getSearchUiText>
+) {
+  if (label === text.partNumber) return text.partNumberMatches;
+  if (label === text.crossRef) return text.crossReferences;
+  return text.relatedMatches;
 }
 
 function highlightMatch(text: string, query: string) {
@@ -60,6 +67,7 @@ function highlightMatch(text: string, query: string) {
 }
 
 export default function SearchBar({
+  locale,
   defaultValue = "",
   className = "",
   autoFocus = true,
@@ -67,7 +75,7 @@ export default function SearchBar({
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
-  const locale = useLocale();
+  const text = getSearchUiText(locale);
 
   const [query, setQuery] = useState(defaultValue);
   const [isFocused, setIsFocused] = useState(false);
@@ -181,9 +189,7 @@ export default function SearchBar({
   const visibleRecents = useMemo(() => {
     const trimmed = query.trim().toLowerCase();
     return recentSearches
-      .filter((item) =>
-        trimmed ? item.toLowerCase().includes(trimmed) : true
-      )
+      .filter((item) => (trimmed ? item.toLowerCase().includes(trimmed) : true))
       .slice(0, RECENT_SEARCHES_LIMIT);
   }, [query, recentSearches]);
 
@@ -191,7 +197,7 @@ export default function SearchBar({
     const groups = new Map<string, typeof suggestions>();
 
     for (const suggestion of suggestions) {
-      const label = getSuggestionLabel(suggestion._matchType);
+      const label = getSuggestionLabel(suggestion._matchType, text);
       const current = groups.get(label) ?? [];
       current.push(suggestion);
       groups.set(label, current);
@@ -199,10 +205,10 @@ export default function SearchBar({
 
     return Array.from(groups.entries()).map(([label, items]) => ({
       label,
-      title: getSuggestionSectionTitle(label),
+      title: getSuggestionSectionTitle(label, text),
       items,
     }));
-  }, [suggestions]);
+  }, [suggestions, text]);
 
   const flattenedSuggestions = useMemo(
     () => groupedSuggestions.flatMap((group) => group.items),
@@ -218,11 +224,11 @@ export default function SearchBar({
         value: suggestion.partNo,
       }))
     : showRecents
-    ? visibleRecents.map((recent) => ({
-        type: "recent" as const,
-        value: recent,
-      }))
-    : [];
+      ? visibleRecents.map((recent) => ({
+          type: "recent" as const,
+          value: recent,
+        }))
+      : [];
 
   const selectDropdownItem = (value: string) => {
     setQuery(value);
@@ -325,7 +331,12 @@ export default function SearchBar({
         setHighlightedIndex(-1);
       }}
     >
-      <form onSubmit={handleSubmit} className="relative w-full">
+      <form
+        action={`/${locale}/products`}
+        method="get"
+        onSubmit={handleSubmit}
+        className="relative w-full"
+      >
         <div className="flex min-h-[60px] items-center gap-3 rounded-full border border-slate-200 bg-white px-4 shadow-sm transition focus-within:border-blue-400 focus-within:shadow-md sm:px-5">
           <span className="text-slate-400">
             <svg
@@ -346,13 +357,14 @@ export default function SearchBar({
 
           <input
             ref={inputRef}
+            name="q"
             type="text"
             value={query}
             autoFocus={autoFocus}
             onChange={(e) => setQuery(e.target.value)}
             onFocus={() => setIsFocused(true)}
             onKeyDown={handleKeyDown}
-            placeholder="Search part number, cross reference, or description"
+            placeholder={text.searchPlaceholder}
             className="h-full w-full bg-transparent py-4 text-[15px] text-slate-900 placeholder:text-slate-400 outline-none"
           />
 
@@ -361,15 +373,15 @@ export default function SearchBar({
             disabled={isPending}
             className="rounded-full bg-blue-900 px-4 py-2 text-sm font-medium text-white transition hover:bg-blue-800 disabled:opacity-50 sm:px-5"
           >
-            {isPending ? "..." : "Search"}
+            {isPending ? "..." : text.searchButton}
           </button>
         </div>
 
         {showSuggestions && (
-          <div className="absolute left-0 right-0 top-[68px] z-20 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-xl">
+          <div className="absolute left-0 right-0 top-[68px] z-20 max-h-[320px] overflow-y-auto rounded-2xl border border-slate-200 bg-white shadow-lg shadow-slate-200/70 sm:max-h-[360px]">
             {groupedSuggestions.map((group) => (
               <div key={group.label}>
-                <div className="border-b border-slate-100 bg-slate-50 px-4 py-2 text-[11px] font-semibold uppercase tracking-wide text-slate-400 sm:px-5">
+                <div className="border-b border-slate-100 bg-slate-50/70 px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.12em] text-slate-400 sm:px-5">
                   {group.title}
                 </div>
 
@@ -397,7 +409,7 @@ export default function SearchBar({
                           flattenedSuggestions.length + 1
                         )
                       }
-                      className={`flex w-full items-start justify-between gap-3 border-b border-slate-100 px-4 py-3 text-left hover:bg-slate-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-blue-200 sm:gap-4 sm:px-5 sm:py-3.5 ${
+                      className={`flex w-full items-start justify-between gap-3 border-b border-slate-100 px-4 py-2.5 text-left hover:bg-slate-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-blue-200 sm:gap-4 sm:px-5 sm:py-3 ${
                         highlightedIndex === currentIndex ? "bg-slate-50" : ""
                       }`}
                     >
@@ -414,7 +426,7 @@ export default function SearchBar({
                           {highlightMatch(suggestion.brand, query)}
                           {suggestion.title ? (
                             <>
-                              {" • "}
+                              {text.bySeparator}
                               {highlightMatch(suggestion.title, query)}
                             </>
                           ) : null}
@@ -448,56 +460,60 @@ export default function SearchBar({
                   flattenedSuggestions.length + 1
                 )
               }
-              className="flex w-full items-center justify-between bg-slate-50 px-4 py-3 text-left text-sm font-medium text-slate-700 hover:bg-slate-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-blue-200 sm:px-5 sm:py-3.5"
+              className="flex w-full items-center justify-between border-t border-slate-100 bg-slate-50/80 px-4 py-2.5 text-left text-sm font-medium text-slate-700 hover:bg-slate-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-blue-200 sm:px-5 sm:py-3"
             >
-              <span>View all results for &quot;{query.trim()}&quot;</span>
-              <span className="text-slate-400">↵</span>
+              <span>
+                {text.viewAllResults} &quot;{query.trim()}&quot;
+              </span>
+              <span className="text-slate-400">→</span>
             </button>
           </div>
         )}
 
         {showRecents && (
-          <div className="absolute left-0 right-0 top-[68px] z-20 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-xl">
-            <div className="border-b border-slate-100 px-4 py-3 text-xs font-semibold uppercase tracking-wide text-slate-400 sm:px-5 sm:py-3.5">
-              Recent Searches
+          <div className="absolute left-0 right-0 top-[68px] z-20 max-h-[300px] overflow-y-auto rounded-2xl border border-slate-200 bg-white shadow-lg shadow-slate-200/70 sm:max-h-[340px]">
+            <div className="border-b border-slate-100 bg-slate-50/70 px-4 py-2.5 text-[10px] font-semibold uppercase tracking-[0.12em] text-slate-400 sm:px-5 sm:py-3">
+              {text.recentSearches}
             </div>
 
-            {visibleRecents.map((recent) => (
-              <button
-                key={recent}
-                type="button"
-                ref={(node) => {
-                  dropdownOptionRefs.current[visibleRecents.indexOf(recent)] = node;
-                }}
-                onClick={() => selectDropdownItem(recent)}
-                onMouseDown={(event) => event.preventDefault()}
-                onFocus={() => {
-                  setIsFocused(true);
-                  setHighlightedIndex(visibleRecents.indexOf(recent));
-                }}
-                onKeyDown={(event) =>
-                  handleDropdownKeyDown(
-                    event,
-                    visibleRecents.indexOf(recent),
-                    visibleRecents.length
-                  )
-                }
-                className={`flex w-full items-center justify-between border-b border-slate-100 px-4 py-3 text-left text-sm text-slate-700 last:border-b-0 hover:bg-slate-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-blue-200 sm:px-5 sm:py-3.5 ${
-                  highlightedIndex === visibleRecents.indexOf(recent)
-                    ? "bg-slate-50"
-                    : ""
-                }`}
-              >
-                <span>{recent}</span>
-                <span className="text-xs text-slate-400">Recent</span>
-              </button>
-            ))}
+            {visibleRecents.map((recent) => {
+              const recentIndex = visibleRecents.indexOf(recent);
+
+              return (
+                <button
+                  key={recent}
+                  type="button"
+                  ref={(node) => {
+                    dropdownOptionRefs.current[recentIndex] = node;
+                  }}
+                  onClick={() => selectDropdownItem(recent)}
+                  onMouseDown={(event) => event.preventDefault()}
+                  onFocus={() => {
+                    setIsFocused(true);
+                    setHighlightedIndex(recentIndex);
+                  }}
+                  onKeyDown={(event) =>
+                    handleDropdownKeyDown(
+                      event,
+                      recentIndex,
+                      visibleRecents.length
+                    )
+                  }
+                  className={`flex w-full items-center justify-between border-b border-slate-100 px-4 py-2.5 text-left text-sm text-slate-700 last:border-b-0 hover:bg-slate-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-blue-200 sm:px-5 sm:py-3 ${
+                    highlightedIndex === recentIndex ? "bg-slate-50" : ""
+                  }`}
+                >
+                  <span>{recent}</span>
+                  <span className="text-xs text-slate-400">{text.recent}</span>
+                </button>
+              );
+            })}
           </div>
         )}
       </form>
 
       <div className="mt-4 flex flex-wrap items-center gap-2 text-sm">
-        <span className="text-slate-500">Try:</span>
+        <span className="text-slate-500">{text.tryLabel}</span>
         {EXAMPLE_QUERIES.map((example) => (
           <button
             key={example}

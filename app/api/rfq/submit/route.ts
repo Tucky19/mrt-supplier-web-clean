@@ -377,29 +377,29 @@ if (!RFQ_DEV_MOCK_ENABLED) {
         recordSideEffectFailure("email_customer", e);
       }
     }
-let lineNotifyOk = false;
+    let lineNotifyOk = false;
 
-try {
-  await sendRfqLineNotification({
-    requestId: rfq.requestId,
-    company: rfq.company ?? null,
-    name: rfq.name ?? null,
-    phone: rfq.phone ?? null,
-    email: rfq.email ?? null,
-    itemCount: rfq.items.length,
-  });
+    try {
+      await sendRfqLineNotification({
+        requestId: rfq.requestId,
+        company: rfq.company ?? null,
+        name: rfq.name ?? null,
+        phone: rfq.phone ?? null,
+        email: rfq.email ?? null,
+        itemCount: rfq.items.length,
+      });
 
-  lineNotifyOk = true;
+      lineNotifyOk = true;
 
-  logApiEvent("info", "rfq.submit.line_sent", {
-    traceId,
-    route: "/api/rfq/submit",
-    requestId: rfq.requestId,
-    rfqId: rfq.id,
-  });
-} catch (e) {
-  recordSideEffectFailure("line_notify", e);
-}
+      logApiEvent("info", "rfq.submit.line_sent", {
+        traceId,
+        route: "/api/rfq/submit",
+        requestId: rfq.requestId,
+        rfqId: rfq.id,
+      });
+    } catch (e: any) {
+      recordSideEffectFailure("line_notify", e);
+    }
     const partialFailure = sideEffectFailures.length > 0;
 
     logApiEvent("info", "rfq.submit.completed", {
@@ -409,6 +409,7 @@ try {
       rfqId: rfq.id,
       adminEmailOk,
       customerEmailOk,
+      lineNotifyOk,
       partialFailure,
       sideEffectFailures,
       remainingInWindow: rl.remaining,
@@ -421,6 +422,7 @@ try {
         rfqId: rfq.id,
         adminEmailOk,
         customerEmailOk,
+        lineNotifyOk,
         partialFailure,
         sideEffectFailures,
         remainingInWindow: rl.remaining,

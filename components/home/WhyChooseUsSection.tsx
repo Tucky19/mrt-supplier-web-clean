@@ -1,5 +1,5 @@
 import { ShieldCheck, FileText, Boxes, Handshake } from "lucide-react";
-import { useLocale } from "next-intl";
+import { getHomeWhyChooseUsText } from "@/lib/i18n/homeUi";
 
 const iconMap = {
   trusted: ShieldCheck,
@@ -10,68 +10,8 @@ const iconMap = {
 
 const items = ["trusted", "response", "clean", "b2b"] as const;
 
-const copy = {
-  en: {
-    eyebrow: "MRT Supplier",
-    title: "Why Choose MRT Supplier",
-    description:
-      "We focus on clear communication, trusted products, and responsive service for industrial customers.",
-    items: {
-      trusted: {
-        title: "Trusted Industrial Brands",
-        description:
-          "We prioritize recognized brands that are widely used in industrial environments.",
-      },
-      response: {
-        title: "Responsive Quotation Support",
-        description:
-          "We help customers move faster with clear RFQ handling and follow-up.",
-      },
-      clean: {
-        title: "Clear Product Presentation",
-        description:
-          "Products are presented in a clean format so buyers can scan information quickly.",
-      },
-      b2b: {
-        title: "Built for B2B Workflows",
-        description:
-          "Suitable for factory buyers, maintenance teams, and procurement departments.",
-      },
-    },
-  },
-  th: {
-    eyebrow: "MRT Supplier",
-    title: "ทำไมลูกค้าอุตสาหกรรมจึงเลือก MRT Supplier",
-    description:
-      "เราเน้นการสื่อสารที่ชัดเจน การนำเสนอสินค้าที่อ่านง่าย และการตอบกลับที่เหมาะกับงานจัดซื้อและซ่อมบำรุง",
-    items: {
-      trusted: {
-        title: "แบรนด์อุตสาหกรรมที่เชื่อถือได้",
-        description:
-          "เราคัดเลือกแบรนด์ที่ได้รับการยอมรับและใช้งานอย่างแพร่หลายในภาคอุตสาหกรรม",
-      },
-      response: {
-        title: "ตอบกลับใบเสนอราคาได้รวดเร็ว",
-        description:
-          "ช่วยให้ทีมจัดซื้อและลูกค้าเดินงานต่อได้เร็วขึ้นด้วยการประสานงานและติดตามที่ชัดเจน",
-      },
-      clean: {
-        title: "ข้อมูลสินค้าอ่านง่าย",
-        description:
-          "จัดวางข้อมูลให้ตรวจสอบแบรนด์ รุ่น และสเปกสำคัญได้รวดเร็ว",
-      },
-      b2b: {
-        title: "ออกแบบเพื่อการทำงานแบบ B2B",
-        description:
-          "เหมาะสำหรับโรงงาน ฝ่ายจัดซื้อ และทีมซ่อมบำรุงที่ต้องการ workflow ที่ตรงไปตรงมา",
-      },
-    },
-  },
-} as const;
-
-export default function WhyChooseUsSection() {
-  const locale = useLocale() as "th" | "en";
-  const section = copy[locale];
+export default function WhyChooseUsSection({ locale }: { locale: string }) {
+  const section = getHomeWhyChooseUsText(locale);
 
   return (
     <section className="border-t border-slate-200 bg-white">

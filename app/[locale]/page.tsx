@@ -1,6 +1,6 @@
+import Image from "next/image";
 import BrandShowcase from "@/components/home/BrandShowcase";
 import ProductGrid from "@/components/home/ProductGrid";
-import ProductOverviewBanner from "@/components/home/ProductOverviewBanner";
 import QuoteCTASection from "@/components/home/QuoteCTASection";
 import WhyChooseUsSection from "@/components/home/WhyChooseUsSection";
 import SiteFooter from "@/components/layout/SiteFooter";
@@ -33,57 +33,82 @@ export default async function Page({
     },
   ];
 
-  const featuredProducts = [
+  const supportingBrands = [
+    "Fleetguard",
+    "Komai",
+    "K-FLO",
+    "KOYO",
+    "IKO",
+    "Timken",
+  ];
+
+  const productCategories = [
     {
-      id: "donaldson-p550958",
-      brand: "Donaldson",
-      image: "/products/filter-air-01.jpg",
-      name: {
-        th: "ไส้กรองเชื้อเพลิงหลักแบบ Spin-on",
-        en: "Fuel Spin-on Primary",
+      id: "hydraulic-filters",
+      image: "/filter-oil-01.jpg",
+      href: `/${locale}/products?q=hydraulic%20filter`,
+      title: {
+        th: "Hydraulic Filters",
+        en: "Hydraulic Filters",
       },
-      spec: {
-        th: "OD 119mm x L 227mm x 1 1/4-12",
-        en: "OD 119mm x L 227mm x 1 1/4-12",
-      },
-    },
-    {
-      id: "donaldson-p550388",
-      brand: "Donaldson",
-      image: "/products/filter-oil-01.jpg",
-      name: {
-        th: "ไส้กรองน้ำมันเครื่องแบบ Spin-on",
-        en: "Spin-On Lube Filter",
-      },
-      spec: {
-        th: "OD 93mm x L 173mm x 1-12 UN",
-        en: "OD 93mm x L 173mm x 1-12 UN",
-      },
-    },
-    {
-      id: "donaldson-p553000",
-      brand: "Donaldson",
-      image: "/products/filter-air-01.jpg",
-      name: {
-        th: "ไส้กรองเชื้อเพลิง / แยกน้ำ",
-        en: "Fuel Filter / Water Separator",
-      },
-      spec: {
-        th: "OD 108mm x L 260mm x 10µ",
-        en: "OD 108mm x L 260mm x 10µ",
-      },
-    },
-    {
-      id: "donaldson-p164384",
-      brand: "Donaldson",
-      image: "/products/filter-oil-01.jpg",
-      name: {
+      subtitle: {
         th: "ไส้กรองไฮดรอลิก",
-        en: "Hydraulic Filter",
+        en: "",
       },
-      spec: {
-        th: "OD 128mm x L 303mm",
-        en: "OD 128mm x L 303mm",
+      description: {
+        th: "รองรับไส้กรองแบบ Spin-On, Cartridge, Return Line และระบบไฮดรอลิกอุตสาหกรรม",
+        en: "Support for spin-on, cartridge, return line, and industrial hydraulic filtration applications.",
+      },
+    },
+    {
+      id: "air-filters",
+      image: "/filter-air-01.jpg",
+      href: `/${locale}/products?q=air%20filter`,
+      title: {
+        th: "Air Filters",
+        en: "Air Filters",
+      },
+      subtitle: {
+        th: "ไส้กรองอากาศ",
+        en: "",
+      },
+      description: {
+        th: "รองรับกรองอากาศลูกนอก ลูกใน และชุดกรองที่ใช้คู่กันสำหรับเครื่องจักรและงานอุตสาหกรรม",
+        en: "Primary, safety, and paired air filters for machinery and industrial applications.",
+      },
+    },
+    {
+      id: "bearings",
+      image: "/bearing-01.jpg",
+      href: `/${locale}/products?q=bearing`,
+      title: {
+        th: "Bearings",
+        en: "Bearings",
+      },
+      subtitle: {
+        th: "แบริ่งและลูกปืนอุตสาหกรรม",
+        en: "",
+      },
+      description: {
+        th: "รองรับแบริ่งสำหรับงานซ่อมบำรุง เครื่องจักร และระบบส่งกำลังในโรงงาน",
+        en: "Industrial bearings for maintenance, machinery, and power transmission applications.",
+      },
+    },
+    {
+      id: "oil-fuel-oil-separator",
+      image: "/filter-oil-01.jpg",
+      href: `/${locale}/products?q=oil%20separator`,
+      title: {
+        th: "Oil / Fuel / Oil Separator",
+        en: "Oil, Fuel & Oil Separator",
+      },
+      subtitle: {
+        th: "ไส้กรองน้ำมัน เชื้อเพลิง และ Oil Separator",
+        en: "",
+      },
+      description: {
+        th: "รองรับไส้กรองน้ำมัน ไส้กรองเชื้อเพลิง และ Oil Separator สำหรับเครื่องยนต์ เครื่องอัดลม และระบบอุตสาหกรรม",
+        en: "Oil filters, fuel filters, and oil separator elements for engines, compressors, and industrial systems.",
       },
     },
   ];
@@ -92,53 +117,115 @@ export default async function Page({
     <main className="min-h-screen bg-slate-50">
       <SiteHeader locale={locale} />
 
-      <section className="bg-gradient-to-b from-slate-950 to-slate-800 px-4 py-20 text-white">
-        <div className="mx-auto max-w-6xl text-center">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-sky-300">
-            Industrial Parts & RFQ Service
-          </p>
+      <section className="overflow-hidden bg-[radial-gradient(circle_at_top_left,_rgba(56,189,248,0.18),_transparent_28%),linear-gradient(180deg,_#020617_0%,_#0f172a_52%,_#1e293b_100%)] px-4 py-16 text-white sm:py-20">
+        <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(420px,0.95fr)] lg:items-center">
+          <div className="max-w-3xl">
+            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-sky-300">
+              {isThai
+                ? "INDUSTRIAL PARTS SOURCING & RFQ"
+                : "Industrial Parts Sourcing & RFQ"}
+            </p>
 
-          <h1 className="mt-4 text-3xl font-bold tracking-tight sm:text-5xl">
-            {isThai
-              ? "ค้นหาอะไหล่อุตสาหกรรมด้วย Part Number"
-              : "Search Industrial Parts by Part Number"}
-          </h1>
+            <h1 className="mt-5 text-3xl font-bold leading-[1.14] tracking-tight sm:text-5xl">
+              {isThai ? (
+                <>
+                  <span className="block">จัดหาอะไหล่อุตสาหกรรมอย่างมั่นใจ</span>
+                  <span className="mt-1 block text-slate-100">
+                    สำหรับงานซ่อมบำรุงและจัดซื้อ
+                  </span>
+                </>
+              ) : (
+                <>
+                  <span className="block">Reliable Industrial Parts.</span>
+                  <span className="mt-1 block text-slate-100">
+                    Responsive RFQ Support.
+                  </span>
+                </>
+              )}
+            </h1>
 
-          <p className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-slate-300 sm:text-base">
-            {isThai
-              ? "ค้นหาด้วย Part Number, Cross Reference หรือชื่อสินค้า แล้วส่ง RFQ ให้ทีม MRT Supplier ช่วยตรวจสอบและเสนอราคาได้ทันที"
-              : "Search by part number, cross reference, or product keyword, then send your RFQ to MRT Supplier for fast review and quotation."}
-          </p>
+            <p className="mt-5 max-w-2xl text-sm leading-7 text-slate-300 sm:text-base">
+              {isThai
+                ? "ค้นหาด้วย Part Number, Cross Reference หรือส่งรายการหลายรายการ เพื่อให้ทีม MRT Supplier ตรวจสอบและเสนอราคา"
+                : "Search by Part Number, Cross Reference, or paste multiple items to request a quotation from MRT Supplier. Built for maintenance teams, procurement, and industrial sourcing workflows."}
+            </p>
 
-          <div className="mx-auto mt-10 max-w-3xl">
-            <SearchBar autoFocus={false} />
+            <div className="mt-8 max-w-3xl">
+              <SearchBar locale={locale} autoFocus={false} />
+            </div>
+
+            <p className="mt-4 text-xs text-slate-400">
+              {isThai
+                ? "ตัวอย่าง: P181104, P551315, C 20 500, Hydraulic Filter"
+                : "Try: P181104, P551315, C 20 500, Hydraulic Filter"}
+            </p>
+
+            <div className="mt-6 flex flex-wrap gap-3 text-xs text-slate-300">
+              <span className="rounded-full border border-slate-700/80 bg-slate-900/50 px-3 py-1.5">
+                {isThai
+                  ? "รองรับ Part Number และ Cross Reference"
+                  : "Part Number & Cross Reference Support"}
+              </span>
+              <span className="rounded-full border border-slate-700/80 bg-slate-900/50 px-3 py-1.5">
+                {isThai
+                  ? "เพิ่มหลายรายการเข้า RFQ ได้"
+                  : "Bulk RFQ for multiple items"}
+              </span>
+              <span className="rounded-full border border-slate-700/80 bg-slate-900/50 px-3 py-1.5">
+                {isThai
+                  ? "เหมาะสำหรับงานซ่อมบำรุงและจัดซื้อ"
+                  : "Built for maintenance and procurement teams"}
+              </span>
+            </div>
           </div>
 
-          <p className="mt-4 text-xs text-slate-400">
-            {isThai
-              ? "ตัวอย่าง: P551315, P553004, Fuel Filter, Hydraulic Filter"
-              : "Try: P551315, P553004, Fuel Filter, Hydraulic Filter"}
-          </p>
+          <div className="relative">
+            <div className="relative overflow-hidden rounded-[2rem] border border-slate-700/80 bg-slate-900/40 shadow-[0_30px_90px_rgba(2,6,23,0.45)]">
+              <div className="absolute inset-x-0 top-0 z-10 flex items-center justify-between border-b border-white/10 bg-slate-950/55 px-5 py-3 backdrop-blur">
+                <div>
+                  <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-sky-300">
+                    MRT SUPPLIER WORKFLOW
+                  </p>
+                  <p className="mt-1 text-sm font-medium text-white">
+                    {isThai
+                      ? "ค้นหาอะไหล่ ตรวจสอบ Cross Reference และส่ง RFQ"
+                      : "Search parts, check cross references, and submit RFQs"}
+                  </p>
+                </div>
+                <div className="rounded-full border border-emerald-400/30 bg-emerald-400/10 px-3 py-1 text-xs font-medium text-emerald-200">
+                  {isThai ? "พร้อมตรวจสอบ" : "Ready to review"}
+                </div>
+              </div>
 
-          <div className="mt-6 flex flex-wrap justify-center gap-3 text-xs text-slate-300">
-            <span>OEM Reference Support</span>
-            <span>•</span>
-            <span>Cross Reference Matching</span>
-            <span>•</span>
-            <span>
-              {isThai
-                ? "ตอบกลับ RFQ ภายใน 24 ชั่วโมง"
-                : "RFQ response within 24 hours"}
-            </span>
+              <div className="relative aspect-[16/11]">
+                <Image
+                  src="/hero/warehouse-main.png"
+                  alt={
+                    isThai
+                      ? "คลังสินค้าอะไหล่อุตสาหกรรมและแบรนด์ที่ MRT Supplier รองรับ"
+                      : "Industrial machinery and maintenance use cases supported by MRT Supplier"
+                  }
+                  fill
+                  priority
+                  loading="eager"
+                  sizes="(max-width: 1024px) 100vw, 45vw"
+                  className="object-cover object-[66%_center] lg:object-[62%_center]"
+                />
+                <div className="absolute inset-0 bg-gradient-to-tr from-slate-950/75 via-slate-950/20 to-slate-950/10" />
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      <BrandShowcase brands={featuredBrands} />
-      <WhyChooseUsSection />
-      <ProductOverviewBanner />
-      <ProductGrid products={featuredProducts} />
-      <QuoteCTASection />
+      <BrandShowcase
+        brands={featuredBrands}
+        supportingBrands={supportingBrands}
+        locale={locale}
+      />
+      <WhyChooseUsSection locale={locale} />
+      <ProductGrid products={productCategories} locale={locale} />
+      <QuoteCTASection locale={locale} />
       <SiteFooter locale={locale} />
     </main>
   );

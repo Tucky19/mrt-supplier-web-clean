@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import SiteHeader from "@/components/layout/SiteHeader";
@@ -59,7 +60,9 @@ export default async function ProductPage({ params }: PageProps) {
 
   return (
     <main className="min-h-screen bg-slate-50">
-      <SiteHeader locale={locale} />
+      <Suspense fallback={<div className="h-[72px] bg-white" />}>
+        <SiteHeader locale={locale} />
+      </Suspense>
 
       <section className="mx-auto max-w-6xl px-6 py-12">
         <ProductHero product={product} />

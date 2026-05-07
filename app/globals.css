@@ -8,7 +8,15 @@ body {
   margin: 0;
   background: #f8fafc;
   color: #0f172a;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-ui), Arial, Helvetica, sans-serif;
+}
+
+.font-ui {
+  font-family: var(--font-ui), Arial, Helvetica, sans-serif;
+}
+
+.font-tech {
+  font-family: var(--font-tech), var(--font-ui), Arial, Helvetica, sans-serif;
 }
 
 * {

@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import type { ReactNode } from "react";
 import { getMessages } from "next-intl/server";
 import AppProviders from "@/app/providers";
 
@@ -12,12 +12,8 @@ export default async function LocaleLayout({ children, params }: Props) {
   const messages = await getMessages();
 
   return (
-    <html lang={locale} data-scroll-behavior="smooth">
-      <body className="bg-slate-50 text-slate-950">
-        <AppProviders locale={locale} messages={messages}>
-          {children}
-        </AppProviders>
-      </body>
-    </html>
+    <AppProviders locale={locale} messages={messages}>
+      {children}
+    </AppProviders>
   );
 }

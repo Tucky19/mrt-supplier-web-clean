@@ -29,7 +29,7 @@ export async function generateMetadata({
   return {
     title: isThai ? "ค้นหาสินค้า | MRT Supplier" : "Products | MRT Supplier",
     description: isThai
-      ? "ค้นหาสินค้าอุตสาหกรรมด้วย Part Number หรือ Cross Reference และส่ง RFQ ได้ทันที"
+      ? "ค้นหาสินค้าด้วย Part Number, Cross Reference หรือชื่อสินค้า แล้วส่ง RFQ ได้ทันที"
       : "Search industrial parts by part number or cross reference and request a quotation quickly.",
     alternates: {
       canonical: `/${locale}/products`,
@@ -68,28 +68,28 @@ export default async function ProductsPage({
       <SiteHeader locale={locale} />
 
       <section className="border-b bg-white">
-        <div className="mx-auto max-w-7xl px-4 py-10">
-          <h1 className="text-3xl font-bold text-gray-900">
+        <div className="mx-auto max-w-7xl px-4 py-7 sm:py-10">
+          <h1 className="text-2xl font-bold text-gray-900 sm:text-3xl">
             {isThai ? "ค้นหาสินค้า" : "Find Parts Fast"}
           </h1>
 
-          <p className="mt-2 max-w-2xl text-gray-600">
+          <p className="mt-2 max-w-2xl text-sm leading-6 text-gray-600 sm:text-base">
             {isThai
-              ? "ค้นหาด้วย Part Number หรือ Cross Reference แล้วเพิ่มรายการเพื่อขอใบเสนอราคาได้ทันที"
+              ? "ค้นหาด้วย Part Number, Cross Reference หรือชื่อสินค้า แล้วเพิ่มรายการเพื่อขอใบเสนอราคาได้ทันที"
               : "Search by part number or cross reference, then add matching items to your quote request."}
           </p>
 
-          <div className="-mx-4 sticky top-[72px] z-40 mt-6 border-y bg-white/95 px-4 py-3 backdrop-blur md:static md:z-auto md:mx-0 md:border-y-0 md:bg-transparent md:px-0 md:py-0 md:backdrop-blur-0">
-            <SearchBar defaultValue={query} />
+          <div className="-mx-4 sticky top-[64px] z-40 mt-5 border-y bg-white/95 px-4 py-2.5 backdrop-blur md:static md:z-auto md:mx-0 md:border-y-0 md:bg-transparent md:px-0 md:py-0 md:backdrop-blur-0">
+            <SearchBar locale={locale} defaultValue={query} />
           </div>
         </div>
       </section>
 
       <section
         id="results"
-        className="mx-auto max-w-7xl scroll-mt-24 px-4 py-8"
+        className="mx-auto max-w-7xl scroll-mt-24 px-4 py-6 sm:py-8"
       >
-        <div className="mb-6 rounded-2xl border border-slate-200 bg-white px-4 py-4 shadow-sm sm:px-5">
+        <div className="mb-5 rounded-2xl border border-slate-200 bg-white px-4 py-3.5 shadow-sm sm:mb-6 sm:px-5 sm:py-4">
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
             <div>
               <div className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">
@@ -102,17 +102,17 @@ export default async function ProductsPage({
                     : "Recommended List"}
               </div>
 
-              <div className="mt-1 text-sm font-medium text-slate-800">
+              <div className="mt-1 text-sm font-medium leading-6 text-slate-800">
                 {hasQuery
                   ? isThai
                     ? `พบผลลัพธ์สำหรับ "${query}"`
                     : `Results for "${query}"`
                   : isThai
-                    ? "รายการเริ่มต้นสำหรับค้นหาและขอราคาได้เร็วขึ้น"
+                    ? "รายการเริ่มต้นสำหรับค้นหาและขอใบเสนอราคาได้เร็วขึ้น"
                     : "A faster starting list for search and RFQ"}
               </div>
 
-              <div className="mt-1 text-xs text-slate-500">
+              <div className="mt-1 text-xs leading-5 text-slate-500">
                 {hasQuery
                   ? isThai
                     ? `${visibleProducts.length} รายการ`
@@ -124,7 +124,7 @@ export default async function ProductsPage({
             </div>
 
             {hasQuery && (
-              <div className="flex flex-wrap items-center gap-2">
+              <div className="flex flex-wrap items-center gap-2 pt-1 sm:pt-0">
                 <span className="inline-flex items-center rounded-full bg-slate-100 px-3 py-1.5 text-xs font-medium text-slate-700">
                   {query}
                 </span>
@@ -153,15 +153,15 @@ export default async function ProductsPage({
                 : "If you do not see the part you need yet, request a quote or go back home to start a new search."}
             </p>
 
-              <div className="mt-4 flex flex-wrap justify-center gap-3">
-                <a
-                  href={
-                    hasQuery
-                      ? `/${locale}/quote?partNo=${encodeURIComponent(query)}`
-                      : `/${locale}/quote`
-                  }
-                  className="inline-flex rounded-lg bg-blue-900 px-5 py-3 text-sm font-semibold text-white hover:bg-blue-800"
-                >
+            <div className="mt-4 flex flex-wrap justify-center gap-3">
+              <a
+                href={
+                  hasQuery
+                    ? `/${locale}/quote?partNo=${encodeURIComponent(query)}`
+                    : `/${locale}/quote`
+                }
+                className="inline-flex rounded-lg bg-blue-900 px-5 py-3 text-sm font-semibold text-white hover:bg-blue-800"
+              >
                 {isThai ? "ขอใบเสนอราคา" : "Request Quote"}
               </a>
 

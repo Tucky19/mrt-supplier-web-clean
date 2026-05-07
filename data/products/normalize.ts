@@ -25,10 +25,12 @@ export function normalizeProduct(p: any): Product {
     spec: p.spec ?? undefined,
 
     imageUrl: p.imageUrl ?? undefined,
+    detailImageUrl: p.detailImageUrl ?? undefined,
     images: Array.isArray(p.images) ? p.images : undefined,
     media: Array.isArray(p.media) ? p.media : undefined,
     officialImageUrl: p.officialImageUrl ?? undefined,
     officialUrl: p.officialUrl ?? undefined,
+    gtin: p.gtin ?? undefined,
 
     specifications: Array.isArray(p.specifications)
       ? p.specifications.map((s: any) => ({
@@ -40,6 +42,7 @@ export function normalizeProduct(p: any): Product {
     refs,
     crossReferences,
     oemReferences: Array.isArray(p.oemReferences) ? p.oemReferences : undefined,
+    pairedParts: Array.isArray(p.pairedParts) ? p.pairedParts : undefined,
     application: Array.isArray(p.application) ? p.application : undefined,
     applications: Array.isArray(p.applications) ? p.applications : undefined,
     equipment: Array.isArray(p.equipment) ? p.equipment : undefined,

@@ -16,6 +16,7 @@ export type Product = {
   }>;
 
   imageUrl?: string;
+  detailImageUrl?: string;
   images?: string[];
   media?: string[];
   officialImageUrl?: string | null;
@@ -23,8 +24,14 @@ export type Product = {
   refs?: string[];
   crossReferences?: string[];
   oemReferences?: string[];
+  pairedParts?: Array<{
+    partNo: string;
+    relation: "outer" | "inner" | "paired";
+    note?: string;
+  }>;
 
   officialUrl?: string;
+  gtin?: string;
 
   application?: string[];
   applications?: string[];

@@ -36,7 +36,22 @@ export function QuoteProvider({ children }: { children: React.ReactNode }) {
     try {
       const raw = localStorage.getItem(LS_KEY);
       if (raw) {
-        setItems(JSON.parse(raw));
+        const parsed = JSON.parse(raw);
+
+        if (Array.isArray(parsed)) {
+          setItems(
+            parsed.filter(
+              (item): item is QuoteItem =>
+                item &&
+                typeof item === "object" &&
+                typeof item.productId === "string" &&
+                typeof item.partNo === "string" &&
+                typeof item.qty === "number"
+            )
+          );
+        } else {
+          localStorage.removeItem(LS_KEY);
+        }
       }
     } catch {}
     setReady(true);
@@ -107,7 +122,9 @@ export function QuoteProvider({ children }: { children: React.ReactNode }) {
     setItems([]);
   };
 
-  const totalItems = items.reduce((sum, i) => sum + i.qty, 0);
+  const totalItems = Array.isArray(items)
+    ? items.reduce((sum, i) => sum + i.qty, 0)
+    : 0;
 
   return (
     <QuoteContext.Provider

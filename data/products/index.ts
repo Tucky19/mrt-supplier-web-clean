@@ -9,6 +9,7 @@ import { mannProducts } from "./products.mann";
 import { newProducts } from "./products.new";
 import { ntnProducts } from "./products.ntn";
 import { uploadedProducts } from "./products.uploaded";
+import { importedProducts } from "./products.imported";
 
 function normalizePartNo(value: string) {
   return value.trim().toLowerCase().replace(/[\s/_-]+/g, "");
@@ -24,6 +25,7 @@ const rawProducts = [
   ...generatedProducts,
   ...uploadedProducts,
   ...donaldsonPriorityProducts,
+   ...importedProducts,
 ];
 
 export const products = Array.from(

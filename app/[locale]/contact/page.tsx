@@ -1,5 +1,6 @@
-import SiteHeader from "@/components/layout/SiteHeader";
+﻿import SiteHeader from "@/components/layout/SiteHeader";
 import SiteFooter from "@/components/layout/SiteFooter";
+import { getContactUiText } from "@/lib/i18n/contactUi";
 
 export default async function ContactPage({
   params,
@@ -7,7 +8,11 @@ export default async function ContactPage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
+  const text = getContactUiText(locale);
   const isThai = locale === "th";
+  const supportNote = isThai
+    ? "ส่งรูปสินค้า รุ่นเครื่องจักร Part Number หรือ Cross Reference เพิ่มเติมได้ผ่าน RFQ หรือ LINE"
+    : text.supportNote;
 
   return (
     <main className="min-h-screen bg-slate-50">
@@ -16,45 +21,47 @@ export default async function ContactPage({
       <section className="mx-auto max-w-6xl px-4 py-12">
         <div className="mb-10">
           <p className="text-xs font-semibold uppercase tracking-wide text-sky-600">
-            {isThai ? "ติดต่อ" : "Contact"}
+            {text.contact}
           </p>
 
           <h1 className="mt-2 text-3xl font-bold text-slate-950">
-            {isThai ? "ติดต่อ MRT Supplier" : "Contact MRT Supplier"}
+            {text.title}
           </h1>
 
-          <p className="mt-3 max-w-2xl text-sm text-slate-600">
-            {isThai
-              ? "ส่ง Part Number, cross reference หรือรายการสินค้าที่ต้องการ แล้วทีมงานจะช่วยตรวจสอบและเสนอราคาให้เร็วที่สุด"
-              : "Send your part number, cross reference, or product list and our team will review and quote quickly."}
-          </p>
+          <p className="mt-3 max-w-2xl text-sm text-slate-600">{text.intro}</p>
         </div>
 
         <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
           <div className="space-y-5 rounded-2xl border bg-white p-6 shadow-sm">
             <div>
               <h2 className="text-lg font-semibold text-slate-900">
-                {isThai ? "ช่องทางติดต่อ" : "Contact Methods"}
+                {text.contactMethods}
               </h2>
               <p className="mt-2 text-sm text-slate-600">
-                {isThai
-                  ? "เลือกช่องทางที่สะดวกที่สุด หรือส่ง RFQ ให้ทีมงานติดตามกลับ"
-                  : "Choose the most convenient channel, or submit an RFQ and our team will follow up."}
+                {text.contactMethodsBody}
               </p>
             </div>
 
             <div className="grid gap-4 sm:grid-cols-2">
-              <a
-                href="tel:+66815581323"
-                className="rounded-2xl border border-slate-200 bg-slate-50 p-4 transition hover:border-slate-300 hover:bg-white"
-              >
+              <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4 transition hover:border-slate-300 hover:bg-white">
                 <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
-                  {isThai ? "โทร" : "Phone"}
+                  {text.phone}
                 </p>
-                <p className="mt-2 text-base font-semibold text-slate-900">
-                  +66 81-558-1323
-                </p>
-              </a>
+                <div className="mt-2 space-y-1.5">
+                  <a
+                    href="tel:0970122111"
+                    className="block text-base font-semibold text-slate-900 transition hover:text-slate-700"
+                  >
+                    097 012 2111
+                  </a>
+                  <a
+                    href="tel:0815581323"
+                    className="block text-base font-semibold text-slate-900 transition hover:text-slate-700"
+                  >
+                    081 558 1323
+                  </a>
+                </div>
+              </div>
 
               <a
                 href="mailto:sales@mrtsupplier.com"
@@ -84,24 +91,28 @@ export default async function ContactPage({
 
               <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
                 <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
-                  {isThai ? "ที่อยู่" : "Address"}
+                  {text.address}
                 </p>
-                <p className="mt-2 text-sm leading-6 text-slate-700">
-                  บริษัท เอ็มอาร์ที ซัพพลายเออร์ จำกัด
-                  <br />
-                  15 ชั้น 2 ซอยบรมราชชนนี 39
-                  <br />
-                  แขวงตลิ่งชัน เขตตลิ่งชัน
-                  <br />
-                  กรุงเทพมหานคร 10170
+                <p className="mt-2 whitespace-pre-line text-sm leading-6 text-slate-700">
+                  {text.addressBody}
                 </p>
               </div>
             </div>
 
+            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
+              <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
+                {text.businessHours}
+              </p>
+              <p className="mt-2 text-base font-semibold text-slate-900">
+                {text.businessHoursBody}
+              </p>
+              <p className="mt-2 text-sm leading-6 text-slate-600">
+                {text.businessHoursNote}
+              </p>
+            </div>
+
             <div className="rounded-2xl border border-sky-100 bg-sky-50 p-4 text-sm leading-6 text-slate-700">
-              {isThai
-                ? "หากมีรูปสินค้า รุ่นเครื่องจักร หรือหมายเลข cross reference สามารถแนบเพิ่มใน RFQ หรือส่งต่อทาง LINE ได้"
-                : "If you have product photos, machine model details, or cross references, include them in the RFQ or send them on LINE."}
+              {supportNote}
             </div>
 
             <div className="flex flex-col gap-3 sm:flex-row">
@@ -109,16 +120,16 @@ export default async function ContactPage({
                 href={`/${locale}/quote`}
                 className="inline-flex flex-1 items-center justify-center rounded-xl bg-slate-900 px-4 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
               >
-                {isThai ? "ขอใบเสนอราคา" : "Request Quote"}
+                {text.requestQuote}
               </a>
 
               <a
                 href="https://lin.ee/R3vfZW0"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex flex-1 items-center justify-center rounded-xl border border-emerald-500 bg-white px-4 py-3 text-sm font-semibold text-emerald-700 transition hover:bg-emerald-50"
+                className="inline-flex flex-1 items-center justify-center rounded-xl border border-emerald-600 bg-emerald-500 px-4 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-emerald-600"
               >
-                {isThai ? "เพิ่มเพื่อน LINE" : "Add on LINE"}
+                {text.addOnLine}
               </a>
             </div>
           </div>

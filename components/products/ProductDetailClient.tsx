@@ -1,9 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { trackEvent } from "@/lib/analytics/track";
+import { getProductUiText } from "@/lib/i18n/productUi";
 import { useQuote } from "@/providers/QuoteProvider";
 import type { Product } from "@/types/product";
 
@@ -72,15 +73,21 @@ function slugifyBrand(value: string) {
 export default function ProductDetailClient({ locale, product }: Props) {
   const router = useRouter();
   const { addItem } = useQuote();
+  const text = getProductUiText(locale);
+  const guessedImagePath = `/images/products/${product.brand.toLowerCase()}/${product.partNo.toLowerCase()}.jpg`;
   const isThai = locale === "th";
+  const [justAdded, setJustAdded] = useState(false);
+  const resetTimerRef = useRef<number | null>(null);
 
   const images =
     product.images?.length
       ? product.images
       : [
+          product.detailImageUrl ||
           product.imageUrl ||
             product.officialImageUrl ||
-            `/images/products/${product.brand.toLowerCase()}/${product.partNo.toLowerCase()}.jpg`,
+            guessedImagePath ||
+            "/images/placeholder.jpg",
         ];
 
   const refs = useMemo(
@@ -105,6 +112,50 @@ export default function ProductDetailClient({ locale, product }: Props) {
     [product.application, product.applications]
   );
 
+  const pairedParts = useMemo(
+    () =>
+      (product.pairedParts ?? [])
+        .filter(
+          (item) =>
+            item &&
+            typeof item.partNo === "string" &&
+            item.partNo.trim().length > 0
+        )
+        .map((item) => ({
+          partNo: item.partNo.trim(),
+          relation: item.relation,
+          note: item.note?.trim(),
+        })),
+    [product.pairedParts]
+  );
+
+  const pairedPartsTitle = isThai ? "กรองที่ใช้คู่กัน" : "Paired Filter";
+  const addToQuoteLabel = justAdded
+    ? isThai
+      ? "เพิ่มแล้ว ✓"
+      : "Added ✓"
+    : text.addToQuote;
+
+  const getPairedRelationLabel = (relation: "outer" | "inner" | "paired") => {
+    if (relation === "inner") {
+      return isThai ? "กรองลูกใน" : "Inner filter";
+    }
+
+    if (relation === "outer") {
+      return isThai ? "กรองลูกนอก" : "Outer filter";
+    }
+
+    return isThai ? "ใช้คู่กัน" : "Paired part";
+  };
+
+  useEffect(() => {
+    return () => {
+      if (resetTimerRef.current) {
+        window.clearTimeout(resetTimerRef.current);
+      }
+    };
+  }, []);
+
   const handleAdd = () => {
     trackEvent("add_to_quote", {
       partNo: product.partNo,
@@ -118,6 +169,17 @@ export default function ProductDetailClient({ locale, product }: Props) {
       title: product.title ?? "",
       qty: 1,
     });
+
+    setJustAdded(true);
+
+    if (resetTimerRef.current) {
+      window.clearTimeout(resetTimerRef.current);
+    }
+
+    resetTimerRef.current = window.setTimeout(() => {
+      setJustAdded(false);
+      resetTimerRef.current = null;
+    }, 1500);
   };
 
   const handleRequestQuote = () => {
@@ -127,7 +189,7 @@ export default function ProductDetailClient({ locale, product }: Props) {
 
   return (
     <>
-      <div className="grid gap-8 pb-28 md:gap-10 md:grid-cols-2 md:pb-0">
+      <div className="grid gap-8 pb-28 md:grid-cols-2 md:gap-10 md:pb-0">
         <ProductGallery images={images} partNo={product.partNo} />
 
         <div className="self-start">
@@ -145,7 +207,7 @@ export default function ProductDetailClient({ locale, product }: Props) {
               OEM Reference
             </span>
             <span className="rounded-full border border-blue-200 bg-blue-50 px-2.5 py-1 text-[11px] font-medium text-blue-700">
-              {isThai ? "เกรดอุตสาหกรรม" : "Industrial Grade"}
+              {text.industrialGrade}
             </span>
           </div>
 
@@ -169,35 +231,34 @@ export default function ProductDetailClient({ locale, product }: Props) {
 
           <div className="mt-5 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm sm:mt-6">
             <div className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">
-              {isThai ? "พร้อมขอราคา" : "Ready to quote"}
+              {text.readyToQuote}
             </div>
 
-            <p className="mt-2 text-sm text-slate-600">
-              {isThai
-                ? "เพิ่มสินค้ารายการนี้เข้าใบ RFQ หรือขอราคาได้ทันที พร้อมการช่วยเทียบรหัส"
-                : "Add this part to your RFQ list or request a quote immediately for cross-reference support."}
-            </p>
+            <p className="mt-2 text-sm text-slate-600">{text.readyToQuoteBody}</p>
 
             <div className="mt-4 hidden space-y-3 md:block">
               <button
                 onClick={handleAdd}
-                className="w-full rounded-lg bg-slate-900 py-3 text-sm font-semibold text-white transition-colors hover:bg-black"
+                disabled={justAdded}
+                className={`w-full rounded-lg py-3 text-sm font-semibold text-white transition-colors ${
+                  justAdded
+                    ? "bg-emerald-600"
+                    : "bg-slate-900 hover:bg-black"
+                } ${justAdded ? "cursor-default" : ""}`}
               >
-                {isThai ? "เพิ่มเข้าใบขอราคา" : "Add to Quote"}
+                {addToQuoteLabel}
               </button>
 
               <button
                 onClick={handleRequestQuote}
                 className="w-full rounded-lg border border-slate-300 py-3 text-sm font-medium text-slate-700 transition-colors hover:bg-slate-50"
               >
-                {isThai ? "ขอใบเสนอราคา" : "Request Quote"}
+                {text.requestQuote}
               </button>
             </div>
 
             <p className="mt-3 text-center text-xs text-slate-500">
-              {isThai
-                ? "รองรับการเทียบรหัส OEM และติดตาม RFQ ภายใน 24 ชั่วโมง"
-                : "OEM reference support and RFQ follow-up within 24 hours"}
+              {text.rfqSupportNote}
             </p>
           </div>
 
@@ -210,7 +271,7 @@ export default function ProductDetailClient({ locale, product }: Props) {
           {refs.length > 0 && (
             <div className="mt-5 sm:mt-6">
               <div className="text-xs uppercase text-gray-500">
-                {isThai ? "รหัสเทียบ" : "Cross Reference"}
+                {text.crossReference}
               </div>
 
               <div className="mt-3 flex flex-wrap gap-2">
@@ -227,10 +288,44 @@ export default function ProductDetailClient({ locale, product }: Props) {
             </div>
           )}
 
+          {pairedParts.length > 0 && (
+            <div className="mt-5 sm:mt-6">
+              <div className="text-xs uppercase text-gray-500">
+                {pairedPartsTitle}
+              </div>
+
+              <div className="mt-3 space-y-3">
+                {pairedParts.map((item) => (
+                  <div
+                    key={`${item.partNo}-${item.relation}`}
+                    className="rounded-xl border border-slate-200 bg-slate-50 px-3 py-3"
+                  >
+                    <div className="mb-2 text-[11px] font-semibold uppercase tracking-wide text-slate-500">
+                      {getPairedRelationLabel(item.relation)}
+                    </div>
+
+                    <Link
+                      href={`/${locale}/products/${encodeURIComponent(item.partNo)}`}
+                      className="inline-flex min-h-9 items-center rounded-full border border-slate-300 bg-white px-3 py-2 text-xs font-medium text-slate-700 transition-colors hover:bg-slate-100"
+                    >
+                      {item.partNo}
+                    </Link>
+
+                    {item.note && (
+                      <p className="mt-2 text-xs leading-5 text-slate-500">
+                        {item.note}
+                      </p>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
           {applications.length > 0 && (
             <div className="mt-5 sm:mt-6">
               <div className="text-xs uppercase text-gray-500">
-                {isThai ? "การใช้งาน" : "Applications"}
+                {text.applications}
               </div>
 
               <div className="mt-3 flex flex-wrap gap-2">
@@ -249,7 +344,7 @@ export default function ProductDetailClient({ locale, product }: Props) {
           {product.specifications && product.specifications.length > 0 && (
             <div className="mt-5 overflow-hidden rounded-xl border sm:mt-6">
               <div className="border-b bg-slate-50 px-4 py-3 text-xs font-semibold uppercase tracking-wide text-slate-500">
-                {isThai ? "สเปก" : "Specifications"}
+                {text.specifications}
               </div>
 
               <div className="divide-y">
@@ -258,7 +353,7 @@ export default function ProductDetailClient({ locale, product }: Props) {
                     key={`${item.label}-${index}`}
                     className="px-4 py-3 text-sm md:grid md:grid-cols-[140px_1fr] md:gap-4"
                   >
-                    <div className="text-[11px] font-semibold uppercase tracking-wide text-slate-500 md:text-sm md:font-normal md:uppercase-none md:tracking-normal">
+                    <div className="text-[11px] font-semibold uppercase tracking-wide text-slate-500 md:text-sm md:font-normal md:normal-case md:tracking-normal">
                       {item.label}
                     </div>
                     <div className="mt-1 text-slate-900 md:mt-0">
@@ -277,7 +372,7 @@ export default function ProductDetailClient({ locale, product }: Props) {
               rel="noopener noreferrer"
               className="mt-4 block text-sm text-blue-700 underline underline-offset-2"
             >
-              {isThai ? "ดูข้อมูลจากแหล่งทางการ" : "View Official Source"}
+              {text.viewOfficialSource}
             </a>
           )}
         </div>
@@ -287,16 +382,21 @@ export default function ProductDetailClient({ locale, product }: Props) {
         <div className="mx-auto flex max-w-6xl items-center gap-3">
           <button
             onClick={handleAdd}
-            className="inline-flex min-h-11 flex-1 items-center justify-center rounded-lg border border-slate-300 bg-white px-4 py-3 text-sm font-medium text-slate-700 transition-colors hover:bg-slate-50"
+            disabled={justAdded}
+            className={`inline-flex min-h-11 flex-1 items-center justify-center rounded-lg px-4 py-3 text-sm font-medium transition-colors ${
+              justAdded
+                ? "border border-emerald-200 bg-emerald-600 text-white"
+                : "border border-slate-300 bg-white text-slate-700 hover:bg-slate-50"
+            } ${justAdded ? "cursor-default" : ""}`}
           >
-            {isThai ? "เพิ่มเข้าใบขอราคา" : "Add to Quote"}
+            {addToQuoteLabel}
           </button>
 
           <button
             onClick={handleRequestQuote}
             className="inline-flex min-h-11 flex-1 items-center justify-center rounded-lg bg-slate-900 px-4 py-3 text-sm font-semibold text-white transition-colors hover:bg-black"
           >
-            {isThai ? "ขอใบเสนอราคา" : "Request Quote"}
+            {text.requestQuote}
           </button>
         </div>
       </div>

@@ -48,10 +48,56 @@ const PRODUCT_IMAGE_FILES = {
     "P777868.jpg",
     "p777869.jpg",
     "p164166.jpg",
+    "p500202.jpg",
+    "p550226.jpg",
+    "p550227.jpg",
+    "p550268.jpg",
+    "p550318.jpg",
+    "p550365.jpg",
+    "p550367.jpg",
+    "p550372.jpg",
+    "p550382.jpg",
+    "p550408.jpg",
+    "p550428.jpg",
+    "p550445.jpg",
+    "p550467.jpg",
+    "p550478.jpg",
+    "p550519.jpg",
+    "p550595.jpg",
+    "p550335.jpg",
+    "p550035.jpg",
     "c1633-1.jpg",
-    "w962.jpg",
-    "W950.jpg",
+    "p500194.jpg",
+    "p500195.jpg",
+    "p500196.jpg",
+    "p823295.jpg",
+    "p181049.jpg",
+    "p182049.jpg",
+    "p116446.jpg",
+    "p181042.jpg",
+    "p128408.jpg",
+    "p532503.jpg",
+    "p532504.jpg",
+    "p550880.jpg",
+    "p559740.jpg",
+    "p550035.jpg",
+    "p550057.jpg",
+    "p550065.jpg",
+    "p550105.jpg",
+    "p550132.jpg",
+    "p550148.jpg",  
+    "p128408.jpg",
+    "p551670.jpg",
+    "p782105.jpg",
+    "p782108.jpg",
+    "p557440.jpg",
+    "p551425.jpg",
+    "p553000.jpg"
   ],
+
+
+
+
 } as const;
 
 function normalizeKey(value?: string) {
@@ -100,6 +146,10 @@ export function getProductImageUrl(
     const normalizedPreferred = normalizePreferredProductImagePath(preferredUrl);
     if (normalizedPreferred) {
       return normalizedPreferred;
+    }
+
+    if (preferredUrl.startsWith("/")) {
+      return preferredUrl;
     }
   }
 

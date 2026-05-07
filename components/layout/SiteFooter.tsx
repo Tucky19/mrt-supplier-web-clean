@@ -6,7 +6,7 @@ type Props = {
   locale?: string;
 };
 
-export default function SiteFooter({ locale = "en" }: Props) {
+export default function SiteFooter({ locale = "th" }: Props) {
   const isThai = locale === "th";
 
   return (
@@ -52,7 +52,12 @@ export default function SiteFooter({ locale = "en" }: Props) {
           </p>
           <div className="mt-4 space-y-3 text-sm text-slate-400">
             <p>sales@mrtsupplier.com</p>
-            <p>+66 81-558-1323</p>
+            <a href="tel:0970122111" className="block hover:text-white">
+              097 012 2111
+            </a>
+            <a href="tel:0815581323" className="block hover:text-white">
+              081 558 1323
+            </a>
             <a
               href={LINE_URL}
               target="_blank"

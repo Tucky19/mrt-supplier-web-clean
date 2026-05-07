@@ -7,8 +7,8 @@ export default function ProductOverviewBanner() {
         <div className="overflow-hidden rounded-3xl border border-slate-800 bg-black shadow-sm">
           <div className="relative h-[300px] w-full md:h-[420px]">
             <Image
-              src="/home/products-overview.png"
-              alt="Industrial parts overview including NTN, Donaldson, and MANN-FILTER"
+              src="/banners/home-industrial-parts-banner.png"
+              alt="Industrial filters, bearings, and spare parts supplied by MRT Supplier"
               fill
               className="object-cover"
             />

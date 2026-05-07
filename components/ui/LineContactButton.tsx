@@ -1,71 +1,100 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
-import { MessageCircle, X } from 'lucide-react'; // อย่าลืมติดตั้ง lucide-react นะครับ
+import React, { useEffect, useState } from "react";
+import { MessageCircle, X } from "lucide-react";
+import { usePathname } from "next/navigation";
 
 const LineContactButton = () => {
   const [showTooltip, setShowTooltip] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+  const pathname = usePathname();
+  const hiddenOnPage = pathname.endsWith("/contact");
 
   useEffect(() => {
-    // แสดง Tooltip หลังจากผ่านไป 3 วินาที เพื่อไม่ให้รบกวนสายตาเกินไปในตอนแรก
+    const updateViewport = () => setIsMobile(window.innerWidth < 768);
+    updateViewport();
+    window.addEventListener("resize", updateViewport);
+
+    if (window.innerWidth < 768 || hiddenOnPage) {
+      setShowTooltip(false);
+
+      return () => window.removeEventListener("resize", updateViewport);
+    }
+
     const timer = setTimeout(() => {
       setShowTooltip(true);
     }, 3000);
 
-    return () => clearTimeout(timer);
-  }, []);
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener("resize", updateViewport);
+    };
+  }, [hiddenOnPage]);
+
+  if (hiddenOnPage) {
+    return null;
+  }
 
   return (
-    <div className="fixed bottom-6 right-6 z-[999] flex flex-col items-end">
-      
-      {/* Tooltip Message */}
-      {showTooltip && (
-        <div className="mb-3 relative animate-bounce-in">
-          <div className="bg-white text-gray-800 text-sm font-medium py-2 px-4 rounded-lg shadow-xl border border-gray-100 flex items-center gap-2">
+    <div className="fixed bottom-20 right-4 z-[999] flex flex-col items-end sm:bottom-6 sm:right-6">
+      {showTooltip && !isMobile && (
+        <div className="relative mb-3 animate-bounce-in">
+          <div className="flex items-center gap-2 rounded-lg border border-gray-100 bg-white px-4 py-2 text-sm font-medium text-gray-800 shadow-xl">
             <span>"หาเบอร์ไหนไม่เจอ... ทักให้เราช่วยหาได้นะครับ"</span>
-            <button 
+            <button
               onClick={() => setShowTooltip(false)}
-              className="text-gray-400 hover:text-gray-600 transition-colors"
+              className="text-gray-400 transition-colors hover:text-gray-600"
+              aria-label="Close LINE tooltip"
             >
               <X size={14} />
             </button>
           </div>
-          {/* Arrow */}
-          <div className="absolute -bottom-2 right-6 w-4 h-4 bg-white border-r border-b border-gray-100 transform rotate-45"></div>
+          <div className="absolute -bottom-2 right-6 h-4 w-4 rotate-45 border-b border-r border-gray-100 bg-white" />
         </div>
       )}
 
-      {/* LINE Floating Button */}
       <a
         href="https://lin.ee/R3vfZW0"
         target="_blank"
         rel="noopener noreferrer"
-        className="group relative flex items-center justify-center w-14 h-14 bg-[#06C755] text-white rounded-full shadow-2xl transition-all duration-300 hover:scale-110 active:scale-95 hover:bg-[#05b34c]"
+        className="group relative flex h-12 w-12 items-center justify-center rounded-full bg-[#06C755] text-white shadow-2xl transition-all duration-300 hover:scale-110 hover:bg-[#05b34c] active:scale-95 sm:h-14 sm:w-14"
         aria-label="Contact us on LINE"
+        title="Contact us on LINE"
       >
-        {/* Shine Effect */}
-        <span className="absolute inset-0 rounded-full bg-white opacity-0 group-hover:animate-ping-slow"></span>
-        
-        {/* LINE Icon (ใช้ MessageCircle แทน หรือจะใช้ SVG โลโก้ LINE ก็ได้ครับ) */}
-        <MessageCircle size={30} fill="currentColor" />
-        
-        {/* Pulse Background */}
-        <span className="absolute -z-10 inset-0 rounded-full bg-[#06C755] opacity-20 animate-ping"></span>
+        <span className="absolute inset-0 rounded-full bg-white opacity-0 group-hover:animate-ping-slow" />
+        <MessageCircle size={isMobile ? 24 : 30} fill="currentColor" />
+        <span className="absolute inset-0 -z-10 rounded-full bg-[#06C755] opacity-20 animate-ping" />
       </a>
 
       <style jsx>{`
         @keyframes bounce-in {
-          0% { transform: scale(0.3); opacity: 0; }
-          50% { transform: scale(1.05); opacity: 1; }
-          70% { transform: scale(0.9); }
-          100% { transform: scale(1); }
+          0% {
+            transform: scale(0.3);
+            opacity: 0;
+          }
+          50% {
+            transform: scale(1.05);
+            opacity: 1;
+          }
+          70% {
+            transform: scale(0.9);
+          }
+          100% {
+            transform: scale(1);
+          }
         }
         .animate-bounce-in {
           animation: bounce-in 0.5s ease-out forwards;
         }
         @keyframes ping-slow {
-          0% { transform: scale(1); opacity: 0.2; }
-          100% { transform: scale(1.5); opacity: 0; }
+          0% {
+            transform: scale(1);
+            opacity: 0.2;
+          }
+          100% {
+            transform: scale(1.5);
+            opacity: 0;
+          }
         }
         .group-hover\:animate-ping-slow {
           animation: ping-slow 1s cubic-bezier(0, 0, 0.2, 1) infinite;

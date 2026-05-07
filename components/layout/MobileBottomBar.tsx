@@ -7,7 +7,8 @@ import { useLocale } from "next-intl";
 export default function MobileBottomBar() {
   const locale = useLocale();
   const pathname = usePathname();
-  const hidden = pathname.endsWith("/quote"); // ไม่รบกวนตอนอยู่หน้า quote
+  const hidden =
+    pathname.endsWith("/quote") || pathname.endsWith("/quote/success");
 
   if (hidden) return null;
 

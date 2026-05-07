@@ -1,31 +1,9 @@
 import Link from "next/link";
 import { MessageCircle } from "lucide-react";
-import { useLocale } from "next-intl";
+import { getHomeQuoteCtaText } from "@/lib/i18n/homeUi";
 
-const copy = {
-  en: {
-    eyebrow: "MRT Supplier",
-    title: "Ready to support your industrial sourcing needs",
-    description:
-      "Send us your part number, current brand, machine model, or product requirement. Our team will review the details and respond with suitable options.",
-    primaryCta: "Go to Quote Page",
-    secondaryCta: "Contact Our Team",
-    lineCta: "Add LINE",
-  },
-  th: {
-    eyebrow: "MRT Supplier",
-    title: "พร้อมช่วยจัดหาอะไหล่ให้ตรงความต้องการ",
-    description:
-      "ส่ง Part Number, แบรนด์, รุ่นเครื่องจักร หรือรายละเอียดสินค้ามาได้เลย ทีมงานจะช่วยตรวจสอบและเสนอทางเลือกที่เหมาะสมให้โดยเร็ว",
-    primaryCta: "ไปหน้าขอราคา",
-    secondaryCta: "ติดต่อทีมงาน",
-    lineCta: "เพิ่มเพื่อน LINE",
-  },
-} as const;
-
-export default function QuoteCTASection() {
-  const locale = useLocale() as "th" | "en";
-  const t = copy[locale];
+export default function QuoteCTASection({ locale }: { locale: string }) {
+  const text = getHomeQuoteCtaText(locale);
   const lineUrl = "http://line.me/ti/p/hA4-akZkxn";
 
   return (
@@ -34,13 +12,13 @@ export default function QuoteCTASection() {
         <div className="overflow-hidden rounded-3xl border border-slate-200 bg-slate-900 px-6 py-10 text-white shadow-sm lg:px-10 lg:py-12">
           <div className="max-w-3xl">
             <p className="text-sm font-semibold uppercase tracking-[0.14em] text-slate-400">
-              {t.eyebrow}
+              {text.eyebrow}
             </p>
             <h2 className="mt-3 text-3xl font-semibold tracking-tight">
-              {t.title}
+              {text.title}
             </h2>
             <p className="mt-4 text-sm leading-7 text-slate-300 lg:text-base">
-              {t.description}
+              {text.description}
             </p>
           </div>
 
@@ -49,14 +27,14 @@ export default function QuoteCTASection() {
               href={`/${locale}/quote`}
               className="rounded-full bg-white px-6 py-3 text-sm font-semibold text-slate-900 transition hover:bg-slate-100"
             >
-              {t.primaryCta}
+              {text.primaryCta}
             </Link>
 
             <Link
               href={`/${locale}/contact`}
               className="rounded-full border border-slate-600 px-6 py-3 text-sm font-medium text-white transition hover:border-slate-400 hover:bg-slate-800"
             >
-              {t.secondaryCta}
+              {text.secondaryCta}
             </Link>
 
             <a
@@ -66,7 +44,7 @@ export default function QuoteCTASection() {
               className="inline-flex items-center gap-2 rounded-full border border-emerald-400 bg-emerald-500 px-6 py-3 text-sm font-medium text-white transition hover:bg-emerald-600"
             >
               <MessageCircle className="h-4 w-4" />
-              {t.lineCta}
+              {text.lineCta}
             </a>
           </div>
         </div>
