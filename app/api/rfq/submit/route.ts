@@ -37,6 +37,38 @@ function getClientIp(req: Request) {
   return req.headers.get("x-real-ip") || "0.0.0.0";
 }
 
+function getSafeErrorDiagnostics(error: unknown) {
+  if (!error || typeof error !== "object") {
+    return {};
+  }
+
+  const maybeError = error as {
+    name?: unknown;
+    code?: unknown;
+    clientVersion?: unknown;
+    meta?: unknown;
+  };
+  const diagnostics: Record<string, unknown> = {};
+
+  if (typeof maybeError.name === "string") {
+    diagnostics.errorName = maybeError.name;
+  }
+
+  if (typeof maybeError.code === "string") {
+    diagnostics.errorCode = maybeError.code;
+  }
+
+  if (typeof maybeError.clientVersion === "string") {
+    diagnostics.errorClientVersion = maybeError.clientVersion;
+  }
+
+  if (maybeError.meta && typeof maybeError.meta === "object") {
+    diagnostics.errorMeta = maybeError.meta;
+  }
+
+  return diagnostics;
+}
+
 function isSameRfqLite(a: any, b: any) {
   const aC = a?.customer ?? {};
   const bC = b?.customer ?? {};
@@ -430,18 +462,22 @@ if (!RFQ_DEV_MOCK_ENABLED) {
       undefined,
       traceId
     );
-  } catch (e: any) {
+  } catch (error: unknown) {
+    const message = getErrorMessage(error, "Failed to submit RFQ.");
+    const diagnostics = getSafeErrorDiagnostics(error);
+
     logApiEvent("error", "rfq.submit.failed", {
       traceId,
       route: "/api/rfq/submit",
       requestId,
-      error: getErrorMessage(e, "Failed to submit RFQ."),
+      error: message,
+      ...diagnostics,
     });
 
     return errorJson({
       traceId,
       status: 500,
-      error: getErrorMessage(e, "Failed to submit RFQ."),
+      error: message,
       extra: requestId ? { requestId } : undefined,
     });
   }
