@@ -30,6 +30,58 @@ function hashIp(ip: string) {
     .digest("hex")
     .slice(0, 32);
 }
+function isRecord(value: unknown): value is Record<string, unknown> {
+  return typeof value === "object" && value !== null;
+}
+
+function toSafeSerializable(value: unknown): unknown {
+  if (
+    value === null ||
+    typeof value === "string" ||
+    typeof value === "number" ||
+    typeof value === "boolean"
+  ) {
+    return value;
+  }
+
+  if (Array.isArray(value)) {
+    return value.map(toSafeSerializable);
+  }
+
+  if (isRecord(value)) {
+    return Object.fromEntries(
+      Object.entries(value).map(([key, item]) => [
+        key,
+        toSafeSerializable(item),
+      ])
+    );
+  }
+
+  return String(value);
+}
+
+function getSafeErrorDiagnostics(error: unknown) {
+  if (!isRecord(error)) {
+    return {
+      errorName: "UnknownError",
+    };
+  }
+
+  return {
+    errorName:
+      typeof error.name === "string"
+        ? error.name
+        : error.constructor?.name ?? "Error",
+    errorCode: typeof error.code === "string" ? error.code : undefined,
+    errorClientVersion:
+      typeof error.clientVersion === "string"
+        ? error.clientVersion
+        : undefined,
+    errorMeta: isRecord(error.meta)
+      ? toSafeSerializable(error.meta)
+      : undefined,
+  };
+}
 
 function getClientIp(req: Request) {
   const xf = req.headers.get("x-forwarded-for");
@@ -430,19 +482,23 @@ if (!RFQ_DEV_MOCK_ENABLED) {
       undefined,
       traceId
     );
-  } catch (e: any) {
-    logApiEvent("error", "rfq.submit.failed", {
-      traceId,
-      route: "/api/rfq/submit",
-      requestId,
-      error: getErrorMessage(e, "Failed to submit RFQ."),
-    });
+ } catch (e: unknown) {
+  const diagnostics = getSafeErrorDiagnostics(e);
+  const message = getErrorMessage(e, "Failed to submit RFQ.");
 
-    return errorJson({
-      traceId,
-      status: 500,
-      error: getErrorMessage(e, "Failed to submit RFQ."),
-      extra: requestId ? { requestId } : undefined,
-    });
-  }
+  logApiEvent("error", "rfq.submit.failed", {
+    traceId,
+    route: "/api/rfq/submit",
+    requestId,
+    error: message,
+    ...diagnostics,
+  });
+
+  return errorJson({
+    traceId,
+    status: 500,
+    error: message,
+    extra: requestId ? { requestId } : undefined,
+  });
+}
 }
