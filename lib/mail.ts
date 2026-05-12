@@ -4,47 +4,64 @@ function safeStr(v: unknown) {
   return String(v ?? "").trim();
 }
 
-const SMTP_HOST = safeStr(process.env.SMTP_HOST);
-const SMTP_PORT = Number(process.env.SMTP_PORT || 465);
-const SMTP_SECURE = safeStr(process.env.SMTP_SECURE).toLowerCase() === "true";
-const SMTP_USER = safeStr(process.env.SMTP_USER);
-const SMTP_PASS = safeStr(process.env.SMTP_PASS);
+function getMailEnv() {
+  const host = safeStr(process.env.SMTP_HOST);
+  const port = Number(process.env.SMTP_PORT || 465);
+  const secure =
+    safeStr(process.env.SMTP_SECURE).toLowerCase() === "true";
+  const user = safeStr(process.env.SMTP_USER);
+  const pass = safeStr(process.env.SMTP_PASS);
+  const to = safeStr(process.env.RFQ_TO_EMAIL || user);
+  const cc = safeStr(process.env.RFQ_CC_EMAIL || "");
+  const from = safeStr(process.env.RFQ_FROM_EMAIL || user);
 
-const RFQ_TO_EMAIL = safeStr(process.env.RFQ_TO_EMAIL || SMTP_USER);
-const RFQ_CC_EMAIL = safeStr(process.env.RFQ_CC_EMAIL || "");
-const RFQ_FROM_EMAIL = safeStr(process.env.RFQ_FROM_EMAIL || SMTP_USER);
+  return {
+    host,
+    port,
+    secure,
+    user,
+    pass,
+    to,
+    cc,
+    from,
+  };
+}
 
 export function isMailConfigured() {
+  const { host, port, user, pass, to, from } = getMailEnv();
+
   return !!(
-    SMTP_HOST &&
-    SMTP_PORT &&
-    SMTP_USER &&
-    SMTP_PASS &&
-    RFQ_TO_EMAIL &&
-    RFQ_FROM_EMAIL
+    host &&
+    port &&
+    user &&
+    pass &&
+    to &&
+    from
   );
 }
 
 function getTransporter() {
+  const { host, port, secure, user, pass, from, to, cc } = getMailEnv();
+
   console.info("[RFQ_MAIL] env_check", {
-    host: SMTP_HOST,
-    port: SMTP_PORT,
-    secure: SMTP_SECURE,
-    user: SMTP_USER,
-    hasPass: Boolean(SMTP_PASS),
-    passLen: SMTP_PASS?.length ?? 0,
-    from: RFQ_FROM_EMAIL,
-    to: RFQ_TO_EMAIL,
-    cc: RFQ_CC_EMAIL,
+    host,
+    port,
+    secure,
+    user,
+    hasPass: Boolean(pass),
+    passLen: pass?.length ?? 0,
+    from,
+    to,
+    cc,
   });
 
   return nodemailer.createTransport({
-    host: SMTP_HOST,
-    port: SMTP_PORT,
-    secure: SMTP_SECURE,
+    host,
+    port,
+    secure,
     auth: {
-      user: SMTP_USER,
-      pass: SMTP_PASS,
+      user,
+      pass,
     },
   });
 }
@@ -141,6 +158,7 @@ export async function sendAdminRfqEmail(args: {
   }
 
   const transporter = getTransporter();
+  const { from, to, cc } = getMailEnv();
   const { requestId, customer, items } = args;
 
   const subject = `[RFQ] ${requestId} ${safeStr(
@@ -188,9 +206,9 @@ export async function sendAdminRfqEmail(args: {
   `;
 
   return transporter.sendMail({
-    from: RFQ_FROM_EMAIL,
-    to: RFQ_TO_EMAIL,
-    cc: RFQ_CC_EMAIL || undefined,
+    from,
+    to,
+    cc: cc || undefined,
     replyTo: customer.email || undefined,
     subject,
     text,
@@ -213,6 +231,7 @@ export async function sendCustomerRfqConfirmationEmail(args: {
   }
 
   const transporter = getTransporter();
+  const { from } = getMailEnv();
   const { requestId, customer, items } = args;
 
   const subject = `We received your RFQ (${requestId})`;
@@ -260,7 +279,7 @@ export async function sendCustomerRfqConfirmationEmail(args: {
   `;
 
   return transporter.sendMail({
-    from: RFQ_FROM_EMAIL,
+    from,
     to: email,
     subject,
     text,
