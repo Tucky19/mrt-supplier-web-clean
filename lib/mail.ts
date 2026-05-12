@@ -26,6 +26,18 @@ export function isMailConfigured() {
 }
 
 function getTransporter() {
+  console.info("[RFQ_MAIL] env_check", {
+    host: SMTP_HOST,
+    port: SMTP_PORT,
+    secure: SMTP_SECURE,
+    user: SMTP_USER,
+    hasPass: Boolean(SMTP_PASS),
+    passLen: SMTP_PASS?.length ?? 0,
+    from: RFQ_FROM_EMAIL,
+    to: RFQ_TO_EMAIL,
+    cc: RFQ_CC_EMAIL,
+  });
+
   return nodemailer.createTransport({
     host: SMTP_HOST,
     port: SMTP_PORT,
