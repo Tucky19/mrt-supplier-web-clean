@@ -4,16 +4,42 @@ function safeStr(v: unknown) {
   return String(v ?? "").trim();
 }
 
+function parseSmtpPort(value: string) {
+  const parsed = Number(value || 465);
+  return Number.isFinite(parsed) ? parsed : 465;
+}
+
+function parseSmtpSecure(value: string, port: number) {
+  const normalized = safeStr(value).toLowerCase();
+  if (normalized === "true") return true;
+  if (normalized === "false") return false;
+  return port === 465;
+}
+
+function parseEmailList(value: string) {
+  const items = value
+    .split(",")
+    .map((item) => safeStr(item))
+    .filter(Boolean);
+
+  const unique = Array.from(new Set(items));
+  return unique.length > 0 ? unique : undefined;
+}
+
+function formatFromAddress(address: string) {
+  return `"MRT Supplier" <${address}>`;
+}
+
 function getMailEnv() {
-  const host = safeStr(process.env.SMTP_HOST);
-  const port = Number(process.env.SMTP_PORT || 465);
-  const secure =
-    safeStr(process.env.SMTP_SECURE).toLowerCase() === "true";
+  const host = safeStr(process.env.SMTP_HOST) || "smtp.zoho.com";
+  const port = parseSmtpPort(safeStr(process.env.SMTP_PORT));
+  const secure = parseSmtpSecure(safeStr(process.env.SMTP_SECURE), port);
   const user = safeStr(process.env.SMTP_USER);
   const pass = safeStr(process.env.SMTP_PASS);
   const to = safeStr(process.env.RFQ_TO_EMAIL || user);
-  const cc = safeStr(process.env.RFQ_CC_EMAIL || "");
-  const from = safeStr(process.env.RFQ_FROM_EMAIL || user);
+  const cc = parseEmailList(safeStr(process.env.RFQ_CC_EMAIL || ""));
+  const fromAddress = safeStr(process.env.RFQ_FROM_EMAIL || user);
+  const from = fromAddress ? formatFromAddress(fromAddress) : "";
 
   return {
     host,
@@ -24,36 +50,49 @@ function getMailEnv() {
     to,
     cc,
     from,
+    fromAddress,
   };
 }
 
 export function isMailConfigured() {
-  const { host, port, user, pass, to, from } = getMailEnv();
+  const { host, port, user, pass, to, fromAddress } = getMailEnv();
 
-  return !!(
-    host &&
-    port &&
-    user &&
-    pass &&
-    to &&
-    from
-  );
+  return !!(host && port && user && pass && to && fromAddress);
 }
 
-function getTransporter() {
-  const { host, port, secure, user, pass, from, to, cc } = getMailEnv();
+function getSafeMailDiagnostics() {
+  const { host, port, secure, user, pass, fromAddress, to, cc } = getMailEnv();
 
-  console.info("[RFQ_MAIL] env_check", {
+  return {
     host,
     port,
     secure,
     user,
     hasPass: Boolean(pass),
     passLen: pass?.length ?? 0,
-    from,
+    from: fromAddress || user,
     to,
     cc,
-  });
+  };
+}
+
+function getTransporter() {
+  const { host, port, secure, user, pass } = getMailEnv();
+  const diagnostics = getSafeMailDiagnostics();
+
+  if (!user) {
+    throw new Error("SMTP_USER is missing.");
+  }
+
+  if (!pass) {
+    throw new Error("SMTP_PASS is missing.");
+  }
+
+  if (host === "zoho.com") {
+    throw new Error('SMTP_HOST must be "smtp.zoho.com", not "zoho.com".');
+  }
+
+  console.info("[RFQ_MAIL] env_check", diagnostics);
 
   return nodemailer.createTransport({
     host,
@@ -63,7 +102,31 @@ function getTransporter() {
       user,
       pass,
     },
+    tls: {
+      minVersion: "TLSv1.2",
+      rejectUnauthorized: true,
+      servername: host,
+    },
   });
+}
+
+export async function verifyMailTransport() {
+  const transporter = getTransporter();
+  await transporter.verify();
+  return getSafeMailDiagnostics();
+}
+
+export function getMailDiagnostics() {
+  return getSafeMailDiagnostics();
+}
+
+function getErrorCode(error: unknown) {
+  return typeof error === "object" &&
+    error !== null &&
+    "code" in error &&
+    typeof (error as { code?: unknown }).code === "string"
+    ? (error as { code: string }).code
+    : undefined;
 }
 
 type MailQuoteItem = {
@@ -205,15 +268,24 @@ export async function sendAdminRfqEmail(args: {
     </div>
   `;
 
-  return transporter.sendMail({
-    from,
-    to,
-    cc: cc || undefined,
-    replyTo: customer.email || undefined,
-    subject,
-    text,
-    html,
-  });
+  try {
+    return await transporter.sendMail({
+      from,
+      to,
+      cc,
+      replyTo: customer.email || undefined,
+      subject,
+      text,
+      html,
+    });
+  } catch (error) {
+    console.error("[RFQ_MAIL] admin_send_failed", {
+      ...getSafeMailDiagnostics(),
+      error: error instanceof Error ? error.message : String(error),
+      code: getErrorCode(error),
+    });
+    throw error;
+  }
 }
 
 export async function sendCustomerRfqConfirmationEmail(args: {
@@ -278,11 +350,20 @@ export async function sendCustomerRfqConfirmationEmail(args: {
     </div>
   `;
 
-  return transporter.sendMail({
-    from,
-    to: email,
-    subject,
-    text,
-    html,
-  });
+  try {
+    return await transporter.sendMail({
+      from,
+      to: email,
+      subject,
+      text,
+      html,
+    });
+  } catch (error) {
+    console.error("[RFQ_MAIL] customer_send_failed", {
+      ...getSafeMailDiagnostics(),
+      error: error instanceof Error ? error.message : String(error),
+      code: getErrorCode(error),
+    });
+    throw error;
+  }
 }
