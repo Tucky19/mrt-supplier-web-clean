@@ -31,7 +31,7 @@ function formatFromAddress(address: string) {
 }
 
 function getMailEnv() {
-  const host = safeStr(process.env.SMTP_HOST) || "smtp.zoho.com";
+  const host = safeStr(process.env.SMTP_HOST) || "smtppro.zoho.com";
   const port = parseSmtpPort(safeStr(process.env.SMTP_PORT));
   const secure = parseSmtpSecure(safeStr(process.env.SMTP_SECURE), port);
   const user = safeStr(process.env.SMTP_USER);
@@ -89,7 +89,9 @@ function getTransporter() {
   }
 
   if (host === "zoho.com") {
-    throw new Error('SMTP_HOST must be "smtp.zoho.com", not "zoho.com".');
+    throw new Error(
+      'SMTP_HOST must be a valid Zoho SMTP host such as "smtppro.zoho.com" or "smtp.zoho.com", not "zoho.com".'
+    );
   }
 
   console.info("[RFQ_MAIL] env_check", diagnostics);
