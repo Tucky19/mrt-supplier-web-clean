@@ -30,6 +30,8 @@ function formatFromAddress(address: string) {
   return `"MRT Supplier" <${address}>`;
 }
 
+const PUBLIC_REPLY_TO_EMAIL = "sales@mrtsupplier.com";
+
 function getMailEnv() {
   const host = safeStr(process.env.SMTP_HOST) || "smtppro.zoho.com";
   const port = parseSmtpPort(safeStr(process.env.SMTP_PORT));
@@ -275,7 +277,7 @@ export async function sendAdminRfqEmail(args: {
       from,
       to,
       cc,
-      replyTo: customer.email || undefined,
+      replyTo: safeStr(customer.email) || PUBLIC_REPLY_TO_EMAIL,
       subject,
       text,
       html,
@@ -322,8 +324,10 @@ export async function sendCustomerRfqConfirmationEmail(args: {
     buildItemsText(items),
     "",
     `Website: www.mrtsupplier.com`,
-    `Email: rfq@mrtsupplier.com`,
-    `Phone: 081-5581323, 097-0122111`,
+    `Email: sales@mrtsupplier.com`,
+    `Phone: 081-558-1323 / 097-012-2111`,
+    `LINE Official: @mrtsupplier`,
+    `LINE Add Friend: https://lin.ee/S676yYH`,
   ].join("\n");
 
   const html = `
@@ -344,8 +348,20 @@ export async function sendCustomerRfqConfirmationEmail(args: {
 
       <p style="margin-top:20px;">
         Website: <strong>www.mrtsupplier.com</strong><br />
-        Email: <strong>rfq@mrtsupplier.com</strong><br />
-        Phone: <strong>081-5581323, 097-0122111</strong>
+        Email: <strong>sales@mrtsupplier.com</strong><br />
+        Phone: <strong>081-558-1323 / 097-012-2111</strong>
+      </p>
+
+      <a
+        href="https://lin.ee/S676yYH"
+        target="_blank"
+        style="display:inline-block;background:#06C755;color:#ffffff;padding:10px 14px;border-radius:8px;text-decoration:none;font-weight:700;font-family:Arial,sans-serif;"
+      >
+        สอบถามผ่าน LINE Official: @mrtsupplier
+      </a>
+
+      <p style="font-size:13px;color:#666;margin-top:8px;">
+        LINE Official: <strong>@mrtsupplier</strong>
       </p>
 
       <p style="margin-top:20px;">Best regards,<br /><strong>MRT Supplier</strong></p>
@@ -356,6 +372,7 @@ export async function sendCustomerRfqConfirmationEmail(args: {
     return await transporter.sendMail({
       from,
       to: email,
+      replyTo: PUBLIC_REPLY_TO_EMAIL,
       subject,
       text,
       html,

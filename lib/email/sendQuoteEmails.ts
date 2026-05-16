@@ -19,6 +19,8 @@ type QuotePayload = {
   quoteId?: string | number;
 };
 
+const PUBLIC_REPLY_TO_EMAIL = "sales@mrtsupplier.com";
+
 function escapeHtml(input: string) {
   return String(input ?? "")
     .replaceAll("&", "&amp;")
@@ -158,10 +160,19 @@ function customerHtml(payload: QuotePayload) {
           <div style="margin-top:24px;padding:18px 20px;border:1px solid #e5e7eb;border-radius:16px;background:#f9fafb;">
             <p style="margin:0 0 8px;color:#111827;font-size:14px;font-weight:700;">Need urgent assistance?</p>
             <p style="margin:0;color:#374151;font-size:14px;line-height:1.7;">
-              LINE: @mrt-supplier<br />
-              Email: rfq01@mrtsupplier.com<br />
+              LINE Official: @mrtsupplier<br />
+              LINE Add Friend: https://lin.ee/S676yYH<br />
+              Email: sales@mrtsupplier.com<br />
+              Phone: 081-558-1323 / 097-012-2111<br />
               Website: www.mrtsupplier.com
             </p>
+            <a
+              href="https://lin.ee/S676yYH"
+              target="_blank"
+              style="display:inline-block;margin-top:12px;background:#06C755;color:#ffffff;padding:10px 14px;border-radius:8px;text-decoration:none;font-weight:700;font-family:Arial,sans-serif;"
+            >
+              Contact LINE Official: @mrtsupplier
+            </a>
           </div>
         </div>
 
@@ -201,8 +212,10 @@ Requested items
 ${buildItemsText(payload.items)}
 
 Need urgent assistance?
-LINE: @mrt-supplier
-Email: rfq01@mrtsupplier.com
+LINE Official: @mrtsupplier
+LINE Add Friend: https://lin.ee/S676yYH
+Email: sales@mrtsupplier.com
+Phone: 081-558-1323 / 097-012-2111
 Website: www.mrtsupplier.com
   `.trim();
 }
@@ -344,7 +357,7 @@ export async function sendQuoteEmails(payload: QuotePayload) {
       subject: customerSubject,
       html: customerHtml(payload),
       text: customerText(payload),
-      replyTo: rfqToEmail,
+      replyTo: PUBLIC_REPLY_TO_EMAIL,
     }),
     transporter.sendMail({
       from,
@@ -353,7 +366,7 @@ export async function sendQuoteEmails(payload: QuotePayload) {
       subject: salesSubject,
       html: salesHtml(payload),
       text: salesText(payload),
-      replyTo: payload.email,
+      replyTo: payload.email.trim() || PUBLIC_REPLY_TO_EMAIL,
     }),
   ]);
 }

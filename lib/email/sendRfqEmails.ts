@@ -26,6 +26,8 @@ export type EmailRfqPayload = {
   items: EmailRfqItem[];
 };
 
+const PUBLIC_REPLY_TO_EMAIL = "sales@mrtsupplier.com";
+
 function env(name: string, fallback = "") {
   return process.env[name]?.trim() || fallback;
 }
@@ -192,6 +194,7 @@ export async function sendAdminRfqEmail(payload: EmailRfqPayload) {
       from,
       to,
       cc: cc || undefined,
+      replyTo: customer.email?.trim() || PUBLIC_REPLY_TO_EMAIL,
       subject,
       html,
       text,
@@ -236,6 +239,26 @@ export async function sendCustomerRfqConfirmationEmail(payload: EmailRfqPayload)
         If your request is urgent, you may contact us directly by email or LINE.
       </p>
 
+      <a
+        href="https://lin.ee/S676yYH"
+        target="_blank"
+        style="display:inline-block;background:#06C755;color:#ffffff;padding:10px 14px;border-radius:8px;text-decoration:none;font-weight:700;font-family:Arial,sans-serif;"
+      >
+        Contact LINE Official: @mrtsupplier
+      </a>
+
+      <p style="margin:8px 0 14px;color:#4b5563;font-size:13px;">
+        LINE Official: <strong>@mrtsupplier</strong>
+      </p>
+
+      <p style="margin:0 0 14px;color:#374151;font-size:14px;line-height:1.7;">
+        Website: <strong>www.mrtsupplier.com</strong><br />
+        Email: <strong>sales@mrtsupplier.com</strong><br />
+        Phone: <strong>081-558-1323 / 097-012-2111</strong><br />
+        LINE Official: <strong>@mrtsupplier</strong><br />
+        LINE Add Friend: <strong>https://lin.ee/S676yYH</strong>
+      </p>
+
       <p style="margin:0;">
         Best regards,<br />
         MRT Supplier
@@ -249,6 +272,11 @@ export async function sendCustomerRfqConfirmationEmail(payload: EmailRfqPayload)
     "We have received your RFQ and our team will contact you shortly.",
     `Request ID: ${payload.requestId}`,
     `Total Items: ${payload.items.length}`,
+    "Website: www.mrtsupplier.com",
+    "Email: sales@mrtsupplier.com",
+    "Phone: 081-558-1323 / 097-012-2111",
+    "LINE Official: @mrtsupplier",
+    "LINE Add Friend: https://lin.ee/S676yYH",
     "",
     "Best regards,",
     "MRT Supplier",
@@ -258,6 +286,7 @@ export async function sendCustomerRfqConfirmationEmail(payload: EmailRfqPayload)
     return await transporter.sendMail({
       from,
       to,
+      replyTo: PUBLIC_REPLY_TO_EMAIL,
       subject,
       html,
       text,
