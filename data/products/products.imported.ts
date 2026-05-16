@@ -206,5 +206,425 @@ export const importedProducts = [
     "sourceType": "official",
     "dataQuality": "basic",
     "enrichStatus": "pending"
+  },
+  {
+    "id": "donaldson-p119374",
+    "partNo": "P119374",
+    "brand": "Donaldson",
+    "category": "air_filter",
+    "title": "Air Filter, Safety",
+    "spec": "Safety round air filter. Outer diameter 116.4 mm, inner diameter 88.3 mm, length 330.2 mm. Efficiency test standard ISO 5011. Family FHG.",
+    "stockStatus": "request",
+    "officialUrl": "https://shop.donaldson.com/store/en-th/product/P119374/15054",
+    "specifications": [
+      {
+        "label": "Type",
+        "value": "Safety"
+      },
+      {
+        "label": "Style",
+        "value": "Round"
+      },
+      {
+        "label": "Media Type",
+        "value": "Safety"
+      },
+      {
+        "label": "Outer Diameter",
+        "value": "116.4 mm (4.58 inch)"
+      },
+      {
+        "label": "Inner Diameter",
+        "value": "88.3 mm (3.48 inch)"
+      },
+      {
+        "label": "Length",
+        "value": "330.2 mm (13.00 inch)"
+      },
+      {
+        "label": "Efficiency Test Standard",
+        "value": "ISO 5011"
+      },
+      {
+        "label": "Family",
+        "value": "FHG"
+      },
+      {
+        "label": "UPC Code",
+        "value": "742330009918"
+      }
+    ]
+  },
+  {
+    "id": "donaldson-p158661",
+    "partNo": "P158661",
+    "brand": "Donaldson",
+    "category": "air_filter",
+    "title": "Air Filter, Safety",
+    "spec": "Safety round air filter. Outer diameter 121.3 mm, inner diameter 91.9 mm, length 306.8 mm. Primary application Caterpillar 2S1285. Efficiency test standard ISO 5011.",
+    "stockStatus": "request",
+    "officialUrl": "https://shop.donaldson.com/store/en-th/product/P158661/15736",
+    "specifications": [
+      {
+        "label": "Type",
+        "value": "Safety"
+      },
+      {
+        "label": "Style",
+        "value": "Round"
+      },
+      {
+        "label": "Outer Diameter",
+        "value": "121.3 mm (4.78 inch)"
+      },
+      {
+        "label": "Inner Diameter",
+        "value": "91.9 mm (3.62 inch)"
+      },
+      {
+        "label": "Length",
+        "value": "306.8 mm (12.08 inch)"
+      },
+      {
+        "label": "Efficiency Test Standard",
+        "value": "ISO 5011"
+      },
+      {
+        "label": "Primary Application",
+        "value": "CATERPILLAR 2S1285"
+      },
+      {
+        "label": "UPC Code",
+        "value": "742330013625"
+      }
+    ]
+  },
+  {
+    "id": "donaldson-p158678",
+    "partNo": "P158678",
+    "brand": "Donaldson",
+    "category": "air_filter",
+    "title": "Air Filter, Safety",
+    "spec": "Safety round air filter. Outer diameter 121.3 mm, inner diameter 91.2 mm, length 304.8 mm. Primary application Caterpillar 8N4901. Efficiency test standard ISO 5011.",
+    "stockStatus": "request",
+    "officialUrl": "https://shop.donaldson.com/store/en-th/product/P158678/15749",
+    "specifications": [
+      {
+        "label": "Type",
+        "value": "Safety"
+      },
+      {
+        "label": "Style",
+        "value": "Round"
+      },
+      {
+        "label": "Outer Diameter",
+        "value": "121.3 mm (4.78 inch)"
+      },
+      {
+        "label": "Inner Diameter",
+        "value": "91.2 mm (3.59 inch)"
+      },
+      {
+        "label": "Length",
+        "value": "304.8 mm (12.00 inch)"
+      },
+      {
+        "label": "Efficiency Test Standard",
+        "value": "ISO 5011"
+      },
+      {
+        "label": "Primary Application",
+        "value": "CATERPILLAR 8N4901"
+      },
+      {
+        "label": "UPC Code",
+        "value": "742330013755"
+      }
+    ]
+  },
+  {
+    "id": "donaldson-p181034",
+    "partNo": "P181034",
+    "brand": "Donaldson",
+    "category": "air_filter",
+    "title": "Air Filter, Primary Round",
+    "spec": "Primary round air filter with cellulose media. Overall length 343.5 mm, outer diameter 234.1 mm, inner diameter 123 mm, length 330.8 mm, bolt hole diameter 16.76 mm, efficiency 99.9 tested to ISO 5011. Family FHG.",
+    "stockStatus": "request",
+    "officialUrl": "https://shop.donaldson.com/store/en-th/product/P181034/17797",
+    "specifications": [
+      {
+        "label": "Type",
+        "value": "Primary"
+      },
+      {
+        "label": "Style",
+        "value": "Round"
+      },
+      {
+        "label": "Media Type",
+        "value": "Cellulose"
+      },
+      {
+        "label": "Overall Length",
+        "value": "343.5 mm (13.52 inch)"
+      },
+      {
+        "label": "Outer Diameter",
+        "value": "234.1 mm (9.22 inch)"
+      },
+      {
+        "label": "Inner Diameter",
+        "value": "123 mm (4.84 inch)"
+      },
+      {
+        "label": "Length",
+        "value": "330.8 mm (13.02 inch)"
+      },
+      {
+        "label": "Bolt Hole Diameter",
+        "value": "16.76 mm (0.66 inch)"
+      },
+      {
+        "label": "Efficiency",
+        "value": "99.9"
+      },
+      {
+        "label": "Efficiency Test Standard",
+        "value": "ISO 5011"
+      },
+      {
+        "label": "Family",
+        "value": "FHG"
+      },
+      {
+        "label": "UPC Code",
+        "value": "742330025352"
+      }
+    ]
+  },
+  {
+    "id": "donaldson-p181103",
+    "partNo": "P181103",
+    "brand": "Donaldson",
+    "category": "air_filter",
+    "title": "Air Filter, Primary Round",
+    "spec": "Primary round RadialSeal air filter with cellulose media. Overall length 317.5 mm, outer diameter 234.1 mm, inner diameter 124 mm, length 304.8 mm, efficiency 99.9 tested to ISO 5011.",
+    "stockStatus": "request",
+    "officialUrl": "https://shop.donaldson.com/store/en-th/product/P181103/17859",
+    "specifications": [
+      {
+        "label": "Type",
+        "value": "Primary"
+      },
+      {
+        "label": "Style",
+        "value": "Round"
+      },
+      {
+        "label": "Media Type",
+        "value": "Cellulose"
+      },
+      {
+        "label": "Overall Length",
+        "value": "317.5 mm (12.50 inch)"
+      },
+      {
+        "label": "Outer Diameter",
+        "value": "234.1 mm (9.22 inch)"
+      },
+      {
+        "label": "Inner Diameter",
+        "value": "124 mm (4.88 inch)"
+      },
+      {
+        "label": "Length",
+        "value": "304.8 mm (12.00 inch)"
+      },
+      {
+        "label": "Efficiency",
+        "value": "99.9"
+      },
+      {
+        "label": "Efficiency Test Standard",
+        "value": "ISO 5011"
+      },
+      {
+        "label": "UPC Code",
+        "value": "742330025970"
+      }
+    ]
+  },
+  {
+    "id": "donaldson-r800103",
+    "partNo": "R800103",
+    "brand": "Donaldson",
+    "category": "air_filter",
+    "title": "Air Filter, Primary Round",
+    "spec": "Primary round air filter with cellulose media. Overall length 393.7 mm, outer diameter 187 mm, inner diameter 121.41 mm, length 381 mm, bolt hole diameter 17 mm, efficiency 99.9 tested to ISO 5011.",
+    "stockStatus": "request",
+    "officialUrl": "https://shop.donaldson.com/store/en-th/product/R800103/22654",
+    "specifications": [
+      {
+        "label": "Type",
+        "value": "Primary"
+      },
+      {
+        "label": "Style",
+        "value": "Round"
+      },
+      {
+        "label": "Media Type",
+        "value": "Cellulose"
+      },
+      {
+        "label": "Overall Length",
+        "value": "393.7 mm (15.50 inch)"
+      },
+      {
+        "label": "Outer Diameter",
+        "value": "187 mm (7.36 inch)"
+      },
+      {
+        "label": "Inner Diameter",
+        "value": "121.41 mm (4.78 inch)"
+      },
+      {
+        "label": "Length",
+        "value": "381 mm (15.00 inch)"
+      },
+      {
+        "label": "Bolt Hole Diameter",
+        "value": "17 mm (0.67 inch)"
+      },
+      {
+        "label": "Efficiency",
+        "value": "99.9"
+      },
+      {
+        "label": "Efficiency Test Standard",
+        "value": "ISO 5011"
+      },
+      {
+        "label": "UPC Code",
+        "value": "742330049174"
+      }
+    ]
+  },
+  {
+    "id": "donaldson-p182034",
+    "partNo": "P182034",
+    "brand": "Donaldson",
+    "category": "air_filter",
+    "title": "Air Filter, Primary Round",
+    "spec": "Primary round air filter with cellulose media. Overall length 342.9 mm, outer diameter 234.1 mm, inner diameter 123 mm, length 330.2 mm, bolt hole diameter 16.76 mm, efficiency 99.9 tested to ISO 5011. Family FHG.",
+    "stockStatus": "request",
+    "officialUrl": "https://shop.donaldson.com/store/en-th/product/P182034/17937",
+    "specifications": [
+      {
+        "label": "Type",
+        "value": "Primary"
+      },
+      {
+        "label": "Style",
+        "value": "Round"
+      },
+      {
+        "label": "Media Type",
+        "value": "Cellulose"
+      },
+      {
+        "label": "Overall Length",
+        "value": "342.9 mm (13.50 inch)"
+      },
+      {
+        "label": "Outer Diameter",
+        "value": "234.1 mm (9.22 inch)"
+      },
+      {
+        "label": "Inner Diameter",
+        "value": "123 mm (4.84 inch)"
+      },
+      {
+        "label": "Length",
+        "value": "330.2 mm (13.00 inch)"
+      },
+      {
+        "label": "Bolt Hole Diameter",
+        "value": "16.76 mm (0.66 inch)"
+      },
+      {
+        "label": "Efficiency",
+        "value": "99.9"
+      },
+      {
+        "label": "Efficiency Test Standard",
+        "value": "ISO 5011"
+      },
+      {
+        "label": "Family",
+        "value": "FHG"
+      },
+      {
+        "label": "UPC Code",
+        "value": "742330026724"
+      }
+    ]
+  },
+  {
+    "id": "donaldson-p535365",
+    "partNo": "P535365",
+    "brand": "Donaldson",
+    "category": "air_filter",
+    "title": "Air Filter, Primary Round",
+    "spec": "Primary round air filter with cellulose media. Overall length 393.7 mm, outer diameter 187 mm, inner diameter 121.4 mm, length 381 mm, bolt hole diameter 16.76 mm, efficiency 99.9 tested to ISO 5011.",
+    "stockStatus": "request",
+    "officialUrl": "https://shop.donaldson.com/store/en-th/product/P535365/19668",
+    "specifications": [
+      {
+        "label": "Type",
+        "value": "Primary"
+      },
+      {
+        "label": "Style",
+        "value": "Round"
+      },
+      {
+        "label": "Media Type",
+        "value": "Cellulose"
+      },
+      {
+        "label": "Overall Length",
+        "value": "393.7 mm (15.50 inch)"
+      },
+      {
+        "label": "Outer Diameter",
+        "value": "187 mm (7.36 inch)"
+      },
+      {
+        "label": "Inner Diameter",
+        "value": "121.4 mm (4.78 inch)"
+      },
+      {
+        "label": "Length",
+        "value": "381 mm (15.00 inch)"
+      },
+      {
+        "label": "Bolt Hole Diameter",
+        "value": "16.76 mm (0.66 inch)"
+      },
+      {
+        "label": "Efficiency",
+        "value": "99.9"
+      },
+      {
+        "label": "Efficiency Test Standard",
+        "value": "ISO 5011"
+      },
+      {
+        "label": "UPC Code",
+        "value": "742330039786"
+      }
+    ]
   }
 ];
