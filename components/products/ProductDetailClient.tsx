@@ -29,11 +29,11 @@ function ProductGallery({
 
   return (
     <div>
-      <div className="overflow-hidden rounded-2xl border bg-white p-6">
+      <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white p-5 shadow-sm sm:p-6">
         <img
           src={normalizePath(images[active])}
           alt={partNo}
-          className="h-72 w-full object-contain"
+          className="h-72 w-full object-contain sm:h-80"
           onError={(event) => {
             event.currentTarget.src = "/images/placeholder.jpg";
           }}
@@ -70,6 +70,83 @@ function slugifyBrand(value: string) {
   return value.trim().toLowerCase().replace(/[\s/_-]+/g, "-");
 }
 
+type CrossReferenceRow = {
+  brand: string;
+  partNo: string;
+};
+
+function buildCrossReferenceRows(refs: string[]): CrossReferenceRow[] {
+  return refs.map((ref) => {
+    const [brand, partNo] = ref.includes(":")
+      ? ref.split(":", 2).map((value) => value.trim())
+      : ["—", ref];
+
+    return {
+      brand: brand || "—",
+      partNo: partNo || ref,
+    };
+  });
+}
+
+function CrossReferenceCard({
+  locale,
+  rows,
+}: {
+  locale: string;
+  rows: CrossReferenceRow[];
+}) {
+  if (rows.length === 0) return null;
+
+  return (
+    <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+      <div className="border-b border-slate-200 bg-slate-50/80 px-4 py-3 sm:px-5">
+        <div className="text-sm font-semibold text-slate-900">
+          Cross Reference
+        </div>
+        <div className="mt-0.5 text-xs text-slate-500">
+          Equivalent / Replacement Parts
+        </div>
+      </div>
+
+      <div className="overflow-x-auto">
+        <table className="w-full text-left text-sm">
+          <thead className="bg-white text-[11px] font-semibold uppercase tracking-[0.12em] text-slate-500">
+            <tr>
+              <th className="border-b border-slate-100 px-4 py-2.5 sm:px-5">
+                Brand
+              </th>
+              <th className="border-b border-slate-100 px-4 py-2.5 sm:px-5">
+                Part Number
+              </th>
+            </tr>
+          </thead>
+          <tbody className="divide-y divide-slate-100">
+            {rows.map((row) => (
+              <tr key={`${row.brand}-${row.partNo}`}>
+                <td className="px-4 py-3 text-slate-600 sm:px-5">
+                  {row.brand}
+                </td>
+                <td className="px-4 py-3 sm:px-5">
+                  <Link
+                    href={`/${locale}/products/${encodeURIComponent(row.partNo)}`}
+                    className="font-semibold text-slate-900 underline-offset-2 hover:underline"
+                  >
+                    {row.partNo}
+                  </Link>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <div className="border-t border-slate-100 bg-amber-50/70 px-4 py-3 text-xs leading-5 text-amber-900 sm:px-5">
+        หมายเหตุ: ข้อมูล cross reference ใช้เพื่อเทียบเบื้องต้น กรุณายืนยันสเปคก่อนสั่งซื้อ
+      </div>
+    </div>
+  );
+}
+
 export default function ProductDetailClient({ locale, product }: Props) {
   const router = useRouter();
   const { addItem } = useQuote();
@@ -99,6 +176,11 @@ export default function ProductDetailClient({ locale, product }: Props) {
         .filter(Boolean)
         .slice(0, 5),
     [product.refs, product.crossReferences]
+  );
+
+  const crossReferenceRows = useMemo(
+    () => buildCrossReferenceRows(refs),
+    [refs]
   );
 
   const applications = useMemo(
@@ -190,7 +272,36 @@ export default function ProductDetailClient({ locale, product }: Props) {
   return (
     <>
       <div className="grid gap-8 pb-28 md:grid-cols-2 md:gap-10 md:pb-0">
-        <ProductGallery images={images} partNo={product.partNo} />
+        <div className="space-y-4">
+          <ProductGallery images={images} partNo={product.partNo} />
+          <CrossReferenceCard locale={locale} rows={crossReferenceRows} />
+
+          <div className="rounded-2xl border border-slate-200 bg-slate-50/80 p-4 text-sm leading-6 text-slate-700 shadow-sm sm:p-5">
+            <div className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">
+              {isThai
+                ? "ข้อมูลสำหรับตรวจสอบอะไหล่"
+                : "Information for part checking"}
+            </div>
+
+            <ul className="mt-3 list-disc space-y-2 pl-4">
+              <li>
+                {isThai
+                  ? "ใช้อ้างอิง Part Number / OEM Reference"
+                  : "Use this page as a Part Number / OEM Reference checking aid."}
+              </li>
+              <li>
+                {isThai
+                  ? "ส่ง RFQ เพื่อให้ทีมตรวจสอบสเปค รุ่นเทียบ และความเหมาะสมก่อนเสนอราคา"
+                  : "Submit an RFQ so our team can verify specifications, possible alternatives, and suitability before quoting."}
+              </li>
+              <li>
+                {isThai
+                  ? "ไม่แสดงราคาและจำนวนสต็อกจริงบนหน้าเว็บ"
+                  : "Live price and stock quantity are not shown on the website."}
+              </li>
+            </ul>
+          </div>
+        </div>
 
         <div className="self-start">
           <h1 className="text-2xl font-bold sm:text-3xl">{product.partNo}</h1>
@@ -266,26 +377,6 @@ export default function ProductDetailClient({ locale, product }: Props) {
             <p className="mt-3 text-sm leading-7 text-gray-600">
               {product.description}
             </p>
-          )}
-
-          {refs.length > 0 && (
-            <div className="mt-5 sm:mt-6">
-              <div className="text-xs uppercase text-gray-500">
-                {text.crossReference}
-              </div>
-
-              <div className="mt-3 flex flex-wrap gap-2">
-                {refs.map((ref) => (
-                  <Link
-                    key={ref}
-                    href={`/${locale}/products/${encodeURIComponent(ref)}`}
-                    className="inline-flex min-h-9 items-center rounded-full border border-slate-300 bg-white px-3 py-2 text-xs font-medium text-slate-700 transition-colors hover:bg-slate-50"
-                  >
-                    {ref}
-                  </Link>
-                ))}
-              </div>
-            </div>
           )}
 
           {pairedParts.length > 0 && (
