@@ -190,7 +190,35 @@ export default function ProductDetailClient({ locale, product }: Props) {
   return (
     <>
       <div className="grid gap-8 pb-28 md:grid-cols-2 md:gap-10 md:pb-0">
-        <ProductGallery images={images} partNo={product.partNo} />
+        <div className="space-y-4">
+          <ProductGallery images={images} partNo={product.partNo} />
+
+          <div className="rounded-2xl border border-slate-200 bg-slate-50/80 p-4 text-sm leading-6 text-slate-700 shadow-sm sm:p-5">
+            <div className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">
+              {isThai
+                ? "ข้อมูลสำหรับตรวจสอบอะไหล่"
+                : "Information for part checking"}
+            </div>
+
+            <ul className="mt-3 list-disc space-y-2 pl-4">
+              <li>
+                {isThai
+                  ? "ใช้อ้างอิง Part Number / OEM Reference"
+                  : "Use this page as a Part Number / OEM Reference checking aid."}
+              </li>
+              <li>
+                {isThai
+                  ? "ส่ง RFQ เพื่อให้ทีมตรวจสอบสเปค รุ่นเทียบ และความเหมาะสมก่อนเสนอราคา"
+                  : "Submit an RFQ so our team can verify specifications, possible alternatives, and suitability before quoting."}
+              </li>
+              <li>
+                {isThai
+                  ? "ไม่แสดงราคาและจำนวนสต็อกจริงบนหน้าเว็บ"
+                  : "Live price and stock quantity are not shown on the website."}
+              </li>
+            </ul>
+          </div>
+        </div>
 
         <div className="self-start">
           <h1 className="text-2xl font-bold sm:text-3xl">{product.partNo}</h1>

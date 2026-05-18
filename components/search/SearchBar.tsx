@@ -215,20 +215,27 @@ export default function SearchBar({
     [groupedSuggestions]
   );
 
-  const showSuggestions = isFocused && flattenedSuggestions.length > 0;
-  const showRecents =
-    isFocused && query.trim().length < 2 && visibleRecents.length > 0;
-  const dropdownItems = showSuggestions
-    ? flattenedSuggestions.map((suggestion) => ({
-        type: "suggestion" as const,
-        value: suggestion.partNo,
-      }))
-    : showRecents
-      ? visibleRecents.map((recent) => ({
-          type: "recent" as const,
-          value: recent,
-        }))
-      : [];
+  const trimmedQuery = query.trim();
+  const showViewAllResults = trimmedQuery.length >= 2;
+  const dropdownItems = [
+    ...visibleRecents.map((recent) => ({
+      type: "recent" as const,
+      value: recent,
+    })),
+    ...flattenedSuggestions.map((suggestion) => ({
+      type: "suggestion" as const,
+      value: suggestion.partNo,
+    })),
+    ...(showViewAllResults
+      ? [
+          {
+            type: "viewAll" as const,
+            value: trimmedQuery,
+          },
+        ]
+      : []),
+  ];
+  const showDropdown = isFocused && dropdownItems.length > 0;
 
   const selectDropdownItem = (value: string) => {
     setQuery(value);
@@ -262,7 +269,7 @@ export default function SearchBar({
   };
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (!showSuggestions && !showRecents) return;
+    if (!showDropdown) return;
 
     if (e.key === "ArrowDown") {
       e.preventDefault();
@@ -312,7 +319,9 @@ export default function SearchBar({
     }
   };
 
-  let flatIndex = -1;
+  const suggestionStartIndex = visibleRecents.length;
+  const viewAllIndex = suggestionStartIndex + flattenedSuggestions.length;
+  const suggestionsTitle = locale === "th" ? "คำแนะนำ" : "Suggestions";
 
   return (
     <div
@@ -361,6 +370,7 @@ export default function SearchBar({
             type="text"
             value={query}
             autoFocus={autoFocus}
+            autoComplete="off"
             onChange={(e) => setQuery(e.target.value)}
             onFocus={() => setIsFocused(true)}
             onKeyDown={handleKeyDown}
@@ -377,52 +387,94 @@ export default function SearchBar({
           </button>
         </div>
 
-        {showSuggestions && (
-          <div className="absolute left-0 right-0 top-[68px] z-20 max-h-[320px] overflow-y-auto rounded-2xl border border-slate-200 bg-white shadow-lg shadow-slate-200/70 sm:max-h-[360px]">
-            {groupedSuggestions.map((group) => (
-              <div key={group.label}>
-                <div className="border-b border-slate-100 bg-slate-50/70 px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.12em] text-slate-400 sm:px-5">
-                  {group.title}
+        {showDropdown && (
+          <div className="absolute left-0 right-0 top-[68px] z-20 max-h-[340px] overflow-y-auto rounded-2xl border border-slate-200 bg-white shadow-lg shadow-slate-200/70 sm:max-h-[380px]">
+            {visibleRecents.length > 0 && (
+              <section className="border-b border-slate-100">
+                <div className="bg-slate-50/70 px-4 py-2.5 text-[10px] font-semibold uppercase tracking-[0.12em] text-slate-500 sm:px-5">
+                  {text.recentSearches}
                 </div>
 
-                {group.items.map((suggestion) => {
-                  flatIndex += 1;
-                  const currentIndex = flatIndex;
-
-                  return (
+                <div className="divide-y divide-slate-100">
+                  {visibleRecents.map((recent, recentIndex) => (
                     <button
-                      key={suggestion.id}
+                      key={recent}
                       type="button"
                       ref={(node) => {
-                        dropdownOptionRefs.current[currentIndex] = node;
+                        dropdownOptionRefs.current[recentIndex] = node;
                       }}
-                      onClick={() => selectDropdownItem(suggestion.partNo)}
+                      onClick={() => selectDropdownItem(recent)}
                       onMouseDown={(event) => event.preventDefault()}
                       onFocus={() => {
                         setIsFocused(true);
-                        setHighlightedIndex(currentIndex);
+                        setHighlightedIndex(recentIndex);
                       }}
                       onKeyDown={(event) =>
                         handleDropdownKeyDown(
                           event,
-                          currentIndex,
-                          flattenedSuggestions.length + 1
+                          recentIndex,
+                          dropdownItems.length
                         )
                       }
-                      className={`flex w-full items-start justify-between gap-3 border-b border-slate-100 px-4 py-2.5 text-left hover:bg-slate-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-blue-200 sm:gap-4 sm:px-5 sm:py-3 ${
-                        highlightedIndex === currentIndex ? "bg-slate-50" : ""
+                      className={`block w-full px-4 py-2.5 text-left text-sm text-slate-700 hover:bg-slate-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-blue-200 sm:px-5 ${
+                        highlightedIndex === recentIndex ? "bg-slate-50" : ""
                       }`}
                     >
-                      <div className="min-w-0">
-                        <div className="flex items-center gap-2">
-                          <div className="font-medium text-slate-900">
-                            {highlightMatch(suggestion.partNo, query)}
-                          </div>
-                          <span className="rounded-full bg-slate-100 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-slate-500">
-                            {group.label}
+                      <span className="block font-medium text-slate-800">
+                        {recent}
+                      </span>
+                      <span className="mt-0.5 block text-xs text-slate-400">
+                        {text.recent}
+                      </span>
+                    </button>
+                  ))}
+                </div>
+              </section>
+            )}
+
+            {flattenedSuggestions.length > 0 && (
+              <section className="border-b border-slate-100">
+                <div className="bg-slate-50/70 px-4 py-2.5 text-[10px] font-semibold uppercase tracking-[0.12em] text-slate-500 sm:px-5">
+                  {suggestionsTitle}
+                </div>
+
+                <div className="divide-y divide-slate-100">
+                  {flattenedSuggestions.map((suggestion, suggestionIndex) => {
+                    const currentIndex = suggestionStartIndex + suggestionIndex;
+                    const label = getSuggestionLabel(suggestion._matchType, text);
+
+                    return (
+                      <button
+                        key={suggestion.id}
+                        type="button"
+                        ref={(node) => {
+                          dropdownOptionRefs.current[currentIndex] = node;
+                        }}
+                        onClick={() => selectDropdownItem(suggestion.partNo)}
+                        onMouseDown={(event) => event.preventDefault()}
+                        onFocus={() => {
+                          setIsFocused(true);
+                          setHighlightedIndex(currentIndex);
+                        }}
+                        onKeyDown={(event) =>
+                          handleDropdownKeyDown(
+                            event,
+                            currentIndex,
+                            dropdownItems.length
+                          )
+                        }
+                        className={`block w-full px-4 py-2.5 text-left hover:bg-slate-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-blue-200 sm:px-5 sm:py-3 ${
+                          highlightedIndex === currentIndex ? "bg-slate-50" : ""
+                        }`}
+                      >
+                        <span className="block font-medium text-slate-900">
+                          {highlightMatch(suggestion.partNo, query)}
+                        </span>
+                        <span className="mt-1 block text-xs leading-5 text-slate-500">
+                          <span className="font-semibold uppercase tracking-wide text-slate-400">
+                            {label}
                           </span>
-                        </div>
-                        <div className="mt-1 text-xs text-slate-500">
+                          <span className="px-1.5 text-slate-300">•</span>
                           {highlightMatch(suggestion.brand, query)}
                           {suggestion.title ? (
                             <>
@@ -430,84 +482,39 @@ export default function SearchBar({
                               {highlightMatch(suggestion.title, query)}
                             </>
                           ) : null}
-                        </div>
-                      </div>
+                        </span>
+                      </button>
+                    );
+                  })}
+                </div>
+              </section>
+            )}
 
-                      <div className="shrink-0 text-xs text-slate-400">
-                        {suggestion._matchType}
-                      </div>
-                    </button>
-                  );
-                })}
-              </div>
-            ))}
-
-            <button
-              type="button"
-              ref={(node) => {
-                dropdownOptionRefs.current[flattenedSuggestions.length] = node;
-              }}
-              onClick={() => navigateToQuery(query, { scrollToResults: true })}
-              onMouseDown={(event) => event.preventDefault()}
-              onFocus={() => {
-                setIsFocused(true);
-                setHighlightedIndex(flattenedSuggestions.length);
-              }}
-              onKeyDown={(event) =>
-                handleDropdownKeyDown(
-                  event,
-                  flattenedSuggestions.length,
-                  flattenedSuggestions.length + 1
-                )
-              }
-              className="flex w-full items-center justify-between border-t border-slate-100 bg-slate-50/80 px-4 py-2.5 text-left text-sm font-medium text-slate-700 hover:bg-slate-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-blue-200 sm:px-5 sm:py-3"
-            >
-              <span>
-                {text.viewAllResults} &quot;{query.trim()}&quot;
-              </span>
-              <span className="text-slate-400">→</span>
-            </button>
-          </div>
-        )}
-
-        {showRecents && (
-          <div className="absolute left-0 right-0 top-[68px] z-20 max-h-[300px] overflow-y-auto rounded-2xl border border-slate-200 bg-white shadow-lg shadow-slate-200/70 sm:max-h-[340px]">
-            <div className="border-b border-slate-100 bg-slate-50/70 px-4 py-2.5 text-[10px] font-semibold uppercase tracking-[0.12em] text-slate-400 sm:px-5 sm:py-3">
-              {text.recentSearches}
-            </div>
-
-            {visibleRecents.map((recent) => {
-              const recentIndex = visibleRecents.indexOf(recent);
-
-              return (
+            {showViewAllResults && (
+              <section>
                 <button
-                  key={recent}
                   type="button"
                   ref={(node) => {
-                    dropdownOptionRefs.current[recentIndex] = node;
+                    dropdownOptionRefs.current[viewAllIndex] = node;
                   }}
-                  onClick={() => selectDropdownItem(recent)}
+                  onClick={() => navigateToQuery(query, { scrollToResults: true })}
                   onMouseDown={(event) => event.preventDefault()}
                   onFocus={() => {
                     setIsFocused(true);
-                    setHighlightedIndex(recentIndex);
+                    setHighlightedIndex(viewAllIndex);
                   }}
                   onKeyDown={(event) =>
-                    handleDropdownKeyDown(
-                      event,
-                      recentIndex,
-                      visibleRecents.length
-                    )
+                    handleDropdownKeyDown(event, viewAllIndex, dropdownItems.length)
                   }
-                  className={`flex w-full items-center justify-between border-b border-slate-100 px-4 py-2.5 text-left text-sm text-slate-700 last:border-b-0 hover:bg-slate-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-blue-200 sm:px-5 sm:py-3 ${
-                    highlightedIndex === recentIndex ? "bg-slate-50" : ""
+                  className={`block w-full bg-slate-50/80 px-4 py-3 text-left text-sm font-medium text-slate-700 hover:bg-slate-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-blue-200 sm:px-5 ${
+                    highlightedIndex === viewAllIndex ? "bg-slate-100" : ""
                   }`}
                 >
-                  <span>{recent}</span>
-                  <span className="text-xs text-slate-400">{text.recent}</span>
+                  {text.viewAllResults} &quot;{trimmedQuery}&quot;
+                  <span className="ml-2 text-slate-400">→</span>
                 </button>
-              );
-            })}
+              </section>
+            )}
           </div>
         )}
       </form>
