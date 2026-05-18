@@ -40,18 +40,18 @@ export default function RFQSidePanel({ className }: Props) {
             <div className="text-sm font-semibold text-neutral-100">
               RFQ / Quote
             </div>
-            <div className="mt-1 text-xs text-neutral-500">
+            <div className="mt-1 text-xs text-neutral-300">
               Search → Add → Submit
             </div>
           </div>
 
-          <span className="rounded-full border border-neutral-800 bg-[#0B0B0B] px-2 py-0.5 text-xs text-neutral-300">
+          <span className="rounded-full border border-neutral-800 bg-[#0B0B0B] px-2 py-0.5 text-xs text-neutral-100">
             {totalItems ?? 0}
           </span>
         </div>
 
         {!hasItems ? (
-          <div className="mt-5 rounded-xl border border-dashed border-neutral-800 bg-neutral-950/50 p-4 text-sm text-neutral-500">
+          <div className="mt-5 rounded-xl border border-dashed border-neutral-800 bg-neutral-950/50 p-4 text-sm text-neutral-200">
             No items in quote yet.
           </div>
         ) : (
@@ -69,18 +69,18 @@ export default function RFQSidePanel({ className }: Props) {
                       </div>
 
                       {item.brand ? (
-                        <div className="mt-1 text-xs text-neutral-400">
+                        <div className="mt-1 text-xs text-neutral-200">
                           {item.brand}
                         </div>
                       ) : null}
 
                       {item.title ? (
-                        <div className="mt-1 text-xs text-neutral-500">
+                        <div className="mt-1 text-xs text-neutral-300">
                           {miniText(item.title)}
                         </div>
                       ) : null}
 
-                      <div className="mt-2 text-xs text-neutral-300">
+                      <div className="mt-2 text-xs text-neutral-100">
                         Qty: <span className="font-semibold">{item.qty}</span>
                       </div>
                     </div>
@@ -88,7 +88,7 @@ export default function RFQSidePanel({ className }: Props) {
                     <button
                       type="button"
                       onClick={() => removeItem(item.productId)}
-                      className="rounded-lg border border-neutral-800 px-2 py-1 text-xs text-neutral-300 transition hover:border-neutral-700 hover:text-white"
+                      className="rounded-lg border border-neutral-800 px-2 py-1 text-xs text-neutral-100 transition hover:border-neutral-700 hover:text-white"
                     >
                       Remove
                     </button>
@@ -108,7 +108,7 @@ export default function RFQSidePanel({ className }: Props) {
               <button
                 type="button"
                 onClick={clear}
-                className="inline-flex items-center justify-center rounded-xl border border-neutral-700 px-4 py-2 text-sm font-semibold text-neutral-200 transition hover:border-neutral-600 hover:text-white"
+                className="inline-flex items-center justify-center rounded-xl border border-neutral-700 px-4 py-2 text-sm font-semibold text-neutral-100 transition hover:border-neutral-600 hover:text-white"
               >
                 Clear
               </button>
