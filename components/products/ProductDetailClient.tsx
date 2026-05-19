@@ -7,6 +7,7 @@ import { trackEvent } from "@/lib/analytics/track";
 import { getProductUiText } from "@/lib/i18n/productUi";
 import { useQuote } from "@/providers/QuoteProvider";
 import type { Product } from "@/types/product";
+import ProductCrossReferenceCards from "./detail/ProductCrossReferenceCards";
 
 type Props = {
   locale: string;
@@ -71,7 +72,10 @@ function ProductGallery({
 }
 
 function slugifyBrand(value: string) {
-  return value.trim().toLowerCase().replace(/[\s/_-]+/g, "-");
+  return value
+    .trim()
+    .toLowerCase()
+    .replace(/[\s/_-]+/g, "-");
 }
 
 function SectionLabel({ children }: { children: React.ReactNode }) {
@@ -107,37 +111,39 @@ export default function ProductDetailClient({ locale, product }: Props) {
   const [justAdded, setJustAdded] = useState(false);
   const resetTimerRef = useRef<number | null>(null);
 
-  const images =
-    product.images?.length
-      ? product.images
-      : [
-          product.detailImageUrl ||
-            product.imageUrl ||
-            product.officialImageUrl ||
-            guessedImagePath ||
-            "/images/placeholder.jpg",
-        ];
+  const images = product.images?.length
+    ? product.images
+    : [
+        product.detailImageUrl ||
+          product.imageUrl ||
+          product.officialImageUrl ||
+          guessedImagePath ||
+          "/images/placeholder.jpg",
+      ];
 
   const refs = useMemo(
     () =>
       Array.from(
-        new Set([...(product.refs ?? []), ...(product.crossReferences ?? [])])
+        new Set([...(product.refs ?? []), ...(product.crossReferences ?? [])]),
       )
         .map((value) => String(value).trim())
         .filter(Boolean)
         .slice(0, 5),
-    [product.refs, product.crossReferences]
+    [product.refs, product.crossReferences],
   );
 
   const applications = useMemo(
     () =>
       Array.from(
-        new Set([...(product.application ?? []), ...(product.applications ?? [])])
+        new Set([
+          ...(product.application ?? []),
+          ...(product.applications ?? []),
+        ]),
       )
         .map((value) => String(value).trim())
         .filter(Boolean)
         .slice(0, 6),
-    [product.application, product.applications]
+    [product.application, product.applications],
   );
 
   const pairedParts = useMemo(
@@ -147,14 +153,14 @@ export default function ProductDetailClient({ locale, product }: Props) {
           (item) =>
             item &&
             typeof item.partNo === "string" &&
-            item.partNo.trim().length > 0
+            item.partNo.trim().length > 0,
         )
         .map((item) => ({
           partNo: item.partNo.trim(),
           relation: item.relation,
           note: item.note?.trim(),
         })),
-    [product.pairedParts]
+    [product.pairedParts],
   );
 
   const pairedPartsTitle = isThai
@@ -222,6 +228,11 @@ export default function ProductDetailClient({ locale, product }: Props) {
       <div className="grid gap-8 pb-28 lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)] lg:gap-10 lg:pb-0">
         <div className="space-y-5">
           <ProductGallery images={images} partNo={product.partNo} />
+          <ProductCrossReferenceCards
+            locale={locale}
+            refs={refs}
+            brand={product.brand}
+          />
 
           <SurfaceCard className="overflow-hidden">
             <div className="border-b border-slate-200 bg-slate-50/85 px-5 py-4 sm:px-6">
@@ -344,28 +355,6 @@ export default function ProductDetailClient({ locale, product }: Props) {
               ) : null}
             </div>
           </SurfaceCard>
-
-          {refs.length > 0 && (
-            <SurfaceCard className="px-5 py-5 sm:px-6">
-              <SectionLabel>{text.crossReference}</SectionLabel>
-              <div className="mt-3 grid gap-3 sm:grid-cols-2">
-                {refs.map((ref) => (
-                  <Link
-                    key={ref}
-                    href={`/${locale}/products/${encodeURIComponent(ref)}`}
-                    className="group rounded-2xl border border-slate-200 bg-[linear-gradient(180deg,#ffffff_0%,#f8fafc_100%)] px-4 py-3 transition hover:border-slate-300 hover:shadow-sm"
-                  >
-                    <div className="text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-400">
-                      {product.brand.toUpperCase()}
-                    </div>
-                    <div className="mt-1 text-sm font-semibold text-slate-900 group-hover:text-slate-950">
-                      {ref}
-                    </div>
-                  </Link>
-                ))}
-              </div>
-            </SurfaceCard>
-          )}
 
           {pairedParts.length > 0 && (
             <SurfaceCard className="px-5 py-5 sm:px-6">
