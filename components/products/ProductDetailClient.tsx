@@ -163,25 +163,23 @@ export default function ProductDetailClient({ locale, product }: Props) {
     [product.pairedParts],
   );
 
-  const pairedPartsTitle = isThai
-    ? "เธเธฃเธญเธเธ—เธตเนเนเธเนเธเธนเนเธเธฑเธ"
-    : "Paired Filter";
+  const pairedPartsTitle = isThai ? "ชุดกรองที่ใช้คู่กัน" : "Paired Filter";
   const addToQuoteLabel = justAdded
     ? isThai
-      ? "เน€เธเธดเนเธกเนเธฅเนเธง โ“"
-      : "Added โ“"
+      ? "เพิ่มในใบเสนอราคาแล้ว"
+      : "Added"
     : text.addToQuote;
 
   const getPairedRelationLabel = (relation: "outer" | "inner" | "paired") => {
     if (relation === "inner") {
-      return isThai ? "เธเธฃเธญเธเธฅเธนเธเนเธ" : "Inner filter";
+      return isThai ? "ไส้กรองใน" : "Inner filter";
     }
 
     if (relation === "outer") {
-      return isThai ? "เธเธฃเธญเธเธฅเธนเธเธเธญเธ" : "Outer filter";
+      return isThai ? "ไส้กรองนอก" : "Outer filter";
     }
 
-    return isThai ? "เนเธเนเธเธนเนเธเธฑเธ" : "Paired part";
+    return isThai ? "ชิ้นส่วนที่ใช้คู่กัน" : "Paired part";
   };
 
   useEffect(() => {
@@ -237,26 +235,24 @@ export default function ProductDetailClient({ locale, product }: Props) {
           <SurfaceCard className="overflow-hidden">
             <div className="border-b border-slate-200 bg-slate-50/85 px-5 py-4 sm:px-6">
               <SectionLabel>
-                {isThai
-                  ? "เธเนเธญเธกเธนเธฅเธชเธณเธซเธฃเธฑเธเธ•เธฃเธงเธเธชเธญเธเธญเธฐเนเธซเธฅเน"
-                  : "Verification Notes"}
+                {isThai ? "หมายเหตุการตรวจสอบ" : "Verification Notes"}
               </SectionLabel>
             </div>
             <div className="px-5 py-5 text-sm leading-6 text-slate-700 sm:px-6">
               <ul className="space-y-3">
                 <li className="rounded-2xl bg-slate-50 px-4 py-3">
                   {isThai
-                    ? "เนเธเนเธญเนเธฒเธเธญเธดเธ Part Number / OEM Reference"
+                    ? "หน้านี้ใช้สำหรับตรวจสอบ Part Number / OEM Reference เบื้องต้น"
                     : "Use this page as a Part Number / OEM Reference checking aid."}
                 </li>
                 <li className="rounded-2xl bg-slate-50 px-4 py-3">
                   {isThai
-                    ? "เธชเนเธ RFQ เน€เธเธทเนเธญเนเธซเนเธ—เธตเธกเธ•เธฃเธงเธเธชเธญเธเธชเน€เธเธ เธฃเธธเนเธเน€เธ—เธตเธขเธ เนเธฅเธฐเธเธงเธฒเธกเน€เธซเธกเธฒเธฐเธชเธกเธเนเธญเธเน€เธชเธเธญเธฃเธฒเธเธฒ"
+                    ? "กรุณาส่ง RFQ เพื่อให้ทีมงานตรวจสอบสเปก ทางเลือกทดแทน และความเหมาะสมก่อนเสนอราคา"
                     : "Submit an RFQ so our team can verify specifications, possible alternatives, and suitability before quoting."}
                 </li>
                 <li className="rounded-2xl bg-slate-50 px-4 py-3">
                   {isThai
-                    ? "เนเธกเนเนเธชเธ”เธเธฃเธฒเธเธฒเนเธฅเธฐเธเธณเธเธงเธเธชเธ•เนเธญเธเธเธฃเธดเธเธเธเธซเธเนเธฒเน€เธงเนเธ"
+                    ? "เว็บไซต์ยังไม่แสดงราคาและจำนวนสต็อกแบบเรียลไทม์"
                     : "Live price and stock quantity are not shown on the website."}
                 </li>
               </ul>
@@ -438,7 +434,7 @@ export default function ProductDetailClient({ locale, product }: Props) {
               </SectionLabel>
               <p className="mt-2 text-sm leading-7 text-slate-600">
                 {isThai
-                  ? "เนเธเนเธเนเธญเธกเธนเธฅเธเธฒเธเธเธนเนเธเธฅเธดเธ•เน€เธเธทเนเธญเธเนเธงเธขเธ•เธฃเธงเธเธชเธญเธเธฃเธฒเธขเธฅเธฐเน€เธญเธตเธขเธ”เนเธฅเธฐเธเธงเธฒเธกเน€เธเนเธฒเธเธฑเธเนเธ”เนเน€เธเธดเนเธกเน€เธ•เธดเธกเธเนเธญเธเธชเนเธ RFQ"
+                  ? "ใช้หน้าผู้ผลิตสำหรับตรวจสอบรายละเอียดและความเข้ากันได้ก่อนส่ง RFQ"
                   : "Use the manufacturer page to verify details and compatibility before sending an RFQ."}
               </p>
               <a
