@@ -5,8 +5,45 @@ import { useEffect, useRef, useState } from "react";
 import { ShoppingCart } from "lucide-react";
 import { useToast } from "@/components/ui/ToastProvider";
 import { getProductUiText } from "@/lib/i18n/productUi";
+import { getProductImageUrl } from "@/lib/products/image";
 import { useQuote } from "@/providers/QuoteProvider";
 import type { Product } from "@/types/product";
+
+function normalizeSpecLabel(value: string) {
+  return value.trim().toLowerCase();
+}
+
+function buildSpecificationSummary(product: Product) {
+  const rows = (product.specifications ?? []).filter(
+    (item) =>
+      String(item?.label ?? "").trim().length > 0 &&
+      String(item?.value ?? "").trim().length > 0,
+  );
+
+  if (rows.length === 0) return "";
+
+  const specMap = new Map(
+    rows.map((item) => [
+      normalizeSpecLabel(String(item.label)),
+      String(item.value).trim(),
+    ]),
+  );
+
+  return [
+    specMap.get("type"),
+    specMap.get("style"),
+    specMap.get("position") ?? specMap.get("stage"),
+    specMap.get("flow"),
+    specMap.get("seal"),
+    specMap.get("shape") ?? specMap.get("form"),
+  ]
+    .filter(
+      (value, index, array): value is string =>
+        Boolean(value) && array.indexOf(value) === index,
+    )
+    .slice(0, 3)
+    .join(" • ");
+}
 
 export default function ProductCardV2({
   product,
@@ -29,15 +66,20 @@ export default function ProductCardV2({
     .filter(Boolean)
     .slice(0, 2);
 
-  const image =
-    product.imageUrl || product.officialImageUrl || "/images/placeholder.jpg";
+  const image = getProductImageUrl(
+    product.brand,
+    product.partNo,
+    product.imageUrl,
+  );
+  const specText =
+    product.spec?.trim() ||
+    buildSpecificationSummary(product) ||
+    "Specification to be confirmed";
   const isRequest = product.stockStatus === "request";
   const statusLabel = isRequest ? text.statusRequest : text.statusAvailable;
   const statusDotClass = isRequest ? "bg-amber-400" : "bg-emerald-500";
   const statusTextClass = isRequest ? "text-amber-800" : "text-emerald-700";
-  const hasProductImage = Boolean(
-    product.imageUrl || product.officialImageUrl
-  );
+  const hasProductImage = image !== "/images/placeholder.jpg";
   const addButtonLabel = justAdded
     ? isThai
       ? "เพิ่มแล้ว ✓"
@@ -118,11 +160,9 @@ export default function ProductCardV2({
         </div>
       )}
 
-      {product.spec && (
-        <div className="mt-2 min-h-[2.75rem] line-clamp-2 text-xs leading-5 text-gray-500 sm:min-h-[3rem] sm:text-xs">
-          {product.spec}
-        </div>
-      )}
+      <div className="mt-2 min-h-[2.75rem] line-clamp-2 text-xs leading-5 text-gray-500 sm:min-h-[3rem] sm:text-xs">
+        {specText}
+      </div>
 
       {product.shortDescription && (
         <div className="mb-2 mt-2 hidden min-h-[2.75rem] line-clamp-2 text-xs leading-5 text-gray-600 sm:block">
