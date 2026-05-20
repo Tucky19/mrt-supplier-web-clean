@@ -5,6 +5,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { trackEvent } from "@/lib/analytics/track";
 import { getProductUiText } from "@/lib/i18n/productUi";
+import { getProductImageUrl } from "@/lib/products/image";
 import { useQuote } from "@/providers/QuoteProvider";
 import type { Product } from "@/types/product";
 import ProductCrossReferenceCards from "./detail/ProductCrossReferenceCards";
@@ -49,6 +50,36 @@ function ProductGallery({
 
 function slugifyBrand(value: string) {
   return value.trim().toLowerCase().replace(/[\s/_-]+/g, "-");
+}
+
+function normalizeSpecLabel(value: string) {
+  return value.trim().toLowerCase();
+}
+
+function buildProductBadges(product: Product) {
+  const specs = Array.isArray(product.specifications) ? product.specifications : [];
+  const specMap = new Map(
+    specs
+      .filter(
+        (item) =>
+          typeof item?.label === "string" &&
+          item.label.trim().length > 0 &&
+          String(item.value ?? "").trim().length > 0,
+      )
+      .map((item) => [normalizeSpecLabel(item.label), String(item.value).trim()]),
+  );
+
+  return [
+    specMap.get("type"),
+    specMap.get("style"),
+    specMap.get("position") ?? specMap.get("stage"),
+    specMap.get("flow"),
+    specMap.get("seal"),
+    specMap.get("shape") ?? specMap.get("form"),
+  ].filter(
+    (value, index, array): value is string =>
+      Boolean(value) && array.indexOf(value) === index,
+  );
 }
 
 function SectionLabel({ children }: { children: React.ReactNode }) {
@@ -126,19 +157,25 @@ export default function ProductDetailClient({ locale, product }: Props) {
   const router = useRouter();
   const { addItem } = useQuote();
   const text = getProductUiText(locale);
-  const guessedImagePath = `/images/products/${product.brand.toLowerCase()}/${product.partNo.toLowerCase()}.jpg`;
   const isThai = locale === "th";
   const [justAdded, setJustAdded] = useState(false);
   const resetTimerRef = useRef<number | null>(null);
 
-  const images = product.images?.length
-    ? product.images
-    : [
-        product.imageUrl ||
-          product.officialImageUrl ||
-          guessedImagePath ||
-          "/images/placeholder.jpg",
-      ];
+  const primaryImage = getProductImageUrl(
+    product.brand,
+    product.partNo,
+    product.imageUrl,
+  );
+
+  const images = useMemo(() => {
+    const extraImages = (product.images ?? [])
+      .map((image) => String(image).trim())
+      .filter(Boolean);
+
+    return [primaryImage, ...extraImages].filter(
+      (image, index, array) => array.indexOf(image) === index,
+    );
+  }, [primaryImage, product.images]);
 
   const refs = useMemo(
     () =>
@@ -186,9 +223,7 @@ export default function ProductDetailClient({ locale, product }: Props) {
     [locale, product],
   );
 
-  const badges = isThai
-    ? ["Oil Filter", "Spin-on", "RFQ Available"]
-    : ["Oil Filter", "Spin-on", "RFQ Available"];
+  const badges = useMemo(() => buildProductBadges(product), [product]);
   const pairedPartsTitle = isThai ? "ชุดกรองที่ใช้คู่กัน" : "Paired Filter";
   const addToQuoteLabel = justAdded
     ? isThai
@@ -293,16 +328,24 @@ export default function ProductDetailClient({ locale, product }: Props) {
                 {product.partNo}
               </h1>
 
-              <div className="mt-3 flex flex-wrap gap-2">
-                {badges.map((badge) => (
-                  <span
-                    key={badge}
-                    className="rounded-full border border-slate-300 bg-slate-50 px-3 py-1 text-[11px] font-medium uppercase tracking-[0.08em] text-slate-600"
-                  >
-                    {badge}
-                  </span>
-                ))}
-              </div>
+              {product.spec?.trim() && (
+                <p className="mt-3 max-w-3xl text-base leading-7 text-slate-700 sm:text-lg">
+                  {product.spec.trim()}
+                </p>
+              )}
+
+              {badges.length > 0 && (
+                <div className="mt-3 flex flex-wrap gap-2">
+                  {badges.map((badge) => (
+                    <span
+                      key={badge}
+                      className="rounded-full border border-slate-300 bg-slate-50 px-3 py-1 text-[11px] font-medium uppercase tracking-[0.08em] text-slate-600"
+                    >
+                      {badge}
+                    </span>
+                  ))}
+                </div>
+              )}
 
               <Link
                 href={`/${locale}/brands/${slugifyBrand(product.brand)}`}
@@ -426,7 +469,7 @@ export default function ProductDetailClient({ locale, product }: Props) {
           {((product.specifications?.length ?? 0) > 0 || product.spec?.trim()) && (
             <ProductSpecTable
               locale={locale}
-              specifications={(product.specifications ?? []).slice(0, 8).map((item) => ({
+              specifications={(product.specifications ?? []).map((item) => ({
                 label: String(item.label),
                 value: String(item.value),
               }))}
