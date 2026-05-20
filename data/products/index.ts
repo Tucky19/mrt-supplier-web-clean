@@ -11,6 +11,20 @@ import { ntnProducts } from "./products.ntn";
 import { uploadedProducts } from "./products.uploaded";
 import { importedProducts } from "./products.imported";
 
+const EXCLUDED_ACTIVE_PART_NOS = new Set([
+  "6205-ZZ",
+  "6205-LLU",
+  "6204-ZZ",
+  "6203-ZZ",
+  "6305-ZZ",
+  "6306-ZZ",
+  "R011866",
+  "P502344",
+  "P509129",
+  "P527596",
+  "P556485",
+]);
+
 function normalizePartNo(value: string) {
   return value.trim().toLowerCase().replace(/[\s/_-]+/g, "");
 }
@@ -30,7 +44,9 @@ const rawProducts = [
 
 export const products = Array.from(
   new Map(
-    normalizeProducts(rawProducts).map((product) => {
+    normalizeProducts(rawProducts)
+      .filter((product) => !EXCLUDED_ACTIVE_PART_NOS.has(product.partNo))
+      .map((product) => {
       const key = normalizePartNo(product.partNo);
 
       return [

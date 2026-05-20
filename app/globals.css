@@ -1,5 +1,11 @@
 @import "tailwindcss";
 
+:root {
+  --font-ui: "Noto Sans Thai", Inter, "Segoe UI", Tahoma, Geneva, Verdana,
+    sans-serif;
+  --font-tech: Inter, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -8,15 +14,15 @@ body {
   margin: 0;
   background: #f8fafc;
   color: #0f172a;
-  font-family: var(--font-ui), Arial, Helvetica, sans-serif;
+  font-family: var(--font-ui);
 }
 
 .font-ui {
-  font-family: var(--font-ui), Arial, Helvetica, sans-serif;
+  font-family: var(--font-ui);
 }
 
 .font-tech {
-  font-family: var(--font-tech), var(--font-ui), Arial, Helvetica, sans-serif;
+  font-family: var(--font-tech), var(--font-ui);
 }
 
 * {
