@@ -1,85 +1,182 @@
-import Link from "next/link";
+type ReferenceRow = {
+  brand: string;
+  partNos: string[];
+};
+
+type SameBrandAlternativeRow = {
+  brand: string;
+  partNo: string;
+  note?: string;
+};
 
 type Props = {
   locale: string;
   refs: string[];
   brand: string;
+  currentPartNo?: string;
+  sameBrandAlternatives?: SameBrandAlternativeRow[];
+};
+
+type ParsedReference = {
+  brand: string;
+  partNo: string;
 };
 
 function SectionLabel({ children }: { children: React.ReactNode }) {
   return (
-    <div className="text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-500">
+    <div className="text-[10px] font-semibold uppercase tracking-[0.14em] text-slate-400">
       {children}
     </div>
   );
+}
+
+function normalizeBrand(value: string) {
+  return value.trim().replace(/\s+/g, " ").toUpperCase();
+}
+
+function normalizePartNo(value: string) {
+  return value.trim().replace(/\s+/g, " ").toUpperCase();
+}
+
+function parseReference(value: string, fallbackBrand: string): ParsedReference | null {
+  const raw = String(value ?? "").trim();
+  if (!raw) return null;
+
+  const separatorIndex = raw.indexOf(":");
+  if (separatorIndex === -1) {
+    return {
+      brand: normalizeBrand(fallbackBrand),
+      partNo: normalizePartNo(raw),
+    };
+  }
+
+  const parsedBrand = raw.slice(0, separatorIndex).trim();
+  const parsedPartNo = raw.slice(separatorIndex + 1).trim();
+
+  if (!parsedPartNo) return null;
+
+  return {
+    brand: normalizeBrand(parsedBrand || fallbackBrand),
+    partNo: normalizePartNo(parsedPartNo),
+  };
+}
+
+function addPartNo(map: Map<string, string[]>, brand: string, partNo: string) {
+  const current = map.get(brand) ?? [];
+  if (!current.includes(partNo)) {
+    current.push(partNo);
+  }
+  map.set(brand, current);
 }
 
 export default function ProductCrossReferenceCards({
   locale,
   refs,
   brand,
+  currentPartNo,
+  sameBrandAlternatives = [],
 }: Props) {
-  if (refs.length === 0) {
+  const isThai = locale === "th";
+  const normalizedCurrentBrand = normalizeBrand(brand);
+  const normalizedCurrentPartNo = normalizePartNo(currentPartNo ?? "");
+
+  const grouped = new Map<string, string[]>();
+
+  sameBrandAlternatives
+    .filter(
+      (item) =>
+        item &&
+        item.brand.trim().length > 0 &&
+        item.partNo.trim().length > 0 &&
+        normalizePartNo(item.partNo) !== normalizedCurrentPartNo,
+    )
+    .forEach((item) => {
+      addPartNo(grouped, item.brand.trim(), item.partNo.trim());
+    });
+
+  refs
+    .map((value) => parseReference(value, brand))
+    .filter((item): item is ParsedReference => Boolean(item))
+    .filter((item) => item.partNo !== normalizedCurrentPartNo)
+    .forEach((item) => {
+      const alreadyIncludedAsSameBrand =
+        item.brand === normalizedCurrentBrand &&
+        (grouped.get(brand) ?? []).some(
+          (partNo) => normalizePartNo(partNo) === item.partNo,
+        );
+
+      if (!alreadyIncludedAsSameBrand) {
+        addPartNo(grouped, item.brand, item.partNo);
+      }
+    });
+
+  const rows: ReferenceRow[] = Array.from(grouped.entries()).map(
+    ([rowBrand, partNos]) => ({
+      brand: rowBrand,
+      partNos,
+    }),
+  );
+
+  if (rows.length === 0) {
     return null;
   }
 
-  const isThai = locale === "th";
-  const title = "CROSS REFERENCE";
-  const subtitle = "Equivalent / Replacement Parts";
-  const brandLabel = "Brand";
-  const referenceLabel = "Reference Part No.";
-  const note = isThai
-    ? "หมายเหตุ: ข้อมูล Cross Reference ใช้เพื่อเทียบเบื้องต้น กรุณายืนยันสเปค ขนาด เกลียว และค่าการกรองก่อนสั่งซื้อ"
-    : "Cross reference data is provided as an initial matching aid. Submit an RFQ so our team can confirm fitment before quoting.";
-
   return (
-    <div className="overflow-hidden rounded-[28px] border border-slate-200 bg-white shadow-[0_22px_60px_rgba(15,23,42,0.08)]">
-      <div className="border-b border-slate-200 bg-[linear-gradient(180deg,#ffffff_0%,#f8fbff_100%)] px-5 py-5 sm:px-6">
-        <SectionLabel>{title}</SectionLabel>
-        <h2 className="mt-2 text-lg font-semibold tracking-[-0.02em] text-slate-950">
-          {title}
-        </h2>
-        <p className="mt-2 max-w-2xl text-sm leading-6 text-slate-600">
-          {subtitle}
-        </p>
-      </div>
+    <div className="space-y-3">
+      <div className="overflow-hidden rounded-[28px] border border-slate-300 bg-white shadow-[0_12px_30px_rgba(15,23,42,0.05)]">
+        <div className="h-1 w-full bg-[linear-gradient(90deg,#cbdff7_0%,#dceafc_55%,#eef5ff_100%)]" />
+        <div className="border-b border-slate-200 bg-[linear-gradient(180deg,#f8fbff_0%,#ffffff_100%)] px-5 py-4 sm:px-6">
+          {!isThai ? <SectionLabel>Interchange</SectionLabel> : null}
+          <h2 className={`${!isThai ? "mt-1.5" : ""} text-lg font-semibold tracking-[-0.02em] text-slate-950`}>
+            Interchange
+          </h2>
+          <p className="mt-1 text-sm leading-6 text-slate-600">Alternative Part Numbers</p>
+        </div>
 
-      <div className="px-5 py-5 sm:px-6">
-        <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white">
-          <div className="grid grid-cols-[minmax(120px,0.8fr)_minmax(0,1.2fr)] border-b border-slate-200 bg-slate-50/90">
-            <div className="px-4 py-3 text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">
-              {brandLabel}
-            </div>
-            <div className="border-l border-slate-200 px-4 py-3 text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">
-              {referenceLabel}
-            </div>
-          </div>
-
-          <div className="divide-y divide-slate-200">
-            {refs.map((ref) => (
+        <div className="px-5 py-4 sm:px-6">
+          <div className="overflow-x-auto rounded-[22px] border border-slate-200 bg-slate-50/40">
+            <div className="min-w-[560px]">
               <div
-                key={ref}
-                className="grid grid-cols-[minmax(120px,0.8fr)_minmax(0,1.2fr)] items-stretch"
+                className="grid border-b border-slate-200 bg-slate-100/90"
+                style={{
+                  gridTemplateColumns: "minmax(200px,0.95fr) minmax(220px,1.05fr)",
+                }}
               >
-                <div className="px-4 py-3 text-sm font-medium text-slate-700">
-                  {brand.toUpperCase()}
+                <div className="whitespace-nowrap px-4 py-3 text-xs font-semibold uppercase tracking-[0.12em] text-slate-600">
+                  Brand / Manufacturer
                 </div>
-                <div className="border-l border-slate-200 px-4 py-3">
-                  <Link
-                    href={`/${locale}/products/${encodeURIComponent(ref)}`}
-                    className="text-sm font-semibold text-slate-900 underline-offset-4 transition hover:text-slate-700 hover:underline"
-                  >
-                    {ref}
-                  </Link>
+                <div className="whitespace-nowrap border-l border-slate-200 px-4 py-3 text-xs font-semibold uppercase tracking-[0.12em] text-slate-600">
+                  Part No.
                 </div>
               </div>
-            ))}
+
+              <div className="divide-y divide-slate-200 bg-white">
+                {rows.map((row) => (
+                  <div
+                    key={`${row.brand}-${row.partNos.join(",")}`}
+                    className="grid items-start"
+                    style={{
+                      gridTemplateColumns: "minmax(200px,0.95fr) minmax(220px,1.05fr)",
+                    }}
+                  >
+                    <div className="break-words px-4 py-3.5 text-sm font-semibold leading-6 text-slate-800">
+                      {row.brand}
+                    </div>
+                    <div className="border-l border-slate-200 px-4 py-3.5 text-sm leading-6 text-slate-700">
+                      <span className="font-mono text-[13px] sm:text-sm">
+                        {row.partNos.join(", ")}
+                      </span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
+      </div>
 
-        <div className="mt-4 rounded-2xl border border-sky-100 bg-sky-50/80 px-4 py-3 text-sm leading-6 text-sky-900">
-          {note}
-        </div>
+      <div className="rounded-[20px] border border-slate-200 bg-slate-50/85 px-4 py-3 text-sm leading-6 text-slate-600">
+        ข้อมูล Interchange ใช้สำหรับอ้างอิงเบื้องต้น ทีมงานจะตรวจสอบความเข้ากันได้ของสเปก ขนาด เกลียว และ Application ก่อนเสนอราคา
       </div>
     </div>
   );
