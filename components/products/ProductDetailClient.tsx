@@ -9,7 +9,6 @@ import { getProductImageUrl } from "@/lib/products/image";
 import { useQuote } from "@/providers/QuoteProvider";
 import type { Product } from "@/types/product";
 import ProductCrossReferenceCards from "./detail/ProductCrossReferenceCards";
-import ProductSpecTable from "./detail/ProductSpecTable";
 
 type Props = {
   locale: string;
@@ -222,6 +221,16 @@ export default function ProductDetailClient({ locale, product }: Props) {
     () => buildTopProductInfo(product, locale),
     [locale, product],
   );
+  const specRows = useMemo(
+    () =>
+      (product.specifications ?? []).filter(
+        (item) =>
+          String(item?.label ?? "").trim().length > 0 &&
+          String(item?.value ?? "").trim().length > 0,
+      ),
+    [product.specifications],
+  );
+  const hasSpecContent = Boolean(product.spec?.trim()) || specRows.length > 0;
 
   const badges = useMemo(() => buildProductBadges(product), [product]);
   const pairedPartsTitle = isThai ? "ชุดกรองที่ใช้คู่กัน" : "Paired Filter";
@@ -381,6 +390,38 @@ export default function ProductDetailClient({ locale, product }: Props) {
                 </p>
               )}
 
+              {hasSpecContent && (
+                <div className="rounded-[22px] border border-slate-300 bg-white px-5 py-5 shadow-[0_8px_24px_rgba(15,23,42,0.05)]">
+                  <SectionLabel>
+                    {locale === "th" ? "สเปกสินค้า" : "Product Specifications"}
+                  </SectionLabel>
+
+                  {product.spec?.trim() && (
+                    <p className="mt-3 text-sm leading-7 text-slate-700 sm:text-[15px]">
+                      {product.spec.trim()}
+                    </p>
+                  )}
+
+                  {specRows.length > 0 && (
+                    <div className="mt-4 grid gap-3.5 sm:grid-cols-2">
+                      {specRows.map((item) => (
+                        <div
+                          key={`${item.label}-${item.value}`}
+                          className="rounded-2xl border border-slate-300 bg-slate-50/80 px-4 py-3.5"
+                        >
+                          <p className="text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">
+                            {String(item.label)}
+                          </p>
+                          <p className="mt-1.5 text-sm font-semibold leading-6 text-slate-900">
+                            {String(item.value)}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              )}
+
               <div className="rounded-[24px] border border-slate-300 bg-[linear-gradient(180deg,#f7fafc_0%,#ffffff_100%)] p-4 shadow-[0_8px_24px_rgba(15,23,42,0.05)] sm:p-5">
                 <SectionLabel>{text.readyToQuote}</SectionLabel>
                 <p className="mt-2 text-sm leading-7 text-slate-600">
@@ -464,17 +505,6 @@ export default function ProductDetailClient({ locale, product }: Props) {
                 ))}
               </div>
             </SurfaceCard>
-          )}
-
-          {((product.specifications?.length ?? 0) > 0 || product.spec?.trim()) && (
-            <ProductSpecTable
-              locale={locale}
-              specifications={(product.specifications ?? []).map((item) => ({
-                label: String(item.label),
-                value: String(item.value),
-              }))}
-              specSummary={product.spec}
-            />
           )}
 
           {product.officialUrl && (
