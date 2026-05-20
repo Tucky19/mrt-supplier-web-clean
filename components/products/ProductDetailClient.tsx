@@ -256,8 +256,6 @@ export default function ProductDetailClient({ locale, product }: Props) {
             locale={locale}
             refs={refs}
             brand={product.brand}
-            currentPartNo={product.partNo}
-            sameBrandAlternatives={product.sameBrandAlternatives}
           />
 
           <SurfaceCard className="overflow-hidden">
