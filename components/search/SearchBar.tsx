@@ -13,7 +13,7 @@ type Props = {
   autoFocus?: boolean;
 };
 
-const SEARCH_DEBOUNCE_MS = 200;
+const SEARCH_DEBOUNCE_MS = 400;
 const EXAMPLE_QUERIES = ["P551315", "P553004", "hydraulic filter"];
 const RECENT_SEARCHES_KEY = "mrt_recent_searches_v1";
 const RECENT_SEARCHES_LIMIT = 5;
@@ -77,7 +77,7 @@ export default function SearchBar({
   const searchParams = useSearchParams();
   const text = getSearchUiText(locale);
 
-  const [query, setQuery] = useState(defaultValue);
+  const [draftQuery, setDraftQuery] = useState(defaultValue);
   const [isFocused, setIsFocused] = useState(false);
   const [highlightedIndex, setHighlightedIndex] = useState(-1);
   const [recentSearches, setRecentSearches] = useState<string[]>([]);
@@ -86,7 +86,7 @@ export default function SearchBar({
   const inputRef = useRef<HTMLInputElement | null>(null);
   const dropdownOptionRefs = useRef<Array<HTMLButtonElement | null>>([]);
   const lastSyncedQueryRef = useRef(defaultValue.trim());
-  const suggestions = useSearchSuggestions(query);
+  const suggestions = useSearchSuggestions(draftQuery);
 
   useEffect(() => {
     try {
@@ -102,15 +102,17 @@ export default function SearchBar({
 
   useEffect(() => {
     const urlQuery = searchParams.get("q") ?? "";
-    if (urlQuery !== query) {
-      setQuery(urlQuery);
-      lastSyncedQueryRef.current = urlQuery.trim();
+    lastSyncedQueryRef.current = urlQuery.trim();
+
+    if (isFocused) return;
+    if (urlQuery !== draftQuery) {
+      setDraftQuery(urlQuery);
     }
-  }, [searchParams]);
+  }, [draftQuery, isFocused, searchParams]);
 
   useEffect(() => {
     setHighlightedIndex(-1);
-  }, [suggestions, recentSearches, query]);
+  }, [suggestions, recentSearches, draftQuery]);
 
   const scrollToResults = () => {
     window.setTimeout(() => {
@@ -174,7 +176,7 @@ export default function SearchBar({
   };
 
   useEffect(() => {
-    const trimmed = query.trim();
+    const trimmed = draftQuery.trim();
 
     if (trimmed.length > 0 && trimmed.length < 2) return;
     if (trimmed === lastSyncedQueryRef.current) return;
@@ -184,14 +186,14 @@ export default function SearchBar({
     }, SEARCH_DEBOUNCE_MS);
 
     return () => window.clearTimeout(timeout);
-  }, [query, searchParams, pathname, locale, router]);
+  }, [draftQuery, searchParams, pathname, locale, router]);
 
   const visibleRecents = useMemo(() => {
-    const trimmed = query.trim().toLowerCase();
+    const trimmed = draftQuery.trim().toLowerCase();
     return recentSearches
       .filter((item) => (trimmed ? item.toLowerCase().includes(trimmed) : true))
       .slice(0, RECENT_SEARCHES_LIMIT);
-  }, [query, recentSearches]);
+  }, [draftQuery, recentSearches]);
 
   const groupedSuggestions = useMemo(() => {
     const groups = new Map<string, typeof suggestions>();
@@ -215,7 +217,7 @@ export default function SearchBar({
     [groupedSuggestions]
   );
 
-  const trimmedQuery = query.trim();
+  const trimmedQuery = draftQuery.trim();
   const showViewAllResults = trimmedQuery.length >= 2;
   const dropdownItems = [
     ...visibleRecents.map((recent) => ({
@@ -238,7 +240,7 @@ export default function SearchBar({
   const showDropdown = isFocused && dropdownItems.length > 0;
 
   const selectDropdownItem = (value: string) => {
-    setQuery(value);
+    setDraftQuery(value);
     navigateToQuery(value, { scrollToResults: true });
   };
 
@@ -258,13 +260,13 @@ export default function SearchBar({
       return;
     }
 
-    const trimmed = query.trim();
+    const trimmed = draftQuery.trim();
     if (trimmed.length < 2) return;
     navigateToQuery(trimmed, { scrollToResults: true });
   };
 
   const handleExampleClick = (example: string) => {
-    setQuery(example);
+    setDraftQuery(example);
     navigateToQuery(example, { scrollToResults: true });
   };
 
@@ -368,10 +370,10 @@ export default function SearchBar({
             ref={inputRef}
             name="q"
             type="text"
-            value={query}
+            value={draftQuery}
             autoFocus={autoFocus}
             autoComplete="off"
-            onChange={(e) => setQuery(e.target.value)}
+            onChange={(e) => setDraftQuery(e.target.value)}
             onFocus={() => setIsFocused(true)}
             onKeyDown={handleKeyDown}
             placeholder={text.searchPlaceholder}
@@ -468,18 +470,18 @@ export default function SearchBar({
                         }`}
                       >
                         <span className="block font-medium text-slate-900">
-                          {highlightMatch(suggestion.partNo, query)}
+                          {highlightMatch(suggestion.partNo, draftQuery)}
                         </span>
                         <span className="mt-1 block text-xs leading-5 text-slate-500">
                           <span className="font-semibold uppercase tracking-wide text-slate-400">
                             {label}
                           </span>
                           <span className="px-1.5 text-slate-300">•</span>
-                          {highlightMatch(suggestion.brand, query)}
+                          {highlightMatch(suggestion.brand, draftQuery)}
                           {suggestion.title ? (
                             <>
                               {text.bySeparator}
-                              {highlightMatch(suggestion.title, query)}
+                              {highlightMatch(suggestion.title, draftQuery)}
                             </>
                           ) : null}
                         </span>
@@ -497,7 +499,9 @@ export default function SearchBar({
                   ref={(node) => {
                     dropdownOptionRefs.current[viewAllIndex] = node;
                   }}
-                  onClick={() => navigateToQuery(query, { scrollToResults: true })}
+                  onClick={() =>
+                    navigateToQuery(draftQuery, { scrollToResults: true })
+                  }
                   onMouseDown={(event) => event.preventDefault()}
                   onFocus={() => {
                     setIsFocused(true);
