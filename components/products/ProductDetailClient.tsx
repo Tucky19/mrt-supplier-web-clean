@@ -8,6 +8,7 @@ import { getProductUiText } from "@/lib/i18n/productUi";
 import { useQuote } from "@/providers/QuoteProvider";
 import type { Product } from "@/types/product";
 import ProductCrossReferenceCards from "./detail/ProductCrossReferenceCards";
+import ProductSpecTable from "./detail/ProductSpecTable";
 
 type Props = {
   locale: string;
@@ -26,14 +27,14 @@ function ProductGallery({
   images: string[];
   partNo: string;
 }) {
-  const [active, setActive] = useState(0);
+  const primaryImage = normalizePath(images[0]);
 
   return (
     <div className="space-y-4">
-      <div className="overflow-hidden rounded-[28px] border border-slate-200 bg-[linear-gradient(180deg,#ffffff_0%,#f8fafc_100%)] p-5 shadow-[0_22px_60px_rgba(15,23,42,0.08)] sm:p-7">
-        <div className="rounded-[22px] border border-slate-100 bg-white p-4 sm:p-6">
+      <div className="overflow-hidden rounded-[28px] border border-slate-300 bg-[linear-gradient(180deg,#ffffff_0%,#f8fafc_100%)] p-5 shadow-[0_18px_42px_rgba(15,23,42,0.08)] sm:p-7">
+        <div className="rounded-[22px] border border-slate-200 bg-white p-4 sm:p-6">
           <img
-            src={normalizePath(images[active])}
+            src={primaryImage}
             alt={partNo}
             className="h-72 w-full object-contain sm:h-80"
             onError={(event) => {
@@ -42,40 +43,12 @@ function ProductGallery({
           />
         </div>
       </div>
-
-      {images.length > 1 && (
-        <div className="grid grid-cols-4 gap-2 sm:flex sm:flex-wrap sm:gap-3">
-          {images.map((img, index) => (
-            <button
-              key={`${img}-${index}`}
-              onClick={() => setActive(index)}
-              className={`overflow-hidden rounded-2xl border bg-white p-1.5 shadow-sm transition ${
-                index === active
-                  ? "border-slate-900 shadow-[0_10px_30px_rgba(15,23,42,0.16)]"
-                  : "border-slate-200 hover:border-slate-300"
-              }`}
-            >
-              <img
-                src={normalizePath(img)}
-                alt=""
-                className="h-16 w-full rounded-xl object-contain bg-slate-50"
-                onError={(event) => {
-                  event.currentTarget.src = "/images/placeholder.jpg";
-                }}
-              />
-            </button>
-          ))}
-        </div>
-      )}
     </div>
   );
 }
 
 function slugifyBrand(value: string) {
-  return value
-    .trim()
-    .toLowerCase()
-    .replace(/[\s/_-]+/g, "-");
+  return value.trim().toLowerCase().replace(/[\s/_-]+/g, "-");
 }
 
 function SectionLabel({ children }: { children: React.ReactNode }) {
@@ -95,11 +68,58 @@ function SurfaceCard({
 }) {
   return (
     <div
-      className={`rounded-[28px] border border-slate-200 bg-white shadow-[0_22px_60px_rgba(15,23,42,0.08)] ${className}`}
+      className={`rounded-[28px] border border-slate-300 bg-white shadow-[0_16px_42px_rgba(15,23,42,0.07)] ${className}`}
     >
       {children}
     </div>
   );
+}
+
+function buildTopProductInfo(product: Product, locale: string) {
+  const isThai = locale === "th";
+
+  if (product.partNo.toUpperCase() === "P553000" && isThai) {
+    return {
+      title: "เกี่ยวกับ Donaldson P553000",
+      paragraphs: [
+        "Donaldson P553000 เป็นกรองน้ำมันเครื่องแบบ Spin-on สำหรับช่วยรักษาความสะอาดของน้ำมันเครื่อง และลดสิ่งปนเปื้อนที่อาจก่อให้เกิดการสึกหรอภายในเครื่องยนต์",
+        "ตัวกรองช่วยดักจับสิ่งสกปรกที่สะสมระหว่างการใช้งาน สนับสนุนการหล่อลื่นให้มีประสิทธิภาพ และช่วยส่งผ่านน้ำมันที่สะอาดกว่าไปยังชิ้นส่วนสำคัญของเครื่องยนต์",
+      ],
+    };
+  }
+
+  if (isThai) {
+    if (product.category === "oil_filter") {
+      return {
+        title: "เกี่ยวกับสินค้า",
+        paragraphs: ["Spin-on filter สำหรับระบบหล่อลื่น"],
+      };
+    }
+
+    if (product.category === "fuel_filter") {
+      return {
+        title: "เกี่ยวกับสินค้า",
+        paragraphs: ["Spin-on filter สำหรับระบบเชื้อเพลิง"],
+      };
+    }
+
+    if (product.category === "hydraulic_filter") {
+      return {
+        title: "เกี่ยวกับสินค้า",
+        paragraphs: ["Spin-on filter สำหรับระบบไฮดรอลิก"],
+      };
+    }
+
+    return {
+      title: "เกี่ยวกับสินค้า",
+      paragraphs: ["อุปกรณ์กรองสำหรับงานอุตสาหกรรม"],
+    };
+  }
+
+  return {
+    title: "About This Product",
+    paragraphs: ["Industrial filtration component"],
+  };
 }
 
 export default function ProductDetailClient({ locale, product }: Props) {
@@ -114,8 +134,7 @@ export default function ProductDetailClient({ locale, product }: Props) {
   const images = product.images?.length
     ? product.images
     : [
-        product.detailImageUrl ||
-          product.imageUrl ||
+        product.imageUrl ||
           product.officialImageUrl ||
           guessedImagePath ||
           "/images/placeholder.jpg",
@@ -127,8 +146,7 @@ export default function ProductDetailClient({ locale, product }: Props) {
         new Set([...(product.refs ?? []), ...(product.crossReferences ?? [])]),
       )
         .map((value) => String(value).trim())
-        .filter(Boolean)
-        .slice(0, 5),
+        .filter(Boolean),
     [product.refs, product.crossReferences],
   );
 
@@ -163,6 +181,14 @@ export default function ProductDetailClient({ locale, product }: Props) {
     [product.pairedParts],
   );
 
+  const topProductInfo = useMemo(
+    () => buildTopProductInfo(product, locale),
+    [locale, product],
+  );
+
+  const badges = isThai
+    ? ["Oil Filter", "Spin-on", "RFQ Available"]
+    : ["Oil Filter", "Spin-on", "RFQ Available"];
   const pairedPartsTitle = isThai ? "ชุดกรองที่ใช้คู่กัน" : "Paired Filter";
   const addToQuoteLabel = justAdded
     ? isThai
@@ -223,38 +249,28 @@ export default function ProductDetailClient({ locale, product }: Props) {
 
   return (
     <>
-      <div className="grid gap-8 pb-28 lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)] lg:gap-10 lg:pb-0">
+      <div className="grid gap-8 pb-28 lg:grid-cols-[minmax(0,1.08fr)_minmax(0,1fr)] lg:gap-10 lg:pb-0">
         <div className="space-y-5">
           <ProductGallery images={images} partNo={product.partNo} />
           <ProductCrossReferenceCards
             locale={locale}
             refs={refs}
             brand={product.brand}
+            currentPartNo={product.partNo}
+            sameBrandAlternatives={product.sameBrandAlternatives}
           />
 
           <SurfaceCard className="overflow-hidden">
-            <div className="border-b border-slate-200 bg-slate-50/85 px-5 py-4 sm:px-6">
+            <div className="border-b border-slate-300 bg-slate-50/95 px-5 py-4 sm:px-6">
               <SectionLabel>
                 {isThai ? "หมายเหตุการตรวจสอบ" : "Verification Notes"}
               </SectionLabel>
             </div>
-            <div className="px-5 py-5 text-sm leading-6 text-slate-700 sm:px-6">
-              <ul className="space-y-3">
-                <li className="rounded-2xl bg-slate-50 px-4 py-3">
-                  {isThai
-                    ? "หน้านี้ใช้สำหรับตรวจสอบ Part Number / OEM Reference เบื้องต้น"
-                    : "Use this page as a Part Number / OEM Reference checking aid."}
-                </li>
-                <li className="rounded-2xl bg-slate-50 px-4 py-3">
-                  {isThai
-                    ? "กรุณาส่ง RFQ เพื่อให้ทีมงานตรวจสอบสเปก ทางเลือกทดแทน และความเหมาะสมก่อนเสนอราคา"
-                    : "Submit an RFQ so our team can verify specifications, possible alternatives, and suitability before quoting."}
-                </li>
-                <li className="rounded-2xl bg-slate-50 px-4 py-3">
-                  {isThai
-                    ? "เว็บไซต์ยังไม่แสดงราคาและจำนวนสต็อกแบบเรียลไทม์"
-                    : "Live price and stock quantity are not shown on the website."}
-                </li>
+            <div className="px-5 py-5 sm:px-6">
+              <ul className="list-disc space-y-2 pl-5 text-sm leading-7 text-slate-700 marker:text-slate-500">
+                <li>หน้านี้ใช้สำหรับตรวจสอบ Part Number / OEM Reference เบื้องต้น</li>
+                <li>กรุณาส่ง RFQ เพื่อให้ทีมงานตรวจสอบเบอร์เทียบ ทางเลือกทดแทน และความเหมาะสมก่อนเสนอราคา</li>
+                <li>เว็บไซต์ยังไม่แสดงราคาและจำนวนสต๊อกแบบเรียลไทม์</li>
               </ul>
             </div>
           </SurfaceCard>
@@ -262,12 +278,12 @@ export default function ProductDetailClient({ locale, product }: Props) {
 
         <div className="self-start space-y-5">
           <SurfaceCard className="overflow-hidden">
-            <div className="border-b border-slate-200 bg-[linear-gradient(180deg,#ffffff_0%,#f8fafc_100%)] px-5 py-5 sm:px-6">
+            <div className="border-b border-slate-300 bg-[linear-gradient(180deg,#f8fbfd_0%,#ffffff_100%)] px-5 py-5 sm:px-6">
               <div className="flex flex-wrap items-center gap-2.5">
                 <span className="rounded-full bg-slate-900 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-white">
                   {product.brand.toUpperCase()}
                 </span>
-                <span className="rounded-full border border-slate-200 bg-white px-3 py-1 text-[11px] font-medium text-slate-600">
+                <span className="rounded-full border border-slate-300 bg-white px-3 py-1 text-[11px] font-medium text-slate-600">
                   OEM Reference
                 </span>
                 <span className="rounded-full border border-sky-200 bg-sky-50 px-3 py-1 text-[11px] font-medium text-sky-700">
@@ -279,9 +295,20 @@ export default function ProductDetailClient({ locale, product }: Props) {
                 {product.partNo}
               </h1>
 
+              <div className="mt-3 flex flex-wrap gap-2">
+                {badges.map((badge) => (
+                  <span
+                    key={badge}
+                    className="rounded-full border border-slate-300 bg-slate-50 px-3 py-1 text-[11px] font-medium uppercase tracking-[0.08em] text-slate-600"
+                  >
+                    {badge}
+                  </span>
+                ))}
+              </div>
+
               <Link
                 href={`/${locale}/brands/${slugifyBrand(product.brand)}`}
-                className="mt-2 inline-flex text-sm font-medium text-slate-500 underline-offset-4 hover:text-slate-700 hover:underline"
+                className="mt-3 inline-flex text-sm font-medium text-slate-500 underline-offset-4 hover:text-slate-700 hover:underline"
               >
                 {product.brand.toUpperCase()}
               </Link>
@@ -294,9 +321,16 @@ export default function ProductDetailClient({ locale, product }: Props) {
             </div>
 
             <div className="space-y-5 px-5 py-5 sm:px-6">
-              {product.spec && (
-                <div className="rounded-2xl border border-slate-200 bg-slate-50/90 px-4 py-4 text-sm leading-7 text-slate-700">
-                  {product.spec}
+              {topProductInfo.paragraphs.length > 0 && (
+                <div className="rounded-[22px] border border-slate-300 bg-slate-50/95 px-5 py-4 shadow-[0_4px_14px_rgba(15,23,42,0.04)]">
+                  <div className="text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-600">
+                    {topProductInfo.title}
+                  </div>
+                  <div className="mt-2 space-y-3 text-sm leading-7 text-slate-700">
+                    {topProductInfo.paragraphs.map((paragraph) => (
+                      <p key={paragraph}>{paragraph}</p>
+                    ))}
+                  </div>
                 </div>
               )}
 
@@ -306,7 +340,7 @@ export default function ProductDetailClient({ locale, product }: Props) {
                 </p>
               )}
 
-              <div className="rounded-[24px] border border-slate-200 bg-[linear-gradient(180deg,#f8fafc_0%,#ffffff_100%)] p-4 shadow-sm sm:p-5">
+              <div className="rounded-[24px] border border-slate-300 bg-[linear-gradient(180deg,#f7fafc_0%,#ffffff_100%)] p-4 shadow-[0_8px_24px_rgba(15,23,42,0.05)] sm:p-5">
                 <SectionLabel>{text.readyToQuote}</SectionLabel>
                 <p className="mt-2 text-sm leading-7 text-slate-600">
                   {text.readyToQuoteBody}
@@ -337,18 +371,6 @@ export default function ProductDetailClient({ locale, product }: Props) {
                   {text.rfqSupportNote}
                 </p>
               </div>
-
-              {product.description &&
-              product.description !== product.shortDescription ? (
-                <div className="rounded-2xl border border-slate-200 bg-white px-4 py-4">
-                  <SectionLabel>
-                    {isThai ? "รายละเอียดเพิ่มเติม" : "Additional Details"}
-                  </SectionLabel>
-                  <p className="mt-2 text-sm leading-7 text-slate-600">
-                    {product.description}
-                  </p>
-                </div>
-              ) : null}
             </div>
           </SurfaceCard>
 
@@ -360,7 +382,7 @@ export default function ProductDetailClient({ locale, product }: Props) {
                 {pairedParts.map((item) => (
                   <div
                     key={`${item.partNo}-${item.relation}`}
-                    className="rounded-2xl border border-slate-200 bg-slate-50/80 px-4 py-4"
+                    className="rounded-2xl border border-slate-300 bg-slate-50/85 px-4 py-4"
                   >
                     <div className="text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-500">
                       {getPairedRelationLabel(item.relation)}
@@ -394,7 +416,7 @@ export default function ProductDetailClient({ locale, product }: Props) {
                 {applications.map((application) => (
                   <span
                     key={application}
-                    className="rounded-full border border-slate-200 bg-slate-50 px-3.5 py-2 text-xs font-medium text-slate-700"
+                    className="rounded-full border border-slate-300 bg-slate-50 px-3.5 py-2 text-xs font-medium text-slate-700"
                   >
                     {application}
                   </span>
@@ -403,28 +425,15 @@ export default function ProductDetailClient({ locale, product }: Props) {
             </SurfaceCard>
           )}
 
-          {product.specifications && product.specifications.length > 0 && (
-            <SurfaceCard className="overflow-hidden">
-              <div className="border-b border-slate-200 bg-slate-50/85 px-5 py-4 sm:px-6">
-                <SectionLabel>{text.specifications}</SectionLabel>
-              </div>
-
-              <div className="divide-y divide-slate-200">
-                {product.specifications.slice(0, 8).map((item, index) => (
-                  <div
-                    key={`${item.label}-${index}`}
-                    className="px-5 py-4 text-sm sm:px-6 md:grid md:grid-cols-[180px_1fr] md:gap-6"
-                  >
-                    <div className="text-[11px] font-semibold uppercase tracking-[0.12em] text-slate-500 md:text-sm md:font-medium md:normal-case md:tracking-normal">
-                      {item.label}
-                    </div>
-                    <div className="mt-1 text-slate-900 md:mt-0">
-                      {item.value}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </SurfaceCard>
+          {((product.specifications?.length ?? 0) > 0 || product.spec?.trim()) && (
+            <ProductSpecTable
+              locale={locale}
+              specifications={(product.specifications ?? []).slice(0, 8).map((item) => ({
+                label: String(item.label),
+                value: String(item.value),
+              }))}
+              specSummary={product.spec}
+            />
           )}
 
           {product.officialUrl && (
@@ -450,7 +459,7 @@ export default function ProductDetailClient({ locale, product }: Props) {
         </div>
       </div>
 
-      <div className="fixed inset-x-0 bottom-0 z-40 border-t border-slate-200 bg-white/95 px-4 py-3 backdrop-blur md:hidden">
+      <div className="fixed inset-x-0 bottom-0 z-40 border-t border-slate-300 bg-white/95 px-4 py-3 backdrop-blur md:hidden">
         <div className="mx-auto flex max-w-6xl items-center gap-3">
           <button
             onClick={handleAdd}
