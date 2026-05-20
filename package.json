@@ -39,7 +39,7 @@
     "start": "next start",
     "search:index": "...",
     "export:products": "node scripts/export-products-json.js",
-    "build:index": "node scripts/build-search-index.js",
+    "build:index": "npx tsx scripts/build-search-index.ts",
     "verify:index": "node scripts/verify-search-index.js",
     "verify:score": "tsx scripts/verify-search-score.ts",
     "lint": "next lint",

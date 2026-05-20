@@ -20,6 +20,26 @@ function normalizePartNo(value: string) {
   return value.trim().toLowerCase().replace(/[\s/_-]+/g, "");
 }
 
+function hydrateSearchHit(hit: Product, catalog: Product[]) {
+  const normalizedHit = normalizePartNo(hit.partNo);
+  const activeProduct =
+    catalog.find((product) => product.id === hit.id) ??
+    catalog.find((product) => normalizePartNo(product.partNo) === normalizedHit);
+
+  if (!activeProduct) return hit;
+
+  return {
+    ...hit,
+    ...activeProduct,
+    imageUrl: activeProduct.imageUrl ?? hit.imageUrl,
+    spec: activeProduct.spec ?? hit.spec,
+    specifications: activeProduct.specifications ?? hit.specifications,
+    refs: activeProduct.refs ?? hit.refs ?? [],
+    crossReferences:
+      activeProduct.crossReferences ?? hit.crossReferences ?? [],
+  };
+}
+
 export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
@@ -50,17 +70,9 @@ export default async function ProductsPage({
   const isThai = locale === "th";
 
   const visibleProducts: Product[] = hasQuery
-    ? searchProducts(query, { limit: SEARCH_RESULT_LIMIT }).map((hit) => {
-        const normalizedHit = normalizePartNo(hit.partNo);
-
-        return (
-          products.find(
-            (product) =>
-              product.id === hit.id ||
-              normalizePartNo(product.partNo) === normalizedHit
-          ) ?? hit
-        );
-      })
+    ? searchProducts(query, { limit: SEARCH_RESULT_LIMIT }).map((hit) =>
+        hydrateSearchHit(hit, products),
+      )
     : products.slice(0, DEFAULT_PRODUCT_LIMIT);
 
   return (
