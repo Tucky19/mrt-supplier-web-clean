@@ -16,7 +16,8 @@ export const mannProducts = [
     crossReferences: ["BECKER 90950700000"],
     imageUrl: "/images/products/mann/c1112-2.jpg",
     detailImageUrl: "/images/products/mann/c1112-2-detail.jpg",
-    officialUrl: null,
+    officialUrl:
+      "https://www.mann-filter.com/th-th/catalog/search-results/product.html/c1112/2_mann-filter.html",
     stockStatus: "in_stock",
     sourceType: "official",
     dataQuality: "verified",
@@ -40,7 +41,8 @@ export const mannProducts = [
     crossReferences: ["COMPAIR 76288"],
     imageUrl: "/images/products/mann/c1250.jpg",
     detailImageUrl: "/images/products/mann/c1250-detail.jpg",
-    officialUrl: null,
+    officialUrl:
+      "https://www.mann-filter.com/th-th/catalog/search-results/product.html/c1250_mann-filter.html",
     stockStatus: "in_stock",
     sourceType: "official",
     dataQuality: "verified",
@@ -64,7 +66,8 @@ export const mannProducts = [
     crossReferences: ["BOGE 569 726 300", "BOSCH 0 532 000 003", "BOSCH 532 003"],
     imageUrl: "/images/products/mann/c1337.jpg",
     detailImageUrl: "/images/products/mann/c1337-detail.jpg",
-    officialUrl: null,
+    officialUrl:
+      "https://www.mann-filter.com/th-th/catalog/search-results/product.html/c1337_mann-filter.html",
     stockStatus: "in_stock",
     sourceType: "official",
     dataQuality: "verified",
@@ -88,7 +91,8 @@ export const mannProducts = [
     crossReferences: ["DEMAG COMPAIR 5024567", "PORSCHE 616.108.932.00"],
     imageUrl: "/images/products/mann/c1633-1.jpg",
     detailImageUrl: "/images/products/mann/c1633-1-detail.jpg",
-    officialUrl: null,
+    officialUrl:
+      "https://www.mann-filter.com/th-th/catalog/search-results/product.html/c1633/1_mann-filter.html",
     stockStatus: "in_stock",
     sourceType: "official",
     dataQuality: "verified",
@@ -113,7 +117,8 @@ export const mannProducts = [
     crossReferences: [],
     imageUrl: "/images/products/mann/c23115.jpg",
     detailImageUrl: "/images/products/mann/c23115-detail.jpg",
-    officialUrl: null,
+    officialUrl:
+      "https://www.mann-filter.com/th-th/catalog/search-results/product.html/c23115_mann-filter.html",
     stockStatus: "in_stock",
     sourceType: "official",
     dataQuality: "verified",
@@ -136,7 +141,8 @@ export const mannProducts = [
     crossReferences: ["LIEBHERR 571 558 808"],
     imageUrl: "/images/products/mann/c25710-3.jpg",
     detailImageUrl: "/images/products/mann/c25710-3-detail.jpg",
-    officialUrl: null,
+    officialUrl:
+      "https://www.mann-filter.com/th-th/catalog/search-results/product.html/c25710/3_mann-filter.html",
     stockStatus: "in_stock",
     sourceType: "official",
     dataQuality: "verified",
@@ -161,7 +167,8 @@ export const mannProducts = [
     crossReferences: ["BLITZ ROTARY 758180", "BOGE 575 000 102", "COMPAIR 98262/215"],
     imageUrl: "/images/products/mann/lb962-2.jpg",
     detailImageUrl: "/images/products/mann/lb962-2-detail.jpg",
-    officialUrl: null,
+    officialUrl:
+      "https://www.mann-filter.com/th-th/catalog/search-results/product.html/lb962/2_mann-filter.html",
     stockStatus: "in_stock",
     sourceType: "official",
     dataQuality: "verified",
@@ -187,7 +194,8 @@ export const mannProducts = [
     refs: ["JOHN DEERE AM34770", "VW GROUP 056 115 561 A"],
     crossReferences: ["JOHN DEERE AM34770", "VW GROUP 056 115 561 A"],
     imageUrl: "/images/products/mann/w719-5.jpg",
-    officialUrl: null,
+    officialUrl:
+      "https://www.mann-filter.com/th-th/catalog/search-results/product.html/w719/5_mann-filter.html",
     stockStatus: "in_stock",
     sourceType: "official",
     dataQuality: "verified",
@@ -214,7 +222,8 @@ export const mannProducts = [
     crossReferences: ["CASE A 48151", "DEUTZ 0114 115 11.10", "JOHN DEERE AM31205"],
     imageUrl: "/images/products/mann/w920-21.jpg",
     detailImageUrl: "/images/products/mann/w920-21-detail.jpg",
-    officialUrl: null,
+    officialUrl:
+      "https://www.mann-filter.com/th-th/catalog/search-results/product.html/w920/21_mann-filter.html",
     stockStatus: "in_stock",
     sourceType: "official",
     dataQuality: "verified",
@@ -236,7 +245,8 @@ export const mannProducts = [
   refs: ["COMPAIR 98262/101", "KOMATSU 600 211 5240"],
   crossReferences: ["COMPAIR 98262/101", "KOMATSU 600 211 5240"],
   imageUrl: "/images/products/mann/w940-5.jpg",
-  officialUrl: null,
+  officialUrl:
+    "https://www.mann-filter.com/th-th/catalog/search-results/product.html/w940/5_mann-filter.html",
   stockStatus: "in_stock",
   sourceType: "official",
   dataQuality: "verified",

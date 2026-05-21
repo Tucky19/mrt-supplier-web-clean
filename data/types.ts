@@ -11,6 +11,12 @@ export type ProductCrossReference = {
   partNo: string;
 };
 
+export type ProductSameBrandAlternative = {
+  brand: string;
+  partNo: string;
+  note?: string;
+};
+
 export type Product = {
   /**
    * Internal unique id used in routes and app logic
@@ -78,4 +84,9 @@ export type Product = {
    * Optional cross reference / interchange part numbers
    */
   cross_reference?: ProductCrossReference[];
+
+  /**
+   * Optional same-brand alternative part numbers
+   */
+  sameBrandAlternatives?: ProductSameBrandAlternative[];
 };

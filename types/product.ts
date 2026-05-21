@@ -23,6 +23,11 @@ export type Product = {
 
   refs?: string[];
   crossReferences?: string[];
+  sameBrandAlternatives?: Array<{
+    brand: string;
+    partNo: string;
+    note?: string;
+  }>;
   oemReferences?: string[];
   pairedParts?: Array<{
     partNo: string;
