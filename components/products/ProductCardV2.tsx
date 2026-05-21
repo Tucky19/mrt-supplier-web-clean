@@ -42,7 +42,12 @@ function buildSpecificationSummary(product: Product) {
         Boolean(value) && array.indexOf(value) === index,
     )
     .slice(0, 3)
-    .join(" • ");
+    .join(" โ€ข ");
+}
+
+function parseQuantity(value: string) {
+  const parsed = Number.parseInt(value, 10);
+  return Number.isFinite(parsed) && parsed > 0 ? parsed : 1;
 }
 
 export default function ProductCardV2({
@@ -57,10 +62,11 @@ export default function ProductCardV2({
   const text = getProductUiText(locale);
   const isThai = locale === "th";
   const [justAdded, setJustAdded] = useState(false);
+  const [quantityInput, setQuantityInput] = useState("1");
   const resetTimerRef = useRef<number | null>(null);
 
   const refs = Array.from(
-    new Set([...(product.refs ?? []), ...(product.crossReferences ?? [])])
+    new Set([...(product.refs ?? []), ...(product.crossReferences ?? [])]),
   )
     .map((value) => String(value).trim())
     .filter(Boolean)
@@ -80,10 +86,14 @@ export default function ProductCardV2({
   const statusDotClass = isRequest ? "bg-amber-400" : "bg-emerald-500";
   const statusTextClass = isRequest ? "text-amber-800" : "text-emerald-700";
   const hasProductImage = image !== "/images/placeholder.jpg";
+  const quantity = parseQuantity(quantityInput);
+  const officialReferenceLabel = isThai
+    ? "Official Reference"
+    : "Official Reference";
   const addButtonLabel = justAdded
     ? isThai
-      ? "เพิ่มแล้ว ✓"
-      : "Added ✓"
+      ? "เน€เธเธดเนเธกเนเธฅเนเธง โ“"
+      : "Added โ“"
     : text.addToQuote;
 
   useEffect(() => {
@@ -94,13 +104,32 @@ export default function ProductCardV2({
     };
   }, []);
 
+  const handleQuantityChange = (value: string) => {
+    const sanitized = value.replace(/\D/g, "");
+
+    if (!sanitized) {
+      setQuantityInput("");
+      return;
+    }
+
+    setQuantityInput(String(Math.max(1, Number.parseInt(sanitized, 10))));
+  };
+
+  const handleQuantityBlur = () => {
+    setQuantityInput(String(quantity));
+  };
+
+  const adjustQuantity = (delta: number) => {
+    setQuantityInput(String(Math.max(1, quantity + delta)));
+  };
+
   const handleAdd = () => {
     addItem({
       productId: product.id,
       partNo: product.partNo,
       brand: product.brand,
       title: product.title,
-      qty: 1,
+      qty: quantity,
     });
 
     show(`${text.addedToQuote}: ${product.partNo}`);
@@ -117,10 +146,10 @@ export default function ProductCardV2({
   };
 
   return (
-    <div className="group flex h-full flex-col overflow-hidden rounded-[24px] border border-slate-200 bg-white shadow-[0_10px_26px_rgba(15,23,42,0.05)] transition duration-200 hover:-translate-y-0.5 hover:border-slate-300 hover:shadow-[0_18px_38px_rgba(15,23,42,0.1)]">
-      <div className="border-b border-slate-200 bg-[linear-gradient(180deg,#f8fbfd_0%,#ffffff_100%)] p-3 sm:p-4">
+    <div className="group flex h-full flex-col overflow-hidden rounded-[24px] border border-slate-200 bg-[linear-gradient(180deg,#ffffff_0%,#fcfdff_100%)] shadow-[0_10px_26px_rgba(15,23,42,0.05)] transition duration-200 hover:-translate-y-0.5 hover:border-slate-300 hover:shadow-[0_18px_38px_rgba(15,23,42,0.1)]">
+      <div className="border-b border-slate-200 bg-[linear-gradient(180deg,#f7fbfd_0%,#ffffff_100%)] p-3 sm:p-4">
         <div className="mb-3 flex items-start justify-between gap-2">
-          <span className="inline-flex min-h-7 items-center rounded-full border border-slate-200 bg-white px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-700 shadow-sm">
+          <span className="inline-flex min-h-7 items-center rounded-full border border-sky-100 bg-[linear-gradient(180deg,#ffffff_0%,#f3f8ff_100%)] px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-700 shadow-sm">
             {product.brand}
           </span>
           <span
@@ -154,12 +183,12 @@ export default function ProductCardV2({
 
       <div className="flex flex-1 flex-col p-4 sm:p-5">
         <div className="text-[10px] font-semibold uppercase tracking-[0.16em] text-slate-400">
-          {isThai ? "รหัสสินค้า" : "Part Number"}
+          {isThai ? "เธฃเธซเธฑเธชเธชเธดเธเธเนเธฒ" : "Part Number"}
         </div>
 
         <Link
           href={`/${locale}/products/${encodeURIComponent(product.partNo)}`}
-          className="mt-1 break-all text-xl font-semibold leading-tight tracking-[-0.03em] text-slate-950 transition-colors hover:text-blue-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-200 sm:text-[1.45rem]"
+          className="mt-1 break-all text-[1.45rem] font-semibold leading-tight tracking-[-0.04em] text-slate-950 transition-colors hover:text-blue-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-200 sm:text-[1.55rem]"
         >
           {product.partNo}
         </Link>
@@ -172,7 +201,7 @@ export default function ProductCardV2({
 
         <div className="mt-4 rounded-[18px] border border-slate-200 bg-slate-50/80 px-3.5 py-3">
           <div className="text-[10px] font-semibold uppercase tracking-[0.14em] text-slate-400">
-            {isThai ? "สเปกโดยสรุป" : "Specification Summary"}
+            {isThai ? "เธชเน€เธเธเนเธ”เธขเธชเธฃเธธเธ" : "Specification Summary"}
           </div>
           <div className="mt-1.5 min-h-[3.25rem] line-clamp-2 text-sm leading-6 text-slate-700">
             {specText}
@@ -182,7 +211,7 @@ export default function ProductCardV2({
         {refs.length > 0 && (
           <div className="mt-4">
             <div className="mb-2 text-[10px] font-semibold uppercase tracking-[0.14em] text-slate-400">
-              {isThai ? "อ้างอิง / ทดแทน" : "Reference / Interchange"}
+              {isThai ? "เธญเนเธฒเธเธญเธดเธ / เธ—เธ”เนเธ—เธ" : "Reference / Interchange"}
             </div>
             <div className="flex min-h-[2.5rem] flex-wrap content-start gap-2">
               {refs.map((ref) => (
@@ -209,32 +238,65 @@ export default function ProductCardV2({
               href={product.officialUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="mb-3 inline-flex text-xs font-medium text-blue-700 underline-offset-2 hover:text-blue-800 hover:underline"
+              className="mb-3 inline-flex text-xs font-medium text-sky-700 underline-offset-2 hover:text-sky-800 hover:underline"
             >
-              {text.viewOfficial}
+              {officialReferenceLabel}
             </a>
           )}
 
-          <div className="flex gap-2">
-        <button
-          onClick={handleAdd}
-          disabled={justAdded}
-          className={`inline-flex min-h-11 flex-1 items-center justify-center gap-1.5 rounded-xl px-3 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-2 ${
-            justAdded
-              ? "bg-emerald-600 focus-visible:ring-emerald-200"
-              : "bg-slate-900 hover:bg-slate-800 focus-visible:ring-slate-300"
-          } ${justAdded ? "cursor-default" : ""}`}
-        >
-          <ShoppingCart size={16} />
-          {addButtonLabel}
-        </button>
+          <div className="mb-2 rounded-[16px] border border-slate-200 bg-slate-50/80 p-1.5">
+            <div className="flex items-center gap-1.5">
+              <button
+                type="button"
+                onClick={() => adjustQuantity(-1)}
+                className="inline-flex min-h-10 w-10 items-center justify-center rounded-xl border border-slate-200 bg-white text-base font-semibold text-slate-700 transition-colors hover:bg-slate-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-200"
+                aria-label={isThai ? "Decrease quantity" : "Decrease quantity"}
+              >
+                -
+              </button>
 
-        <Link
-          href={`/${locale}/products/${encodeURIComponent(product.partNo)}`}
-          className="inline-flex min-h-11 flex-1 items-center justify-center rounded-xl border border-slate-300 px-3 py-2.5 text-sm font-medium text-slate-700 transition-colors hover:border-slate-400 hover:bg-slate-50 hover:text-slate-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-200"
-        >
-          {text.details}
-        </Link>
+              <input
+                type="text"
+                inputMode="numeric"
+                pattern="[0-9]*"
+                value={quantityInput}
+                onChange={(event) => handleQuantityChange(event.target.value)}
+                onBlur={handleQuantityBlur}
+                className="min-h-10 min-w-0 flex-1 rounded-xl border border-slate-200 bg-white px-3 text-center text-sm font-semibold text-slate-900 shadow-sm outline-none transition focus:border-slate-300 focus:ring-2 focus:ring-slate-200"
+                aria-label={isThai ? "Quantity" : "Quantity"}
+              />
+
+              <button
+                type="button"
+                onClick={() => adjustQuantity(1)}
+                className="inline-flex min-h-10 w-10 items-center justify-center rounded-xl border border-slate-200 bg-white text-base font-semibold text-slate-700 transition-colors hover:bg-slate-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-200"
+                aria-label={isThai ? "Increase quantity" : "Increase quantity"}
+              >
+                +
+              </button>
+            </div>
+          </div>
+
+          <div className="flex gap-2">
+            <button
+              onClick={handleAdd}
+              disabled={justAdded}
+              className={`inline-flex min-h-11 flex-1 items-center justify-center gap-1.5 rounded-xl px-3 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-2 ${
+                justAdded
+                  ? "bg-emerald-600 focus-visible:ring-emerald-200"
+                  : "bg-slate-900 hover:bg-slate-800 focus-visible:ring-slate-300"
+              } ${justAdded ? "cursor-default" : ""}`}
+            >
+              <ShoppingCart size={16} />
+              {addButtonLabel}
+            </button>
+
+            <Link
+              href={`/${locale}/products/${encodeURIComponent(product.partNo)}`}
+              className="inline-flex min-h-11 flex-1 items-center justify-center rounded-xl border border-slate-300 px-3 py-2.5 text-sm font-medium text-slate-700 transition-colors hover:border-slate-400 hover:bg-slate-50 hover:text-slate-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-200"
+            >
+              {text.details}
+            </Link>
           </div>
         </div>
       </div>
