@@ -49,7 +49,7 @@ export const importedProducts = [
       "CUMMINS: 3401544",
       "CUMMINS: 3825970"
     ],
-    "officialUrl": "https://shop.donaldson.com/store/en-th/product/P554685/20902",
+    "officialUrl": "https://shop.donaldson.com/store/en-mx/product/P551425/39795",
     "officialImageUrl": null,
     "imageUrl": "/images/products/donaldson/p551425.jpg",
     "stockStatus": "in_stock",
