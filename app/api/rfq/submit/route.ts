@@ -83,6 +83,14 @@ function getSafeErrorDiagnostics(error: unknown) {
   };
 }
 
+function getRuntimeEnvDiagnostics() {
+  return {
+    has_DATABASE_URL: Boolean(process.env.DATABASE_URL?.trim()),
+    has_DIRECT_URL: Boolean(process.env.DIRECT_URL?.trim()),
+    NODE_ENV: process.env.NODE_ENV ?? "unknown",
+  };
+}
+
 function getClientIp(req: Request) {
   const xf = req.headers.get("x-forwarded-for");
   if (xf) return xf.split(",")[0].trim();
@@ -484,6 +492,7 @@ if (!RFQ_DEV_MOCK_ENABLED) {
     );
  } catch (e: unknown) {
   const diagnostics = getSafeErrorDiagnostics(e);
+  const runtimeEnv = getRuntimeEnvDiagnostics();
   const message = getErrorMessage(e, "Failed to submit RFQ.");
 
   logApiEvent("error", "rfq.submit.failed", {
@@ -491,6 +500,7 @@ if (!RFQ_DEV_MOCK_ENABLED) {
     route: "/api/rfq/submit",
     requestId,
     error: message,
+    ...runtimeEnv,
     ...diagnostics,
   });
 
@@ -498,7 +508,10 @@ if (!RFQ_DEV_MOCK_ENABLED) {
     traceId,
     status: 500,
     error: message,
-    extra: requestId ? { requestId } : undefined,
+    extra: {
+      ...(requestId ? { requestId } : {}),
+      ...runtimeEnv,
+    },
   });
 }
 }
