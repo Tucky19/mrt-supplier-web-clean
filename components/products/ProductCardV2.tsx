@@ -117,91 +117,112 @@ export default function ProductCardV2({
   };
 
   return (
-    <div className="group flex h-full flex-col rounded-xl border border-gray-200 bg-white p-3 transition hover:-translate-y-1 hover:shadow-md sm:p-4">
-      <div
-        className={`mb-3 flex h-32 items-center justify-center overflow-hidden rounded-lg border transition-colors duration-200 sm:h-36 ${
-          hasProductImage
-            ? "border-slate-200 bg-white group-hover:bg-slate-50"
-            : "border-dashed border-slate-200 bg-slate-50 group-hover:bg-slate-100"
-        }`}
-      >
-        <img
-          src={image}
-          alt={product.partNo}
-          className="h-full w-full object-contain p-3 transition duration-200 group-hover:scale-[1.02] group-hover:brightness-105 sm:p-4"
-          loading="lazy"
-          onError={(event) => {
-            event.currentTarget.src = "/images/placeholder.jpg";
-          }}
-        />
-      </div>
-
-      <div className="mb-2 text-[11px] font-semibold uppercase tracking-[0.12em] text-slate-500 sm:tracking-[0.14em]">
-        {product.brand}
-      </div>
-
-      <div className="mb-2 flex items-center gap-2">
-        <span className={`h-2 w-2 rounded-full ${statusDotClass}`} />
-        <span className={`text-xs font-medium leading-5 ${statusTextClass} sm:text-[11px]`}>
-          {statusLabel}
-        </span>
-      </div>
-
-      <Link
-        href={`/${locale}/products/${encodeURIComponent(product.partNo)}`}
-        className="text-base font-semibold leading-tight text-gray-900 transition-colors hover:text-blue-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-200 sm:text-[15px]"
-      >
-        {product.partNo}
-      </Link>
-
-      {product.title && (
-        <div className="mt-1 min-h-[2.75rem] line-clamp-2 text-[13px] leading-5 text-gray-700 sm:min-h-[3rem] sm:text-sm">
-          {product.title}
+    <div className="group flex h-full flex-col overflow-hidden rounded-[24px] border border-slate-200 bg-white shadow-[0_10px_26px_rgba(15,23,42,0.05)] transition duration-200 hover:-translate-y-0.5 hover:border-slate-300 hover:shadow-[0_18px_38px_rgba(15,23,42,0.1)]">
+      <div className="border-b border-slate-200 bg-[linear-gradient(180deg,#f8fbfd_0%,#ffffff_100%)] p-3 sm:p-4">
+        <div className="mb-3 flex items-start justify-between gap-2">
+          <span className="inline-flex min-h-7 items-center rounded-full border border-slate-200 bg-white px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-700 shadow-sm">
+            {product.brand}
+          </span>
+          <span
+            className={`inline-flex min-h-7 items-center gap-1.5 rounded-full px-2.5 py-1 text-[11px] font-semibold ${statusTextClass} ${
+              isRequest ? "bg-amber-50" : "bg-emerald-50"
+            }`}
+          >
+            <span className={`h-2 w-2 rounded-full ${statusDotClass}`} />
+            {statusLabel}
+          </span>
         </div>
-      )}
 
-      <div className="mt-2 min-h-[2.75rem] line-clamp-2 text-xs leading-5 text-gray-500 sm:min-h-[3rem] sm:text-xs">
-        {specText}
-      </div>
-
-      {product.shortDescription && (
-        <div className="mb-2 mt-2 hidden min-h-[2.75rem] line-clamp-2 text-xs leading-5 text-gray-600 sm:block">
-          {product.shortDescription}
-        </div>
-      )}
-
-      {refs.length > 0 && (
-        <div className="mb-3 mt-2 flex min-h-[2.5rem] flex-wrap content-start gap-1.5 sm:min-h-[2.25rem] sm:gap-2">
-          {refs.map((ref) => (
-            <span
-              key={ref}
-              className="rounded-full border border-slate-200 bg-slate-50 px-2.5 py-1 text-[10px] font-medium text-slate-700 sm:text-[11px]"
-            >
-              {ref}
-            </span>
-          ))}
-        </div>
-      )}
-
-      {product.officialUrl && (
-        <a
-          href={product.officialUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="mb-3 text-xs font-medium text-blue-700 underline-offset-2 hover:underline"
+        <div
+          className={`flex h-36 items-center justify-center overflow-hidden rounded-[20px] border shadow-[inset_0_1px_0_rgba(255,255,255,0.8)] transition-colors duration-200 sm:h-40 ${
+            hasProductImage
+              ? "border-slate-200 bg-[radial-gradient(circle_at_top,#ffffff_0%,#f8fafc_68%,#eef2f7_100%)]"
+              : "border-dashed border-slate-200 bg-slate-50"
+          }`}
         >
-          {text.viewOfficial}
-        </a>
-      )}
+          <img
+            src={image}
+            alt={product.partNo}
+            className="h-full w-full object-contain p-4 transition duration-200 group-hover:scale-[1.03] group-hover:brightness-105 sm:p-5"
+            loading="lazy"
+            onError={(event) => {
+              event.currentTarget.src = "/images/placeholder.jpg";
+            }}
+          />
+        </div>
+      </div>
 
-      <div className="mt-auto flex gap-2">
+      <div className="flex flex-1 flex-col p-4 sm:p-5">
+        <div className="text-[10px] font-semibold uppercase tracking-[0.16em] text-slate-400">
+          {isThai ? "รหัสสินค้า" : "Part Number"}
+        </div>
+
+        <Link
+          href={`/${locale}/products/${encodeURIComponent(product.partNo)}`}
+          className="mt-1 break-all text-xl font-semibold leading-tight tracking-[-0.03em] text-slate-950 transition-colors hover:text-blue-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-200 sm:text-[1.45rem]"
+        >
+          {product.partNo}
+        </Link>
+
+        {product.title && (
+          <div className="mt-2 min-h-[2.75rem] line-clamp-2 text-sm leading-6 text-slate-700">
+            {product.title}
+          </div>
+        )}
+
+        <div className="mt-4 rounded-[18px] border border-slate-200 bg-slate-50/80 px-3.5 py-3">
+          <div className="text-[10px] font-semibold uppercase tracking-[0.14em] text-slate-400">
+            {isThai ? "สเปกโดยสรุป" : "Specification Summary"}
+          </div>
+          <div className="mt-1.5 min-h-[3.25rem] line-clamp-2 text-sm leading-6 text-slate-700">
+            {specText}
+          </div>
+        </div>
+
+        {refs.length > 0 && (
+          <div className="mt-4">
+            <div className="mb-2 text-[10px] font-semibold uppercase tracking-[0.14em] text-slate-400">
+              {isThai ? "อ้างอิง / ทดแทน" : "Reference / Interchange"}
+            </div>
+            <div className="flex min-h-[2.5rem] flex-wrap content-start gap-2">
+              {refs.map((ref) => (
+                <span
+                  key={ref}
+                  className="rounded-full border border-slate-200 bg-white px-2.5 py-1 text-[10px] font-medium text-slate-700 shadow-sm sm:text-[11px]"
+                >
+                  {ref}
+                </span>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {product.shortDescription && (
+          <div className="mt-4 hidden line-clamp-2 text-xs leading-5 text-slate-500 sm:block">
+            {product.shortDescription}
+          </div>
+        )}
+
+        <div className="mt-auto pt-4">
+          {product.officialUrl && (
+            <a
+              href={product.officialUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mb-3 inline-flex text-xs font-medium text-blue-700 underline-offset-2 hover:text-blue-800 hover:underline"
+            >
+              {text.viewOfficial}
+            </a>
+          )}
+
+          <div className="flex gap-2">
         <button
           onClick={handleAdd}
           disabled={justAdded}
-          className={`inline-flex min-h-10 flex-1 items-center justify-center gap-1 rounded-lg px-3 py-2 text-sm font-semibold text-white transition-colors focus-visible:outline-none focus-visible:ring-2 ${
+          className={`inline-flex min-h-11 flex-1 items-center justify-center gap-1.5 rounded-xl px-3 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-2 ${
             justAdded
               ? "bg-emerald-600 focus-visible:ring-emerald-200"
-              : "bg-slate-900 hover:bg-black focus-visible:ring-slate-300"
+              : "bg-slate-900 hover:bg-slate-800 focus-visible:ring-slate-300"
           } ${justAdded ? "cursor-default" : ""}`}
         >
           <ShoppingCart size={16} />
@@ -210,10 +231,12 @@ export default function ProductCardV2({
 
         <Link
           href={`/${locale}/products/${encodeURIComponent(product.partNo)}`}
-          className="inline-flex min-h-10 flex-1 items-center justify-center rounded-lg border border-slate-300 px-3 py-2 text-sm font-medium text-slate-700 transition-colors hover:border-slate-400 hover:bg-slate-50 hover:text-slate-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-200"
+          className="inline-flex min-h-11 flex-1 items-center justify-center rounded-xl border border-slate-300 px-3 py-2.5 text-sm font-medium text-slate-700 transition-colors hover:border-slate-400 hover:bg-slate-50 hover:text-slate-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-200"
         >
           {text.details}
         </Link>
+          </div>
+        </div>
       </div>
     </div>
   );
