@@ -80,7 +80,7 @@ export default async function ProductsPage({
       <SiteHeader locale={locale} />
 
       <section className="border-b bg-white">
-        <div className="mx-auto max-w-7xl px-4 py-7 sm:py-10">
+        <div className="mx-auto max-w-[1440px] px-4 py-7 sm:px-6 sm:py-10 xl:px-8">
           <h1 className="text-2xl font-bold text-gray-900 sm:text-3xl">
             {isThai ? "ค้นหาสินค้า" : "Find Parts Fast"}
           </h1>
@@ -99,7 +99,7 @@ export default async function ProductsPage({
 
       <section
         id="results"
-        className="mx-auto max-w-7xl scroll-mt-24 px-4 py-6 sm:py-8"
+        className="mx-auto max-w-[1440px] scroll-mt-24 px-4 py-6 sm:px-6 sm:py-8 xl:px-8"
       >
         <div className="mb-5 rounded-2xl border border-slate-200 bg-white px-4 py-3.5 shadow-sm sm:mb-6 sm:px-5 sm:py-4">
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">

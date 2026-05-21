@@ -40,7 +40,7 @@ export default function ProductListClient({
 
   return (
     <div>
-      <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+      <div className="grid gap-4 md:grid-cols-2 lg:gap-5 xl:gap-6">
         {visibleProducts.map((product) => (
           <ProductCardV2
             key={product.id}
