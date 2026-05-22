@@ -9,7 +9,7 @@ type RawDonaldson = {
   stockStatus?: "in_stock" | "low_stock" | "request";
   image?: string;
   imageUrl?: string;
-  officialUrl?: string;
+  officialUrl?: string | null;
   cross_reference?: Array<string | { brand?: string; partNo?: string }>;
   crossRefs?: Array<string | { brand?: string; partNo?: string }>;
   refs?: string[];
@@ -2154,18 +2154,19 @@ const donaldsonRfqSkeletonBatch: RawDonaldson[] = [
       { label: "Series", value: "Duramax" },
     ],
   },
-  {
-    id: "donaldson-p181056",
-    partNo: "P181056",
-    brand: "Donaldson",
-    category: "filter",
-    title: "Donaldson Filter P181056",
-    spec: "Primary round air filter",
-    stockStatus: "request",
-    specifications: [
-      { label: "Type", value: "Air Filter" },
-      { label: "Position", value: "Primary" },
-      { label: "Shape", value: "Round" },
+{
+  id: "donaldson-p181056",
+  partNo: "P181056",
+  brand: "Donaldson",
+  category: "filter",
+  title: "Donaldson Filter P181056",
+  spec: "Primary round air filter",
+  officialUrl: null,
+  stockStatus: "request",
+  specifications: [
+    { label: "Type", value: "Air Filter" },
+    { label: "Position", value: "Primary" },
+    { label: "Shape", value: "Round" },
     ],
   },
   {
@@ -2332,8 +2333,10 @@ function normalize(item: RawDonaldson): Product {
     "Standard Industrial Filter";
 
   const officialUrl =
-    item.officialUrl ||
-    `https://shop.donaldson.com/store/en-us/product/${partNo}`;
+    item.officialUrl === null
+      ? undefined
+      : item.officialUrl ||
+        `https://shop.donaldson.com/store/en-us/product/${partNo}`;
 
   const imageUrl = item.imageUrl || item.image;
   const refs = normalizeRefs(item.refs);
