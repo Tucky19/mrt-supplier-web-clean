@@ -7,6 +7,14 @@ import BulkAddToQuote from '@/components/quote/BulkAddToQuote';
 import { getRfqUiText } from '@/lib/i18n/rfqUi';
 import { useQuote } from '@/providers/QuoteProvider';
 
+function sanitizeQuantityInput(value: string) {
+  return value.replace(/\D+/g, '');
+}
+
+function normalizeQuantity(value: string) {
+  return Math.max(1, Number.parseInt(sanitizeQuantityInput(value), 10) || 1);
+}
+
 export default function QuotePage() {
   const { items, addItem, removeItem, updateQty, clear } = useQuote();
   const params = useParams<{ locale?: string }>();
@@ -17,6 +25,7 @@ export default function QuotePage() {
   const hasQuoteItems = items.length > 0;
 
   const [loading, setLoading] = useState(false);
+  const [quantityInputs, setQuantityInputs] = useState<Record<string, string>>({});
   const [form, setForm] = useState({
     name: '',
     company: '',
@@ -42,6 +51,54 @@ export default function QuotePage() {
       qty: 1,
     });
   }, [addItem, items, requestedPartNo, text.manualRequest, text.requestedPartNumber]);
+
+  useEffect(() => {
+    setQuantityInputs((prev) => {
+      const next: Record<string, string> = {};
+
+      for (const item of items) {
+        next[item.productId] = prev[item.productId] ?? String(item.qty);
+      }
+
+      return next;
+    });
+  }, [items]);
+
+  const handleQuantityChange = (productId: string, value: string) => {
+    const sanitized = sanitizeQuantityInput(value);
+
+    setQuantityInputs((prev) => ({
+      ...prev,
+      [productId]: sanitized,
+    }));
+
+    if (!sanitized) return;
+
+    updateQty(productId, normalizeQuantity(sanitized));
+  };
+
+  const handleQuantityBlur = (productId: string) => {
+    const rawValue = quantityInputs[productId] ?? '';
+    const nextQty = normalizeQuantity(rawValue);
+
+    setQuantityInputs((prev) => ({
+      ...prev,
+      [productId]: String(nextQty),
+    }));
+
+    updateQty(productId, nextQty);
+  };
+
+  const handleQuantityStep = (productId: string, nextQty: number) => {
+    const normalizedQty = Math.max(1, nextQty);
+
+    setQuantityInputs((prev) => ({
+      ...prev,
+      [productId]: String(normalizedQty),
+    }));
+
+    updateQty(productId, normalizedQty);
+  };
 
   const handleSubmit = async () => {
     if (items.length === 0) {
@@ -226,31 +283,40 @@ export default function QuotePage() {
                     </button>
                   </div>
 
-                  <div className="mt-4 flex items-center justify-between">
+                  <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                     <div className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">
                       {text.quantity}
                     </div>
 
-                    <div className="flex items-center gap-2">
+                    <div className="w-full max-w-[220px] rounded-[16px] border border-slate-200 bg-white/80 p-1.5 sm:w-auto">
+                      <div className="flex items-center gap-1.5">
                       <button
                         type="button"
-                        onClick={() => updateQty(item.productId, item.qty - 1)}
-                        className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-slate-300 bg-white text-slate-700 transition hover:bg-slate-100"
+                        onClick={() => handleQuantityStep(item.productId, item.qty - 1)}
+                        className="inline-flex min-h-10 w-10 items-center justify-center rounded-xl border border-slate-200 bg-white text-base font-semibold text-slate-700 transition hover:bg-slate-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-200"
                       >
                         -
                       </button>
 
-                      <span className="inline-flex min-w-10 items-center justify-center rounded-lg bg-white px-3 py-2 text-sm font-semibold text-slate-900">
-                        {item.qty}
-                      </span>
+                      <input
+                        type="text"
+                        inputMode="numeric"
+                        pattern="[0-9]*"
+                        aria-label={`${text.quantity} ${item.partNo}`}
+                        value={quantityInputs[item.productId] ?? String(item.qty)}
+                        onChange={(e) => handleQuantityChange(item.productId, e.target.value)}
+                        onBlur={() => handleQuantityBlur(item.productId)}
+                        className="min-h-10 min-w-0 flex-1 rounded-xl border border-slate-200 bg-white px-3 text-center text-sm font-semibold text-slate-900 shadow-sm outline-none transition focus:border-slate-300 focus:ring-2 focus:ring-slate-200"
+                      />
 
                       <button
                         type="button"
-                        onClick={() => updateQty(item.productId, item.qty + 1)}
-                        className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-slate-300 bg-white text-slate-700 transition hover:bg-slate-100"
+                        onClick={() => handleQuantityStep(item.productId, item.qty + 1)}
+                        className="inline-flex min-h-10 w-10 items-center justify-center rounded-xl border border-slate-200 bg-white text-base font-semibold text-slate-700 transition hover:bg-slate-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-200"
                       >
                         +
                       </button>
+                      </div>
                     </div>
                   </div>
                 </div>

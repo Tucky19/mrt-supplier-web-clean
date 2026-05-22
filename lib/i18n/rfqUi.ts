@@ -47,7 +47,7 @@ export function getRfqUiText(locale: string) {
       ? "หมายเหตุเพิ่มเติม (ถ้ามี)"
       : "Additional note (optional)",
     followUpRequired: isThai
-      ? "ใช้สำหรับติดตามกลับ"
+      ? "สำหรับติดต่อกลับ"
       : "Required for Follow-Up",
     followUpRequiredBody: isThai
       ? "กรอกอย่างน้อย 1 ช่องทาง: เบอร์โทร, Email หรือ LINE"
