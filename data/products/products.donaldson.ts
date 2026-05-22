@@ -346,6 +346,7 @@ const rawDonaldson: RawDonaldson[] = [
     title: "Industrial Filter",
     category: "filter",
     stockStatus: "request" as const,
+    image: "/images/products/donaldson/p181059.jpg",
     cross_reference: [],
     spec: "OD 154.6 mm x ID 88.3 mm x L 381 mm x Primary Finned Air Filter",
     specifications: [
