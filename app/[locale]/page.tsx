@@ -15,6 +15,13 @@ export default async function Page({
 }) {
   const { locale } = await params;
   const isThai = locale === "th";
+  const homepageExampleQueries = [
+    "FUEL FILTER",
+    "LUBE FILTER",
+    "HYDRAULIC FILTER",
+    "AIR FILTER",
+    "OIL SEPARATOR",
+  ];
 
   const featuredBrands = [
     {
@@ -152,7 +159,11 @@ export default async function Page({
             </p>
 
             <div className="mt-8 max-w-3xl">
-              <SearchBar locale={locale} autoFocus={false} />
+              <SearchBar
+                locale={locale}
+                autoFocus={false}
+                exampleQueries={homepageExampleQueries}
+              />
             </div>
 
             <MissingProductRequestCta locale={locale} />

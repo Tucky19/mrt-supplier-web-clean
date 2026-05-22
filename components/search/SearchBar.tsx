@@ -11,10 +11,11 @@ type Props = {
   defaultValue?: string;
   className?: string;
   autoFocus?: boolean;
+  exampleQueries?: string[];
 };
 
 const SEARCH_DEBOUNCE_MS = 400;
-const EXAMPLE_QUERIES = ["P551315", "P553004", "hydraulic filter"];
+const DEFAULT_EXAMPLE_QUERIES = ["P551315", "P553004", "hydraulic filter"];
 const RECENT_SEARCHES_KEY = "mrt_recent_searches_v1";
 const RECENT_SEARCHES_LIMIT = 5;
 const RESULTS_SECTION_ID = "results";
@@ -71,6 +72,7 @@ export default function SearchBar({
   defaultValue = "",
   className = "",
   autoFocus = true,
+  exampleQueries = DEFAULT_EXAMPLE_QUERIES,
 }: Props) {
   const router = useRouter();
   const pathname = usePathname();
@@ -525,7 +527,7 @@ export default function SearchBar({
 
       <div className="mt-4 flex flex-wrap items-center gap-2 text-sm">
         <span className="text-slate-500">{text.tryLabel}</span>
-        {EXAMPLE_QUERIES.map((example) => (
+        {exampleQueries.map((example) => (
           <button
             key={example}
             type="button"
