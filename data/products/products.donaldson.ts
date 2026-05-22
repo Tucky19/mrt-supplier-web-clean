@@ -102,6 +102,7 @@ const rawDonaldson: RawDonaldson[] = [
     title: "Hydraulic Filter",
     category: "filter",
     spec: "OD 97 mm x L 239.78 mm x Thread 1 3/8-12 UN x Duramax Hydraulic Spin-On",
+    officialUrl: "https://shop.donaldson.com/store/en-us/product/P164378/16046",
     specifications: [
       { label: "Outer Diameter", value: 97, unit: "mm" },
       { label: "Thread Size", value: "1 3/8-12 UN" },
@@ -347,6 +348,7 @@ const rawDonaldson: RawDonaldson[] = [
     category: "filter",
     stockStatus: "request" as const,
     image: "/images/products/donaldson/p181059.jpg",
+    officialUrl: "https://shop.donaldson.com/store/en-us/product/P181059/17821",
     cross_reference: [],
     spec: "OD 154.6 mm x ID 88.3 mm x L 381 mm x Primary Finned Air Filter",
     specifications: [
@@ -821,6 +823,7 @@ const donaldsonBatch1: RawDonaldson[] = [
     title: "Donaldson Filter P550615",
     category: "filter",
     image: "/images/products/donaldson/p550615.jpg",
+    officialUrl: "https://shop.donaldson.com/store/en-us/product/P550615/23234",
     cross_reference: [],
     spec: "OD 133.4 mm x L 289 mm x Thread M48 x 2 x 9 micron Hydraulic Spin-On",
     specifications: [
