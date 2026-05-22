@@ -176,7 +176,9 @@ export default function ProductCrossReferenceCards({
       </div>
 
       <div className="rounded-[20px] border border-slate-200 bg-slate-50/85 px-4 py-3 text-sm leading-6 text-slate-600">
-        ข้อมูล Interchange ใช้สำหรับอ้างอิงเบื้องต้น ทีมงานจะตรวจสอบความเข้ากันได้ของสเปก ขนาด เกลียว และ Application ก่อนเสนอราคา
+        {isThai
+          ? "ข้อมูล Interchange ใช้สำหรับอ้างอิงเบื้องต้น ทีมงานจะตรวจสอบความเข้ากันได้ของสเปก ขนาด เกลียว และการใช้งานก่อนเสนอราคา"
+          : "Interchange data is for preliminary reference. Our team reviews specification, size, thread, and application compatibility before quoting."}
       </div>
     </div>
   );

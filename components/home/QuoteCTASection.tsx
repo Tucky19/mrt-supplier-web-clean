@@ -31,7 +31,7 @@ export default function QuoteCTASection({ locale }: { locale: string }) {
             </Link>
 
             <Link
-              href={`/${locale}/contact`}
+              href={`/${locale}/products`}
               className="rounded-full border border-slate-600 px-6 py-3 text-sm font-medium text-white transition hover:border-slate-400 hover:bg-slate-800"
             >
               {text.secondaryCta}

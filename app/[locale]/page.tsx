@@ -154,12 +154,6 @@ export default async function Page({
               <SearchBar locale={locale} autoFocus={false} />
             </div>
 
-            <p className="mt-4 text-xs text-slate-400">
-              {isThai
-                ? "ตัวอย่าง: P181104, P551315, C 20 500, Hydraulic Filter"
-                : "Try: P181104, P551315, C 20 500, Hydraulic Filter"}
-            </p>
-
             <div className="mt-6 flex flex-wrap gap-3 text-xs text-slate-300">
               <span className="rounded-full border border-slate-700/80 bg-slate-900/50 px-3 py-1.5">
                 {isThai

@@ -52,9 +52,7 @@ export default function ProductCard({ locale = 'th', product }: Props) {
   const isExact = product._matchType === 'Exact';
 
   return (
-    <div className="flex flex-col rounded-xl border bg-white p-4 transition hover:shadow-lg hover:-translate-y-1">
-      
-      {/* Header */}
+    <div className="flex flex-col rounded-xl border bg-white p-4 transition hover:-translate-y-1 hover:shadow-lg">
       <div className="flex items-start justify-between gap-3">
         <div className="min-w-0">
           <div className={`text-lg font-bold ${isExact ? 'text-green-700' : 'text-blue-900'}`}>
@@ -78,7 +76,6 @@ export default function ProductCard({ locale = 'th', product }: Props) {
         </div>
       </div>
 
-      {/* Image */}
       <div className="mt-4 flex h-24 items-center justify-center rounded-lg bg-slate-50 p-2">
         <img
           src={
@@ -95,14 +92,12 @@ export default function ProductCard({ locale = 'th', product }: Props) {
         />
       </div>
 
-      {/* Spec */}
       {product.spec && (
         <div className="mt-3 line-clamp-2 text-xs text-gray-600">
           {product.spec}
         </div>
       )}
 
-      {/* Refs */}
       {refs.length > 0 && (
         <div className="mt-3 flex flex-wrap gap-2">
           {refs.map((ref) => (
@@ -116,7 +111,6 @@ export default function ProductCard({ locale = 'th', product }: Props) {
         </div>
       )}
 
-      {/* Official */}
       {product.officialUrl && (
         <a
           href={product.officialUrl}
@@ -128,12 +122,10 @@ export default function ProductCard({ locale = 'th', product }: Props) {
         </a>
       )}
 
-      {/* Status */}
       <div className="mt-3 text-xs text-gray-400">
         {inCart ? 'In Quote' : 'Available'}
       </div>
 
-      {/* Actions */}
       <div className="mt-auto flex gap-2 pt-4">
         <Link
           href={`/${locale}/products/${encodeURIComponent(product.partNo)}`}
@@ -153,7 +145,7 @@ export default function ProductCard({ locale = 'th', product }: Props) {
           {loading
             ? '...'
             : added
-            ? 'Added ✓'
+            ? 'Added'
             : inCart
             ? 'Add More'
             : '+ Add'}

@@ -42,7 +42,7 @@ function buildSpecificationSummary(product: Product) {
         Boolean(value) && array.indexOf(value) === index,
     )
     .slice(0, 3)
-    .join(" โ€ข ");
+    .join(" • ");
 }
 
 function parseQuantity(value: string) {
@@ -88,12 +88,12 @@ export default function ProductCardV2({
   const hasProductImage = image !== "/images/placeholder.jpg";
   const quantity = parseQuantity(quantityInput);
   const officialReferenceLabel = isThai
-    ? "Official Reference"
+    ? "อ้างอิงจากผู้ผลิต"
     : "Official Reference";
   const addButtonLabel = justAdded
     ? isThai
-      ? "เน€เธเธดเนเธกเนเธฅเนเธง โ“"
-      : "Added โ“"
+      ? "เพิ่มแล้ว"
+      : "Added"
     : text.addToQuote;
 
   useEffect(() => {
@@ -183,7 +183,7 @@ export default function ProductCardV2({
 
       <div className="flex flex-1 flex-col p-4 sm:p-5">
         <div className="text-[10px] font-semibold uppercase tracking-[0.16em] text-slate-400">
-          {isThai ? "เธฃเธซเธฑเธชเธชเธดเธเธเนเธฒ" : "Part Number"}
+          {isThai ? "รหัสสินค้า" : "Part Number"}
         </div>
 
         <Link
@@ -201,7 +201,7 @@ export default function ProductCardV2({
 
         <div className="mt-4 rounded-[18px] border border-slate-200 bg-slate-50/80 px-3.5 py-3">
           <div className="text-[10px] font-semibold uppercase tracking-[0.14em] text-slate-400">
-            {isThai ? "เธชเน€เธเธเนเธ”เธขเธชเธฃเธธเธ" : "Specification Summary"}
+            {isThai ? "สเปกโดยสรุป" : "Specification Summary"}
           </div>
           <div className="mt-1.5 min-h-[3.25rem] line-clamp-2 text-sm leading-6 text-slate-700">
             {specText}
@@ -211,7 +211,7 @@ export default function ProductCardV2({
         {refs.length > 0 && (
           <div className="mt-4">
             <div className="mb-2 text-[10px] font-semibold uppercase tracking-[0.14em] text-slate-400">
-              {isThai ? "เธญเนเธฒเธเธญเธดเธ / เธ—เธ”เนเธ—เธ" : "Reference / Interchange"}
+              {isThai ? "อ้างอิง / ทดแทน" : "Reference / Interchange"}
             </div>
             <div className="flex min-h-[2.5rem] flex-wrap content-start gap-2">
               {refs.map((ref) => (
