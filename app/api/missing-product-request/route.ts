@@ -196,6 +196,161 @@ function getNotificationEnvStatus() {
   };
 }
 
+async function resolveLeadIdForMissingProductRequest(
+  payload: ReturnType<typeof normalizePayload>,
+) {
+  const normalizedEmail = payload.email ? normalizeEmail(payload.email) : null;
+  const hasEmail = Boolean(normalizedEmail);
+  const hasPhone = Boolean(payload.phone);
+  const hasLineId = Boolean(payload.lineId);
+
+  console.info("[MISSING_PRODUCT_REQUEST] lead_lookup", {
+    hasEmail,
+    hasPhone,
+    hasLineId,
+  });
+
+  if (!hasEmail && !hasPhone && !hasLineId) {
+    return null;
+  }
+
+  const findExistingLead = async () => {
+    if (normalizedEmail) {
+      const byEmail = await prisma.lead.findUnique({
+        where: { email: normalizedEmail },
+      });
+      if (byEmail) return byEmail;
+    }
+
+    if (payload.phone) {
+      const byPhone = await prisma.lead.findUnique({
+        where: { phone: payload.phone },
+      });
+      if (byPhone) return byPhone;
+    }
+
+    if (payload.lineId) {
+      const byLineId = await prisma.lead.findUnique({
+        where: { lineId: payload.lineId },
+      });
+      if (byLineId) return byLineId;
+    }
+
+    return null;
+  };
+
+  try {
+    const existingLead = await findExistingLead();
+
+    if (existingLead) {
+      const emailOwner =
+        normalizedEmail
+          ? await prisma.lead.findUnique({
+              where: { email: normalizedEmail },
+            })
+          : null;
+      const phoneOwner = payload.phone
+        ? await prisma.lead.findUnique({
+            where: { phone: payload.phone },
+          })
+        : null;
+      const lineOwner = payload.lineId
+        ? await prisma.lead.findUnique({
+            where: { lineId: payload.lineId },
+          })
+        : null;
+
+      const canUseEmail = !emailOwner || emailOwner.id === existingLead.id;
+      const canUsePhone = !phoneOwner || phoneOwner.id === existingLead.id;
+      const canUseLineId = !lineOwner || lineOwner.id === existingLead.id;
+
+      const updatedLead = await prisma.lead.update({
+        where: { id: existingLead.id },
+        data: {
+          name: payload.contactName || existingLead.name,
+          company: payload.company || existingLead.company,
+          email:
+            normalizedEmail && canUseEmail
+              ? normalizedEmail
+              : existingLead.email,
+          phone:
+            payload.phone && canUsePhone ? payload.phone : existingLead.phone,
+          lineId:
+            payload.lineId && canUseLineId
+              ? payload.lineId
+              : existingLead.lineId,
+          note: payload.note || existingLead.note,
+        },
+      });
+
+      console.info("[MISSING_PRODUCT_REQUEST] lead_update", {
+        success: true,
+        reusedExistingLead: true,
+        usedEmailMatch: Boolean(emailOwner && emailOwner.id === existingLead.id),
+        skippedEmailConflict: Boolean(normalizedEmail && !canUseEmail),
+        skippedPhoneConflict: Boolean(payload.phone && !canUsePhone),
+        skippedLineConflict: Boolean(payload.lineId && !canUseLineId),
+      });
+
+      return updatedLead.id;
+    }
+
+    const createdLead = await prisma.lead.create({
+      data: {
+        name: payload.contactName || null,
+        company: payload.company || null,
+        email: normalizedEmail,
+        phone: payload.phone || null,
+        lineId: payload.lineId || null,
+        note: payload.note || null,
+      },
+    });
+
+    console.info("[MISSING_PRODUCT_REQUEST] lead_create", {
+      success: true,
+      hasEmail,
+      hasPhone,
+      hasLineId,
+    });
+
+    return createdLead.id;
+  } catch (error) {
+    const message =
+      error instanceof Error ? error.message : "Lead create/update failed";
+
+    console.error("[MISSING_PRODUCT_REQUEST] lead_save", {
+      success: false,
+      hasEmail,
+      hasPhone,
+      hasLineId,
+      error: message,
+    });
+
+    try {
+      const fallbackLead = await findExistingLead();
+      if (fallbackLead) {
+        console.info("[MISSING_PRODUCT_REQUEST] lead_fallback_reuse", {
+          success: true,
+          hasEmail,
+          hasPhone,
+          hasLineId,
+        });
+        return fallbackLead.id;
+      }
+    } catch (fallbackError) {
+      console.error("[MISSING_PRODUCT_REQUEST] lead_fallback_reuse", {
+        success: false,
+        error:
+          fallbackError instanceof Error
+            ? fallbackError.message
+            : "Lead fallback lookup failed",
+      });
+    }
+
+    return null;
+  }
+}
+
 async function runNotificationJobs(params: {
   rfqId: string;
   emailPayload: {
@@ -432,52 +587,7 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    let leadId: string | null = null;
-
-    const leadWhere = [
-      payload.email ? { email: normalizeEmail(payload.email) } : null,
-      payload.phone ? { phone: payload.phone } : null,
-      payload.lineId ? { lineId: payload.lineId } : null,
-    ].filter(Boolean) as Array<
-      | { email: string }
-      | { phone: string }
-      | { lineId: string }
-    >;
-
-    if (leadWhere.length > 0) {
-      const existingLead = await prisma.lead.findFirst({
-        where: {
-          OR: leadWhere,
-        },
-      });
-
-      if (existingLead) {
-        const updatedLead = await prisma.lead.update({
-          where: { id: existingLead.id },
-          data: {
-            name: payload.contactName || existingLead.name,
-            company: payload.company || existingLead.company,
-            email: payload.email ? normalizeEmail(payload.email) : existingLead.email,
-            phone: payload.phone || existingLead.phone,
-            lineId: payload.lineId || existingLead.lineId,
-            note: payload.note || existingLead.note,
-          },
-        });
-        leadId = updatedLead.id;
-      } else {
-        const createdLead = await prisma.lead.create({
-          data: {
-            name: payload.contactName || null,
-            company: payload.company || null,
-            email: payload.email ? normalizeEmail(payload.email) : null,
-            phone: payload.phone || null,
-            lineId: payload.lineId || null,
-            note: payload.note || null,
-          },
-        });
-        leadId = createdLead.id;
-      }
-    }
+    const leadId = await resolveLeadIdForMissingProductRequest(payload);
 
     const requestId = buildRequestId();
     const storedNote = buildStoredNote(payload);
