@@ -23,8 +23,20 @@ export const importedProducts = [
       }
     ],
     "applications": [],
-    "refs": [],
-    "crossReferences": [],
+    "refs": [
+      "Donaldson: P553639",
+      "Fleetguard: LF9009",
+      "Fleetguard: LF3000",
+      "SURE: SFO3000",
+      "Sakura: C5707"
+    ],
+    "crossReferences": [
+      "Donaldson: P553639",
+      "Fleetguard: LF9009",
+      "Fleetguard: LF3000",
+      "SURE: SFO3000",
+      "Sakura: C5707"
+    ],
     "officialUrl": "https://shop.donaldson.com/store/en-mx/product/P551425/39795",
     "officialImageUrl": null,
     "imageUrl": "/images/products/donaldson/p551425.jpg",
@@ -65,8 +77,20 @@ export const importedProducts = [
       }
     ],
     "applications": [],
-    "refs": [],
-    "crossReferences": [],
+    "refs": [
+      "Donaldson: P553639",
+      "Fleetguard: LF9009",
+      "Fleetguard: LF3000",
+      "SURE: SFO3000",
+      "Sakura: C5707"
+    ],
+    "crossReferences": [
+      "Donaldson: P553639",
+      "Fleetguard: LF9009",
+      "Fleetguard: LF3000",
+      "SURE: SFO3000",
+      "Sakura: C5707"
+    ],
     "officialUrl": "https://shop.donaldson.com/store/en-th/product/P553000/20848",
     "officialImageUrl": null,
     "imageUrl": "/images/products/donaldson/p553000.jpg",
