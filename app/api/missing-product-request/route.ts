@@ -1,5 +1,5 @@
 import crypto from "crypto";
-import { NextRequest, NextResponse } from "next/server";
+import { after, NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { sendRfqLineNotification } from "@/lib/line/sendRfqLineNotification";
 import {
@@ -8,6 +8,7 @@ import {
 } from "@/lib/mail";
 
 export const dynamic = "force-dynamic";
+const NOTIFICATION_TIMEOUT_MS = 5000;
 
 type Payload = {
   locale?: string;
@@ -194,6 +195,54 @@ function getNotificationEnvStatus() {
     ),
     has_LINE_TARGET_USER_ID: Boolean(process.env.LINE_TARGET_USER_ID?.trim()),
   };
+}
+
+function getElapsedMs(startedAt: number) {
+  return Date.now() - startedAt;
+}
+
+async function withTimeout<T>(
+  label: string,
+  job: () => Promise<T>,
+  timeoutMs: number,
+) {
+  const startedAt = Date.now();
+  let timeoutHandle: ReturnType<typeof setTimeout> | null = null;
+
+  try {
+    const result = await Promise.race<T>([
+      job(),
+      new Promise<T>((_, reject) => {
+        timeoutHandle = setTimeout(() => {
+          reject(new Error(`${label} timed out after ${timeoutMs}ms`));
+        }, timeoutMs);
+      }),
+    ]);
+
+    if (timeoutHandle) {
+      clearTimeout(timeoutHandle);
+    }
+
+    return {
+      ok: true as const,
+      result,
+      durationMs: getElapsedMs(startedAt),
+    };
+  } catch (error) {
+    if (timeoutHandle) {
+      clearTimeout(timeoutHandle);
+    }
+
+    const message =
+      error instanceof Error ? error.message : `${label} failed`;
+
+    return {
+      ok: false as const,
+      error: message,
+      timedOut: message.includes("timed out"),
+      durationMs: getElapsedMs(startedAt),
+    };
+  }
 }
 
 async function resolveLeadIdForMissingProductRequest(
@@ -395,155 +444,176 @@ async function runNotificationJobs(params: {
   };
 }) {
   const { rfqId, emailPayload, customerEmail, linePayload } = params;
+  const notificationStartedAt = Date.now();
   const envStatus = getNotificationEnvStatus();
 
   console.info("[MISSING_PRODUCT_REQUEST] notification_env", envStatus);
+  console.info("[MISSING_PRODUCT_REQUEST] notification_started", {
+    requestId: emailPayload.requestId,
+    hasCustomerEmail: Boolean(customerEmail),
+    hasLineId: Boolean(linePayload.lineId),
+    hasPhone: Boolean(linePayload.phone),
+  });
 
-  try {
-    await sendAdminRfqEmail(emailPayload);
+  const recordRfqEvent = async (type: string, payload: Record<string, unknown>) => {
+    try {
+      await prisma.rfqEvent.create({
+        data: {
+          rfqId,
+          type,
+          payload,
+        },
+      });
+    } catch {}
+  };
+
+  const emailStartedAt = Date.now();
+  const adminEmailPromise = withTimeout(
+    "admin_email",
+    () => sendAdminRfqEmail(emailPayload),
+    NOTIFICATION_TIMEOUT_MS,
+  );
+  const customerEmailPromise = customerEmail
+    ? withTimeout(
+        "customer_email",
+        () => sendCustomerRfqConfirmationEmail(emailPayload),
+        NOTIFICATION_TIMEOUT_MS,
+      )
+    : Promise.resolve(null);
+
+  const [adminEmailResult, customerEmailResult] = await Promise.all([
+    adminEmailPromise,
+    customerEmailPromise,
+  ]);
+  const emailNotifyMs = getElapsedMs(emailStartedAt);
+
+  if (adminEmailResult.ok) {
     console.info("[MISSING_PRODUCT_REQUEST] admin_email", {
       requestId: emailPayload.requestId,
       success: true,
+      emailNotifyMs: adminEmailResult.durationMs,
     });
 
-    await prisma.rfqEvent.create({
-      data: {
-        rfqId,
-        type: "emailed_admin",
-        payload: {
-          requestType: "missing_product_request",
-        },
-      },
+    await recordRfqEvent("emailed_admin", {
+      requestType: "missing_product_request",
     });
-  } catch (error) {
-    const message =
-      error instanceof Error ? error.message : "Admin email failed";
+  } else {
     console.error("[MISSING_PRODUCT_REQUEST] admin_email", {
       requestId: emailPayload.requestId,
       success: false,
-      error: message,
+      timedOut: adminEmailResult.timedOut,
+      emailNotifyMs: adminEmailResult.durationMs,
+      error: adminEmailResult.error,
     });
 
-    try {
-      await prisma.rfqEvent.create({
-        data: {
-          rfqId,
-          type: "email_failed",
-          payload: {
-            step: "admin",
-            requestType: "missing_product_request",
-            error: message,
-          },
-        },
-      });
-    } catch {}
+    await recordRfqEvent("email_failed", {
+      step: "admin",
+      requestType: "missing_product_request",
+      timedOut: adminEmailResult.timedOut,
+      error: adminEmailResult.error,
+    });
   }
 
-  if (!customerEmail) return;
-
-  try {
-    await sendCustomerRfqConfirmationEmail(emailPayload);
+  if (!customerEmailResult) {
+    console.info("[MISSING_PRODUCT_REQUEST] customer_email", {
+      requestId: emailPayload.requestId,
+      success: false,
+      skipped: true,
+      reason: "no_customer_email",
+    });
+  } else if (customerEmailResult.ok) {
     console.info("[MISSING_PRODUCT_REQUEST] customer_email", {
       requestId: emailPayload.requestId,
       success: true,
+      emailNotifyMs: customerEmailResult.durationMs,
     });
 
-    await prisma.rfqEvent.create({
-      data: {
-        rfqId,
-        type: "emailed_customer",
-        payload: {
-          requestType: "missing_product_request",
-          to: normalizeEmail(customerEmail),
-        },
-      },
+    await recordRfqEvent("emailed_customer", {
+      requestType: "missing_product_request",
+      hasCustomerEmail: true,
     });
-  } catch (error) {
-    const message =
-      error instanceof Error ? error.message : "Customer email failed";
+  } else {
     console.error("[MISSING_PRODUCT_REQUEST] customer_email", {
       requestId: emailPayload.requestId,
       success: false,
-      error: message,
+      timedOut: customerEmailResult.timedOut,
+      emailNotifyMs: customerEmailResult.durationMs,
+      error: customerEmailResult.error,
     });
 
-    try {
-      await prisma.rfqEvent.create({
-        data: {
-          rfqId,
-          type: "email_failed",
-          payload: {
-            step: "customer",
-            requestType: "missing_product_request",
-            error: message,
-          },
-        },
-      });
-      } catch {}
+    await recordRfqEvent("email_failed", {
+      step: "customer",
+      requestType: "missing_product_request",
+      timedOut: customerEmailResult.timedOut,
+      error: customerEmailResult.error,
+    });
   }
 
-  try {
-    await sendRfqLineNotification({
-      requestId: linePayload.requestId,
-      company: linePayload.company,
-      name: linePayload.name,
-      phone: linePayload.phone,
-      email: linePayload.email,
-      itemCount: 1,
-      extraLines: [
-        `Part No: ${linePayload.partNo}`,
-        `Filter Type: ${linePayload.filterType || "-"}`,
-        `Brand: ${linePayload.brand || "-"}`,
-        `Qty: ${linePayload.qty}`,
-        `Machine/Application: ${linePayload.machineApplication || "-"}`,
-        `Dimensions: ${linePayload.dimensionSummary || "-"}`,
-        `LINE ID: ${linePayload.lineId || "-"}`,
-        `Note: ${linePayload.note || "-"}`,
-        `Search Query: ${linePayload.searchQuery || "-"}`,
-        `Source Page: ${linePayload.sourcePage || "-"}`,
-        `Locale: ${linePayload.locale || "-"}`,
-      ],
-    });
+  const lineStartedAt = Date.now();
+  const lineResult = await withTimeout(
+    "line_notify",
+    () =>
+      sendRfqLineNotification({
+        requestId: linePayload.requestId,
+        company: linePayload.company,
+        name: linePayload.name,
+        phone: linePayload.phone,
+        email: linePayload.email,
+        itemCount: 1,
+        extraLines: [
+          `Part No: ${linePayload.partNo}`,
+          `Filter Type: ${linePayload.filterType || "-"}`,
+          `Brand: ${linePayload.brand || "-"}`,
+          `Qty: ${linePayload.qty}`,
+          `Machine/Application: ${linePayload.machineApplication || "-"}`,
+          `Dimensions: ${linePayload.dimensionSummary || "-"}`,
+          `LINE ID: ${linePayload.lineId || "-"}`,
+          `Note: ${linePayload.note || "-"}`,
+          `Search Query: ${linePayload.searchQuery || "-"}`,
+          `Source Page: ${linePayload.sourcePage || "-"}`,
+          `Locale: ${linePayload.locale || "-"}`,
+        ],
+      }),
+    NOTIFICATION_TIMEOUT_MS,
+  );
+  const lineNotifyMs = getElapsedMs(lineStartedAt);
 
+  if (lineResult.ok) {
     console.info("[MISSING_PRODUCT_REQUEST] line_notify", {
       requestId: linePayload.requestId,
       success: true,
+      lineNotifyMs: lineResult.durationMs,
     });
 
-    await prisma.rfqEvent.create({
-      data: {
-        rfqId,
-        type: "line_sent",
-        payload: {
-          requestType: "missing_product_request",
-        },
-      },
+    await recordRfqEvent("line_sent", {
+      requestType: "missing_product_request",
     });
-  } catch (error) {
-    const message =
-      error instanceof Error ? error.message : "LINE notification failed";
+  } else {
     console.error("[MISSING_PRODUCT_REQUEST] line_notify", {
       requestId: linePayload.requestId,
       success: false,
-      error: message,
+      timedOut: lineResult.timedOut,
+      lineNotifyMs: lineResult.durationMs,
+      error: lineResult.error,
     });
 
-    try {
-      await prisma.rfqEvent.create({
-        data: {
-          rfqId,
-          type: "line_failed",
-          payload: {
-            requestType: "missing_product_request",
-            error: message,
-          },
-        },
-      });
-    } catch {}
+    await recordRfqEvent("line_failed", {
+      requestType: "missing_product_request",
+      timedOut: lineResult.timedOut,
+      error: lineResult.error,
+    });
   }
+
+  console.info("[MISSING_PRODUCT_REQUEST] notification_completed", {
+    requestId: emailPayload.requestId,
+    emailNotifyMs,
+    lineNotifyMs,
+    totalMs: getElapsedMs(notificationStartedAt),
+  });
 }
 
 export async function POST(req: NextRequest) {
+  const requestStartedAt = Date.now();
   try {
     const body = (await req.json()) as Payload;
     const payload = normalizePayload(body);
@@ -593,6 +663,7 @@ export async function POST(req: NextRequest) {
     const storedNote = buildStoredNote(payload);
     const dimensionSummary = buildDimensionSummary(payload);
 
+    const dbSaveStartedAt = Date.now();
     const createdRfq = await prisma.rfq.create({
       data: {
         requestId,
@@ -651,6 +722,7 @@ export async function POST(req: NextRequest) {
         items: true,
       },
     });
+    const dbSaveMs = getElapsedMs(dbSaveStartedAt);
 
     const emailPayload = {
       requestId: createdRfq.requestId,
@@ -676,7 +748,7 @@ export async function POST(req: NextRequest) {
       ],
     };
 
-    void runNotificationJobs({
+    const notificationJob = {
       rfqId: createdRfq.id,
       emailPayload,
       customerEmail: payload.email || null,
@@ -698,6 +770,19 @@ export async function POST(req: NextRequest) {
         sourcePage: payload.sourcePage || null,
         locale: payload.locale || null,
       },
+    };
+
+    console.info("[MISSING_PRODUCT_REQUEST] response_ready", {
+      requestId: createdRfq.requestId,
+      dbSaveMs,
+      totalMs: getElapsedMs(requestStartedAt),
+      hasCustomerEmail: Boolean(payload.email),
+      hasLineId: Boolean(payload.lineId),
+      hasPhone: Boolean(payload.phone),
+    });
+
+    after(async () => {
+      await runNotificationJobs(notificationJob);
     });
 
     return NextResponse.json({
