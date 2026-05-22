@@ -1,11 +1,11 @@
 import crypto from "crypto";
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
+import { sendRfqLineNotification } from "@/lib/line/sendRfqLineNotification";
 import {
   sendAdminRfqEmail,
   sendCustomerRfqConfirmationEmail,
-  type EmailRfqItem,
-} from "@/lib/email/sendRfqEmails";
+} from "@/lib/mail";
 
 export const dynamic = "force-dynamic";
 
@@ -28,6 +28,8 @@ type Payload = {
   phone?: string;
   email?: string;
   lineId?: string;
+  searchQuery?: string;
+  sourcePage?: string;
 };
 
 function safeStr(value: unknown) {
@@ -143,6 +145,9 @@ function normalizePayload(body: Payload) {
     phone: safeStr(body.phone),
     email: safeStr(body.email),
     lineId: safeStr(body.lineId),
+    searchQuery: safeStr(body.searchQuery),
+    sourcePage: safeStr(body.sourcePage),
+    locale: safeStr(body.locale),
   };
 }
 
@@ -170,16 +175,31 @@ function buildStoredNote(payload: ReturnType<typeof normalizePayload>) {
     buildDimensionSummary(payload)
       ? `Dimensions: ${buildDimensionSummary(payload)}`
       : "",
+    payload.searchQuery ? `Search Query: ${payload.searchQuery}` : "",
+    payload.sourcePage ? `Source Page: ${payload.sourcePage}` : "",
+    payload.locale ? `Locale: ${payload.locale}` : "",
   ].filter(Boolean);
 
   return lines.join("\n");
+}
+
+function getNotificationEnvStatus() {
+  return {
+    has_SMTP_HOST: Boolean(process.env.SMTP_HOST?.trim()),
+    has_SMTP_USER: Boolean(process.env.SMTP_USER?.trim()),
+    has_SMTP_PASS: Boolean(process.env.SMTP_PASS?.trim()),
+    has_RFQ_TO_EMAIL: Boolean(process.env.RFQ_TO_EMAIL?.trim()),
+    has_LINE_CHANNEL_ACCESS_TOKEN: Boolean(
+      process.env.LINE_CHANNEL_ACCESS_TOKEN?.trim(),
+    ),
+    has_LINE_TARGET_USER_ID: Boolean(process.env.LINE_TARGET_USER_ID?.trim()),
+  };
 }
 
 async function runNotificationJobs(params: {
   rfqId: string;
   emailPayload: {
     requestId: string;
-    createdAt: Date;
     customer: {
       name: string;
       company: string | null;
@@ -189,14 +209,47 @@ async function runNotificationJobs(params: {
       note: string | null;
       contactPref: string | null;
     };
-    items: EmailRfqItem[];
+    items: Array<{
+      productId: string;
+      partNo: string;
+      brand?: string | null;
+      title?: string | null;
+      qty: number;
+      category?: string | null;
+      spec?: string | null;
+    }>;
   };
   customerEmail: string | null;
+  linePayload: {
+    requestId: string;
+    company: string | null;
+    name: string | null;
+    phone: string | null;
+    email: string | null;
+    lineId: string | null;
+    partNo: string;
+    filterType: string | null;
+    brand: string | null;
+    qty: number;
+    machineApplication: string | null;
+    dimensionSummary: string | null;
+    note: string | null;
+    searchQuery: string | null;
+    sourcePage: string | null;
+    locale: string | null;
+  };
 }) {
-  const { rfqId, emailPayload, customerEmail } = params;
+  const { rfqId, emailPayload, customerEmail, linePayload } = params;
+  const envStatus = getNotificationEnvStatus();
+
+  console.info("[MISSING_PRODUCT_REQUEST] notification_env", envStatus);
 
   try {
     await sendAdminRfqEmail(emailPayload);
+    console.info("[MISSING_PRODUCT_REQUEST] admin_email", {
+      requestId: emailPayload.requestId,
+      success: true,
+    });
 
     await prisma.rfqEvent.create({
       data: {
@@ -210,6 +263,11 @@ async function runNotificationJobs(params: {
   } catch (error) {
     const message =
       error instanceof Error ? error.message : "Admin email failed";
+    console.error("[MISSING_PRODUCT_REQUEST] admin_email", {
+      requestId: emailPayload.requestId,
+      success: false,
+      error: message,
+    });
 
     try {
       await prisma.rfqEvent.create({
@@ -230,6 +288,10 @@ async function runNotificationJobs(params: {
 
   try {
     await sendCustomerRfqConfirmationEmail(emailPayload);
+    console.info("[MISSING_PRODUCT_REQUEST] customer_email", {
+      requestId: emailPayload.requestId,
+      success: true,
+    });
 
     await prisma.rfqEvent.create({
       data: {
@@ -244,6 +306,11 @@ async function runNotificationJobs(params: {
   } catch (error) {
     const message =
       error instanceof Error ? error.message : "Customer email failed";
+    console.error("[MISSING_PRODUCT_REQUEST] customer_email", {
+      requestId: emailPayload.requestId,
+      success: false,
+      error: message,
+    });
 
     try {
       await prisma.rfqEvent.create({
@@ -252,6 +319,66 @@ async function runNotificationJobs(params: {
           type: "email_failed",
           payload: {
             step: "customer",
+            requestType: "missing_product_request",
+            error: message,
+          },
+        },
+      });
+      } catch {}
+  }
+
+  try {
+    await sendRfqLineNotification({
+      requestId: linePayload.requestId,
+      company: linePayload.company,
+      name: linePayload.name,
+      phone: linePayload.phone,
+      email: linePayload.email,
+      itemCount: 1,
+      extraLines: [
+        `Part No: ${linePayload.partNo}`,
+        `Filter Type: ${linePayload.filterType || "-"}`,
+        `Brand: ${linePayload.brand || "-"}`,
+        `Qty: ${linePayload.qty}`,
+        `Machine/Application: ${linePayload.machineApplication || "-"}`,
+        `Dimensions: ${linePayload.dimensionSummary || "-"}`,
+        `LINE ID: ${linePayload.lineId || "-"}`,
+        `Note: ${linePayload.note || "-"}`,
+        `Search Query: ${linePayload.searchQuery || "-"}`,
+        `Source Page: ${linePayload.sourcePage || "-"}`,
+        `Locale: ${linePayload.locale || "-"}`,
+      ],
+    });
+
+    console.info("[MISSING_PRODUCT_REQUEST] line_notify", {
+      requestId: linePayload.requestId,
+      success: true,
+    });
+
+    await prisma.rfqEvent.create({
+      data: {
+        rfqId,
+        type: "line_sent",
+        payload: {
+          requestType: "missing_product_request",
+        },
+      },
+    });
+  } catch (error) {
+    const message =
+      error instanceof Error ? error.message : "LINE notification failed";
+    console.error("[MISSING_PRODUCT_REQUEST] line_notify", {
+      requestId: linePayload.requestId,
+      success: false,
+      error: message,
+    });
+
+    try {
+      await prisma.rfqEvent.create({
+        data: {
+          rfqId,
+          type: "line_failed",
+          payload: {
             requestType: "missing_product_request",
             error: message,
           },
@@ -417,7 +544,6 @@ export async function POST(req: NextRequest) {
 
     const emailPayload = {
       requestId: createdRfq.requestId,
-      createdAt: createdRfq.createdAt,
       customer: {
         name: payload.contactName || "Missing Product Request",
         company: payload.company || null,
@@ -429,6 +555,7 @@ export async function POST(req: NextRequest) {
       },
       items: [
         {
+          productId: "missing-product-request",
           partNo: payload.partNo || "MISSING-PRODUCT",
           brand: payload.brand || null,
           title: "Missing Product Request",
@@ -436,13 +563,31 @@ export async function POST(req: NextRequest) {
           category: payload.filterType || null,
           spec: dimensionSummary || null,
         },
-      ] satisfies EmailRfqItem[],
+      ],
     };
 
     void runNotificationJobs({
       rfqId: createdRfq.id,
       emailPayload,
       customerEmail: payload.email || null,
+      linePayload: {
+        requestId: createdRfq.requestId,
+        company: payload.company || null,
+        name: payload.contactName || "Missing Product Request",
+        phone: payload.phone || null,
+        email: payload.email || null,
+        lineId: payload.lineId || null,
+        partNo: payload.partNo || "MISSING-PRODUCT",
+        filterType: payload.filterType || null,
+        brand: payload.brand || null,
+        qty: payload.qty,
+        machineApplication: payload.machineApplication || null,
+        dimensionSummary: dimensionSummary || null,
+        note: payload.note || null,
+        searchQuery: payload.searchQuery || null,
+        sourcePage: payload.sourcePage || null,
+        locale: payload.locale || null,
+      },
     });
 
     return NextResponse.json({

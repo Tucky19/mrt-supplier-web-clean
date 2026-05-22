@@ -5,6 +5,7 @@ export async function sendRfqLineNotification(payload: {
   phone?: string | null;
   email?: string | null;
   itemCount: number;
+  extraLines?: Array<string | null | undefined>;
 }) {
   const token = process.env.LINE_CHANNEL_ACCESS_TOKEN;
   const to = process.env.LINE_TARGET_USER_ID;
@@ -14,13 +15,16 @@ export async function sendRfqLineNotification(payload: {
   }
 
   const text = [
-    "มี RFQ ใหม่เข้า",
+    "New RFQ received",
     `Request ID: ${payload.requestId}`,
     `Company: ${payload.company || "-"}`,
     `Name: ${payload.name || "-"}`,
     `Phone: ${payload.phone || "-"}`,
     `Email: ${payload.email || "-"}`,
     `Items: ${payload.itemCount}`,
+    ...(payload.extraLines ?? []).filter(
+      (line): line is string => Boolean(String(line ?? "").trim()),
+    ),
   ].join("\n");
 
   const res = await fetch("https://api.line.me/v2/bot/message/push", {
