@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
+import MissingProductRequestForm from "@/components/products/MissingProductRequestForm";
 import ProductListClient from "@/components/products/ProductListClient";
 import SiteFooter from "@/components/layout/SiteFooter";
 import SiteHeader from "@/components/layout/SiteHeader";
@@ -10,7 +11,7 @@ import type { Product } from "@/types/product";
 
 type PageProps = {
   params: Promise<{ locale: string }>;
-  searchParams?: Promise<{ q?: string }>;
+  searchParams?: Promise<{ q?: string; request?: string }>;
 };
 
 const DEFAULT_PRODUCT_LIMIT = 24;
@@ -66,6 +67,7 @@ export default async function ProductsPage({
 
   const resolvedSearchParams = await searchParams;
   const query = resolvedSearchParams?.q?.trim() ?? "";
+  const requestMissingProduct = resolvedSearchParams?.request === "1";
   const hasQuery = query.length >= 2;
   const isThai = locale === "th";
 
@@ -74,6 +76,8 @@ export default async function ProductsPage({
         hydrateSearchHit(hit, products),
       )
     : products.slice(0, DEFAULT_PRODUCT_LIMIT);
+  const showMissingProductRequest =
+    requestMissingProduct || visibleProducts.length === 0;
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -151,41 +155,32 @@ export default async function ProductsPage({
           </div>
         </div>
 
-        {visibleProducts.length === 0 ? (
-          <div className="rounded-2xl border border-dashed border-slate-300 bg-white px-6 py-12 text-center">
-            <p className="text-base font-medium text-slate-900">
-              {isThai
-                ? "ส่ง Part Number มาให้เรา เดี๋ยวเราช่วยตรวจสอบให้"
-                : "Send us your part number, we will check for you"}
-            </p>
+        {showMissingProductRequest && (
+          <div className={visibleProducts.length === 0 ? "" : "mb-6"}>
+            {visibleProducts.length === 0 && (
+              <div className="mb-5 rounded-2xl border border-dashed border-slate-300 bg-white px-6 py-6 text-center sm:mb-6">
+                <p className="text-base font-medium text-slate-900">
+                  {isThai
+                    ? "ยังไม่พบสินค้าที่ค้นหา"
+                    : "We couldn't find that product yet"}
+                </p>
+                <p className="mt-2 text-sm text-slate-500">
+                  {isThai
+                    ? "หากยังไม่มีเบอร์หรือยังไม่เจอสินค้าที่ตรง ส่งรายละเอียดให้ทีมช่วยหาเทียบได้ทันที"
+                    : "If you do not have a part number or the result is still missing, send the details and our team can help identify it."}
+                </p>
+              </div>
+            )}
 
-            <p className="mt-2 text-sm text-slate-500">
-              {isThai
-                ? "หากยังไม่พบสินค้าที่ต้องการ คุณสามารถขอใบเสนอราคา หรือกลับไปเริ่มค้นหาใหม่จากหน้าแรกได้"
-                : "If you do not see the part you need yet, request a quote or go back home to start a new search."}
-            </p>
-
-            <div className="mt-4 flex flex-wrap justify-center gap-3">
-              <a
-                href={
-                  hasQuery
-                    ? `/${locale}/quote?partNo=${encodeURIComponent(query)}`
-                    : `/${locale}/quote`
-                }
-                className="inline-flex rounded-lg bg-blue-900 px-5 py-3 text-sm font-semibold text-white hover:bg-blue-800"
-              >
-                {isThai ? "ขอใบเสนอราคา" : "Request Quote"}
-              </a>
-
-              <a
-                href={`/${locale}`}
-                className="inline-flex rounded-lg border border-slate-300 px-5 py-3 text-sm font-medium text-slate-700 transition hover:border-slate-400 hover:bg-slate-50"
-              >
-                {isThai ? "กลับหน้าแรก" : "Back to Home"}
-              </a>
-            </div>
+            <MissingProductRequestForm
+              locale={locale}
+              defaultPartNo={hasQuery ? query : ""}
+              compactIntro={visibleProducts.length === 0}
+            />
           </div>
-        ) : (
+        )}
+
+        {visibleProducts.length > 0 && (
           <ProductListClient
             products={visibleProducts}
             locale={locale}

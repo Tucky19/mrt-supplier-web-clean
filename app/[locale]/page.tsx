@@ -1,5 +1,6 @@
 import Image from "next/image";
 import BrandShowcase from "@/components/home/BrandShowcase";
+import MissingProductRequestCta from "@/components/home/MissingProductRequestCta";
 import ProductGrid from "@/components/home/ProductGrid";
 import QuoteCTASection from "@/components/home/QuoteCTASection";
 import WhyChooseUsSection from "@/components/home/WhyChooseUsSection";
@@ -153,6 +154,8 @@ export default async function Page({
             <div className="mt-8 max-w-3xl">
               <SearchBar locale={locale} autoFocus={false} />
             </div>
+
+            <MissingProductRequestCta locale={locale} />
 
             <div className="mt-6 flex flex-wrap gap-3 text-xs text-slate-300">
               <span className="rounded-full border border-slate-700/80 bg-slate-900/50 px-3 py-1.5">
