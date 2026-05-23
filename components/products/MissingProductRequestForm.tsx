@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from "react";
 import { usePathname } from "next/navigation";
-import { gaMissingProductRequestSubmit } from "@/lib/analytics/ga";
+import { gaLineClick, gaMissingProductRequestSubmit } from "@/lib/analytics/ga";
 import { getMissingProductUiText } from "@/lib/i18n/missingProductUi";
 
 const LINE_URL = "https://lin.ee/S676yYH";
@@ -199,6 +199,12 @@ export default function MissingProductRequestForm({
             href={LINE_URL}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => {
+              gaLineClick({
+                source: "missing_product_request_success",
+                locale,
+              });
+            }}
             className="inline-flex rounded-full bg-emerald-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-emerald-700"
           >
             {text.secondaryButton}
@@ -389,6 +395,12 @@ export default function MissingProductRequestForm({
             href={LINE_URL}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => {
+              gaLineClick({
+                source: "missing_product_request_form",
+                locale,
+              });
+            }}
             className="inline-flex rounded-full border border-slate-300 px-5 py-3 text-sm font-medium text-slate-700 transition hover:border-slate-400 hover:bg-slate-50"
           >
             {text.secondaryButton}

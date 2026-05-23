@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
-import { gaAddToQuote } from "@/lib/analytics/ga";
+import { gaAddToQuote, gaViewItem } from "@/lib/analytics/ga";
 import { trackEvent } from "@/lib/analytics/track";
 import { getProductUiText } from "@/lib/i18n/productUi";
 import { getProductImageUrl } from "@/lib/products/image";
@@ -350,6 +350,19 @@ export default function ProductDetailClient({ locale, product }: Props) {
   };
 
   useEffect(() => {
+    gaViewItem(
+      {
+        item_id: product.partNo || product.id,
+        item_brand: product.brand,
+        item_category: product.category,
+      },
+      {
+        source: "product_detail",
+      },
+    );
+  }, [product.brand, product.category, product.id, product.partNo]);
+
+  useEffect(() => {
     return () => {
       if (resetTimerRef.current) {
         window.clearTimeout(resetTimerRef.current);
@@ -536,6 +549,8 @@ export default function ProductDetailClient({ locale, product }: Props) {
 
               <ProductOfficialReference
                 locale={locale}
+                itemId={product.partNo || product.id}
+                itemBrand={product.brand}
                 officialUrl={product.officialUrl}
               />
             </div>

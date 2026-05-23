@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
+import SearchNoResultsTracker from "@/components/analytics/SearchNoResultsTracker";
 import MissingProductRequestForm from "@/components/products/MissingProductRequestForm";
 import ProductListClient from "@/components/products/ProductListClient";
 import SiteFooter from "@/components/layout/SiteFooter";
@@ -157,6 +158,14 @@ export default async function ProductsPage({
 
         {showMissingProductRequest && (
           <div className={visibleProducts.length === 0 ? "" : "mb-6"}>
+            {hasQuery && visibleProducts.length === 0 ? (
+              <SearchNoResultsTracker
+                searchTerm={query}
+                locale={locale}
+                source="products_page"
+              />
+            ) : null}
+
             {visibleProducts.length === 0 && (
               <div className="mb-5 rounded-2xl border border-dashed border-slate-300 bg-white px-6 py-6 text-center sm:mb-6">
                 <p className="text-base font-medium text-slate-900">

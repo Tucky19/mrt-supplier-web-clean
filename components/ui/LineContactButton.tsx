@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from "react";
 import { MessageCircle, X } from "lucide-react";
 import { usePathname } from "next/navigation";
+import { gaLineClick } from "@/lib/analytics/ga";
 
 const LineContactButton = () => {
   const [showTooltip, setShowTooltip] = useState(false);
@@ -57,6 +58,11 @@ const LineContactButton = () => {
         href="https://lin.ee/R3vfZW0"
         target="_blank"
         rel="noopener noreferrer"
+        onClick={() => {
+          gaLineClick({
+            source: "floating_line_button",
+          });
+        }}
         className="group relative flex h-12 w-12 items-center justify-center rounded-full bg-[#06C755] text-white shadow-2xl transition-all duration-300 hover:scale-110 hover:bg-[#05b34c] active:scale-95 sm:h-14 sm:w-14"
         aria-label="Contact us on LINE"
         title="Contact us on LINE"

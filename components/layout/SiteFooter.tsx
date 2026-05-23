@@ -1,4 +1,5 @@
 import Link from "next/link";
+import TrackedLineLink from "@/components/analytics/TrackedLineLink";
 
 const LINE_URL = "https://lin.ee/R3vfZW0";
 
@@ -58,14 +59,14 @@ export default function SiteFooter({ locale = "th" }: Props) {
             <a href="tel:0815581323" className="block hover:text-white">
               081 558 1323
             </a>
-            <a
+            <TrackedLineLink
               href={LINE_URL}
-              target="_blank"
-              rel="noopener noreferrer"
+              source="site_footer"
+              locale={locale}
               className="block hover:text-white"
             >
               LINE: @mrt-supplier
-            </a>
+            </TrackedLineLink>
             <p>www.mrtsupplier.com</p>
           </div>
         </div>

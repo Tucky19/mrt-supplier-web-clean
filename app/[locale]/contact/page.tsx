@@ -1,5 +1,6 @@
-﻿import SiteHeader from "@/components/layout/SiteHeader";
+import TrackedLineLink from "@/components/analytics/TrackedLineLink";
 import SiteFooter from "@/components/layout/SiteFooter";
+import SiteHeader from "@/components/layout/SiteHeader";
 import { getContactUiText } from "@/lib/i18n/contactUi";
 
 export default async function ContactPage({
@@ -75,10 +76,10 @@ export default async function ContactPage({
                 </p>
               </a>
 
-              <a
+              <TrackedLineLink
                 href="https://lin.ee/R3vfZW0"
-                target="_blank"
-                rel="noopener noreferrer"
+                source="contact_page_card"
+                locale={locale}
                 className="rounded-2xl border border-emerald-200 bg-emerald-50 p-4 transition hover:bg-emerald-100"
               >
                 <p className="text-xs font-semibold uppercase tracking-wide text-emerald-700">
@@ -87,7 +88,7 @@ export default async function ContactPage({
                 <p className="mt-2 text-base font-semibold text-emerald-800">
                   @mrt-supplier
                 </p>
-              </a>
+              </TrackedLineLink>
 
               <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
                 <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
@@ -123,14 +124,14 @@ export default async function ContactPage({
                 {text.requestQuote}
               </a>
 
-              <a
+              <TrackedLineLink
                 href="https://lin.ee/R3vfZW0"
-                target="_blank"
-                rel="noopener noreferrer"
+                source="contact_page_cta"
+                locale={locale}
                 className="inline-flex flex-1 items-center justify-center rounded-xl border border-emerald-600 bg-emerald-500 px-4 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-emerald-600"
               >
                 {text.addOnLine}
-              </a>
+              </TrackedLineLink>
             </div>
           </div>
 

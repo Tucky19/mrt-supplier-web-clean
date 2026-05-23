@@ -53,6 +53,21 @@ export function gaSearch(searchTerm: string, extra?: GAParams) {
   });
 }
 
+export function gaSearchNoResults(params: {
+  search_term: string;
+  locale?: string;
+  source: "products_page" | "homepage";
+}) {
+  const term = String(params.search_term ?? "").trim();
+  if (!term) return;
+
+  gaEvent("search_no_results", {
+    search_term: term,
+    locale: params.locale,
+    source: params.source,
+  });
+}
+
 export function gaViewItem(item: GAItem, extra?: GAParams) {
   if (!item?.item_id) return;
 
@@ -63,6 +78,21 @@ export function gaViewItem(item: GAItem, extra?: GAParams) {
     item_category: item.item_category,
     quantity: item.quantity,
     ...(extra ?? {}),
+  });
+}
+
+export function gaOfficialReferenceClick(params: {
+  item_id: string;
+  item_brand?: string;
+  source: "product_detail";
+}) {
+  const itemId = String(params.item_id ?? "").trim();
+  if (!itemId) return;
+
+  gaEvent("official_reference_click", {
+    item_id: itemId,
+    item_brand: params.item_brand,
+    source: params.source,
   });
 }
 
@@ -107,6 +137,19 @@ export function gaMissingProductRequestSubmit(params: {
     has_part_no: params.has_part_no,
     has_dimensions: params.has_dimensions,
     source_page: params.source_page,
+    locale: params.locale,
+  });
+}
+
+export function gaLineClick(params: {
+  source: string;
+  locale?: string;
+}) {
+  const source = String(params.source ?? "").trim();
+  if (!source) return;
+
+  gaEvent("line_click", {
+    source,
     locale: params.locale,
   });
 }
