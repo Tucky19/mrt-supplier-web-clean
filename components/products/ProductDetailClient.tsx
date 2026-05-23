@@ -319,11 +319,12 @@ export default function ProductDetailClient({ locale, product }: Props) {
   );
   const specRows = useMemo(
     () =>
-      (product.specifications ?? []).filter(
-        (item) =>
-          String(item?.label ?? "").trim().length > 0 &&
-          String(item?.value ?? "").trim().length > 0,
-      ),
+      (product.specifications ?? [])
+        .map((item) => ({
+          label: String(item?.label ?? "").trim(),
+          value: String(item?.value ?? "").trim(),
+        }))
+        .filter((item) => item.label.length > 0 && item.value.length > 0),
     [product.specifications],
   );
   const hasSpecContent = Boolean(product.spec?.trim()) || specRows.length > 0;
