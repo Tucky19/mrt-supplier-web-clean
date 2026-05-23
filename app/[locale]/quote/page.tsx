@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { useParams, useSearchParams } from 'next/navigation';
 import BulkAddToQuote from '@/components/quote/BulkAddToQuote';
+import { gaSubmitRFQ } from '@/lib/analytics/ga';
 import { getRfqUiText } from '@/lib/i18n/rfqUi';
 import { useQuote } from '@/providers/QuoteProvider';
 
@@ -133,6 +134,18 @@ export default function QuotePage() {
       if (!res.ok || !data?.ok) {
         throw new Error(data?.message || 'RFQ failed');
       }
+
+      gaSubmitRFQ(
+        items.map((item) => ({
+          item_id: item.partNo || item.productId,
+          item_brand: item.brand,
+          quantity: item.qty,
+        })),
+        {
+          request_id: data.requestId ? String(data.requestId) : undefined,
+          source: 'quote_page',
+        },
+      );
 
       clear();
 

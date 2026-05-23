@@ -72,7 +72,9 @@ export default function ResultRow({ item }: Props) {
             productId={p.id}
             partNo={p.partNo}
             brand={p.brand}
+            category={p.category}
             title={p.title}
+            source="product_card"
           />
         </div>
       </div>

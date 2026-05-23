@@ -1,6 +1,8 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { usePathname } from "next/navigation";
+import { gaMissingProductRequestSubmit } from "@/lib/analytics/ga";
 import { getMissingProductUiText } from "@/lib/i18n/missingProductUi";
 
 const LINE_URL = "https://lin.ee/S676yYH";
@@ -69,6 +71,7 @@ export default function MissingProductRequestForm({
   compactIntro = false,
 }: Props) {
   const text = getMissingProductUiText(locale);
+  const pathname = usePathname();
   const [form, setForm] = useState<FormState>(() => createInitialState(defaultPartNo));
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState("");
@@ -152,6 +155,22 @@ export default function MissingProductRequestForm({
       if (!response.ok || !data.ok || !data.requestId) {
         throw new Error(data.error || text.submitError);
       }
+
+      gaMissingProductRequestSubmit({
+        request_id: data.requestId,
+        filter_type: form.filterType.trim() || undefined,
+        has_part_no: Boolean(form.partNo.trim()),
+        has_dimensions: Boolean(
+          form.outerDiameter.trim() ||
+            form.innerDiameter.trim() ||
+            form.lengthHeight.trim() ||
+            form.threadSize.trim() ||
+            form.gasketOD.trim() ||
+            form.gasketID.trim(),
+        ),
+        source_page: pathname || undefined,
+        locale,
+      });
 
       setSuccessRequestId(data.requestId);
       setForm(createInitialState(defaultPartNo));

@@ -1,16 +1,19 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { gaAddToQuote } from "@/lib/analytics/ga";
 import { useQuote } from "@/providers/QuoteProvider";
 
 type AddToQuoteButtonProps = {
   productId: string;
   partNo: string;
   brand?: string;
+  category?: string;
   title?: string;
   qty?: number;
   className?: string;
   showQty?: boolean;
+  source?: "product_card" | "product_detail";
 };
 
 function cn(...xs: Array<string | false | null | undefined>) {
@@ -30,10 +33,12 @@ export default function AddToQuoteButton({
   productId,
   partNo,
   brand,
+  category,
   title,
   qty = 1,
   className,
   showQty = false,
+  source = "product_card",
 }: AddToQuoteButtonProps) {
   const q = useQuote();
 
@@ -65,6 +70,17 @@ export default function AddToQuoteButton({
       title,
       qty: qtyAdd,
     });
+    gaAddToQuote(
+      {
+        item_id: partNo || productId,
+        item_brand: brand,
+        item_category: category,
+        quantity: qtyAdd,
+      },
+      {
+        source,
+      },
+    );
 
     setJustAdded(true);
     window.setTimeout(() => setJustAdded(false), 1200);

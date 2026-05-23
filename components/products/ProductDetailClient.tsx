@@ -3,12 +3,15 @@
 import Link from "next/link";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
+import { gaAddToQuote } from "@/lib/analytics/ga";
 import { trackEvent } from "@/lib/analytics/track";
 import { getProductUiText } from "@/lib/i18n/productUi";
 import { getProductImageUrl } from "@/lib/products/image";
 import { useQuote } from "@/providers/QuoteProvider";
 import type { Product } from "@/types/product";
 import ProductCrossReferenceCards from "./detail/ProductCrossReferenceCards";
+import ProductOfficialReference from "./detail/ProductOfficialReference";
+import ProductSpecTable from "./detail/ProductSpecTable";
 
 type Props = {
   locale: string;
@@ -53,6 +56,61 @@ function slugifyBrand(value: string) {
 
 function normalizeSpecLabel(value: string) {
   return value.trim().toLowerCase();
+}
+
+function normalizeComparableText(value: string) {
+  return value.trim().toLowerCase().replace(/\s+/g, " ");
+}
+
+function getCategorySummary(category: string | undefined, locale: string) {
+  const isThai = locale === "th";
+  const key = String(category ?? "").trim().toLowerCase();
+
+  if (key === "oil_filter") return isThai ? "ไส้กรองน้ำมันเครื่อง" : "Oil filter";
+  if (key === "fuel_filter") return isThai ? "ไส้กรองเชื้อเพลิง" : "Fuel filter";
+  if (key === "hydraulic_filter") return isThai ? "ไส้กรองไฮดรอลิก" : "Hydraulic filter";
+  if (key === "air_filter") return isThai ? "ไส้กรองอากาศ" : "Air filter";
+  if (!key) return "";
+
+  return key
+    .split(/[_\s-]+/)
+    .filter(Boolean)
+    .map((segment) => segment.charAt(0).toUpperCase() + segment.slice(1))
+    .join(" ");
+}
+
+function buildHeaderSummary(product: Product, locale: string) {
+  const categorySummary = getCategorySummary(product.category, locale);
+  const specs = Array.isArray(product.specifications) ? product.specifications : [];
+  const skipLabels = new Set([
+    "height",
+    "length",
+    "outside diameter",
+    "inside diameter",
+    "od",
+    "id",
+    "thread",
+    "gasket od",
+    "gasket id",
+    "efficiency",
+    "efficiency test std",
+    "micron rating",
+  ]);
+
+  const summarySpecs = specs
+    .filter((item) => {
+      const label = normalizeSpecLabel(String(item?.label ?? ""));
+      const value = String(item?.value ?? "").trim();
+
+      return label && value && !skipLabels.has(label);
+    })
+    .map((item) => String(item.value).trim());
+
+  return [categorySummary, ...summarySpecs]
+    .filter((value, index, array): value is string =>
+      Boolean(value) && array.indexOf(value) === index,
+    )
+    .slice(0, 4);
 }
 
 function buildProductBadges(product: Product) {
@@ -113,7 +171,7 @@ function buildTopProductInfo(product: Product, locale: string) {
       title: "เกี่ยวกับ Donaldson P553000",
       paragraphs: [
         "Donaldson P553000 เป็นกรองน้ำมันเครื่องแบบ Spin-on สำหรับช่วยรักษาความสะอาดของน้ำมันเครื่อง และลดสิ่งปนเปื้อนที่อาจก่อให้เกิดการสึกหรอภายในเครื่องยนต์",
-        "ตัวกรองช่วยดักจับสิ่งสกปรกที่สะสมระหว่างการใช้งาน สนับสนุนการหล่อลื่นให้มีประสิทธิภาพ และช่วยส่งผ่านน้ำมันที่สะอาดกว่าไปยังชิ้นส่วนสำคัญของเครื่องยนต์",
+        "ตัวกรองช่วยดักจับสิ่งสกปรกระหว่างการใช้งาน สนับสนุนการหล่อลื่นให้มีประสิทธิภาพ และช่วยส่งผ่านน้ำมันที่สะอาดกว่าไปยังชิ้นส่วนสำคัญของเครื่องยนต์",
       ],
     };
   }
@@ -149,6 +207,40 @@ function buildTopProductInfo(product: Product, locale: string) {
   return {
     title: "About This Product",
     paragraphs: ["Industrial filtration component"],
+  };
+}
+
+function buildDescriptionBlock(product: Product, locale: string) {
+  const fallbackInfo = buildTopProductInfo(product, locale);
+  const specText = normalizeComparableText(String(product.spec ?? ""));
+  const structuredValues = (product.specifications ?? [])
+    .map((item) => normalizeComparableText(String(item?.value ?? "")))
+    .filter(Boolean);
+
+  const paragraphs = [
+    product.shortDescription,
+    product.description,
+    ...fallbackInfo.paragraphs,
+  ]
+    .map((value) => String(value ?? "").trim())
+    .filter(Boolean)
+    .filter((paragraph, index, array) => {
+      const normalized = normalizeComparableText(paragraph);
+
+      if (!normalized) return false;
+      if (specText && normalized === specText) return false;
+      if (structuredValues.includes(normalized)) return false;
+
+      return (
+        array.findIndex(
+          (item) => normalizeComparableText(item) === normalized,
+        ) === index
+      );
+    });
+
+  return {
+    title: fallbackInfo.title,
+    paragraphs,
   };
 }
 
@@ -217,8 +309,12 @@ export default function ProductDetailClient({ locale, product }: Props) {
     [product.pairedParts],
   );
 
-  const topProductInfo = useMemo(
-    () => buildTopProductInfo(product, locale),
+  const descriptionBlock = useMemo(
+    () => buildDescriptionBlock(product, locale),
+    [locale, product],
+  );
+  const headerSummary = useMemo(
+    () => buildHeaderSummary(product, locale),
     [locale, product],
   );
   const specRows = useMemo(
@@ -265,6 +361,17 @@ export default function ProductDetailClient({ locale, product }: Props) {
       partNo: product.partNo,
       brand: product.brand,
     });
+    gaAddToQuote(
+      {
+        item_id: product.partNo || product.id,
+        item_brand: product.brand,
+        item_category: product.category,
+        quantity: 1,
+      },
+      {
+        source: "product_detail",
+      },
+    );
 
     addItem({
       productId: product.id,
@@ -300,6 +407,8 @@ export default function ProductDetailClient({ locale, product }: Props) {
             locale={locale}
             refs={refs}
             brand={product.brand}
+            currentPartNo={product.partNo}
+            sameBrandAlternatives={product.sameBrandAlternatives}
           />
 
           <SurfaceCard className="overflow-hidden">
@@ -337,9 +446,9 @@ export default function ProductDetailClient({ locale, product }: Props) {
                 {product.partNo}
               </h1>
 
-              {product.spec?.trim() && (
-                <p className="mt-3 max-w-3xl text-base leading-7 text-slate-700 sm:text-lg">
-                  {product.spec.trim()}
+              {headerSummary.length > 0 && (
+                <p className="mt-3 max-w-3xl text-sm leading-7 text-slate-600 sm:text-base">
+                  {headerSummary.join(" • ")}
                 </p>
               )}
 
@@ -371,57 +480,6 @@ export default function ProductDetailClient({ locale, product }: Props) {
             </div>
 
             <div className="space-y-5 px-5 py-5 sm:px-6">
-              {topProductInfo.paragraphs.length > 0 && (
-                <div className="rounded-[22px] border border-slate-300 bg-slate-50/95 px-5 py-4 shadow-[0_4px_14px_rgba(15,23,42,0.04)]">
-                  <div className="text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-600">
-                    {topProductInfo.title}
-                  </div>
-                  <div className="mt-2 space-y-3 text-sm leading-7 text-slate-700">
-                    {topProductInfo.paragraphs.map((paragraph) => (
-                      <p key={paragraph}>{paragraph}</p>
-                    ))}
-                  </div>
-                </div>
-              )}
-
-              {product.shortDescription && (
-                <p className="text-sm leading-7 text-slate-600 sm:text-[15px]">
-                  {product.shortDescription}
-                </p>
-              )}
-
-              {hasSpecContent && (
-                <div className="rounded-[22px] border border-slate-300 bg-white px-5 py-5 shadow-[0_8px_24px_rgba(15,23,42,0.05)]">
-                  <SectionLabel>
-                    {locale === "th" ? "สเปกสินค้า" : "Product Specifications"}
-                  </SectionLabel>
-
-                  {product.spec?.trim() && (
-                    <p className="mt-3 text-sm leading-7 text-slate-700 sm:text-[15px]">
-                      {product.spec.trim()}
-                    </p>
-                  )}
-
-                  {specRows.length > 0 && (
-                    <div className="mt-4 grid gap-3.5 sm:grid-cols-2">
-                      {specRows.map((item) => (
-                        <div
-                          key={`${item.label}-${item.value}`}
-                          className="rounded-2xl border border-slate-300 bg-slate-50/80 px-4 py-3.5"
-                        >
-                          <p className="text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">
-                            {String(item.label)}
-                          </p>
-                          <p className="mt-1.5 text-sm font-semibold leading-6 text-slate-900">
-                            {String(item.value)}
-                          </p>
-                        </div>
-                      ))}
-                    </div>
-                  )}
-                </div>
-              )}
-
               <div className="rounded-[24px] border border-slate-300 bg-[linear-gradient(180deg,#f7fafc_0%,#ffffff_100%)] p-4 shadow-[0_8px_24px_rgba(15,23,42,0.05)] sm:p-5">
                 <SectionLabel>{text.readyToQuote}</SectionLabel>
                 <p className="mt-2 text-sm leading-7 text-slate-600">
@@ -453,6 +511,32 @@ export default function ProductDetailClient({ locale, product }: Props) {
                   {text.rfqSupportNote}
                 </p>
               </div>
+
+              {descriptionBlock.paragraphs.length > 0 && (
+                <div className="rounded-[22px] border border-slate-300 bg-slate-50/95 px-5 py-4 shadow-[0_4px_14px_rgba(15,23,42,0.04)]">
+                  <div className="text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-600">
+                    {descriptionBlock.title}
+                  </div>
+                  <div className="mt-2 space-y-3 text-sm leading-7 text-slate-700">
+                    {descriptionBlock.paragraphs.map((paragraph) => (
+                      <p key={paragraph}>{paragraph}</p>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {hasSpecContent && (
+                <ProductSpecTable
+                  locale={locale}
+                  specifications={specRows}
+                  specSummary={specRows.length === 0 ? product.spec : undefined}
+                />
+              )}
+
+              <ProductOfficialReference
+                locale={locale}
+                officialUrl={product.officialUrl}
+              />
             </div>
           </SurfaceCard>
 
@@ -504,27 +588,6 @@ export default function ProductDetailClient({ locale, product }: Props) {
                   </span>
                 ))}
               </div>
-            </SurfaceCard>
-          )}
-
-          {product.officialUrl && (
-            <SurfaceCard className="px-5 py-5 sm:px-6">
-              <SectionLabel>
-                {isThai ? "Official Reference" : "Official Reference"}
-              </SectionLabel>
-              <p className="mt-2 text-sm leading-7 text-slate-600">
-                {isThai
-                  ? "ใช้หน้าผู้ผลิตสำหรับตรวจสอบรายละเอียดและความเข้ากันได้ก่อนส่ง RFQ"
-                  : "Use the manufacturer page to verify details and compatibility before sending an RFQ."}
-              </p>
-              <a
-                href={product.officialUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-4 inline-flex items-center justify-center rounded-full border border-slate-300 bg-white px-5 py-3 text-sm font-medium text-slate-700 transition hover:border-slate-400 hover:text-slate-900"
-              >
-                {text.viewOfficialSource}
-              </a>
             </SurfaceCard>
           )}
         </div>
