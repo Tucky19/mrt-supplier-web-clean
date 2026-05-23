@@ -1,4 +1,10 @@
 import nodemailer from "nodemailer";
+import {
+  buildMissingProductRequestDimensionSummary,
+  getMissingProductRequestItemDetails,
+  getMissingProductRequestLabel,
+  isMissingProductRequestItem,
+} from "@/lib/rfq/missingProductRequest";
 
 function safeStr(v: unknown) {
   return String(v ?? "").trim();
@@ -141,6 +147,7 @@ type MailQuoteItem = {
   title?: string | null;
   spec?: string | null;
   qty: number;
+  meta?: unknown;
 };
 
 type MailCustomer = {
@@ -215,6 +222,81 @@ function buildItemsHtml(items: MailQuoteItem[]) {
   `;
 }
 
+function isMissingProductRequestEmail(items: MailQuoteItem[]) {
+  return items.length > 0 && items.every((item) => isMissingProductRequestItem(item));
+}
+
+function buildMissingProductRequestRows(item: MailQuoteItem) {
+  const details = getMissingProductRequestItemDetails(item);
+  if (!details) {
+    return [];
+  }
+
+  return [
+    ["Part No.", details.partNo],
+    ["Filter Type", details.filterType],
+    ["Brand", details.brand],
+    ["Qty", details.qty ? String(details.qty) : null],
+    ["Machine/Application", details.machineApplication],
+    ["Note", details.note],
+  ] as Array<[string, string | null]>;
+}
+
+function buildMissingProductRequestDimensionRows(item: MailQuoteItem) {
+  const details = getMissingProductRequestItemDetails(item);
+  if (!details) {
+    return [];
+  }
+
+  return [
+    ["OD", details.outerDiameter],
+    ["ID", details.innerDiameter],
+    ["Length/Height", details.lengthHeight],
+    ["Thread Size", details.threadSize],
+    ["Gasket OD", details.gasketOD],
+    ["Gasket ID", details.gasketID],
+  ] as Array<[string, string | null]>;
+}
+
+function buildMissingProductRequestSourceRows(item: MailQuoteItem) {
+  const details = getMissingProductRequestItemDetails(item);
+  if (!details) {
+    return [];
+  }
+
+  return [
+    ["Search Query", details.searchQuery],
+    ["Source Page", details.sourcePage],
+    ["Locale", details.locale],
+  ] as Array<[string, string | null]>;
+}
+
+function buildSectionText(title: string, rows: Array<[string, string | null]>) {
+  const renderedRows = rows
+    .map(([label, value]) => `- ${label}: ${safeStr(value) || "-"}`)
+    .join("\n");
+
+  return `${title}\n${renderedRows}`;
+}
+
+function buildSectionHtml(title: string, rows: Array<[string, string | null]>) {
+  const renderedRows = rows
+    .map(
+      ([label, value]) =>
+        `<div style="margin:0 0 6px;"><strong>${escapeHtml(label)}:</strong> ${escapeHtml(
+          value || "-",
+        )}</div>`,
+    )
+    .join("");
+
+  return `
+    <div style="margin:16px 0;padding:16px;border:1px solid #e5e7eb;border-radius:12px;background:#fafafa;">
+      <h3 style="margin:0 0 10px;font-size:15px;">${escapeHtml(title)}</h3>
+      ${renderedRows}
+    </div>
+  `;
+}
+
 export async function sendAdminRfqEmail(args: {
   requestId: string;
   customer: MailCustomer;
@@ -227,10 +309,98 @@ export async function sendAdminRfqEmail(args: {
   const transporter = getTransporter();
   const { from, to, cc } = getMailEnv();
   const { requestId, customer, items } = args;
+  const isMissingRequest = isMissingProductRequestEmail(items);
 
-  const subject = `[RFQ] ${requestId} ${safeStr(
-    customer.company || customer.name || ""
-  )}`.trim();
+  const subject = isMissingRequest
+    ? `[Missing Product Request] ${requestId} ${safeStr(
+        customer.company || customer.name || "",
+      )}`.trim()
+    : `[RFQ] ${requestId} ${safeStr(customer.company || customer.name || "")}`.trim();
+
+  if (isMissingRequest) {
+    const item = items[0];
+    const details = getMissingProductRequestItemDetails(item);
+    const requestTypeLabel = getMissingProductRequestLabel();
+    const productRows = buildMissingProductRequestRows(item);
+    const dimensionRows = buildMissingProductRequestDimensionRows(item);
+    const contactRows = [
+      ["Company", customer.company || null],
+      ["Name", customer.name || null],
+      ["Phone", customer.phone || null],
+      ["Email", customer.email || null],
+      ["LINE ID", customer.lineId || null],
+      ["Contact Preference", customer.contactPref || null],
+    ] as Array<[string, string | null]>;
+    const sourceRows = buildMissingProductRequestSourceRows(item);
+    const text = [
+      "New Missing Product Request received",
+      `Request ID: ${requestId}`,
+      "",
+      buildSectionText("Request Type", [["Type", requestTypeLabel]]),
+      "",
+      buildSectionText("Product Information", productRows),
+      "",
+      buildSectionText(
+        "Dimensions",
+        dimensionRows.concat([
+          [
+            "Summary",
+            details
+              ? buildMissingProductRequestDimensionSummary(details)
+              : item.spec || null,
+          ],
+        ]),
+      ),
+      "",
+      buildSectionText("Contact Information", contactRows),
+      "",
+      buildSectionText("Source / Search Context", sourceRows),
+    ].join("\n");
+
+    const html = `
+      <div style="font-family:Arial,sans-serif;color:#111827;line-height:1.6;">
+        <h2 style="margin:0 0 16px;">New Missing Product Request received</h2>
+        <p><strong>Request ID:</strong> ${escapeHtml(requestId)}</p>
+        ${buildSectionHtml("Request Type", [["Type", requestTypeLabel]])}
+        ${buildSectionHtml("Product Information", productRows)}
+        ${buildSectionHtml(
+          "Dimensions",
+          dimensionRows.concat([
+            [
+              "Summary",
+              details
+                ? buildMissingProductRequestDimensionSummary(details)
+                : item.spec || null,
+            ],
+          ]),
+        )}
+        ${buildSectionHtml("Contact Information", contactRows)}
+        ${buildSectionHtml("Source / Search Context", sourceRows)}
+        <p style="margin-top:20px;color:#6b7280;font-size:12px;">
+          This email was generated automatically from mrt-supplier.com
+        </p>
+      </div>
+    `;
+
+    try {
+      return await transporter.sendMail({
+        from,
+        to,
+        cc,
+        replyTo: safeStr(customer.email) || PUBLIC_REPLY_TO_EMAIL,
+        subject,
+        text,
+        html,
+      });
+    } catch (error) {
+      console.error("[RFQ_MAIL] admin_send_failed", {
+        ...getSafeMailDiagnostics(),
+        error: error instanceof Error ? error.message : String(error),
+        code: getErrorCode(error),
+      });
+      throw error;
+    }
+  }
 
   const text = [
     `New RFQ received`,
@@ -309,14 +479,23 @@ export async function sendCustomerRfqConfirmationEmail(args: {
   const transporter = getTransporter();
   const { from } = getMailEnv();
   const { requestId, customer, items } = args;
+  const isMissingRequest = isMissingProductRequestEmail(items);
 
-  const subject = `We received your RFQ (${requestId})`;
+  const subject = isMissingRequest
+    ? `We received your request (${requestId})`
+    : `We received your RFQ (${requestId})`;
+  const introTitle = isMissingRequest
+    ? "Thank you for your request"
+    : "Thank you for your RFQ";
+  const introText = isMissingRequest
+    ? `We have received your ${getMissingProductRequestLabel()} and our team will review it shortly.`
+    : "We have received your RFQ and our team will review it shortly.";
 
   const text = [
     `Dear ${safeStr(customer.name) || "Customer"},`,
     "",
     `Thank you for contacting MRT Supplier.`,
-    `We have received your RFQ and our team will review it shortly.`,
+    introText,
     "",
     `Request ID: ${requestId}`,
     "",
@@ -332,11 +511,12 @@ export async function sendCustomerRfqConfirmationEmail(args: {
 
   const html = `
     <div style="font-family:Arial,sans-serif;color:#111827;line-height:1.6;">
-      <h2 style="margin:0 0 16px;">Thank you for your RFQ</h2>
+      <h2 style="margin:0 0 16px;">${escapeHtml(introTitle)}</h2>
       <p>Dear ${escapeHtml(customer.name || "Customer")},</p>
       <p>
-        Thank you for contacting <strong>MRT Supplier</strong>. We have received your RFQ
-        and our team will review it shortly.
+        Thank you for contacting <strong>MRT Supplier</strong>. ${escapeHtml(
+          introText,
+        )}
       </p>
 
       <div style="margin:16px 0;padding:16px;border:1px solid #e5e7eb;border-radius:12px;background:#fafafa;">

@@ -14,6 +14,7 @@ type RfqItemShape = {
   spec: string | null;
   qty: number;
   createdAt: Date;
+  meta: unknown;
 };
 
 type RfqEventShape = {
@@ -132,6 +133,7 @@ export async function GET(
           title: item.title,
           spec: item.spec,
           qty: item.qty,
+          meta: item.meta,
           createdAt: item.createdAt,
         })),
 

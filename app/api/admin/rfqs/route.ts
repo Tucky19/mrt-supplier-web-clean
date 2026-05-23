@@ -9,6 +9,7 @@ type AdminRfqListItem = {
   requestId: string;
   createdAt: Date;
   status: string;
+  source: string | null;
   company: string | null;
   name: string | null;
   email: string | null;
@@ -90,12 +91,14 @@ export async function GET(request: NextRequest) {
           requestId: rfq.requestId,
           createdAt: rfq.createdAt,
           status: rfq.status,
+          source: rfq.source,
           company: rfq.company,
           name: rfq.name,
           email: rfq.email,
           phone: rfq.phone,
           lineId: rfq.lineId,
           itemCount: rfq._count?.items ?? 0,
+          isMissingProductRequest: rfq.source === "missing_product_request",
         })),
         pagination: {
           page,

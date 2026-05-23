@@ -1,6 +1,10 @@
 import Link from "next/link";
 import { prisma } from "@/lib/prisma";
 import BulkStatusActions from "@/components/admin/BulkStatusActions";
+import {
+  getMissingProductRequestLabel,
+  isMissingProductRequestSource,
+} from "@/lib/rfq/missingProductRequest";
 
 type PageProps = {
   searchParams: Promise<{
@@ -545,6 +549,12 @@ const ownerOptions = Array.from(
                               <span className="text-xs text-slate-500">
                                 Source: {rfq.source || "web"}
                               </span>
+
+                              {isMissingProductRequestSource(rfq.source) ? (
+                                <span className="inline-flex rounded-full border border-amber-200 bg-amber-50 px-2.5 py-1 text-xs font-medium text-amber-700">
+                                  {getMissingProductRequestLabel()}
+                                </span>
+                              ) : null}
 
                               {rfq.createdToday ? (
                                 <span className="inline-flex rounded-full border border-blue-200 bg-blue-50 px-2.5 py-1 text-xs font-medium text-blue-700">

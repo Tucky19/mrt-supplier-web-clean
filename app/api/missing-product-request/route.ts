@@ -6,6 +6,10 @@ import {
   sendAdminRfqEmail,
   sendCustomerRfqConfirmationEmail,
 } from "@/lib/mail";
+import {
+  buildContactMethodPresenceSummary,
+  getMissingProductRequestLabel,
+} from "@/lib/rfq/missingProductRequest";
 
 export const dynamic = "force-dynamic";
 const NOTIFICATION_TIMEOUT_MS = 5000;
@@ -421,6 +425,7 @@ async function runNotificationJobs(params: {
       qty: number;
       category?: string | null;
       spec?: string | null;
+      meta?: unknown;
     }>;
   };
   customerEmail: string | null;
@@ -557,21 +562,24 @@ async function runNotificationJobs(params: {
         requestId: linePayload.requestId,
         company: linePayload.company,
         name: linePayload.name,
-        phone: linePayload.phone,
-        email: linePayload.email,
         itemCount: 1,
+        requestTypeLabel: getMissingProductRequestLabel(),
+        includeContactDetails: false,
         extraLines: [
-          `Part No: ${linePayload.partNo}`,
-          `Filter Type: ${linePayload.filterType || "-"}`,
-          `Brand: ${linePayload.brand || "-"}`,
+          `Item: ${linePayload.partNo || linePayload.filterType || "Missing Product"}`,
+          linePayload.filterType ? `Filter Type: ${linePayload.filterType}` : null,
           `Qty: ${linePayload.qty}`,
-          `Machine/Application: ${linePayload.machineApplication || "-"}`,
-          `Dimensions: ${linePayload.dimensionSummary || "-"}`,
-          `LINE ID: ${linePayload.lineId || "-"}`,
-          `Note: ${linePayload.note || "-"}`,
-          `Search Query: ${linePayload.searchQuery || "-"}`,
-          `Source Page: ${linePayload.sourcePage || "-"}`,
-          `Locale: ${linePayload.locale || "-"}`,
+          linePayload.dimensionSummary
+            ? `Dimensions: ${linePayload.dimensionSummary}`
+            : null,
+          linePayload.machineApplication
+            ? `Machine/Application: ${linePayload.machineApplication}`
+            : null,
+          `Contact: ${buildContactMethodPresenceSummary({
+            phone: linePayload.phone,
+            email: linePayload.email,
+            lineId: linePayload.lineId,
+          })}`,
         ],
       }),
     NOTIFICATION_TIMEOUT_MS,
@@ -690,6 +698,9 @@ export async function POST(req: NextRequest) {
               filterType: payload.filterType || null,
               machineApplication: payload.machineApplication || null,
               details: payload.note || null,
+              searchQuery: payload.searchQuery || null,
+              sourcePage: payload.sourcePage || null,
+              locale: payload.locale || null,
               dimensions: {
                 outerDiameter: payload.outerDiameter || null,
                 innerDiameter: payload.innerDiameter || null,
@@ -744,6 +755,23 @@ export async function POST(req: NextRequest) {
           qty: payload.qty,
           category: payload.filterType || null,
           spec: dimensionSummary || null,
+          meta: {
+            requestType: "missing_product_request",
+            filterType: payload.filterType || null,
+            machineApplication: payload.machineApplication || null,
+            details: payload.note || null,
+            searchQuery: payload.searchQuery || null,
+            sourcePage: payload.sourcePage || null,
+            locale: payload.locale || null,
+            dimensions: {
+              outerDiameter: payload.outerDiameter || null,
+              innerDiameter: payload.innerDiameter || null,
+              lengthHeight: payload.lengthHeight || null,
+              threadSize: payload.threadSize || null,
+              gasketOD: payload.gasketOD || null,
+              gasketID: payload.gasketID || null,
+            },
+          },
         },
       ],
     };

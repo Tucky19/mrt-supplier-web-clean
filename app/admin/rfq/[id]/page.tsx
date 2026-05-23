@@ -9,6 +9,11 @@ import OwnerAssignmentForm from "@/components/admin/OwnerAssignmentForm";
 import { RfqStatusForm } from "@/components/admin/rfq-status-form";
 import { RfqQuoteForm } from '@/components/admin/rfq-quote-form';
 import RfqNoteForm from "@/components/admin/RfqNoteForm";
+import {
+  getMissingProductRequestItemDetails,
+  getMissingProductRequestLabel,
+  isMissingProductRequestSource,
+} from "@/lib/rfq/missingProductRequest";
 type PageProps = {
   params: Promise<{ id: string }>;
 };
@@ -169,6 +174,14 @@ function getTimelineDescription(type: string, payload: unknown) {
   return null;
 }
 
+function renderDetailValue(value: string | number | null | undefined) {
+  return value ?? "-";
+}
+
+type MissingProductItemDetail = NonNullable<
+  ReturnType<typeof getMissingProductRequestItemDetails>
+>;
+
 export const dynamic = "force-dynamic";
 
 export default async function AdminRfqDetailPage({ params }: PageProps) {
@@ -201,6 +214,20 @@ export default async function AdminRfqDetailPage({ params }: PageProps) {
   const events = rfq.events ?? [];
   const followUps = rfq.followUps ?? [];
   const items = rfq.items ?? [];
+  const missingProductItems = items
+    .map((item: (typeof items)[number]) => ({
+      id: item.id,
+      details: getMissingProductRequestItemDetails(item),
+    }))
+    .filter(
+      (item: {
+        id: string;
+        details: MissingProductItemDetail | null;
+      }): item is {
+        id: string;
+        details: MissingProductItemDetail;
+      } => item.details !== null,
+    );
 
   return (
     <main className="min-h-screen bg-slate-50">
@@ -222,6 +249,14 @@ export default async function AdminRfqDetailPage({ params }: PageProps) {
               <h1 className="mt-2 text-3xl font-semibold tracking-tight text-slate-950">
                 {rfq.requestId}
               </h1>
+
+              {isMissingProductRequestSource(rfq.source) ? (
+                <div className="mt-3">
+                  <span className="inline-flex rounded-full border border-amber-200 bg-amber-50 px-3 py-1 text-sm font-medium text-amber-700">
+                    {getMissingProductRequestLabel()}
+                  </span>
+                </div>
+              ) : null}
 
               <p className="mt-3 text-sm leading-7 text-slate-600">
                 Created at {formatDate(rfq.createdAt)}
@@ -365,6 +400,162 @@ export default async function AdminRfqDetailPage({ params }: PageProps) {
               </div>
             )}
           </div>
+
+          {missingProductItems.length > 0 ? (
+            <div className="rounded-3xl border border-amber-200 bg-amber-50/40 p-6 shadow-sm">
+              <h2 className="text-xl font-semibold text-slate-950">
+                Missing Product Request Details
+              </h2>
+              <p className="mt-2 text-sm leading-6 text-slate-600">
+                Additional search and dimension details captured from the request.
+              </p>
+
+              <div className="mt-5 space-y-4">
+                {missingProductItems.map(
+                  ({ id: itemId, details }: { id: string; details: MissingProductItemDetail }) => (
+                  <div
+                    key={itemId}
+                    className="rounded-2xl border border-amber-200 bg-white p-4"
+                  >
+                    <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+                      <div>
+                        <p className="text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">
+                          Part No.
+                        </p>
+                        <p className="mt-2 text-sm text-slate-900">
+                          {renderDetailValue(details.partNo)}
+                        </p>
+                      </div>
+                      <div>
+                        <p className="text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">
+                          Filter Type
+                        </p>
+                        <p className="mt-2 text-sm text-slate-900">
+                          {renderDetailValue(details.filterType)}
+                        </p>
+                      </div>
+                      <div>
+                        <p className="text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">
+                          Brand
+                        </p>
+                        <p className="mt-2 text-sm text-slate-900">
+                          {renderDetailValue(details.brand)}
+                        </p>
+                      </div>
+                      <div>
+                        <p className="text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">
+                          Qty
+                        </p>
+                        <p className="mt-2 text-sm text-slate-900">
+                          {renderDetailValue(details.qty)}
+                        </p>
+                      </div>
+                      <div>
+                        <p className="text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">
+                          Machine/Application
+                        </p>
+                        <p className="mt-2 text-sm text-slate-900">
+                          {renderDetailValue(details.machineApplication)}
+                        </p>
+                      </div>
+                      <div>
+                        <p className="text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">
+                          OD
+                        </p>
+                        <p className="mt-2 text-sm text-slate-900">
+                          {renderDetailValue(details.outerDiameter)}
+                        </p>
+                      </div>
+                      <div>
+                        <p className="text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">
+                          ID
+                        </p>
+                        <p className="mt-2 text-sm text-slate-900">
+                          {renderDetailValue(details.innerDiameter)}
+                        </p>
+                      </div>
+                      <div>
+                        <p className="text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">
+                          Length/Height
+                        </p>
+                        <p className="mt-2 text-sm text-slate-900">
+                          {renderDetailValue(details.lengthHeight)}
+                        </p>
+                      </div>
+                      <div>
+                        <p className="text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">
+                          Thread Size
+                        </p>
+                        <p className="mt-2 text-sm text-slate-900">
+                          {renderDetailValue(details.threadSize)}
+                        </p>
+                      </div>
+                      <div>
+                        <p className="text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">
+                          Gasket OD
+                        </p>
+                        <p className="mt-2 text-sm text-slate-900">
+                          {renderDetailValue(details.gasketOD)}
+                        </p>
+                      </div>
+                      <div>
+                        <p className="text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">
+                          Gasket ID
+                        </p>
+                        <p className="mt-2 text-sm text-slate-900">
+                          {renderDetailValue(details.gasketID)}
+                        </p>
+                      </div>
+                      <div>
+                        <p className="text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">
+                          Search Query
+                        </p>
+                        <p className="mt-2 text-sm text-slate-900">
+                          {renderDetailValue(details.searchQuery)}
+                        </p>
+                      </div>
+                      <div>
+                        <p className="text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">
+                          Source Page
+                        </p>
+                        <p className="mt-2 break-all text-sm text-slate-900">
+                          {renderDetailValue(details.sourcePage)}
+                        </p>
+                      </div>
+                      <div>
+                        <p className="text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">
+                          Locale
+                        </p>
+                        <p className="mt-2 text-sm text-slate-900">
+                          {renderDetailValue(details.locale)}
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="mt-4 grid gap-4 md:grid-cols-2">
+                      <div>
+                        <p className="text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">
+                          Note
+                        </p>
+                        <p className="mt-2 whitespace-pre-wrap text-sm leading-6 text-slate-900">
+                          {renderDetailValue(details.note)}
+                        </p>
+                      </div>
+                      <div>
+                        <p className="text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">
+                          Request Type
+                        </p>
+                        <p className="mt-2 text-sm text-slate-900">
+                          {details.requestTypeLabel}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  ),
+                )}
+              </div>
+            </div>
+          ) : null}
 
           <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
             <h2 className="text-xl font-semibold text-slate-950">Customer Notes</h2>
