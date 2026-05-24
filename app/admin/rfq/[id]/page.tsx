@@ -12,6 +12,7 @@ import RfqNoteForm from "@/components/admin/RfqNoteForm";
 import {
   getMissingProductRequestItemDetails,
   getMissingProductRequestLabel,
+  getMissingProductThreadSystemLabel,
   isMissingProductRequestSource,
 } from "@/lib/rfq/missingProductRequest";
 type PageProps = {
@@ -480,6 +481,16 @@ export default async function AdminRfqDetailPage({ params }: PageProps) {
                         </p>
                         <p className="mt-2 text-sm text-slate-900">
                           {renderDetailValue(details.lengthHeight)}
+                        </p>
+                      </div>
+                      <div>
+                        <p className="text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">
+                          Thread System
+                        </p>
+                        <p className="mt-2 text-sm text-slate-900">
+                          {renderDetailValue(
+                            getMissingProductThreadSystemLabel(details.threadSystem),
+                          )}
                         </p>
                       </div>
                       <div>

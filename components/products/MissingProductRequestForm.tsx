@@ -23,6 +23,7 @@ type FormState = {
   outerDiameter: string;
   innerDiameter: string;
   lengthHeight: string;
+  threadSystem: string;
   threadSize: string;
   gasketOD: string;
   gasketID: string;
@@ -50,6 +51,7 @@ function createInitialState(defaultPartNo?: string): FormState {
     outerDiameter: "",
     innerDiameter: "",
     lengthHeight: "",
+    threadSystem: "",
     threadSize: "",
     gasketOD: "",
     gasketID: "",
@@ -85,6 +87,7 @@ export default function MissingProductRequestForm({
         form.outerDiameter.trim() ||
         form.innerDiameter.trim() ||
         form.lengthHeight.trim() ||
+        form.threadSystem.trim() ||
         form.threadSize.trim() ||
         form.gasketOD.trim() ||
         form.gasketID.trim()
@@ -318,6 +321,21 @@ export default function MissingProductRequestForm({
                 placeholder={text.lengthHeight}
                 className="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-blue-400 focus:ring-2 focus:ring-blue-100"
               />
+              <div className="space-y-2">
+                <label className="block text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">
+                  Thread System
+                </label>
+                <select
+                  value={form.threadSystem}
+                  onChange={(event) => handleChange("threadSystem", event.target.value)}
+                  className="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-blue-400 focus:ring-2 focus:ring-blue-100"
+                >
+                  <option value="">Select thread system</option>
+                  <option value="inch_un_npt">Inch / UN / NPT</option>
+                  <option value="metric_m">Metric / M</option>
+                  <option value="not_sure">Not sure</option>
+                </select>
+              </div>
               <input
                 value={form.threadSize}
                 onChange={(event) => handleChange("threadSize", event.target.value)}

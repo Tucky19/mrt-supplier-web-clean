@@ -1,6 +1,7 @@
 import nodemailer from "nodemailer";
 import {
   buildMissingProductRequestDimensionSummary,
+  getMissingProductThreadSystemLabel,
   getMissingProductRequestItemDetails,
   getMissingProductRequestLabel,
   isMissingProductRequestItem,
@@ -252,6 +253,10 @@ function buildMissingProductRequestDimensionRows(item: MailQuoteItem) {
     ["OD", details.outerDiameter],
     ["ID", details.innerDiameter],
     ["Length/Height", details.lengthHeight],
+    [
+      "Thread System",
+      getMissingProductThreadSystemLabel(details.threadSystem),
+    ],
     ["Thread Size", details.threadSize],
     ["Gasket OD", details.gasketOD],
     ["Gasket ID", details.gasketID],

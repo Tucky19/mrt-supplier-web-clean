@@ -1,9 +1,15 @@
 type JsonRecord = Record<string, unknown>;
 
+export type MissingProductRequestThreadSystem =
+  | "inch_un_npt"
+  | "metric_m"
+  | "not_sure";
+
 type MissingProductRequestDimensions = {
   outerDiameter: string | null;
   innerDiameter: string | null;
   lengthHeight: string | null;
+  threadSystem: MissingProductRequestThreadSystem | null;
   threadSize: string | null;
   gasketOD: string | null;
   gasketID: string | null;
@@ -46,8 +52,53 @@ function nullableStr(value: unknown) {
   return normalized || null;
 }
 
+function nullableThreadSystem(value: unknown): MissingProductRequestThreadSystem | null {
+  const normalized = safeStr(value);
+
+  if (
+    normalized === "inch_un_npt" ||
+    normalized === "metric_m" ||
+    normalized === "not_sure"
+  ) {
+    return normalized;
+  }
+
+  return null;
+}
+
 export function getMissingProductRequestLabel() {
   return "Missing Product Request / คำขอสินค้าที่ค้นหาไม่เจอ";
+}
+
+export function getMissingProductThreadSystemLabel(
+  value: MissingProductRequestThreadSystem | null | undefined,
+) {
+  switch (value) {
+    case "inch_un_npt":
+      return "Inch / UN / NPT";
+    case "metric_m":
+      return "Metric / M";
+    case "not_sure":
+      return "Not sure";
+    default:
+      return null;
+  }
+}
+
+export function formatMissingProductThreadDetail(details: {
+  threadSystem?: MissingProductRequestThreadSystem | string | null;
+  threadSize?: string | null;
+}) {
+  const threadSystemLabel = getMissingProductThreadSystemLabel(
+    nullableThreadSystem(details.threadSystem),
+  );
+  const threadSize = nullableStr(details.threadSize);
+
+  if (threadSystemLabel && threadSize) {
+    return `${threadSystemLabel} ${threadSize}`;
+  }
+
+  return threadSystemLabel || threadSize;
 }
 
 export function isMissingProductRequestSource(source: string | null | undefined) {
@@ -76,6 +127,7 @@ export function parseMissingProductRequestMeta(
       outerDiameter: nullableStr(dimensions?.outerDiameter),
       innerDiameter: nullableStr(dimensions?.innerDiameter),
       lengthHeight: nullableStr(dimensions?.lengthHeight),
+      threadSystem: nullableThreadSystem(dimensions?.threadSystem),
       threadSize: nullableStr(dimensions?.threadSize),
       gasketOD: nullableStr(dimensions?.gasketOD),
       gasketID: nullableStr(dimensions?.gasketID),
@@ -108,6 +160,7 @@ export function getMissingProductRequestItemDetails(
     outerDiameter: meta?.dimensions.outerDiameter ?? null,
     innerDiameter: meta?.dimensions.innerDiameter ?? null,
     lengthHeight: meta?.dimensions.lengthHeight ?? null,
+    threadSystem: meta?.dimensions.threadSystem ?? null,
     threadSize: meta?.dimensions.threadSize ?? null,
     gasketOD: meta?.dimensions.gasketOD ?? null,
     gasketID: meta?.dimensions.gasketID ?? null,
@@ -123,15 +176,18 @@ export function buildMissingProductRequestDimensionSummary(details: {
   outerDiameter?: string | null;
   innerDiameter?: string | null;
   lengthHeight?: string | null;
+  threadSystem?: MissingProductRequestThreadSystem | string | null;
   threadSize?: string | null;
   gasketOD?: string | null;
   gasketID?: string | null;
 }) {
+  const threadDetail = formatMissingProductThreadDetail(details);
+
   return [
     details.outerDiameter ? `OD ${details.outerDiameter}` : "",
     details.innerDiameter ? `ID ${details.innerDiameter}` : "",
     details.lengthHeight ? `L/H ${details.lengthHeight}` : "",
-    details.threadSize ? `Thread ${details.threadSize}` : "",
+    threadDetail ? `Thread ${threadDetail}` : "",
     details.gasketOD ? `Gasket OD ${details.gasketOD}` : "",
     details.gasketID ? `Gasket ID ${details.gasketID}` : "",
   ]

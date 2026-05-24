@@ -8,6 +8,8 @@ import {
 } from "@/lib/mail";
 import {
   buildContactMethodPresenceSummary,
+  buildMissingProductRequestDimensionSummary,
+  formatMissingProductThreadDetail,
   getMissingProductRequestLabel,
 } from "@/lib/rfq/missingProductRequest";
 
@@ -25,6 +27,7 @@ type Payload = {
   outerDiameter?: string;
   innerDiameter?: string;
   lengthHeight?: string;
+  threadSystem?: string;
   threadSize?: string;
   gasketOD?: string;
   gasketID?: string;
@@ -43,6 +46,20 @@ function safeStr(value: unknown) {
 
 function normalizeEmail(value: string) {
   return value.trim().toLowerCase();
+}
+
+function normalizeThreadSystem(value: unknown) {
+  const normalized = safeStr(value);
+
+  if (
+    normalized === "inch_un_npt" ||
+    normalized === "metric_m" ||
+    normalized === "not_sure"
+  ) {
+    return normalized;
+  }
+
+  return "";
 }
 
 function getClientIp(req: NextRequest) {
@@ -119,6 +136,7 @@ function hasProductIdentifier(payload: ReturnType<typeof normalizePayload>) {
       payload.outerDiameter ||
       payload.innerDiameter ||
       payload.lengthHeight ||
+      payload.threadSystem ||
       payload.threadSize ||
       payload.gasketOD ||
       payload.gasketID
@@ -142,6 +160,7 @@ function normalizePayload(body: Payload) {
     outerDiameter: safeStr(body.outerDiameter),
     innerDiameter: safeStr(body.innerDiameter),
     lengthHeight: safeStr(body.lengthHeight),
+    threadSystem: normalizeThreadSystem(body.threadSystem),
     threadSize: safeStr(body.threadSize),
     gasketOD: safeStr(body.gasketOD),
     gasketID: safeStr(body.gasketID),
@@ -157,16 +176,7 @@ function normalizePayload(body: Payload) {
 }
 
 function buildDimensionSummary(payload: ReturnType<typeof normalizePayload>) {
-  const rows = [
-    payload.outerDiameter ? `OD ${payload.outerDiameter}` : "",
-    payload.innerDiameter ? `ID ${payload.innerDiameter}` : "",
-    payload.lengthHeight ? `L/H ${payload.lengthHeight}` : "",
-    payload.threadSize ? `Thread ${payload.threadSize}` : "",
-    payload.gasketOD ? `Gasket OD ${payload.gasketOD}` : "",
-    payload.gasketID ? `Gasket ID ${payload.gasketID}` : "",
-  ].filter(Boolean);
-
-  return rows.join(" | ");
+  return buildMissingProductRequestDimensionSummary(payload);
 }
 
 function buildStoredNote(payload: ReturnType<typeof normalizePayload>) {
@@ -442,6 +452,8 @@ async function runNotificationJobs(params: {
     qty: number;
     machineApplication: string | null;
     dimensionSummary: string | null;
+    threadSystem: string | null;
+    threadSize: string | null;
     note: string | null;
     searchQuery: string | null;
     sourcePage: string | null;
@@ -557,8 +569,13 @@ async function runNotificationJobs(params: {
   const lineStartedAt = Date.now();
   const lineResult = await withTimeout(
     "line_notify",
-    () =>
-      sendRfqLineNotification({
+    () => {
+      const threadDetail = formatMissingProductThreadDetail({
+        threadSystem: linePayload.threadSystem,
+        threadSize: linePayload.threadSize,
+      });
+
+      return sendRfqLineNotification({
         requestId: linePayload.requestId,
         company: linePayload.company,
         name: linePayload.name,
@@ -569,6 +586,7 @@ async function runNotificationJobs(params: {
           `Item: ${linePayload.partNo || linePayload.filterType || "Missing Product"}`,
           linePayload.filterType ? `Filter Type: ${linePayload.filterType}` : null,
           `Qty: ${linePayload.qty}`,
+          threadDetail ? `Thread: ${threadDetail}` : null,
           linePayload.dimensionSummary
             ? `Dimensions: ${linePayload.dimensionSummary}`
             : null,
@@ -581,7 +599,8 @@ async function runNotificationJobs(params: {
             lineId: linePayload.lineId,
           })}`,
         ],
-      }),
+      });
+    },
     NOTIFICATION_TIMEOUT_MS,
   );
   const lineNotifyMs = getElapsedMs(lineStartedAt);
@@ -705,6 +724,7 @@ export async function POST(req: NextRequest) {
                 outerDiameter: payload.outerDiameter || null,
                 innerDiameter: payload.innerDiameter || null,
                 lengthHeight: payload.lengthHeight || null,
+                threadSystem: payload.threadSystem || null,
                 threadSize: payload.threadSize || null,
                 gasketOD: payload.gasketOD || null,
                 gasketID: payload.gasketID || null,
@@ -767,6 +787,7 @@ export async function POST(req: NextRequest) {
               outerDiameter: payload.outerDiameter || null,
               innerDiameter: payload.innerDiameter || null,
               lengthHeight: payload.lengthHeight || null,
+              threadSystem: payload.threadSystem || null,
               threadSize: payload.threadSize || null,
               gasketOD: payload.gasketOD || null,
               gasketID: payload.gasketID || null,
@@ -793,6 +814,8 @@ export async function POST(req: NextRequest) {
         qty: payload.qty,
         machineApplication: payload.machineApplication || null,
         dimensionSummary: dimensionSummary || null,
+        threadSystem: payload.threadSystem || null,
+        threadSize: payload.threadSize || null,
         note: payload.note || null,
         searchQuery: payload.searchQuery || null,
         sourcePage: payload.sourcePage || null,
