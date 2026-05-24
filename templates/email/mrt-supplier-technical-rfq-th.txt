@@ -1,0 +1,35 @@
+MRT Supplier Co., Ltd.
+
+หาอะไหล่ให้ตรงรุ่น ยืนยันสเปค และส่ง RFQ ได้เร็วขึ้น
+
+สำหรับทีมซ่อมบำรุง โรงงาน และฝ่ายจัดซื้อที่ต้องการข้อมูลชัดเจนก่อนสั่ง
+
+MRT Supplier รองรับงานหาอะไหล่อุตสาหกรรมแบบเน้นสเปค โดยช่วยตรวจสอบข้อมูลจาก Part Number, เทียบ Cross Reference และยืนยันความเหมาะสมก่อนเสนอราคา
+
+รองรับ:
+- Part Number support
+- Cross Reference support
+- Hydraulic / Air / Lube / Fuel Filter
+- กรณีหาอะไหล่ไม่เจอ หรือไม่มี Part Number
+- Dimension support: OD / ID / Length / Thread Size
+
+ข้อมูลที่ช่วยให้ยืนยันสเปคได้เร็วขึ้น:
+- Part Number / Cross Reference / Brand / Model
+- ประเภทไส้กรอง: Hydraulic / Air / Lube / Fuel Filter
+- ขนาด: OD / ID / Length / Thread Size
+- รูปสินค้าเดิม / รุ่นเครื่อง / ข้อมูลการใช้งาน
+
+ส่ง RFQ / ค้นหาสินค้า
+https://mrtsupplier.com/th/products
+
+ส่งข้อมูลสินค้าที่ค้นหาไม่เจอ
+https://mrtsupplier.com/th/products?request=1#missing-product-request
+
+ติดต่อ LINE @mrtsupplier
+https://lin.ee/S676yYH
+
+MRT Supplier Co., Ltd.
+LINE: @mrtsupplier
+Website: https://mrtsupplier.com
+Phone: 097 012 2111, 081 558 1323
+Email: sales@mrtsupplier.com
