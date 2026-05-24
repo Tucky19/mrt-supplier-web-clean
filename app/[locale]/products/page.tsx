@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import SearchEventTracker from "@/components/analytics/SearchEventTracker";
 import { getTranslations } from "next-intl/server";
 import SearchNoResultsTracker from "@/components/analytics/SearchNoResultsTracker";
 import MissingProductRequestForm from "@/components/products/MissingProductRequestForm";
@@ -7,7 +8,7 @@ import SiteFooter from "@/components/layout/SiteFooter";
 import SiteHeader from "@/components/layout/SiteHeader";
 import SearchBar from "@/components/search/SearchBar";
 import { products } from "@/data/products/index";
-import { searchProducts } from "@/lib/search/search";
+import { searchProducts, type SearchResult } from "@/lib/search/search";
 import type { Product } from "@/types/product";
 
 type PageProps = {
@@ -42,6 +43,14 @@ function hydrateSearchHit(hit: Product, catalog: Product[]) {
   };
 }
 
+function getResultMatchType(product: Product | SearchResult | undefined) {
+  if (!product || !("_matchType" in product)) {
+    return null;
+  }
+
+  return product._matchType;
+}
+
 export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
@@ -72,7 +81,7 @@ export default async function ProductsPage({
   const hasQuery = query.length >= 2;
   const isThai = locale === "th";
 
-  const visibleProducts: Product[] = hasQuery
+  const visibleProducts: Array<Product | SearchResult> = hasQuery
     ? searchProducts(query, { limit: SEARCH_RESULT_LIMIT }).map((hit) =>
         hydrateSearchHit(hit, products),
       )
@@ -158,6 +167,15 @@ export default async function ProductsPage({
 
         {showMissingProductRequest && (
           <div className={visibleProducts.length === 0 ? "" : "mb-6"}>
+            {hasQuery ? (
+              <SearchEventTracker
+                query={query}
+                locale={locale}
+                resultCount={visibleProducts.length}
+                matchType={getResultMatchType(visibleProducts[0])}
+              />
+            ) : null}
+
             {hasQuery && visibleProducts.length === 0 ? (
               <SearchNoResultsTracker
                 searchTerm={query}
@@ -183,11 +201,21 @@ export default async function ProductsPage({
 
             <MissingProductRequestForm
               locale={locale}
-              defaultPartNo={hasQuery ? query : ""}
+              defaultPartNo=""
+              searchQuery={hasQuery && visibleProducts.length === 0 ? query : ""}
               compactIntro={visibleProducts.length === 0}
             />
           </div>
         )}
+
+        {hasQuery && !showMissingProductRequest ? (
+          <SearchEventTracker
+            query={query}
+            locale={locale}
+            resultCount={visibleProducts.length}
+            matchType={getResultMatchType(visibleProducts[0])}
+          />
+        ) : null}
 
         {visibleProducts.length > 0 && (
           <ProductListClient
