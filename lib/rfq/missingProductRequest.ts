@@ -26,6 +26,14 @@ export type MissingProductRequestMeta = {
   dimensions: MissingProductRequestDimensions;
 };
 
+export type MissingProductRequestSuggestedStatusLabel =
+  | "New"
+  | "Reviewing"
+  | "Need More Info"
+  | "Quoted"
+  | "Added to Catalog"
+  | "Closed";
+
 export type MissingProductRequestItemLike = {
   productId?: string | null;
   partNo?: string | null;
@@ -68,6 +76,82 @@ function nullableThreadSystem(value: unknown): MissingProductRequestThreadSystem
 
 export function getMissingProductRequestLabel() {
   return "Missing Product Request / คำขอสินค้าที่ค้นหาไม่เจอ";
+}
+
+export function getMissingProductRequestSuggestedStatusLabel(input: {
+  rfqStatus: string | null | undefined;
+  noteBodies?: Array<string | null | undefined>;
+  followUpNotes?: Array<string | null | undefined>;
+}): MissingProductRequestSuggestedStatusLabel {
+  const rfqStatus = safeStr(input.rfqStatus).toLowerCase();
+  const combinedText = [...(input.noteBodies ?? []), ...(input.followUpNotes ?? [])]
+    .map((value) => safeStr(value).toLowerCase())
+    .filter(Boolean)
+    .join("\n");
+
+  if (
+    combinedText.includes("added to catalog") ||
+    combinedText.includes("catalog added") ||
+    combinedText.includes("catalogue added") ||
+    combinedText.includes("เพิ่มเข้าคาตาล็อก") ||
+    combinedText.includes("เพิ่มเข้าระบบสินค้า") ||
+    combinedText.includes("เพิ่มสินค้าเข้าระบบ")
+  ) {
+    return "Added to Catalog";
+  }
+
+  if (rfqStatus === "quoted") {
+    return "Quoted";
+  }
+
+  if (
+    combinedText.includes("need more info") ||
+    combinedText.includes("more info") ||
+    combinedText.includes("awaiting customer") ||
+    combinedText.includes("waiting customer") ||
+    combinedText.includes("ขอข้อมูลเพิ่มเติม") ||
+    combinedText.includes("ขอข้อมูลเพิ่ม") ||
+    combinedText.includes("รอข้อมูล") ||
+    combinedText.includes("รอลูกค้า")
+  ) {
+    return "Need More Info";
+  }
+
+  if (rfqStatus === "in_progress") {
+    return "Reviewing";
+  }
+
+  if (rfqStatus === "closed" || rfqStatus === "spam") {
+    return "Closed";
+  }
+
+  return "New";
+}
+
+export function getMissingProductRequestReplyTemplates(input: {
+  requestId: string;
+  partNo?: string | null;
+  filterType?: string | null;
+}) {
+  const reference = safeStr(input.partNo) || safeStr(input.filterType) || input.requestId;
+
+  return [
+    {
+      id: "acknowledged",
+      title: "รับเรื่องแล้ว กำลังตรวจสอบ",
+      body: `เรียนลูกค้า\n\nMRT Supplier ได้รับคำขอสินค้าที่ค้นหาไม่เจอสำหรับรายการ ${reference} เรียบร้อยแล้ว ขณะนี้ทีมงานกำลังตรวจสอบสเปกและเบอร์เทียบที่เกี่ยวข้องให้โดยเร็ว\n\nหากมีข้อมูลเพิ่มเติมที่ต้องการแจ้ง สามารถส่งกลับมาได้ตลอดครับ/ค่ะ\n\nขอบพระคุณครับ/ค่ะ`,
+    },
+    {
+      id: "need-more-info",
+      title: "ขอข้อมูลเพิ่มเติม",
+      body: `เรียนลูกค้า\n\nเพื่อให้ MRT Supplier ช่วยตรวจสอบรายการ ${reference} ได้แม่นยำมากขึ้น รบกวนขอข้อมูลเพิ่มเติม เช่น\n- รูปสินค้าหรือป้ายสเปก\n- ขนาดที่วัดได้\n- รุ่นเครื่อง / การใช้งาน\n- เบอร์เดิมหรือเบอร์ที่ใกล้เคียง (ถ้ามี)\n\nเมื่อได้รับข้อมูลเพิ่มเติมแล้ว ทีมงานจะรีบตรวจสอบและตอบกลับให้ครับ/ค่ะ\n\nขอบพระคุณครับ/ค่ะ`,
+    },
+    {
+      id: "preliminary-cross-reference",
+      title: "แจ้งเบอร์เทียบเบื้องต้น",
+      body: `เรียนลูกค้า\n\nจากข้อมูลเบื้องต้น MRT Supplier พบเบอร์เทียบที่อาจเกี่ยวข้องกับรายการ ${reference} ดังนี้\n[ระบุเบอร์เทียบเบื้องต้น]\n\nรบกวนตรวจสอบร่วมกับสเปก / ขนาด / ลักษณะการใช้งานอีกครั้งก่อนยืนยันสั่งซื้อ หากต้องการให้ทีมงานช่วยเช็กเพิ่มเติม สามารถแจ้งข้อมูลเพิ่มได้เลยครับ/ค่ะ\n\nขอบพระคุณครับ/ค่ะ`,
+    },
+  ] as const;
 }
 
 export function getMissingProductThreadSystemLabel(

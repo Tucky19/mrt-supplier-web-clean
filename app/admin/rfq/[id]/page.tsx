@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { prisma } from "@/lib/prisma";
+import MissingProductRequestFollowUpHelper from "@/components/admin/MissingProductRequestFollowUpHelper";
 import { RfqFollowUpForm } from '@/components/admin/RfqFollowUpForm';
 import FollowUpDoneButton from "@/components/admin/FollowUpDoneButton";
 import QuoteRecordForm from "@/components/admin/QuoteRecordForm";
@@ -12,6 +13,8 @@ import RfqNoteForm from "@/components/admin/RfqNoteForm";
 import {
   getMissingProductRequestItemDetails,
   getMissingProductRequestLabel,
+  getMissingProductRequestReplyTemplates,
+  getMissingProductRequestSuggestedStatusLabel,
   getMissingProductThreadSystemLabel,
   isMissingProductRequestSource,
 } from "@/lib/rfq/missingProductRequest";
@@ -229,6 +232,19 @@ export default async function AdminRfqDetailPage({ params }: PageProps) {
         details: MissingProductItemDetail;
       } => item.details !== null,
     );
+  const primaryMissingProductItem = missingProductItems[0]?.details ?? null;
+  const missingProductFollowUpTemplates = primaryMissingProductItem
+    ? getMissingProductRequestReplyTemplates({
+        requestId: rfq.requestId,
+        partNo: primaryMissingProductItem.partNo,
+        filterType: primaryMissingProductItem.filterType,
+      })
+    : [];
+  const missingProductSuggestedStatusLabel = getMissingProductRequestSuggestedStatusLabel({
+    rfqStatus: rfq.status,
+    noteBodies: notes.map((note: (typeof notes)[number]) => note.body),
+    followUpNotes: followUps.map((followUp: (typeof followUps)[number]) => followUp.note),
+  });
 
   return (
     <main className="min-h-screen bg-slate-50">
@@ -624,6 +640,15 @@ export default async function AdminRfqDetailPage({ params }: PageProps) {
         </div>
 
         <div className="space-y-8">
+          {isMissingProductRequestSource(rfq.source) && primaryMissingProductItem ? (
+            <MissingProductRequestFollowUpHelper
+              requestTypeLabel={getMissingProductRequestLabel()}
+              suggestedStatusLabel={missingProductSuggestedStatusLabel}
+              templates={[...missingProductFollowUpTemplates]}
+              showNoteHint
+            />
+          ) : null}
+
           <div className="rounded-3xl border border-violet-200 bg-violet-50/40 p-6 shadow-sm">
   <h2 className="text-xl font-semibold text-slate-950">
     Owner Assignment
