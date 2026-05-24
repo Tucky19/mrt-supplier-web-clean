@@ -1,15 +1,21 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { usePathname } from "next/navigation";
 import { gaLineClick, gaMissingProductRequestSubmit } from "@/lib/analytics/ga";
 import { getMissingProductUiText } from "@/lib/i18n/missingProductUi";
+import { parseMissingProductSearchQuery } from "@/lib/rfq/parseMissingProductSearchQuery";
+import {
+  getRecommendedThreadSizeOptions,
+  getThreadSizeOptions,
+} from "@/lib/rfq/threadSizeOptions";
 
 const LINE_URL = "https://lin.ee/S676yYH";
 
 type Props = {
   locale: string;
   defaultPartNo?: string;
+  searchQuery?: string;
   compactIntro?: boolean;
 };
 
@@ -32,6 +38,7 @@ type FormState = {
   phone: string;
   email: string;
   lineId: string;
+  searchQuery: string;
 };
 
 type SubmitResponse = {
@@ -40,19 +47,21 @@ type SubmitResponse = {
   error?: string;
 };
 
-function createInitialState(defaultPartNo?: string): FormState {
+function createInitialState(defaultPartNo = "", searchQuery = ""): FormState {
+  const parsedQuery = parseMissingProductSearchQuery(searchQuery);
+
   return {
-    partNo: defaultPartNo ?? "",
+    partNo: defaultPartNo,
     filterType: "",
     brand: "",
     qty: "1",
     machineApplication: "",
     note: "",
-    outerDiameter: "",
-    innerDiameter: "",
-    lengthHeight: "",
+    outerDiameter: parsedQuery.outerDiameter,
+    innerDiameter: parsedQuery.innerDiameter,
+    lengthHeight: parsedQuery.lengthHeight,
     threadSystem: "",
-    threadSize: "",
+    threadSize: parsedQuery.threadSize,
     gasketOD: "",
     gasketID: "",
     contactName: "",
@@ -60,6 +69,7 @@ function createInitialState(defaultPartNo?: string): FormState {
     phone: "",
     email: "",
     lineId: "",
+    searchQuery,
   };
 }
 
@@ -70,14 +80,32 @@ function normalizeNumericInput(value: string) {
 export default function MissingProductRequestForm({
   locale,
   defaultPartNo = "",
+  searchQuery = "",
   compactIntro = false,
 }: Props) {
   const text = getMissingProductUiText(locale);
   const pathname = usePathname();
-  const [form, setForm] = useState<FormState>(() => createInitialState(defaultPartNo));
+  const [form, setForm] = useState<FormState>(() =>
+    createInitialState(defaultPartNo, searchQuery),
+  );
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState("");
   const [successRequestId, setSuccessRequestId] = useState("");
+  const threadSizeOptions = useMemo(
+    () => getThreadSizeOptions(form.filterType),
+    [form.filterType],
+  );
+  const recommendedThreadSizeOptions = useMemo(
+    () => getRecommendedThreadSizeOptions(form.filterType),
+    [form.filterType],
+  );
+  const showThreadRecommendations = recommendedThreadSizeOptions.length > 0;
+
+  useEffect(() => {
+    setForm(createInitialState(defaultPartNo, searchQuery));
+    setError("");
+    setSuccessRequestId("");
+  }, [defaultPartNo, searchQuery]);
 
   const hasProductIdentifier = useMemo(() => {
     return Boolean(
@@ -176,7 +204,7 @@ export default function MissingProductRequestForm({
       });
 
       setSuccessRequestId(data.requestId);
-      setForm(createInitialState(defaultPartNo));
+      setForm(createInitialState(defaultPartNo, searchQuery));
     } catch (submitError) {
       setError(
         submitError instanceof Error && submitError.message
@@ -238,6 +266,13 @@ export default function MissingProductRequestForm({
         <h2 className="mt-2 text-2xl font-semibold tracking-tight text-slate-950">
           {text.title}
         </h2>
+        {form.searchQuery ? (
+          <div className="mt-3 inline-flex max-w-full items-center rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-700">
+            <span className="truncate">
+              {locale === "th" ? "คำค้นหา:" : "Search query:"} {form.searchQuery}
+            </span>
+          </div>
+        ) : null}
         <p className="mt-3 text-sm leading-7 text-slate-600">{text.description}</p>
         <p className="mt-3 text-sm leading-6 text-slate-500">{text.helper}</p>
       </div>
@@ -336,12 +371,46 @@ export default function MissingProductRequestForm({
                   <option value="not_sure">Not sure</option>
                 </select>
               </div>
-              <input
-                value={form.threadSize}
-                onChange={(event) => handleChange("threadSize", event.target.value)}
-                placeholder={text.threadSize}
-                className="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-blue-400 focus:ring-2 focus:ring-blue-100"
-              />
+              <div className="space-y-2 sm:col-span-2">
+                <label className="block text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">
+                  {text.threadSize}
+                </label>
+                <p className="text-xs leading-5 text-slate-500">
+                  {locale === "th"
+                    ? "เลือกประเภทกรองก่อน ระบบจะแนะนำขนาดเกลียวที่พบบ่อย หรือพิมพ์เองได้หากไม่พบในรายการ"
+                    : "Select the filter type first for common thread suggestions, or type a custom size if it is not listed."}
+                </p>
+                {showThreadRecommendations ? (
+                  <div className="flex flex-wrap gap-2">
+                    {recommendedThreadSizeOptions.map((option) => (
+                      <button
+                        key={option}
+                        type="button"
+                        onClick={() => handleChange("threadSize", option)}
+                        className={`inline-flex rounded-full border px-3 py-1.5 text-xs font-medium transition ${
+                          form.threadSize === option
+                            ? "border-slate-900 bg-slate-900 text-white"
+                            : "border-slate-300 bg-white text-slate-700 hover:border-slate-400 hover:bg-slate-50"
+                        }`}
+                      >
+                        {option}
+                      </button>
+                    ))}
+                  </div>
+                ) : null}
+                <input
+                  list="missing-product-thread-size-options"
+                  value={form.threadSize}
+                  onChange={(event) => handleChange("threadSize", event.target.value)}
+                  placeholder={text.threadSize}
+                  className="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-blue-400 focus:ring-2 focus:ring-blue-100"
+                />
+                <datalist id="missing-product-thread-size-options">
+                  {threadSizeOptions.map((option) => (
+                    <option key={option} value={option} />
+                  ))}
+                </datalist>
+              </div>
               <input
                 value={form.gasketOD}
                 onChange={(event) => handleChange("gasketOD", event.target.value)}
