@@ -107,6 +107,30 @@ const LUBE_OIL_THREAD_SIZE_OPTIONS = [
   "1.44",
 ] as const;
 
+const SEPARATOR_THREAD_SIZE_OPTIONS = [
+  "M16 x 1.5",
+  "M18 x 1.5",
+  "M20 x 1.5",
+  "M22 x 1.5",
+  "M24 x 1.5",
+  "M30 x 1.5",
+  "M30 x 2",
+  "M33 x 2",
+  "M36 x 1.5",
+  "M36 x 2",
+  "3/4-16 UN",
+  "7/8-14 UN",
+  "1-12 UN",
+  "1-14 UN",
+  "1 1/8-16 UN",
+  "1 1/4-12 UN",
+  "1 3/8-16 UN",
+  "13/16-16 UN",
+  "13/16-18 UN",
+  "1 NPT",
+  "3/4 NPT",
+] as const;
+
 function dedupeOptions(options: readonly string[]) {
   return [...new Set(options.map((option) => option.trim()).filter(Boolean))];
 }
@@ -139,6 +163,10 @@ export function getLubeOilThreadSizeOptions() {
   return dedupeOptions(LUBE_OIL_THREAD_SIZE_OPTIONS);
 }
 
+export function getSeparatorThreadSizeOptions() {
+  return dedupeOptions(SEPARATOR_THREAD_SIZE_OPTIONS);
+}
+
 export function getRecommendedThreadSizeOptions(filterType: string) {
   const normalizedFilterType = filterType.trim().toLowerCase();
 
@@ -158,6 +186,14 @@ export function getRecommendedThreadSizeOptions(filterType: string) {
     normalizedFilterType === "oil_filter"
   ) {
     return getLubeOilThreadSizeOptions();
+  }
+
+  if (
+    normalizedFilterType === "separator" ||
+    normalizedFilterType === "oil_separator" ||
+    normalizedFilterType === "air_oil_separator"
+  ) {
+    return getSeparatorThreadSizeOptions();
   }
 
   return [];
