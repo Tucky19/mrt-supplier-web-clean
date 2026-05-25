@@ -19,7 +19,7 @@ const SITE_URL = "https://mrtsupplier.com";
 
 function getLocalizedAlternates(path = "") {
   return Object.fromEntries(
-    LOCALES.map((locale) => [locale, `/${locale}${path}`]),
+    LOCALES.map((locale) => [locale, `${SITE_URL}/${locale}${path}`]),
   );
 }
 
@@ -28,20 +28,33 @@ export async function generateMetadata({
 }: PageProps): Promise<Metadata> {
   const { locale } = await params;
   const isThai = locale === "th";
+  const title = isThai
+    ? "MRT Supplier | อะไหล่อุตสาหกรรม ฟิลเตอร์ และบริการ RFQ"
+    : "MRT Supplier | Industrial Parts, Filters & RFQ Service";
+  const description = isThai
+    ? "MRT Supplier จำหน่ายและจัดหาอะไหล่อุตสาหกรรม ฟิลเตอร์ ลูกปืน และสินค้าสำหรับโรงงาน พร้อมบริการค้นหา Part No., เทียบเบอร์ และขอใบเสนอราคา"
+    : "MRT Supplier supplies industrial parts, filters, bearings, and sourcing support for factories, purchasing teams, and maintenance operations. Search by part number, cross reference, or request a quote.";
+  const canonical = `${SITE_URL}/${locale}`;
 
   return {
-    title: isThai
-      ? "ค้นหาอะไหล่อุตสาหกรรมและส่ง RFQ"
-      : "Industrial Parts RFQ",
-    description: isThai
-      ? "ค้นหาอะไหล่อุตสาหกรรมด้วย Part Number, Cross Reference หรือขนาดสินค้า แล้วส่ง RFQ ให้ทีม MRT Supplier ตรวจสอบและเสนอราคา"
-      : "Search industrial parts by part number, cross reference, or dimensions and submit RFQs to MRT Supplier.",
+    title: {
+      absolute: title,
+    },
+    description,
     alternates: {
-      canonical: `/${locale}`,
+      canonical,
       languages: {
         ...getLocalizedAlternates(),
-        "x-default": "/th",
+        "x-default": `${SITE_URL}/th`,
       },
+    },
+    openGraph: {
+      title,
+      description,
+      url: canonical,
+      siteName: "MRT Supplier",
+      type: "website",
+      locale: isThai ? "th_TH" : "en_US",
     },
   };
 }

@@ -24,7 +24,7 @@ const SITE_URL = "https://mrtsupplier.com";
 
 function getLocalizedAlternates(path: string) {
   return Object.fromEntries(
-    LOCALES.map((locale) => [locale, `/${locale}${path}`]),
+    LOCALES.map((locale) => [locale, `${SITE_URL}/${locale}${path}`]),
   );
 }
 
@@ -65,18 +65,33 @@ export async function generateMetadata({
 }: PageProps): Promise<Metadata> {
   const { locale } = await params;
   const isThai = locale === "th";
+  const title = isThai
+    ? "ค้นหาอะไหล่อุตสาหกรรมและฟิลเตอร์ | MRT Supplier"
+    : "Search Industrial Parts and Filters | MRT Supplier";
+  const description = isThai
+    ? "ค้นหาสินค้าด้วย Part No., Cross Reference, ขนาด OD / ID / Length / Thread Size หรือส่งข้อมูลให้ทีม MRT Supplier ช่วยหาเทียบและเสนอราคา"
+    : "Search products by part number, cross reference, OD, ID, length, or thread size. Send missing product details for MRT Supplier to help identify and quote.";
+  const canonical = `${SITE_URL}/${locale}/products`;
 
   return {
-    title: isThai ? "ค้นหาสินค้า" : "Products",
-    description: isThai
-      ? "ค้นหาสินค้าด้วย Part Number, Cross Reference หรือชื่อสินค้า แล้วส่ง RFQ ได้ทันที"
-      : "Search industrial parts by part number or cross reference and request a quotation quickly.",
+    title: {
+      absolute: title,
+    },
+    description,
     alternates: {
-      canonical: `/${locale}/products`,
+      canonical,
       languages: {
         ...getLocalizedAlternates("/products"),
-        "x-default": "/th/products",
+        "x-default": `${SITE_URL}/th/products`,
       },
+    },
+    openGraph: {
+      title,
+      description,
+      url: canonical,
+      siteName: "MRT Supplier",
+      type: "website",
+      locale: isThai ? "th_TH" : "en_US",
     },
   };
 }

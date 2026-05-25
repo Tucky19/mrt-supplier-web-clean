@@ -21,7 +21,7 @@ function normalizePartNo(value: string) {
 
 function getLocalizedAlternates(path: string) {
   return Object.fromEntries(
-    LOCALES.map((locale) => [locale, `/${locale}${path}`]),
+    LOCALES.map((locale) => [locale, `${SITE_URL}/${locale}${path}`]),
   );
 }
 
@@ -148,30 +148,47 @@ export async function generateMetadata({
 
   if (!product) {
     return {
-      title: isThai
-        ? "ไม่พบสินค้า | MRT Supplier"
-        : "Product Not Found | MRT Supplier",
+      title: {
+        absolute: isThai
+          ? "ไม่พบสินค้า | MRT Supplier"
+          : "Product Not Found | MRT Supplier",
+      },
       robots: { index: false, follow: false },
     };
   }
 
   const shouldNoIndex = !hasIndexableProductSignals(product);
-  const title = `${product.partNo} | ${product.brand} Filter`;
+  const encodedPartNo = encodeURIComponent(product.partNo);
+  const productPath = `/products/${encodedPartNo}`;
+  const canonical = `${SITE_URL}/${locale}${productPath}`;
+  const title = isThai
+    ? `${product.partNo} ${product.brand} | สเปคสินค้าและขอใบเสนอราคา | MRT Supplier`
+    : `${product.partNo} ${product.brand} | Product Specs and RFQ | MRT Supplier`;
   const description = isThai
-    ? `ค้นหา ${product.partNo} พร้อมข้อมูล OEM cross reference และส่งคำขอใบเสนอราคาได้ทันที`
-    : `Find ${product.partNo} with OEM cross reference and request quote`;
+    ? `${product.brand} ${product.partNo} สำหรับงานอุตสาหกรรม ดูสเปค เบอร์เทียบ และส่งขอใบเสนอราคา MRT Supplier`
+    : `View ${product.brand} ${product.partNo} product specifications, cross references, and request a quote from MRT Supplier.`;
+  const image = getProductImage(product);
 
   return {
-    title,
+    title: {
+      absolute: title,
+    },
     description,
     alternates: {
-      canonical: `/${locale}/products/${encodeURIComponent(product.partNo)}`,
+      canonical,
       languages: {
-        ...getLocalizedAlternates(
-          `/products/${encodeURIComponent(product.partNo)}`,
-        ),
-        "x-default": `/th/products/${encodeURIComponent(product.partNo)}`,
+        ...getLocalizedAlternates(productPath),
+        "x-default": `${SITE_URL}/th${productPath}`,
       },
+    },
+    openGraph: {
+      title,
+      description,
+      url: canonical,
+      siteName: "MRT Supplier",
+      type: "website",
+      locale: isThai ? "th_TH" : "en_US",
+      ...(image ? { images: [image] } : {}),
     },
     robots: shouldNoIndex
       ? { index: false, follow: true }
