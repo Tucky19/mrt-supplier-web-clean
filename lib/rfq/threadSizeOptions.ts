@@ -141,10 +141,14 @@ export function getThreadSizeOptions(filterType: string) {
   const recommendedOptions = getRecommendedThreadSizeOptions(filterType);
 
   if (recommendedOptions.length > 0) {
-    return dedupeOptions([...recommendedOptions, ...COMMON_THREAD_SIZE_OPTIONS]);
+    return recommendedOptions;
   }
 
-  if (!normalizedFilterType || normalizedFilterType === "not_sure") {
+  if (
+    !normalizedFilterType ||
+    normalizedFilterType === "not_sure" ||
+    normalizedFilterType === "other"
+  ) {
     return commonOptions;
   }
 
