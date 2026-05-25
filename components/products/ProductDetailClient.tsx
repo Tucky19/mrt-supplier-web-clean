@@ -18,6 +18,8 @@ type Props = {
   product: Product;
 };
 
+const LINE_URL = "https://lin.ee/R3vfZW0";
+
 function normalizePath(src?: string) {
   if (!src) return "/images/placeholder.jpg";
   return src;
@@ -113,32 +115,6 @@ function buildHeaderSummary(product: Product, locale: string) {
     .slice(0, 4);
 }
 
-function buildProductBadges(product: Product) {
-  const specs = Array.isArray(product.specifications) ? product.specifications : [];
-  const specMap = new Map(
-    specs
-      .filter(
-        (item) =>
-          typeof item?.label === "string" &&
-          item.label.trim().length > 0 &&
-          String(item.value ?? "").trim().length > 0,
-      )
-      .map((item) => [normalizeSpecLabel(item.label), String(item.value).trim()]),
-  );
-
-  return [
-    specMap.get("type"),
-    specMap.get("style"),
-    specMap.get("position") ?? specMap.get("stage"),
-    specMap.get("flow"),
-    specMap.get("seal"),
-    specMap.get("shape") ?? specMap.get("form"),
-  ].filter(
-    (value, index, array): value is string =>
-      Boolean(value) && array.indexOf(value) === index,
-  );
-}
-
 function SectionLabel({ children }: { children: React.ReactNode }) {
   return (
     <div className="text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-500">
@@ -159,6 +135,16 @@ function SurfaceCard({
       className={`rounded-[28px] border border-slate-300 bg-white shadow-[0_16px_42px_rgba(15,23,42,0.07)] ${className}`}
     >
       {children}
+    </div>
+  );
+}
+
+function VerificationNote({ locale }: { locale: string }) {
+  return (
+    <div className="rounded-2xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm leading-6 text-amber-900">
+      {locale === "th"
+        ? "หมายเหตุ: ข้อมูลสเปคและเบอร์เทียบใช้เพื่อการตรวจสอบเบื้องต้น กรุณายืนยันขนาด เกลียว รุ่นเครื่องจักร และการใช้งานก่อนสั่งซื้อ"
+        : "Note: Specifications and cross references are for preliminary checking. Please confirm dimensions, thread size, machine model, and application before ordering."}
     </div>
   );
 }
@@ -329,7 +315,6 @@ export default function ProductDetailClient({ locale, product }: Props) {
   );
   const hasSpecContent = Boolean(product.spec?.trim()) || specRows.length > 0;
 
-  const badges = useMemo(() => buildProductBadges(product), [product]);
   const pairedPartsTitle = isThai ? "ชุดกรองที่ใช้คู่กัน" : "Paired Filter";
   const addToQuoteLabel = justAdded
     ? isThai
@@ -424,21 +409,6 @@ export default function ProductDetailClient({ locale, product }: Props) {
             currentPartNo={product.partNo}
             sameBrandAlternatives={product.sameBrandAlternatives}
           />
-
-          <SurfaceCard className="overflow-hidden">
-            <div className="border-b border-slate-300 bg-slate-50/95 px-5 py-4 sm:px-6">
-              <SectionLabel>
-                {isThai ? "หมายเหตุการตรวจสอบ" : "Verification Notes"}
-              </SectionLabel>
-            </div>
-            <div className="px-5 py-5 sm:px-6">
-              <ul className="list-disc space-y-2 pl-5 text-sm leading-7 text-slate-700 marker:text-slate-500">
-                <li>หน้านี้ใช้สำหรับตรวจสอบ Part Number / OEM Reference เบื้องต้น</li>
-                <li>กรุณาส่ง RFQ เพื่อให้ทีมงานตรวจสอบเบอร์เทียบ ทางเลือกทดแทน และความเหมาะสมก่อนเสนอราคา</li>
-                <li>เว็บไซต์ยังไม่แสดงราคาและจำนวนสต๊อกแบบเรียลไทม์</li>
-              </ul>
-            </div>
-          </SurfaceCard>
         </div>
 
         <div className="self-start space-y-5">
@@ -466,19 +436,6 @@ export default function ProductDetailClient({ locale, product }: Props) {
                 </p>
               )}
 
-              {badges.length > 0 && (
-                <div className="mt-3 flex flex-wrap gap-2">
-                  {badges.map((badge) => (
-                    <span
-                      key={badge}
-                      className="rounded-full border border-slate-300 bg-slate-50 px-3 py-1 text-[11px] font-medium uppercase tracking-[0.08em] text-slate-600"
-                    >
-                      {badge}
-                    </span>
-                  ))}
-                </div>
-              )}
-
               <Link
                 href={`/${locale}/brands/${slugifyBrand(product.brand)}`}
                 className="mt-3 inline-flex text-sm font-medium text-slate-500 underline-offset-4 hover:text-slate-700 hover:underline"
@@ -494,6 +451,19 @@ export default function ProductDetailClient({ locale, product }: Props) {
             </div>
 
             <div className="space-y-5 px-5 py-5 sm:px-6">
+              {descriptionBlock.paragraphs.length > 0 && (
+                <div className="rounded-[22px] border border-slate-300 bg-slate-50/95 px-5 py-4 shadow-[0_4px_14px_rgba(15,23,42,0.04)]">
+                  <div className="text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-600">
+                    {descriptionBlock.title}
+                  </div>
+                  <div className="mt-2 space-y-3 text-sm leading-7 text-slate-700">
+                    {descriptionBlock.paragraphs.map((paragraph) => (
+                      <p key={paragraph}>{paragraph}</p>
+                    ))}
+                  </div>
+                </div>
+              )}
+
               <div className="rounded-[24px] border border-slate-300 bg-[linear-gradient(180deg,#f7fafc_0%,#ffffff_100%)] p-4 shadow-[0_8px_24px_rgba(15,23,42,0.05)] sm:p-5">
                 <SectionLabel>{text.readyToQuote}</SectionLabel>
                 <p className="mt-2 text-sm leading-7 text-slate-600">
@@ -521,23 +491,21 @@ export default function ProductDetailClient({ locale, product }: Props) {
                   </button>
                 </div>
 
+                <a
+                  href={LINE_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-3 inline-flex w-full items-center justify-center rounded-2xl border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm font-medium text-emerald-800 transition-colors hover:border-emerald-300 hover:bg-emerald-100 md:w-auto"
+                >
+                  {isThai
+                    ? "ปรึกษาสเปคหรือส่งรูปทาง LINE"
+                    : "Consult specs or send photos on LINE"}
+                </a>
+
                 <p className="mt-3 text-xs leading-6 text-slate-500">
                   {text.rfqSupportNote}
                 </p>
               </div>
-
-              {descriptionBlock.paragraphs.length > 0 && (
-                <div className="rounded-[22px] border border-slate-300 bg-slate-50/95 px-5 py-4 shadow-[0_4px_14px_rgba(15,23,42,0.04)]">
-                  <div className="text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-600">
-                    {descriptionBlock.title}
-                  </div>
-                  <div className="mt-2 space-y-3 text-sm leading-7 text-slate-700">
-                    {descriptionBlock.paragraphs.map((paragraph) => (
-                      <p key={paragraph}>{paragraph}</p>
-                    ))}
-                  </div>
-                </div>
-              )}
 
               {hasSpecContent && (
                 <ProductSpecTable
@@ -553,6 +521,8 @@ export default function ProductDetailClient({ locale, product }: Props) {
                 itemBrand={product.brand}
                 officialUrl={product.officialUrl}
               />
+
+              <VerificationNote locale={locale} />
             </div>
           </SurfaceCard>
 

@@ -121,35 +121,25 @@ export default function ProductCrossReferenceCards({
 
   if (rows.length === 0) {
     return (
-      <div className="space-y-3">
-        <div className="overflow-hidden rounded-[28px] border border-slate-300 bg-white shadow-[0_12px_30px_rgba(15,23,42,0.05)]">
-          <div className="h-1 w-full bg-[linear-gradient(90deg,#cbdff7_0%,#dceafc_55%,#eef5ff_100%)]" />
-          <div className="border-b border-slate-200 bg-[linear-gradient(180deg,#f8fbff_0%,#ffffff_100%)] px-5 py-4 sm:px-6">
-            {!isThai ? <SectionLabel>Cross Reference Help</SectionLabel> : null}
-            <h2 className={`${!isThai ? "mt-1.5" : ""} text-lg font-semibold tracking-[-0.02em] text-slate-950`}>
-              {isThai ? "ต้องการหาเบอร์เทียบ?" : "Need Help Finding an Interchange?"}
+      <div className="rounded-[20px] border border-dashed border-slate-300 bg-white px-4 py-4 shadow-[0_8px_22px_rgba(15,23,42,0.04)] sm:px-5">
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+          <div>
+            <h2 className="text-base font-semibold text-slate-950">
+              {isThai ? "ต้องการหาเบอร์เทียบ?" : "Need a cross reference?"}
             </h2>
             <p className="mt-1 text-sm leading-6 text-slate-600">
               {isThai
-                ? "ส่งข้อมูลเครื่องจักร รุ่น หรือรูปสินค้าให้ทีม MRT Supplier ช่วยตรวจสอบและหาเบอร์เทียบที่เหมาะสม"
-                : "Share your machine details, model, or product photos and the MRT Supplier team can help review a suitable cross reference."}
+                ? "ส่งข้อมูลให้ทีมช่วยตรวจสอบเบอร์เทียบที่เหมาะสม"
+                : "Send details and our team can help identify a suitable interchange."}
             </p>
           </div>
 
-          <div className="px-5 py-5 sm:px-6">
-            <Link
-              href={`/${locale}/products?request=1#missing-product-request`}
-              className="inline-flex min-h-11 items-center justify-center rounded-2xl bg-slate-900 px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-slate-800"
-            >
-              {isThai ? "ส่งข้อมูลให้ทีมช่วยหาเทียบ" : "Send Details for Cross-Reference Help"}
-            </Link>
-          </div>
-        </div>
-
-        <div className="rounded-[20px] border border-slate-200 bg-slate-50/85 px-4 py-3 text-sm leading-6 text-slate-600">
-          {isThai
-            ? "ยังไม่มีข้อมูลเบอร์เทียบในหน้าสินค้านี้ ทีมงานสามารถช่วยตรวจสอบสเปก ขนาด รุ่นเครื่องจักร และการใช้งานเพื่อหาเบอร์ที่เหมาะสมก่อนส่ง RFQ"
-            : "No interchange data is listed for this product yet. Our team can review specification, size, machine model, and application details to help identify a suitable match before quoting."}
+          <Link
+            href={`/${locale}/products?request=1#missing-product-request`}
+            className="inline-flex min-h-10 shrink-0 items-center justify-center rounded-full bg-slate-900 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-slate-800"
+          >
+            {isThai ? "ส่งข้อมูลให้ทีมช่วยหาเทียบ" : "Send details"}
+          </Link>
         </div>
       </div>
     );
