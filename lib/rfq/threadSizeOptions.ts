@@ -146,6 +146,7 @@ export function getThreadSizeOptions(filterType: string) {
 
   if (
     !normalizedFilterType ||
+    normalizedFilterType === "water_filter" ||
     normalizedFilterType === "not_sure" ||
     normalizedFilterType === "other"
   ) {
