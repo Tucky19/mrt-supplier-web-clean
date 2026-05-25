@@ -80,6 +80,22 @@ export default async function ProductsPage({
   const requestMissingProduct = resolvedSearchParams?.request === "1";
   const hasQuery = query.length >= 2;
   const isThai = locale === "th";
+  const missingProductHref = `/${locale}/products${
+    query
+      ? `?q=${encodeURIComponent(query)}&request=1`
+      : "?request=1"
+  }#missing-product-request`;
+  const searchGuidance = isThai
+    ? [
+        "ค้นหาด้วย Part No.",
+        "ค้นหาด้วย Cross Reference",
+        "ค้นหาด้วย OD / ID / Length / Thread Size",
+      ]
+    : [
+        "Search by Part No.",
+        "Search by Cross Reference",
+        "Search by OD / ID / Length / Thread Size",
+      ];
 
   const visibleProducts: Array<Product | SearchResult> = hasQuery
     ? searchProducts(query, { limit: SEARCH_RESULT_LIMIT }).map((hit) =>
@@ -101,12 +117,34 @@ export default async function ProductsPage({
 
           <p className="mt-2 max-w-2xl text-sm leading-6 text-gray-600 sm:text-base">
             {isThai
-              ? "ค้นหาด้วย Part Number, Cross Reference หรือชื่อสินค้า แล้วเพิ่มรายการเพื่อขอใบเสนอราคาได้ทันที"
-              : "Search by part number or cross reference, then add matching items to your quote request."}
+              ? "ค้นหาด้วย Part Number, Cross Reference หรือขนาดสินค้า แล้วเพิ่มรายการเพื่อขอใบเสนอราคาได้ทันที"
+              : "Search by part number, cross reference, or dimensions, then add matching items to your quote request."}
           </p>
 
           <div className="-mx-4 sticky top-[64px] z-40 mt-5 border-y bg-white/95 px-4 py-2.5 backdrop-blur md:static md:z-auto md:mx-0 md:border-y-0 md:bg-transparent md:px-0 md:py-0 md:backdrop-blur-0">
             <SearchBar locale={locale} defaultValue={query} />
+          </div>
+
+          <div className="mt-4 flex max-w-4xl flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
+            <div className="flex flex-wrap gap-2">
+              {searchGuidance.map((label) => (
+                <span
+                  key={label}
+                  className="inline-flex rounded-full border border-slate-200 bg-slate-50 px-3 py-1.5 text-xs font-medium text-slate-700"
+                >
+                  {label}
+                </span>
+              ))}
+            </div>
+
+            <a
+              href={missingProductHref}
+              className="inline-flex w-fit rounded-full border border-blue-200 bg-blue-50 px-4 py-2 text-sm font-semibold text-blue-900 transition hover:border-blue-300 hover:bg-blue-100"
+            >
+              {isThai
+                ? "ไม่มี Part Number? ส่งข้อมูลให้ทีมช่วยหาเทียบ"
+                : "No part number? Send details for our team to identify"}
+            </a>
           </div>
         </div>
       </section>
