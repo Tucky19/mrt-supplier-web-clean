@@ -52,10 +52,6 @@ function ProductGallery({
   );
 }
 
-function slugifyBrand(value: string) {
-  return value.trim().toLowerCase().replace(/[\s/_-]+/g, "-");
-}
-
 function normalizeSpecLabel(value: string) {
   return value.trim().toLowerCase();
 }
@@ -437,7 +433,9 @@ export default function ProductDetailClient({ locale, product }: Props) {
               )}
 
               <Link
-                href={`/${locale}/brands/${slugifyBrand(product.brand)}`}
+                href={`/${locale}/products?q=${encodeURIComponent(
+                  product.brand.trim().toLowerCase(),
+                )}`}
                 className="mt-3 inline-flex text-sm font-medium text-slate-500 underline-offset-4 hover:text-slate-700 hover:underline"
               >
                 {product.brand.toUpperCase()}
