@@ -18,6 +18,13 @@ type PageProps = {
 
 const DEFAULT_PRODUCT_LIMIT = 24;
 const SEARCH_RESULT_LIMIT = 48;
+const LOCALES = ["th", "en"] as const;
+
+function getLocalizedAlternates(path: string) {
+  return Object.fromEntries(
+    LOCALES.map((locale) => [locale, `/${locale}${path}`]),
+  );
+}
 
 function normalizePartNo(value: string) {
   return value.trim().toLowerCase().replace(/[\s/_-]+/g, "");
@@ -58,12 +65,16 @@ export async function generateMetadata({
   const isThai = locale === "th";
 
   return {
-    title: isThai ? "ค้นหาสินค้า | MRT Supplier" : "Products | MRT Supplier",
+    title: isThai ? "ค้นหาสินค้า" : "Products",
     description: isThai
       ? "ค้นหาสินค้าด้วย Part Number, Cross Reference หรือชื่อสินค้า แล้วส่ง RFQ ได้ทันที"
       : "Search industrial parts by part number or cross reference and request a quotation quickly.",
     alternates: {
       canonical: `/${locale}/products`,
+      languages: {
+        ...getLocalizedAlternates("/products"),
+        "x-default": "/th/products",
+      },
     },
   };
 }

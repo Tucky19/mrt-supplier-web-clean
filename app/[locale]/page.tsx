@@ -1,4 +1,5 @@
 import Image from "next/image";
+import type { Metadata } from "next";
 import BrandShowcase from "@/components/home/BrandShowcase";
 import MissingProductRequestCta from "@/components/home/MissingProductRequestCta";
 import ProductGrid from "@/components/home/ProductGrid";
@@ -8,11 +9,44 @@ import SiteFooter from "@/components/layout/SiteFooter";
 import SiteHeader from "@/components/layout/SiteHeader";
 import SearchBar from "@/components/search/SearchBar";
 
+type PageProps = {
+  params: Promise<{ locale: string }>;
+};
+
+const LOCALES = ["th", "en"] as const;
+
+function getLocalizedAlternates(path = "") {
+  return Object.fromEntries(
+    LOCALES.map((locale) => [locale, `/${locale}${path}`]),
+  );
+}
+
+export async function generateMetadata({
+  params,
+}: PageProps): Promise<Metadata> {
+  const { locale } = await params;
+  const isThai = locale === "th";
+
+  return {
+    title: isThai
+      ? "ค้นหาอะไหล่อุตสาหกรรมและส่ง RFQ"
+      : "Industrial Parts RFQ",
+    description: isThai
+      ? "ค้นหาอะไหล่อุตสาหกรรมด้วย Part Number, Cross Reference หรือขนาดสินค้า แล้วส่ง RFQ ให้ทีม MRT Supplier ตรวจสอบและเสนอราคา"
+      : "Search industrial parts by part number, cross reference, or dimensions and submit RFQs to MRT Supplier.",
+    alternates: {
+      canonical: `/${locale}`,
+      languages: {
+        ...getLocalizedAlternates(),
+        "x-default": "/th",
+      },
+    },
+  };
+}
+
 export default async function Page({
   params,
-}: {
-  params: Promise<{ locale: string }>;
-}) {
+}: PageProps) {
   const { locale } = await params;
   const isThai = locale === "th";
   const homepageExampleQueries = [

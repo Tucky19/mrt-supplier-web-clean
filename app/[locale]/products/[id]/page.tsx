@@ -11,8 +11,16 @@ type PageProps = {
   params: Promise<{ locale: string; id: string }>;
 };
 
+const LOCALES = ["th", "en"] as const;
+
 function normalizePartNo(value: string) {
   return value.trim().toLowerCase().replace(/[\s/_-]+/g, "");
+}
+
+function getLocalizedAlternates(path: string) {
+  return Object.fromEntries(
+    LOCALES.map((locale) => [locale, `/${locale}${path}`]),
+  );
 }
 
 function findProductById(id: string) {
@@ -45,9 +53,12 @@ function hasIndexableProductSignals(product: Product) {
 export function generateStaticParams() {
   const products = Array.isArray(catalogProducts) ? catalogProducts : [];
 
-  return products.map((product) => ({
-    id: product.partNo,
-  }));
+  return products.flatMap((product) =>
+    LOCALES.map((locale) => ({
+      locale,
+      id: product.partNo,
+    })),
+  );
 }
 
 export async function generateMetadata({
@@ -77,6 +88,12 @@ export async function generateMetadata({
     description,
     alternates: {
       canonical: `/${locale}/products/${encodeURIComponent(product.partNo)}`,
+      languages: {
+        ...getLocalizedAlternates(
+          `/products/${encodeURIComponent(product.partNo)}`,
+        ),
+        "x-default": `/th/products/${encodeURIComponent(product.partNo)}`,
+      },
     },
     robots: shouldNoIndex
       ? { index: false, follow: true }
