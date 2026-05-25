@@ -54,9 +54,11 @@ function SectionCard({
 function SimpleTable({
   headers,
   rows,
+  emptyMessage = "No data found in this period.",
 }: {
   headers: string[];
   rows: ReactNode[][];
+  emptyMessage?: string;
 }) {
   return (
     <div className="overflow-hidden rounded-2xl border border-slate-200">
@@ -91,13 +93,107 @@ function SimpleTable({
                   colSpan={headers.length}
                   className="px-4 py-6 text-center text-slate-500"
                 >
-                  No data found in this period.
+                  {emptyMessage}
                 </td>
               </tr>
             )}
           </tbody>
         </table>
       </div>
+    </div>
+  );
+}
+
+function EmptyState({ children }: { children: ReactNode }) {
+  return (
+    <div className="rounded-2xl border border-dashed border-slate-200 bg-slate-50 px-4 py-6 text-center text-sm text-slate-500">
+      {children}
+    </div>
+  );
+}
+
+function CountList({
+  rows,
+  emptyMessage = "No data found in this period.",
+}: {
+  rows: Array<{
+    id: string;
+    label: ReactNode;
+    count?: number | string;
+    detail?: ReactNode;
+  }>;
+  emptyMessage?: string;
+}) {
+  if (rows.length === 0) {
+    return <EmptyState>{emptyMessage}</EmptyState>;
+  }
+
+  return (
+    <div className="space-y-3">
+      {rows.map((row) => (
+        <div
+          key={row.id}
+          className="flex items-start justify-between gap-4 rounded-2xl border border-slate-200 bg-white px-4 py-3"
+        >
+          <div className="min-w-0">
+            <div className="break-words text-sm font-medium text-slate-900">
+              {row.label}
+            </div>
+            {row.detail ? (
+              <div className="mt-1 break-words text-xs leading-5 text-slate-500">
+                {row.detail}
+              </div>
+            ) : null}
+          </div>
+          {row.count !== undefined ? (
+            <div className="shrink-0 rounded-full bg-slate-100 px-3 py-1 text-sm font-semibold text-slate-900">
+              {row.count}
+            </div>
+          ) : null}
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function LatestMissingRequestsList({
+  requests,
+}: {
+  requests: SearchDemandDashboardData["missingProductRequests"]["latestRequests"];
+}) {
+  if (requests.length === 0) {
+    return <EmptyState>No Missing Product Requests found in this period.</EmptyState>;
+  }
+
+  return (
+    <div className="grid gap-3 lg:grid-cols-2">
+      {requests.map((row) => (
+        <article
+          key={row.id}
+          className="rounded-2xl border border-slate-200 bg-white p-4"
+        >
+          <div className="flex flex-wrap items-start justify-between gap-3">
+            <Link
+              href={`/admin/rfq/${row.id}`}
+              className="font-medium text-sky-700 hover:text-sky-900"
+            >
+              {row.requestId}
+            </Link>
+            <span className="inline-flex rounded-full border border-slate-200 bg-slate-100 px-2.5 py-1 text-xs font-medium text-slate-700">
+              {row.status}
+            </span>
+          </div>
+          <div className="mt-3 text-sm font-medium text-slate-900">
+            {row.partNo || row.filterType || "Missing product request"}
+          </div>
+          <div className="mt-2 grid gap-1 text-xs leading-5 text-slate-500 sm:grid-cols-2">
+            <div>Qty: {row.qty ?? "-"}</div>
+            <div>{formatDate(row.createdAt)}</div>
+            {row.filterType ? <div>Filter Type: {row.filterType}</div> : null}
+            {row.searchQuery ? <div>Search: {row.searchQuery}</div> : null}
+          </div>
+        </article>
+      ))}
     </div>
   );
 }
@@ -177,20 +273,20 @@ export function SearchDemandDashboard({
             description="High-level search demand and the terms customers are using most."
           >
             <div className="grid gap-6 lg:grid-cols-2">
-              <SimpleTable
-                headers={["Top search terms", "Count"]}
-                rows={data.searchSummary.topSearchTerms.map((row) => [
-                  row.query,
-                  row.count,
-                ])}
+              <CountList
+                rows={data.searchSummary.topSearchTerms.map((row) => ({
+                  id: row.query,
+                  label: row.query,
+                  count: row.count,
+                }))}
               />
-              <SimpleTable
-                headers={["Recent search terms", "Results", "Created"]}
-                rows={data.searchSummary.recentSearchTerms.map((row) => [
-                  row.query,
-                  row.resultCount ?? "-",
-                  formatDate(row.createdAt),
-                ])}
+              <CountList
+                rows={data.searchSummary.recentSearchTerms.map((row) => ({
+                  id: row.id,
+                  label: row.query,
+                  count: row.resultCount ?? 0,
+                  detail: `Created ${formatDate(row.createdAt)}`,
+                }))}
               />
             </div>
           </SectionCard>
@@ -200,45 +296,49 @@ export function SearchDemandDashboard({
             description="Queries that did not return results, with links to related Missing Product Requests when available."
           >
             <div className="grid gap-6 lg:grid-cols-2">
-              <SimpleTable
-                headers={["Query", "No-result count", "Related request"]}
-                rows={data.noResultDemand.topQueries.map((row) => [
-                  <div key={`${row.query}-query`} className="font-medium text-slate-900">
-                    {row.query}
-                  </div>,
-                  row.count,
-                  row.latestRelatedRequest ? (
-                    <div key={`${row.query}-related`} className="space-y-1">
-                      <div>{row.relatedMissingRequests} related request(s)</div>
+              <CountList
+                rows={data.noResultDemand.topQueries.map((row) => ({
+                  id: row.query,
+                  label: row.query,
+                  count: row.count,
+                  detail: row.latestRelatedRequest ? (
+                    <>
+                      {row.relatedMissingRequests} related request(s):{" "}
                       <Link
                         href={`/admin/rfq/${row.latestRelatedRequest.id}`}
-                        className="text-sm font-medium text-sky-700 hover:text-sky-900"
+                        className="font-medium text-sky-700 hover:text-sky-900"
                       >
                         {row.latestRelatedRequest.requestId}
                       </Link>
-                    </div>
+                    </>
                   ) : (
-                    <span key={`${row.query}-none`}>-</span>
+                    "No related request yet"
                   ),
-                ])}
+                }))}
               />
-              <SimpleTable
-                headers={["Latest no-result query", "Created", "Related request"]}
-                rows={data.noResultDemand.latestSearches.map((row) => [
-                  row.query,
-                  formatDate(row.createdAt),
-                  row.latestRelatedRequest ? (
-                    <Link
-                      key={`${row.id}-related`}
-                      href={`/admin/rfq/${row.latestRelatedRequest.id}`}
-                      className="text-sm font-medium text-sky-700 hover:text-sky-900"
-                    >
-                      {row.latestRelatedRequest.requestId}
-                    </Link>
-                  ) : (
-                    "-"
+              <CountList
+                rows={data.noResultDemand.latestSearches.map((row) => ({
+                  id: row.id,
+                  label: row.query,
+                  count: row.relatedMissingRequests,
+                  detail: (
+                    <>
+                      Created {formatDate(row.createdAt)}
+                      {row.latestRelatedRequest ? (
+                        <>
+                          {" "}
+                          / Related:{" "}
+                          <Link
+                            href={`/admin/rfq/${row.latestRelatedRequest.id}`}
+                            className="font-medium text-sky-700 hover:text-sky-900"
+                          >
+                            {row.latestRelatedRequest.requestId}
+                          </Link>
+                        </>
+                      ) : null}
+                    </>
                   ),
-                ])}
+                }))}
               />
             </div>
           </SectionCard>
@@ -249,56 +349,19 @@ export function SearchDemandDashboard({
             title="Missing Product Requests"
             description="Recent requests and the product types customers are asking for."
           >
-            <SimpleTable
-              headers={[
-                "Request ID",
-                "Part No. / Filter Type",
-                "Qty",
-                "Search Query / Source Page",
-                "Status",
-                "Created",
-              ]}
-              rows={data.missingProductRequests.latestRequests.map((row) => [
-                <Link
-                  key={row.id}
-                  href={`/admin/rfq/${row.id}`}
-                  className="font-medium text-sky-700 hover:text-sky-900"
-                >
-                  {row.requestId}
-                </Link>,
-                <div key={`${row.id}-summary`}>
-                  <div className="font-medium text-slate-900">
-                    {row.partNo || row.filterType || "-"}
-                  </div>
-                  {row.filterType ? (
-                    <div className="mt-1 text-xs text-slate-500">
-                      Filter Type: {row.filterType}
-                    </div>
-                  ) : null}
-                </div>,
-                row.qty ?? "-",
-                <div key={`${row.id}-context`}>
-                  <div>{row.searchQuery || "-"}</div>
-                  <div className="mt-1 text-xs text-slate-500 break-all">
-                    {row.sourcePage || "-"}
-                  </div>
-                </div>,
-                <span className="inline-flex rounded-full border border-slate-200 bg-slate-100 px-2.5 py-1 text-xs font-medium text-slate-700">
-                  {row.status}
-                </span>,
-                formatDate(row.createdAt),
-              ])}
+            <LatestMissingRequestsList
+              requests={data.missingProductRequests.latestRequests}
             />
           </SectionCard>
 
           <div className="space-y-8">
             <SectionCard title="Count by Filter Type">
-              <SimpleTable
-                headers={["Filter Type", "Count"]}
-                rows={data.missingProductRequests.countByFilterType.map((row) => [
-                  row.filterType,
-                  row.count,
-                ])}
+              <CountList
+                rows={data.missingProductRequests.countByFilterType.map((row) => ({
+                  id: row.filterType,
+                  label: row.filterType,
+                  count: row.count,
+                }))}
               />
             </SectionCard>
 
@@ -325,40 +388,72 @@ export function SearchDemandDashboard({
 
         <div className="mt-8">
           <SectionCard
+            title="Thread Size Demand"
+            description="Top requested thread sizes from Missing Product Requests in this period."
+          >
+            <CountList
+              rows={data.threadSizeDemand.topThreadSizes.map((row) => ({
+                id: `${row.filterType}-${row.threadSize}`,
+                label: row.threadSize,
+                count: row.count,
+                detail: row.filterType,
+              }))}
+              emptyMessage="No thread size demand found in this period."
+            />
+          </SectionCard>
+        </div>
+
+        <div className="mt-8">
+          <SectionCard
+            title="Dimension Demand"
+            description="Top requested measured dimension combinations from Missing Product Requests when customers provided dimensions."
+          >
+            <CountList
+              rows={data.dimensionDemand.topCombinations.map((row) => ({
+                id: `${row.filterType}-${row.dimensions}`,
+                label: row.dimensions,
+                count: row.count,
+                detail: row.filterType,
+              }))}
+              emptyMessage="No dimension demand found in this period."
+            />
+          </SectionCard>
+        </div>
+
+        <div className="mt-8">
+          <SectionCard
             title="Recommended Next Actions"
             description="Practical follow-up suggestions based on repeated search demand and pending Missing Product Requests."
           >
             <div className="grid gap-6 lg:grid-cols-3">
-              <SimpleTable
-                headers={["Catalog opportunity", "Searches", "Related requests"]}
-                rows={data.recommendedNextActions.catalogOpportunities.map((row) => [
-                  row.query,
-                  row.searches,
-                  row.relatedMissingRequests,
-                ])}
+              <CountList
+                rows={data.recommendedNextActions.catalogOpportunities.map((row) => ({
+                  id: row.query,
+                  label: row.query,
+                  count: row.searches,
+                  detail: `${row.relatedMissingRequests} related request(s)`,
+                }))}
               />
-              <SimpleTable
-                headers={["Request needing review", "Status", "Created"]}
-                rows={data.recommendedNextActions.requestsNeedingReview.map((row) => [
-                  <div key={row.id}>
+              <CountList
+                rows={data.recommendedNextActions.requestsNeedingReview.map((row) => ({
+                  id: row.id,
+                  label: (
                     <Link
                       href={`/admin/rfq/${row.id}`}
                       className="font-medium text-sky-700 hover:text-sky-900"
                     >
                       {row.requestId}
                     </Link>
-                    <div className="mt-1 text-xs text-slate-500">{row.summary}</div>
-                  </div>,
-                  row.status,
-                  formatDate(row.createdAt),
-                ])}
+                  ),
+                  detail: `${row.status} / ${formatDate(row.createdAt)} / ${row.summary}`,
+                }))}
               />
-              <SimpleTable
-                headers={["Repeated no-result term", "Searches"]}
-                rows={data.recommendedNextActions.repeatedNoResultTerms.map((row) => [
-                  row.query,
-                  row.searches,
-                ])}
+              <CountList
+                rows={data.recommendedNextActions.repeatedNoResultTerms.map((row) => ({
+                  id: row.query,
+                  label: row.query,
+                  count: row.searches,
+                }))}
               />
             </div>
           </SectionCard>

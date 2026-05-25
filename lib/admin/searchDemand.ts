@@ -46,6 +46,22 @@ const RECENT_SEARCHES_LIMIT = 20;
 const LATEST_MISSING_REQUESTS_LIMIT = 20;
 const REVIEW_REQUESTS_LIMIT = 6;
 const ACTION_TERMS_LIMIT = 6;
+const THREAD_SIZE_DEMAND_LIMIT = 20;
+const DIMENSION_DEMAND_LIMIT = 20;
+
+const FILTER_TYPE_LABELS: Record<string, string> = {
+  fuel_filter: "Fuel Filter",
+  fuel_water_separator: "Fuel Water Separator",
+  hydraulic_filter: "Hydraulic Filter",
+  lube_filter: "Lube Filter",
+  oil_filter: "Oil Filter",
+  separator: "Separator",
+  oil_separator: "Oil Separator",
+  air_oil_separator: "Air/Oil Separator",
+  water_filter: "Water Filter",
+  other: "Other",
+  not_sure: "Not sure",
+};
 
 export type SearchDemandDashboardData = {
   days: number;
@@ -108,6 +124,20 @@ export type SearchDemandDashboardData = {
     }>;
     countBySource: Array<{
       source: string;
+      count: number;
+    }>;
+  };
+  threadSizeDemand: {
+    topThreadSizes: Array<{
+      filterType: string;
+      threadSize: string;
+      count: number;
+    }>;
+  };
+  dimensionDemand: {
+    topCombinations: Array<{
+      filterType: string;
+      dimensions: string;
       count: number;
     }>;
   };
@@ -201,6 +231,27 @@ function bySourceAndCount(row: MergedCountRow) {
   };
 }
 
+function normalizeFilterTypeLabel(value: string | null | undefined) {
+  const raw = safeStr(value);
+  const key = raw.toLowerCase();
+
+  return FILTER_TYPE_LABELS[key] ?? raw;
+}
+
+function formatDimensionCombination(details: {
+  outerDiameter?: string | null;
+  innerDiameter?: string | null;
+  lengthHeight?: string | null;
+}) {
+  return [
+    details.outerDiameter ? `OD ${details.outerDiameter}` : "",
+    details.innerDiameter ? `ID ${details.innerDiameter}` : "",
+    details.lengthHeight ? `L ${details.lengthHeight}` : "",
+  ]
+    .filter(Boolean)
+    .join(" / ");
+}
+
 function createEmptyDashboardData(days: number): SearchDemandDashboardData {
   return {
     days,
@@ -220,6 +271,12 @@ function createEmptyDashboardData(days: number): SearchDemandDashboardData {
       countByFilterType: [],
       countByStatus: [],
       countBySource: [],
+    },
+    threadSizeDemand: {
+      topThreadSizes: [],
+    },
+    dimensionDemand: {
+      topCombinations: [],
     },
     recommendedNextActions: {
       catalogOpportunities: [],
@@ -572,7 +629,10 @@ export async function getSearchDemandDashboardData(
     const countByFilterType = mergeCounts(
       (itemRowsRaw as Array<{ category: string | null; meta: unknown }>).map((item) => {
         const details = getSafeMissingProductRequestItemDetails(item);
-        const filterType = toLabel(details?.filterType ?? item.category, "Unspecified");
+        const filterType = toLabel(
+          normalizeFilterTypeLabel(details?.filterType ?? item.category),
+          "Unspecified",
+        );
 
         return {
           key: filterType.toLowerCase(),
@@ -583,6 +643,101 @@ export async function getSearchDemandDashboardData(
     )
       .slice(0, TOP_SEARCH_TERMS_LIMIT)
       .map(byFilterTypeAndCount);
+
+    const threadSizeDemandMap = new Map<
+      string,
+      {
+        filterType: string;
+        threadSize: string;
+        count: number;
+      }
+    >();
+
+    for (const item of itemRowsRaw as Array<{ category: string | null; meta: unknown }>) {
+      const details = getSafeMissingProductRequestItemDetails(item);
+      const threadSize = safeStr(details?.threadSize);
+
+      if (!threadSize) {
+        continue;
+      }
+
+      const filterType = toLabel(
+        normalizeFilterTypeLabel(details?.filterType ?? item.category),
+        "Unspecified",
+      );
+      const key = `${filterType.toLowerCase()}::${threadSize.toLowerCase()}`;
+      const existing = threadSizeDemandMap.get(key);
+
+      if (existing) {
+        existing.count += 1;
+        continue;
+      }
+
+      threadSizeDemandMap.set(key, {
+        filterType,
+        threadSize,
+        count: 1,
+      });
+    }
+
+    const threadSizeDemandRows = Array.from(threadSizeDemandMap.values())
+      .sort(
+        (a, b) =>
+          b.count - a.count ||
+          a.threadSize.localeCompare(b.threadSize) ||
+          a.filterType.localeCompare(b.filterType),
+      )
+      .slice(0, THREAD_SIZE_DEMAND_LIMIT);
+
+    const dimensionDemandMap = new Map<
+      string,
+      {
+        filterType: string;
+        dimensions: string;
+        count: number;
+      }
+    >();
+
+    for (const item of itemRowsRaw as Array<{ category: string | null; meta: unknown }>) {
+      const details = getSafeMissingProductRequestItemDetails(item);
+
+      if (!details) {
+        continue;
+      }
+
+      const dimensions = formatDimensionCombination(details);
+
+      if (!dimensions) {
+        continue;
+      }
+
+      const filterType = toLabel(
+        normalizeFilterTypeLabel(details.filterType ?? item.category),
+        "Unspecified",
+      );
+      const key = `${filterType.toLowerCase()}::${dimensions.toLowerCase()}`;
+      const existing = dimensionDemandMap.get(key);
+
+      if (existing) {
+        existing.count += 1;
+        continue;
+      }
+
+      dimensionDemandMap.set(key, {
+        filterType,
+        dimensions,
+        count: 1,
+      });
+    }
+
+    const dimensionDemandRows = Array.from(dimensionDemandMap.values())
+      .sort(
+        (a, b) =>
+          b.count - a.count ||
+          a.dimensions.localeCompare(b.dimensions) ||
+          a.filterType.localeCompare(b.filterType),
+      )
+      .slice(0, DIMENSION_DEMAND_LIMIT);
 
     const countByStatus = (statusGroupsRaw as Array<{
       status: string | null;
@@ -685,6 +840,12 @@ export async function getSearchDemandDashboardData(
         countByFilterType,
         countByStatus,
         countBySource,
+      },
+      threadSizeDemand: {
+        topThreadSizes: threadSizeDemandRows,
+      },
+      dimensionDemand: {
+        topCombinations: dimensionDemandRows,
       },
       recommendedNextActions: {
         catalogOpportunities,
