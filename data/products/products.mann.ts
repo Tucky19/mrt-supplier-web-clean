@@ -261,6 +261,11 @@ export const mannProducts = [
     description:
       "MANN-FILTER C 20 500 outer air filter from the EUROPICLON range. Product details and specifications can be verified during RFQ review.",
     spec: "OD 194 mm × ID 114 mm × H 401 mm",
+    specifications: [
+      { label: "Outer Diameter", value: "194 mm" },
+      { label: "Inner Diameter", value: "114 mm" },
+      { label: "Height", value: "401 mm" },
+    ],
     refs: ["EUROPICLON"],
     imageUrl: "/images/products/mann/c20500.jpg",
     detailImageUrl: "/images/products/mann/c20500-detail.jpg",
@@ -287,6 +292,10 @@ export const mannProducts = [
     description:
       "MANN-FILTER CF 500 inner air filter / secondary element from the EUROPICLON range. Product details and specifications can be verified during RFQ review.",
     spec: "OD 107 mm × H 385 mm",
+    specifications: [
+      { label: "Outer Diameter", value: "107 mm" },
+      { label: "Height", value: "385 mm" },
+    ],
     refs: ["EUROPICLON"],
     imageUrl: "/images/products/mann/cf500.jpg",
     detailImageUrl: "/images/products/mann/cf500-detail.jpg",
@@ -313,6 +322,11 @@ export const mannProducts = [
     description:
       "MANN-FILTER C 16 400 outer air filter from the EUROPICLON range. Product details and specifications can be verified during RFQ review.",
     spec: "OD 159 mm × ID 94 mm × H 375 mm",
+    specifications: [
+      { label: "Outer Diameter", value: "159 mm" },
+      { label: "Inner Diameter", value: "94 mm" },
+      { label: "Height", value: "375 mm" },
+    ],
     refs: ["EUROPICLON"],
     imageUrl: "/images/products/mann/c16400.jpg",
     detailImageUrl: "/images/products/mann/c16400-detail.jpg",
@@ -339,6 +353,10 @@ export const mannProducts = [
     description:
       "MANN-FILTER CF 400 inner air filter / secondary element from the EUROPICLON range. Product details and specifications can be verified during RFQ review.",
     spec: "OD 87 mm × H 360 mm",
+    specifications: [
+      { label: "Outer Diameter", value: "87 mm" },
+      { label: "Height", value: "360 mm" },
+    ],
     imageUrl: "/images/products/mann/cf400.jpg",
     detailImageUrl: "/images/products/mann/cf400-detail.jpg",
     refs: ["EUROPICLON"],
