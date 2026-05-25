@@ -7,6 +7,7 @@ import ProductListClient from "@/components/products/ProductListClient";
 import SiteFooter from "@/components/layout/SiteFooter";
 import SiteHeader from "@/components/layout/SiteHeader";
 import SearchBar from "@/components/search/SearchBar";
+import JsonLd from "@/components/seo/JsonLd";
 import { products } from "@/data/products/index";
 import { searchProducts, type SearchResult } from "@/lib/search/search";
 import type { Product } from "@/types/product";
@@ -19,6 +20,7 @@ type PageProps = {
 const DEFAULT_PRODUCT_LIMIT = 24;
 const SEARCH_RESULT_LIMIT = 48;
 const LOCALES = ["th", "en"] as const;
+const SITE_URL = "https://mrtsupplier.com";
 
 function getLocalizedAlternates(path: string) {
   return Object.fromEntries(
@@ -91,6 +93,24 @@ export default async function ProductsPage({
   const requestMissingProduct = resolvedSearchParams?.request === "1";
   const hasQuery = query.length >= 2;
   const isThai = locale === "th";
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: isThai ? "หน้าแรก" : "Home",
+        item: `${SITE_URL}/${locale}`,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: isThai ? "สินค้า" : "Products",
+        item: `${SITE_URL}/${locale}/products`,
+      },
+    ],
+  };
   const missingProductHref = `/${locale}/products${
     query
       ? `?q=${encodeURIComponent(query)}&request=1`
@@ -118,6 +138,7 @@ export default async function ProductsPage({
 
   return (
     <div className="min-h-screen bg-gray-50">
+      <JsonLd data={breadcrumbJsonLd} />
       <SiteHeader locale={locale} />
 
       <section className="border-b bg-white">

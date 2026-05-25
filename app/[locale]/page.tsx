@@ -8,12 +8,14 @@ import WhyChooseUsSection from "@/components/home/WhyChooseUsSection";
 import SiteFooter from "@/components/layout/SiteFooter";
 import SiteHeader from "@/components/layout/SiteHeader";
 import SearchBar from "@/components/search/SearchBar";
+import JsonLd from "@/components/seo/JsonLd";
 
 type PageProps = {
   params: Promise<{ locale: string }>;
 };
 
 const LOCALES = ["th", "en"] as const;
+const SITE_URL = "https://mrtsupplier.com";
 
 function getLocalizedAlternates(path = "") {
   return Object.fromEntries(
@@ -49,6 +51,19 @@ export default async function Page({
 }: PageProps) {
   const { locale } = await params;
   const isThai = locale === "th";
+  const canonicalUrl = `${SITE_URL}/${locale}`;
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: isThai ? "หน้าแรก" : "Home",
+        item: canonicalUrl,
+      },
+    ],
+  };
   const homepageExampleQueries = [
     "FUEL FILTER",
     "LUBE FILTER",
@@ -157,6 +172,7 @@ export default async function Page({
 
   return (
     <main className="min-h-screen bg-slate-50">
+      <JsonLd data={breadcrumbJsonLd} />
       <SiteHeader locale={locale} />
 
       <section className="overflow-hidden bg-[radial-gradient(circle_at_top_left,_rgba(56,189,248,0.18),_transparent_28%),linear-gradient(180deg,_#020617_0%,_#0f172a_52%,_#1e293b_100%)] px-4 py-16 text-white sm:py-20">
