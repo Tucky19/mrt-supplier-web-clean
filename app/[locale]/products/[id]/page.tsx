@@ -219,7 +219,10 @@ export default async function ProductPage({ params }: PageProps) {
         />
       </section>
 
-      <SiteFooter locale={locale} />
+      <SiteFooter
+        locale={locale}
+        className="pb-[calc(9rem+env(safe-area-inset-bottom))] md:pb-0"
+      />
     </main>
   );
 }
