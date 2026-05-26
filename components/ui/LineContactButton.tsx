@@ -41,7 +41,7 @@ const LineContactButton = () => {
       {showTooltip && !isMobile && (
         <div className="relative mb-3 animate-bounce-in">
           <div className="flex items-center gap-2 rounded-lg border border-gray-100 bg-white px-4 py-2 text-sm font-medium text-gray-800 shadow-xl">
-            <span>"หาเบอร์ไหนไม่เจอ... ทักให้เราช่วยหาได้นะครับ"</span>
+            <span>"ให้ช่วยหาไหมครับ"</span>
             <button
               onClick={() => setShowTooltip(false)}
               className="text-gray-400 transition-colors hover:text-gray-600"
