@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import type { Metadata } from "next";
 import BrandShowcase from "@/components/home/BrandShowcase";
 import MissingProductRequestCta from "@/components/home/MissingProductRequestCta";
@@ -183,6 +184,70 @@ export default async function Page({
     },
   ];
 
+  const trustPoints = [
+    {
+      title: isThai ? "ค้นหาด้วย Part No. / Cross Reference" : "Search by Part No. / Cross Reference",
+      description: isThai
+        ? "ค้นหาจาก Part Number, Cross Reference, เบอร์เทียบ หรือคำอธิบายสินค้า"
+        : "Find items by part number, interchange, or product description.",
+    },
+    {
+      title: isThai ? "ช่วยระบุ Part Number ที่ไม่ชัดเจน" : "Help identify missing part numbers",
+      description: isThai
+        ? "ส่งรูปสินค้า รุ่นเครื่องจักร หรือข้อมูลหน้างานให้ทีมช่วยตรวจสอบ"
+        : "Send photos, machine models, or partial details for review.",
+    },
+    {
+      title: isThai ? "Workflow แบบ RFQ-first" : "RFQ-first workflow",
+      description: isThai
+        ? "รวบรวมรายการที่ต้องการแล้วส่ง RFQ ให้ทีมงานตรวจสอบและติดตามต่อ"
+        : "Collect items into a quote request for focused follow-up.",
+    },
+    {
+      title: isThai ? "ตรวจสอบ Spec ก่อนเสนอราคา" : "Spec confirmation before quotation",
+      description: isThai
+        ? "ตรวจสอบ Spec, Cross Reference และการใช้งานก่อนสรุปใบเสนอราคา"
+        : "Specs, cross references, and applications are checked before quoting.",
+    },
+    {
+      title: isThai ? "ปรึกษาผ่าน LINE ได้" : "LINE consultation available",
+      description: isThai
+        ? "ติดต่อ LINE Official @mrtsupplier เพื่อส่งรูปหรือรายละเอียดเพิ่มเติม"
+        : "Contact LINE Official @mrtsupplier to share photos or details.",
+    },
+  ];
+
+  const workflowSteps = [
+    {
+      step: "01",
+      title: isThai ? "ค้นหาหรือส่งรายละเอียดสินค้า" : "Search or send product details",
+      description: isThai
+        ? "ค้นหาด้วย Part Number, Cross Reference หรือส่งรายละเอียดสินค้าที่ต้องการ"
+        : "Search by part number or share the product details you have.",
+    },
+    {
+      step: "02",
+      title: isThai ? "MRT ตรวจสอบ Spec / Cross Reference" : "MRT verifies specs / cross reference",
+      description: isThai
+        ? "ทีมงานช่วยตรวจสอบข้อมูลสินค้า Spec และเบอร์เทียบที่เกี่ยวข้อง"
+        : "Our team reviews specs, references, and likely alternatives.",
+    },
+    {
+      step: "03",
+      title: isThai ? "ทีมงาน Follow up รายการ RFQ" : "Customer receives RFQ follow-up",
+      description: isThai
+        ? "ติดต่อกลับเพื่อยืนยันรายละเอียด และดำเนินการเสนอราคาตามรายการ RFQ"
+        : "We follow up to confirm details and continue the quotation process.",
+    },
+  ];
+
+  const customerSegments = [
+    isThai ? "ฝ่ายจัดซื้อโรงงาน" : "Factory purchasing",
+    isThai ? "ทีมซ่อมบำรุง" : "Maintenance teams",
+    isThai ? "Industrial Spare Parts Sourcing" : "Industrial spare parts sourcing",
+    isThai ? "Filter และ Bearing" : "Filters and bearings",
+  ];
+
   return (
     <main className="min-h-screen bg-slate-50">
       <JsonLd data={breadcrumbJsonLd} />
@@ -198,28 +263,31 @@ export default async function Page({
             </p>
 
             <h1 className="mt-5 text-3xl font-bold leading-[1.14] tracking-tight sm:text-5xl">
-              {isThai ? (
-                <>
-                  <span className="block">จัดหาอะไหล่อุตสาหกรรมอย่างมั่นใจ</span>
-                  <span className="mt-1 block text-slate-100">
-                    สำหรับงานซ่อมบำรุงและจัดซื้อ
-                  </span>
-                </>
-              ) : (
-                <>
-                  <span className="block">Reliable Industrial Parts.</span>
-                  <span className="mt-1 block text-slate-100">
-                    Responsive RFQ Support.
-                  </span>
-                </>
-              )}
+              {isThai
+                ? "Industrial Parts Sourcing, Filters & Cross Reference สำหรับงานโรงงาน"
+                : "Industrial parts, filters, and cross-reference sourcing"}
             </h1>
 
             <p className="mt-5 max-w-2xl text-sm leading-7 text-slate-300 sm:text-base">
               {isThai
-                ? "ค้นหาด้วย Part Number, Cross Reference หรือส่งรายการหลายรายการ เพื่อให้ทีม MRT Supplier ตรวจสอบและเสนอราคา"
-                : "Search by Part Number, Cross Reference, or paste multiple items to request a quotation from MRT Supplier. Built for maintenance teams, procurement, and industrial sourcing workflows."}
+                ? "MRT Supplier ช่วยค้นหาและจัดหาอะไหล่อุตสาหกรรมด้วย Part Number, Cross Reference, Spec และข้อมูลหน้างาน พร้อมส่ง RFQ เพื่อให้ทีมตรวจสอบและเสนอราคา"
+                : "MRT Supplier helps source industrial parts, filters, and cross-reference alternatives for factories, maintenance teams, and purchasing departments."}
             </p>
+
+            <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+              <Link
+                href={`/${locale}/products`}
+                className="inline-flex min-h-12 items-center justify-center rounded-xl bg-white px-5 py-3 text-sm font-semibold text-slate-950 transition hover:bg-slate-100"
+              >
+                {isThai ? "ค้นหาสินค้า" : "Search products"}
+              </Link>
+              <Link
+                href={`/${locale}/quote`}
+                className="inline-flex min-h-12 items-center justify-center rounded-xl border border-white/20 bg-white/10 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/15"
+              >
+                {isThai ? "ขอใบเสนอราคา" : "Request Quote"}
+              </Link>
+            </div>
 
             <div className="mt-8 max-w-3xl">
               <SearchBar
@@ -234,17 +302,17 @@ export default async function Page({
             <div className="mt-6 flex flex-wrap gap-3 text-xs text-slate-300">
               <span className="rounded-full border border-slate-700/80 bg-slate-900/50 px-3 py-1.5">
                 {isThai
-                  ? "รองรับ Part Number และ Cross Reference"
+                  ? "ค้นหาด้วย Part Number / Cross Reference"
                   : "Part Number & Cross Reference Support"}
               </span>
               <span className="rounded-full border border-slate-700/80 bg-slate-900/50 px-3 py-1.5">
                 {isThai
-                  ? "เพิ่มหลายรายการเข้า RFQ ได้"
+                  ? "ส่งหลายรายการเข้า RFQ ได้"
                   : "Bulk RFQ for multiple items"}
               </span>
               <span className="rounded-full border border-slate-700/80 bg-slate-900/50 px-3 py-1.5">
                 {isThai
-                  ? "เหมาะสำหรับงานซ่อมบำรุงและจัดซื้อ"
+                  ? "สำหรับ Maintenance และ Purchasing"
                   : "Built for maintenance and procurement teams"}
               </span>
             </div>
@@ -259,12 +327,12 @@ export default async function Page({
                   </p>
                   <p className="mt-1 text-sm font-medium text-white">
                     {isThai
-                      ? "ค้นหาอะไหล่ ตรวจสอบ Cross Reference และส่ง RFQ"
+                      ? "ค้นหา Part Number ตรวจสอบ Cross Reference และส่ง RFQ"
                       : "Search parts, check cross references, and submit RFQs"}
                   </p>
                 </div>
                 <div className="rounded-full border border-emerald-400/30 bg-emerald-400/10 px-3 py-1 text-xs font-medium text-emerald-200">
-                  {isThai ? "พร้อมตรวจสอบ" : "Ready to review"}
+                  {isThai ? "พร้อม Review" : "Ready to review"}
                 </div>
               </div>
 
@@ -273,7 +341,7 @@ export default async function Page({
                   src="/hero/warehouse-main.png"
                   alt={
                     isThai
-                      ? "คลังสินค้าอะไหล่อุตสาหกรรมและแบรนด์ที่ MRT Supplier รองรับ"
+                      ? "ภาพงานจัดหา Industrial Parts และแบรนด์ที่ MRT Supplier รองรับ"
                       : "Industrial machinery and maintenance use cases supported by MRT Supplier"
                   }
                   fill
@@ -285,6 +353,90 @@ export default async function Page({
                 <div className="absolute inset-0 bg-gradient-to-tr from-slate-950/75 via-slate-950/20 to-slate-950/10" />
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="border-b border-slate-200 bg-white">
+        <div className="mx-auto max-w-7xl px-6 py-14 lg:px-8">
+          <div className="max-w-3xl">
+            <p className="text-sm font-semibold uppercase tracking-[0.14em] text-slate-500">
+              {isThai ? "B2B SOURCING SUPPORT" : "B2B Sourcing Support"}
+            </p>
+            <h2 className="mt-3 text-2xl font-semibold tracking-tight text-slate-950 sm:text-3xl">
+              {isThai
+                ? "ค้นหา ตรวจสอบ Spec และส่ง RFQ ได้ชัดเจนขึ้น"
+                : "Clear search, verification, and RFQ support"}
+            </h2>
+          </div>
+
+          <div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-5">
+            {trustPoints.map((item) => (
+              <article
+                key={item.title}
+                className="rounded-2xl border border-slate-200 bg-slate-50 p-5"
+              >
+                <h3 className="text-sm font-semibold leading-6 text-slate-950">
+                  {item.title}
+                </h3>
+                <p className="mt-2 text-sm leading-6 text-slate-600">
+                  {item.description}
+                </p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="border-b border-slate-200 bg-slate-50">
+        <div className="mx-auto grid max-w-7xl gap-8 px-6 py-14 lg:grid-cols-[0.85fr_1.15fr] lg:px-8">
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-[0.14em] text-slate-500">
+              {isThai ? "HOW IT WORKS" : "How It Works"}
+            </p>
+            <h2 className="mt-3 text-2xl font-semibold tracking-tight text-slate-950 sm:text-3xl">
+              {isThai ? "ขั้นตอนสั้น ๆ สำหรับส่ง RFQ" : "A compact RFQ workflow"}
+            </h2>
+          </div>
+
+          <div className="grid gap-4 md:grid-cols-3">
+            {workflowSteps.map((item) => (
+              <article key={item.step} className="rounded-2xl border border-slate-200 bg-white p-5">
+                <div className="text-xs font-semibold tracking-[0.14em] text-sky-700">
+                  STEP {item.step}
+                </div>
+                <h3 className="mt-3 text-sm font-semibold leading-6 text-slate-950">
+                  {item.title}
+                </h3>
+                <p className="mt-2 text-sm leading-6 text-slate-600">
+                  {item.description}
+                </p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="border-b border-slate-200 bg-white">
+        <div className="mx-auto flex max-w-7xl flex-col gap-6 px-6 py-12 lg:flex-row lg:items-center lg:justify-between lg:px-8">
+          <div className="max-w-2xl">
+            <p className="text-sm font-semibold uppercase tracking-[0.14em] text-slate-500">
+              {isThai ? "CUSTOMERS & APPLICATIONS" : "Customers & Applications"}
+            </p>
+            <h2 className="mt-3 text-2xl font-semibold tracking-tight text-slate-950">
+              {isThai ? "สำหรับงาน Purchasing และ Maintenance ในโรงงาน" : "Built for industrial purchasing and maintenance"}
+            </h2>
+          </div>
+
+          <div className="flex flex-wrap gap-2.5">
+            {customerSegments.map((item) => (
+              <span
+                key={item}
+                className="rounded-full border border-slate-300 bg-slate-50 px-4 py-2 text-sm font-medium text-slate-700"
+              >
+                {item}
+              </span>
+            ))}
           </div>
         </div>
       </section>
