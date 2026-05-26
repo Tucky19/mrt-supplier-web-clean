@@ -2174,6 +2174,7 @@ const donaldsonRfqSkeletonBatch: RawDonaldson[] = [
     { label: "Bolt Hole Diameter", value: "16.76 mm (0.66 inch)" },
     { label: "Efficiency", value: "99.9" },
     { label: "Efficiency Test Std", value: "ISO 5011" },
+    { label: "Position", value: "Primary" },
     ],
   },
   {
