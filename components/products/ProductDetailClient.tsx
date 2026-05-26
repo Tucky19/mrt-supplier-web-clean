@@ -19,7 +19,7 @@ type Props = {
   product: Product;
 };
 
-const LINE_URL = "https://lin.ee/R3vfZW0";
+const LINE_URL = "https://lin.ee/S676yYH";
 
 function normalizePath(src?: string) {
   if (!src) return "/images/placeholder.jpg";
@@ -404,7 +404,7 @@ export default function ProductDetailClient({ locale, product }: Props) {
 
   return (
     <>
-      <div className="grid gap-8 pb-28 lg:grid-cols-[minmax(0,1.08fr)_minmax(0,1fr)] lg:gap-10 lg:pb-0">
+      <div className="grid gap-8 pb-[calc(8rem+env(safe-area-inset-bottom))] md:pb-0 lg:grid-cols-[minmax(0,1.08fr)_minmax(0,1fr)] lg:gap-10">
         <div className="space-y-5">
           <ProductGallery images={images} partNo={product.partNo} />
           <ProductCrossReferenceCards
@@ -586,7 +586,7 @@ export default function ProductDetailClient({ locale, product }: Props) {
         </div>
       </div>
 
-      <div className="fixed inset-x-0 bottom-0 z-40 border-t border-slate-300 bg-white/95 px-4 py-3 backdrop-blur md:hidden">
+      <div className="fixed inset-x-0 bottom-0 z-40 border-t border-slate-300 bg-white/95 px-4 pb-[calc(0.75rem+env(safe-area-inset-bottom))] pt-3 backdrop-blur md:hidden">
         <div className="mx-auto flex max-w-6xl items-center gap-3">
           <button
             onClick={handleAdd}

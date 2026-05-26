@@ -3,7 +3,7 @@
 export default function LineButton() {
   return (
     <a
-      href="https://lin.ee/R3vfZW0"
+      href="https://lin.ee/S676yYH"
       target="_blank"
       rel="noopener noreferrer"
       className="fixed bottom-6 right-6 z-50"

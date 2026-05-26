@@ -112,7 +112,7 @@ export default function AboutClient() {
                 <div className="mt-1">081-558-1323</div>
                 <div className="mt-1">097-012-2111</div>
                 <div className="mt-3 font-semibold text-neutral-900">LINE</div>
-                <div className="mt-1">@mrt-supplier</div>
+                <div className="mt-1">@mrtsupplier</div>
               </div>
 
               <div className="rounded-xl border border-neutral-200 bg-neutral-50 p-4 md:col-span-2">

@@ -127,7 +127,7 @@ export default async function QuoteSuccessPage({
             </Link>
 
             <a
-              href="https://lin.ee/R3vfZW0"
+              href="https://lin.ee/S676yYH"
               target="_blank"
               rel="noopener noreferrer"
               className="rounded-full border border-emerald-500 bg-emerald-50 px-5 py-3 text-sm font-medium text-emerald-700 transition hover:bg-emerald-100"

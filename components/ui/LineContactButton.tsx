@@ -55,7 +55,7 @@ const LineContactButton = () => {
       )}
 
       <a
-        href="https://lin.ee/R3vfZW0"
+        href="https://lin.ee/S676yYH"
         target="_blank"
         rel="noopener noreferrer"
         onClick={() => {

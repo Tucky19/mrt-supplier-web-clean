@@ -1,17 +1,20 @@
 import Link from "next/link";
 import TrackedLineLink from "@/components/analytics/TrackedLineLink";
 
-const LINE_URL = "https://lin.ee/R3vfZW0";
+const LINE_URL = "https://lin.ee/S676yYH";
 
 type Props = {
   locale?: string;
+  className?: string;
 };
 
-export default function SiteFooter({ locale = "th" }: Props) {
+export default function SiteFooter({ locale = "th", className = "" }: Props) {
   const isThai = locale === "th";
 
   return (
-    <footer className="border-t border-slate-200 bg-slate-950 text-slate-200">
+    <footer
+      className={`w-full border-t border-slate-200 bg-slate-950 text-slate-200 ${className}`}
+    >
       <div className="mx-auto grid max-w-7xl gap-10 px-6 py-14 lg:grid-cols-[1.2fr_0.8fr_0.9fr] lg:px-8">
         <div>
           <p className="text-lg font-semibold text-white">
@@ -65,7 +68,7 @@ export default function SiteFooter({ locale = "th" }: Props) {
               locale={locale}
               className="block hover:text-white"
             >
-              LINE: @mrt-supplier
+              LINE: @mrtsupplier
             </TrackedLineLink>
             <p>www.mrtsupplier.com</p>
           </div>

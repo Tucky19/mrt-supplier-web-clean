@@ -77,7 +77,7 @@ export default async function ContactPage({
               </a>
 
               <TrackedLineLink
-                href="https://lin.ee/R3vfZW0"
+                href="https://lin.ee/S676yYH"
                 source="contact_page_card"
                 locale={locale}
                 className="rounded-2xl border border-emerald-200 bg-emerald-50 p-4 transition hover:bg-emerald-100"
@@ -86,7 +86,7 @@ export default async function ContactPage({
                   LINE
                 </p>
                 <p className="mt-2 text-base font-semibold text-emerald-800">
-                  @mrt-supplier
+                  @mrtsupplier
                 </p>
               </TrackedLineLink>
 
@@ -125,7 +125,7 @@ export default async function ContactPage({
               </a>
 
               <TrackedLineLink
-                href="https://lin.ee/R3vfZW0"
+                href="https://lin.ee/S676yYH"
                 source="contact_page_cta"
                 locale={locale}
                 className="inline-flex flex-1 items-center justify-center rounded-xl border border-emerald-600 bg-emerald-500 px-4 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-emerald-600"

@@ -4,7 +4,7 @@ import { getHomeQuoteCtaText } from "@/lib/i18n/homeUi";
 
 export default function QuoteCTASection({ locale }: { locale: string }) {
   const text = getHomeQuoteCtaText(locale);
-  const lineUrl = "http://line.me/ti/p/hA4-akZkxn";
+  const lineUrl = "https://lin.ee/S676yYH";
 
   return (
     <section id="contact" className="border-t border-slate-200 bg-slate-50">
