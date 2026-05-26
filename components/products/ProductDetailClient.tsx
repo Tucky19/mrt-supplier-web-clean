@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
@@ -33,19 +34,27 @@ function ProductGallery({
   partNo: string;
 }) {
   const primaryImage = normalizePath(images[0]);
+  const [imageSrc, setImageSrc] = useState(primaryImage);
+
+  useEffect(() => {
+    setImageSrc(primaryImage);
+  }, [primaryImage]);
 
   return (
     <div className="space-y-4">
       <div className="overflow-hidden rounded-[28px] border border-slate-300 bg-[linear-gradient(180deg,#ffffff_0%,#f8fafc_100%)] p-5 shadow-[0_18px_42px_rgba(15,23,42,0.08)] sm:p-7">
         <div className="rounded-[22px] border border-slate-200 bg-white p-4 sm:p-6">
-          <img
-            src={primaryImage}
-            alt={partNo}
-            className="h-72 w-full object-contain sm:h-80"
-            onError={(event) => {
-              event.currentTarget.src = "/images/placeholder.jpg";
-            }}
-          />
+          <div className="relative h-72 w-full sm:h-80">
+            <Image
+              src={imageSrc}
+              alt={partNo}
+              fill
+              preload
+              sizes="(max-width: 1024px) calc(100vw - 72px), 520px"
+              className="object-contain"
+              onError={() => setImageSrc("/images/placeholder.jpg")}
+            />
+          </div>
         </div>
       </div>
     </div>
