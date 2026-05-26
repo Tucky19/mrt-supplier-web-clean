@@ -61,6 +61,7 @@ function getCopy(locale: string) {
     requestQuote: isThai ? "ส่ง RFQ" : "Send RFQ",
     addOnLine: isThai ? "เพิ่มเพื่อน LINE" : "Add LINE Friend",
     mapTitle: isThai ? "แผนที่ MRT Supplier" : "MRT Supplier Location",
+    openMaps: isThai ? "เปิดใน Google Maps" : "Open in Google Maps",
   };
 }
 
@@ -169,7 +170,7 @@ export default async function ContactPage({
                   {text.website}
                 </div>
                 <p className="mt-3 break-all text-base font-semibold text-slate-950">
-                  mrtsupplier.com
+                  {contactDetails.website}
                 </p>
               </a>
             </div>
@@ -242,6 +243,16 @@ export default async function ContactPage({
                 className="h-[320px] w-full border-0 lg:h-[430px]"
                 loading="lazy"
               />
+              <div className="border-t border-slate-200 px-5 py-4">
+                <a
+                  href="https://www.google.com/maps?q=15+Borommaratchachonnani+39,+Taling+Chan,+Bangkok+10170"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex min-h-11 w-full items-center justify-center rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-sm font-semibold text-slate-800 transition hover:border-slate-400 hover:bg-slate-50 sm:w-auto"
+                >
+                  {text.openMaps}
+                </a>
+              </div>
             </div>
           </aside>
         </div>
