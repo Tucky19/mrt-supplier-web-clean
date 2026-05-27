@@ -348,7 +348,8 @@ export const mannProducts = [
       { label: "Inner Diameter", value: "94 mm" },
       { label: "Height", value: "375 mm" },
     ],
-    refs: ["EUROPICLON"],
+    refs: [],
+    crossReferences: [],
     imageUrl: "/images/products/mann/c16400.jpg",
     detailImageUrl: "/images/products/mann/c16400-detail.jpg",
     officialImageUrl:
