@@ -1,29 +1,5 @@
 export const mannProducts = [
   {
-    id: "mann-c1112-2",
-    partNo: "C 1112/2",
-    brand: "MANN-FILTER",
-    category: "air_filter",
-    title: "Air Filter",
-    spec: "OD 98 mm × ID 60 mm × H 74 mm",
-    specifications: [
-      { label: "Outer Diameter (A)", value: "98 mm (3.858 inch)" },
-      { label: "Inner Diameter (B)", value: "60 mm (2.362 inch)" },
-      { label: "Height (H)", value: "74 mm (2.913 inch)" },
-    ],
-    applications: [],
-    refs: ["BECKER 90950700000"],
-    crossReferences: ["BECKER 90950700000"],
-    imageUrl: "/images/products/mann/c1112-2.jpg",
-    detailImageUrl: "/images/products/mann/c1112-2-detail.jpg",
-    officialUrl:
-      "https://www.mann-filter.com/th-th/catalog/search-results/product.html/c1112/2_mann-filter.html",
-    stockStatus: "in_stock",
-    sourceType: "official",
-    dataQuality: "verified",
-  },
-
-  {
     id: "mann-c1250",
     partNo: "C 1250",
     brand: "MANN-FILTER",
@@ -99,56 +75,6 @@ export const mannProducts = [
     officialUrl:
       "https://www.mann-filter.com/us-en/catalog/search-results/product.suffix.html/c1633/1_mann-filter.html",
     gtin: "4011558106805",
-    stockStatus: "in_stock",
-    sourceType: "official",
-    dataQuality: "verified",
-  },
-
-  {
-    id: "mann-c23115",
-    partNo: "C 23 115",
-    brand: "MANN-FILTER",
-    category: "air_filter",
-    title: "Air Filter",
-    spec: "OD 228 mm × ID 161 mm × H 130 mm",
-    specifications: [
-      { label: "Outer Diameter (A)", value: "228 mm (8.976 inch)" },
-      { label: "Inner Diameter (B)", value: "161 mm (6.339 inch)" },
-      { label: "Inner Diameter (C)", value: "161 mm (6.339 inch)" },
-      { label: "Outer Diameter (D)", value: "241 mm (9.488 inch)" },
-      { label: "Height (H)", value: "130 mm (5.118 inch)" },
-    ],
-    applications: [],
-    refs: [],
-    crossReferences: [],
-    imageUrl: "/images/products/mann/c23115.jpg",
-    detailImageUrl: "/images/products/mann/c23115-detail.jpg",
-    officialUrl:
-      "https://www.mann-filter.com/th-th/catalog/search-results/product.html/c23115_mann-filter.html",
-    stockStatus: "in_stock",
-    sourceType: "official",
-    dataQuality: "verified",
-  },
-
-  {
-    id: "mann-c25710-3",
-    partNo: "C 25 710/3",
-    brand: "MANN-FILTER",
-    category: "air_filter",
-    title: "Air Filter",
-    spec: "OD 240 mm × ID 147 mm × H 539 mm",
-    specifications: [
-      { label: "Outer Diameter (A)", value: "240 mm (9.449 inch)" },
-      { label: "Inner Diameter (B)", value: "147 mm (5.787 inch)" },
-      { label: "Height (H)", value: "539 mm (21.22 inch)" },
-    ],
-    applications: [],
-    refs: ["LIEBHERR 571 558 808"],
-    crossReferences: ["LIEBHERR 571 558 808"],
-    imageUrl: "/images/products/mann/c25710-3.jpg",
-    detailImageUrl: "/images/products/mann/c25710-3-detail.jpg",
-    officialUrl:
-      "https://www.mann-filter.com/th-th/catalog/search-results/product.html/c25710/3_mann-filter.html",
     stockStatus: "in_stock",
     sourceType: "official",
     dataQuality: "verified",
@@ -421,8 +347,8 @@ export const mannProducts = [
       { label: "Anti-drain Valve", value: "No" },
     ],
     applications: [],
-    refs: [],
-    crossReferences: [],
+    refs: ["BECKER 90950700000"],
+    crossReferences: ["BECKER 90950700000"],
     imageUrl: "/images/products/mann/C_1112_2.jpg",
     detailImageUrl: "/images/products/mann/C_1112_2-dim.jpg",
     officialUrl:
@@ -592,8 +518,8 @@ export const mannProducts = [
       { label: "Height (H)", value: "539 mm (21.22 inch)" },
     ],
     applications: [],
-    refs: [],
-    crossReferences: [],
+    refs: ["LIEBHERR 571 558 808"],
+    crossReferences: ["LIEBHERR 571 558 808"],
     imageUrl: "/images/products/mann/C_25_710_3.jpg",
     detailImageUrl: "/images/products/mann/C_25_710_3-dim.jpg",
     officialUrl:
