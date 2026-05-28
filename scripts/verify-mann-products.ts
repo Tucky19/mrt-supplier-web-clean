@@ -52,7 +52,30 @@ const EXPECTED_PART_NOS = [
   "W 940/1",
   "W 962/14",
   "W 962",
+  "WDK 725",
+  "WDK 11 102/9",
+  "WD 962",
+  "WD 950",
+  "WDK 962/16",
+  "WD 13 145",
+  "WD 940",
+  "WD 920",
+  "WD 1374",
+  "WDK 9002",
 ] as const;
+
+const EXPECTED_CATEGORY_BY_PART_NO: Partial<Record<string, string>> = {
+  "WDK 725": "fuel_filter",
+  "WDK 11 102/9": "fuel_filter",
+  "WD 962": "hydraulic",
+  "WD 950": "hydraulic",
+  "WDK 962/16": "fuel_filter",
+  "WD 13 145": "hydraulic",
+  "WD 940": "hydraulic",
+  "WD 920": "hydraulic",
+  "WD 1374": "hydraulic",
+  "WDK 9002": "fuel_filter",
+};
 
 const DIMENSION_LABEL_PATTERNS = [
   /outer diameter/i,
@@ -147,7 +170,9 @@ function main() {
       addIssue(issues, partNo, `brand is "${product.brand}"`);
     }
 
-    if (product.category !== "filter") {
+    const expectedCategory = EXPECTED_CATEGORY_BY_PART_NO[partNo] ?? "filter";
+
+    if (product.category !== expectedCategory) {
       addIssue(issues, partNo, `category is "${product.category}"`);
     }
 
@@ -175,7 +200,7 @@ function main() {
     }
   }
 
-  console.log("MANN-FILTER batch 1-5 verification");
+  console.log("MANN-FILTER batch 1-7 verification");
   console.log(`Expected products: ${EXPECTED_PART_NOS.length}`);
   console.log(`Exported MANN-FILTER products: ${exportedByPartNo.size}`);
 
