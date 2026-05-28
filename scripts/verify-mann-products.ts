@@ -47,6 +47,11 @@ const EXPECTED_PART_NOS = [
   "LB 1374/2",
   "LB 13 145/3",
   "LB 11 102/2",
+  "W 950",
+  "W 940/5",
+  "W 940/1",
+  "W 962/14",
+  "W 962",
 ] as const;
 
 const DIMENSION_LABEL_PATTERNS = [
@@ -170,7 +175,7 @@ function main() {
     }
   }
 
-  console.log("MANN-FILTER batch 1-4 verification");
+  console.log("MANN-FILTER batch 1-5 verification");
   console.log(`Expected products: ${EXPECTED_PART_NOS.length}`);
   console.log(`Exported MANN-FILTER products: ${exportedByPartNo.size}`);
 
