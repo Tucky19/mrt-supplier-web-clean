@@ -6,6 +6,11 @@ import { searchProducts } from "@/lib/search/search";
 
 type Product = (typeof products)[number];
 
+type ProductWithImages = Product & {
+  detailImageUrl?: string;
+  imageDetailUrl?: string;
+};
+
 const EXPECTED_PART_NOS = [
   "C 1112/2",
   "C 25 900",
@@ -135,6 +140,10 @@ function addIssue(issues: string[], partNo: string, message: string) {
   issues.push(`${partNo}: ${message}`);
 }
 
+function isDimensionImageUrl(value: string) {
+  return /-dim\.jpg$/i.test(value);
+}
+
 function main() {
   const issues: string[] = [];
   const exportedByPartNo = new Map<string, Product>();
@@ -166,6 +175,41 @@ function main() {
 
   for (const [normalizedPartNo, count] of duplicatePartNos) {
     issues.push(`Duplicate MANN-FILTER partNo "${normalizedPartNo}" appears ${count} times`);
+  }
+
+  for (const product of products) {
+    if (!isMannFilterProduct(product)) continue;
+
+    const productWithImages = product as ProductWithImages;
+
+    if (productWithImages.imageUrl) {
+      if (isDimensionImageUrl(productWithImages.imageUrl)) {
+        addIssue(
+          issues,
+          product.partNo,
+          `imageUrl points to a dimension image: ${productWithImages.imageUrl}`
+        );
+      }
+
+      if (!fileExistsInPublic(productWithImages.imageUrl)) {
+        addIssue(
+          issues,
+          product.partNo,
+          `imageUrl file does not exist: ${productWithImages.imageUrl}`
+        );
+      }
+    }
+
+    const detailImageUrl =
+      productWithImages.detailImageUrl ?? productWithImages.imageDetailUrl;
+
+    if (detailImageUrl && !fileExistsInPublic(detailImageUrl)) {
+      addIssue(
+        issues,
+        product.partNo,
+        `detail image file does not exist: ${detailImageUrl}`
+      );
+    }
   }
 
   for (const partNo of EXPECTED_PART_NOS) {
