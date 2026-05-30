@@ -72,9 +72,19 @@ const EXPECTED_PART_NOS = [
   "W 719/5",
   "W 920/21",
   "W 940",
+  "WK 842/2",
+  "WK 723",
+  "WK 1080/7 x",
+  "WK 1060/1",
+  "TB 1396/5 x",
+  "BFU 900 x",
+  "TB 1374 x",
+  "PL 420 x",
+  "C 1132",
 ] as const;
 
 const EXPECTED_CATEGORY_BY_PART_NO: Partial<Record<string, string>> = {
+  "C 30 810/3": "air_filter",
   "WDK 725": "fuel_filter",
   "WDK 11 102/9": "fuel_filter",
   "WD 962": "hydraulic",
@@ -90,6 +100,15 @@ const EXPECTED_CATEGORY_BY_PART_NO: Partial<Record<string, string>> = {
   "W 719/5": "oil_filter",
   "W 920/21": "oil_filter",
   "W 940": "oil_filter",
+  "WK 842/2": "fuel_filter",
+  "WK 723": "fuel_filter",
+  "WK 1080/7 x": "fuel_filter",
+  "WK 1060/1": "fuel_filter",
+  "TB 1396/5 x": "air_dryer",
+  "BFU 900 x": "fuel_filter",
+  "TB 1374 x": "air_dryer",
+  "PL 420 x": "fuel_filter",
+  "C 1132": "air_filter",
 };
 
 const DIMENSION_LABEL_PATTERNS = [
@@ -254,7 +273,7 @@ function main() {
     }
   }
 
-  console.log("MANN-FILTER batch 1-8 verification");
+  console.log("MANN-FILTER batch 1-9 verification");
   console.log(`Expected products: ${EXPECTED_PART_NOS.length}`);
   console.log(`Exported MANN-FILTER products: ${exportedByPartNo.size}`);
 
