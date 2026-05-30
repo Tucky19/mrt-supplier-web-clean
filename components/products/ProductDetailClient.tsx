@@ -405,7 +405,7 @@ export default function ProductDetailClient({ locale, product }: Props) {
   return (
     <>
       <div className="grid gap-8 pb-[calc(8rem+env(safe-area-inset-bottom))] md:pb-0 lg:grid-cols-[minmax(0,1.08fr)_minmax(0,1fr)] lg:gap-10">
-        <div className="space-y-5">
+        <div className="min-w-0 space-y-5">
           <ProductGallery images={images} partNo={product.partNo} />
           <ProductCrossReferenceCards
             locale={locale}
@@ -416,7 +416,7 @@ export default function ProductDetailClient({ locale, product }: Props) {
           />
         </div>
 
-        <div className="self-start space-y-5">
+        <div className="min-w-0 self-start space-y-5">
           <SurfaceCard className="overflow-hidden">
             <div className="border-b border-slate-300 bg-[linear-gradient(180deg,#f8fbfd_0%,#ffffff_100%)] px-5 py-5 sm:px-6">
               <div className="flex flex-wrap items-center gap-2.5">
