@@ -762,8 +762,8 @@ export const mannProducts = [
       { label: "Anti-drain Valve", value: "No" },
     ],
     applications: [],
-    refs: [],
-    crossReferences: [],
+    refs: ["Donaldson P771561", "K-FLO KA460"],
+    crossReferences: ["Donaldson P771561", "K-FLO KA460"],
     imageUrl: "/images/products/mann/C_20_325_2.jpg",
     detailImageUrl: "/images/products/mann/C_20_325_2-dim.jpg",
     officialUrl:
