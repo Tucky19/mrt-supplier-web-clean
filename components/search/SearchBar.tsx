@@ -61,7 +61,9 @@ function highlightMatch(text: string, query: string) {
   return (
     <>
       {before}
-      <mark className="rounded bg-yellow-100 px-0.5 text-inherit">{match}</mark>
+      <mark className="rounded bg-yellow-100 px-0.5 text-inherit group-hover:bg-red-600 group-hover:text-white group-active:bg-red-600 group-active:text-white">
+        {match}
+      </mark>
       {after}
     </>
   );
@@ -420,17 +422,17 @@ export default function SearchBar({
                           dropdownItems.length
                         )
                       }
-                      className={`block w-full border-l-4 px-4 py-2.5 text-left text-sm transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-blue-200 sm:px-5 ${
+                      className={`group block w-full border-l-4 px-4 py-2.5 text-left text-sm transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-blue-200 sm:px-5 ${
                         highlightedIndex === recentIndex
                           ? "border-red-600 bg-slate-900 text-white"
-                          : "border-transparent text-slate-700 hover:bg-slate-100"
+                          : "border-transparent text-slate-700 hover:bg-slate-700 hover:text-white active:border-red-600 active:bg-slate-900 active:text-white"
                       }`}
                     >
                       <span
                         className={`block font-medium ${
                           highlightedIndex === recentIndex
                             ? "text-white"
-                            : "text-slate-800"
+                            : "text-slate-800 group-hover:text-white group-active:text-white"
                         }`}
                       >
                         {recent}
@@ -439,7 +441,7 @@ export default function SearchBar({
                         className={`mt-0.5 block text-xs ${
                           highlightedIndex === recentIndex
                             ? "text-slate-200"
-                            : "text-slate-400"
+                            : "text-slate-400 group-hover:text-slate-200 group-active:text-slate-200"
                         }`}
                       >
                         {text.recent}
@@ -482,27 +484,33 @@ export default function SearchBar({
                             dropdownItems.length
                           )
                         }
-                        className={`block w-full border-l-4 px-4 py-2.5 text-left transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-blue-200 sm:px-5 sm:py-3 ${
+                        className={`group block w-full border-l-4 px-4 py-2.5 text-left transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-blue-200 sm:px-5 sm:py-3 ${
                           isHighlighted
                             ? "border-red-600 bg-slate-900 text-white [&_mark]:bg-red-600 [&_mark]:text-white"
-                            : "border-transparent hover:bg-slate-100"
+                            : "border-transparent hover:bg-slate-700 hover:text-white active:border-red-600 active:bg-slate-900 active:text-white"
                         }`}
                       >
                         <span
                           className={`block font-medium ${
-                            isHighlighted ? "text-white" : "text-slate-900"
+                            isHighlighted
+                              ? "text-white"
+                              : "text-slate-900 group-hover:text-white group-active:text-white"
                           }`}
                         >
                           {highlightMatch(suggestion.partNo, draftQuery)}
                         </span>
                         <span
                           className={`mt-1 block text-xs leading-5 ${
-                            isHighlighted ? "text-slate-200" : "text-slate-500"
+                            isHighlighted
+                              ? "text-slate-200"
+                              : "text-slate-500 group-hover:text-slate-200 group-active:text-slate-200"
                           }`}
                         >
                           <span
                             className={`font-semibold uppercase tracking-wide ${
-                              isHighlighted ? "text-slate-200" : "text-slate-400"
+                              isHighlighted
+                                ? "text-slate-200"
+                                : "text-slate-400 group-hover:text-slate-200 group-active:text-slate-200"
                             }`}
                           >
                             {label}
@@ -541,10 +549,10 @@ export default function SearchBar({
                   onKeyDown={(event) =>
                     handleDropdownKeyDown(event, viewAllIndex, dropdownItems.length)
                   }
-                  className={`block w-full border-l-4 px-4 py-3 text-left text-sm font-medium transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-blue-200 sm:px-5 ${
+                  className={`group block w-full border-l-4 px-4 py-3 text-left text-sm font-medium transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-blue-200 sm:px-5 ${
                     highlightedIndex === viewAllIndex
                       ? "border-red-600 bg-slate-900 text-white"
-                      : "border-transparent bg-slate-50/80 text-slate-700 hover:bg-slate-100"
+                      : "border-transparent bg-slate-50/80 text-slate-700 hover:bg-slate-700 hover:text-white active:border-red-600 active:bg-slate-900 active:text-white"
                   }`}
                 >
                   {text.viewAllResults} &quot;{trimmedQuery}&quot;

@@ -126,17 +126,19 @@ export default function SingleSearch({
                   goTo(item.partNo);
                 }}
                 className={[
-                  "flex w-full items-start justify-between gap-3 border-l-4 px-4 py-3 text-left text-sm transition",
+                  "group flex w-full items-start justify-between gap-3 border-l-4 px-4 py-3 text-left text-sm transition",
                   isActive
                     ? "border-red-600 bg-slate-900 text-white"
-                    : "border-transparent hover:bg-slate-100",
+                    : "border-transparent hover:bg-slate-700 hover:text-white active:border-red-600 active:bg-slate-900 active:text-white",
                 ].join(" ")}
               >
                 <div className="min-w-0">
                   <div className="flex items-center gap-2">
                     <span
                       className={`font-semibold ${
-                        isActive ? "text-white" : "text-slate-900"
+                        isActive
+                          ? "text-white"
+                          : "text-slate-900 group-hover:text-white group-active:text-white"
                       }`}
                     >
                       {item.partNo}
@@ -147,7 +149,7 @@ export default function SingleSearch({
                         className={`rounded-full border px-2 py-0.5 text-[11px] font-semibold ${
                           isActive
                             ? "border-slate-500 bg-slate-800 text-slate-100"
-                            : "border-amber-200 bg-amber-50 text-amber-700"
+                            : "border-amber-200 bg-amber-50 text-amber-700 group-hover:border-slate-500 group-hover:bg-slate-800 group-hover:text-slate-100 group-active:border-slate-500 group-active:bg-slate-800 group-active:text-slate-100"
                         }`}
                       >
                         Popular RFQ
@@ -157,7 +159,9 @@ export default function SingleSearch({
 
                   <div
                     className={`mt-0.5 truncate text-xs ${
-                      isActive ? "text-slate-200" : "text-slate-500"
+                      isActive
+                        ? "text-slate-200"
+                        : "text-slate-500 group-hover:text-slate-200 group-active:text-slate-200"
                     }`}
                   >
                     {[item.brand, item.category].filter(Boolean).join(" • ")}
@@ -166,7 +170,9 @@ export default function SingleSearch({
                   {item.title ? (
                     <div
                       className={`mt-0.5 truncate text-xs ${
-                        isActive ? "text-slate-200" : "text-slate-600"
+                        isActive
+                          ? "text-slate-200"
+                          : "text-slate-600 group-hover:text-slate-200 group-active:text-slate-200"
                       }`}
                     >
                       {item.title}
@@ -176,7 +182,9 @@ export default function SingleSearch({
 
                 <span
                   className={`shrink-0 text-xs ${
-                    isActive ? "text-slate-200" : "text-slate-400"
+                    isActive
+                      ? "text-slate-200"
+                      : "text-slate-400 group-hover:text-slate-200 group-active:text-slate-200"
                   }`}
                 >
                   Open
