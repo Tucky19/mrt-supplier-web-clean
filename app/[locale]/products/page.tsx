@@ -149,6 +149,16 @@ export default async function ProductsPage({
         hydrateSearchHit(hit, products),
       )
     : products.slice(0, DEFAULT_PRODUCT_LIMIT);
+  const hasExactPartNumberResult = hasQuery
+    ? visibleProducts.some((product) => getResultMatchType(product) === "Exact")
+    : false;
+  const crossReferenceResults = hasQuery
+    ? visibleProducts.filter(
+        (product) => getResultMatchType(product) === "Cross Ref",
+      )
+    : [];
+  const hasCrossReferenceResults =
+    !hasExactPartNumberResult && crossReferenceResults.length > 0;
   const showMissingProductRequest =
     requestMissingProduct || visibleProducts.length === 0;
 
@@ -253,6 +263,42 @@ export default async function ProductsPage({
           </div>
         </div>
 
+        {hasCrossReferenceResults && (
+          <div className="mb-5 rounded-2xl border border-emerald-200 bg-emerald-50 px-4 py-4 shadow-sm sm:mb-6 sm:px-5">
+            <div className="flex gap-3">
+              <div className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-emerald-100 text-emerald-700">
+                <svg
+                  aria-hidden="true"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  className="h-5 w-5"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M16.704 5.29a1 1 0 010 1.42l-7.25 7.2a1 1 0 01-1.41 0L3.296 9.19a1 1 0 111.408-1.42l4.04 4.01 6.552-6.49a1 1 0 011.408 0z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+              </div>
+              <div className="min-w-0">
+                <h2 className="text-base font-semibold text-slate-950">
+                  {isThai ? "พบเบอร์เทียบแล้ว!" : "Reference matches found!"}
+                </h2>
+                <p className="mt-1 text-sm leading-6 text-slate-700">
+                  {isThai
+                    ? `พบสินค้าอ้างอิงจาก “${query}” จำนวน ${crossReferenceResults.length} รายการ`
+                    : `Found ${crossReferenceResults.length} reference products for “${query}”`}
+                </p>
+                <p className="mt-1 text-xs leading-5 text-slate-600">
+                  {isThai
+                    ? "กรุณาตรวจสอบสเปคและการใช้งานก่อนสั่งซื้อ"
+                    : "Please confirm specifications and application before ordering."}
+                </p>
+              </div>
+            </div>
+          </div>
+        )}
+
         {showMissingProductRequest && (
           <div className={visibleProducts.length === 0 ? "" : "mb-6"}>
             {hasQuery ? (
@@ -276,13 +322,13 @@ export default async function ProductsPage({
               <div className="mb-5 rounded-2xl border border-dashed border-slate-300 bg-white px-6 py-6 text-center sm:mb-6">
                 <p className="text-base font-medium text-slate-900">
                   {isThai
-                    ? "ยังไม่พบสินค้าที่ค้นหา"
-                    : "We couldn't find that product yet"}
+                    ? "ยังไม่พบเบอร์เทียบในระบบ"
+                    : "No reference match found in the system"}
                 </p>
                 <p className="mt-2 text-sm text-slate-500">
                   {isThai
-                    ? "หากยังไม่มีเบอร์หรือยังไม่เจอสินค้าที่ตรง ส่งรายละเอียดให้ทีมช่วยหาเทียบได้ทันที"
-                    : "If you do not have a part number or the result is still missing, send the details and our team can help identify it."}
+                    ? "ส่ง Part Number ให้ทีม MRT ช่วยตรวจสอบเพิ่มเติมได้"
+                    : "Send the part number to MRT for further checking."}
                 </p>
               </div>
             )}
@@ -311,6 +357,7 @@ export default async function ProductsPage({
             locale={locale}
             initialCount={12}
             incrementCount={12}
+            searchQuery={hasCrossReferenceResults ? query : ""}
           />
         )}
       </section>

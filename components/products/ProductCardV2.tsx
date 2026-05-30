@@ -9,6 +9,10 @@ import { getProductImageUrl } from "@/lib/products/image";
 import { useQuote } from "@/providers/QuoteProvider";
 import type { Product } from "@/types/product";
 
+type SearchProduct = Product & {
+  _matchType?: string;
+};
+
 function normalizeSpecLabel(value: string) {
   return value.trim().toLowerCase();
 }
@@ -53,9 +57,11 @@ function parseQuantity(value: string) {
 export default function ProductCardV2({
   product,
   locale = "th",
+  searchQuery = "",
 }: {
-  product: Product;
+  product: SearchProduct;
   locale?: string;
+  searchQuery?: string;
 }) {
   const { addItem } = useQuote();
   const { show } = useToast();
@@ -95,6 +101,12 @@ export default function ProductCardV2({
       ? "เพิ่มแล้ว"
       : "Added"
     : text.addToQuote;
+  const referenceQuery = searchQuery.trim();
+  const isCrossReferenceResult =
+    product._matchType === "Cross Ref" && referenceQuery.length > 0;
+  const referenceBadgeLabel = isThai
+    ? `อ้างอิงจาก ${referenceQuery}`
+    : `Reference for ${referenceQuery}`;
 
   useEffect(() => {
     return () => {
@@ -185,6 +197,14 @@ export default function ProductCardV2({
         <div className="text-[10px] font-semibold uppercase tracking-[0.16em] text-slate-400">
           {isThai ? "รหัสสินค้า" : "Part Number"}
         </div>
+
+        {isCrossReferenceResult && (
+          <div className="mt-2">
+            <span className="inline-flex max-w-full items-center rounded-full border border-emerald-200 bg-emerald-50 px-2.5 py-1 text-[11px] font-semibold text-emerald-800">
+              {referenceBadgeLabel}
+            </span>
+          </div>
+        )}
 
         <Link
           href={`/${locale}/products/${encodeURIComponent(product.partNo)}`}

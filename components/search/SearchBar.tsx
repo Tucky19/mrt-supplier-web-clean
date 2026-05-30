@@ -44,6 +44,19 @@ function getSuggestionSectionTitle(
   return text.relatedMatches;
 }
 
+function getReferenceBadgeText(locale: string, query: string) {
+  const trimmed = query.trim();
+  if (!trimmed) return locale === "th" ? "เทียบจากเบอร์ค้นหา" : "Reference match";
+
+  return locale === "th"
+    ? `เทียบจาก ${trimmed}`
+    : `Reference for ${trimmed}`;
+}
+
+function normalizePartNumber(value: string) {
+  return value.trim().toLowerCase().replace(/[\s/_-]+/g, "");
+}
+
 function highlightMatch(text: string, query: string) {
   const trimmed = query.trim();
   if (!trimmed) return text;
@@ -220,6 +233,16 @@ export default function SearchBar({
     () => groupedSuggestions.flatMap((group) => group.items),
     [groupedSuggestions]
   );
+  const hasExactPartNumberSuggestion = useMemo(() => {
+    const normalizedQuery = normalizePartNumber(draftQuery);
+    if (!normalizedQuery) return false;
+
+    return flattenedSuggestions.some(
+      (suggestion) =>
+        suggestion._matchType === "Exact" &&
+        normalizePartNumber(suggestion.partNo) === normalizedQuery
+    );
+  }, [draftQuery, flattenedSuggestions]);
 
   const trimmedQuery = draftQuery.trim();
   const showViewAllResults = trimmedQuery.length >= 2;
@@ -463,6 +486,9 @@ export default function SearchBar({
                     const currentIndex = suggestionStartIndex + suggestionIndex;
                     const label = getSuggestionLabel(suggestion._matchType, text);
                     const isHighlighted = highlightedIndex === currentIndex;
+                    const isCrossReference =
+                      suggestion._matchType === "Cross Ref" &&
+                      !hasExactPartNumberSuggestion;
 
                     return (
                       <button
@@ -490,14 +516,27 @@ export default function SearchBar({
                             : "border-transparent hover:bg-slate-700 hover:text-white active:border-red-600 active:bg-slate-900 active:text-white"
                         }`}
                       >
-                        <span
-                          className={`block font-medium ${
-                            isHighlighted
-                              ? "text-white"
-                              : "text-slate-900 group-hover:text-white group-active:text-white"
-                          }`}
-                        >
-                          {highlightMatch(suggestion.partNo, draftQuery)}
+                        <span className="flex min-w-0 flex-wrap items-center gap-2">
+                          {isCrossReference ? (
+                            <span
+                              className={`inline-flex max-w-full items-center rounded-full border px-2.5 py-1 text-[11px] font-semibold leading-none ${
+                                isHighlighted
+                                  ? "border-emerald-300/60 bg-emerald-400/15 text-emerald-100"
+                                  : "border-emerald-200 bg-emerald-50 text-emerald-800 group-hover:border-slate-500 group-hover:bg-slate-800 group-hover:text-emerald-100 group-active:border-emerald-300/60 group-active:bg-emerald-400/15 group-active:text-emerald-100"
+                              }`}
+                            >
+                              {getReferenceBadgeText(locale, draftQuery)}
+                            </span>
+                          ) : null}
+                          <span
+                            className={`min-w-0 break-all font-medium ${
+                              isHighlighted
+                                ? "text-white"
+                                : "text-slate-900 group-hover:text-white group-active:text-white"
+                            }`}
+                          >
+                            {highlightMatch(suggestion.partNo, draftQuery)}
+                          </span>
                         </span>
                         <span
                           className={`mt-1 block text-xs leading-5 ${

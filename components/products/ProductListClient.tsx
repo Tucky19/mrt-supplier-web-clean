@@ -9,6 +9,7 @@ type Props = {
   locale: string;
   initialCount?: number;
   incrementCount?: number;
+  searchQuery?: string;
 };
 
 export default function ProductListClient({
@@ -16,6 +17,7 @@ export default function ProductListClient({
   locale,
   initialCount = 12,
   incrementCount = 12,
+  searchQuery = "",
 }: Props) {
   const [visibleCount, setVisibleCount] = useState(initialCount);
   const isThai = locale === "th";
@@ -46,6 +48,7 @@ export default function ProductListClient({
             key={product.id}
             product={product}
             locale={locale}
+            searchQuery={searchQuery}
           />
         ))}
       </div>
