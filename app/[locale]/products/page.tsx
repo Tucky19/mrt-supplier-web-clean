@@ -6,6 +6,7 @@ import MissingProductRequestForm from "@/components/products/MissingProductReque
 import ProductListClient from "@/components/products/ProductListClient";
 import SiteFooter from "@/components/layout/SiteFooter";
 import SiteHeader from "@/components/layout/SiteHeader";
+import MultiPartNumberSearch from "@/components/search/MultiPartNumberSearch";
 import SearchBar from "@/components/search/SearchBar";
 import JsonLd from "@/components/seo/JsonLd";
 import { products } from "@/data/products/index";
@@ -171,6 +172,8 @@ export default async function ProductsPage({
           <div className="-mx-4 sticky top-[64px] z-40 mt-5 border-y bg-white/95 px-4 py-2.5 backdrop-blur md:static md:z-auto md:mx-0 md:border-y-0 md:bg-transparent md:px-0 md:py-0 md:backdrop-blur-0">
             <SearchBar locale={locale} defaultValue={query} />
           </div>
+
+          <MultiPartNumberSearch locale={locale} />
 
           <div className="mt-4 flex max-w-4xl flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
             <div className="flex flex-wrap gap-2">
