@@ -607,7 +607,12 @@ const donaldsonBatch1: RawDonaldson[] = [
     category: "filter",
     image: "/images/products/donaldson/p782105.jpg",
     spec: "Primary RadialSeal air filter, cellulose media",
-    cross_reference: [],
+    cross_reference: [
+      "MANN-FILTER: C 25 710/3",
+      "Baldwin: RS3996",
+      "Fleetguard: AF26399",
+      "Hengst: E630L01",
+    ],
     specifications: [
       { label: "Type", value: "Air Filter" },
       { label: "Position", value: "Primary" },
@@ -700,7 +705,12 @@ const donaldsonBatch1: RawDonaldson[] = [
     title: "Donaldson Filter P782108",
     category: "filter",
     image: "/images/products/donaldson/p782108.jpg",
-    cross_reference: [],
+    cross_reference: [
+      "MANN-FILTER: CF 710",
+      "Baldwin: RS3997",
+      "Fleetguard: AF26400",
+      "Hengst: E630LS",
+    ],
     spec: "OD 137.5 mm x ID 122 mm x L 509 mm x Safety RadialSeal Air Filter",
     specifications: [
       { label: "Outer Diameter", value: "137.5 mm (5.41 inch)" },
