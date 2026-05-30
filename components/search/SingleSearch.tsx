@@ -126,35 +126,61 @@ export default function SingleSearch({
                   goTo(item.partNo);
                 }}
                 className={[
-                  "flex w-full items-start justify-between gap-3 px-4 py-3 text-left text-sm transition",
-                  isActive ? "bg-slate-100" : "hover:bg-slate-50",
+                  "flex w-full items-start justify-between gap-3 border-l-4 px-4 py-3 text-left text-sm transition",
+                  isActive
+                    ? "border-red-600 bg-slate-900 text-white"
+                    : "border-transparent hover:bg-slate-100",
                 ].join(" ")}
               >
                 <div className="min-w-0">
                   <div className="flex items-center gap-2">
-                    <span className="font-semibold text-slate-900">
+                    <span
+                      className={`font-semibold ${
+                        isActive ? "text-white" : "text-slate-900"
+                      }`}
+                    >
                       {item.partNo}
                     </span>
 
                     {item.isBestConverting ? (
-                      <span className="rounded-full border border-amber-200 bg-amber-50 px-2 py-0.5 text-[11px] font-semibold text-amber-700">
+                      <span
+                        className={`rounded-full border px-2 py-0.5 text-[11px] font-semibold ${
+                          isActive
+                            ? "border-slate-500 bg-slate-800 text-slate-100"
+                            : "border-amber-200 bg-amber-50 text-amber-700"
+                        }`}
+                      >
                         Popular RFQ
                       </span>
                     ) : null}
                   </div>
 
-                  <div className="mt-0.5 truncate text-xs text-slate-500">
+                  <div
+                    className={`mt-0.5 truncate text-xs ${
+                      isActive ? "text-slate-200" : "text-slate-500"
+                    }`}
+                  >
                     {[item.brand, item.category].filter(Boolean).join(" • ")}
                   </div>
 
                   {item.title ? (
-                    <div className="mt-0.5 truncate text-xs text-slate-600">
+                    <div
+                      className={`mt-0.5 truncate text-xs ${
+                        isActive ? "text-slate-200" : "text-slate-600"
+                      }`}
+                    >
                       {item.title}
                     </div>
                   ) : null}
                 </div>
 
-                <span className="shrink-0 text-xs text-slate-400">Open</span>
+                <span
+                  className={`shrink-0 text-xs ${
+                    isActive ? "text-slate-200" : "text-slate-400"
+                  }`}
+                >
+                  Open
+                </span>
               </button>
             );
           })}
