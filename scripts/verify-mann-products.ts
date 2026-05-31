@@ -39,6 +39,7 @@ const EXPECTED_PART_NOS = [
   "HU 12 007 x",
   "H 729",
   "C 30 810/3",
+  "CF 810",
   "C 30 703",
   "C 20 500",
   "HU 12 008 x",
@@ -273,7 +274,7 @@ function main() {
     }
   }
 
-  console.log("MANN-FILTER batch 1-9 verification");
+  console.log("MANN-FILTER batch 1-10 verification");
   console.log(`Expected products: ${EXPECTED_PART_NOS.length}`);
   console.log(`Exported MANN-FILTER products: ${exportedByPartNo.size}`);
 

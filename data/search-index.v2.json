@@ -1,13 +1,13 @@
 {
   "version": 2,
-  "generatedAt": "2026-05-31T22:07:57.829Z",
+  "generatedAt": "2026-05-31T23:26:42.491Z",
   "counts": {
-    "items": 272,
+    "items": 273,
     "prefix2": 23,
-    "prefix3": 61,
-    "prefix4": 107,
-    "tokenKeys": 1275,
-    "xrefKeys": 107
+    "prefix3": 62,
+    "prefix4": 108,
+    "tokenKeys": 1285,
+    "xrefKeys": 112
   },
   "items": [
     {
@@ -8342,6 +8342,62 @@
       ]
     },
     {
+      "id": "mann-batch10-cf810",
+      "partNo": "CF 810",
+      "partNoNorm": "cf810",
+      "brand": "MANN-FILTER",
+      "title": "Air Filter, Secondary",
+      "category": "filter",
+      "spec": "Secondary / Safety Filter x OD 198 mm x H 573 mm",
+      "imageUrl": "/images/products/mann/CF_810.jpg",
+      "specifications": [
+        {
+          "label": "Product Type",
+          "value": "Secondary Element"
+        },
+        {
+          "label": "Position",
+          "value": "Secondary"
+        },
+        {
+          "label": "Series",
+          "value": "EUROPICLON"
+        },
+        {
+          "label": "GTIN",
+          "value": "4011558233600"
+        },
+        {
+          "label": "Outer Diameter (A)",
+          "value": "198 mm"
+        },
+        {
+          "label": "Height (H)",
+          "value": "573 mm"
+        },
+        {
+          "label": "Bypass Valve",
+          "value": "No"
+        },
+        {
+          "label": "Relief Valve",
+          "value": "No"
+        },
+        {
+          "label": "Anti-drain Valve",
+          "value": "No"
+        }
+      ],
+      "stock": "request",
+      "crossReferences": [
+        "Donaldson: P782109",
+        "Baldwin: RS3999",
+        "Fleetguard: AF26402",
+        "Mahle: LA 80",
+        "Hengst: E631LS"
+      ]
+    },
+    {
       "id": "mann-batch3-c30703",
       "partNo": "C 30 703",
       "partNoNorm": "c30703",
@@ -11281,7 +11337,8 @@
       "mann-batch2-cf710",
       "mann-batch2-cf610",
       "mann-batch2-cf300",
-      "mann-batch3-cf200"
+      "mann-batch3-cf200",
+      "mann-batch10-cf810"
     ],
     "c7": [
       "mann-batch1-c75-2",
@@ -11668,6 +11725,9 @@
     ],
     "h72": [
       "mann-batch3-h729"
+    ],
+    "cf8": [
+      "mann-batch10-cf810"
     ],
     "w11": [
       "mann-batch4-w11102-36",
@@ -12120,6 +12180,9 @@
     ],
     "h729": [
       "mann-batch3-h729"
+    ],
+    "cf81": [
+      "mann-batch10-cf810"
     ],
     "c307": [
       "mann-batch3-c30703"
@@ -12920,6 +12983,7 @@
       "donaldson-p782108",
       "donaldson-p552819",
       "donaldson-p550057",
+      "mann-batch10-cf810",
       "mann-batch4-hu931-5x",
       "mann-batch9-pl420x",
       "donaldson-p551315",
@@ -13463,7 +13527,8 @@
     ],
     "198": [
       "donaldson-p771561",
-      "mann-batch2-c20325-2"
+      "mann-batch2-c20325-2",
+      "mann-batch10-cf810"
     ],
     "199": [
       "donaldson-p565059",
@@ -13903,6 +13968,9 @@
     "571": [
       "mann-c25710-3"
     ],
+    "573": [
+      "mann-batch10-cf810"
+    ],
     "575": [
       "mann-batch1-cf1830"
     ],
@@ -13987,7 +14055,8 @@
       "mann-c25710-3"
     ],
     "810": [
-      "mann-batch3-c30810-3"
+      "mann-batch3-c30810-3",
+      "mann-batch10-cf810"
     ],
     "835": [
       "mann-batch1-c75-2"
@@ -14472,6 +14541,7 @@
       "mann-batch2-cf710",
       "mann-batch2-cf610",
       "mann-batch3-c30810-3",
+      "mann-batch10-cf810",
       "donaldson-p553004",
       "donaldson-p551315",
       "donaldson-p551329",
@@ -14709,6 +14779,7 @@
       "mann-batch3-hu12007x",
       "mann-batch3-h729",
       "mann-batch3-c30810-3",
+      "mann-batch10-cf810",
       "mann-batch3-c30703",
       "mann-batch3-hu12008x",
       "mann-batch4-w11102-36",
@@ -14858,6 +14929,7 @@
       "mann-batch3-hu12007x",
       "mann-batch3-h729",
       "mann-batch3-c30810-3",
+      "mann-batch10-cf810",
       "mann-batch3-c30703",
       "mann-batch3-hu12008x",
       "mann-batch4-w11102-36",
@@ -15015,6 +15087,7 @@
       "mann-batch3-hu12007x",
       "mann-batch3-h729",
       "mann-batch3-c30810-3",
+      "mann-batch10-cf810",
       "mann-batch3-c30703",
       "mann-batch3-hu12008x",
       "mann-batch4-w11102-36",
@@ -15405,6 +15478,7 @@
       "mann-batch3-hu12007x",
       "mann-batch3-h729",
       "mann-batch3-c30810-3",
+      "mann-batch10-cf810",
       "mann-batch3-c30703",
       "mann-batch3-hu12008x",
       "mann-batch4-w11102-36",
@@ -15561,6 +15635,7 @@
       "mann-batch3-hu12007x",
       "mann-batch3-h729",
       "mann-batch3-c30810-3",
+      "mann-batch10-cf810",
       "mann-batch3-c30703",
       "mann-batch3-hu12008x",
       "mann-batch4-w11102-36",
@@ -16555,6 +16630,7 @@
       "mann-batch3-hu12007x",
       "mann-batch3-h729",
       "mann-batch3-c30810-3",
+      "mann-batch10-cf810",
       "mann-batch3-c30703",
       "mann-batch3-hu12008x",
       "mann-batch4-w11102-36",
@@ -17266,6 +17342,7 @@
       "mann-batch2-cf300",
       "mann-batch3-cf200",
       "mann-batch3-c30810-3",
+      "mann-batch10-cf810",
       "mann-batch3-c30703",
       "mann-batch4-lb962-21",
       "mann-batch4-lb1374-2",
@@ -18453,6 +18530,7 @@
       "mann-batch3-hu12007x",
       "mann-batch3-h729",
       "mann-batch3-c30810-3",
+      "mann-batch10-cf810",
       "mann-batch3-c30703",
       "mann-batch3-hu12008x",
       "mann-batch4-w11102-36",
@@ -18503,7 +18581,8 @@
       "mann-batch1-c23610",
       "mann-batch2-cf710",
       "mann-batch2-cf610",
-      "mann-batch3-c30810-3"
+      "mann-batch3-c30810-3",
+      "mann-batch10-cf810"
     ],
     "rs3996": [
       "donaldson-p782105",
@@ -18523,6 +18602,7 @@
       "mann-batch2-cf710",
       "mann-batch2-cf610",
       "mann-batch3-c30810-3",
+      "mann-batch10-cf810",
       "donaldson-p551425"
     ],
     "af26399": [
@@ -18541,7 +18621,8 @@
       "mann-batch1-c23610",
       "mann-batch2-cf710",
       "mann-batch2-cf610",
-      "mann-batch3-c30810-3"
+      "mann-batch3-c30810-3",
+      "mann-batch10-cf810"
     ],
     "e630l01": [
       "donaldson-p782105",
@@ -18731,6 +18812,7 @@
       "mann-batch2-cf610",
       "mann-batch2-cf300",
       "mann-batch3-cf200",
+      "mann-batch10-cf810",
       "donaldson-p550880"
     ],
     "p550880": [
@@ -18830,7 +18912,8 @@
       "donaldson-p780036",
       "mann-c20500",
       "mann-cf500",
-      "mann-batch1-c23610"
+      "mann-batch1-c23610",
+      "mann-batch10-cf810"
     ],
     "lx": [
       "donaldson-p782104",
@@ -18883,6 +18966,7 @@
       "donaldson-p158669",
       "donaldson-p822769",
       "donaldson-p777869",
+      "mann-batch10-cf810",
       "donaldson-p116446",
       "donaldson-p128408",
       "donaldson-p158678"
@@ -18974,7 +19058,8 @@
       "mann-batch2-cf710",
       "mann-batch2-cf610",
       "mann-batch2-cf300",
-      "mann-batch3-cf200"
+      "mann-batch3-cf200",
+      "mann-batch10-cf810"
     ],
     "rs3993": [
       "donaldson-p780036",
@@ -19052,6 +19137,7 @@
       "mann-batch2-cf300",
       "mann-batch3-cf200",
       "mann-batch3-c30810-3",
+      "mann-batch10-cf810",
       "mann-batch3-c30703",
       "mann-batch3-hu12008x",
       "mann-batch4-w11102-36",
@@ -19103,6 +19189,7 @@
       "mann-batch2-cf300",
       "mann-batch3-cf200",
       "mann-batch3-c30810-3",
+      "mann-batch10-cf810",
       "mann-batch3-c30703",
       "mann-batch3-hu12008x",
       "mann-batch4-w11102-36",
@@ -19171,6 +19258,7 @@
       "mann-batch2-cf300",
       "mann-batch3-cf200",
       "mann-batch3-c30810-3",
+      "mann-batch10-cf810",
       "mann-batch3-c30703",
       "mann-batch3-hu12008x",
       "mann-batch4-w11102-36",
@@ -19503,6 +19591,7 @@
       "mann-batch2-cf300",
       "mann-batch3-cf200",
       "mann-batch3-c30810-3",
+      "mann-batch10-cf810",
       "mann-batch3-c30703",
       "mann-batch3-hu12008x",
       "mann-batch4-w11102-36",
@@ -19594,7 +19683,8 @@
       "mann-batch2-cf710",
       "mann-batch2-cf610",
       "mann-batch2-cf300",
-      "mann-batch3-cf200"
+      "mann-batch3-cf200",
+      "mann-batch10-cf810"
     ],
     "p553": [
       "donaldson-p553500",
@@ -19897,6 +19987,7 @@
       "mann-batch3-hu12007x",
       "mann-batch3-h729",
       "mann-batch3-c30810-3",
+      "mann-batch10-cf810",
       "mann-batch3-c30703",
       "mann-batch3-hu12008x",
       "mann-batch4-w11102-36",
@@ -20223,6 +20314,7 @@
       "mann-batch2-cf300",
       "mann-batch3-cf200",
       "mann-batch3-c30810-3",
+      "mann-batch10-cf810",
       "mann-batch4-lb962-21",
       "donaldson-p164594",
       "donaldson-p163542",
@@ -20361,6 +20453,7 @@
       "mann-batch3-hu12007x",
       "mann-batch3-h729",
       "mann-batch3-c30810-3",
+      "mann-batch10-cf810",
       "mann-batch3-c30703",
       "mann-batch3-hu12008x",
       "mann-batch4-w11102-36",
@@ -20940,6 +21033,7 @@
       "mann-batch3-hu12007x",
       "mann-batch3-h729",
       "mann-batch3-c30810-3",
+      "mann-batch10-cf810",
       "mann-batch3-c30703",
       "mann-batch3-hu12008x",
       "mann-batch4-w11102-36",
@@ -21001,6 +21095,7 @@
       "mann-batch2-cf300",
       "mann-batch3-cf200",
       "mann-batch3-c30810-3",
+      "mann-batch10-cf810",
       "mann-batch3-c30703",
       "mann-batch3-hu12008x",
       "mann-batch4-w11102-36",
@@ -21032,6 +21127,7 @@
       "mann-batch2-cf300",
       "mann-batch3-cf200",
       "mann-batch3-c30810-3",
+      "mann-batch10-cf810",
       "mann-batch3-c30703",
       "mann-batch3-hu12008x"
     ],
@@ -21309,7 +21405,8 @@
       "mann-batch2-cf610",
       "mann-batch2-cf300",
       "mann-batch3-cf200",
-      "mann-batch3-c30810-3"
+      "mann-batch3-c30810-3",
+      "mann-batch10-cf810"
     ],
     "4011558152505": [
       "mann-c20500"
@@ -21398,7 +21495,8 @@
       "mann-batch1-c30850-2",
       "mann-c25710-3",
       "mann-batch1-c23632-1",
-      "mann-batch1-c23610"
+      "mann-batch1-c23610",
+      "mann-batch10-cf810"
     ],
     "4011558004286": [
       "mann-batch1-c25900"
@@ -21715,6 +21813,33 @@
     ],
     "c308103": [
       "mann-batch3-c30810-3"
+    ],
+    "p782109": [
+      "mann-batch10-cf810"
+    ],
+    "rs3999": [
+      "mann-batch10-cf810"
+    ],
+    "af26402": [
+      "mann-batch10-cf810"
+    ],
+    "la": [
+      "mann-batch10-cf810"
+    ],
+    "e631ls": [
+      "mann-batch10-cf810"
+    ],
+    "4011558233600": [
+      "mann-batch10-cf810"
+    ],
+    "cf810": [
+      "mann-batch10-cf810"
+    ],
+    "cf8": [
+      "mann-batch10-cf810"
+    ],
+    "cf81": [
+      "mann-batch10-cf810"
     ],
     "4011558136307": [
       "mann-batch3-c30703"
@@ -22620,6 +22745,21 @@
     ],
     "hengst:e631l01": [
       "mann-batch3-c30810-3"
+    ],
+    "donaldson:p782109": [
+      "mann-batch10-cf810"
+    ],
+    "baldwin:rs3999": [
+      "mann-batch10-cf810"
+    ],
+    "fleetguard:af26402": [
+      "mann-batch10-cf810"
+    ],
+    "mahle:la80": [
+      "mann-batch10-cf810"
+    ],
+    "hengst:e631ls": [
+      "mann-batch10-cf810"
     ],
     "p551807": [
       "donaldson-p553191"
