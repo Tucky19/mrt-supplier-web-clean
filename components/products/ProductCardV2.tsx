@@ -101,7 +101,7 @@ export default function ProductCardV2({
       ? "เพิ่มแล้ว"
       : "Added"
     : text.addToQuote;
-  const referenceQuery = searchQuery.trim();
+  const referenceQuery = searchQuery.trim().toUpperCase();
   const isCrossReferenceResult =
     product._matchType === "Cross Ref" && referenceQuery.length > 0;
   const referenceBadgeLabel = isThai

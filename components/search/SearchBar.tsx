@@ -45,12 +45,18 @@ function getSuggestionSectionTitle(
 }
 
 function getReferenceBadgeText(locale: string, query: string) {
-  const trimmed = query.trim();
+  const trimmed = query.trim().toUpperCase();
   if (!trimmed) return locale === "th" ? "เทียบจากเบอร์ค้นหา" : "Reference match";
 
   return locale === "th"
     ? `เทียบจาก ${trimmed}`
     : `Reference for ${trimmed}`;
+}
+
+function formatBrandLabel(brand: string) {
+  const trimmed = brand.trim();
+  if (trimmed.toLowerCase() === "donaldson") return "Donaldson";
+  return trimmed;
 }
 
 function normalizePartNumber(value: string) {
@@ -489,6 +495,12 @@ export default function SearchBar({
                     const isCrossReference =
                       suggestion._matchType === "Cross Ref" &&
                       !hasExactPartNumberSuggestion;
+                    const brandLabel = formatBrandLabel(suggestion.brand);
+                    const secondaryText = isCrossReference
+                      ? [brandLabel, suggestion.title]
+                          .filter(Boolean)
+                          .join(" \u00B7 ")
+                      : "";
 
                     return (
                       <button
@@ -545,23 +557,31 @@ export default function SearchBar({
                               : "text-slate-500 group-hover:text-slate-200 group-active:text-slate-200"
                           }`}
                         >
-                          <span
-                            className={`font-semibold uppercase tracking-wide ${
-                              isHighlighted
-                                ? "text-slate-200"
-                                : "text-slate-400 group-hover:text-slate-200 group-active:text-slate-200"
-                            }`}
-                          >
-                            {label}
-                          </span>
-                          <span className="px-1.5 text-slate-300">•</span>
-                          {highlightMatch(suggestion.brand, draftQuery)}
-                          {suggestion.title ? (
+                          {isCrossReference ? (
+                            <span className="font-semibold">
+                              {highlightMatch(secondaryText, draftQuery)}
+                            </span>
+                          ) : (
                             <>
-                              {text.bySeparator}
-                              {highlightMatch(suggestion.title, draftQuery)}
+                              <span
+                                className={`font-semibold uppercase tracking-wide ${
+                                  isHighlighted
+                                    ? "text-slate-200"
+                                    : "text-slate-400 group-hover:text-slate-200 group-active:text-slate-200"
+                                }`}
+                              >
+                                {label}
+                              </span>
+                              <span className="px-1.5 text-slate-300">•</span>
+                              {highlightMatch(brandLabel, draftQuery)}
+                              {suggestion.title ? (
+                                <>
+                                  {text.bySeparator}
+                                  {highlightMatch(suggestion.title, draftQuery)}
+                                </>
+                              ) : null}
                             </>
-                          ) : null}
+                          )}
                         </span>
                       </button>
                     );
