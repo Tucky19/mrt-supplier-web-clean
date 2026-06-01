@@ -845,7 +845,8 @@ const donaldsonBatch1: RawDonaldson[] = [
     officialUrl: "https://shop.donaldson.com/store/en-th/product/P778984/22048",
     stockStatus: "request",
     spec: "OD 128.4 mm x ID 74.9 mm x L 316.2 mm x Primary RadialSeal Air Filter",
-    cross_reference: [],
+    refs: ["C 14 200"],
+    cross_reference: ["C 14 200"],
     specifications: [
       { label: "Outer Diameter", value: "128.4 mm (5.06 inch)" },
       { label: "Inner Diameter", value: "74.9 mm (2.95 inch)" },

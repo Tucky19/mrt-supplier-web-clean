@@ -1,13 +1,13 @@
 {
   "version": 2,
-  "generatedAt": "2026-06-01T05:56:49.475Z",
+  "generatedAt": "2026-06-01T06:27:39.586Z",
   "counts": {
-    "items": 274,
+    "items": 275,
     "prefix2": 23,
-    "prefix3": 62,
-    "prefix4": 108,
-    "tokenKeys": 1289,
-    "xrefKeys": 119
+    "prefix3": 63,
+    "prefix4": 109,
+    "tokenKeys": 1294,
+    "xrefKeys": 121
   },
   "items": [
     {
@@ -1133,7 +1133,9 @@
         }
       ],
       "stock": "request",
-      "crossReferences": []
+      "crossReferences": [
+        "C 14 200"
+      ]
     },
     {
       "id": "donaldson-p778994",
@@ -7200,6 +7202,58 @@
       ]
     },
     {
+      "id": "mann-c14200",
+      "partNo": "C 14 200",
+      "partNoNorm": "c14200",
+      "brand": "MANN-FILTER",
+      "title": "Air Filter",
+      "category": "filter",
+      "spec": "EUROPICLON x OD 124 mm x ID 74 mm x H 320 mm",
+      "imageUrl": "/images/products/mann/C_14_200.jpg",
+      "specifications": [
+        {
+          "label": "Product Type",
+          "value": "Air Filter"
+        },
+        {
+          "label": "Series",
+          "value": "EUROPICLON"
+        },
+        {
+          "label": "GTIN",
+          "value": "4011558152208"
+        },
+        {
+          "label": "Outer Diameter (A)",
+          "value": "124 mm"
+        },
+        {
+          "label": "Inner Diameter (B)",
+          "value": "74 mm"
+        },
+        {
+          "label": "Height (H)",
+          "value": "320 mm"
+        },
+        {
+          "label": "Bypass Valve",
+          "value": "No"
+        },
+        {
+          "label": "Anti-drain Valve",
+          "value": "No"
+        },
+        {
+          "label": "Non-return Valve",
+          "value": "No"
+        }
+      ],
+      "stock": "request",
+      "crossReferences": [
+        "P778984"
+      ]
+    },
+    {
       "id": "mann-c16400",
       "partNo": "C 16 400",
       "partNoNorm": "c16400",
@@ -11303,6 +11357,7 @@
       "mann-c1250",
       "mann-c1337",
       "mann-c1633-1",
+      "mann-c14200",
       "mann-c16400",
       "mann-c1112-2",
       "mann-batch2-c1760",
@@ -11733,6 +11788,9 @@
     ],
     "cf5": [
       "mann-cf500"
+    ],
+    "c14": [
+      "mann-c14200"
     ],
     "cf4": [
       "mann-cf400"
@@ -12177,6 +12235,9 @@
     "cf50": [
       "mann-cf500"
     ],
+    "c142": [
+      "mann-c14200"
+    ],
     "c164": [
       "mann-c16400"
     ],
@@ -12466,11 +12527,13 @@
       "donaldson-p782104",
       "donaldson-p778972",
       "donaldson-p780012",
+      "donaldson-p778984",
       "donaldson-p778994",
       "donaldson-p551311",
       "donaldson-p550105",
       "donaldson-p181042",
       "donaldson-p557440",
+      "mann-c14200",
       "mann-batch1-c23632-1",
       "mann-batch5-w962-14",
       "mann-batch9-wk1080-7x",
@@ -13001,6 +13064,7 @@
       "donaldson-p550008",
       "donaldson-p181042",
       "donaldson-p181049",
+      "mann-c14200",
       "mann-c1112-2",
       "mann-batch1-c30850-2",
       "donaldson-p551315",
@@ -13410,6 +13474,7 @@
     ],
     "124": [
       "donaldson-p181103",
+      "mann-c14200",
       "mann-batch1-c23610"
     ],
     "125": [
@@ -13618,8 +13683,10 @@
     "200": [
       "donaldson-p550148",
       "donaldson-p780024",
+      "donaldson-p778984",
       "donaldson-p164166",
       "donaldson-p164375",
+      "mann-c14200",
       "mann-batch3-cf200",
       "donaldson-p164594"
     ],
@@ -13825,6 +13892,9 @@
     ],
     "317": [
       "donaldson-p181103"
+    ],
+    "320": [
+      "mann-c14200"
     ],
     "323": [
       "donaldson-p181049",
@@ -14847,6 +14917,7 @@
       "mann-w940-5",
       "mann-c20500",
       "mann-cf500",
+      "mann-c14200",
       "mann-c16400",
       "mann-cf400",
       "mann-c1112-2",
@@ -14998,6 +15069,7 @@
       "mann-w940-5",
       "mann-c20500",
       "mann-cf500",
+      "mann-c14200",
       "mann-c16400",
       "mann-cf400",
       "mann-c1112-2",
@@ -15157,6 +15229,7 @@
       "mann-w940-5",
       "mann-c20500",
       "mann-cf500",
+      "mann-c14200",
       "mann-c16400",
       "mann-cf400",
       "mann-c1112-2",
@@ -15295,6 +15368,7 @@
       "mann-w920-21",
       "mann-w940-5",
       "mann-c20500",
+      "mann-c14200",
       "mann-c16400",
       "mann-c1112-2",
       "mann-batch1-c25900",
@@ -15550,6 +15624,7 @@
       "mann-w940-5",
       "mann-c20500",
       "mann-cf500",
+      "mann-c14200",
       "mann-c16400",
       "mann-cf400",
       "mann-c1112-2",
@@ -15708,6 +15783,7 @@
       "mann-w940-5",
       "mann-c20500",
       "mann-cf500",
+      "mann-c14200",
       "mann-c16400",
       "mann-cf400",
       "mann-c1112-2",
@@ -15921,6 +15997,7 @@
       "mann-w920-21",
       "mann-w940-5",
       "mann-c20500",
+      "mann-c14200",
       "mann-c16400",
       "mann-c1112-2",
       "mann-batch1-c25900",
@@ -16710,6 +16787,7 @@
       "mann-w940-5",
       "mann-c20500",
       "mann-cf500",
+      "mann-c14200",
       "mann-cf400",
       "mann-c1112-2",
       "mann-batch1-c25900",
@@ -17430,6 +17508,7 @@
       "mann-lb962-2",
       "mann-c20500",
       "mann-cf500",
+      "mann-c14200",
       "mann-c16400",
       "mann-cf400",
       "mann-c1112-2",
@@ -18578,6 +18657,7 @@
       "mann-c1250",
       "mann-c1337",
       "mann-c1633-1",
+      "mann-c14200",
       "mann-c16400",
       "mann-c1112-2",
       "mann-batch2-c1760",
@@ -18620,6 +18700,7 @@
       "mann-w940-5",
       "mann-c20500",
       "mann-cf500",
+      "mann-c14200",
       "mann-c16400",
       "mann-cf400",
       "mann-c1112-2",
@@ -19156,7 +19237,8 @@
       "donaldson-p780012"
     ],
     "p778984": [
-      "donaldson-p778984"
+      "donaldson-p778984",
+      "mann-c14200"
     ],
     "06": [
       "donaldson-p778984"
@@ -19276,6 +19358,7 @@
       "mann-w940-5",
       "mann-c20500",
       "mann-cf500",
+      "mann-c14200",
       "mann-cf400",
       "mann-c1112-2",
       "mann-batch1-c25900",
@@ -19328,6 +19411,7 @@
       "mann-w940-5",
       "mann-c20500",
       "mann-cf500",
+      "mann-c14200",
       "mann-cf400",
       "mann-c1112-2",
       "mann-batch1-c25900",
@@ -19397,6 +19481,7 @@
       "mann-w940-5",
       "mann-c20500",
       "mann-cf500",
+      "mann-c14200",
       "mann-cf400",
       "mann-c1112-2",
       "mann-batch1-c25900",
@@ -19730,6 +19815,7 @@
       "mann-w940-5",
       "mann-c20500",
       "mann-cf500",
+      "mann-c14200",
       "mann-cf400",
       "mann-c1112-2",
       "mann-batch1-c25900",
@@ -20117,6 +20203,7 @@
       "mann-w940-5",
       "mann-c20500",
       "mann-cf500",
+      "mann-c14200",
       "mann-cf400",
       "mann-c1112-2",
       "mann-batch1-c25900",
@@ -20455,6 +20542,7 @@
       "donaldson-p173689",
       "mann-c20500",
       "mann-cf500",
+      "mann-c14200",
       "mann-cf400",
       "mann-batch1-c25900",
       "mann-batch1-cf1830",
@@ -20582,6 +20670,7 @@
       "mann-w940-5",
       "mann-c20500",
       "mann-cf500",
+      "mann-c14200",
       "mann-c16400",
       "mann-cf400",
       "mann-c1112-2",
@@ -21163,6 +21252,7 @@
       "mann-w940-5",
       "mann-c20500",
       "mann-cf500",
+      "mann-c14200",
       "mann-cf400",
       "mann-c1112-2",
       "mann-batch1-c25900",
@@ -21234,6 +21324,7 @@
       "mann-lb962-2",
       "mann-c20500",
       "mann-cf500",
+      "mann-c14200",
       "mann-cf400",
       "mann-c1112-2",
       "mann-batch1-c25900",
@@ -21350,6 +21441,7 @@
     ],
     "non": [
       "mann-lb962-2",
+      "mann-c14200",
       "mann-batch4-w11102-36",
       "mann-batch4-w11102-37",
       "mann-batch4-hu931-5x",
@@ -21361,6 +21453,7 @@
     ],
     "return": [
       "mann-lb962-2",
+      "mann-c14200",
       "mann-batch4-w11102-36",
       "mann-batch4-w11102-37",
       "mann-batch4-hu931-5x",
@@ -21552,6 +21645,7 @@
     "europiclon": [
       "mann-c20500",
       "mann-cf500",
+      "mann-c14200",
       "mann-cf400",
       "mann-c25710-3",
       "mann-batch1-c23610",
@@ -21600,6 +21694,18 @@
     ],
     "cf50": [
       "mann-cf500"
+    ],
+    "4011558152208": [
+      "mann-c14200"
+    ],
+    "c14200": [
+      "mann-c14200"
+    ],
+    "c14": [
+      "mann-c14200"
+    ],
+    "c142": [
+      "mann-c14200"
     ],
     "c16400": [
       "mann-c16400"
@@ -22655,6 +22761,9 @@
     "cf400": [
       "donaldson-p780012"
     ],
+    "c14200": [
+      "donaldson-p778984"
+    ],
     "mannfilter:c20500": [
       "donaldson-p778994"
     ],
@@ -22871,6 +22980,9 @@
     ],
     "donaldson:p780036": [
       "mann-cf500"
+    ],
+    "p778984": [
+      "mann-c14200"
     ],
     "p778972": [
       "mann-c16400"
