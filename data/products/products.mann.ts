@@ -323,8 +323,8 @@ export const mannProducts = [
       { label: "Inner Diameter", value: "94 mm" },
       { label: "Height", value: "375 mm" },
     ],
-    refs: [],
-    crossReferences: [],
+    refs: ["P778972"],
+    crossReferences: ["P778972"],
     imageUrl: "/images/products/mann/c16400.jpg",
     detailImageUrl: "/images/products/mann/c16400-detail.jpg",
     officialImageUrl:
@@ -362,8 +362,8 @@ export const mannProducts = [
     applications: [],
     imageUrl: "/images/products/mann/CF_400.jpg",
     detailImageUrl: "/images/products/mann/CF_400-dim.jpg",
-    refs: [],
-    crossReferences: [],
+    refs: ["P780012"],
+    crossReferences: ["P780012"],
     officialUrl:
       "https://www.mann-filter.com/us-en/catalog/search-results/product.suffix.html/cf400_mann-filter.html",
     gtin: "4011558233006",
@@ -1025,8 +1025,8 @@ export const mannProducts = [
       { label: "Anti-drain Valve", value: "No" },
     ],
     applications: [],
-    refs: [],
-    crossReferences: [],
+    refs: ["P780024"],
+    crossReferences: ["P780024"],
     imageUrl: "/images/products/mann/CF_200.jpg",
     detailImageUrl: "/images/products/mann/CF_200-dim.jpg",
     officialUrl:

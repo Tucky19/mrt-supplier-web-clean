@@ -772,7 +772,8 @@ const donaldsonBatch1: RawDonaldson[] = [
     image: "/images/products/donaldson/P780024.jpg",
     officialUrl: "https://shop.donaldson.com/store/en-us/product/P780024",
     spec: "OD 64 mm x ID 49 mm x L 302 mm x Safety Round Air Filter",
-    cross_reference: [],
+    refs: ["CF 200"],
+    cross_reference: ["CF 200"],
     specifications: [
       { label: "Outer Diameter", value: "64 mm (2.52 inch)" },
       { label: "Inner Diameter", value: "49 mm (1.93 inch)" },
@@ -794,7 +795,8 @@ const donaldsonBatch1: RawDonaldson[] = [
     officialUrl: "https://shop.donaldson.com/store/en-th/product/P778972/22046",
     stockStatus: "request",
     spec: "Overall Length 372 mm x OD 161.1 mm x ID 94.7 mm x Length 341.8 mm x Primary RadialSeal Air Filter",
-    cross_reference: [],
+    refs: ["C 16 400"],
+    cross_reference: ["C 16 400"],
     specifications: [
       { label: "Overall Length", value: "372 mm (14.65 inch)" },
       { label: "Outer Diameter", value: "161.1 mm (6.34 inch)" },
@@ -820,7 +822,8 @@ const donaldsonBatch1: RawDonaldson[] = [
     officialUrl: "https://shop.donaldson.com/store/en-th/product/P780012/22052",
     stockStatus: "request",
     spec: "OD 87 mm x ID 69.5 mm x L 358 mm x Safety Round Air Filter",
-    cross_reference: [],
+    refs: ["CF 400"],
+    cross_reference: ["CF 400"],
     specifications: [
       { label: "Outer Diameter", value: "87 mm (3.43 inch)" },
       { label: "Inner Diameter", value: "69.5 mm (2.74 inch)" },
