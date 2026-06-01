@@ -1,13 +1,13 @@
 {
   "version": 2,
-  "generatedAt": "2026-05-31T23:26:42.491Z",
+  "generatedAt": "2026-06-01T00:03:09.902Z",
   "counts": {
-    "items": 273,
+    "items": 274,
     "prefix2": 23,
     "prefix3": 62,
     "prefix4": 108,
-    "tokenKeys": 1285,
-    "xrefKeys": 112
+    "tokenKeys": 1289,
+    "xrefKeys": 113
   },
   "items": [
     {
@@ -1298,6 +1298,62 @@
         "Baldwin: RS3997",
         "Fleetguard: AF26400",
         "Hengst: E630LS"
+      ]
+    },
+    {
+      "id": "donaldson-p782109",
+      "partNo": "P782109",
+      "partNoNorm": "p782109",
+      "brand": "donaldson",
+      "title": "Air Filter, Safety RadialSeal",
+      "category": "air_filter",
+      "spec": "OD 192.5 mm x ID 176 mm x L 570 mm x Safety RadialSeal Air Filter",
+      "imageUrl": "/images/products/donaldson/P782109.jpg",
+      "specifications": [
+        {
+          "label": "Outer Diameter",
+          "value": "192.5 mm (7.58 inch)"
+        },
+        {
+          "label": "Inner Diameter",
+          "value": "176 mm (6.93 inch)"
+        },
+        {
+          "label": "Length",
+          "value": "570 mm (22.44 inch)"
+        },
+        {
+          "label": "Efficiency Test Std",
+          "value": "ISO 5011"
+        },
+        {
+          "label": "Primary Application",
+          "value": "ATLAS COPCO 2914501800"
+        },
+        {
+          "label": "Type",
+          "value": "Safety"
+        },
+        {
+          "label": "Style",
+          "value": "Radialseal"
+        },
+        {
+          "label": "Brand",
+          "value": "RadialSeal™"
+        },
+        {
+          "label": "UPC Code",
+          "value": "742330126325"
+        }
+      ],
+      "stock": "request",
+      "crossReferences": [
+        "MANN-FILTER: CF 810",
+        "Baldwin: RS3999",
+        "Fleetguard: AF26402",
+        "Mahle: LA 80",
+        "Hengst: E631LS"
       ]
     },
     {
@@ -11252,6 +11308,7 @@
       "donaldson-p778994",
       "donaldson-p780036",
       "donaldson-p782108",
+      "donaldson-p782109",
       "donaldson-p775749",
       "donaldson-p753388",
       "donaldson-p777868",
@@ -11515,7 +11572,8 @@
       "donaldson-p780024",
       "donaldson-p780012",
       "donaldson-p780036",
-      "donaldson-p782108"
+      "donaldson-p782108",
+      "donaldson-p782109"
     ],
     "p77": [
       "donaldson-p771561",
@@ -11879,7 +11937,8 @@
     "p782": [
       "donaldson-p782105",
       "donaldson-p782104",
-      "donaldson-p782108"
+      "donaldson-p782108",
+      "donaldson-p782109"
     ],
     "p554": [
       "donaldson-p554620",
@@ -12521,6 +12580,7 @@
     ],
     "22": [
       "donaldson-p550084",
+      "donaldson-p782109",
       "donaldson-p550777",
       "donaldson-p181063",
       "donaldson-p181034",
@@ -12686,6 +12746,7 @@
       "donaldson-p554620",
       "donaldson-p550881",
       "donaldson-p771561",
+      "donaldson-p782109",
       "donaldson-p551311",
       "donaldson-p550008",
       "donaldson-p550105",
@@ -12758,6 +12819,7 @@
     ],
     "58": [
       "donaldson-p828889",
+      "donaldson-p782109",
       "donaldson-p551102",
       "donaldson-p559740",
       "donaldson-p119374"
@@ -12981,6 +13043,7 @@
       "donaldson-p554685",
       "donaldson-p771561",
       "donaldson-p782108",
+      "donaldson-p782109",
       "donaldson-p552819",
       "donaldson-p550057",
       "mann-batch10-cf810",
@@ -13068,6 +13131,7 @@
       "donaldson-p554685",
       "donaldson-p550881",
       "donaldson-p780024",
+      "donaldson-p782109",
       "donaldson-p551311",
       "donaldson-p552819",
       "donaldson-p550520",
@@ -13481,6 +13545,7 @@
       "donaldson-p550520"
     ],
     "176": [
+      "donaldson-p782109",
       "donaldson-p551315"
     ],
     "177": [
@@ -13509,6 +13574,9 @@
     "191": [
       "mann-batch1-c30850-2",
       "mann-batch3-c30703"
+    ],
+    "192": [
+      "donaldson-p782109"
     ],
     "194": [
       "mann-c20500"
@@ -13965,6 +14033,9 @@
     "569": [
       "mann-c1337"
     ],
+    "570": [
+      "donaldson-p782109"
+    ],
     "571": [
       "mann-c25710-3"
     ],
@@ -14055,6 +14126,7 @@
       "mann-c25710-3"
     ],
     "810": [
+      "donaldson-p782109",
       "mann-batch3-c30810-3",
       "mann-batch10-cf810"
     ],
@@ -14230,6 +14302,7 @@
       "donaldson-p778994",
       "donaldson-p780036",
       "donaldson-p782108",
+      "donaldson-p782109",
       "donaldson-p181059",
       "donaldson-p181063",
       "donaldson-p181034",
@@ -14341,6 +14414,9 @@
     "2330356301": [
       "donaldson-p550057"
     ],
+    "2914501800": [
+      "donaldson-p782109"
+    ],
     "2914502400": [
       "donaldson-p782108"
     ],
@@ -14373,6 +14449,7 @@
       "donaldson-p778994",
       "donaldson-p780036",
       "donaldson-p782108",
+      "donaldson-p782109",
       "donaldson-p551102",
       "donaldson-p181059",
       "donaldson-p551670",
@@ -14584,6 +14661,7 @@
       "donaldson-p778994",
       "donaldson-p780036",
       "donaldson-p782108",
+      "donaldson-p782109",
       "donaldson-p551102",
       "donaldson-p181059",
       "donaldson-p551670",
@@ -14857,6 +14935,7 @@
       "donaldson-p778994",
       "donaldson-p780036",
       "donaldson-p782108",
+      "donaldson-p782109",
       "donaldson-p551102",
       "donaldson-p181059",
       "donaldson-p551670",
@@ -15005,6 +15084,7 @@
       "donaldson-p778994",
       "donaldson-p780036",
       "donaldson-p782108",
+      "donaldson-p782109",
       "donaldson-p551102",
       "donaldson-p181059",
       "donaldson-p551670",
@@ -15158,6 +15238,7 @@
       "donaldson-p778994",
       "donaldson-p780036",
       "donaldson-p782108",
+      "donaldson-p782109",
       "donaldson-p551102",
       "donaldson-p181059",
       "donaldson-p551670",
@@ -15400,6 +15481,7 @@
       "donaldson-p778994",
       "donaldson-p780036",
       "donaldson-p782108",
+      "donaldson-p782109",
       "donaldson-p551102",
       "donaldson-p181059",
       "donaldson-p551670",
@@ -15557,6 +15639,7 @@
       "donaldson-p778994",
       "donaldson-p780036",
       "donaldson-p782108",
+      "donaldson-p782109",
       "donaldson-p551102",
       "donaldson-p181059",
       "donaldson-p551670",
@@ -15718,6 +15801,7 @@
       "donaldson-p778994",
       "donaldson-p780036",
       "donaldson-p782108",
+      "donaldson-p782109",
       "donaldson-p551102",
       "donaldson-p181059",
       "donaldson-p551670",
@@ -15790,6 +15874,7 @@
       "donaldson-p778994",
       "donaldson-p780036",
       "donaldson-p782108",
+      "donaldson-p782109",
       "donaldson-p181059",
       "donaldson-p181063",
       "donaldson-p551624",
@@ -15909,6 +15994,7 @@
       "donaldson-p778994",
       "donaldson-p780036",
       "donaldson-p782108",
+      "donaldson-p782109",
       "donaldson-p551102",
       "donaldson-p181059",
       "donaldson-p551670",
@@ -16012,6 +16098,7 @@
       "donaldson-p778994",
       "donaldson-p780036",
       "donaldson-p782108",
+      "donaldson-p782109",
       "donaldson-p551102",
       "donaldson-p181059",
       "donaldson-p551670",
@@ -16230,6 +16317,7 @@
       "donaldson-p778994",
       "donaldson-p780036",
       "donaldson-p782108",
+      "donaldson-p782109",
       "donaldson-p551102",
       "donaldson-p181059",
       "donaldson-p551670",
@@ -16445,6 +16533,7 @@
       "donaldson-p778994",
       "donaldson-p780036",
       "donaldson-p782108",
+      "donaldson-p782109",
       "donaldson-p551102",
       "donaldson-p181059",
       "donaldson-p551670",
@@ -16745,6 +16834,7 @@
       "donaldson-p778994",
       "donaldson-p780036",
       "donaldson-p782108",
+      "donaldson-p782109",
       "donaldson-p551102",
       "donaldson-p181059",
       "donaldson-p551670",
@@ -16819,6 +16909,7 @@
       "donaldson-p778994",
       "donaldson-p780036",
       "donaldson-p782108",
+      "donaldson-p782109",
       "donaldson-p551102",
       "donaldson-p551670",
       "donaldson-p550777",
@@ -16882,6 +16973,7 @@
       "donaldson-p778994",
       "donaldson-p780036",
       "donaldson-p782108",
+      "donaldson-p782109",
       "donaldson-p551102",
       "donaldson-p181059",
       "donaldson-p551670",
@@ -16949,6 +17041,7 @@
       "donaldson-p778994",
       "donaldson-p780036",
       "donaldson-p782108",
+      "donaldson-p782109",
       "donaldson-p551102",
       "donaldson-p181059",
       "donaldson-p551670",
@@ -17266,6 +17359,7 @@
       "donaldson-p778994",
       "donaldson-p780036",
       "donaldson-p782108",
+      "donaldson-p782109",
       "donaldson-p181059",
       "donaldson-p181063",
       "donaldson-p522452",
@@ -17503,6 +17597,7 @@
       "donaldson-p778984",
       "donaldson-p778994",
       "donaldson-p782108",
+      "donaldson-p782109",
       "donaldson-p164375",
       "donaldson-p164378",
       "donaldson-p164384",
@@ -17532,6 +17627,7 @@
       "donaldson-p778984",
       "donaldson-p778994",
       "donaldson-p782108",
+      "donaldson-p782109",
       "donaldson-p822768",
       "donaldson-p829333",
       "donaldson-p532473",
@@ -17570,6 +17666,7 @@
       "donaldson-p778994",
       "donaldson-p780036",
       "donaldson-p782108",
+      "donaldson-p782109",
       "donaldson-p551102",
       "donaldson-p181059",
       "donaldson-p551670",
@@ -17635,6 +17732,7 @@
       "donaldson-p778994",
       "donaldson-p780036",
       "donaldson-p782108",
+      "donaldson-p782109",
       "donaldson-p551102",
       "donaldson-p181059",
       "donaldson-p551670",
@@ -17687,6 +17785,7 @@
       "donaldson-p778994",
       "donaldson-p780036",
       "donaldson-p782108",
+      "donaldson-p782109",
       "donaldson-p181059",
       "donaldson-p502438",
       "donaldson-p181063",
@@ -18495,6 +18594,7 @@
       "donaldson-p778994",
       "donaldson-p780036",
       "donaldson-p782108",
+      "donaldson-p782109",
       "mann-c1250",
       "mann-c1337",
       "mann-c1633-1",
@@ -18575,6 +18675,7 @@
       "donaldson-p778994",
       "donaldson-p780036",
       "donaldson-p782108",
+      "donaldson-p782109",
       "mann-c20500",
       "mann-cf500",
       "mann-c25710-3",
@@ -18594,6 +18695,7 @@
       "donaldson-p778994",
       "donaldson-p780036",
       "donaldson-p782108",
+      "donaldson-p782109",
       "donaldson-p553000",
       "mann-c20500",
       "mann-cf500",
@@ -18615,6 +18717,7 @@
       "donaldson-p778994",
       "donaldson-p780036",
       "donaldson-p782108",
+      "donaldson-p782109",
       "mann-c20500",
       "mann-cf500",
       "mann-c25710-3",
@@ -18645,6 +18748,7 @@
       "donaldson-p778994",
       "donaldson-p780036",
       "donaldson-p782108",
+      "donaldson-p782109",
       "donaldson-p775749",
       "donaldson-p753388",
       "donaldson-p777868",
@@ -18656,12 +18760,14 @@
       "donaldson-p780024",
       "donaldson-p780012",
       "donaldson-p780036",
-      "donaldson-p782108"
+      "donaldson-p782108",
+      "donaldson-p782109"
     ],
     "p782": [
       "donaldson-p782105",
       "donaldson-p782104",
-      "donaldson-p782108"
+      "donaldson-p782108",
+      "donaldson-p782109"
     ],
     "p554620": [
       "donaldson-p554620"
@@ -18910,6 +19016,7 @@
       "donaldson-p782104",
       "donaldson-p778994",
       "donaldson-p780036",
+      "donaldson-p782109",
       "mann-c20500",
       "mann-cf500",
       "mann-batch1-c23610",
@@ -18930,14 +19037,16 @@
       "donaldson-p780024",
       "donaldson-p778994",
       "donaldson-p780036",
-      "donaldson-p782108"
+      "donaldson-p782108",
+      "donaldson-p782109"
     ],
     "copco": [
       "donaldson-p782104",
       "donaldson-p780024",
       "donaldson-p778994",
       "donaldson-p780036",
-      "donaldson-p782108"
+      "donaldson-p782108",
+      "donaldson-p782109"
     ],
     "c23610": [
       "donaldson-p782104",
@@ -18954,6 +19063,7 @@
       "donaldson-p780012",
       "donaldson-p780036",
       "donaldson-p782108",
+      "donaldson-p782109",
       "donaldson-p522452",
       "donaldson-p829333",
       "donaldson-p526432",
@@ -19047,6 +19157,7 @@
     "cf": [
       "donaldson-p780036",
       "donaldson-p782108",
+      "donaldson-p782109",
       "mann-cf500",
       "mann-cf400",
       "mann-batch1-c25900",
@@ -19101,6 +19212,29 @@
     ],
     "742330126318": [
       "donaldson-p782108"
+    ],
+    "p782109": [
+      "donaldson-p782109",
+      "mann-batch10-cf810"
+    ],
+    "rs3999": [
+      "donaldson-p782109",
+      "mann-batch10-cf810"
+    ],
+    "af26402": [
+      "donaldson-p782109",
+      "mann-batch10-cf810"
+    ],
+    "la": [
+      "donaldson-p782109",
+      "mann-batch10-cf810"
+    ],
+    "e631ls": [
+      "donaldson-p782109",
+      "mann-batch10-cf810"
+    ],
+    "742330126325": [
+      "donaldson-p782109"
     ],
     "p551102": [
       "donaldson-p551102"
@@ -21814,21 +21948,6 @@
     "c308103": [
       "mann-batch3-c30810-3"
     ],
-    "p782109": [
-      "mann-batch10-cf810"
-    ],
-    "rs3999": [
-      "mann-batch10-cf810"
-    ],
-    "af26402": [
-      "mann-batch10-cf810"
-    ],
-    "la": [
-      "mann-batch10-cf810"
-    ],
-    "e631ls": [
-      "mann-batch10-cf810"
-    ],
     "4011558233600": [
       "mann-batch10-cf810"
     ],
@@ -22559,6 +22678,25 @@
       "donaldson-p782108",
       "mann-batch2-cf710"
     ],
+    "mannfilter:cf810": [
+      "donaldson-p782109"
+    ],
+    "baldwin:rs3999": [
+      "donaldson-p782109",
+      "mann-batch10-cf810"
+    ],
+    "fleetguard:af26402": [
+      "donaldson-p782109",
+      "mann-batch10-cf810"
+    ],
+    "mahle:la80": [
+      "donaldson-p782109",
+      "mann-batch10-cf810"
+    ],
+    "hengst:e631ls": [
+      "donaldson-p782109",
+      "mann-batch10-cf810"
+    ],
     "daf1399494": [
       "donaldson-p550520"
     ],
@@ -22747,18 +22885,6 @@
       "mann-batch3-c30810-3"
     ],
     "donaldson:p782109": [
-      "mann-batch10-cf810"
-    ],
-    "baldwin:rs3999": [
-      "mann-batch10-cf810"
-    ],
-    "fleetguard:af26402": [
-      "mann-batch10-cf810"
-    ],
-    "mahle:la80": [
-      "mann-batch10-cf810"
-    ],
-    "hengst:e631ls": [
       "mann-batch10-cf810"
     ],
     "p551807": [
