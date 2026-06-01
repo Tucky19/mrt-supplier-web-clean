@@ -2,6 +2,33 @@ import type { Product } from "@/types/product";
 
 export const donaldsonPriorityProducts: Product[] = [
   {
+    id: "donaldson-p500914",
+    partNo: "P500914",
+    brand: "Donaldson",
+    category: "air_filter",
+    title: "Air Filter, Safety",
+    spec: "OD 120 mm x ID 100 mm x L 355 mm x Safety Round Air Filter",
+    specifications: [
+      { label: "Outer Diameter", value: "120 mm (4.72 inch)" },
+      { label: "Inner Diameter", value: "100 mm (3.94 inch)" },
+      { label: "Length", value: "355 mm (13.98 inch)" },
+      { label: "Bolt Hole Diameter", value: "18 mm (0.71 inch)" },
+      { label: "Efficiency", value: "99.9" },
+      { label: "Efficiency Test Std", value: "ISO 5011" },
+      { label: "Type", value: "Safety" },
+      { label: "Style", value: "Round" },
+      { label: "Media Type", value: "Safety" },
+      { label: "UPC Code", value: "742330203811" },
+    ],
+    imageUrl: "/images/products/donaldson/p500914.jpg",
+    officialUrl: "https://shop.donaldson.com/store/en-us/product/P500914",
+    refs: [],
+    crossReferences: [],
+    stockStatus: "request",
+    sourceType: "official",
+    dataQuality: "verified",
+  },
+  {
     id: "donaldson-p777868",
     partNo: "P777868",
     brand: "Donaldson",
