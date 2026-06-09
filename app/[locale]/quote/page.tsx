@@ -1,12 +1,14 @@
 'use client';
 
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { useParams, useSearchParams } from 'next/navigation';
 import BulkAddToQuote from '@/components/quote/BulkAddToQuote';
-import { gaSubmitRFQ } from '@/lib/analytics/ga';
+import { gaBeginCheckout, gaViewCart, type GAItem } from '@/lib/analytics/ga';
 import { getRfqUiText } from '@/lib/i18n/rfqUi';
 import { useQuote } from '@/providers/QuoteProvider';
+
+const RFQ_SUCCESS_STORAGE_KEY = 'mrt_rfq_success_data';
 
 function sanitizeQuantityInput(value: string) {
   return value.replace(/\D+/g, '');
@@ -16,14 +18,37 @@ function normalizeQuantity(value: string) {
   return Math.max(1, Number.parseInt(sanitizeQuantityInput(value), 10) || 1);
 }
 
+function getQuoteDataLayerItems(
+  items: Array<{
+    productId: string;
+    partNo: string;
+    brand?: string;
+    title?: string;
+    qty: number;
+  }>,
+): GAItem[] {
+  return items.map((item) => ({
+    item_id: item.partNo || item.productId,
+    item_name: item.title || item.partNo,
+    item_brand: item.brand,
+    quantity: item.qty,
+  }));
+}
+
 export default function QuotePage() {
   const { items, addItem, removeItem, updateQty, clear } = useQuote();
+  const hasTrackedViewCartRef = useRef(false);
   const params = useParams<{ locale?: string }>();
   const searchParams = useSearchParams();
   const locale = typeof params?.locale === 'string' ? params.locale : 'th';
   const text = getRfqUiText(locale);
   const requestedPartNo = searchParams.get('partNo')?.trim() ?? '';
   const hasQuoteItems = items.length > 0;
+  const dataLayerItems = useMemo(() => getQuoteDataLayerItems(items), [items]);
+  const totalQuantity = useMemo(
+    () => items.reduce((sum, item) => sum + item.qty, 0),
+    [items],
+  );
 
   const [loading, setLoading] = useState(false);
   const [quantityInputs, setQuantityInputs] = useState<Record<string, string>>({});
@@ -64,6 +89,19 @@ export default function QuotePage() {
       return next;
     });
   }, [items]);
+
+  useEffect(() => {
+    if (items.length === 0 || hasTrackedViewCartRef.current) return;
+
+    gaViewCart(dataLayerItems, {
+      item_count: items.length,
+      total_quantity: totalQuantity,
+      locale,
+      page_location: window.location.href,
+    });
+
+    hasTrackedViewCartRef.current = true;
+  }, [dataLayerItems, items.length, locale, totalQuantity]);
 
   const handleQuantityChange = (productId: string, value: string) => {
     const sanitized = sanitizeQuantityInput(value);
@@ -120,6 +158,13 @@ export default function QuotePage() {
     setLoading(true);
 
     try {
+      gaBeginCheckout(dataLayerItems, {
+        item_count: items.length,
+        total_quantity: totalQuantity,
+        locale,
+        source: 'quote_page',
+      });
+
       const res = await fetch('/api/rfq', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -135,17 +180,24 @@ export default function QuotePage() {
         throw new Error(data?.message || 'RFQ failed');
       }
 
-      gaSubmitRFQ(
-        items.map((item) => ({
-          item_id: item.partNo || item.productId,
-          item_brand: item.brand,
-          quantity: item.qty,
-        })),
-        {
-          request_id: data.requestId ? String(data.requestId) : undefined,
-          source: 'quote_page',
-        },
-      );
+      try {
+        sessionStorage.setItem(
+          RFQ_SUCCESS_STORAGE_KEY,
+          JSON.stringify({
+            request_id: data.requestId ? String(data.requestId) : '',
+            item_count: items.length,
+            total_quantity: totalQuantity,
+            locale,
+            source: 'quote_page',
+            ecommerce: {
+              transaction_id: data.requestId ? String(data.requestId) : '',
+              items: dataLayerItems,
+            },
+          }),
+        );
+      } catch {
+        // ignore storage failures
+      }
 
       clear();
 

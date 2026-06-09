@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { ShoppingCart } from "lucide-react";
 import { useToast } from "@/components/ui/ToastProvider";
+import { gaAddToQuote } from "@/lib/analytics/ga";
 import { getProductUiText } from "@/lib/i18n/productUi";
 import { getProductImageUrl } from "@/lib/products/image";
 import { useQuote } from "@/providers/QuoteProvider";
@@ -143,6 +144,20 @@ export default function ProductCardV2({
       title: product.title,
       qty: quantity,
     });
+
+    gaAddToQuote(
+      {
+        item_id: product.partNo || product.id,
+        item_name: product.title || product.partNo,
+        item_brand: product.brand,
+        item_category: product.category,
+        quantity,
+      },
+      {
+        locale,
+        source: "products_page",
+      },
+    );
 
     show(`${text.addedToQuote}: ${product.partNo}`);
     setJustAdded(true);

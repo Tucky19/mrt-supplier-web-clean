@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import SearchEventTracker from "@/components/analytics/SearchEventTracker";
+import SearchResultsDataLayer from "@/components/analytics/SearchResultsDataLayer";
 import { getTranslations } from "next-intl/server";
 import SearchNoResultsTracker from "@/components/analytics/SearchNoResultsTracker";
 import MissingProductRequestForm from "@/components/products/MissingProductRequestForm";
@@ -348,6 +349,14 @@ export default async function ProductsPage({
             locale={locale}
             resultCount={visibleProducts.length}
             matchType={getResultMatchType(visibleProducts[0])}
+          />
+        ) : null}
+
+        {hasQuery ? (
+          <SearchResultsDataLayer
+            query={query}
+            locale={locale}
+            products={visibleProducts}
           />
         ) : null}
 

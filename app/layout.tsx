@@ -5,6 +5,7 @@ import { Suspense } from "react";
 import { getLocale } from "next-intl/server";
 import GA4 from "@/components/analytics/GA4";
 import GA4PageView from "@/components/analytics/GA4PageView";
+import { GTMBody, GTMHead } from "@/components/analytics/GTM";
 import LineContactButton from "@/components/ui/LineContactButton";
 
 export const metadata: Metadata = {
@@ -27,7 +28,11 @@ export default async function RootLayout({
 
   return (
     <html lang={lang} data-scroll-behavior="smooth">
+      <head>
+        <GTMHead />
+      </head>
       <body className="bg-slate-50 text-slate-950">
+        <GTMBody />
         <GA4 />
         <Suspense fallback={null}>
           <GA4PageView />

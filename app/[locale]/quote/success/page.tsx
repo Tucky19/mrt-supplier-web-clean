@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Suspense } from "react";
+import RFQSuccessDataLayer from "@/components/analytics/RFQSuccessDataLayer";
 import SiteHeader from "@/components/layout/SiteHeader";
 import SiteFooter from "@/components/layout/SiteFooter";
 import { getRfqUiText } from "@/lib/i18n/rfqUi";
@@ -37,6 +39,10 @@ export default async function QuoteSuccessPage({
 
   return (
     <main className="min-h-screen bg-slate-50">
+      <Suspense fallback={null}>
+        <RFQSuccessDataLayer locale={locale} />
+      </Suspense>
+
       <SiteHeader locale={locale} />
 
       <section className="mx-auto max-w-5xl px-6 py-16 lg:px-8">
