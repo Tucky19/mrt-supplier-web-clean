@@ -129,7 +129,7 @@ export default function SearchInput() {
                   alt={r.partNo}
                   className="h-10 w-10 object-contain"
                   onError={(e) => {
-                    (e.currentTarget as HTMLImageElement).src = "/images/placeholder.png";
+                    (e.currentTarget as HTMLImageElement).src = "/images/placeholder.jpg";
                   }}
                 />
                 <div>

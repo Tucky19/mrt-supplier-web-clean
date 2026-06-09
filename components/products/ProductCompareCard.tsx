@@ -83,7 +83,7 @@ export default function ProductCompareCard({
         )}
 
         <img
-          src={product.imageUrl || "/images/placeholder.png"}
+          src={product.imageUrl || "/images/placeholder.jpg"}
           className="mx-auto my-3 h-28 object-contain"
         />
 
@@ -129,7 +129,7 @@ export default function ProductCompareCard({
             </h4>
 
             <img
-              src={equivalent.imageUrl || "/images/placeholder.png"}
+              src={equivalent.imageUrl || "/images/placeholder.jpg"}
               className="mx-auto my-2 h-24 object-contain"
             />
 
