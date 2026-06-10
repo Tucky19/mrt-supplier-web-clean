@@ -5,6 +5,7 @@ import { batch4Products } from "./products.batch4";
 import { donaldsonProducts } from "./products.donaldson";
 import { donaldsonPriorityProducts } from "./products.donaldson.priority";
 import { generatedProducts } from "./products.generated";
+import { fleetguardProducts } from "./products.fleetguard";
 import { mannProducts } from "./products.mann";
 import { newProducts } from "./products.new";
 import { ntnProducts } from "./products.ntn";
@@ -36,6 +37,7 @@ const rawProducts = [
   ...batch4Products,
   ...batch4FeaturedProducts,
   ...generatedProducts,
+  ...fleetguardProducts,
   ...uploadedProducts,
   ...donaldsonPriorityProducts,
    ...importedProducts,
