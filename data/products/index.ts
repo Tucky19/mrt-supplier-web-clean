@@ -21,7 +21,6 @@ const EXCLUDED_ACTIVE_PART_NOS = new Set([
   "R011866",
   "P502344",
   "P509129",
-  "P527596",
   "P556485",
 ]);
 
