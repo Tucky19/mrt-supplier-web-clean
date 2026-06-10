@@ -13,10 +13,15 @@ type RawDonaldson = {
   cross_reference?: Array<string | { brand?: string; partNo?: string }>;
   crossRefs?: Array<string | { brand?: string; partNo?: string }>;
   refs?: string[];
+  crossReferences?: string[];
+  pairedParts?: Product["pairedParts"];
   specifications?: Array<
     string | { label?: string; value?: string | number; unit?: string }
   >;
   spec?: string;
+  sourceType?: string;
+  sourceNote?: string;
+  dataQuality?: Product["dataQuality"];
 };
 
 const rawDonaldson: RawDonaldson[] = [
@@ -3072,14 +3077,36 @@ const donaldsonRfqSkeletonBatch: RawDonaldson[] = [
     id: "donaldson-p532966",
     partNo: "P532966",
     brand: "Donaldson",
-    category: "filter",
-    title: "Donaldson Filter P532966",
-    spec: "Primary RadialSeal air filter",
+    category: "air_filter",
+    title: "Air Filter, Primary RadialSeal",
+    spec: "OD 237 mm x ID 130.9 mm x L 470 mm Primary RadialSeal Air Filter",
+    imageUrl: "/images/products/donaldson/p532966.jpg",
+    officialUrl: "https://shop.donaldson.com/store/en-us/product/P532966",
+    refs: [],
+    crossReferences: [],
+    pairedParts: [
+      {
+        partNo: "P533781",
+        relation: "inner",
+        note: "P533781 is the safety / inner filter used together with this primary / outer filter.",
+      },
+    ],
     stockStatus: "request",
+    sourceType: "official",
+    sourceNote: "Official Donaldson PDF",
+    dataQuality: "verified",
     specifications: [
-      { label: "Type", value: "Air Filter" },
-      { label: "Stage", value: "Primary" },
-      { label: "Seal", value: "RadialSeal" },
+      { label: "Outer Diameter", value: "237 mm (9.33 inch)" },
+      { label: "Inner Diameter", value: "130.9 mm (5.15 inch)" },
+      { label: "Length", value: "470 mm (18.50 inch)" },
+      { label: "Efficiency", value: "99.9" },
+      { label: "Efficiency Test Std", value: "ISO 5011" },
+      { label: "Family", value: "FRG" },
+      { label: "Type", value: "Primary" },
+      { label: "Style", value: "Radialseal" },
+      { label: "Brand", value: "RadialSeal" },
+      { label: "Media Type", value: "Cellulose" },
+      { label: "UPC Code", value: "742330086759" },
     ],
   },
   {
@@ -3226,7 +3253,9 @@ function normalize(item: RawDonaldson): Product {
 
   const imageUrl = item.imageUrl || item.image;
   const refs = normalizeRefs(item.refs);
-  const crossReferences = normalizeRefs(item.cross_reference ?? item.crossRefs);
+  const crossReferences = normalizeRefs(
+    item.crossReferences ?? item.cross_reference ?? item.crossRefs
+  );
   const specifications = normalizeSpecifications(item.specifications);
 
   return {
@@ -3240,8 +3269,12 @@ function normalize(item: RawDonaldson): Product {
     specifications,
     refs: refs.length > 0 ? refs : undefined,
     crossReferences: crossReferences.length > 0 ? crossReferences : undefined,
+    pairedParts: item.pairedParts,
     stockStatus: item.stockStatus || "request",
     officialUrl,
+    sourceType: item.sourceType,
+    sourceNote: item.sourceNote,
+    dataQuality: item.dataQuality,
   };
 }
 
