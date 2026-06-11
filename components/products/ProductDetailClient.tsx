@@ -502,7 +502,7 @@ export default function ProductDetailClient({ locale, product }: Props) {
                   href={LINE_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-3 inline-flex w-full items-center justify-center rounded-2xl border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm font-medium text-emerald-800 transition-colors hover:border-emerald-300 hover:bg-emerald-100 md:w-auto"
+                  className="mt-3 inline-flex w-full items-center justify-center rounded-2xl border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm font-medium text-emerald-800 transition-colors hover:border-emerald-300 hover:bg-emerald-100"
                 >
                   {isThai
                     ? "ปรึกษาสเปคหรือส่งรูปทาง LINE"
