@@ -166,10 +166,10 @@ export default function ProductCrossReferenceCards({
                   gridTemplateColumns: "minmax(200px,0.95fr) minmax(220px,1.05fr)",
                 }}
               >
-                <div className="whitespace-nowrap px-4 py-3 text-xs font-semibold uppercase tracking-[0.12em] text-slate-600">
+                <div className="whitespace-nowrap px-4 py-3 text-xs font-semibold text-slate-600">
                   Brand / Manufacturer
                 </div>
-                <div className="whitespace-nowrap border-l border-slate-200 px-4 py-3 text-xs font-semibold uppercase tracking-[0.12em] text-slate-600">
+                <div className="whitespace-nowrap border-l border-slate-200 px-4 py-3 text-xs font-semibold text-slate-600">
                   Part No.
                 </div>
               </div>

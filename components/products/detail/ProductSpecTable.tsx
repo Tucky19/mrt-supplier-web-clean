@@ -49,10 +49,10 @@ export default function ProductSpecTable({
               key={`${item.label}-${item.value}`}
               className="rounded-2xl border border-slate-300 bg-slate-50/80 px-4 py-3.5"
             >
-              <p className="text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">
+              <p className="text-xs font-semibold text-slate-500">
                 {item.label}
               </p>
-              <p className="mt-1.5 text-sm font-semibold leading-6 text-slate-900">
+              <p className="mt-1.5 break-words text-sm font-semibold leading-6 text-slate-900">
                 {item.value}
               </p>
             </div>
