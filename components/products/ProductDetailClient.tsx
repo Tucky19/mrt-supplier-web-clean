@@ -404,8 +404,8 @@ export default function ProductDetailClient({ locale, product }: Props) {
 
   return (
     <>
-      <div className="grid gap-8 pb-[calc(8rem+env(safe-area-inset-bottom))] md:pb-0 lg:grid-cols-[minmax(0,1.08fr)_minmax(0,1fr)] lg:gap-10">
-        <div className="min-w-0 space-y-5">
+      <div className="grid gap-6 pb-[calc(8rem+env(safe-area-inset-bottom))] md:pb-0 lg:grid-cols-[minmax(0,1.08fr)_minmax(0,1fr)] lg:gap-10">
+        <div className="min-w-0 space-y-4">
           <ProductGallery images={images} partNo={product.partNo} />
           <ProductCrossReferenceCards
             locale={locale}
@@ -416,9 +416,9 @@ export default function ProductDetailClient({ locale, product }: Props) {
           />
         </div>
 
-        <div className="min-w-0 self-start space-y-5">
+        <div className="min-w-0 self-start space-y-4">
           <SurfaceCard className="overflow-hidden">
-            <div className="border-b border-slate-300 bg-[linear-gradient(180deg,#f8fbfd_0%,#ffffff_100%)] px-5 py-5 sm:px-6">
+            <div className="border-b border-slate-300 bg-[linear-gradient(180deg,#f8fbfd_0%,#ffffff_100%)] px-4 py-4 sm:px-6 sm:py-5">
               <div className="flex flex-wrap items-center gap-2.5">
                 <span className="rounded-full bg-slate-900 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-white">
                   {product.brand.toUpperCase()}
@@ -431,7 +431,7 @@ export default function ProductDetailClient({ locale, product }: Props) {
                 </span>
               </div>
 
-              <h1 className="mt-4 break-all text-3xl font-semibold tracking-[-0.03em] text-slate-950 sm:text-4xl">
+              <h1 className="mt-4 break-all text-2xl font-semibold tracking-[-0.03em] text-slate-950 sm:text-4xl">
                 {product.partNo}
               </h1>
 
@@ -457,7 +457,7 @@ export default function ProductDetailClient({ locale, product }: Props) {
               )}
             </div>
 
-            <div className="space-y-5 px-5 py-5 sm:px-6">
+            <div className="space-y-4 px-4 py-4 sm:space-y-5 sm:px-6 sm:py-5">
               {descriptionBlock.paragraphs.length > 0 && (
                 <div className="rounded-[22px] border border-slate-300 bg-slate-50/95 px-5 py-4 shadow-[0_4px_14px_rgba(15,23,42,0.04)]">
                   <div className="text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-600">
