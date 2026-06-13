@@ -4,6 +4,27 @@ import { routing } from "@/i18n/routing";
 
 const intlMiddleware = createMiddleware(routing);
 
+const legacyRedirects = new Map([
+  ["/en/index.html", "/en"],
+  ["/catalog", "/th/products"],
+  ["/products", "/th/products"],
+  ["/products/", "/th/products"],
+  ["/products.html", "/th/products"],
+  ["/contact", "/th/contact"],
+  ["/brands.html", "/th"],
+]);
+
+function legacyRedirectResponse(req: NextRequest, destination: string) {
+  const url = new URL(destination, req.url);
+
+  return new Response(null, {
+    status: 301,
+    headers: {
+      Location: url.toString(),
+    },
+  });
+}
+
 function unauthorizedResponse() {
   return new NextResponse("Authentication required", {
     status: 401,
@@ -60,8 +81,13 @@ function isAuthorized(req: NextRequest) {
   return user === expectedUser && pass === expectedPass;
 }
 
-export default function proxy(req: NextRequest) {
+export function proxy(req: NextRequest) {
   const { pathname } = req.nextUrl;
+  const legacyDestination = legacyRedirects.get(pathname);
+
+  if (legacyDestination) {
+    return legacyRedirectResponse(req, legacyDestination);
+  }
 
   if (isProtectedAdminPath(pathname) || isProtectedAdminApiPath(pathname)) {
     if (!isAuthorized(req)) {
@@ -79,5 +105,11 @@ export default function proxy(req: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/((?!api|_next|.*\\..*).*)", "/api/admin/:path*"],
+  matcher: [
+    "/((?!api|_next|.*\\..*).*)",
+    "/api/admin/:path*",
+    "/en/index.html",
+    "/products.html",
+    "/brands.html",
+  ],
 };
