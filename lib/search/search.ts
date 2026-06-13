@@ -10,10 +10,16 @@ export type Product = {
   id: string;
   partNo: string;
   brand: string;
+  category?: string;
   title?: string;
   spec?: string;
   refs?: string[];
   crossReferences?: string[];
+  pairedParts?: Array<{
+    partNo: string;
+    relation: "outer" | "inner" | "paired";
+    note?: string;
+  }>;
   specifications?: ProductSpecification[];
 };
 
@@ -57,6 +63,13 @@ function normalize(value: string) {
     .replace(/[^a-z0-9]/g, "");
 }
 
+function normalizePartLike(value: string) {
+  return value
+    .toLowerCase()
+    .replace(/[\s\-_/./]+/g, "")
+    .replace(/[^a-z0-9]/g, "");
+}
+
 function normalizeLoose(value: string) {
   return value
     .toLowerCase()
@@ -74,8 +87,52 @@ function tokenizeLoose(value: string) {
     .filter(Boolean);
 }
 
-function uniqueNormalized(values: string[]) {
-  return Array.from(new Set(values.map(normalize).filter(Boolean)));
+function buildPartRelationTokens(values: string[]) {
+  const tokens = new Set<string>();
+
+  for (const value of values) {
+    const normalizedValue = normalizePartLike(value);
+    if (normalizedValue) {
+      tokens.add(normalizedValue);
+    }
+
+    for (const token of tokenizeLoose(value)) {
+      const normalizedToken = normalizePartLike(token);
+      if (
+        normalizedToken &&
+        /[a-z]/.test(normalizedToken) &&
+        /\d/.test(normalizedToken)
+      ) {
+        tokens.add(normalizedToken);
+      }
+    }
+  }
+
+  return Array.from(tokens);
+}
+
+function relationMatchesQuery(tokens: string[], queryVariants: string[]) {
+  if (tokens.some((token) => queryVariants.some((variant) => token === variant))) {
+    return "exact";
+  }
+
+  if (
+    tokens.some((token) =>
+      queryVariants.some((variant) => token.startsWith(variant)),
+    )
+  ) {
+    return "prefix";
+  }
+
+  if (
+    tokens.some((token) =>
+      queryVariants.some((variant) => token.includes(variant)),
+    )
+  ) {
+    return "contains";
+  }
+
+  return null;
 }
 
 function buildQueryVariants(query: string) {
@@ -268,10 +325,11 @@ export function searchProducts(
     const brand = normalize(item.brand);
     const title = normalize(item.title ?? "");
     const spec = normalize(item.spec ?? "");
-    const refs = uniqueNormalized([
-      ...(item.refs ?? []),
-      ...(item.crossReferences ?? []),
-    ]);
+    const sameBrandRefs = buildPartRelationTokens(item.refs ?? []);
+    const crossReferences = buildPartRelationTokens(item.crossReferences ?? []);
+    const pairedParts = buildPartRelationTokens(
+      (item.pairedParts ?? []).map((part) => part.partNo),
+    );
     const specTerms = buildSpecTerms(item);
 
     if (part === query) {
@@ -285,17 +343,38 @@ export function searchProducts(
       matchType = "Contains";
     }
 
-    if (refs.some((ref) => ref === query)) {
-      score += 7000;
+    const sameBrandMatch = relationMatchesQuery(sameBrandRefs, queryVariants);
+    const crossRefMatch = relationMatchesQuery(crossReferences, queryVariants);
+    const pairedPartMatch = relationMatchesQuery(pairedParts, queryVariants);
+
+    if (sameBrandMatch) {
+      score +=
+        sameBrandMatch === "exact"
+          ? 7000
+          : sameBrandMatch === "prefix"
+            ? 6500
+            : 6000;
+      if (!matchType) matchType = "Same-brand Ref";
+    }
+
+    if (crossRefMatch) {
+      score +=
+        crossRefMatch === "exact"
+          ? 7000
+          : crossRefMatch === "prefix"
+            ? 6500
+            : 6000;
       if (!matchType) matchType = "Cross Ref";
-    } else if (refs.some((ref) => ref.startsWith(query))) {
-      score += 6500;
-      if (!matchType) matchType = "Cross Ref";
-    } else if (
-      refs.some((ref) => queryVariants.some((variant) => ref.includes(variant)))
-    ) {
-      score += 6000;
-      if (!matchType) matchType = "Cross Ref";
+    }
+
+    if (pairedPartMatch) {
+      score +=
+        pairedPartMatch === "exact"
+          ? 6200
+          : pairedPartMatch === "prefix"
+            ? 5800
+            : 5200;
+      if (!matchType) matchType = "Kit Component";
     }
 
     if (title.includes(query)) {

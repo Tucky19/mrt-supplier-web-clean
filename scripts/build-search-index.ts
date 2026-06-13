@@ -47,7 +47,49 @@ function buildTokensFromPartNo(partNo: string) {
   ]).filter(Boolean);
 }
 
+function buildRelationPartTokens(values: string[]) {
+  const tokens = new Set<string>();
+
+  for (const value of values) {
+    const normalizedValue = normalizePartNo(value);
+    if (normalizedValue) {
+      tokens.add(normalizedValue);
+    }
+
+    for (const token of tokenize(value)) {
+      const normalizedToken = normalizePartNo(token);
+      if (
+        normalizedToken &&
+        /[a-z]/.test(normalizedToken) &&
+        /\d/.test(normalizedToken)
+      ) {
+        tokens.add(normalizedToken);
+      }
+    }
+  }
+
+  return Array.from(tokens);
+}
+
 function buildSearchDocument(product: Product) {
+  const refs = unique(
+    (product.refs ?? []).map((value) => safeStr(value)).filter(Boolean),
+  );
+  const crossReferences = unique(
+    (product.crossReferences ?? [])
+      .map((value) => safeStr(value))
+      .filter(Boolean),
+  );
+  const pairedParts = unique(
+    (product.pairedParts ?? [])
+      .map((part) => ({
+        partNo: safeStr(part?.partNo),
+        relation: safeStr(part?.relation),
+        note: safeStr(part?.note),
+      }))
+      .filter((part) => part.partNo),
+  );
+
   return {
     id: safeStr(product.id).toLowerCase(),
     partNo: safeStr(product.partNo),
@@ -71,11 +113,9 @@ function buildSearchDocument(product: Product) {
         value: safeStr(item.value),
       })),
     stock: safeStr(product.stockStatus || "request"),
-    crossReferences: unique(
-      [...(product.refs ?? []), ...(product.crossReferences ?? [])]
-        .map((value) => safeStr(value))
-        .filter(Boolean),
-    ),
+    refs,
+    crossReferences,
+    pairedParts,
   };
 }
 
@@ -88,12 +128,22 @@ function buildIndex(catalog: Product[]) {
   const prefix3: Record<string, string[]> = {};
   const prefix4: Record<string, string[]> = {};
   const tokenIndex: Record<string, string[]> = {};
+  const refIndex: Record<string, string[]> = {};
   const xrefIndex: Record<string, string[]> = {};
+  const pairedPartIndex: Record<string, string[]> = {};
 
   for (const item of items) {
     pushMapList(prefix2, item.partNoNorm.slice(0, 2), item.id);
     pushMapList(prefix3, item.partNoNorm.slice(0, 3), item.id);
     pushMapList(prefix4, item.partNoNorm.slice(0, 4), item.id);
+
+    const pairedPartNumbers = item.pairedParts.map((part) => part.partNo);
+    const relationValues = [
+      ...item.refs,
+      ...item.crossReferences,
+      ...pairedPartNumbers,
+    ];
+    const relationPartTokens = buildRelationPartTokens(relationValues);
 
     const textBlob = [
       item.partNo,
@@ -101,25 +151,44 @@ function buildIndex(catalog: Product[]) {
       item.title,
       item.category,
       item.spec,
+      ...item.refs,
       ...item.crossReferences,
+      ...pairedPartNumbers,
       ...item.specifications.flatMap((spec) => [spec.label, spec.value]),
     ].join(" ");
 
     const tokens = unique([
       ...tokenize(textBlob),
       ...buildTokensFromPartNo(item.partNo),
+      ...relationPartTokens,
     ]);
 
     for (const token of tokens) {
       pushMapList(tokenIndex, token, item.id);
     }
 
-    for (const ref of item.crossReferences) {
-      pushMapList(xrefIndex, normalizePartNo(ref), item.id);
+    for (const ref of buildRelationPartTokens(item.refs)) {
+      pushMapList(refIndex, ref, item.id);
+    }
+
+    for (const ref of buildRelationPartTokens(item.crossReferences)) {
+      pushMapList(xrefIndex, ref, item.id);
+    }
+
+    for (const ref of buildRelationPartTokens(pairedPartNumbers)) {
+      pushMapList(pairedPartIndex, ref, item.id);
     }
   }
 
-  for (const map of [prefix2, prefix3, prefix4, tokenIndex, xrefIndex]) {
+  for (const map of [
+    prefix2,
+    prefix3,
+    prefix4,
+    tokenIndex,
+    refIndex,
+    xrefIndex,
+    pairedPartIndex,
+  ]) {
     for (const key of Object.keys(map)) {
       map[key] = unique(map[key]);
     }
@@ -134,14 +203,18 @@ function buildIndex(catalog: Product[]) {
       prefix3: Object.keys(prefix3).length,
       prefix4: Object.keys(prefix4).length,
       tokenKeys: Object.keys(tokenIndex).length,
+      refKeys: Object.keys(refIndex).length,
       xrefKeys: Object.keys(xrefIndex).length,
+      pairedPartKeys: Object.keys(pairedPartIndex).length,
     },
     items,
     prefix2,
     prefix3,
     prefix4,
     tokenIndex,
+    refIndex,
     xrefIndex,
+    pairedPartIndex,
   };
 }
 

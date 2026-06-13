@@ -9,11 +9,15 @@ export function getSearchUiText(locale: string) {
     tryLabel: isThai ? "ตัวอย่าง:" : "Try:",
     partNumber: isThai ? "Part Number" : "Part Number",
     crossRef: isThai ? "Cross Reference" : "Cross Ref",
+    sameBrandRef: isThai ? "Same-brand Reference" : "Same-brand Ref",
+    usedTogether: isThai ? "Used together / Kit" : "Used together / Kit",
     match: isThai ? "ผลลัพธ์" : "Match",
     partNumberMatches: isThai
       ? "ผลลัพธ์ Part Number ที่ตรงกัน"
       : "Part Number Matches",
     crossReferences: isThai ? "Cross Reference" : "Cross References",
+    sameBrandReferences: isThai ? "Same-brand Reference" : "Same-brand References",
+    usedTogetherMatches: isThai ? "Used together / Kit components" : "Used together / Kit components",
     relatedMatches: isThai ? "ผลลัพธ์ที่เกี่ยวข้อง" : "Related Matches",
     viewAllResults: isThai
       ? "ดูผลลัพธ์ทั้งหมดสำหรับ"

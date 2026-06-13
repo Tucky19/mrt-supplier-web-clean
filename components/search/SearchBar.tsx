@@ -32,6 +32,14 @@ function getSuggestionLabel(
     return text.crossRef;
   }
 
+  if (matchType === "Same-brand Ref") {
+    return text.sameBrandRef;
+  }
+
+  if (matchType === "Kit Component") {
+    return text.usedTogether;
+  }
+
   return text.match;
 }
 
@@ -41,6 +49,8 @@ function getSuggestionSectionTitle(
 ) {
   if (label === text.partNumber) return text.partNumberMatches;
   if (label === text.crossRef) return text.crossReferences;
+  if (label === text.sameBrandRef) return text.sameBrandReferences;
+  if (label === text.usedTogether) return text.usedTogetherMatches;
   return text.relatedMatches;
 }
 
@@ -495,8 +505,13 @@ export default function SearchBar({
                     const isCrossReference =
                       suggestion._matchType === "Cross Ref" &&
                       !hasExactPartNumberSuggestion;
+                    const isRelationMatch =
+                      (suggestion._matchType === "Cross Ref" ||
+                        suggestion._matchType === "Same-brand Ref" ||
+                        suggestion._matchType === "Kit Component") &&
+                      !hasExactPartNumberSuggestion;
                     const brandLabel = formatBrandLabel(suggestion.brand);
-                    const secondaryText = isCrossReference
+                    const secondaryText = isRelationMatch
                       ? [brandLabel, suggestion.title]
                           .filter(Boolean)
                           .join(" \u00B7 ")
@@ -527,9 +542,9 @@ export default function SearchBar({
                             ? "border-red-600 bg-slate-900 text-white [&_mark]:bg-red-600 [&_mark]:text-white"
                             : "border-transparent hover:bg-slate-700 hover:text-white active:border-red-600 active:bg-slate-900 active:text-white"
                         }`}
-                      >
+                        >
                         <span className="flex min-w-0 flex-wrap items-center gap-2">
-                          {isCrossReference ? (
+                          {isRelationMatch ? (
                             <span
                               className={`inline-flex max-w-full items-center rounded-full border px-2.5 py-1 text-[11px] font-semibold leading-none ${
                                 isHighlighted
@@ -537,7 +552,9 @@ export default function SearchBar({
                                   : "border-emerald-200 bg-emerald-50 text-emerald-800 group-hover:border-slate-500 group-hover:bg-slate-800 group-hover:text-emerald-100 group-active:border-emerald-300/60 group-active:bg-emerald-400/15 group-active:text-emerald-100"
                               }`}
                             >
-                              {getReferenceBadgeText(locale, draftQuery)}
+                              {suggestion._matchType === "Kit Component"
+                                ? label
+                                : getReferenceBadgeText(locale, draftQuery)}
                             </span>
                           ) : null}
                           <span
@@ -557,7 +574,7 @@ export default function SearchBar({
                               : "text-slate-500 group-hover:text-slate-200 group-active:text-slate-200"
                           }`}
                         >
-                          {isCrossReference ? (
+                          {isRelationMatch ? (
                             <span className="font-semibold">
                               {highlightMatch(secondaryText, draftQuery)}
                             </span>
