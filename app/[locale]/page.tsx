@@ -188,32 +188,32 @@ export default async function Page({
     {
       title: isThai ? "MRT Supplier Co., Ltd." : "MRT Supplier Co., Ltd.",
       description: isThai
-        ? "ทีมจัดหาอะไหล่อุตสาหกรรมสำหรับลูกค้าองค์กร โรงงาน ผู้รับเหมา และฝ่ายซ่อมบำรุง"
-        : "A sourcing team for factories, contractors, maintenance teams, and B2B procurement.",
+        ? "ผู้เชี่ยวชาญจัดหาไส้กรอง ลูกปืน และอะไหล่อุตสาหกรรมสำหรับโรงงาน ผู้รับเหมา และฝ่ายซ่อมบำรุง"
+        : "Specialists in sourcing filters, bearings, and industrial spare parts for factories, contractors, and maintenance teams.",
     },
     {
       title: isThai ? "ค้นหาด้วย Part No. / Cross Reference" : "Part No. & Cross Reference support",
       description: isThai
-        ? "ส่ง Part Number, Cross Reference, เบอร์เทียบ แบรนด์ หรือข้อมูลเครื่องจักรเพื่อให้ทีมช่วยตรวจสอบ"
-        : "Send Part No., cross references, equivalent numbers, brands, or machine details for review.",
+        ? "ค้นหาหรือส่ง Part No., Cross Reference, เบอร์เทียบ แบรนด์ หรือข้อมูลเครื่องจักรให้ทีมช่วยตรวจสอบ"
+        : "Search or send Part No., cross references, equivalent numbers, brands, or machine details for review.",
     },
     {
-      title: isThai ? "โฟกัส Filters และ Bearings" : "Focused on filters and bearings",
+      title: isThai ? "โฟกัสไส้กรองและลูกปืน" : "Focused on filters and bearings",
       description: isThai
-        ? "รองรับไส้กรอง ลูกปืน และอะไหล่อุตสาหกรรมที่เกี่ยวข้องสำหรับงานโรงงานและเครื่องจักร"
-        : "Support for filters, bearings, and related industrial spare parts for machinery work.",
+        ? "ครอบคลุมไส้กรอง ลูกปืน และอะไหล่อุตสาหกรรมที่ใช้ในเครื่องจักรและงานซ่อมบำรุง"
+        : "Coverage for filters, bearings, and related industrial spare parts used in machinery and maintenance work.",
     },
     {
       title: isThai ? "เหมาะกับงานจัดซื้อ B2B" : "Built for B2B procurement",
       description: isThai
-        ? "รวบรวมหลายรายการ ส่ง RFQ และให้ทีมงานติดตามกลับด้วยข้อมูลที่ชัดเจนสำหรับการจัดซื้อ"
-        : "Collect multiple items, submit an RFQ, and receive clear follow-up for purchasing.",
+        ? "รวบรวมหลายรายการ ส่ง RFQ ครั้งเดียว และรับการติดตามกลับที่ชัดเจนสำหรับฝ่ายจัดซื้อ"
+        : "Collect multiple line items, submit one RFQ, and receive clear follow-up for your purchasing team.",
     },
     {
       title: isThai ? "ตรวจสอบก่อนเสนอราคา" : "Checked before quotation",
       description: isThai
-        ? "ช่วยตรวจสอบ Spec, Cross Reference และการใช้งานก่อนดำเนินการเสนอราคา"
-        : "Specs, cross references, and applications are reviewed before quotation follow-up.",
+        ? "ตรวจสอบ Spec, Cross Reference และการใช้งานก่อนสรุปราคา สต็อก และทางเลือกที่เหมาะสม"
+        : "Specs, cross references, and applications are reviewed before price, stock, and alternatives are confirmed.",
     },
   ];
 
@@ -222,30 +222,30 @@ export default async function Page({
       step: "01",
       title: isThai ? "ค้นหาด้วย Part No. / Cross Reference" : "Search by Part No. / Cross Reference",
       description: isThai
-        ? "เริ่มจาก Part Number, Cross Reference, แบรนด์ หรือรายละเอียดอะไหล่ที่มี"
-        : "Start with a Part No., cross reference, brand, or the spare-part details you have.",
+        ? "ค้นหาไส้กรอง ลูกปืน หรืออะไหล่อุตสาหกรรมจาก Part No., Cross Reference, แบรนด์ หรือรายละเอียดที่มี"
+        : "Search filters, bearings, or industrial spare parts by Part No., cross reference, brand, or the details you have.",
     },
     {
       step: "02",
       title: isThai ? "เพิ่มรายการเข้า RFQ" : "Add items to RFQ",
       description: isThai
         ? "เลือกรายการและจำนวนที่ต้องการ หรือส่งรายละเอียดสินค้าที่ยังไม่พบให้ทีมช่วยจัดหา"
-        : "Choose items and quantities, or send missing-product details for sourcing support.",
+        : "Select items and quantities, or send missing-product details for sourcing support.",
     },
     {
       step: "03",
-      title: isThai ? "ส่งคำขอและรอทีมติดต่อกลับ" : "Submit and receive follow-up",
+      title: isThai ? "ส่ง RFQ และรอทีมติดต่อกลับ" : "Submit RFQ and receive follow-up",
       description: isThai
-        ? "ส่งข้อมูลติดต่อและรายการ RFQ เพื่อให้ MRT Supplier ตรวจสอบราคา สต็อก และทางเลือกที่เหมาะสม"
-        : "Submit contact details and RFQ items so MRT Supplier can review price, stock, and alternatives.",
+        ? "ส่งข้อมูลติดต่อและรายการ RFQ เพื่อให้ MRT Supplier Co., Ltd. ตรวจสอบราคา สต็อก และทางเลือกที่เหมาะสม"
+        : "Submit contact details and RFQ items so MRT Supplier Co., Ltd. can review price, stock, and suitable alternatives.",
     },
   ];
 
   const customerSegments = [
     isThai ? "ฝ่ายจัดซื้อโรงงาน" : "Factory purchasing",
     isThai ? "ทีมซ่อมบำรุง" : "Maintenance teams",
-    isThai ? "Industrial Spare Parts Sourcing" : "Industrial spare parts sourcing",
-    isThai ? "Filter และ Bearing" : "Filters and bearings",
+    isThai ? "จัดหาอะไหล่อุตสาหกรรม" : "Industrial spare parts sourcing",
+    isThai ? "ไส้กรองและลูกปืน" : "Filters and bearings",
   ];
 
   return (
@@ -370,8 +370,8 @@ export default async function Page({
             </h2>
             <p className="mt-3 text-sm leading-6 text-slate-600 sm:text-base">
               {isThai
-                ? "ออกแบบให้ผู้ซื้อเข้าใจทันทีว่าเราช่วยจัดหา Filters, Bearings และ Industrial Spare Parts ด้วยข้อมูล Part No. และ Cross Reference ที่ตรวจสอบได้"
-                : "Designed so buyers quickly understand that MRT Supplier sources filters, bearings, and industrial spare parts using verifiable Part No. and Cross Reference details."}
+                ? "ออกแบบให้ผู้ซื้อเข้าใจทันทีว่า MRT Supplier Co., Ltd. ช่วยจัดหาไส้กรอง ลูกปืน และอะไหล่อุตสาหกรรมด้วย Part No. และ Cross Reference ที่ตรวจสอบได้"
+                : "Designed so buyers quickly understand that MRT Supplier Co., Ltd. sources filters, bearings, and industrial spare parts using verifiable Part No. and Cross Reference details."}
             </p>
           </div>
 
@@ -412,6 +412,12 @@ export default async function Page({
                 ? "ติดต่อผ่าน LINE Official @mrtsupplier เพื่อส่งรูปสินค้า Part No. หรือรายละเอียดเพิ่มเติม"
                 : "Contact LINE Official @mrtsupplier to share photos, Part No., or additional details."}
             </p>
+            <Link
+              href={`/${locale}/quote`}
+              className="mt-6 inline-flex min-h-11 items-center justify-center rounded-xl bg-slate-950 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-slate-800"
+            >
+              {isThai ? "เริ่ม RFQ" : "Start RFQ"}
+            </Link>
           </div>
 
           <div className="grid gap-4 md:grid-cols-3">
