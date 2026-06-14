@@ -1,17 +1,14 @@
-import { GET as canonicalSuggestGet } from "@/app/api/search/suggest/route";
+import { NextResponse } from "next/server";
+import { getSearchSuggestionItems } from "@/app/api/search/suggest/route";
 
 export const dynamic = "force-dynamic";
 
 export async function GET(req: Request) {
-  const forwardedReq = new Request(
-    req.url.replace("/api/search-suggest", "/api/search/suggest"),
-    {
-      method: "GET",
-      headers: req.headers,
-    }
-  );
+  const q = (new URL(req.url).searchParams.get("q") || "").trim();
+  const response = NextResponse.json({
+    items: q.length < 2 ? [] : getSearchSuggestionItems(q),
+  });
 
-  const response = await canonicalSuggestGet(forwardedReq as any);
   response.headers.set("X-MRT-Deprecated", "true");
   response.headers.set(
     "X-MRT-Deprecated-Use",
