@@ -856,7 +856,7 @@ export const donaldsonPriorityProducts: Product[] = [
       { label: "UPC Code", value: "742330195475" },
     ],
     imageUrl: "/images/products/donaldson/p552006.png",
-    officialUrl: "https://shop.donaldson.com/store/en-us/product/P552006",
+    officialUrl: "https://shop.donaldson.com/store/en-th/product/P552006/40165",
     refs: ["Fleetguard FS1006", "Fleetguard FS1216", "Fleetguard FS19870"],
     crossReferences: [
       "Fleetguard FS1006",
