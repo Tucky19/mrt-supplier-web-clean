@@ -1621,7 +1621,7 @@ export const uploadedProducts = [
 
   applications: ["CASE/CASE IH A165029"],
   refs: ["CASE/CASE IH A165029"],
-  crossReferences: ["CASE/CASE IH A165029"],
+  crossReferences: [],
 
   officialUrl: "https://shop.donaldson.com/store/en-th/product/P163542/15972",
   officialImageUrl: null,
@@ -1666,7 +1666,7 @@ export const uploadedProducts = [
 
   applications: ["CASE/CASE IH X724693"],
   refs: ["CASE/CASE IH X724693"],
-  crossReferences: ["CASE/CASE IH X724693"],
+  crossReferences: [],
 
   officialUrl: "https://shop.donaldson.com/store/en-th/product/P164381/16047",
   officialImageUrl: null,
