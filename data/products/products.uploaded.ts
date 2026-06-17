@@ -331,8 +331,8 @@ export const uploadedProducts = [
     ],
 
     applications: [],
-    refs: [],
-    crossReferences: [],
+    refs: ["P553191"],
+    crossReferences: ["P553191"],
 
     imageUrl: "/images/products/donaldson/p551807.jpg",
     officialUrl: "https://shop.donaldson.com/store/en-th/product/P551807/79",
