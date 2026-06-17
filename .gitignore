@@ -41,3 +41,4 @@ dev.db
 
 # optional large data (enable later if needed)
 # data/products.dump.json
+.codex/
