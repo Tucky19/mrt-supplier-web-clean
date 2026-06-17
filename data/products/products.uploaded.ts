@@ -222,8 +222,8 @@ export const uploadedProducts = [
     ],
 
     applications: ["DAF 1399494"],
-    refs: ["DAF 1399494"],
-    crossReferences: [],
+    refs: ["LF16519"],
+    crossReferences: ["LF16519"],
 
     imageUrl: "/images/products/donaldson/p550520.jpg",
     officialUrl: "https://shop.donaldson.com/store/en-th/product/P550520/20439",
