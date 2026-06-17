@@ -1225,7 +1225,7 @@ const donaldsonBatch1: RawDonaldson[] = [
     brand: "Donaldson",
     title: "Air Filter, Primary RadialSeal",
     category: "air_filter",
-    image: "/images/products/donaldson/P782105.jpg",
+    image: "/images/products/donaldson/p782105.jpg",
     officialUrl: "https://shop.donaldson.com/store/en-us/product/P782105",
     spec: "OD 241.7 mm x ID 146 mm x L 511.9 mm x Primary RadialSeal Air Filter",
     cross_reference: [
@@ -1546,7 +1546,7 @@ const donaldsonBatch1: RawDonaldson[] = [
     brand: "Donaldson",
     title: "Air Filter, Safety RadialSeal",
     category: "air_filter",
-    image: "/images/products/donaldson/P782108.jpg",
+    image: "/images/products/donaldson/p782108.jpg",
     officialUrl: "https://shop.donaldson.com/store/en-us/product/P782108",
     cross_reference: [
       "MANN-FILTER: CF 710",
