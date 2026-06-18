@@ -222,7 +222,7 @@ export const uploadedProducts = [
     ],
 
     applications: ["DAF 1399494"],
-    refs: ["LF16519"],
+    refs: [],
     crossReferences: ["LF16519"],
 
     imageUrl: "/images/products/donaldson/p550520.jpg",
