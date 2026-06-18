@@ -111,9 +111,17 @@ function buildPartRelationTokens(values: string[]) {
   return Array.from(tokens);
 }
 
-function relationMatchesQuery(tokens: string[], queryVariants: string[]) {
+function relationMatchesQuery(
+  tokens: string[],
+  queryVariants: string[],
+  { allowPartialMatches = false }: { allowPartialMatches?: boolean } = {},
+) {
   if (tokens.some((token) => queryVariants.some((variant) => token === variant))) {
     return "exact";
+  }
+
+  if (!allowPartialMatches) {
+    return null;
   }
 
   if (
@@ -308,7 +316,10 @@ function scoreSpecQueryMatches(specTerms: Set<string>, query: string) {
 
 export function searchProducts(
   q: string,
-  { limit = 50 }: { limit?: number } = {},
+  {
+    limit = 50,
+    allowPartialRelationMatches = false,
+  }: { limit?: number; allowPartialRelationMatches?: boolean } = {},
 ): SearchResult[] {
   const catalog = Array.isArray(products) ? products : [];
   const query = normalize(q);
@@ -343,9 +354,27 @@ export function searchProducts(
       matchType = "Contains";
     }
 
-    const sameBrandMatch = relationMatchesQuery(sameBrandRefs, queryVariants);
-    const crossRefMatch = relationMatchesQuery(crossReferences, queryVariants);
-    const pairedPartMatch = relationMatchesQuery(pairedParts, queryVariants);
+    const relationQueryVariants = allowPartialRelationMatches
+      ? queryVariants
+      : [query];
+    const relationMatchOptions = {
+      allowPartialMatches: allowPartialRelationMatches,
+    };
+    const sameBrandMatch = relationMatchesQuery(
+      sameBrandRefs,
+      relationQueryVariants,
+      relationMatchOptions,
+    );
+    const crossRefMatch = relationMatchesQuery(
+      crossReferences,
+      relationQueryVariants,
+      relationMatchOptions,
+    );
+    const pairedPartMatch = relationMatchesQuery(
+      pairedParts,
+      relationQueryVariants,
+      relationMatchOptions,
+    );
 
     if (sameBrandMatch) {
       score +=

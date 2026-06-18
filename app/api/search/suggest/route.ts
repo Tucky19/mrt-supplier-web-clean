@@ -3,7 +3,10 @@ import { isBestConvertingProduct } from "@/data/merchandising/productHighlights"
 import { searchProducts } from "@/lib/search/search";
 
 export function getSearchSuggestionItems(q: string) {
-  return searchProducts(q, { limit: 12 }).map((product) => {
+  return searchProducts(q, {
+    limit: 12,
+    allowPartialRelationMatches: true,
+  }).map((product) => {
     const partNo = String(product.partNo ?? "");
     const matchType = product._matchType;
 
