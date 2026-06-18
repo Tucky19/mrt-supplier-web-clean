@@ -55,6 +55,11 @@ function getProductJsonLd(product: Product, locale: string) {
     product.partNo,
   )}`;
   const image = getProductImage(product);
+  const additionalProperty = product.specifications?.map((spec) => ({
+    "@type": "PropertyValue",
+    name: spec.label,
+    value: String(spec.value),
+  }));
 
   return {
     "@context": "https://schema.org",
@@ -65,10 +70,16 @@ function getProductJsonLd(product: Product, locale: string) {
       name: product.brand,
     },
     sku: product.partNo,
+    mpn: product.partNo,
+    manufacturer: {
+      "@type": "Organization",
+      name: product.brand,
+    },
     category: product.category,
     description: getProductDescription(product),
     url: productUrl,
     ...(image ? { image } : {}),
+    ...(additionalProperty?.length ? { additionalProperty } : {}),
   };
 }
 
