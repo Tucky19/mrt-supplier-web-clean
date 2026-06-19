@@ -4007,7 +4007,7 @@ export const donaldsonPriorityProducts: Product[] = [
       { label: "Thread Size", value: "1-14 UN" },
       { label: "Gasket OD", value: "91 mm (3.58 inch)" },
       { label: "Gasket ID", value: "82 mm (3.23 inch)" },
-      { label: "Height", value: "193 mm (0.51 inch)" },
+      { label: "Height", value: "193 mm (7.60 inch)" },
       { label: "Efficiency 95%", value: "15 micron" },
       { label: "Efficiency Beta 75", value: "17 micron" },
       { label: "Type", value: "Water Separator" },
