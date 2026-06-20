@@ -1284,7 +1284,7 @@ const donaldsonBatch1: RawDonaldson[] = [
     id: "donaldson-p554685",
     partNo: "P554685",
     brand: "Donaldson",
-    title: "Donaldson Filter P554685",
+    title: "Coolant Filter, Spin-On Non-Chemical",
     category: "filter",
     image: "/images/products/donaldson/p554685.jpg",
     spec: "OD 93 mm x L 136 mm x Thread 11/16-16 UN x 50 micron Coolant Spin-On",
@@ -1299,6 +1299,7 @@ const donaldsonBatch1: RawDonaldson[] = [
       { label: "Efficiency Test Std", value: "SAE J1985" },
       { label: "Style", value: "Spin-On" },
       { label: "Media Type", value: "Cellulose" },
+      { label: "UPC Code", value: "742330044728" },
     ],
   },
   {
