@@ -2196,8 +2196,8 @@ const donaldsonPhase3Batch03: RawDonaldson[] = [
     id: "donaldson-p550920",
     partNo: "P550920",
     brand: "Donaldson",
-    title: "Donaldson Filter P550920",
-    category: "filter",
+    title: "Lube Filter, Spin-On Full Flow",
+    category: "lube_filter",
     officialUrl: "https://shop.donaldson.com/store/en-th/product/P550920/35269",
     image: "/images/products/donaldson/p550920.jpg",
     stockStatus: "in_stock",
@@ -2227,8 +2227,8 @@ const donaldsonPhase3Batch03: RawDonaldson[] = [
     id: "donaldson-p551550",
     partNo: "P551550",
     brand: "Donaldson",
-    title: "Donaldson Filter P551550",
-    category: "filter",
+    title: "Hydraulic Filter, Spin-On",
+    category: "hydraulic_filter",
     officialUrl: "https://shop.donaldson.com/store/en-th/product/P551550/20766",
     image: "/images/products/donaldson/p551550.jpg",
     stockStatus: "in_stock",
@@ -2477,8 +2477,8 @@ const donaldsonBatchNewA: RawDonaldson[] = [
     id: "donaldson-p550222",
     partNo: "P550222",
     brand: "Donaldson",
-    title: "Donaldson Filter P550222",
-    category: "filter",
+    title: "Hydraulic Filter, Spin-On",
+    category: "hydraulic_filter",
     officialUrl: "https://shop.donaldson.com/store/en-th/product/P550222/20217",
     spec: "Spin-on hydraulic filter",
     specifications: [
@@ -2504,8 +2504,8 @@ const donaldsonBatchNewA: RawDonaldson[] = [
     id: "donaldson-p550223",
     partNo: "P550223",
     brand: "Donaldson",
-    title: "Donaldson Filter P550223",
-    category: "filter",
+    title: "Hydraulic Filter, Spin-On",
+    category: "hydraulic_filter",
     officialUrl: "https://shop.donaldson.com/store/en-th/product/P550223/20218",
     spec: "Spin-on hydraulic filter",
     specifications: [
@@ -2526,8 +2526,8 @@ const donaldsonBatchNewA: RawDonaldson[] = [
     id: "donaldson-p550226",
     partNo: "P550226",
     brand: "Donaldson",
-    title: "Donaldson Filter P550226",
-    category: "filter",
+    title: "Lube Filter, Spin-On Full Flow",
+    category: "lube_filter",
     officialUrl: "https://shop.donaldson.com/store/en-th/product/P550226/20221",
     spec: "Spin-on full-flow lube filter",
     specifications: [
@@ -2552,8 +2552,8 @@ const donaldsonBatchNewA: RawDonaldson[] = [
     id: "donaldson-p550227",
     partNo: "P550227",
     brand: "Donaldson",
-    title: "Donaldson Filter P550227",
-    category: "filter",
+    title: "Lube Filter, Spin-On Full Flow",
+    category: "lube_filter",
     officialUrl: "https://shop.donaldson.com/store/en-th/product/P550227/20222",
     spec: "Spin-on full-flow lube filter",
     specifications: [
@@ -2577,8 +2577,8 @@ const donaldsonBatchNewA: RawDonaldson[] = [
     id: "donaldson-p550268",
     partNo: "P550268",
     brand: "Donaldson",
-    title: "Donaldson Filter P550268",
-    category: "filter",
+    title: "Hydraulic Filter, Spin-On",
+    category: "hydraulic_filter",
     officialUrl: "https://shop.donaldson.com/store/en-th/product/P550268/20257",
     spec: "Spin-on hydraulic filter",
     specifications: [
@@ -2602,8 +2602,8 @@ const donaldsonBatchNewA: RawDonaldson[] = [
     id: "donaldson-p550318",
     partNo: "P550318",
     brand: "Donaldson",
-    title: "Donaldson Filter P550318",
-    category: "filter",
+    title: "Lube Filter, Spin-On Full Flow",
+    category: "lube_filter",
     officialUrl: "https://shop.donaldson.com/store/en-th/product/P550318/20283",
     image: "/images/products/donaldson/p550318.jpg",
     spec: "Spin-on full-flow lube filter",
@@ -2631,8 +2631,8 @@ const donaldsonBatchNewA: RawDonaldson[] = [
     id: "donaldson-p550365",
     partNo: "P550365",
     brand: "Donaldson",
-    title: "Donaldson Filter P550365",
-    category: "filter",
+    title: "Fuel Filter, Water Separator Spin-On",
+    category: "fuel_filter",
     officialUrl: "https://shop.donaldson.com/store/en-th/product/P550365/20311",
     spec: "Spin-on fuel water separator",
     specifications: [
@@ -2657,8 +2657,8 @@ const donaldsonBatchNewA: RawDonaldson[] = [
     id: "donaldson-p550367",
     partNo: "P550367",
     brand: "Donaldson",
-    title: "Donaldson Filter P550367",
-    category: "filter",
+    title: "Lube Filter, Spin-On Full Flow",
+    category: "lube_filter",
     officialUrl: "https://shop.donaldson.com/store/en-th/product/P550367/20313",
     spec: "Spin-on full-flow lube filter",
     specifications: [
@@ -2685,8 +2685,8 @@ const donaldsonBatchNewA: RawDonaldson[] = [
     id: "donaldson-p550372",
     partNo: "P550372",
     brand: "Donaldson",
-    title: "Donaldson Filter P550372",
-    category: "filter",
+    title: "Fuel Filter, Spin-On",
+    category: "fuel_filter",
     officialUrl: "https://shop.donaldson.com/store/en-th/product/P550372/20317",
     spec: "Spin-on fuel filter",
     specifications: [
@@ -2709,8 +2709,8 @@ const donaldsonBatchNewA: RawDonaldson[] = [
     id: "donaldson-p550382",
     partNo: "P550382",
     brand: "Donaldson",
-    title: "Donaldson Filter P550382",
-    category: "filter",
+    title: "Lube Filter, Cartridge",
+    category: "lube_filter",
     officialUrl: "https://shop.donaldson.com/store/en-th/product/P550382/20322",
     spec: "Lube filter cartridge",
     specifications: [
@@ -2727,8 +2727,8 @@ const donaldsonBatchNewA: RawDonaldson[] = [
     id: "donaldson-p550391",
     partNo: "P550391",
     brand: "Donaldson",
-    title: "Donaldson Filter P550391",
-    category: "filter",
+    title: "Fuel Filter, Water Separator Spin-On",
+    category: "fuel_filter",
     officialUrl: "https://shop.donaldson.com/store/en-th/product/P550391/20331",
     spec: "Spin-on fuel water separator",
     specifications: [
@@ -2751,8 +2751,8 @@ const donaldsonBatchNewA: RawDonaldson[] = [
     id: "donaldson-p550408",
     partNo: "P550408",
     brand: "Donaldson",
-    title: "Donaldson Filter P550408",
-    category: "filter",
+    title: "Lube Filter, Spin-On Combination",
+    category: "lube_filter",
     officialUrl: "https://shop.donaldson.com/store/en-th/product/P550408/20346",
     spec: "Spin-on combination lube filter",
     specifications: [
@@ -2774,8 +2774,8 @@ const donaldsonBatchNewA: RawDonaldson[] = [
     id: "donaldson-p550416",
     partNo: "P550416",
     brand: "Donaldson",
-    title: "Donaldson Filter P550416",
-    category: "filter",
+    title: "Hydraulic Filter, Spin-On",
+    category: "hydraulic_filter",
     officialUrl: "https://shop.donaldson.com/store/en-th/product/P550416/20354",
     spec: "Spin-on hydraulic filter",
     specifications: [
@@ -2796,8 +2796,8 @@ const donaldsonBatchNewA: RawDonaldson[] = [
     id: "donaldson-p550428",
     partNo: "P550428",
     brand: "Donaldson",
-    title: "Donaldson Filter P550428",
-    category: "filter",
+    title: "Lube Filter, Spin-On Full Flow",
+    category: "lube_filter",
     officialUrl: "https://shop.donaldson.com/store/en-th/product/P550428/20365",
     spec: "Spin-on full-flow lube filter",
     specifications: [
@@ -2820,8 +2820,8 @@ const donaldsonBatchNewA: RawDonaldson[] = [
     id: "donaldson-p550445",
     partNo: "P550445",
     brand: "Donaldson",
-    title: "Donaldson Filter P550445",
-    category: "filter",
+    title: "Hydraulic Filter, Spin-On",
+    category: "hydraulic_filter",
     officialUrl: "https://shop.donaldson.com/store/en-th/product/P550445/20377",
     spec: "Spin-on hydraulic filter",
     specifications: [
@@ -2865,8 +2865,8 @@ const donaldsonBatchNewA: RawDonaldson[] = [
     id: "donaldson-p550478",
     partNo: "P550478",
     brand: "Donaldson",
-    title: "Donaldson Filter P550478",
-    category: "filter",
+    title: "Hydraulic Filter, In-Line",
+    category: "hydraulic_filter",
     officialUrl: "https://shop.donaldson.com/store/en-th/product/P550478/20403",
     spec: "In-line hydraulic filter",
     specifications: [
@@ -2885,8 +2885,8 @@ const donaldsonBatchNewA: RawDonaldson[] = [
     id: "donaldson-p550519",
     partNo: "P550519",
     brand: "Donaldson",
-    title: "Donaldson Filter P550519",
-    category: "filter",
+    title: "Lube Filter, Spin-On Full Flow",
+    category: "lube_filter",
     officialUrl: "https://shop.donaldson.com/store/en-th/product/P550519/20438",
     spec: "Spin-on full-flow lube filter",
     specifications: [
@@ -2926,8 +2926,8 @@ const donaldsonBatchNewA: RawDonaldson[] = [
     id: "donaldson-p550529",
     partNo: "P550529",
     brand: "Donaldson",
-    title: "Donaldson Filter P550529",
-    category: "filter",
+    title: "Fuel Filter, Spin-On",
+    category: "fuel_filter",
     officialUrl: "https://shop.donaldson.com/store/en-th/product/P550529/20446",
     spec: "Spin-on fuel filter",
     specifications: [
@@ -2963,8 +2963,8 @@ const donaldsonBatchNewA: RawDonaldson[] = [
     id: "donaldson-p550595",
     partNo: "P550595",
     brand: "Donaldson",
-    title: "Donaldson Filter P550595",
-    category: "filter",
+    title: "Lube Filter, Spin-On Combination",
+    category: "lube_filter",
     officialUrl: "https://shop.donaldson.com/store/en-th/product/P550595/23074",
     spec: "Spin-on combination lube filter",
     specifications: [
@@ -2986,8 +2986,8 @@ const donaldsonBatchNewA: RawDonaldson[] = [
     id: "donaldson-p550596",
     partNo: "P550596",
     brand: "Donaldson",
-    title: "Donaldson Filter P550596",
-    category: "filter",
+    title: "Lube Filter, Spin-On Full Flow",
+    category: "lube_filter",
     officialUrl: "https://shop.donaldson.com/store/en-th/product/P550596/23093",
     spec: "Spin-on full-flow lube filter",
     specifications: [
@@ -3013,8 +3013,8 @@ const donaldsonBatchNewA: RawDonaldson[] = [
     id: "donaldson-p550639",
     partNo: "P550639",
     brand: "Donaldson",
-    title: "Donaldson Filter P550639",
-    category: "filter",
+    title: "Lube Filter, Spin-On Full Flow",
+    category: "lube_filter",
     officialUrl: "https://shop.donaldson.com/store/en-th/product/P550639/23976",
     spec: "Spin-on full-flow lube filter",
     specifications: [
@@ -3035,8 +3035,8 @@ const donaldsonBatchNewA: RawDonaldson[] = [
     id: "donaldson-p550708",
     partNo: "P550708",
     brand: "Donaldson",
-    title: "Donaldson Filter P550708",
-    category: "filter",
+    title: "Lube Filter, Spin-On Full Flow",
+    category: "lube_filter",
     officialUrl: "https://shop.donaldson.com/store/en-th/product/P550708/20496",
     spec: "Spin-on full-flow lube filter",
     specifications: [
@@ -3062,8 +3062,8 @@ const donaldsonBatchNewA: RawDonaldson[] = [
     id: "donaldson-p550719",
     partNo: "P550719",
     brand: "Donaldson",
-    title: "Donaldson Filter P550719",
-    category: "filter",
+    title: "Lube Filter, Spin-On Full Flow",
+    category: "lube_filter",
     officialUrl: "https://shop.donaldson.com/store/en-th/product/P550719/20506",
     spec: "Spin-on full-flow lube filter",
     specifications: [
@@ -3089,8 +3089,8 @@ const donaldsonBatchNewA: RawDonaldson[] = [
     id: "donaldson-p550762",
     partNo: "P550762",
     brand: "Donaldson",
-    title: "Donaldson Filter P550762",
-    category: "filter",
+    title: "Fuel Filter, Cartridge",
+    category: "fuel_filter",
     officialUrl: "https://shop.donaldson.com/store/en-th/product/P550762/20522",
     spec: "Fuel filter cartridge",
     specifications: [
@@ -3110,8 +3110,8 @@ const donaldsonBatchNewA: RawDonaldson[] = [
     id: "donaldson-p550769",
     partNo: "P550769",
     brand: "Donaldson",
-    title: "Donaldson Filter P550769",
-    category: "filter",
+    title: "Lube Filter, Cartridge",
+    category: "lube_filter",
     officialUrl: "https://shop.donaldson.com/store/en-th/product/P550769/23102",
     spec: "Lube filter cartridge",
     specifications: [
@@ -3130,8 +3130,8 @@ const donaldsonBatchNewA: RawDonaldson[] = [
     id: "donaldson-p550774",
     partNo: "P550774",
     brand: "Donaldson",
-    title: "Donaldson Filter P550774",
-    category: "filter",
+    title: "Fuel Filter, Spin-On",
+    category: "fuel_filter",
     officialUrl: "https://shop.donaldson.com/store/en-th/product/P550774/35636",
     spec: "Spin-on fuel filter",
     specifications: [
@@ -3676,6 +3676,37 @@ function normalizeSpecifications(
   return normalized.length > 0 ? normalized : undefined;
 }
 
+const genericTitleCategoryCleanupPartNos = new Set([
+  "P550222",
+  "P550223",
+  "P550226",
+  "P550227",
+  "P550268",
+  "P550318",
+  "P550365",
+  "P550367",
+  "P550372",
+  "P550382",
+  "P550391",
+  "P550408",
+  "P550416",
+  "P550428",
+  "P550445",
+  "P550478",
+  "P550519",
+  "P550529",
+  "P550595",
+  "P550596",
+  "P550639",
+  "P550708",
+  "P550719",
+  "P550762",
+  "P550769",
+  "P550774",
+  "P550920",
+  "P551550",
+]);
+
 function normalize(item: RawDonaldson): Product {
   const partNo = String(item.partNo || "").toUpperCase().trim();
 
@@ -3687,8 +3718,11 @@ function normalize(item: RawDonaldson): Product {
     fuel_filter: "filter",
   };
 
+  const normalizedCategory = item.category?.toLowerCase?.();
   const category =
-    categoryMap[item.category?.toLowerCase?.()] || "filter";
+    genericTitleCategoryCleanupPartNos.has(partNo) && normalizedCategory
+      ? normalizedCategory
+      : categoryMap[normalizedCategory] || "filter";
 
   const spec =
     normalizeSpec(item.spec, item.specifications) ||
