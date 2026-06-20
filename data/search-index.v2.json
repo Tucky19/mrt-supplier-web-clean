@@ -1,12 +1,12 @@
 {
   "version": 2,
-  "generatedAt": "2026-06-20T05:15:04.043Z",
+  "generatedAt": "2026-06-20T08:29:24.915Z",
   "counts": {
-    "items": 452,
+    "items": 453,
     "prefix2": 29,
     "prefix3": 80,
     "prefix4": 152,
-    "tokenKeys": 2140,
+    "tokenKeys": 2142,
     "refKeys": 166,
     "xrefKeys": 179,
     "pairedPartKeys": 15
@@ -22633,7 +22633,7 @@
       "title": "Hydraulic Filter, Cartridge",
       "category": "hydraulic_filter",
       "spec": "OD 70 mm x ID 26 mm x L 75 mm Synthetic Cartridge Hydraulic Filter",
-      "imageUrl": "/images/placeholder.jpg",
+      "imageUrl": "/images/products/donaldson/p171520.jpg",
       "specifications": [
         {
           "label": "Outer Diameter",
@@ -22738,6 +22738,26 @@
         {
           "label": "UPC Code",
           "value": "742330965641"
+        }
+      ],
+      "stock": "request",
+      "refs": [],
+      "crossReferences": [],
+      "pairedParts": []
+    },
+    {
+      "id": "donaldson-p502552",
+      "partNo": "P502552",
+      "partNoNorm": "p502552",
+      "brand": "Donaldson",
+      "title": "Bowl Assembly",
+      "category": "filter",
+      "spec": "Bowl Assembly",
+      "imageUrl": "/images/products/donaldson/p502552.jpg",
+      "specifications": [
+        {
+          "label": "UPC Code",
+          "value": "742330973684"
         }
       ],
       "stock": "request",
@@ -23499,6 +23519,7 @@
       "donaldson-p505982",
       "donaldson-p502643",
       "donaldson-p502522",
+      "donaldson-p502552",
       "donaldson-p534436",
       "donaldson-p535365"
     ],
@@ -24061,7 +24082,8 @@
       "donaldson-p502913",
       "donaldson-p505982",
       "donaldson-p502643",
-      "donaldson-p502522"
+      "donaldson-p502522",
+      "donaldson-p502552"
     ],
     "p82": [
       "donaldson-p828889",
@@ -24693,7 +24715,8 @@
       "donaldson-p502478",
       "donaldson-p502913",
       "donaldson-p502643",
-      "donaldson-p502522"
+      "donaldson-p502522",
+      "donaldson-p502552"
     ],
     "p552": [
       "donaldson-p552819",
@@ -29991,6 +30014,7 @@
       "donaldson-p502643",
       "donaldson-p171520",
       "donaldson-p502522",
+      "donaldson-p502552",
       "donaldson-x770691",
       "donaldson-r010077",
       "donaldson-r011836",
@@ -30441,6 +30465,7 @@
       "donaldson-p502643",
       "donaldson-p171520",
       "donaldson-p502522",
+      "donaldson-p502552",
       "donaldson-x770691",
       "donaldson-r010077",
       "donaldson-r011836",
@@ -35776,6 +35801,7 @@
       "donaldson-p502643",
       "donaldson-p171520",
       "donaldson-p502522",
+      "donaldson-p502552",
       "donaldson-x770691",
       "donaldson-r010077",
       "donaldson-r011836",
@@ -36031,6 +36057,7 @@
       "donaldson-p502643",
       "donaldson-p171520",
       "donaldson-p502522",
+      "donaldson-p502552",
       "donaldson-x770691",
       "donaldson-r010077",
       "donaldson-r011836",
@@ -36261,6 +36288,7 @@
       "donaldson-p505982",
       "donaldson-p502643",
       "donaldson-p502522",
+      "donaldson-p502552",
       "donaldson-p534436",
       "donaldson-p535365"
     ],
@@ -38351,7 +38379,8 @@
       "donaldson-p502913",
       "donaldson-p505982",
       "donaldson-p502643",
-      "donaldson-p502522"
+      "donaldson-p502522",
+      "donaldson-p502552"
     ],
     "p500": [
       "donaldson-p500186",
@@ -41047,7 +41076,8 @@
       "donaldson-p502478",
       "donaldson-p502913",
       "donaldson-p502643",
-      "donaldson-p502522"
+      "donaldson-p502522",
+      "donaldson-p502552"
     ],
     "p181063": [
       "donaldson-p181063"
@@ -42828,7 +42858,8 @@
     ],
     "assembly": [
       "donaldson-p538259",
-      "donaldson-p166416"
+      "donaldson-p166416",
+      "donaldson-p502552"
     ],
     "p538": [
       "donaldson-p538259"
@@ -45787,7 +45818,8 @@
     ],
     "bowl": [
       "donaldson-p553200",
-      "donaldson-p502643"
+      "donaldson-p502643",
+      "donaldson-p502552"
     ],
     "6003114510": [
       "donaldson-p553200"
@@ -46017,6 +46049,12 @@
     ],
     "742330965641": [
       "donaldson-p502522"
+    ],
+    "p502552": [
+      "donaldson-p502552"
+    ],
+    "742330973684": [
+      "donaldson-p502552"
     ],
     "x770691": [
       "donaldson-x770691"
