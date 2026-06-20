@@ -3582,6 +3582,7 @@ export const donaldsonPriorityProducts: Product[] = [
       { label: "Type", value: "Primary" },
       { label: "Style", value: "Finned" },
       { label: "Media Type", value: "Cellulose" },
+      { label: "UPC Code", value: "742330007488" },
     ],
     officialUrl: "https://shop.donaldson.com/store/en-us/product/P102745",
     refs: [],
