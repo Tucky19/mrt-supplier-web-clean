@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generatedAt": "2026-06-20T20:38:47.166Z",
+  "generatedAt": "2026-06-21T11:39:33.606Z",
   "counts": {
     "items": 453,
     "prefix2": 29,
@@ -19767,19 +19767,19 @@
       "specifications": [
         {
           "label": "Overall Length",
-          "value": "469 mm"
+          "value": "469 mm (18.46 inch)"
         },
         {
           "label": "Outer Diameter",
-          "value": "127 mm"
+          "value": "127 mm (5.00 inch)"
         },
         {
           "label": "Inner Diameter",
-          "value": "94 mm"
+          "value": "94 mm (3.70 inch)"
         },
         {
           "label": "Length",
-          "value": "463 mm"
+          "value": "463 mm (18.23 inch)"
         },
         {
           "label": "Efficiency",
@@ -25693,6 +25693,7 @@
       "donaldson-p781398",
       "donaldson-p812160",
       "donaldson-p902311",
+      "donaldson-p836245",
       "donaldson-p533781",
       "donaldson-p502913",
       "donaldson-p171520"
@@ -25844,6 +25845,7 @@
       "donaldson-p174243",
       "donaldson-p175120",
       "donaldson-p780006",
+      "donaldson-p836245",
       "donaldson-p822858",
       "donaldson-p555680",
       "donaldson-p550909",
@@ -26257,7 +26259,8 @@
       "donaldson-p181045",
       "donaldson-p777869",
       "donaldson-p171715",
-      "donaldson-p550422"
+      "donaldson-p550422",
+      "donaldson-p836245"
     ],
     "47": [
       "donaldson-p170587",
@@ -26679,6 +26682,7 @@
       "donaldson-p550687",
       "donaldson-p173789",
       "donaldson-p765075",
+      "donaldson-p836245",
       "donaldson-p550944",
       "donaldson-p124046",
       "donaldson-p533781",
@@ -32686,6 +32690,7 @@
       "donaldson-p550949",
       "donaldson-p502653",
       "donaldson-p902311",
+      "donaldson-p836245",
       "donaldson-p812924",
       "donaldson-p550944",
       "donaldson-p502478",
@@ -33275,6 +33280,7 @@
       "donaldson-p583087",
       "donaldson-p550816",
       "donaldson-p537449",
+      "donaldson-p836245",
       "donaldson-p550944",
       "donaldson-p124046",
       "donaldson-p551422",
