@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generatedAt": "2026-06-22T15:35:54.243Z",
+  "generatedAt": "2026-06-22T20:22:02.235Z",
   "counts": {
     "items": 453,
     "prefix2": 29,
@@ -3952,8 +3952,8 @@
       "partNo": "P502084",
       "partNoNorm": "p502084",
       "brand": "donaldson",
-      "title": "Donaldson Filter P502084",
-      "category": "filter",
+      "title": "Oil Filter",
+      "category": "oil_filter",
       "spec": "Spin-on full-flow lube filter",
       "imageUrl": "/images/products/donaldson/p502084.jpg",
       "specifications": [
@@ -40864,6 +40864,7 @@
       "donaldson-p551670",
       "donaldson-p550777",
       "donaldson-p552819",
+      "donaldson-p502084",
       "donaldson-p554403",
       "donaldson-p550520",
       "donaldson-p550035",
