@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generatedAt": "2026-06-22T04:07:10.169Z",
+  "generatedAt": "2026-06-22T15:35:54.243Z",
   "counts": {
     "items": 453,
     "prefix2": 29,
@@ -73,8 +73,8 @@
       "partNo": "X770088",
       "partNoNorm": "x770088",
       "brand": "donaldson",
-      "title": "Donaldson Filter X770088",
-      "category": "filter",
+      "title": "Air Filter",
+      "category": "air_filter",
       "spec": "Outlet 106 mm x Body Max 197 mm x Body Length 655 mm x Primary DuraLite Air Filter",
       "imageUrl": "/images/products/donaldson/x770088.jpg",
       "specifications": [
@@ -1661,8 +1661,8 @@
       "partNo": "P828889",
       "partNoNorm": "p828889",
       "brand": "donaldson",
-      "title": "Donaldson Filter P828889",
-      "category": "filter",
+      "title": "Air Filter",
+      "category": "air_filter",
       "spec": "OD 164.5 mm x ID 91 mm x L 347 mm x Primary RadialSeal Air Filter",
       "imageUrl": "/images/products/donaldson/p828889.jpg",
       "specifications": [
@@ -3704,8 +3704,8 @@
       "partNo": "P553500",
       "partNoNorm": "p553500",
       "brand": "donaldson",
-      "title": "Donaldson Filter P553500",
-      "category": "filter",
+      "title": "Fuel Filter",
+      "category": "fuel_filter",
       "spec": "Spin-on secondary fuel filter",
       "imageUrl": "/images/products/donaldson/p553500.jpg",
       "specifications": [
@@ -3872,8 +3872,8 @@
       "partNo": "P522452",
       "partNoNorm": "p522452",
       "brand": "donaldson",
-      "title": "Donaldson Filter P522452",
-      "category": "filter",
+      "title": "Air Filter",
+      "category": "air_filter",
       "spec": "Safety air filter",
       "imageUrl": "/images/products/donaldson/p522452.jpg",
       "specifications": [
@@ -3896,8 +3896,8 @@
       "partNo": "P822768",
       "partNoNorm": "p822768",
       "brand": "donaldson",
-      "title": "Donaldson Filter P822768",
-      "category": "filter",
+      "title": "Air Filter",
+      "category": "air_filter",
       "spec": "Primary RadialSeal air filter",
       "imageUrl": "/images/products/donaldson/p822768.jpg",
       "specifications": [
@@ -3924,8 +3924,8 @@
       "partNo": "P829333",
       "partNoNorm": "p829333",
       "brand": "donaldson",
-      "title": "Donaldson Filter P829333",
-      "category": "filter",
+      "title": "Air Filter",
+      "category": "air_filter",
       "spec": "RadialSeal safety air filter",
       "imageUrl": "/images/products/donaldson/p829333.jpg",
       "specifications": [
@@ -3980,8 +3980,8 @@
       "partNo": "P556005",
       "partNoNorm": "p556005",
       "brand": "donaldson",
-      "title": "Donaldson Filter P556005",
-      "category": "filter",
+      "title": "Hydraulic Filter",
+      "category": "hydraulic_filter",
       "spec": "Spin-on hydraulic filter",
       "imageUrl": "/images/products/donaldson/p556005.jpg",
       "specifications": [
@@ -4040,8 +4040,8 @@
       "partNo": "P554403",
       "partNoNorm": "p554403",
       "brand": "donaldson",
-      "title": "Donaldson Filter P554403",
-      "category": "filter",
+      "title": "Oil Filter",
+      "category": "oil_filter",
       "spec": "Spin-on full-flow lube filter",
       "imageUrl": "/images/products/donaldson/p554403.jpg",
       "specifications": [
@@ -4068,8 +4068,8 @@
       "partNo": "P775749",
       "partNoNorm": "p775749",
       "brand": "donaldson",
-      "title": "Donaldson Filter P775749",
-      "category": "filter",
+      "title": "Air Filter",
+      "category": "air_filter",
       "spec": "Primary finned air filter",
       "imageUrl": "/images/products/donaldson/p775749.jpg",
       "specifications": [
@@ -36698,54 +36698,6 @@
     "x770088": [
       "donaldson-x770088"
     ],
-    "outlet": [
-      "donaldson-x770088",
-      "donaldson-b105006",
-      "donaldson-b105012",
-      "donaldson-b105036",
-      "donaldson-b120572",
-      "donaldson-c085002",
-      "donaldson-c105003",
-      "donaldson-c105004",
-      "donaldson-p550478",
-      "donaldson-p537449",
-      "donaldson-p550390",
-      "donaldson-p550012",
-      "donaldson-p166416"
-    ],
-    "body": [
-      "donaldson-x770088",
-      "donaldson-b105006",
-      "donaldson-b105012",
-      "donaldson-b105036",
-      "donaldson-b120572",
-      "donaldson-c085002",
-      "donaldson-c105003",
-      "donaldson-c105004",
-      "donaldson-p537449",
-      "donaldson-p500199"
-    ],
-    "max": [
-      "donaldson-x770088",
-      "donaldson-b105006",
-      "donaldson-b105012",
-      "donaldson-b105036",
-      "donaldson-b120572",
-      "donaldson-c085002",
-      "donaldson-c105003",
-      "donaldson-c105004",
-      "donaldson-p500199"
-    ],
-    "duralite": [
-      "donaldson-x770088",
-      "donaldson-b105006",
-      "donaldson-b105012",
-      "donaldson-b105036",
-      "donaldson-b120572",
-      "donaldson-c085002",
-      "donaldson-c105003",
-      "donaldson-c105004"
-    ],
     "air": [
       "donaldson-x770088",
       "donaldson-b105006",
@@ -36923,6 +36875,54 @@
       "donaldson-r800103",
       "donaldson-p182034",
       "donaldson-p535365"
+    ],
+    "outlet": [
+      "donaldson-x770088",
+      "donaldson-b105006",
+      "donaldson-b105012",
+      "donaldson-b105036",
+      "donaldson-b120572",
+      "donaldson-c085002",
+      "donaldson-c105003",
+      "donaldson-c105004",
+      "donaldson-p550478",
+      "donaldson-p537449",
+      "donaldson-p550390",
+      "donaldson-p550012",
+      "donaldson-p166416"
+    ],
+    "body": [
+      "donaldson-x770088",
+      "donaldson-b105006",
+      "donaldson-b105012",
+      "donaldson-b105036",
+      "donaldson-b120572",
+      "donaldson-c085002",
+      "donaldson-c105003",
+      "donaldson-c105004",
+      "donaldson-p537449",
+      "donaldson-p500199"
+    ],
+    "max": [
+      "donaldson-x770088",
+      "donaldson-b105006",
+      "donaldson-b105012",
+      "donaldson-b105036",
+      "donaldson-b120572",
+      "donaldson-c085002",
+      "donaldson-c105003",
+      "donaldson-c105004",
+      "donaldson-p500199"
+    ],
+    "duralite": [
+      "donaldson-x770088",
+      "donaldson-b105006",
+      "donaldson-b105012",
+      "donaldson-b105036",
+      "donaldson-b120572",
+      "donaldson-c085002",
+      "donaldson-c105003",
+      "donaldson-c105004"
     ],
     "maximum": [
       "donaldson-x770088",
@@ -40864,6 +40864,7 @@
       "donaldson-p551670",
       "donaldson-p550777",
       "donaldson-p552819",
+      "donaldson-p554403",
       "donaldson-p550520",
       "donaldson-p550035",
       "donaldson-p550008",
