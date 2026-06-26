@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generatedAt": "2026-06-26T00:44:59.409Z",
+  "generatedAt": "2026-06-26T06:03:37.754Z",
   "counts": {
     "items": 453,
     "prefix2": 29,
@@ -5990,8 +5990,8 @@
       "partNo": "P550388",
       "partNoNorm": "p550388",
       "brand": "donaldson",
-      "title": "Spin-On Lube Filter",
-      "category": "filter",
+      "title": "Oil Filter",
+      "category": "oil_filter",
       "spec": "OD 93mm × L 173mm × 1-12 UN",
       "imageUrl": "/images/products/donaldson/p550388.jpg",
       "specifications": [
@@ -6404,8 +6404,8 @@
       "partNo": "P550467",
       "partNoNorm": "p550467",
       "brand": "donaldson",
-      "title": "Fuel Filter, Water Separator Cartridge",
-      "category": "filter",
+      "title": "Fuel Filter",
+      "category": "fuel_filter",
       "spec": "Fuel water separator cartridge",
       "imageUrl": "/images/products/donaldson/p550467.jpg",
       "specifications": [
@@ -6652,8 +6652,8 @@
       "partNo": "P550576",
       "partNoNorm": "p550576",
       "brand": "donaldson",
-      "title": "Donaldson Filter P550576",
-      "category": "filter",
+      "title": "Hydraulic Filter",
+      "category": "hydraulic_filter",
       "spec": "Hydraulic filter cartridge",
       "imageUrl": "/images/products/donaldson/p550576.jpg",
       "specifications": [
@@ -7212,8 +7212,8 @@
       "partNo": "P558000",
       "partNoNorm": "p558000",
       "brand": "donaldson",
-      "title": "Donaldson Filter P558000",
-      "category": "filter",
+      "title": "Fuel Filter",
+      "category": "fuel_filter",
       "spec": "Spin-on Twist&Drain fuel water separator",
       "imageUrl": "/images/products/donaldson/p558000.jpg",
       "specifications": [
@@ -7244,8 +7244,8 @@
       "partNo": "P558616",
       "partNoNorm": "p558616",
       "brand": "donaldson",
-      "title": "Donaldson Filter P558616",
-      "category": "filter",
+      "title": "Oil Filter",
+      "category": "oil_filter",
       "spec": "Spin-on full-flow lube filter",
       "imageUrl": "/images/products/donaldson/p558616.jpg",
       "specifications": [
@@ -7272,8 +7272,8 @@
       "partNo": "P559100",
       "partNoNorm": "p559100",
       "brand": "donaldson",
-      "title": "Donaldson Filter P559100",
-      "category": "filter",
+      "title": "Fuel Filter",
+      "category": "fuel_filter",
       "spec": "Spin-on fuel filter",
       "imageUrl": "/images/products/donaldson/p559100.jpg",
       "specifications": [
@@ -7296,8 +7296,8 @@
       "partNo": "P559128",
       "partNoNorm": "p559128",
       "brand": "donaldson",
-      "title": "Donaldson Filter P559128",
-      "category": "filter",
+      "title": "Oil Filter",
+      "category": "oil_filter",
       "spec": "Spin-on full-flow lube filter",
       "imageUrl": "/images/products/donaldson/p559128.jpg",
       "specifications": [
@@ -7432,8 +7432,8 @@
       "partNo": "P181035",
       "partNoNorm": "p181035",
       "brand": "donaldson",
-      "title": "Industrial Filter",
-      "category": "filter",
+      "title": "Air Filter",
+      "category": "air_filter",
       "spec": "Primary finned air filter",
       "imageUrl": "/images/products/donaldson/p181035.jpg",
       "specifications": [
@@ -7588,8 +7588,8 @@
       "partNo": "P181046",
       "partNoNorm": "p181046",
       "brand": "donaldson",
-      "title": "Industrial Filter",
-      "category": "filter",
+      "title": "Air Filter",
+      "category": "air_filter",
       "spec": "Primary round air filter",
       "imageUrl": "/images/products/donaldson/p181046.jpg",
       "specifications": [
@@ -7686,8 +7686,8 @@
       "partNo": "P181052",
       "partNoNorm": "p181052",
       "brand": "donaldson",
-      "title": "Industrial Filter",
-      "category": "filter",
+      "title": "Air Filter",
+      "category": "air_filter",
       "spec": "Primary finned air filter",
       "imageUrl": "/images/products/donaldson/p181052.jpg",
       "specifications": [
@@ -38843,7 +38843,6 @@
       "donaldson-p550365",
       "donaldson-p550367",
       "donaldson-p550372",
-      "donaldson-p550388",
       "donaldson-p550391",
       "donaldson-p550408",
       "donaldson-p550416",
@@ -38997,7 +38996,6 @@
       "donaldson-p550365",
       "donaldson-p550367",
       "donaldson-p550372",
-      "donaldson-p550388",
       "donaldson-p550391",
       "donaldson-p550408",
       "donaldson-p550416",
@@ -39835,7 +39833,6 @@
       "donaldson-p550227",
       "donaldson-p550367",
       "donaldson-p550382",
-      "donaldson-p550388",
       "donaldson-p550408",
       "donaldson-p550425",
       "donaldson-p550428",
@@ -40878,7 +40875,10 @@
       "donaldson-p550086",
       "donaldson-p550132",
       "donaldson-p550162",
+      "donaldson-p550388",
       "donaldson-p550425",
+      "donaldson-p558616",
+      "donaldson-p559128",
       "donaldson-p553000",
       "mann-lb962-2",
       "mann-w719-5",
@@ -42668,18 +42668,6 @@
     "p181035": [
       "donaldson-p181035"
     ],
-    "industrial": [
-      "donaldson-p181035",
-      "donaldson-p181046",
-      "donaldson-p181052",
-      "donaldson-p181054",
-      "donaldson-p181064",
-      "donaldson-p181082",
-      "donaldson-p169478",
-      "donaldson-p171734",
-      "donaldson-p171735",
-      "donaldson-p173689"
-    ],
     "p181042": [
       "donaldson-p181042",
       "donaldson-p128408"
@@ -43463,6 +43451,15 @@
     ],
     "p181054": [
       "donaldson-p181054"
+    ],
+    "industrial": [
+      "donaldson-p181054",
+      "donaldson-p181064",
+      "donaldson-p181082",
+      "donaldson-p169478",
+      "donaldson-p171734",
+      "donaldson-p171735",
+      "donaldson-p173689"
     ],
     "p181064": [
       "donaldson-p181064"
