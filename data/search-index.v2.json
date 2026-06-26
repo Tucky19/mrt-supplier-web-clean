@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generatedAt": "2026-06-26T13:20:48.494Z",
+  "generatedAt": "2026-06-26T13:45:53.675Z",
   "counts": {
     "items": 453,
     "prefix2": 29,
@@ -9057,8 +9057,8 @@
       "partNo": "P536492",
       "partNoNorm": "p536492",
       "brand": "donaldson",
-      "title": "Donaldson Filter P536492",
-      "category": "filter",
+      "title": "Air Filter",
+      "category": "air_filter",
       "spec": "Safety RadialSeal air filter",
       "imageUrl": "/images/products/donaldson/p536492.jpg",
       "specifications": [
@@ -9085,8 +9085,8 @@
       "partNo": "P537405",
       "partNoNorm": "p537405",
       "brand": "donaldson",
-      "title": "Donaldson Filter P537405",
-      "category": "filter",
+      "title": "Air Filter",
+      "category": "air_filter",
       "spec": "Primary RadialSeal air filter",
       "imageUrl": "/images/products/donaldson/p537405.jpg",
       "specifications": [
@@ -9113,8 +9113,8 @@
       "partNo": "P537876",
       "partNoNorm": "p537876",
       "brand": "donaldson",
-      "title": "Cabin Air Filter",
-      "category": "filter",
+      "title": "Air Filter",
+      "category": "air_filter",
       "spec": "230 × 210 × 30 mm",
       "imageUrl": "/images/products/donaldson/p537876.jpg",
       "specifications": [
@@ -9145,8 +9145,8 @@
       "partNo": "P537877",
       "partNoNorm": "p537877",
       "brand": "donaldson",
-      "title": "Cabin Air Filter (Carbon)",
-      "category": "filter",
+      "title": "Air Filter",
+      "category": "air_filter",
       "spec": "230 × 210 × 30 mm",
       "imageUrl": "/images/products/donaldson/p537877.jpg",
       "specifications": [
@@ -9627,8 +9627,8 @@
       "partNo": "P550900",
       "partNoNorm": "p550900",
       "brand": "donaldson",
-      "title": "Fuel Filter, Water Separator Spin-On Twist&Drain",
-      "category": "filter",
+      "title": "Fuel Filter",
+      "category": "fuel_filter",
       "spec": "Twist&Drain spin-on fuel water separator",
       "imageUrl": "/images/products/donaldson/p550900.jpg",
       "specifications": [
@@ -9711,8 +9711,8 @@
       "partNo": "P554005",
       "partNoNorm": "p554005",
       "brand": "donaldson",
-      "title": "Donaldson Filter P554005",
-      "category": "filter",
+      "title": "Oil Filter",
+      "category": "oil_filter",
       "spec": "Spin-on full-flow lube filter",
       "imageUrl": "/images/products/donaldson/p554005.jpg",
       "specifications": [
@@ -9739,8 +9739,8 @@
       "partNo": "P822769",
       "partNoNorm": "p822769",
       "brand": "donaldson",
-      "title": "Donaldson Filter P822769",
-      "category": "filter",
+      "title": "Air Filter",
+      "category": "air_filter",
       "spec": "Safety RadialSeal air filter",
       "imageUrl": "/images/products/donaldson/p822769.jpg",
       "specifications": [
@@ -9875,8 +9875,8 @@
       "partNo": "P554004",
       "partNoNorm": "p554004",
       "brand": "donaldson",
-      "title": "Lube Filter",
-      "category": "filter",
+      "title": "Oil Filter",
+      "category": "oil_filter",
       "spec": "OD 108mm × L 262mm × 1 1/8-16 UN",
       "imageUrl": "/images/products/donaldson/p554004.jpg",
       "specifications": [
@@ -39853,7 +39853,6 @@
       "donaldson-p502458",
       "donaldson-p502464",
       "donaldson-p554005",
-      "donaldson-p554004",
       "fleetguard-lf14000nn",
       "donaldson-p551807",
       "donaldson-p553191",
@@ -40886,7 +40885,9 @@
       "donaldson-p502190",
       "donaldson-p502458",
       "donaldson-p502464",
+      "donaldson-p554005",
       "donaldson-p553000",
+      "donaldson-p554004",
       "mann-lb962-2",
       "mann-w719-5",
       "mann-w920-21",
@@ -42908,9 +42909,7 @@
     ],
     "cabin": [
       "donaldson-p500194",
-      "donaldson-p500195",
-      "donaldson-p537876",
-      "donaldson-p537877"
+      "donaldson-p500195"
     ],
     "jis": [
       "donaldson-p500194",
@@ -43192,10 +43191,10 @@
     "p537877": [
       "donaldson-p537877"
     ],
-    "carbon": [
+    "activated": [
       "donaldson-p537877"
     ],
-    "activated": [
+    "carbon": [
       "donaldson-p537877"
     ],
     "p538259": [
