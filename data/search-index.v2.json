@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generatedAt": "2026-06-26T08:06:47.008Z",
+  "generatedAt": "2026-06-26T08:43:47.278Z",
   "counts": {
     "items": 453,
     "prefix2": 29,
@@ -9305,8 +9305,8 @@
       "partNo": "P158669",
       "partNoNorm": "p158669",
       "brand": "donaldson",
-      "title": "Donaldson Filter P158669",
-      "category": "filter",
+      "title": "Air Filter",
+      "category": "air_filter",
       "spec": "Safety air filter",
       "imageUrl": "/images/products/donaldson/p158669.jpg",
       "specifications": [
@@ -9329,8 +9329,8 @@
       "partNo": "P162205",
       "partNoNorm": "p162205",
       "brand": "donaldson",
-      "title": "Donaldson Filter P162205",
-      "category": "filter",
+      "title": "Hydraulic Filter",
+      "category": "hydraulic_filter",
       "spec": "Spin-on hydraulic filter",
       "imageUrl": "/images/products/donaldson/p162205.jpg",
       "specifications": [
@@ -9353,8 +9353,8 @@
       "partNo": "P165569",
       "partNoNorm": "p165569",
       "brand": "donaldson",
-      "title": "Donaldson Filter P165569",
-      "category": "filter",
+      "title": "Hydraulic Filter",
+      "category": "hydraulic_filter",
       "spec": "Duramax spin-on hydraulic filter",
       "imageUrl": "/images/products/donaldson/p165569.jpg",
       "specifications": [
@@ -9381,8 +9381,8 @@
       "partNo": "P165705",
       "partNoNorm": "p165705",
       "brand": "donaldson",
-      "title": "Donaldson Filter P165705",
-      "category": "filter",
+      "title": "Hydraulic Filter",
+      "category": "hydraulic_filter",
       "spec": "Duramax spin-on hydraulic filter",
       "imageUrl": "/images/products/donaldson/p165705.jpg",
       "specifications": [
@@ -9409,8 +9409,8 @@
       "partNo": "P181056",
       "partNoNorm": "p181056",
       "brand": "donaldson",
-      "title": "Donaldson Filter P181056",
-      "category": "filter",
+      "title": "Air Filter",
+      "category": "air_filter",
       "spec": "Primary round air filter. Overall length 398.4 mm, outer diameter 307.2 mm, inner diameter 196.1 mm, length 385.7 mm, bolt hole diameter 16.76 mm, efficiency 99.9 tested to ISO 5011.",
       "imageUrl": "/images/products/donaldson/p181056.jpg",
       "specifications": [
@@ -10116,8 +10116,8 @@
       "partNo": "P181054",
       "partNoNorm": "p181054",
       "brand": "donaldson",
-      "title": "Industrial Filter",
-      "category": "filter",
+      "title": "Air Filter",
+      "category": "air_filter",
       "spec": "Primary finned air filter",
       "imageUrl": "/images/products/donaldson/p181054.jpg",
       "specifications": [
@@ -10320,8 +10320,8 @@
       "partNo": "P169478",
       "partNoNorm": "p169478",
       "brand": "donaldson",
-      "title": "Industrial Filter",
-      "category": "filter",
+      "title": "Hydraulic Filter",
+      "category": "hydraulic_filter",
       "spec": "Hydraulic filter cartridge",
       "imageUrl": "/images/products/donaldson/p169478.jpg",
       "specifications": [
@@ -10344,8 +10344,8 @@
       "partNo": "P171734",
       "partNoNorm": "p171734",
       "brand": "donaldson",
-      "title": "Industrial Filter",
-      "category": "filter",
+      "title": "Hydraulic Filter",
+      "category": "hydraulic_filter",
       "spec": "Hydraulic filter cartridge",
       "imageUrl": "/images/products/donaldson/p171734.jpg",
       "specifications": [
@@ -10368,8 +10368,8 @@
       "partNo": "P171735",
       "partNoNorm": "p171735",
       "brand": "donaldson",
-      "title": "Industrial Filter",
-      "category": "filter",
+      "title": "Hydraulic Filter",
+      "category": "hydraulic_filter",
       "spec": "Hydraulic filter cartridge",
       "imageUrl": "/images/products/donaldson/p171735.jpg",
       "specifications": [
@@ -10392,8 +10392,8 @@
       "partNo": "P173689",
       "partNoNorm": "p173689",
       "brand": "donaldson",
-      "title": "Industrial Filter",
-      "category": "filter",
+      "title": "Hydraulic Filter",
+      "category": "hydraulic_filter",
       "spec": "Duramax spin-on hydraulic filter",
       "imageUrl": "/images/products/donaldson/p173689.jpg",
       "specifications": [
@@ -43459,17 +43459,12 @@
     "p181054": [
       "donaldson-p181054"
     ],
-    "industrial": [
-      "donaldson-p181054",
-      "donaldson-p181064",
-      "donaldson-p181082",
-      "donaldson-p169478",
-      "donaldson-p171734",
-      "donaldson-p171735",
-      "donaldson-p173689"
-    ],
     "p181064": [
       "donaldson-p181064"
+    ],
+    "industrial": [
+      "donaldson-p181064",
+      "donaldson-p181082"
     ],
     "p181082": [
       "donaldson-p181082"
