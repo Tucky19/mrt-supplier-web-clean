@@ -1,12 +1,12 @@
 {
   "version": 2,
-  "generatedAt": "2026-06-26T08:43:47.278Z",
+  "generatedAt": "2026-06-26T13:20:48.494Z",
   "counts": {
     "items": 453,
     "prefix2": 29,
     "prefix3": 80,
     "prefix4": 152,
-    "tokenKeys": 2158,
+    "tokenKeys": 2157,
     "refKeys": 166,
     "xrefKeys": 179,
     "pairedPartKeys": 15
@@ -8725,8 +8725,8 @@
       "partNo": "P526840",
       "partNoNorm": "p526840",
       "brand": "donaldson",
-      "title": "Donaldson Filter P526840",
-      "category": "filter",
+      "title": "Air Filter",
+      "category": "air_filter",
       "spec": "Primary finned air filter",
       "imageUrl": "/images/products/donaldson/p526840.jpg",
       "specifications": [
@@ -8823,8 +8823,8 @@
       "partNo": "P532473",
       "partNoNorm": "p532473",
       "brand": "donaldson",
-      "title": "Donaldson Filter P532473",
-      "category": "filter",
+      "title": "Air Filter",
+      "category": "air_filter",
       "spec": "Primary RadialSeal air filter",
       "imageUrl": "/images/products/donaldson/p532473.jpg",
       "specifications": [
@@ -8851,8 +8851,8 @@
       "partNo": "P532499",
       "partNoNorm": "p532499",
       "brand": "donaldson",
-      "title": "Donaldson Filter P532499",
-      "category": "filter",
+      "title": "Air Filter",
+      "category": "air_filter",
       "spec": "Primary RadialSeal air filter",
       "imageUrl": "/images/products/donaldson/p532499.jpg",
       "specifications": [
@@ -8879,8 +8879,8 @@
       "partNo": "P532500",
       "partNoNorm": "p532500",
       "brand": "donaldson",
-      "title": "Donaldson Filter P532500",
-      "category": "filter",
+      "title": "Air Filter",
+      "category": "air_filter",
       "spec": "Safety RadialSeal air filter",
       "imageUrl": "/images/products/donaldson/p532500.jpg",
       "specifications": [
@@ -8907,8 +8907,8 @@
       "partNo": "P532501",
       "partNoNorm": "p532501",
       "brand": "donaldson",
-      "title": "Donaldson Filter P532501",
-      "category": "filter",
+      "title": "Air Filter",
+      "category": "air_filter",
       "spec": "Primary RadialSeal air filter",
       "imageUrl": "/images/products/donaldson/p532501.jpg",
       "specifications": [
@@ -8935,8 +8935,8 @@
       "partNo": "P532502",
       "partNoNorm": "p532502",
       "brand": "donaldson",
-      "title": "Donaldson Filter P532502",
-      "category": "filter",
+      "title": "Air Filter",
+      "category": "air_filter",
       "spec": "Safety RadialSeal air filter",
       "imageUrl": "/images/products/donaldson/p532502.jpg",
       "specifications": [
@@ -9599,8 +9599,8 @@
       "partNo": "P536457",
       "partNoNorm": "p536457",
       "brand": "donaldson",
-      "title": "Donaldson Filter P536457",
-      "category": "filter",
+      "title": "Air Filter",
+      "category": "air_filter",
       "spec": "Primary RadialSeal air filter",
       "imageUrl": "/images/products/donaldson/p536457.jpg",
       "specifications": [
@@ -9843,8 +9843,8 @@
       "partNo": "P181104",
       "partNoNorm": "p181104",
       "brand": "donaldson",
-      "title": "RadialSeal Air Filter",
-      "category": "filter",
+      "title": "Air Filter",
+      "category": "air_filter",
       "spec": "OD 196mm × ID 104mm × L 406mm",
       "imageUrl": "/images/products/donaldson/p181104.jpg",
       "specifications": [
@@ -10144,8 +10144,8 @@
       "partNo": "P181064",
       "partNoNorm": "p181064",
       "brand": "donaldson",
-      "title": "Industrial Filter",
-      "category": "filter",
+      "title": "Air Filter",
+      "category": "air_filter",
       "spec": "Primary finned air filter",
       "imageUrl": "/images/products/donaldson/p181064.jpg",
       "specifications": [
@@ -10172,8 +10172,8 @@
       "partNo": "P181082",
       "partNoNorm": "p181082",
       "brand": "donaldson",
-      "title": "Industrial Filter",
-      "category": "filter",
+      "title": "Air Filter",
+      "category": "air_filter",
       "spec": "Primary round air filter",
       "imageUrl": "/images/products/donaldson/p181082.jpg",
       "specifications": [
@@ -43461,10 +43461,6 @@
     ],
     "p181064": [
       "donaldson-p181064"
-    ],
-    "industrial": [
-      "donaldson-p181064",
-      "donaldson-p181082"
     ],
     "p181082": [
       "donaldson-p181082"
