@@ -1051,7 +1051,7 @@ export const donaldsonPriorityProducts: Product[] = [
     brand: "Donaldson",
     category: "air_filter",
     title: "Air Filter, Primary Round",
-    spec: "OD 327.3 mm x ID 215.7 mm x L 604 mm x Primary Round",
+    spec: "OD 327.3 mm x ID 215.7 mm x L 604 mm x Primary Round Air Filter",
     specifications: [
       { label: "Overall Length", value: "616.7 mm (24.28 inch)" },
       { label: "Outer Diameter", value: "327.3 mm (12.89 inch)" },
@@ -1196,7 +1196,7 @@ export const donaldsonPriorityProducts: Product[] = [
     brand: "Donaldson",
     category: "air_filter",
     title: "Air Filter, Safety RadialSeal",
-    spec: "OD 172 mm x ID 134 mm x L 392 mm x Safety Radialseal",
+    spec: "OD 172 mm x ID 134 mm x L 392 mm x Safety RadialSeal Air Filter",
     specifications: [
       { label: "Brand / Series", value: "RadialSeal™" },
       { label: "Outer Diameter", value: "172 mm (6.77 inch)" },
@@ -1222,7 +1222,7 @@ export const donaldsonPriorityProducts: Product[] = [
     brand: "Donaldson",
     category: "other",
     title: "Straight Hump, Rubber",
-    spec: "ID 152.4 mm x L 177.8 mm x Rubber",
+    spec: "Straight Hump, Rubber x ID 152.4 mm x L 177.8 mm",
     specifications: [
       { label: "Inner Diameter", value: "152.4 mm (6.00 inch)" },
       { label: "Length", value: "177.8 mm (7.00 inch)" },
@@ -1243,7 +1243,7 @@ export const donaldsonPriorityProducts: Product[] = [
     brand: "Donaldson",
     category: "air_filter",
     title: "Air Filter, Primary RadialSeal",
-    spec: "OD 105.5 mm x ID 60.1 mm x L 265 mm x Primary Radialseal",
+    spec: "OD 105.5 mm x ID 60.1 mm x L 265 mm x Primary RadialSeal Air Filter",
     specifications: [
       { label: "Outer Diameter", value: "105.5 mm (4.15 inch)" },
       { label: "Inner Diameter", value: "60.1 mm (2.37 inch)" },
@@ -1420,7 +1420,7 @@ export const donaldsonPriorityProducts: Product[] = [
     brand: "Donaldson",
     category: "air_filter",
     title: "Air Filter, Primary RadialSeal",
-    spec: "OD 303.7 mm x ID 168.6 mm x L 433.5 mm x Primary Radialseal",
+    spec: "OD 303.7 mm x ID 168.6 mm x L 433.5 mm x Primary RadialSeal Air Filter",
     specifications: [
       { label: "Outer Diameter", value: "303.7 mm (11.96 inch)" },
       { label: "Inner Diameter", value: "168.6 mm (6.64 inch)" },
@@ -1761,7 +1761,7 @@ export const donaldsonPriorityProducts: Product[] = [
     brand: "Donaldson",
     category: "air_filter",
     title: "Air Filter, Primary RadialSeal",
-    spec: "OD 282 mm x ID 148 mm x L 512 mm x Primary Radialseal",
+    spec: "OD 282 mm x ID 148 mm x L 512 mm x Primary RadialSeal Air Filter",
     specifications: [
       { label: "Outer Diameter", value: "282 mm (11.10 inch)" },
       { label: "Inner Diameter", value: "148 mm (5.83 inch)" },
@@ -1897,7 +1897,7 @@ export const donaldsonPriorityProducts: Product[] = [
       "Full-flow spin-on lube filter for heavy-duty engine lubrication systems.",
     description:
       "Donaldson P553191 is a spin-on full-flow lube filter that helps keep engine oil clean, reduce wear, and support longer service life in heavy-duty applications.",
-    spec: "OD 108 mm x L 262 mm x Thread 1 1/8-16 UN x Full-Flow",
+    spec: "OD 108 mm x L 262 mm x Thread 1 1/8-16 UN x Spin-On Full-Flow Lube Filter",
     specifications: [
       { label: "Outer Diameter", value: "108 mm (4.25 inch)" },
       { label: "Thread Size", value: "1 1/8-16 UN" },
@@ -3984,7 +3984,7 @@ export const donaldsonPriorityProducts: Product[] = [
     brand: "Donaldson",
     category: "filter_head",
     title: "Head Assembly, HMK04 Duramax",
-    spec: "L 85.85 mm x H 103.63 mm x 1-11 1/2 NPT inlet/outlet x HMK04/24 Duramax head assembly",
+    spec: "Head Assembly, HMK04 Duramax x L 85.85 mm x H 103.63 mm x 1-11 1/2 NPT inlet/outlet",
     specifications: [
       { label: "Length", value: "85.85 mm (3.38 inch)" },
       { label: "Height", value: "103.63 mm (4.08 inch)" },
