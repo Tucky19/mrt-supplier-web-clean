@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { usePathname, useSearchParams } from 'next/navigation';
+import { useQuote } from '@/providers/QuoteProvider';
 
 type Props = {
   locale: string;
@@ -10,6 +11,7 @@ type Props = {
 
 export default function SiteHeader({ locale }: Props) {
   const [scrolled, setScrolled] = useState(false);
+  const { ready, totalItems } = useQuote();
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const locales = ['th', 'en'] as const;
@@ -26,6 +28,9 @@ export default function SiteHeader({ locale }: Props) {
       ? '\u0e02\u0e2d\u0e43\u0e1a\u0e40\u0e2a\u0e19\u0e2d\u0e23\u0e32\u0e04\u0e32'
       : 'Request Quote',
     menu: isThai ? '\u0e40\u0e21\u0e19\u0e39' : 'Menu',
+    quoteCount: isThai
+      ? `${totalItems} \u0e23\u0e32\u0e22\u0e01\u0e32\u0e23\u0e43\u0e19 RFQ`
+      : `${totalItems} items in quote`,
   };
 
   useEffect(() => {
@@ -162,10 +167,16 @@ export default function SiteHeader({ locale }: Props) {
 
           <Link
             href={`/${locale}/quote`}
-            className="inline-flex shrink-0 items-center justify-center rounded-lg bg-blue-900 px-3 py-2 text-sm font-semibold text-white hover:bg-blue-800 sm:px-4"
+            aria-label={ready && totalItems > 0 ? `${text.requestQuote}, ${text.quoteCount}` : text.requestQuote}
+            className="inline-flex shrink-0 items-center justify-center gap-1.5 rounded-lg bg-blue-900 px-3 py-2 text-sm font-semibold text-white hover:bg-blue-800 sm:px-4"
           >
             <span className="sm:hidden">{isThai ? 'RFQ' : 'Quote'}</span>
             <span className="hidden sm:inline">{text.requestQuote}</span>
+            {ready && totalItems > 0 ? (
+              <span className="inline-flex min-w-5 items-center justify-center rounded-full bg-white px-1.5 py-0.5 text-[11px] font-bold leading-none text-blue-950">
+                {totalItems > 99 ? '99+' : totalItems}
+              </span>
+            ) : null}
           </Link>
         </div>
       </div>
