@@ -24,6 +24,11 @@ export function getRfqUiText(locale: string) {
     itemsInList: (count: number) =>
       isThai ? `${count} รายการใน RFQ` : `${count} items in your RFQ list`,
     clearAll: isThai ? "ล้างทั้งหมด" : "Clear all",
+    clearConfirm: isThai
+      ? "ต้องการล้างรายการ RFQ ทั้งหมดหรือไม่?"
+      : "Clear every item from this RFQ?",
+    cancel: isThai ? "ยกเลิก" : "Cancel",
+    confirmClear: isThai ? "ยืนยันล้างรายการ" : "Clear items",
     noItemsTitle: isThai
       ? "ยังไม่มีรายการสินค้าใน RFQ"
       : "No items yet in your RFQ list.",
@@ -34,24 +39,45 @@ export function getRfqUiText(locale: string) {
     requestedItem: isThai ? "รายการที่ต้องการ" : "Requested item",
     remove: isThai ? "ลบ" : "Remove",
     quantity: isThai ? "จำนวน" : "Quantity",
+    decreaseQuantity: isThai ? "ลดจำนวน" : "Decrease quantity for",
+    increaseQuantity: isThai ? "เพิ่มจำนวน" : "Increase quantity for",
     contactDetails: isThai ? "ข้อมูลสำหรับติดต่อกลับ" : "Contact Details",
     contactDetailsBody: isThai
       ? "กรอกข้อมูลให้ครบเท่าที่สะดวก เพื่อให้ทีมงานติดตามกลับได้เร็วขึ้น"
       : "Provide the details you have available so our team can follow up quickly.",
+    requiredHelper: isThai
+      ? "ช่องที่มีเครื่องหมาย * จำเป็นต้องกรอก"
+      : "Fields marked * are required.",
     yourName: isThai ? "ชื่อผู้ติดต่อ" : "Your Name",
+    company: isThai ? "บริษัท" : "Company",
     companyOptional: isThai ? "บริษัท (ถ้ามี)" : "Company (optional)",
+    optional: isThai ? "ถ้ามี" : "optional",
     phone: isThai ? "เบอร์โทร" : "Phone",
     email: "Email",
     lineId: "LINE ID",
+    contactMethodRequired: isThai
+      ? "ช่องทางสำหรับติดต่อกลับอย่างน้อย 1 ช่องทาง"
+      : "At least one contact method",
     additionalNote: isThai
       ? "หมายเหตุเพิ่มเติม (ถ้ามี)"
       : "Additional note (optional)",
+    additionalNoteLabel: isThai ? "หมายเหตุเพิ่มเติม" : "Additional note",
     followUpRequired: isThai
       ? "สำหรับติดต่อกลับ"
       : "Required for Follow-Up",
     followUpRequiredBody: isThai
       ? "กรอกอย่างน้อย 1 ช่องทาง: เบอร์โทร, Email หรือ LINE"
       : "Provide at least one contact method: phone, email, or LINE.",
+    contactUseNote: isThai
+      ? "ทีมงานจะใช้ข้อมูลนี้เพื่อตรวจสอบรายการและติดต่อกลับเกี่ยวกับ RFQ นี้เท่านั้น"
+      : "Our team will use these details to review and follow up on this RFQ.",
+    lineContinueTitle: isThai ? "ต้องการส่งรูปหรือรายละเอียดทาง LINE?" : "Prefer to continue on LINE?",
+    lineContinueBody: isThai
+      ? "คัดลอกรายการ RFQ ก่อนเปิด LINE เพื่อให้ Part No. และจำนวนติดไปพร้อมการสนทนา"
+      : "Copy the RFQ list before opening LINE so the part numbers and quantities stay with the conversation.",
+    copyRfqList: isThai ? "คัดลอกรายการ RFQ" : "Copy RFQ list",
+    copiedRfqList: isThai ? "คัดลอกแล้ว" : "Copied",
+    openLine: isThai ? "เปิด LINE Official" : "Open LINE Official",
     sending: isThai ? "กำลังส่ง..." : "Sending...",
     submitRfq: isThai ? "ส่ง RFQ" : "Submit RFQ",
     addProductsBeforeSubmitting: isThai
