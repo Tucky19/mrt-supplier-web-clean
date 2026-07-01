@@ -88,7 +88,14 @@ export const uploadedProducts = [
 
     applications: ["TEREX 15270189"],
     refs: ["TEREX 15270189"],
-    crossReferences: ["TEREX 15270189", "P777868"],
+    crossReferences: ["TEREX 15270189"],
+    pairedParts: [
+      {
+        partNo: "P777868",
+        relation: "outer",
+        note: "P777869 is the safety / inner filter used together with P777868 primary / outer filter.",
+      },
+    ],
 
     officialUrl: "https://shop.donaldson.com/store/en-th/product/P777869/21959",
     officialImageUrl: null,
@@ -145,6 +152,13 @@ export const uploadedProducts = [
     applications: ["CATERPILLAR 6I2503"],
     refs: ["CATERPILLAR 6I2503"],
     crossReferences: [],
+    pairedParts: [
+      {
+        partNo: "P532504",
+        relation: "inner",
+        note: "P532503 is the primary / outer filter used together with P532504 safety / inner filter.",
+      },
+    ],
 
     imageUrl: "/images/products/donaldson/p532503.jpg",
     officialUrl: "https://shop.donaldson.com/store/en-th/product/P532503/19543",
@@ -181,7 +195,14 @@ export const uploadedProducts = [
 
     applications: ["CATERPILLAR 6I2504"],
     refs: ["CATERPILLAR 6I2504"],
-    crossReferences: ["P532503"],
+    crossReferences: [],
+    pairedParts: [
+      {
+        partNo: "P532503",
+        relation: "outer",
+        note: "P532504 is the safety / inner filter used together with P532503 primary / outer filter.",
+      },
+    ],
 
     imageUrl: "/images/products/donaldson/p532504.jpg",
     officialUrl: "https://shop.donaldson.com/store/en-th/product/P532504/19544",
