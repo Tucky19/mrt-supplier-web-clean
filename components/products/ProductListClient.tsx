@@ -49,6 +49,7 @@ export default function ProductListClient({
             product={product}
             locale={locale}
             searchQuery={searchQuery}
+            variant="search"
           />
         ))}
       </div>

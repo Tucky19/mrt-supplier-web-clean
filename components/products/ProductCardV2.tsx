@@ -6,12 +6,20 @@ import { ShoppingCart } from "lucide-react";
 import { useToast } from "@/components/ui/ToastProvider";
 import { gaAddToQuote } from "@/lib/analytics/ga";
 import { getProductUiText } from "@/lib/i18n/productUi";
+import { getSearchUiText } from "@/lib/i18n/searchUi";
 import { getProductImageUrl } from "@/lib/products/image";
 import { useQuote } from "@/providers/QuoteProvider";
 import type { Product } from "@/types/product";
 
 type SearchProduct = Product & {
   _matchType?: string;
+};
+
+type ProductCardVariant = "default" | "search";
+
+type MatchPresentation = {
+  label: string;
+  className: string;
 };
 
 function normalizeSpecLabel(value: string) {
@@ -55,19 +63,80 @@ function parseQuantity(value: string) {
   return Number.isFinite(parsed) && parsed > 0 ? parsed : 1;
 }
 
+function formatCategoryLabel(value: string | undefined) {
+  return String(value ?? "")
+    .trim()
+    .replace(/[_-]+/g, " ")
+    .replace(/\b\w/g, (character) => character.toUpperCase());
+}
+
+function getMatchPresentation(
+  matchType: string | undefined,
+  query: string,
+  text: ReturnType<typeof getSearchUiText>,
+): MatchPresentation | null {
+  if (!matchType || !query) return null;
+
+  const querySuffix = ` · ${query}`;
+
+  if (matchType === "Exact") {
+    return {
+      label: text.exactMatch,
+      className: "border-blue-200 bg-blue-50 text-blue-900",
+    };
+  }
+
+  if (matchType === "Prefix" || matchType === "Contains") {
+    return {
+      label: text.partNumberMatch,
+      className: "border-sky-200 bg-sky-50 text-sky-900",
+    };
+  }
+
+  if (matchType === "Cross Ref") {
+    return {
+      label: `${text.crossReferenceMatch}${querySuffix}`,
+      className: "border-emerald-200 bg-emerald-50 text-emerald-900",
+    };
+  }
+
+  if (matchType === "Same-brand Ref") {
+    return {
+      label: `${text.sameBrandReferenceMatch}${querySuffix}`,
+      className: "border-teal-200 bg-teal-50 text-teal-900",
+    };
+  }
+
+  if (matchType === "Kit Component") {
+    return {
+      label: `${text.usedTogetherMatch}${querySuffix}`,
+      className: "border-amber-200 bg-amber-50 text-amber-900",
+    };
+  }
+
+  return {
+    label: text.relatedMatch,
+    className: "border-slate-200 bg-slate-100 text-slate-800",
+  };
+}
+
 export default function ProductCardV2({
   product,
   locale = "th",
   searchQuery = "",
+  variant = "default",
 }: {
   product: SearchProduct;
   locale?: string;
   searchQuery?: string;
+  variant?: ProductCardVariant;
 }) {
   const { addItem } = useQuote();
   const { show } = useToast();
   const text = getProductUiText(locale);
+  const searchText = getSearchUiText(locale);
   const isThai = locale === "th";
+  const isSearchVariant = variant === "search";
   const [justAdded, setJustAdded] = useState(false);
   const [quantityInput, setQuantityInput] = useState("1");
   const resetTimerRef = useRef<number | null>(null);
@@ -103,11 +172,12 @@ export default function ProductCardV2({
       : "Added"
     : text.addToQuote;
   const referenceQuery = searchQuery.trim().toUpperCase();
-  const isCrossReferenceResult =
-    product._matchType === "Cross Ref" && referenceQuery.length > 0;
-  const referenceBadgeLabel = isThai
-    ? `อ้างอิงจาก ${referenceQuery}`
-    : `Reference for ${referenceQuery}`;
+  const matchPresentation = getMatchPresentation(
+    product._matchType,
+    referenceQuery,
+    searchText,
+  );
+  const categoryLabel = formatCategoryLabel(product.category);
 
   useEffect(() => {
     return () => {
@@ -175,12 +245,19 @@ export default function ProductCardV2({
   return (
     <div className="group flex h-full flex-col overflow-hidden rounded-[24px] border border-slate-200 bg-[linear-gradient(180deg,#ffffff_0%,#fcfdff_100%)] shadow-[0_10px_26px_rgba(15,23,42,0.05)] transition duration-200 hover:-translate-y-0.5 hover:border-slate-300 hover:shadow-[0_18px_38px_rgba(15,23,42,0.1)]">
       <div className="border-b border-slate-200 bg-[linear-gradient(180deg,#f7fbfd_0%,#ffffff_100%)] p-3 sm:p-4">
-        <div className="mb-3 flex items-start justify-between gap-2">
-          <span className="inline-flex min-h-7 items-center rounded-full border border-sky-100 bg-[linear-gradient(180deg,#ffffff_0%,#f3f8ff_100%)] px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-700 shadow-sm">
-            {product.brand}
-          </span>
+        <div className="flex items-start justify-between gap-2">
+          <div className="flex min-w-0 flex-wrap items-center gap-2">
+            <span className="inline-flex min-h-7 items-center rounded-full border border-sky-100 bg-[linear-gradient(180deg,#ffffff_0%,#f3f8ff_100%)] px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-700 shadow-sm">
+              {product.brand}
+            </span>
+            {isSearchVariant && categoryLabel ? (
+              <span className="truncate text-[11px] font-medium text-slate-500">
+                {categoryLabel}
+              </span>
+            ) : null}
+          </div>
           <span
-            className={`inline-flex min-h-7 items-center gap-1.5 rounded-full px-2.5 py-1 text-[11px] font-semibold ${statusTextClass} ${
+            className={`inline-flex min-h-7 shrink-0 items-center gap-1.5 rounded-full px-2.5 py-1 text-[11px] font-semibold ${statusTextClass} ${
               isRequest ? "bg-amber-50" : "bg-emerald-50"
             }`}
           >
@@ -189,64 +266,116 @@ export default function ProductCardV2({
           </span>
         </div>
 
-        <div
-          className={`flex h-36 items-center justify-center overflow-hidden rounded-[20px] border shadow-[inset_0_1px_0_rgba(255,255,255,0.8)] transition-colors duration-200 sm:h-40 ${
-            hasProductImage
-              ? "border-slate-200 bg-[radial-gradient(circle_at_top,#ffffff_0%,#f8fafc_68%,#eef2f7_100%)]"
-              : "border-dashed border-slate-200 bg-slate-50"
-          }`}
-        >
-          <img
-            src={image}
-            alt={product.partNo}
-            className="h-full w-full object-contain p-4 transition duration-200 group-hover:scale-[1.03] group-hover:brightness-105 sm:p-5"
-            loading="lazy"
-            onError={(event) => {
-              event.currentTarget.src = "/images/placeholder.jpg";
-            }}
-          />
-        </div>
+        {isSearchVariant ? (
+          <>
+            {matchPresentation ? (
+              <div className="mt-3">
+                <span
+                  className={`inline-flex max-w-full items-center rounded-full border px-2.5 py-1 text-[11px] font-semibold ${matchPresentation.className}`}
+                >
+                  {matchPresentation.label}
+                </span>
+              </div>
+            ) : null}
+
+            <Link
+              href={`/${locale}/products/${encodeURIComponent(product.partNo)}`}
+              className="mt-2 block [overflow-wrap:anywhere] text-[1.4rem] font-semibold leading-tight tracking-[-0.035em] text-slate-950 transition-colors hover:text-blue-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-200 sm:text-[1.5rem]"
+            >
+              {product.partNo}
+            </Link>
+
+            {product.title ? (
+              <div className="mt-1 line-clamp-2 text-sm leading-5 text-slate-700">
+                {product.title}
+              </div>
+            ) : null}
+
+            <div className="mt-3 grid grid-cols-[5.5rem_minmax(0,1fr)] gap-3">
+              <div
+                className={`flex h-[5.5rem] items-center justify-center overflow-hidden rounded-2xl border shadow-[inset_0_1px_0_rgba(255,255,255,0.8)] ${
+                  hasProductImage
+                    ? "border-slate-200 bg-[radial-gradient(circle_at_top,#ffffff_0%,#f8fafc_68%,#eef2f7_100%)]"
+                    : "border-dashed border-slate-200 bg-slate-50"
+                }`}
+              >
+                <img
+                  src={image}
+                  alt={`${product.brand} ${product.partNo}`}
+                  className="h-full w-full object-contain p-2.5 transition duration-200 group-hover:scale-[1.03]"
+                  loading="lazy"
+                  onError={(event) => {
+                    event.currentTarget.src = "/images/placeholder.jpg";
+                  }}
+                />
+              </div>
+
+              <div className="min-w-0 rounded-2xl border border-slate-200 bg-white/80 px-3 py-2.5">
+                <div className="text-[10px] font-semibold uppercase tracking-[0.14em] text-slate-400">
+                  {isThai ? "สเปกโดยสรุป" : "Specification Summary"}
+                </div>
+                <div className="mt-1 line-clamp-2 text-xs leading-5 text-slate-700 sm:text-sm">
+                  {specText}
+                </div>
+              </div>
+            </div>
+          </>
+        ) : (
+          <div
+            className={`mt-3 flex h-36 items-center justify-center overflow-hidden rounded-[20px] border shadow-[inset_0_1px_0_rgba(255,255,255,0.8)] transition-colors duration-200 sm:h-40 ${
+              hasProductImage
+                ? "border-slate-200 bg-[radial-gradient(circle_at_top,#ffffff_0%,#f8fafc_68%,#eef2f7_100%)]"
+                : "border-dashed border-slate-200 bg-slate-50"
+            }`}
+          >
+            <img
+              src={image}
+              alt={`${product.brand} ${product.partNo}`}
+              className="h-full w-full object-contain p-4 transition duration-200 group-hover:scale-[1.03] group-hover:brightness-105 sm:p-5"
+              loading="lazy"
+              onError={(event) => {
+                event.currentTarget.src = "/images/placeholder.jpg";
+              }}
+            />
+          </div>
+        )}
       </div>
 
       <div className="flex flex-1 flex-col p-4 sm:p-5">
-        <div className="text-[10px] font-semibold uppercase tracking-[0.16em] text-slate-400">
-          {isThai ? "รหัสสินค้า" : "Part Number"}
-        </div>
+        {!isSearchVariant ? (
+          <>
+            <div className="text-[10px] font-semibold uppercase tracking-[0.16em] text-slate-400">
+              {isThai ? "รหัสสินค้า" : "Part Number"}
+            </div>
 
-        {isCrossReferenceResult && (
-          <div className="mt-2">
-            <span className="inline-flex max-w-full items-center rounded-full border border-emerald-200 bg-emerald-50 px-2.5 py-1 text-[11px] font-semibold text-emerald-800">
-              {referenceBadgeLabel}
-            </span>
-          </div>
-        )}
+            <Link
+              href={`/${locale}/products/${encodeURIComponent(product.partNo)}`}
+              className="mt-1 [overflow-wrap:anywhere] text-[1.45rem] font-semibold leading-tight tracking-[-0.04em] text-slate-950 transition-colors hover:text-blue-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-200 sm:text-[1.55rem]"
+            >
+              {product.partNo}
+            </Link>
 
-        <Link
-          href={`/${locale}/products/${encodeURIComponent(product.partNo)}`}
-          className="mt-1 break-all text-[1.45rem] font-semibold leading-tight tracking-[-0.04em] text-slate-950 transition-colors hover:text-blue-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-200 sm:text-[1.55rem]"
-        >
-          {product.partNo}
-        </Link>
+            {product.title ? (
+              <div className="mt-2 min-h-[2.75rem] line-clamp-2 text-sm leading-6 text-slate-700">
+                {product.title}
+              </div>
+            ) : null}
 
-        {product.title && (
-          <div className="mt-2 min-h-[2.75rem] line-clamp-2 text-sm leading-6 text-slate-700">
-            {product.title}
-          </div>
-        )}
-
-        <div className="mt-4 rounded-[18px] border border-slate-200 bg-slate-50/80 px-3.5 py-3">
-          <div className="text-[10px] font-semibold uppercase tracking-[0.14em] text-slate-400">
-            {isThai ? "สเปกโดยสรุป" : "Specification Summary"}
-          </div>
-          <div className="mt-1.5 min-h-[3.25rem] line-clamp-2 text-sm leading-6 text-slate-700">
-            {specText}
-          </div>
-        </div>
+            <div className="mt-4 rounded-[18px] border border-slate-200 bg-slate-50/80 px-3.5 py-3">
+              <div className="text-[10px] font-semibold uppercase tracking-[0.14em] text-slate-400">
+                {isThai ? "สเปกโดยสรุป" : "Specification Summary"}
+              </div>
+              <div className="mt-1.5 min-h-[3.25rem] line-clamp-2 text-sm leading-6 text-slate-700">
+                {specText}
+              </div>
+            </div>
+          </>
+        ) : null}
 
         {refs.length > 0 && (
-          <div className="mt-4">
+          <div className={isSearchVariant ? "order-2 mt-3" : "mt-4"}>
             <div className="mb-2 text-[10px] font-semibold uppercase tracking-[0.14em] text-slate-400">
-              {isThai ? "อ้างอิง / ทดแทน" : "Reference / Interchange"}
+              {text.references}
             </div>
             <div className="flex min-h-[2.5rem] flex-wrap content-start gap-2">
               {refs.map((ref) => (
@@ -261,14 +390,14 @@ export default function ProductCardV2({
           </div>
         )}
 
-        {product.shortDescription && (
+        {!isSearchVariant && product.shortDescription && (
           <div className="mt-4 hidden line-clamp-2 text-xs leading-5 text-slate-500 sm:block">
             {product.shortDescription}
           </div>
         )}
 
-        <div className="mt-auto pt-4">
-          {product.officialUrl && (
+        <div className={isSearchVariant ? "order-1" : "mt-auto pt-4"}>
+          {!isSearchVariant && product.officialUrl && (
             <a
               href={product.officialUrl}
               target="_blank"
@@ -314,6 +443,7 @@ export default function ProductCardV2({
 
           <div className="flex gap-2">
             <button
+              type="button"
               onClick={handleAdd}
               disabled={justAdded}
               className={`inline-flex min-h-11 flex-1 items-center justify-center gap-1.5 rounded-xl px-3 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-2 ${
@@ -328,11 +458,24 @@ export default function ProductCardV2({
 
             <Link
               href={`/${locale}/products/${encodeURIComponent(product.partNo)}`}
-              className="inline-flex min-h-11 flex-1 items-center justify-center rounded-xl border border-slate-300 px-3 py-2.5 text-sm font-medium text-slate-700 transition-colors hover:border-slate-400 hover:bg-slate-50 hover:text-slate-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-200"
+              className={`inline-flex min-h-11 items-center justify-center rounded-xl border border-slate-300 px-3 py-2.5 text-sm font-medium text-slate-700 transition-colors hover:border-slate-400 hover:bg-slate-50 hover:text-slate-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-200 ${
+                isSearchVariant ? "shrink-0" : "flex-1"
+              }`}
             >
               {text.details}
             </Link>
           </div>
+
+          {isSearchVariant && product.officialUrl ? (
+            <a
+              href={product.officialUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-3 inline-flex text-xs font-medium text-sky-700 underline-offset-2 hover:text-sky-800 hover:underline"
+            >
+              {officialReferenceLabel}
+            </a>
+          ) : null}
         </div>
       </div>
     </div>

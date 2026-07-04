@@ -389,6 +389,7 @@ export default function SearchBar({
         action={`/${locale}/products`}
         method="get"
         onSubmit={handleSubmit}
+        aria-busy={isPending}
         className="relative w-full"
       >
         <div className="flex min-h-[60px] items-center gap-3 rounded-full border border-slate-200 bg-white px-4 shadow-sm transition focus-within:border-blue-400 focus-within:shadow-md sm:px-5">
@@ -420,6 +421,7 @@ export default function SearchBar({
             onFocus={() => setIsFocused(true)}
             onKeyDown={handleKeyDown}
             placeholder={text.searchPlaceholder}
+            aria-label={text.searchInputLabel}
             className="h-full w-full bg-transparent py-4 text-[15px] text-slate-900 placeholder:text-slate-400 outline-none"
           />
 
@@ -428,9 +430,13 @@ export default function SearchBar({
             disabled={isPending}
             className="rounded-full bg-blue-900 px-4 py-2 text-sm font-medium text-white transition hover:bg-blue-800 disabled:opacity-50 sm:px-5"
           >
-            {isPending ? "..." : text.searchButton}
+            {isPending ? text.searching : text.searchButton}
           </button>
         </div>
+
+        <span className="sr-only" role="status" aria-live="polite">
+          {isPending ? text.searching : ""}
+        </span>
 
         {showDropdown && (
           <div className="absolute left-0 right-0 top-[68px] z-20 max-h-[340px] overflow-y-auto rounded-2xl border border-slate-200 bg-white shadow-lg shadow-slate-200/70 sm:max-h-[380px]">

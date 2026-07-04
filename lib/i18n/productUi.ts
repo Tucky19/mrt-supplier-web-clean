@@ -18,6 +18,7 @@ export function getProductUiText(locale: string) {
       ? "รองรับการเทียบรหัส OEM และติดตาม RFQ ภายใน 24 ชั่วโมง"
       : "OEM reference support and RFQ follow-up within 24 hours",
     crossReference: isThai ? "Cross Reference" : "Cross Reference",
+    references: isThai ? "ข้อมูลอ้างอิง" : "References",
     applications: isThai ? "การใช้งาน" : "Applications",
     specifications: isThai ? "สเปก" : "Specifications",
     viewOfficialSource: isThai

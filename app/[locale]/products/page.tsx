@@ -21,6 +21,7 @@ type PageProps = {
 
 const DEFAULT_PRODUCT_LIMIT = 24;
 const SEARCH_RESULT_LIMIT = 48;
+const INITIAL_RENDER_COUNT = 12;
 const LOCALES = ["th", "en"] as const;
 const SITE_URL = "https://mrtsupplier.com";
 
@@ -162,6 +163,21 @@ export default async function ProductsPage({
     !hasExactPartNumberResult && crossReferenceResults.length > 0;
   const showMissingProductRequest =
     requestMissingProduct || visibleProducts.length === 0;
+  const initialVisibleCount = Math.min(
+    INITIAL_RENDER_COUNT,
+    visibleProducts.length,
+  );
+  const resultCountText = hasQuery
+    ? isThai
+      ? visibleProducts.length === SEARCH_RESULT_LIMIT
+        ? `แสดงผลลัพธ์ที่ตรงที่สุด ${visibleProducts.length} รายการ โดยแสดง ${initialVisibleCount} รายการแรกด้านล่าง`
+        : `พบ ${visibleProducts.length} รายการ โดยแสดง ${initialVisibleCount} รายการแรกด้านล่าง`
+      : visibleProducts.length === SEARCH_RESULT_LIMIT
+        ? `Showing the top ${visibleProducts.length} matches, with the first ${initialVisibleCount} below.`
+        : `${visibleProducts.length} matches, with the first ${initialVisibleCount} below.`
+    : isThai
+      ? `รายการแนะนำ ${visibleProducts.length} รายการ โดยแสดง ${initialVisibleCount} รายการแรกด้านล่าง`
+      : `${visibleProducts.length} recommended items, with the first ${initialVisibleCount} below.`;
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -181,7 +197,7 @@ export default async function ProductsPage({
           </p>
 
           <div className="-mx-4 sticky top-[64px] z-40 mt-5 border-y bg-white/95 px-4 py-2.5 backdrop-blur md:static md:z-auto md:mx-0 md:border-y-0 md:bg-transparent md:px-0 md:py-0 md:backdrop-blur-0">
-            <SearchBar locale={locale} defaultValue={query} />
+            <SearchBar locale={locale} defaultValue={query} autoFocus={false} />
           </div>
 
           <MultiPartNumberSearch locale={locale} />
@@ -238,13 +254,7 @@ export default async function ProductsPage({
               </div>
 
               <div className="mt-1 text-xs leading-5 text-slate-500">
-                {hasQuery
-                  ? isThai
-                    ? `${visibleProducts.length} รายการ`
-                    : `${visibleProducts.length} items`
-                  : isThai
-                    ? `แสดง ${visibleProducts.length} รายการแรก เพื่อให้ไล่ดูได้เร็วขึ้น`
-                    : `Showing the first ${visibleProducts.length} items to keep scanning fast.`}
+                {resultCountText}
               </div>
             </div>
 
@@ -323,13 +333,13 @@ export default async function ProductsPage({
               <div className="mb-5 rounded-2xl border border-dashed border-slate-300 bg-white px-6 py-6 text-center sm:mb-6">
                 <p className="text-base font-medium text-slate-900">
                   {isThai
-                    ? "ยังไม่พบเบอร์เทียบในระบบ"
-                    : "No reference match found in the system"}
+                    ? "ยังไม่พบสินค้าที่ตรงกับคำค้นหา"
+                    : "No matching product found"}
                 </p>
                 <p className="mt-2 text-sm text-slate-500">
                   {isThai
-                    ? "ส่ง Part Number ให้ทีม MRT ช่วยตรวจสอบเพิ่มเติมได้"
-                    : "Send the part number to MRT for further checking."}
+                    ? "ส่ง Part Number, Cross Reference, รูปสินค้า หรือข้อมูลการใช้งานให้ทีม MRT ช่วยตรวจสอบได้"
+                    : "Send the part number, cross reference, product photo, or application details for our team to check."}
                 </p>
               </div>
             )}
@@ -364,9 +374,9 @@ export default async function ProductsPage({
           <ProductListClient
             products={visibleProducts}
             locale={locale}
-            initialCount={12}
+            initialCount={INITIAL_RENDER_COUNT}
             incrementCount={12}
-            searchQuery={hasCrossReferenceResults ? query : ""}
+            searchQuery={hasQuery ? query : ""}
           />
         )}
       </section>
