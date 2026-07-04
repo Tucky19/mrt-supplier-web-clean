@@ -2436,7 +2436,7 @@ export const donaldsonPriorityProducts: Product[] = [
       { label: "Style", value: "Spin-On" },
     ],
     imageUrl: "/images/products/donaldson/p550903.jpg",
-    officialUrl: "https://shop.donaldson.com/store/en-th/product/P550903",
+    officialUrl: "https://shop.donaldson.com/store/en-th/product/P550903/37023",
     refs: [],
     crossReferences: ["Fleetguard FS19781"],
     stockStatus: "request",
