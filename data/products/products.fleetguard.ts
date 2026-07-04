@@ -26,14 +26,15 @@ export const fleetguardProducts: Product[] = [
           "North America, China, Europe, South America, South East Asia, South Pacific, Others, Mexico and Central America",
       },
     ],
-    officialUrl: "https://www.fleetguard.com/",
+    officialUrl:
+      "https://www.fleetguard.com/product/lf14000nn/01t5x000008FDTrAAO",
     refs: [],
     crossReferences: ["Donaldson P559000"],
     pairedParts: [],
     stockStatus: "request",
     sourceType: "official",
     sourceNote:
-      "Official Fleetguard PDF; Fleetguard screenshot supplied by user confirms Donaldson P559000 cross-reference. Fleetguard replaces/upgrade notes LF9080, LF9001, and LF14001NN are not modeled as refs because the schema does not separate those relation types.",
+      "Official Fleetguard product page and PDF; Fleetguard search evidence confirms Donaldson P559000 cross-reference. Fleetguard replaces/upgrade notes LF9080, LF9001, and LF14001NN are not modeled as refs because the schema does not separate those relation types.",
     dataQuality: "verified",
   },
 ];
