@@ -6,6 +6,8 @@ export function getSearchUiText(locale: string) {
       ? "ค้นหา Part Number, Cross Reference หรือชื่อสินค้า"
       : "Search part number, cross reference, or description",
     searchButton: isThai ? "ค้นหา" : "Search",
+    searching: isThai ? "ค้นหา..." : "Searching...",
+    searchInputLabel: isThai ? "ค้นหาสินค้า" : "Search products",
     tryLabel: isThai ? "ตัวอย่าง:" : "Try:",
     partNumber: isThai ? "Part Number" : "Part Number",
     crossRef: isThai ? "Cross Reference" : "Cross Ref",
@@ -19,6 +21,14 @@ export function getSearchUiText(locale: string) {
     sameBrandReferences: isThai ? "Same-brand Reference" : "Same-brand References",
     usedTogetherMatches: isThai ? "Used together / Kit components" : "Used together / Kit components",
     relatedMatches: isThai ? "ผลลัพธ์ที่เกี่ยวข้อง" : "Related Matches",
+    exactMatch: isThai ? "ตรงกับ Part Number" : "Exact part match",
+    partNumberMatch: isThai ? "ตรงกับรหัสสินค้า" : "Part number match",
+    crossReferenceMatch: isThai ? "ตรงกับ Cross Reference" : "Cross-reference match",
+    sameBrandReferenceMatch: isThai
+      ? "รหัสอ้างอิงแบรนด์เดียวกัน"
+      : "Same-brand reference",
+    usedTogetherMatch: isThai ? "สินค้าที่ใช้ร่วมกัน" : "Used-together part",
+    relatedMatch: isThai ? "ผลลัพธ์ที่เกี่ยวข้อง" : "Related match",
     viewAllResults: isThai
       ? "ดูผลลัพธ์ทั้งหมดสำหรับ"
       : "View all results for",
