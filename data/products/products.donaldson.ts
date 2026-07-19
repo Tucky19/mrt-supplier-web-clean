@@ -250,6 +250,7 @@ const rawDonaldson: RawDonaldson[] = [
     title: "Air Filter",
     category: "air_filter",
     stockStatus: "request" as const,
+    officialUrl: "https://shop.donaldson.com/store/en-th/product/P181054/17816",
     spec: "Primary finned air filter",
     specifications: [
       { label: "Type", value: "Air Filter" },
@@ -265,6 +266,7 @@ const rawDonaldson: RawDonaldson[] = [
     title: "Air Filter",
     category: "air_filter",
     stockStatus: "request" as const,
+    officialUrl: "https://shop.donaldson.com/store/en-th/product/P181064/17826",
     spec: "Primary finned air filter",
     specifications: [
       { label: "Type", value: "Air Filter" },
@@ -280,6 +282,7 @@ const rawDonaldson: RawDonaldson[] = [
     title: "Air Filter",
     category: "air_filter",
     stockStatus: "request" as const,
+    officialUrl: "https://shop.donaldson.com/store/en-th/product/P181082/17842",
     spec: "Primary round air filter",
     specifications: [
       { label: "Type", value: "Air Filter" },
@@ -377,6 +380,7 @@ const rawDonaldson: RawDonaldson[] = [
     title: "Air Filter, Primary Round",
     category: "air_filter",
     stockStatus: "request" as const,
+    officialUrl: "https://shop.donaldson.com/store/en-th/product/P181191/17906",
     spec: "Overall L 454.5 mm x OD 221.2 mm x ID 135.9 mm x L 442 mm Primary Round Air Filter",
     specifications: [
       { label: "Overall Length", value: "454.5 mm (17.89 inch)" },
@@ -425,6 +429,7 @@ const rawDonaldson: RawDonaldson[] = [
     title: "Hydraulic Filter",
     category: "hydraulic_filter",
     stockStatus: "request" as const,
+    officialUrl: "https://shop.donaldson.com/store/en-th/product/P169478/16452",
     spec: "Hydraulic filter cartridge",
     specifications: [
       { label: "Type", value: "Hydraulic Filter" },
@@ -485,6 +490,7 @@ const donaldsonBatch1: RawDonaldson[] = [
     title: "Hydraulic Filter Cartridge",
     category: "hydraulic_filter",
     image: "/images/products/donaldson/p555461.jpg",
+    officialUrl: "https://shop.donaldson.com/store/en-th/product/P555461/20930",
     spec: "OD 128.8 mm x ID 85.1 mm x L 279.4 mm x 2 micron Hydraulic Cartridge",
     cross_reference: [],
     specifications: [
@@ -507,6 +513,7 @@ const donaldsonBatch1: RawDonaldson[] = [
     title: "Air Filter",
     category: "air_filter",
     image: "/images/products/donaldson/x770088.jpg",
+    officialUrl: "https://shop.donaldson.com/store/en-th/product/X770088/22949",
     spec: "Outlet 106 mm x Body Max 197 mm x Body Length 655 mm x Primary DuraLite Air Filter",
     cross_reference: [],
     specifications: [
@@ -1264,6 +1271,7 @@ const donaldsonBatch1: RawDonaldson[] = [
     title: "Fuel Filter, Spin-On",
     category: "fuel_filter",
     image: "/images/products/donaldson/p554620.jpg",
+    officialUrl: "https://shop.donaldson.com/store/en-th/product/P554620/20900",
     spec: "OD 93 mm x L 136 mm x Thread M16 x 1.5 x 9 micron Fuel Spin-On",
     cross_reference: [],
     specifications: [
@@ -3240,6 +3248,7 @@ const donaldsonBatchNewA: RawDonaldson[] = [
     title: "Lube Filter, Spin-On Full Flow",
     category: "oil_filter",
     image: "/images/products/donaldson/p559000.jpg",
+    officialUrl: "https://shop.donaldson.com/store/en-th/product/P559000/21000",
     spec: "OD 118 mm x L 297 mm x Thread M95 x 2.5 x 15 micron Full-Flow Lube Spin-On",
     cross_reference: [],
     specifications: [
@@ -3304,6 +3313,7 @@ const donaldsonBatchNewA: RawDonaldson[] = [
     brand: "Donaldson",
     title: "Air Filter, Primary Finned",
     category: "air_filter",
+    officialUrl: "https://shop.donaldson.com/store/en-th/product/P181045/17808",
     spec: "OD 201.5 mm x ID 115.9 mm x L 254 mm Primary Finned Air Filter",
     specifications: [
       { label: "Outer Diameter", value: "201.5 mm (7.93 inch)" },
