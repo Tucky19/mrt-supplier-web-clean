@@ -713,7 +713,7 @@ const donaldsonBatch1: RawDonaldson[] = [
     title: "Air Filter, Safety",
     category: "air_filter",
     image: "/images/products/donaldson/p112212.jpg",
-    officialUrl: "https://shop.donaldson.com/store/en-us/product/P112212",
+    officialUrl: "https://shop.donaldson.com/store/en-th/product/P112212/14841",
     spec: "OD 85.4 mm x ID 57.3 mm x L 330.2 mm x Safety Round Air Filter",
     cross_reference: [],
     specifications: [
@@ -734,7 +734,7 @@ const donaldsonBatch1: RawDonaldson[] = [
     title: "Air Filter, Safety",
     category: "air_filter",
     image: "/images/products/donaldson/p119373.jpg",
-    officialUrl: "https://shop.donaldson.com/store/en-us/product/P119373",
+    officialUrl: "https://shop.donaldson.com/store/en-th/product/P119373/15053",
     spec: "OD 162.5 mm x ID 134.1 mm x L 406.5 mm x Safety Round Air Filter",
     cross_reference: [],
     specifications: [
@@ -756,7 +756,7 @@ const donaldsonBatch1: RawDonaldson[] = [
     title: "Air Filter, Safety",
     category: "air_filter",
     image: "/images/products/donaldson/p119375.jpg",
-    officialUrl: "https://shop.donaldson.com/store/en-us/product/P119375",
+    officialUrl: "https://shop.donaldson.com/store/en-th/product/P119375/15055",
     spec: "OD 116.4 mm x ID 88.3 mm x L 397.5 mm x Safety Round Air Filter",
     cross_reference: [],
     specifications: [
@@ -778,7 +778,7 @@ const donaldsonBatch1: RawDonaldson[] = [
     title: "Air Filter, Safety",
     category: "air_filter",
     image: "/images/products/donaldson/p123160.jpg",
-    officialUrl: "https://shop.donaldson.com/store/en-us/product/P123160",
+    officialUrl: "https://shop.donaldson.com/store/en-th/product/P123160/15172",
     spec: "OD 79.5 mm x ID 54.6 mm x L 254 mm x Safety Round Air Filter",
     cross_reference: [],
     specifications: [
@@ -798,7 +798,7 @@ const donaldsonBatch1: RawDonaldson[] = [
     title: "Air Filter, Safety",
     category: "air_filter",
     image: "/images/products/donaldson/p127315.jpg",
-    officialUrl: "https://shop.donaldson.com/store/en-us/product/P127315",
+    officialUrl: "https://shop.donaldson.com/store/en-th/product/P127315/15260",
     spec: "OD 144.8 mm x ID 116.3 mm x L 304.8 mm x Safety Round Air Filter",
     cross_reference: [],
     specifications: [
@@ -819,7 +819,7 @@ const donaldsonBatch1: RawDonaldson[] = [
     title: "Air Filter, Safety",
     category: "air_filter",
     image: "/images/products/donaldson/p131394.jpg",
-    officialUrl: "https://shop.donaldson.com/store/en-us/product/P131394",
+    officialUrl: "https://shop.donaldson.com/store/en-th/product/P131394/15383",
     spec: "OD 85.3 mm x ID 73.7 mm x L 279.4 mm x Safety Round Air Filter",
     cross_reference: [],
     specifications: [
@@ -841,7 +841,7 @@ const donaldsonBatch1: RawDonaldson[] = [
     title: "Air Filter, Safety",
     category: "air_filter",
     image: "/images/products/donaldson/p134354.jpg",
-    officialUrl: "https://shop.donaldson.com/store/en-us/product/P134354",
+    officialUrl: "https://shop.donaldson.com/store/en-th/product/P134354/15439",
     spec: "OD 162.4 mm x ID 134.3 mm x L 355.7 mm x Safety Round Air Filter",
     cross_reference: [],
     specifications: [
