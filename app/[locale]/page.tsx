@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
 import BrandShowcase from "@/components/home/BrandShowcase";
@@ -253,43 +252,53 @@ export default async function Page({
       <JsonLd data={breadcrumbJsonLd} />
       <SiteHeader locale={locale} />
 
-      <section className="overflow-hidden bg-[radial-gradient(circle_at_top_left,_rgba(56,189,248,0.18),_transparent_28%),linear-gradient(180deg,_#020617_0%,_#0f172a_52%,_#1e293b_100%)] px-4 py-16 text-white sm:py-20">
-        <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(420px,0.95fr)] lg:items-center">
-          <div className="max-w-3xl">
+      <section className="overflow-hidden bg-[radial-gradient(circle_at_top,_rgba(56,189,248,0.16),_transparent_30%),linear-gradient(180deg,_#020617_0%,_#0f172a_58%,_#172554_100%)] px-4 py-14 text-white sm:py-20">
+        <div className="mx-auto flex max-w-6xl flex-col items-center text-center">
+          <div className="max-w-4xl">
             <p className="text-xs font-semibold uppercase tracking-[0.22em] text-sky-300">
               {isThai
                 ? "B2B INDUSTRIAL SOURCING & RFQ"
                 : "B2B Industrial Sourcing & RFQ"}
             </p>
 
-            <h1 className="mt-5 text-3xl font-bold leading-[1.14] tracking-tight sm:text-5xl">
+            <h1 className="mt-5 text-3xl font-bold leading-[1.14] tracking-tight sm:text-5xl lg:text-[3.5rem]">
               {isThai
-                ? "จัดหาไส้กรอง ลูกปืน และอะไหล่อุตสาหกรรมด้วย Part No. และ Cross Reference"
-                : "Source filters, bearings, and industrial spare parts by Part No. and Cross Reference"}
+                ? "ค้นหาไส้กรอง ลูกปืน และอะไหล่อุตสาหกรรมจากเบอร์ที่คุณมี"
+                : "Find filters, bearings, and industrial spare parts from the numbers you have"}
             </h1>
 
-            <p className="mt-5 max-w-2xl text-sm leading-7 text-slate-300 sm:text-base">
+            <p className="mx-auto mt-5 max-w-3xl text-sm leading-7 text-slate-300 sm:text-base">
               {isThai
-                ? "MRT Supplier Co., Ltd. ช่วยฝ่ายจัดซื้อและทีมซ่อมบำรุงค้นหาไส้กรอง ลูกปืน และอะไหล่อุตสาหกรรมจาก Part No., Cross Reference, แบรนด์ หรือข้อมูลเครื่องจักร พร้อมส่ง RFQ ให้ทีมตรวจสอบและเสนอราคา"
-                : "MRT Supplier Co., Ltd. helps procurement and maintenance teams find filters, bearings, and industrial spare parts from Part No., Cross Reference, brand, or machine details, then submit a clear RFQ for review."}
+                ? "ใส่ Part Number, Cross Reference หรือชื่อสินค้า ระบบจะแสดงรายการที่เกี่ยวข้องเพื่อเพิ่มเข้า RFQ หากไม่พบ ทีม MRT Supplier จะช่วยตรวจสอบและจัดหาให้"
+                : "Enter a part number, cross reference, or product name. Review relevant matches and add them to your RFQ, or ask MRT Supplier to identify and source a missing item."}
             </p>
+          </div>
 
-            <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-              <Link
-                href={`/${locale}/products`}
-                className="inline-flex min-h-12 items-center justify-center rounded-xl bg-white px-5 py-3 text-sm font-semibold text-slate-950 transition hover:bg-slate-100"
-              >
-                {isThai ? "ค้นหาสินค้า" : "Search products"}
-              </Link>
+          <div className="mt-9 w-full max-w-4xl rounded-[2rem] border border-white/15 bg-white/10 p-4 text-left shadow-[0_28px_80px_rgba(2,6,23,0.35)] backdrop-blur sm:p-6">
+            <div className="mb-4 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+              <div>
+                <p className="text-sm font-semibold text-white">
+                  {isThai
+                    ? "ค้นหาสินค้าและเบอร์เทียบ"
+                    : "Search products and cross references"}
+                </p>
+                <p className="mt-1 text-xs leading-5 text-slate-300">
+                  {isThai
+                    ? "เริ่มจากข้อมูลที่มี ระบบจะแนะนำผลลัพธ์ที่ใกล้เคียงที่สุด"
+                    : "Start with the information you have and review the closest matches."}
+                </p>
+              </div>
               <Link
                 href={`/${locale}/quote`}
-                className="inline-flex min-h-12 items-center justify-center rounded-xl border border-white/20 bg-white/10 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/15"
+                className="inline-flex w-fit items-center text-sm font-semibold text-sky-200 transition hover:text-white"
               >
-                {isThai ? "ขอใบเสนอราคา" : "Request Quote"}
+                {isThai
+                  ? "มีรายการแล้ว? เปิด RFQ →"
+                  : "Already have a list? Open RFQ →"}
               </Link>
             </div>
 
-            <div className="mt-8 max-w-3xl">
+            <div className="flex justify-center">
               <SearchBar
                 locale={locale}
                 autoFocus={false}
@@ -298,61 +307,24 @@ export default async function Page({
             </div>
 
             <MissingProductRequestCta locale={locale} />
-
-            <div className="mt-6 flex flex-wrap gap-3 text-xs text-slate-300">
-              <span className="rounded-full border border-slate-700/80 bg-slate-900/50 px-3 py-1.5">
-                {isThai
-                  ? "ค้นหาด้วย Part Number / Cross Reference"
-                  : "Part Number & Cross Reference Support"}
-              </span>
-              <span className="rounded-full border border-slate-700/80 bg-slate-900/50 px-3 py-1.5">
-                {isThai
-                  ? "ส่งหลายรายการเข้า RFQ ได้"
-                  : "Bulk RFQ for multiple items"}
-              </span>
-              <span className="rounded-full border border-slate-700/80 bg-slate-900/50 px-3 py-1.5">
-                {isThai
-                  ? "สำหรับ Maintenance และ Purchasing"
-                  : "Built for maintenance and procurement teams"}
-              </span>
-            </div>
           </div>
 
-          <div className="relative">
-            <div className="relative overflow-hidden rounded-[2rem] border border-slate-700/80 bg-slate-900/40 shadow-[0_30px_90px_rgba(2,6,23,0.45)]">
-              <div className="absolute inset-x-0 top-0 z-10 flex items-center justify-between border-b border-white/10 bg-slate-950/55 px-5 py-3 backdrop-blur">
-                <div>
-                  <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-sky-300">
-                    MRT SUPPLIER WORKFLOW
-                  </p>
-                  <p className="mt-1 text-sm font-medium text-white">
-                    {isThai
-                      ? "ค้นหา Part No. ตรวจสอบ Cross Reference และส่ง RFQ"
-                      : "Search Part No., check cross references, and submit RFQs"}
-                  </p>
-                </div>
-                <div className="rounded-full border border-emerald-400/30 bg-emerald-400/10 px-3 py-1 text-xs font-medium text-emerald-200">
-                  {isThai ? "พร้อม Review" : "Ready to review"}
-                </div>
-              </div>
-
-              <div className="relative aspect-[16/11]">
-                <Image
-                  src="/hero/warehouse-main.png"
-                  alt={
-                    isThai
-                      ? "ภาพงานจัดหา Industrial Parts และแบรนด์ที่ MRT Supplier รองรับ"
-                      : "Industrial machinery and maintenance use cases supported by MRT Supplier"
-                  }
-                  fill
-                  priority
-                  loading="eager"
-                  sizes="(max-width: 1024px) 100vw, 45vw"
-                  className="object-cover object-[66%_center] lg:object-[62%_center]"
-                />
-                <div className="absolute inset-0 bg-gradient-to-tr from-slate-950/75 via-slate-950/20 to-slate-950/10" />
-              </div>
-            </div>
+          <div className="mt-7 flex flex-wrap justify-center gap-3 text-xs text-slate-300">
+            <span className="rounded-full border border-white/15 bg-slate-950/30 px-3 py-1.5">
+              {isThai
+                ? "ค้นหาด้วย Part Number / Cross Reference"
+                : "Part Number & Cross Reference Support"}
+            </span>
+            <span className="rounded-full border border-white/15 bg-slate-950/30 px-3 py-1.5">
+              {isThai
+                ? "ส่งหลายรายการเข้า RFQ ได้"
+                : "Bulk RFQ for multiple items"}
+            </span>
+            <span className="rounded-full border border-white/15 bg-slate-950/30 px-3 py-1.5">
+              {isThai
+                ? "สำหรับ Maintenance และ Purchasing"
+                : "Built for maintenance and procurement teams"}
+            </span>
           </div>
         </div>
       </section>
