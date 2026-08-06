@@ -1,13 +1,12 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import BrandShowcase from "@/components/home/BrandShowcase";
-import MissingProductRequestCta from "@/components/home/MissingProductRequestCta";
 import ProductGrid from "@/components/home/ProductGrid";
 import QuoteCTASection from "@/components/home/QuoteCTASection";
+import SearchFirstHero from "@/components/home/SearchFirstHero";
 import WhyChooseUsSection from "@/components/home/WhyChooseUsSection";
 import SiteFooter from "@/components/layout/SiteFooter";
 import SiteHeader from "@/components/layout/SiteHeader";
-import SearchBar from "@/components/search/SearchBar";
 import JsonLd from "@/components/seo/JsonLd";
 
 type PageProps = {
@@ -77,14 +76,6 @@ export default async function Page({
       },
     ],
   };
-  const homepageExampleQueries = [
-    "FUEL FILTER",
-    "LUBE FILTER",
-    "HYDRAULIC FILTER",
-    "AIR FILTER",
-    "OIL SEPARATOR",
-  ];
-
   const featuredBrands = [
     {
       key: "donaldson",
@@ -183,39 +174,6 @@ export default async function Page({
     },
   ];
 
-  const trustPoints = [
-    {
-      title: isThai ? "MRT Supplier Co., Ltd." : "MRT Supplier Co., Ltd.",
-      description: isThai
-        ? "ผู้เชี่ยวชาญจัดหาไส้กรอง ลูกปืน และอะไหล่อุตสาหกรรมสำหรับโรงงาน ผู้รับเหมา และฝ่ายซ่อมบำรุง"
-        : "Specialists in sourcing filters, bearings, and industrial spare parts for factories, contractors, and maintenance teams.",
-    },
-    {
-      title: isThai ? "ค้นหาด้วย Part No. / Cross Reference" : "Part No. & Cross Reference support",
-      description: isThai
-        ? "ค้นหาหรือส่ง Part No., Cross Reference, เบอร์เทียบ แบรนด์ หรือข้อมูลเครื่องจักรให้ทีมช่วยตรวจสอบ"
-        : "Search or send Part No., cross references, equivalent numbers, brands, or machine details for review.",
-    },
-    {
-      title: isThai ? "โฟกัสไส้กรองและลูกปืน" : "Focused on filters and bearings",
-      description: isThai
-        ? "ครอบคลุมไส้กรอง ลูกปืน และอะไหล่อุตสาหกรรมที่ใช้ในเครื่องจักรและงานซ่อมบำรุง"
-        : "Coverage for filters, bearings, and related industrial spare parts used in machinery and maintenance work.",
-    },
-    {
-      title: isThai ? "เหมาะกับงานจัดซื้อ B2B" : "Built for B2B procurement",
-      description: isThai
-        ? "รวบรวมหลายรายการ ส่ง RFQ ครั้งเดียว และรับการติดตามกลับที่ชัดเจนสำหรับฝ่ายจัดซื้อ"
-        : "Collect multiple line items, submit one RFQ, and receive clear follow-up for your purchasing team.",
-    },
-    {
-      title: isThai ? "ตรวจสอบก่อนเสนอราคา" : "Checked before quotation",
-      description: isThai
-        ? "ตรวจสอบ Spec, Cross Reference และการใช้งานก่อนสรุปราคา สต็อก และทางเลือกที่เหมาะสม"
-        : "Specs, cross references, and applications are reviewed before price, stock, and alternatives are confirmed.",
-    },
-  ];
-
   const workflowSteps = [
     {
       step: "01",
@@ -252,118 +210,7 @@ export default async function Page({
       <JsonLd data={breadcrumbJsonLd} />
       <SiteHeader locale={locale} />
 
-      <section className="overflow-hidden bg-[radial-gradient(circle_at_top,_rgba(56,189,248,0.16),_transparent_30%),linear-gradient(180deg,_#020617_0%,_#0f172a_58%,_#172554_100%)] px-4 py-14 text-white sm:py-20">
-        <div className="mx-auto flex max-w-6xl flex-col items-center text-center">
-          <div className="max-w-4xl">
-            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-sky-300">
-              {isThai
-                ? "B2B INDUSTRIAL SOURCING & RFQ"
-                : "B2B Industrial Sourcing & RFQ"}
-            </p>
-
-            <h1 className="mt-5 text-3xl font-bold leading-[1.14] tracking-tight sm:text-5xl lg:text-[3.5rem]">
-              {isThai
-                ? "ค้นหาไส้กรอง ลูกปืน และอะไหล่อุตสาหกรรมจากเบอร์ที่คุณมี"
-                : "Find filters, bearings, and industrial spare parts from the numbers you have"}
-            </h1>
-
-            <p className="mx-auto mt-5 max-w-3xl text-sm leading-7 text-slate-300 sm:text-base">
-              {isThai
-                ? "ใส่ Part Number, Cross Reference หรือชื่อสินค้า ระบบจะแสดงรายการที่เกี่ยวข้องเพื่อเพิ่มเข้า RFQ หากไม่พบ ทีม MRT Supplier จะช่วยตรวจสอบและจัดหาให้"
-                : "Enter a part number, cross reference, or product name. Review relevant matches and add them to your RFQ, or ask MRT Supplier to identify and source a missing item."}
-            </p>
-          </div>
-
-          <div className="mt-9 w-full max-w-4xl rounded-[2rem] border border-white/15 bg-white/10 p-4 text-left shadow-[0_28px_80px_rgba(2,6,23,0.35)] backdrop-blur sm:p-6">
-            <div className="mb-4 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-              <div>
-                <p className="text-sm font-semibold text-white">
-                  {isThai
-                    ? "ค้นหาสินค้าและเบอร์เทียบ"
-                    : "Search products and cross references"}
-                </p>
-                <p className="mt-1 text-xs leading-5 text-slate-300">
-                  {isThai
-                    ? "เริ่มจากข้อมูลที่มี ระบบจะแนะนำผลลัพธ์ที่ใกล้เคียงที่สุด"
-                    : "Start with the information you have and review the closest matches."}
-                </p>
-              </div>
-              <Link
-                href={`/${locale}/quote`}
-                className="inline-flex w-fit items-center text-sm font-semibold text-sky-200 transition hover:text-white"
-              >
-                {isThai
-                  ? "มีรายการแล้ว? เปิด RFQ →"
-                  : "Already have a list? Open RFQ →"}
-              </Link>
-            </div>
-
-            <div className="flex justify-center">
-              <SearchBar
-                locale={locale}
-                autoFocus={false}
-                exampleQueries={homepageExampleQueries}
-              />
-            </div>
-
-            <MissingProductRequestCta locale={locale} />
-          </div>
-
-          <div className="mt-7 flex flex-wrap justify-center gap-3 text-xs text-slate-300">
-            <span className="rounded-full border border-white/15 bg-slate-950/30 px-3 py-1.5">
-              {isThai
-                ? "ค้นหาด้วย Part Number / Cross Reference"
-                : "Part Number & Cross Reference Support"}
-            </span>
-            <span className="rounded-full border border-white/15 bg-slate-950/30 px-3 py-1.5">
-              {isThai
-                ? "ส่งหลายรายการเข้า RFQ ได้"
-                : "Bulk RFQ for multiple items"}
-            </span>
-            <span className="rounded-full border border-white/15 bg-slate-950/30 px-3 py-1.5">
-              {isThai
-                ? "สำหรับ Maintenance และ Purchasing"
-                : "Built for maintenance and procurement teams"}
-            </span>
-          </div>
-        </div>
-      </section>
-
-      <section className="border-b border-slate-200 bg-white">
-        <div className="mx-auto max-w-7xl px-6 py-14 lg:px-8">
-          <div className="max-w-3xl">
-            <p className="text-sm font-semibold uppercase tracking-[0.14em] text-slate-500">
-              {isThai ? "B2B SOURCING SUPPORT" : "B2B Sourcing Support"}
-            </p>
-            <h2 className="mt-3 text-2xl font-semibold tracking-tight text-slate-950 sm:text-3xl">
-              {isThai
-                ? "ความน่าเชื่อถือสำหรับงานจัดซื้อกับ MRT Supplier Co., Ltd."
-                : "B2B trust for sourcing with MRT Supplier Co., Ltd."}
-            </h2>
-            <p className="mt-3 text-sm leading-6 text-slate-600 sm:text-base">
-              {isThai
-                ? "ออกแบบให้ผู้ซื้อเข้าใจทันทีว่า MRT Supplier Co., Ltd. ช่วยจัดหาไส้กรอง ลูกปืน และอะไหล่อุตสาหกรรมด้วย Part No. และ Cross Reference ที่ตรวจสอบได้"
-                : "Designed so buyers quickly understand that MRT Supplier Co., Ltd. sources filters, bearings, and industrial spare parts using verifiable Part No. and Cross Reference details."}
-            </p>
-          </div>
-
-          <div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-5">
-            {trustPoints.map((item) => (
-              <article
-                key={item.title}
-                className="rounded-2xl border border-slate-200 bg-slate-50 p-5"
-              >
-                <h3 className="text-sm font-semibold leading-6 text-slate-950">
-                  {item.title}
-                </h3>
-                <p className="mt-2 text-sm leading-6 text-slate-600">
-                  {item.description}
-                </p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
+      <SearchFirstHero locale={locale} />
 
       <section className="border-b border-slate-200 bg-slate-50">
         <div className="mx-auto grid max-w-7xl gap-8 px-6 py-14 lg:grid-cols-[0.85fr_1.15fr] lg:px-8">
