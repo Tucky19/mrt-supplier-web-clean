@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
 import BrandShowcase from "@/components/home/BrandShowcase";
@@ -252,29 +253,59 @@ export default async function Page({
       <JsonLd data={breadcrumbJsonLd} />
       <SiteHeader locale={locale} />
 
-      <section className="overflow-hidden border-b border-slate-200 bg-[radial-gradient(circle_at_top,_rgba(47,128,237,0.12),_transparent_34%),linear-gradient(180deg,_#ffffff_0%,_#f7f9fc_100%)] px-4 py-14 sm:py-20">
-        <div className="mx-auto flex max-w-6xl flex-col items-center text-center">
-          <div className="max-w-4xl">
-            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-blue-700">
-              {isThai
-                ? "B2B INDUSTRIAL SOURCING & RFQ"
-                : "B2B Industrial Sourcing & RFQ"}
-            </p>
+      <section className="overflow-hidden border-b border-slate-200 bg-[radial-gradient(circle_at_top_left,_rgba(47,128,237,0.10),_transparent_30%),linear-gradient(180deg,_#ffffff_0%,_#f7f9fc_100%)] px-4 py-12 sm:py-16">
+        <div className="mx-auto max-w-7xl">
+          <div className="grid gap-8 lg:grid-cols-[minmax(0,1.05fr)_minmax(420px,0.95fr)] lg:items-center lg:gap-12">
+            <div className="max-w-3xl">
+              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-blue-700">
+                {isThai
+                  ? "B2B INDUSTRIAL SOURCING & RFQ"
+                  : "B2B Industrial Sourcing & RFQ"}
+              </p>
 
-            <h1 className="mt-5 text-3xl font-bold leading-[1.14] tracking-tight text-[#0b1f3a] sm:text-5xl lg:text-[3.5rem]">
-              {isThai
-                ? "ค้นหาไส้กรอง ลูกปืน และอะไหล่อุตสาหกรรมจากเบอร์ที่คุณมี"
-                : "Find filters, bearings, and industrial spare parts from the numbers you have"}
-            </h1>
+              <h1 className="mt-5 text-3xl font-bold leading-[1.14] tracking-tight text-[#0b1f3a] sm:text-5xl lg:text-[3.35rem]">
+                {isThai
+                  ? "ค้นหาอะไหล่อุตสาหกรรมด้วย Part No. และ Cross Reference"
+                  : "Find industrial parts by Part No. and Cross Reference"}
+              </h1>
 
-            <p className="mx-auto mt-5 max-w-3xl text-sm leading-7 text-slate-600 sm:text-base">
-              {isThai
-                ? "ใส่ Part Number, Cross Reference หรือชื่อสินค้า ระบบจะแสดงรายการที่เกี่ยวข้องเพื่อเพิ่มเข้า RFQ หากไม่พบ ทีม MRT Supplier จะช่วยตรวจสอบและจัดหาให้"
-                : "Enter a part number, cross reference, or product name. Review relevant matches and add them to your RFQ, or ask MRT Supplier to identify and source a missing item."}
-            </p>
+              <p className="mt-5 max-w-2xl text-sm leading-7 text-slate-600 sm:text-base">
+                {isThai
+                  ? "จำหน่ายและจัดหา Donaldson, MANN-FILTER และ NTN เป็นแบรนด์หลัก พร้อมช่วยทีมจัดซื้อและซ่อมบำรุงตรวจสอบรุ่น เทียบเบอร์ และส่งขอใบเสนอราคาได้ในขั้นตอนเดียว"
+                  : "We primarily supply Donaldson, MANN-FILTER, and NTN, helping procurement and maintenance teams identify models, check references, and request quotations in one flow."}
+              </p>
+
+              <div className="mt-6 flex flex-wrap gap-2 text-xs font-medium text-slate-600">
+                {featuredBrands.map((brand) => (
+                  <span
+                    key={brand.key}
+                    className="rounded-full border border-slate-200 bg-white px-3 py-1.5 shadow-sm"
+                  >
+                    {brand.name}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <div className="relative mx-auto w-full max-w-xl">
+              <div className="relative aspect-[4/3] overflow-hidden rounded-[2rem] border border-slate-200 bg-white shadow-[0_24px_70px_rgba(15,23,42,0.12)]">
+                <Image
+                  src="/images/hero-products.png"
+                  alt={
+                    isThai
+                      ? "ไส้กรองและลูกปืนอุตสาหกรรม"
+                      : "Industrial filters and bearings"
+                  }
+                  fill
+                  priority
+                  sizes="(max-width: 1024px) 100vw, 46vw"
+                  className="object-cover"
+                />
+              </div>
+            </div>
           </div>
 
-          <div className="mt-9 w-full max-w-4xl rounded-[2rem] border border-slate-200 bg-white p-4 text-left shadow-[0_22px_60px_rgba(15,23,42,0.10)] sm:p-6">
+          <div className="mt-8 w-full rounded-[2rem] border border-slate-200 bg-white p-4 text-left shadow-[0_22px_60px_rgba(15,23,42,0.10)] sm:p-6">
             <div className="mb-4 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
               <div>
                 <p className="text-sm font-semibold text-[#0b1f3a]">
@@ -298,9 +329,10 @@ export default async function Page({
               </Link>
             </div>
 
-            <div className="flex justify-center">
+            <div>
               <SearchBar
                 locale={locale}
+                className="max-w-none"
                 autoFocus={false}
                 exampleQueries={homepageExampleQueries}
               />
@@ -309,7 +341,7 @@ export default async function Page({
             <MissingProductRequestCta locale={locale} variant="light" />
           </div>
 
-          <div className="mt-7 flex flex-wrap justify-center gap-3 text-xs text-slate-600">
+          <div className="mt-6 flex flex-wrap justify-center gap-3 text-xs text-slate-600">
             <span className="rounded-full border border-slate-200 bg-white px-3 py-1.5 shadow-sm">
               {isThai
                 ? "ค้นหาด้วย Part Number / Cross Reference"
