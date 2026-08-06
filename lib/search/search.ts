@@ -1,5 +1,9 @@
 import { products } from "@/data/products/index";
 import { synonyms } from "@/data/synonyms";
+import {
+  matchesDimensions,
+  type DimensionSearchCriteria,
+} from "@/lib/search/dimensions";
 
 type ProductSpecification = {
   label: string;
@@ -477,4 +481,23 @@ export function searchFallback(q: string, limit = 5): Product[] {
     .sort((a, b) => b.similarity - a.similarity)
     .slice(0, limit)
     .map((entry) => entry.item);
+}
+
+export function searchProductsByDimensions(
+  criteria: DimensionSearchCriteria,
+  { limit = 50 }: { limit?: number } = {},
+): Product[] {
+  const hasCriteria =
+    criteria.outerDiameterMm !== undefined ||
+    criteria.innerDiameterMm !== undefined ||
+    criteria.lengthMm !== undefined ||
+    criteria.widthMm !== undefined ||
+    Boolean(criteria.threadSize?.trim());
+
+  if (!hasCriteria) return [];
+
+  const catalog = Array.isArray(products) ? products : [];
+  return catalog
+    .filter((product) => matchesDimensions(product, criteria))
+    .slice(0, limit);
 }

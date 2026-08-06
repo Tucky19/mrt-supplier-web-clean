@@ -50,6 +50,7 @@
     "postinstall": "prisma generate",
     "search:tuning": "tsx scripts/run-search-tuning.ts",
     "verify:search": "tsx scripts/verify-search-score.ts",
+    "verify:dimension-search": "tsx scripts/verify-dimension-search.ts",
     "report:duplicates": "tsx scripts/report-product-duplicates.ts",
     "validate:products": "tsx scripts/validate-products.ts",
     "import:products": "tsx scripts/import-products.ts"
