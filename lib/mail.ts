@@ -195,8 +195,12 @@ function displayText(input: unknown) {
   return textValue(input) || "-";
 }
 
-function buildCustomerName(name: string | null | undefined) {
-  return textValue(name) || "ลูกค้า / Customer";
+function buildThaiCustomerName(name: string | null | undefined) {
+  return textValue(name) || "ลูกค้า";
+}
+
+function buildEnglishCustomerName(name: string | null | undefined) {
+  return textValue(name) || "Customer";
 }
 
 function subjectPart(input: unknown) {
@@ -597,7 +601,8 @@ export async function sendCustomerRfqConfirmationEmail(args: {
   const { from } = getMailEnv();
   const { requestId, customer, items } = args;
   const isMissingRequest = isMissingProductRequestEmail(items);
-  const customerName = buildCustomerName(customer.name);
+  const thaiCustomerName = buildThaiCustomerName(customer.name);
+  const englishCustomerName = buildEnglishCustomerName(customer.name);
 
   const subject = isMissingRequest
     ? `เราได้รับคำขอสินค้าที่ไม่พบแล้ว / We received your Missing Product Request (${subjectPart(requestId)})`
@@ -607,20 +612,23 @@ export async function sendCustomerRfqConfirmationEmail(args: {
     : "คำขอใบเสนอราคา / Request for Quotation";
 
   const text = [
-    `เรียนคุณ ${customerName},`,
+    `เรียนคุณ ${thaiCustomerName},`,
     `ขอบคุณที่ติดต่อ MRT Supplier`,
     isMissingRequest
-      ? `ทีมงานได้รับ${MISSING_PRODUCT_REQUEST_LABEL}ของคุณแล้ว`
+      ? `เราได้รับคำขอสินค้าที่ไม่พบของคุณแล้ว`
       : `ทีมงานได้รับคำขอใบเสนอราคาของคุณแล้ว`,
     isMissingRequest
-      ? `และจะตรวจสอบรายละเอียดสินค้าเพื่อติดต่อกลับโดยเร็ว`
+      ? `ทีมงานจะตรวจสอบข้อมูลสินค้าและติดต่อกลับโดยเร็ว`
       : `และจะตรวจสอบรายการสินค้าเพื่อติดต่อกลับโดยเร็ว`,
     "",
-    `Dear ${customerName},`,
+    `Dear ${englishCustomerName},`,
     `Thank you for contacting MRT Supplier.`,
     isMissingRequest
-      ? `We have received your ${MISSING_PRODUCT_REQUEST_LABEL} and will review the requested product details before contacting you shortly.`
+      ? `We have received your missing product request.`
       : `We have received your request for quotation and will review the requested items before contacting you shortly.`,
+    isMissingRequest
+      ? `Our team will review the product information and contact you shortly.`
+      : "",
     "",
     `Request ID: ${displayText(requestId)}`,
     "",
@@ -638,21 +646,21 @@ export async function sendCustomerRfqConfirmationEmail(args: {
   ].join("\n");
 
   const thaiIntro = isMissingRequest
-    ? `ทีมงานได้รับ${MISSING_PRODUCT_REQUEST_LABEL}ของคุณแล้ว และจะตรวจสอบรายละเอียดสินค้าเพื่อติดต่อกลับโดยเร็ว`
+    ? `เราได้รับคำขอสินค้าที่ไม่พบของคุณแล้ว ทีมงานจะตรวจสอบข้อมูลสินค้าและติดต่อกลับโดยเร็ว`
     : `ทีมงานได้รับคำขอใบเสนอราคาของคุณแล้ว และจะตรวจสอบรายการสินค้าเพื่อติดต่อกลับโดยเร็ว`;
   const englishIntro = isMissingRequest
-    ? `We have received your ${MISSING_PRODUCT_REQUEST_LABEL} and will review the requested product details before contacting you shortly.`
+    ? `We have received your missing product request. Our team will review the product information and contact you shortly.`
     : `We have received your request for quotation and will review the requested items before contacting you shortly.`;
 
   const html = buildEmailShell(`
       <h2 style="margin:0 0 16px;font-size:20px;line-height:1.35;color:#111827;">${escapeHtml(introTitle)}</h2>
       <p style="margin:0 0 10px;font-size:15px;line-height:1.6;color:#111827;overflow-wrap:anywhere;word-break:break-word;">
-        เรียนคุณ ${escapeHtml(customerName)},<br />
+        เรียนคุณ ${escapeHtml(thaiCustomerName)},<br />
         ขอบคุณที่ติดต่อ MRT Supplier<br />
         ${escapeHtml(thaiIntro)}
       </p>
       <p style="margin:0 0 16px;font-size:15px;line-height:1.6;color:#111827;overflow-wrap:anywhere;word-break:break-word;">
-        Dear ${escapeHtml(customerName)},<br />
+        Dear ${escapeHtml(englishCustomerName)},<br />
         Thank you for contacting MRT Supplier.<br />
         ${escapeHtml(englishIntro)}
       </p>
