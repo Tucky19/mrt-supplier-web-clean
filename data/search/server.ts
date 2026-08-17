@@ -1,5 +1,6 @@
 // data/search/server.ts
 import { products } from "@/data/products";
+import { relationPartNumbers } from "@/lib/products/relations";
 
 export type MiniRec = {
   id: string;
@@ -102,7 +103,7 @@ function buildIndex(): Index {
       p.type,
       p.spec,
       ...(Array.isArray(p.tags) ? p.tags : []),
-      ...(Array.isArray(p.refs) ? p.refs : []),
+      ...relationPartNumbers(p.refs ?? [], "unknown"),
     ]
       .filter(Boolean)
       .join(" ");

@@ -1,4 +1,4 @@
-import { products } from "@/data/products";
+import { products } from "@/data/products/index";
 import { validateProducts } from "@/lib/products/validate";
 
 function main() {

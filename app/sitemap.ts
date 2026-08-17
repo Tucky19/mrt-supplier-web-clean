@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { products } from "@/data/products/index";
+import { relationPartNumbers } from "@/lib/products/relations";
 
 const SITE_URL = "https://mrtsupplier.com";
 const LOCALES = ["th", "en"] as const;
@@ -42,7 +43,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }
 
     for (const product of products) {
-      if (!product.refs?.length) continue;
+      if (!relationPartNumbers(product.refs ?? [], "unknown").length) continue;
 
       entries.push({
         url: `${SITE_URL}/${locale}/cross-reference/${encodeURIComponent(

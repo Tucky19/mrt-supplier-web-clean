@@ -1,11 +1,15 @@
 "use client";
 
 import Link from "next/link";
+import {
+  type ProductRelationInput,
+  relationPartNumbers,
+} from "@/lib/products/relations";
 
 type Product = {
   partNo: string;
-  refs?: string[];
-  crossReferences?: string[];
+  refs?: ProductRelationInput[];
+  crossReferences?: ProductRelationInput[];
 };
 
 type Props = {
@@ -24,7 +28,10 @@ export default function CrossReferenceSection({
   locale,
 }: Props) {
   const refs = Array.from(
-    new Set([...(product.refs || []), ...(product.crossReferences || [])])
+    new Set([
+      ...relationPartNumbers(product.refs || [], "unknown"),
+      ...relationPartNumbers(product.crossReferences || [], "unknown"),
+    ])
   ).filter(Boolean);
 
   if (refs.length === 0) return null;
@@ -36,8 +43,12 @@ export default function CrossReferenceSection({
     return allProducts.find(
       (p) =>
         normalize(p.partNo) === key ||
-        (p.refs || []).some((r) => normalize(r) === key) ||
-        (p.crossReferences || []).some((r) => normalize(r) === key)
+        relationPartNumbers(p.refs || [], "unknown").some(
+          (r) => normalize(r) === key,
+        ) ||
+        relationPartNumbers(p.crossReferences || [], "unknown").some(
+          (r) => normalize(r) === key,
+        )
     );
   };
 

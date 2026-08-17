@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useQuote } from "@/providers/QuoteProvider";
 import { useToast } from "@/components/ui/ToastProvider";
 import { ShoppingCart, ExternalLink } from "lucide-react";
+import { relationPartNumbers } from "@/lib/products/relations";
 import type { Product } from "@/types/product";
 
 export default function ProductHero({ product }: { product: Product }) {
@@ -24,6 +25,11 @@ export default function ProductHero({ product }: { product: Product }) {
 
  const image =
   product.imageUrl || product.officialImageUrl || "/images/placeholder.jpg";
+  const refs = relationPartNumbers(product.refs ?? [], "unknown");
+  const crossReferences = relationPartNumbers(
+    product.crossReferences ?? [],
+    "unknown",
+  );
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-8 grid md:grid-cols-2 gap-8">
@@ -74,19 +80,19 @@ export default function ProductHero({ product }: { product: Product }) {
         )}
 
         {/* 🔥 OEM REF */}
-        {product.refs && product.refs.length > 0 && (
+        {refs.length > 0 && (
           <div className="text-sm">
             <span className="font-medium text-gray-800">OEM Reference: </span>
-            <span className="text-gray-700">{product.refs.join(", ")}</span>
+            <span className="text-gray-700">{refs.join(", ")}</span>
           </div>
         )}
 
         {/* 🔥 CROSS REF */}
-        {product.crossReferences && product.crossReferences.length > 0 && (
+        {crossReferences.length > 0 && (
           <div className="text-sm">
             <span className="font-medium text-gray-800">Cross Reference: </span>
             <span className="text-gray-700">
-              {product.crossReferences.join(", ")}
+              {crossReferences.join(", ")}
             </span>
           </div>
         )}

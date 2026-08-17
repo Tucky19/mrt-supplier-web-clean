@@ -1,6 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { getProductImageUrl } from "@/lib/products/image";
+import { relationPartNumbers } from "@/lib/products/relations";
 import { products } from "@/data/products/index";
 import type { Product } from "@/types/product";
 
@@ -73,10 +74,12 @@ function buildRelationPartTokens(values: string[]) {
 
 function buildSearchDocument(product: Product) {
   const refs = unique(
-    (product.refs ?? []).map((value) => safeStr(value)).filter(Boolean),
+    relationPartNumbers(product.refs ?? [], "unknown")
+      .map((value) => safeStr(value))
+      .filter(Boolean),
   );
   const crossReferences = unique(
-    (product.crossReferences ?? [])
+    relationPartNumbers(product.crossReferences ?? [], "unknown")
       .map((value) => safeStr(value))
       .filter(Boolean),
   );

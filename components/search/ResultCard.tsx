@@ -2,6 +2,10 @@
 
 import Link from "next/link";
 import { useLocale } from "next-intl";
+import {
+  type ProductRelationInput,
+  relationPartNumbers,
+} from "@/lib/products/relations";
 
 type Product = {
   id: string;
@@ -11,7 +15,7 @@ type Product = {
   title?: string;
   spec?: string;
   officialUrl?: string;
-  refs?: string[];
+  refs?: ProductRelationInput[];
 };
 
 type SearchHit = {
@@ -28,7 +32,7 @@ export default function ResultCard({ hit }: Props) {
   const locale = useLocale();
   const product = hit.product;
   const reasons = hit.reasons ?? [];
-  const refs = Array.isArray(product.refs) ? product.refs : [];
+  const refs = relationPartNumbers(product.refs ?? [], "unknown");
 
   return (
     <div className="rounded-2xl border border-white/10 bg-white/5 p-5 transition hover:border-white/20 hover:bg-white/[0.07]">

@@ -1,4 +1,8 @@
 import { products as catalogProducts } from "@/data/products/index";
+import {
+  type ProductRelationInput,
+  relationPartNumbers,
+} from "@/lib/products/relations";
 
 export type AutocompleteItem = {
   id: string;
@@ -14,7 +18,7 @@ type ProductLike = {
   brand?: string;
   category?: string;
   title?: string;
-  refs?: string[];
+  refs?: ProductRelationInput[];
 };
 
 function normalize(value: string | undefined | null) {
@@ -32,7 +36,7 @@ function scoreItem(product: ProductLike, query: string) {
   const brand = String(product.brand ?? "");
   const category = String(product.category ?? "");
   const title = String(product.title ?? "");
-  const refs = Array.isArray(product.refs) ? product.refs : [];
+  const refs = relationPartNumbers(product.refs ?? [], "unknown");
 
   const partNoNorm = normalize(partNo);
   const brandNorm = normalize(brand);

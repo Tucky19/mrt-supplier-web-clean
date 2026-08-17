@@ -2,6 +2,7 @@
 
 import { Product } from "@/types/product";
 import { useQuote } from "@/providers/QuoteProvider";
+import { relationPartNumbers } from "@/lib/products/relations";
 
 type Props = {
   product: Product;
@@ -23,9 +24,12 @@ function normalizeId(input?: string) {
  * 🔥 FIND EQUIVALENT (debug-safe)
  */
 function findEquivalent(p: Product | undefined, all: Product[]) {
-  if (!p || !p.refs || p.refs.length === 0) return null;
+  if (!p) return null;
 
-  const target = normalizeId(p.refs[0]);
+  const [firstRef] = relationPartNumbers(p.refs ?? [], "unknown");
+  if (!firstRef) return null;
+
+  const target = normalizeId(firstRef);
 
   return (
     all.find((x) => normalizeId(x.id) === target) ||
@@ -47,8 +51,11 @@ export default function ProductCompareCard({
   console.log("========== PRODUCT DEBUG ==========");
   console.log("product.id:", product.id);
   console.log("product.partNo:", product.partNo);
-  console.log("product.refs:", product.refs);
-  console.log("normalized ref:", normalizeId(product.refs?.[0]));
+  console.log("product.refs:", relationPartNumbers(product.refs ?? [], "unknown"));
+  console.log(
+    "normalized ref:",
+    normalizeId(relationPartNumbers(product.refs, "unknown")[0]),
+  );
   console.log("allProducts count:", allProducts.length);
   console.log("EQUIVALENT:", equivalent);
   console.log("===================================");

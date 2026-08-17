@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { useQuote } from '@/providers/QuoteProvider';
+import { relationPartNumbers } from '@/lib/products/relations';
 import type { Product } from '@/types/product';
 
 type ProductCardProduct = Product & {
@@ -22,7 +23,10 @@ export default function ProductCard({ locale = 'th', product }: Props) {
   const inCart = items.some((item) => item.partNo === product.partNo);
 
   const refs = Array.from(
-    new Set([...(product.refs ?? []), ...(product.crossReferences ?? [])])
+    new Set([
+      ...relationPartNumbers(product.refs ?? [], 'unknown'),
+      ...relationPartNumbers(product.crossReferences ?? [], 'unknown'),
+    ])
   )
     .map((v) => v.trim())
     .filter(Boolean)

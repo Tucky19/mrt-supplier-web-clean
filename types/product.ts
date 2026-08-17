@@ -1,3 +1,5 @@
+import type { ProductRelationInput } from "@/lib/products/relations";
+
 export type Product = {
   id: string;
   partNo: string;
@@ -21,8 +23,8 @@ export type Product = {
   media?: string[];
   officialImageUrl?: string | null;
 
-  refs?: string[];
-  crossReferences?: string[];
+  refs?: ProductRelationInput[];
+  crossReferences?: ProductRelationInput[];
   sameBrandAlternatives?: Array<{
     brand: string;
     partNo: string;
@@ -52,7 +54,7 @@ export type Product = {
   seoDescription?: string;
   keywords?: string[];
 
-  dataQuality?: "verified" | "draft" | "needs_review";
+  dataQuality?: "verified" | "draft" | "basic" | "needs_review";
   stockStatus?: "in_stock" | "low_stock" | "request" | string;
   isFeatured?: boolean;
   sourceType?: "official" | "catalog" | "internal" | "mixed" | string;

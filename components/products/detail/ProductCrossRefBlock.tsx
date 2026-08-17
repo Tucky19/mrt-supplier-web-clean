@@ -1,11 +1,21 @@
+import {
+  type ProductRelationInput,
+  relationPartNumbers,
+} from "@/lib/products/relations";
+
 type ProductCrossRefBlockProps = {
   locale: string;
-  crossReferences?: string[];
-  oemReferences?: string[];
+  crossReferences?: ProductRelationInput[];
+  oemReferences?: ProductRelationInput[];
 };
 
-function compactList(values?: string[]) {
-  return (values ?? []).map((value) => value.trim()).filter(Boolean);
+function compactList(
+  values: ProductRelationInput[] | undefined,
+  relationType: "unknown",
+) {
+  return relationPartNumbers(values ?? [], relationType)
+    .map((value) => value.trim())
+    .filter(Boolean);
 }
 
 function ReferenceGroup({
@@ -39,8 +49,8 @@ export default function ProductCrossRefBlock({
   crossReferences,
   oemReferences,
 }: ProductCrossRefBlockProps) {
-  const crossRefs = compactList(crossReferences);
-  const oemRefs = compactList(oemReferences);
+  const crossRefs = compactList(crossReferences, "unknown");
+  const oemRefs = compactList(oemReferences, "unknown");
 
   if (crossRefs.length === 0 && oemRefs.length === 0) return null;
 
