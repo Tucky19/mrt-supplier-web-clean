@@ -3,12 +3,13 @@ import {
   buildMissingProductRequestDimensionSummary,
   getMissingProductThreadSystemLabel,
   getMissingProductRequestItemDetails,
-  getMissingProductRequestLabel,
   isMissingProductRequestItem,
 } from "@/lib/rfq/missingProductRequest";
 
 function safeStr(v: unknown) {
-  return String(v ?? "").trim();
+  return String(v ?? "")
+    .replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F\u007F]/g, "")
+    .trim();
 }
 
 function parseSmtpPort(value: string) {
@@ -38,6 +39,14 @@ function formatFromAddress(address: string) {
 }
 
 const PUBLIC_REPLY_TO_EMAIL = "sales@mrtsupplier.com";
+const PUBLIC_WEBSITE = "www.mrtsupplier.com";
+const PUBLIC_PHONE = "081-558-1323 / 097-012-2111";
+const PUBLIC_LINE_ID = "@mrtsupplier";
+const PUBLIC_LINE_ADD_FRIEND_URL = "https://lin.ee/S676yYH";
+const SYSTEM_FONT_STACK =
+  "-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif";
+const MISSING_PRODUCT_REQUEST_LABEL =
+  "คำขอสินค้าที่ไม่พบ / Missing Product Request";
 
 function getMailEnv() {
   const host = safeStr(process.env.SMTP_HOST) || "smtppro.zoho.com";
@@ -170,17 +179,46 @@ function escapeHtml(input: unknown) {
     .replaceAll("'", "&#039;");
 }
 
+function textValue(input: unknown) {
+  if (input === null || input === undefined) {
+    return "";
+  }
+
+  if (typeof input === "object") {
+    return "";
+  }
+
+  return safeStr(input);
+}
+
+function displayText(input: unknown) {
+  return textValue(input) || "-";
+}
+
+function buildThaiCustomerName(name: string | null | undefined) {
+  return textValue(name) || "ลูกค้า";
+}
+
+function buildEnglishCustomerName(name: string | null | undefined) {
+  return textValue(name) || "Customer";
+}
+
+function subjectPart(input: unknown) {
+  return textValue(input).replace(/[\r\n\t]+/g, " ");
+}
+
 function buildItemsText(items: MailQuoteItem[]) {
   return items
     .map((it, idx) => {
       const parts = [
-        `${idx + 1}. ${it.partNo}`,
-        it.brand ? `Brand: ${it.brand}` : "",
-        it.title ? `Title: ${it.title}` : "",
-        it.category ? `Category: ${it.category}` : "",
-        `Qty: ${it.qty}`,
-        it.spec ? `Spec: ${it.spec}` : "",
-        `Product ID: ${it.productId}`,
+        `${idx + 1}. ลำดับ / Item: ${idx + 1}`,
+        `เบอร์สินค้า / Part No.: ${displayText(it.partNo)}`,
+        `จำนวน / Qty: ${displayText(it.qty)}`,
+        `แบรนด์ / Brand: ${displayText(it.brand)}`,
+        `ชื่อสินค้า / Product: ${displayText(it.title)}`,
+        `หมวดหมู่ / Category: ${displayText(it.category)}`,
+        it.spec ? `Spec: ${displayText(it.spec)}` : "",
+        `Product ID: ${displayText(it.productId)}`,
       ].filter(Boolean);
 
       return parts.join(" | ");
@@ -193,29 +231,56 @@ function buildItemsHtml(items: MailQuoteItem[]) {
     .map((it, idx) => {
       return `
         <tr>
-          <td style="padding:10px;border:1px solid #e5e5e5;">${idx + 1}</td>
-          <td style="padding:10px;border:1px solid #e5e5e5;">${escapeHtml(it.partNo)}</td>
-          <td style="padding:10px;border:1px solid #e5e5e5;">${escapeHtml(it.brand || "-")}</td>
-          <td style="padding:10px;border:1px solid #e5e5e5;">${escapeHtml(it.title || "-")}</td>
-          <td style="padding:10px;border:1px solid #e5e5e5;">${escapeHtml(it.category || "-")}</td>
-          <td style="padding:10px;border:1px solid #e5e5e5;text-align:center;">${it.qty}</td>
+          <td style="padding:0 0 12px;">
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="width:100%;border-collapse:collapse;border:1px solid #d9e2ec;background:#ffffff;font-family:${SYSTEM_FONT_STACK};">
+              <tr>
+                <td style="padding:12px 14px;border-bottom:1px solid #e5e7eb;background:#f8fafc;">
+                  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="width:100%;border-collapse:collapse;">
+                    <tr>
+                      <td style="padding:0 10px 0 0;vertical-align:top;font-size:13px;line-height:1.4;color:#64748b;overflow-wrap:anywhere;word-break:break-word;">
+                        ลำดับ / Item ${idx + 1}
+                      </td>
+                      <td style="padding:0;text-align:right;vertical-align:top;font-size:16px;line-height:1.4;color:#111827;font-weight:700;overflow-wrap:anywhere;word-break:break-word;">
+                        จำนวน / Qty: ${escapeHtml(it.qty)}
+                      </td>
+                    </tr>
+                  </table>
+                  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="width:100%;border-collapse:collapse;margin-top:8px;">
+                    <tr>
+                      <td style="padding:0;font-size:18px;line-height:1.35;color:#0f172a;font-weight:700;overflow-wrap:anywhere;word-break:break-word;">
+                        เบอร์สินค้า / Part No.: ${escapeHtml(displayText(it.partNo))}
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td style="padding:0;">
+                  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="width:100%;border-collapse:collapse;font-family:${SYSTEM_FONT_STACK};font-size:14px;line-height:1.5;">
+                    <tr>
+                      <td style="width:34%;padding:10px 12px;border-bottom:1px solid #eef2f7;color:#64748b;vertical-align:top;">แบรนด์ / Brand</td>
+                      <td style="padding:10px 12px;border-bottom:1px solid #eef2f7;color:#111827;vertical-align:top;overflow-wrap:anywhere;word-break:break-word;">${escapeHtml(displayText(it.brand))}</td>
+                    </tr>
+                    <tr>
+                      <td style="width:34%;padding:10px 12px;border-bottom:1px solid #eef2f7;color:#64748b;vertical-align:top;">ชื่อสินค้า / Product</td>
+                      <td style="padding:10px 12px;border-bottom:1px solid #eef2f7;color:#111827;vertical-align:top;overflow-wrap:anywhere;word-break:break-word;">${escapeHtml(displayText(it.title))}</td>
+                    </tr>
+                    <tr>
+                      <td style="width:34%;padding:10px 12px;color:#64748b;vertical-align:top;">หมวดหมู่ / Category</td>
+                      <td style="padding:10px 12px;color:#111827;vertical-align:top;overflow-wrap:anywhere;word-break:break-word;">${escapeHtml(displayText(it.category))}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
         </tr>
       `;
     })
     .join("");
 
   return `
-    <table style="width:100%;border-collapse:collapse;font-family:Arial,sans-serif;font-size:14px;">
-      <thead>
-        <tr style="background:#f7f7f7;">
-          <th style="padding:10px;border:1px solid #e5e5e5;">#</th>
-          <th style="padding:10px;border:1px solid #e5e5e5;">Part No</th>
-          <th style="padding:10px;border:1px solid #e5e5e5;">Brand</th>
-          <th style="padding:10px;border:1px solid #e5e5e5;">Title</th>
-          <th style="padding:10px;border:1px solid #e5e5e5;">Category</th>
-          <th style="padding:10px;border:1px solid #e5e5e5;">Qty</th>
-        </tr>
-      </thead>
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="width:100%;border-collapse:collapse;font-family:${SYSTEM_FONT_STACK};font-size:14px;">
       <tbody>
         ${rows}
       </tbody>
@@ -278,7 +343,7 @@ function buildMissingProductRequestSourceRows(item: MailQuoteItem) {
 
 function buildSectionText(title: string, rows: Array<[string, string | null]>) {
   const renderedRows = rows
-    .map(([label, value]) => `- ${label}: ${safeStr(value) || "-"}`)
+    .map(([label, value]) => `- ${label}: ${displayText(value)}`)
     .join("\n");
 
   return `${title}\n${renderedRows}`;
@@ -288,17 +353,68 @@ function buildSectionHtml(title: string, rows: Array<[string, string | null]>) {
   const renderedRows = rows
     .map(
       ([label, value]) =>
-        `<div style="margin:0 0 6px;"><strong>${escapeHtml(label)}:</strong> ${escapeHtml(
-          value || "-",
-        )}</div>`,
+        `<tr>
+          <td style="width:38%;padding:8px 10px;border-bottom:1px solid #eef2f7;color:#64748b;vertical-align:top;overflow-wrap:anywhere;word-break:break-word;">${escapeHtml(label)}</td>
+          <td style="padding:8px 10px;border-bottom:1px solid #eef2f7;color:#111827;vertical-align:top;overflow-wrap:anywhere;word-break:break-word;">${escapeHtml(displayText(value))}</td>
+        </tr>`,
     )
     .join("");
 
   return `
-    <div style="margin:16px 0;padding:16px;border:1px solid #e5e7eb;border-radius:12px;background:#fafafa;">
-      <h3 style="margin:0 0 10px;font-size:15px;">${escapeHtml(title)}</h3>
-      ${renderedRows}
-    </div>
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="width:100%;border-collapse:collapse;margin:16px 0;border:1px solid #d9e2ec;background:#ffffff;font-family:${SYSTEM_FONT_STACK};">
+      <tr>
+        <td style="padding:12px 14px;background:#f8fafc;border-bottom:1px solid #d9e2ec;">
+          <h3 style="margin:0;font-size:15px;line-height:1.4;color:#111827;">${escapeHtml(title)}</h3>
+        </td>
+      </tr>
+      <tr>
+        <td style="padding:0;">
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="width:100%;border-collapse:collapse;font-family:${SYSTEM_FONT_STACK};font-size:14px;line-height:1.5;">
+            ${renderedRows}
+          </table>
+        </td>
+      </tr>
+    </table>
+  `;
+}
+
+function buildEmailShell(body: string) {
+  return `
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="width:100%;border-collapse:collapse;background:#f3f4f6;margin:0;padding:0;font-family:${SYSTEM_FONT_STACK};color:#111827;line-height:1.6;">
+      <tr>
+        <td align="center" style="padding:18px 10px;">
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="width:100%;max-width:640px;border-collapse:collapse;background:#ffffff;font-family:${SYSTEM_FONT_STACK};">
+            <tr>
+              <td style="padding:20px 16px;">
+                ${body}
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  `;
+}
+
+function buildContactHtml() {
+  return `
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="width:100%;border-collapse:collapse;margin:18px 0 0;font-family:${SYSTEM_FONT_STACK};font-size:14px;line-height:1.6;">
+      <tr>
+        <td style="padding:0 0 10px;color:#111827;overflow-wrap:anywhere;word-break:break-word;">
+          Website: <a href="https://www.mrtsupplier.com" style="display:inline-block;padding:4px 0;color:#0f766e;text-decoration:underline;">${PUBLIC_WEBSITE}</a><br />
+          Email: <a href="mailto:sales@mrtsupplier.com" style="display:inline-block;padding:4px 0;color:#0f766e;text-decoration:underline;">${PUBLIC_REPLY_TO_EMAIL}</a><br />
+          Phone: <a href="tel:0815581323" style="display:inline-block;padding:4px 0;color:#0f766e;text-decoration:underline;">081-558-1323</a> / <a href="tel:0970122111" style="display:inline-block;padding:4px 0;color:#0f766e;text-decoration:underline;">097-012-2111</a><br />
+          LINE Official: <strong>${PUBLIC_LINE_ID}</strong>
+        </td>
+      </tr>
+      <tr>
+        <td style="padding:4px 0 0;">
+          <a href="${PUBLIC_LINE_ADD_FRIEND_URL}" target="_blank" style="display:inline-block;background:#06C755;color:#ffffff;padding:12px 16px;min-height:44px;line-height:20px;text-decoration:none;font-weight:700;font-family:${SYSTEM_FONT_STACK};">
+            ติดต่อผ่าน LINE Official: ${PUBLIC_LINE_ID} / Contact via LINE Official
+          </a>
+        </td>
+      </tr>
+    </table>
   `;
 }
 
@@ -317,15 +433,17 @@ export async function sendAdminRfqEmail(args: {
   const isMissingRequest = isMissingProductRequestEmail(items);
 
   const subject = isMissingRequest
-    ? `[Missing Product Request] ${requestId} ${safeStr(
+    ? `[Missing Product Request] ${subjectPart(requestId)} ${subjectPart(
         customer.company || customer.name || "",
       )}`.trim()
-    : `[RFQ] ${requestId} ${safeStr(customer.company || customer.name || "")}`.trim();
+    : `[RFQ] ${subjectPart(requestId)} ${subjectPart(
+        customer.company || customer.name || "",
+      )}`.trim();
 
   if (isMissingRequest) {
     const item = items[0];
     const details = getMissingProductRequestItemDetails(item);
-    const requestTypeLabel = getMissingProductRequestLabel();
+    const requestTypeLabel = MISSING_PRODUCT_REQUEST_LABEL;
     const productRows = buildMissingProductRequestRows(item);
     const dimensionRows = buildMissingProductRequestDimensionRows(item);
     const contactRows = [
@@ -338,15 +456,16 @@ export async function sendAdminRfqEmail(args: {
     ] as Array<[string, string | null]>;
     const sourceRows = buildMissingProductRequestSourceRows(item);
     const text = [
-      "New Missing Product Request received",
-      `Request ID: ${requestId}`,
+      "คำขอสินค้าที่ไม่พบจากเว็บไซต์",
+      "Missing Product Request received from website",
+      `Request ID: ${displayText(requestId)}`,
       "",
-      buildSectionText("Request Type", [["Type", requestTypeLabel]]),
+      buildSectionText("ประเภทคำขอ / Request Type", [["Type", requestTypeLabel]]),
       "",
-      buildSectionText("Product Information", productRows),
+      buildSectionText("ข้อมูลสินค้า / Product Information", productRows),
       "",
       buildSectionText(
-        "Dimensions",
+        "ขนาด / Dimensions",
         dimensionRows.concat([
           [
             "Summary",
@@ -357,19 +476,19 @@ export async function sendAdminRfqEmail(args: {
         ]),
       ),
       "",
-      buildSectionText("Contact Information", contactRows),
+      buildSectionText("ช่องทางติดต่อ / Contact", contactRows),
       "",
-      buildSectionText("Source / Search Context", sourceRows),
+      buildSectionText("แหล่งที่มา / Source / Search Context", sourceRows),
     ].join("\n");
 
-    const html = `
-      <div style="font-family:Arial,sans-serif;color:#111827;line-height:1.6;">
-        <h2 style="margin:0 0 16px;">New Missing Product Request received</h2>
-        <p><strong>Request ID:</strong> ${escapeHtml(requestId)}</p>
-        ${buildSectionHtml("Request Type", [["Type", requestTypeLabel]])}
-        ${buildSectionHtml("Product Information", productRows)}
+    const html = buildEmailShell(`
+        <h2 style="margin:0 0 6px;font-size:20px;line-height:1.35;color:#111827;">คำขอสินค้าที่ไม่พบจากเว็บไซต์</h2>
+        <p style="margin:0 0 16px;font-size:16px;line-height:1.45;color:#111827;">Missing Product Request received from website</p>
+        <p style="margin:0 0 16px;font-size:14px;line-height:1.6;overflow-wrap:anywhere;word-break:break-word;"><strong>Request ID:</strong> ${escapeHtml(displayText(requestId))}</p>
+        ${buildSectionHtml("ประเภทคำขอ / Request Type", [["Type", requestTypeLabel]])}
+        ${buildSectionHtml("ข้อมูลสินค้า / Product Information", productRows)}
         ${buildSectionHtml(
-          "Dimensions",
+          "ขนาด / Dimensions",
           dimensionRows.concat([
             [
               "Summary",
@@ -379,13 +498,12 @@ export async function sendAdminRfqEmail(args: {
             ],
           ]),
         )}
-        ${buildSectionHtml("Contact Information", contactRows)}
-        ${buildSectionHtml("Source / Search Context", sourceRows)}
-        <p style="margin-top:20px;color:#6b7280;font-size:12px;">
+        ${buildSectionHtml("ช่องทางติดต่อ / Contact", contactRows)}
+        ${buildSectionHtml("แหล่งที่มา / Source / Search Context", sourceRows)}
+        <p style="margin-top:20px;color:#6b7280;font-size:12px;line-height:1.5;">
           This email was generated automatically from mrt-supplier.com
         </p>
-      </div>
-    `;
+    `);
 
     try {
       return await transporter.sendMail({
@@ -407,45 +525,43 @@ export async function sendAdminRfqEmail(args: {
     }
   }
 
+  const contactRows = [
+    ["Company", customer.company || null],
+    ["Name", customer.name || null],
+    ["Phone", customer.phone || null],
+    ["Email", customer.email || null],
+    ["LINE ID", customer.lineId || null],
+    ["Contact Preference", customer.contactPref || null],
+  ] as Array<[string, string | null]>;
+
   const text = [
-    `New RFQ received`,
-    `Request ID: ${requestId}`,
+    `คำขอใบเสนอราคาใหม่จากเว็บไซต์`,
+    `New RFQ received from website`,
+    `Request ID: ${displayText(requestId)}`,
     "",
-    `Company: ${safeStr(customer.company) || "-"}`,
-    `Name: ${safeStr(customer.name) || "-"}`,
-    `Phone: ${safeStr(customer.phone) || "-"}`,
-    `Email: ${safeStr(customer.email) || "-"}`,
-    `LINE ID: ${safeStr(customer.lineId) || "-"}`,
-    `Contact Preference: ${safeStr(customer.contactPref) || "-"}`,
-    `Note: ${safeStr(customer.note) || "-"}`,
+    buildSectionText("ข้อมูลลูกค้า / Customer Information", contactRows),
     "",
-    `Items:`,
+    buildSectionText("หมายเหตุ / Note", [["Note", customer.note || null]]),
+    "",
+    `รายการสินค้า / Requested Items:`,
     buildItemsText(items),
   ].join("\n");
 
-  const html = `
-    <div style="font-family:Arial,sans-serif;color:#111827;line-height:1.6;">
-      <h2 style="margin:0 0 16px;">New RFQ received</h2>
-      <p><strong>Request ID:</strong> ${escapeHtml(requestId)}</p>
+  const html = buildEmailShell(`
+      <h2 style="margin:0 0 6px;font-size:20px;line-height:1.35;color:#111827;">คำขอใบเสนอราคาใหม่จากเว็บไซต์</h2>
+      <p style="margin:0 0 16px;font-size:16px;line-height:1.45;color:#111827;">New RFQ received from website</p>
+      <p style="margin:0 0 16px;font-size:14px;line-height:1.6;overflow-wrap:anywhere;word-break:break-word;"><strong>Request ID:</strong> ${escapeHtml(displayText(requestId))}</p>
 
-      <div style="margin:16px 0;padding:16px;border:1px solid #e5e7eb;border-radius:12px;background:#fafafa;">
-        <div><strong>Company:</strong> ${escapeHtml(customer.company || "-")}</div>
-        <div><strong>Name:</strong> ${escapeHtml(customer.name || "-")}</div>
-        <div><strong>Phone:</strong> ${escapeHtml(customer.phone || "-")}</div>
-        <div><strong>Email:</strong> ${escapeHtml(customer.email || "-")}</div>
-        <div><strong>LINE ID:</strong> ${escapeHtml(customer.lineId || "-")}</div>
-        <div><strong>Contact Preference:</strong> ${escapeHtml(customer.contactPref || "-")}</div>
-        <div><strong>Note:</strong> ${escapeHtml(customer.note || "-")}</div>
-      </div>
+      ${buildSectionHtml("ข้อมูลลูกค้า / Customer Information", contactRows)}
+      ${buildSectionHtml("หมายเหตุ / Note", [["Note", customer.note || null]])}
 
-      <h3 style="margin:20px 0 12px;">Requested Items</h3>
+      <h3 style="margin:20px 0 12px;font-size:16px;line-height:1.4;color:#111827;">รายการสินค้า / Requested Items</h3>
       ${buildItemsHtml(items)}
 
-      <p style="margin-top:20px;color:#6b7280;font-size:12px;">
+      <p style="margin-top:20px;color:#6b7280;font-size:12px;line-height:1.5;">
         This email was generated automatically from mrt-supplier.com
       </p>
-    </div>
-  `;
+  `);
 
   try {
     return await transporter.sendMail({
@@ -485,73 +601,83 @@ export async function sendCustomerRfqConfirmationEmail(args: {
   const { from } = getMailEnv();
   const { requestId, customer, items } = args;
   const isMissingRequest = isMissingProductRequestEmail(items);
+  const thaiCustomerName = buildThaiCustomerName(customer.name);
+  const englishCustomerName = buildEnglishCustomerName(customer.name);
 
   const subject = isMissingRequest
-    ? `We received your request (${requestId})`
-    : `We received your RFQ (${requestId})`;
+    ? `เราได้รับคำขอสินค้าที่ไม่พบแล้ว / We received your Missing Product Request (${subjectPart(requestId)})`
+    : `เราได้รับคำขอใบเสนอราคาแล้ว / We received your RFQ (${subjectPart(requestId)})`;
   const introTitle = isMissingRequest
-    ? "Thank you for your request"
-    : "Thank you for your RFQ";
-  const introText = isMissingRequest
-    ? `We have received your ${getMissingProductRequestLabel()} and our team will review it shortly.`
-    : "We have received your RFQ and our team will review it shortly.";
+    ? MISSING_PRODUCT_REQUEST_LABEL
+    : "คำขอใบเสนอราคา / Request for Quotation";
 
   const text = [
-    `Dear ${safeStr(customer.name) || "Customer"},`,
+    `เรียนคุณ ${thaiCustomerName},`,
+    `ขอบคุณที่ติดต่อ MRT Supplier`,
+    isMissingRequest
+      ? `เราได้รับคำขอสินค้าที่ไม่พบของคุณแล้ว`
+      : `ทีมงานได้รับคำขอใบเสนอราคาของคุณแล้ว`,
+    isMissingRequest
+      ? `ทีมงานจะตรวจสอบข้อมูลสินค้าและติดต่อกลับโดยเร็ว`
+      : `และจะตรวจสอบรายการสินค้าเพื่อติดต่อกลับโดยเร็ว`,
     "",
+    `Dear ${englishCustomerName},`,
     `Thank you for contacting MRT Supplier.`,
-    introText,
+    isMissingRequest
+      ? `We have received your missing product request.`
+      : `We have received your request for quotation and will review the requested items before contacting you shortly.`,
+    isMissingRequest
+      ? `Our team will review the product information and contact you shortly.`
+      : "",
     "",
-    `Request ID: ${requestId}`,
+    `Request ID: ${displayText(requestId)}`,
     "",
-    `Items:`,
+    isMissingRequest
+      ? `${MISSING_PRODUCT_REQUEST_LABEL}:`
+      : `รายการสินค้า / Requested Items:`,
     buildItemsText(items),
     "",
-    `Website: www.mrtsupplier.com`,
-    `Email: sales@mrtsupplier.com`,
-    `Phone: 081-558-1323 / 097-012-2111`,
-    `LINE Official: @mrtsupplier`,
-    `LINE Add Friend: https://lin.ee/S676yYH`,
+    `ช่องทางติดต่อ / Contact`,
+    `Website: ${PUBLIC_WEBSITE}`,
+    `Email: ${PUBLIC_REPLY_TO_EMAIL}`,
+    `Phone: ${PUBLIC_PHONE}`,
+    `LINE Official: ${PUBLIC_LINE_ID}`,
+    `LINE Add Friend: ${PUBLIC_LINE_ADD_FRIEND_URL}`,
   ].join("\n");
 
-  const html = `
-    <div style="font-family:Arial,sans-serif;color:#111827;line-height:1.6;">
-      <h2 style="margin:0 0 16px;">${escapeHtml(introTitle)}</h2>
-      <p>Dear ${escapeHtml(customer.name || "Customer")},</p>
-      <p>
-        Thank you for contacting <strong>MRT Supplier</strong>. ${escapeHtml(
-          introText,
-        )}
+  const thaiIntro = isMissingRequest
+    ? `เราได้รับคำขอสินค้าที่ไม่พบของคุณแล้ว ทีมงานจะตรวจสอบข้อมูลสินค้าและติดต่อกลับโดยเร็ว`
+    : `ทีมงานได้รับคำขอใบเสนอราคาของคุณแล้ว และจะตรวจสอบรายการสินค้าเพื่อติดต่อกลับโดยเร็ว`;
+  const englishIntro = isMissingRequest
+    ? `We have received your missing product request. Our team will review the product information and contact you shortly.`
+    : `We have received your request for quotation and will review the requested items before contacting you shortly.`;
+
+  const html = buildEmailShell(`
+      <h2 style="margin:0 0 16px;font-size:20px;line-height:1.35;color:#111827;">${escapeHtml(introTitle)}</h2>
+      <p style="margin:0 0 10px;font-size:15px;line-height:1.6;color:#111827;overflow-wrap:anywhere;word-break:break-word;">
+        เรียนคุณ ${escapeHtml(thaiCustomerName)},<br />
+        ขอบคุณที่ติดต่อ MRT Supplier<br />
+        ${escapeHtml(thaiIntro)}
+      </p>
+      <p style="margin:0 0 16px;font-size:15px;line-height:1.6;color:#111827;overflow-wrap:anywhere;word-break:break-word;">
+        Dear ${escapeHtml(englishCustomerName)},<br />
+        Thank you for contacting MRT Supplier.<br />
+        ${escapeHtml(englishIntro)}
       </p>
 
-      <div style="margin:16px 0;padding:16px;border:1px solid #e5e7eb;border-radius:12px;background:#fafafa;">
-        <div><strong>Request ID:</strong> ${escapeHtml(requestId)}</div>
-      </div>
+      ${buildSectionHtml("Request ID", [["Request ID", displayText(requestId)]])}
 
-      <h3 style="margin:20px 0 12px;">Requested Items</h3>
+      <h3 style="margin:20px 0 12px;font-size:16px;line-height:1.4;color:#111827;">${
+        isMissingRequest
+          ? escapeHtml(MISSING_PRODUCT_REQUEST_LABEL)
+          : "รายการสินค้า / Requested Items"
+      }</h3>
       ${buildItemsHtml(items)}
 
-      <p style="margin-top:20px;">
-        Website: <strong>www.mrtsupplier.com</strong><br />
-        Email: <strong>sales@mrtsupplier.com</strong><br />
-        Phone: <strong>081-558-1323 / 097-012-2111</strong>
-      </p>
+      ${buildContactHtml()}
 
-      <a
-        href="https://lin.ee/S676yYH"
-        target="_blank"
-        style="display:inline-block;background:#06C755;color:#ffffff;padding:10px 14px;border-radius:8px;text-decoration:none;font-weight:700;font-family:Arial,sans-serif;"
-      >
-        สอบถามผ่าน LINE Official: @mrtsupplier
-      </a>
-
-      <p style="font-size:13px;color:#666;margin-top:8px;">
-        LINE Official: <strong>@mrtsupplier</strong>
-      </p>
-
-      <p style="margin-top:20px;">Best regards,<br /><strong>MRT Supplier</strong></p>
-    </div>
-  `;
+      <p style="margin-top:20px;font-size:14px;line-height:1.6;color:#111827;">ขอบคุณครับ/ค่ะ<br />Best regards,<br /><strong>MRT Supplier</strong></p>
+  `);
 
   try {
     return await transporter.sendMail({
