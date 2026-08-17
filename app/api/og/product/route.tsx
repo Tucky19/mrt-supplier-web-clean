@@ -2,6 +2,7 @@ import { ImageResponse } from "next/og";
 import { products as catalogProducts } from "@/data/products/index";
 import { OgProduct } from "@/lib/og/buildOgProduct";
 import { truncate } from "@/lib/og/shared";
+import type { ProductRelationInput } from "@/lib/products/relations";
 
 export const runtime = "edge";
 
@@ -22,7 +23,7 @@ type Product = {
   stockStatus?: "in_stock" | "low_stock" | "request";
   officialUrl?: string;
   imageUrl?: string;
-  refs?: string[];
+  refs?: ProductRelationInput[];
 };
 
 function normalizePartNo(value: string) {

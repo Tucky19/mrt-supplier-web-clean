@@ -6,6 +6,7 @@ import SiteFooter from "@/components/layout/SiteFooter";
 import ProductDetailClient from "@/components/products/ProductDetailClient";
 import JsonLd from "@/components/seo/JsonLd";
 import { products as catalogProducts } from "@/data/products/index";
+import { relationPartNumbers } from "@/lib/products/relations";
 import type { Product } from "@/types/product";
 
 type PageProps = {
@@ -131,7 +132,10 @@ function findProductById(id: string) {
 function hasIndexableProductSignals(product: Product) {
   const hasSpec = Boolean(product.spec?.trim());
   const hasRefs = Boolean(
-    [...(product.refs ?? []), ...(product.crossReferences ?? [])]
+    [
+      ...relationPartNumbers(product.refs ?? [], "unknown"),
+      ...relationPartNumbers(product.crossReferences ?? [], "unknown"),
+    ]
       .map((value) => value.trim())
       .filter(Boolean).length
   );

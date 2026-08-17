@@ -1,4 +1,5 @@
 import { Product } from "@/types/product";
+import { relationPartNumbers } from "@/lib/products/relations";
 
 const ALLOWED_STOCK: NonNullable<Product["stockStatus"]>[] = [
   "in_stock",
@@ -106,21 +107,22 @@ export function validateProduct(
     issues.push({
       index,
       field: "refs",
-      message: "refs must be string[]",
+      message: "refs must be an array",
       product,
     });
   }
 
   if (Array.isArray(product.refs)) {
-    const badRef = product.refs.find(
-      (ref) => typeof ref !== "string" || !ref.trim()
-    );
+    const normalizedRefs = relationPartNumbers(product.refs, "unknown");
+    const badRef =
+      product.refs.length !== normalizedRefs.length ||
+      normalizedRefs.some((ref) => !ref.trim());
 
-    if (badRef !== undefined) {
+    if (badRef) {
       issues.push({
         index,
         field: "refs",
-        message: "refs must contain only non-empty strings",
+        message: "refs must normalize to non-empty part numbers",
         product,
       });
     }

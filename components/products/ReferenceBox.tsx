@@ -3,8 +3,8 @@ import { products } from "@/data/products";
 
 type CrossRef = { brand: string; partNo: string };
 type ReferenceInput =
-  | CrossRef[]
-  | Record<string, Array<{ partNo: string } | string>>
+  | Array<string | CrossRef | { brand?: string; partNumber?: string }>
+  | Record<string, Array<{ partNo?: string; partNumber?: string } | string>>
   | undefined;
 
 function safeStr(v: any) {
@@ -24,10 +24,9 @@ function normalizeRefs(refs: ReferenceInput): Array<{ label: string; items: Cros
   // A) flat array: [{brand, partNo}]
   if (Array.isArray(refs)) {
     const items = refs
-      .filter((x: any) => x && x.partNo)
       .map((x: any) => ({
-        brand: safeStr(x.brand || "Cross Ref"),
-        partNo: safeStr(x.partNo),
+        brand: safeStr(x?.brand || "Cross Ref"),
+        partNo: typeof x === "string" ? safeStr(x) : safeStr(x?.partNo ?? x?.partNumber),
       }))
       .filter((x) => x.partNo);
 
@@ -42,7 +41,9 @@ function normalizeRefs(refs: ReferenceInput): Array<{ label: string; items: Cros
     const items: CrossRef[] = arr
       .map((v: any) => {
         if (typeof v === "string") return { brand, partNo: safeStr(v) };
-        if (v && typeof v === "object" && v.partNo) return { brand, partNo: safeStr(v.partNo) };
+        if (v && typeof v === "object" && (v.partNo || v.partNumber)) {
+          return { brand, partNo: safeStr(v.partNo ?? v.partNumber) };
+        }
         return null;
       })
       .filter(Boolean) as CrossRef[];

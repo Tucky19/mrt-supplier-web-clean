@@ -1,16 +1,17 @@
 import type { Product } from "@/types/product";
+import { normalizeCanonicalProductRelations } from "@/lib/products/relations";
 
 export function normalizeProduct(p: any): Product {
   const refs = Array.isArray(p.refs)
-    ? p.refs
+    ? normalizeCanonicalProductRelations(p.refs, "unknown")
     : Array.isArray(p.oemReferences)
-    ? p.oemReferences
+    ? normalizeCanonicalProductRelations(p.oemReferences, "unknown")
     : [];
 
   const crossReferences = Array.isArray(p.crossReferences)
-    ? p.crossReferences
+    ? normalizeCanonicalProductRelations(p.crossReferences, "unknown")
     : Array.isArray(p.refs)
-    ? p.refs
+    ? normalizeCanonicalProductRelations(p.refs, "unknown")
     : [];
 
   return {

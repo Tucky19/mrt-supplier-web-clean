@@ -1,4 +1,6 @@
 import type { Product } from "@/types/product";
+import type { ProductRelationInput } from "@/lib/products/relations";
+import { normalizeCanonicalProductRelations } from "@/lib/products/relations";
 
 type RawDonaldson = {
   id: string;
@@ -12,8 +14,8 @@ type RawDonaldson = {
   officialUrl?: string | null;
   cross_reference?: Array<string | { brand?: string; partNo?: string }>;
   crossRefs?: Array<string | { brand?: string; partNo?: string }>;
-  refs?: string[];
-  crossReferences?: string[];
+  refs?: ProductRelationInput[];
+  crossReferences?: ProductRelationInput[];
   pairedParts?: Product["pairedParts"];
   specifications?: Array<
     string | { label?: string; value?: string | number; unit?: string }
@@ -25,7 +27,7 @@ type RawDonaldson = {
 };
 
 const rawDonaldson: RawDonaldson[] = [
- 
+
 {
   id: "donaldson-p550958",
   partNo: "P550958",
@@ -3637,14 +3639,10 @@ const donaldsonRfqSkeletonBatch: RawDonaldson[] = [
 ];
 
 function normalizeRefs(
-  refs?: Array<string | { brand?: string; partNo?: string }>
-): string[] {
-  return (refs ?? [])
-    .map((ref) => {
-      if (typeof ref === "string") return ref;
-      return ref?.partNo ?? "";
-    })
-    .filter(Boolean);
+  refs: ProductRelationInput[] | undefined,
+  relationType: "unknown",
+): ProductRelationInput[] {
+  return normalizeCanonicalProductRelations(refs ?? [], relationType);
 }
 
 function normalizeSpec(
@@ -3855,9 +3853,10 @@ function normalize(item: RawDonaldson): Product {
         `https://shop.donaldson.com/store/en-us/product/${partNo}`;
 
   const imageUrl = item.imageUrl || item.image;
-  const refs = normalizeRefs(item.refs);
+  const refs = normalizeRefs(item.refs, "unknown");
   const crossReferences = normalizeRefs(
-    item.crossReferences ?? item.cross_reference ?? item.crossRefs
+    item.crossReferences ?? item.cross_reference ?? item.crossRefs,
+    "unknown",
   );
   const specifications = normalizeSpecifications(item.specifications);
 

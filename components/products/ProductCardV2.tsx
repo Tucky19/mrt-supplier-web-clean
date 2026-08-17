@@ -8,6 +8,7 @@ import { gaAddToQuote } from "@/lib/analytics/ga";
 import { getProductUiText } from "@/lib/i18n/productUi";
 import { getSearchUiText } from "@/lib/i18n/searchUi";
 import { getProductImageUrl } from "@/lib/products/image";
+import { relationPartNumbers } from "@/lib/products/relations";
 import { useQuote } from "@/providers/QuoteProvider";
 import type { Product } from "@/types/product";
 
@@ -142,7 +143,10 @@ export default function ProductCardV2({
   const resetTimerRef = useRef<number | null>(null);
 
   const refs = Array.from(
-    new Set([...(product.refs ?? []), ...(product.crossReferences ?? [])]),
+    new Set([
+      ...relationPartNumbers(product.refs ?? [], "unknown"),
+      ...relationPartNumbers(product.crossReferences ?? [], "unknown"),
+    ]),
   )
     .map((value) => String(value).trim())
     .filter(Boolean)

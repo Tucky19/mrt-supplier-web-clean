@@ -1,6 +1,10 @@
 "use client";
 
 import ProductCardV2 from "@/components/products/ProductCardV2";
+import {
+  type ProductRelationInput,
+  relationPartNumbers,
+} from "@/lib/products/relations";
 
 type Product = {
   id: string;
@@ -9,7 +13,7 @@ type Product = {
   category?: string;
   spec?: string;
   imageUrl?: string;
-  crossReferences?: string[];
+  crossReferences?: ProductRelationInput[];
 };
 
 type Props = {
@@ -24,8 +28,11 @@ export default function RelatedProducts({ current, products }: Props) {
       (p) =>
         p.brand === current.brand ||
         p.category === current.category ||
-        (p.crossReferences || []).some((ref) =>
-          (current.crossReferences || []).includes(ref)
+        relationPartNumbers(p.crossReferences || [], "unknown").some((ref) =>
+          relationPartNumbers(
+            current.crossReferences || [],
+            "unknown",
+          ).includes(ref)
         )
     )
     .slice(0, 4);

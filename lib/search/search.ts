@@ -4,6 +4,10 @@ import {
   matchesDimensions,
   type DimensionSearchCriteria,
 } from "@/lib/search/dimensions";
+import {
+  type ProductRelationInput,
+  relationPartNumbers,
+} from "@/lib/products/relations";
 
 type ProductSpecification = {
   label: string;
@@ -17,8 +21,8 @@ export type Product = {
   category?: string;
   title?: string;
   spec?: string;
-  refs?: string[];
-  crossReferences?: string[];
+  refs?: ProductRelationInput[];
+  crossReferences?: ProductRelationInput[];
   pairedParts?: Array<{
     partNo: string;
     relation: "outer" | "inner" | "paired";
@@ -340,8 +344,12 @@ export function searchProducts(
     const brand = normalize(item.brand);
     const title = normalize(item.title ?? "");
     const spec = normalize(item.spec ?? "");
-    const sameBrandRefs = buildPartRelationTokens(item.refs ?? []);
-    const crossReferences = buildPartRelationTokens(item.crossReferences ?? []);
+    const sameBrandRefs = buildPartRelationTokens(
+      relationPartNumbers(item.refs ?? [], "unknown"),
+    );
+    const crossReferences = buildPartRelationTokens(
+      relationPartNumbers(item.crossReferences ?? [], "unknown"),
+    );
     const pairedParts = buildPartRelationTokens(
       (item.pairedParts ?? []).map((part) => part.partNo),
     );
