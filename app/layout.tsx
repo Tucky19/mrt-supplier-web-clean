@@ -6,7 +6,6 @@ import { getLocale } from "next-intl/server";
 import GA4 from "@/components/analytics/GA4";
 import GA4PageView from "@/components/analytics/GA4PageView";
 import { GTMBody, GTMHead } from "@/components/analytics/GTM";
-import LineContactButton from "@/components/ui/LineContactButton";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://mrtsupplier.com"),
@@ -38,7 +37,6 @@ export default async function RootLayout({
           <GA4PageView />
         </Suspense>
         {children}
-        <LineContactButton />
       </body>
     </html>
   );
