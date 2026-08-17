@@ -1,6 +1,6 @@
 import type { Product } from "@/types/product";
 import type { ProductRelationInput } from "@/lib/products/relations";
-import { uniqueRelationPartNumbers } from "@/lib/products/relations";
+import { normalizeCanonicalProductRelations } from "@/lib/products/relations";
 
 type RawDonaldson = {
   id: string;
@@ -3641,8 +3641,8 @@ const donaldsonRfqSkeletonBatch: RawDonaldson[] = [
 function normalizeRefs(
   refs: ProductRelationInput[] | undefined,
   relationType: "unknown",
-): string[] {
-  return uniqueRelationPartNumbers(refs ?? [], relationType);
+): ProductRelationInput[] {
+  return normalizeCanonicalProductRelations(refs ?? [], relationType);
 }
 
 function normalizeSpec(

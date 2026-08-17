@@ -1,4 +1,5 @@
 import { products } from "@/data/products/index";
+import { normalizeProduct } from "@/data/products/normalize";
 import {
   hasRelationEvidence,
   normalizeProductRelations,
@@ -68,6 +69,92 @@ assert(structured[1].verificationStatus === "hidden", "hidden status not preserv
 assert(structured[2].verificationStatus === "pending", "pending status not preserved");
 assert(structured[1].relationType === "companion", "relation alias not preserved");
 assert(structured[0].evidenceUrl === "https://example.com/evidence", "evidence metadata lost");
+
+const rawStructuredProduct = {
+  id: "sample-governance-product",
+  partNo: "SAMPLE-001",
+  brand: "Sample",
+  category: "filter",
+  refs: [
+    " P550687 ",
+    {
+      partNumber: " P550687 ",
+      brand: " Donaldson ",
+      relationType: "local_equivalent",
+      verificationStatus: "verified",
+      evidence: "manual-review",
+      evidenceUrl: "https://example.com/evidence",
+      evidenceNote: "approved cross-reference sample",
+      approvedBy: "boss",
+      approvedAt: "2026-08-17T00:00:00.000Z",
+      note: "structured metadata must survive canonical normalization",
+    },
+  ],
+  crossReferences: [
+    " Fleetguard FS1006 ",
+    {
+      partNumber: " P000003 ",
+      relationType: "equivalent",
+      verificationStatus: "verified",
+      evidenceUrl: "https://example.com/evidence",
+    },
+  ],
+};
+const rawStructuredBeforeNormalize = JSON.stringify(rawStructuredProduct);
+const normalizedStructuredProduct = normalizeProduct(rawStructuredProduct);
+assert(
+  JSON.stringify(rawStructuredProduct) === rawStructuredBeforeNormalize,
+  "normalizeProduct mutated source relation input",
+);
+assert(
+  typeof normalizedStructuredProduct.refs?.[0] === "object",
+  "structured relation should win over duplicate legacy string in canonical refs",
+);
+const [preservedRelation] = normalizeProductRelations(
+  normalizedStructuredProduct.refs,
+  "unknown",
+);
+assert(
+  preservedRelation.partNumber === "P550687",
+  "canonical relation part number was not preserved",
+);
+assert(
+  preservedRelation.brand === "Donaldson" &&
+    preservedRelation.relationType === "local_equivalent" &&
+    preservedRelation.verificationStatus === "verified" &&
+    preservedRelation.evidence === "manual-review" &&
+    preservedRelation.evidenceUrl === "https://example.com/evidence" &&
+    preservedRelation.evidenceNote === "approved cross-reference sample" &&
+    preservedRelation.approvedBy === "boss" &&
+    preservedRelation.approvedAt === "2026-08-17T00:00:00.000Z" &&
+    preservedRelation.note === "structured metadata must survive canonical normalization",
+  "structured relation metadata was lost during canonical normalization",
+);
+const normalizedLegacyCrossRefs = normalizeProductRelations(
+  normalizedStructuredProduct.crossReferences,
+  "unknown",
+);
+assert(
+  normalizedLegacyCrossRefs[0].partNumber === "Fleetguard FS1006" &&
+    normalizedLegacyCrossRefs[0].verificationStatus === "pending",
+  "legacy relation should remain supported and normalize as pending",
+);
+assert(
+  normalizedLegacyCrossRefs[1].partNumber === "P000003" &&
+    normalizedLegacyCrossRefs[1].verificationStatus === "pending",
+  "verified relation missing approval metadata should normalize to pending",
+);
+assert(
+  relationPartNumbers(normalizedStructuredProduct.refs, "unknown").join("|") ===
+    "P550687",
+  "public flatten output changed for canonical structured relation",
+);
+assert(
+  relationPartNumbers(normalizedStructuredProduct.refs, "unknown").every(
+    (partNumber) => !partNumber.includes("[object Object]"),
+  ),
+  "canonical structured relation flattened to [object Object]",
+);
 
 const invalidVerified = normalizeProductRelations(
   [

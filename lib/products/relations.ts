@@ -167,6 +167,83 @@ export function uniqueRelationPartNumbers(
   return Array.from(new Set(relationPartNumbers(values, defaultRelationType)));
 }
 
+function normalizedPartKey(value: string) {
+  return value.trim().toLowerCase().replace(/[\s/_-]+/g, "");
+}
+
+function normalizedTextKey(value: string | undefined) {
+  return String(value ?? "").trim().toLowerCase();
+}
+
+function relationMetadataKey(relation: ProductRelation) {
+  return [
+    normalizedPartKey(relation.partNumber),
+    normalizedTextKey(relation.brand),
+    relation.relationType,
+    relation.verificationStatus,
+    normalizedTextKey(relation.evidence),
+    normalizedTextKey(relation.source),
+    normalizedTextKey(relation.evidenceUrl),
+    normalizedTextKey(relation.evidenceNote),
+    normalizedTextKey(relation.approvedBy),
+    normalizedTextKey(relation.approvedAt),
+    normalizedTextKey(relation.note),
+  ].join("|");
+}
+
+export function normalizeCanonicalProductRelations(
+  values: unknown,
+  defaultRelationType: ProductRelationType,
+): ProductRelationInput[] {
+  if (!Array.isArray(values)) return [];
+
+  const output: ProductRelationInput[] = [];
+  const legacyPartIndexes = new Map<string, number>();
+  const structuredPartKeys = new Set<string>();
+  const structuredMetadataKeys = new Set<string>();
+
+  for (const value of values) {
+    if (typeof value === "string") {
+      const partNumber = safeTrim(value);
+      if (!partNumber) continue;
+
+      const partKey = normalizedPartKey(partNumber);
+      if (structuredPartKeys.has(partKey) || legacyPartIndexes.has(partKey)) {
+        continue;
+      }
+
+      legacyPartIndexes.set(partKey, output.length);
+      output.push(partNumber);
+      continue;
+    }
+
+    const [relation] = normalizeProductRelations([value], defaultRelationType);
+    if (!relation) continue;
+
+    const partKey = normalizedPartKey(relation.partNumber);
+    const metadataKey = relationMetadataKey(relation);
+    if (structuredMetadataKeys.has(metadataKey)) continue;
+
+    const legacyIndex = legacyPartIndexes.get(partKey);
+    if (legacyIndex !== undefined) {
+      output.splice(legacyIndex, 1);
+      legacyPartIndexes.delete(partKey);
+
+      for (const [key, index] of legacyPartIndexes) {
+        if (index > legacyIndex) {
+          legacyPartIndexes.set(key, index - 1);
+        }
+      }
+    }
+
+    structuredPartKeys.add(partKey);
+    structuredMetadataKeys.add(metadataKey);
+    output.push(relation);
+  }
+
+  return output;
+}
+
 export function hasRelationEvidence(relation: ProductRelation) {
   return Boolean(
     relation.evidence ||

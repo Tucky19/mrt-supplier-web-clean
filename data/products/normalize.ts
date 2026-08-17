@@ -1,17 +1,17 @@
 import type { Product } from "@/types/product";
-import { uniqueRelationPartNumbers } from "@/lib/products/relations";
+import { normalizeCanonicalProductRelations } from "@/lib/products/relations";
 
 export function normalizeProduct(p: any): Product {
   const refs = Array.isArray(p.refs)
-    ? uniqueRelationPartNumbers(p.refs, "unknown")
+    ? normalizeCanonicalProductRelations(p.refs, "unknown")
     : Array.isArray(p.oemReferences)
-    ? uniqueRelationPartNumbers(p.oemReferences, "unknown")
+    ? normalizeCanonicalProductRelations(p.oemReferences, "unknown")
     : [];
 
   const crossReferences = Array.isArray(p.crossReferences)
-    ? uniqueRelationPartNumbers(p.crossReferences, "unknown")
+    ? normalizeCanonicalProductRelations(p.crossReferences, "unknown")
     : Array.isArray(p.refs)
-    ? uniqueRelationPartNumbers(p.refs, "unknown")
+    ? normalizeCanonicalProductRelations(p.refs, "unknown")
     : [];
 
   return {
