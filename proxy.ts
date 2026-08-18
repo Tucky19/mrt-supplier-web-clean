@@ -11,7 +11,7 @@ const legacyRedirects = new Map([
   ["/products/", "/th/products"],
   ["/products.html", "/th/products"],
   ["/contact", "/th/contact"],
-  ["/brands.html", "/th"],
+  ["/brands.html", "/th/brands"],
 ]);
 
 const temporaryLegacyRedirects = new Map([
