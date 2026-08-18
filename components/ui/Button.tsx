@@ -26,9 +26,9 @@ const variantClasses: Record<ButtonVariant, string> = {
 };
 
 const sizeClasses: Record<ButtonSize, string> = {
-  sm: "h-9 rounded-[var(--radius-md)] px-3 text-sm",
-  md: "h-10 rounded-[var(--radius-md)] px-4 text-sm sm:h-11 sm:px-5",
-  lg: "h-11 rounded-[var(--radius-md)] px-5 text-sm sm:h-12 sm:px-6 sm:text-base",
+  sm: "h-9 rounded-[var(--mrt-radius-md)] px-3 text-sm",
+  md: "h-10 rounded-[var(--mrt-radius-md)] px-4 text-sm sm:h-11 sm:px-5",
+  lg: "h-11 rounded-[var(--mrt-radius-md)] px-5 text-sm sm:h-12 sm:px-6 sm:text-base",
 };
 
 export default function Button({
