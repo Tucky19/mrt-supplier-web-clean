@@ -14,6 +14,11 @@ const legacyRedirects = new Map([
   ["/brands.html", "/th"],
 ]);
 
+const temporaryLegacyRedirects = new Map([
+  ["/store-locator", "/th/contact"],
+  ["/store-locator/", "/th/contact"],
+]);
+
 function legacyRedirectResponse(req: NextRequest, destination: string) {
   const url = new URL(destination, req.url);
 
@@ -23,6 +28,12 @@ function legacyRedirectResponse(req: NextRequest, destination: string) {
       Location: url.toString(),
     },
   });
+}
+
+function temporaryLegacyRedirectResponse(req: NextRequest, destination: string) {
+  const url = new URL(destination, req.url);
+
+  return NextResponse.redirect(url, 307);
 }
 
 function unauthorizedResponse() {
@@ -84,6 +95,11 @@ function isAuthorized(req: NextRequest) {
 export function proxy(req: NextRequest) {
   const { pathname } = req.nextUrl;
   const legacyDestination = legacyRedirects.get(pathname);
+  const temporaryLegacyDestination = temporaryLegacyRedirects.get(pathname);
+
+  if (temporaryLegacyDestination) {
+    return temporaryLegacyRedirectResponse(req, temporaryLegacyDestination);
+  }
 
   if (legacyDestination) {
     return legacyRedirectResponse(req, legacyDestination);
