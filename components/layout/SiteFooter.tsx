@@ -35,7 +35,7 @@ export default function SiteFooter({ locale = "th", className = "" }: Props) {
             <Link href={`/${locale}`} className="block hover:text-white">
               {isThai ? "หน้าแรก" : "Home"}
             </Link>
-            <Link href={`/${locale}#brands`} className="block hover:text-white">
+            <Link href={`/${locale}/brands`} className="block hover:text-white">
               {isThai ? "แบรนด์" : "Brands"}
             </Link>
             <Link href={`/${locale}#products`} className="block hover:text-white">

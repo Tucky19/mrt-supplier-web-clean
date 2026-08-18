@@ -23,6 +23,7 @@ export default function SiteHeader({ locale }: Props) {
       : 'Industrial Parts & RFQ Service',
     home: isThai ? '\u0e2b\u0e19\u0e49\u0e32\u0e41\u0e23\u0e01' : 'Home',
     products: isThai ? '\u0e2a\u0e34\u0e19\u0e04\u0e49\u0e32' : 'Products',
+    brands: isThai ? '\u0e41\u0e1a\u0e23\u0e19\u0e14\u0e4c\u0e2a\u0e34\u0e19\u0e04\u0e49\u0e32' : 'Brands',
     contact: isThai ? '\u0e15\u0e34\u0e14\u0e15\u0e48\u0e2d\u0e40\u0e23\u0e32' : 'Contact',
     requestQuote: isThai
       ? '\u0e02\u0e2d\u0e43\u0e1a\u0e40\u0e2a\u0e19\u0e2d\u0e23\u0e32\u0e04\u0e32'
@@ -59,6 +60,7 @@ export default function SiteHeader({ locale }: Props) {
   const mobileNavItems = [
     { href: `/${locale}`, label: text.home },
     { href: `/${locale}/products`, label: text.products },
+    { href: `/${locale}/brands`, label: text.brands },
     { href: `/${locale}/contact`, label: text.contact },
     { href: `/${locale}/quote`, label: text.requestQuote },
   ];
@@ -83,6 +85,9 @@ export default function SiteHeader({ locale }: Props) {
           </Link>
           <Link href={`/${locale}/products`} className="hover:text-blue-900">
             {text.products}
+          </Link>
+          <Link href={`/${locale}/brands`} className="hover:text-blue-900">
+            {text.brands}
           </Link>
           <Link href={`/${locale}/contact`} className="hover:text-blue-900">
             {text.contact}
