@@ -20,7 +20,7 @@ export default function BrandShowcase({
 
   return (
     <section id="brands" className="border-t border-slate-200 bg-white">
-      <div className="mx-auto max-w-7xl px-6 py-16 lg:px-8">
+      <div className="mx-auto max-w-7xl px-6 py-12 sm:py-16 lg:px-8">
         <div className="max-w-3xl">
           <p className="text-sm font-semibold uppercase tracking-[0.14em] text-slate-500">
             {copy.eyebrow}
@@ -47,10 +47,10 @@ export default function BrandShowcase({
             {brands.map((brand) => (
               <article
                 key={brand.key}
-                className="rounded-3xl border border-slate-200 bg-slate-50 p-6 shadow-sm transition hover:-translate-y-0.5 hover:border-slate-300 hover:shadow-md"
+                className="rounded-3xl border border-slate-200 bg-slate-50 p-4 shadow-sm transition hover:-translate-y-0.5 hover:border-slate-300 hover:shadow-md sm:p-6"
               >
-                <div className="flex h-28 items-center justify-center rounded-2xl border border-slate-100 bg-white px-6">
-                  <div className="relative h-20 w-full">
+                <div className="flex h-24 items-center justify-center rounded-2xl border border-slate-100 bg-white px-5 sm:h-28 sm:px-6">
+                  <div className="relative h-16 w-full sm:h-20">
                     <Image
                       src={brand.logo}
                       alt={brand.name}
@@ -61,7 +61,7 @@ export default function BrandShowcase({
                   </div>
                 </div>
 
-                <div className="mt-5 text-center">
+                <div className="mt-4 text-center sm:mt-5">
                   <p className="text-sm font-semibold text-slate-900">{brand.name}</p>
                   <p className="mt-2 text-sm leading-6 text-slate-600">
                     {copy.items[brand.key as keyof typeof copy.items]}

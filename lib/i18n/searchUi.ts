@@ -3,8 +3,8 @@ export function getSearchUiText(locale: string) {
 
   return {
     searchPlaceholder: isThai
-      ? "ค้นหา Part Number, Cross Reference หรือชื่อสินค้า"
-      : "Search part number, cross reference, or description",
+      ? "Part No. / Cross Ref."
+      : "Part No. / Cross Ref.",
     searchButton: isThai ? "ค้นหา" : "Search",
     searching: isThai ? "ค้นหา..." : "Searching...",
     searchInputLabel: isThai ? "ค้นหาสินค้า" : "Search products",

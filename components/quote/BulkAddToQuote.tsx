@@ -112,8 +112,8 @@ export default function BulkAddToQuote({ locale }: Props) {
         title: "ค้นหาหลาย Part Number ในครั้งเดียว",
         description:
           "วาง Part Number ทีละบรรทัด หรือคัดลอกจาก Excel เพื่อเพิ่มหลายรายการเข้า RFQ ได้ทันที",
-        placeholder:
-          "ตัวอย่าง:\nP551315 x 2\nP181104 x 1\nW 920/21 x 4\nC 20 500 x 1\nABC123 x 3",
+        placeholder: "กรอก Part Number และจำนวน บรรทัดละ 1 รายการ",
+        example: "ตัวอย่าง: P551315 x 2",
         button: "เพิ่มทั้งหมดเข้า RFQ",
         success: (count: number) => `เพิ่ม ${count} รายการเข้า RFQ แล้ว`,
         manual: (count: number) =>
@@ -126,8 +126,8 @@ export default function BulkAddToQuote({ locale }: Props) {
         title: "Add multiple Part Numbers at once",
         description:
           "Paste part numbers line by line or copy from Excel to add multiple items to your RFQ.",
-        placeholder:
-          "Example:\nP551315 x 2\nP181104 x 1\nW 920/21 x 4\nC 20 500 x 1\nABC123 x 3",
+        placeholder: "Enter one Part Number and quantity per line",
+        example: "Example: P551315 x 2",
         button: "Add all to RFQ",
         success: (count: number) => `Added ${count} items to RFQ`,
         manual: (count: number) =>
@@ -219,9 +219,10 @@ export default function BulkAddToQuote({ locale }: Props) {
         value={value}
         onChange={(event) => setValue(event.target.value)}
         placeholder={text.placeholder}
-        rows={6}
+        rows={4}
         className="mt-4 w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-blue-400 focus:ring-2 focus:ring-blue-100"
       />
+      <p className="mt-2 text-xs text-slate-500">{text.example}</p>
 
       <div className="mt-4 flex flex-wrap items-center gap-3">
         <button
