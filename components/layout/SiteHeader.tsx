@@ -72,11 +72,12 @@ export default function SiteHeader({ locale }: Props) {
       }`}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-3 sm:px-6">
-        <Link href={`/${locale}`} className="min-w-0 flex-1 leading-tight md:flex-none">
-          <span
-            className="block text-sm font-bold text-blue-950 sm:hidden"
-            aria-label="MRT Supplier Co.,Ltd"
-          >
+        <Link
+          href={`/${locale}`}
+          aria-label={isThai ? "MRT Supplier Co.,Ltd หน้าแรก" : "MRT Supplier Co.,Ltd Home"}
+          className="min-w-0 flex-1 leading-tight md:flex-none"
+        >
+          <span className="block text-sm font-bold text-blue-950 sm:hidden">
             MRT
           </span>
           <span className="hidden text-lg font-bold text-blue-950 sm:block">
