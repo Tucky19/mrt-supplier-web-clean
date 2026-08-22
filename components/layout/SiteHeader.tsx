@@ -73,7 +73,10 @@ export default function SiteHeader({ locale }: Props) {
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-3 sm:px-6">
         <Link href={`/${locale}`} className="min-w-0 flex-1 leading-tight md:flex-none">
-          <span className="block truncate text-base font-bold text-blue-950 sm:text-lg">
+          <span className="block whitespace-nowrap text-sm font-bold text-blue-950 sm:hidden">
+            MRT Supplier
+          </span>
+          <span className="hidden text-lg font-bold text-blue-950 sm:block">
             MRT Supplier Co.,Ltd
           </span>
           <span className="hidden text-[10px] text-gray-400 sm:block">{text.tagline}</span>
