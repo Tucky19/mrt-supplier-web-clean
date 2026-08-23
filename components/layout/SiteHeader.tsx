@@ -3,7 +3,11 @@
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { usePathname, useSearchParams } from 'next/navigation';
+import { MessageCircle } from 'lucide-react';
+import TrackedLineLink from '@/components/analytics/TrackedLineLink';
 import { useQuote } from '@/providers/QuoteProvider';
+
+const LINE_URL = 'https://lin.ee/S676yYH';
 
 type Props = {
   locale: string;
@@ -28,6 +32,7 @@ export default function SiteHeader({ locale }: Props) {
     requestQuote: isThai
       ? '\u0e02\u0e2d\u0e43\u0e1a\u0e40\u0e2a\u0e19\u0e2d\u0e23\u0e32\u0e04\u0e32'
       : 'Request Quote',
+    contactLine: isThai ? 'LINE ติดต่อทีมงาน' : 'Contact on LINE',
     menu: isThai ? '\u0e40\u0e21\u0e19\u0e39' : 'Menu',
     quoteCount: isThai
       ? `${totalItems} \u0e23\u0e32\u0e22\u0e01\u0e32\u0e23\u0e43\u0e19 RFQ`
@@ -148,6 +153,15 @@ export default function SiteHeader({ locale }: Props) {
                     {item.label}
                   </Link>
                 ))}
+                <TrackedLineLink
+                  href={LINE_URL}
+                  source="header_mobile_menu"
+                  locale={locale}
+                  className="mt-1 inline-flex items-center gap-2 whitespace-nowrap rounded-lg bg-[#06C755] px-3 py-2 text-sm font-semibold text-white transition hover:bg-[#05b64d]"
+                >
+                  <MessageCircle className="h-4 w-4" aria-hidden="true" />
+                  {text.contactLine}
+                </TrackedLineLink>
               </nav>
             </div>
           </details>
@@ -176,6 +190,17 @@ export default function SiteHeader({ locale }: Props) {
               );
             })}
           </div>
+
+          <TrackedLineLink
+            href={LINE_URL}
+            source="header_desktop"
+            locale={locale}
+            className="hidden shrink-0 items-center justify-center gap-2 rounded-lg border border-[#06C755] bg-white px-3 py-2 text-sm font-semibold text-[#07883d] transition hover:bg-[#effcf4] lg:inline-flex"
+          >
+            <MessageCircle className="h-4 w-4" aria-hidden="true" />
+            <span className="hidden xl:inline">{text.contactLine}</span>
+            <span className="xl:hidden">LINE</span>
+          </TrackedLineLink>
 
           <Link
             href={`/${locale}/quote`}
