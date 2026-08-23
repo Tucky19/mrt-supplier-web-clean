@@ -5,6 +5,7 @@ import { routing } from "@/i18n/routing";
 const intlMiddleware = createMiddleware(routing);
 
 const legacyRedirects = new Map([
+  ["/index.html", "/th"],
   ["/en/index.html", "/en"],
   ["/catalog", "/th/products"],
   ["/products", "/th/products"],
@@ -124,6 +125,7 @@ export const config = {
   matcher: [
     "/((?!api|_next|.*\\..*).*)",
     "/api/admin/:path*",
+    "/index.html",
     "/en/index.html",
     "/products.html",
     "/brands.html",

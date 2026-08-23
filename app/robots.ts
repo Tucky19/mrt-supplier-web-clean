@@ -19,6 +19,6 @@ export default function robots(): MetadataRoute.Robots {
         ],
       },
     ],
-    sitemap: "https://mrtsupplier.com/sitemap.xml",
+    sitemap: "https://www.mrtsupplier.com/sitemap.xml",
   };
 }

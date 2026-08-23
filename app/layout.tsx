@@ -8,7 +8,7 @@ import GA4PageView from "@/components/analytics/GA4PageView";
 import { GTMBody, GTMHead } from "@/components/analytics/GTM";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://mrtsupplier.com"),
+  metadataBase: new URL("https://www.mrtsupplier.com"),
   title: {
     default: "MRT Supplier | Industrial Parts RFQ",
     template: "%s | MRT Supplier",

@@ -15,7 +15,7 @@ type PageProps = {
   params: Promise<{ locale: string }>;
 };
 
-const SITE_URL = "https://mrtsupplier.com";
+const SITE_URL = "https://www.mrtsupplier.com";
 const LOCALES = ["th", "en"] as const;
 
 function getLocalizedAlternates(path: string) {
