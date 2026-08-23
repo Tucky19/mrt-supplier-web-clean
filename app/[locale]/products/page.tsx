@@ -183,11 +183,11 @@ export default async function ProductsPage({
       : `${visibleProducts.length} recommended items, with the first ${initialVisibleCount} below.`;
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="mrt-blueprint-shell min-h-screen">
       <JsonLd data={breadcrumbJsonLd} />
       <SiteHeader locale={locale} />
 
-      <section className="border-b bg-white">
+      <section className="mrt-blueprint-section-strong border-b border-blue-200/70">
         <div className="mx-auto max-w-[1440px] px-4 py-7 sm:px-6 sm:py-10 xl:px-8">
           <h1 className="text-2xl font-bold text-gray-900 sm:text-3xl">
             {isThai ? "ค้นหาสินค้า" : "Find Parts Fast"}
@@ -199,7 +199,7 @@ export default async function ProductsPage({
               : "Search by part number, cross reference, or dimensions, then add matching items to your quote request."}
           </p>
 
-          <div className="-mx-4 sticky top-[64px] z-40 mt-5 border-y bg-white/95 px-4 py-2.5 backdrop-blur md:static md:z-auto md:mx-0 md:border-y-0 md:bg-transparent md:px-0 md:py-0 md:backdrop-blur-0">
+          <div className="-mx-4 sticky top-[64px] z-40 mt-5 border-y border-blue-100 bg-white/95 px-4 py-2.5 backdrop-blur md:static md:z-auto md:mx-0 md:border-y-0 md:bg-transparent md:px-0 md:py-0 md:backdrop-blur-0">
             <SearchBar locale={locale} defaultValue={query} autoFocus={false} />
           </div>
 
