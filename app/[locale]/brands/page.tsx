@@ -85,11 +85,11 @@ export default async function BrandsPage({ params }: PageProps) {
   };
 
   return (
-    <main className="min-h-screen bg-slate-50">
+    <main className="mrt-blueprint-shell min-h-screen">
       <JsonLd data={breadcrumbJsonLd} />
       <SiteHeader locale={locale} />
 
-      <section className="border-b border-slate-200 bg-white">
+      <section className="mrt-blueprint-section-strong border-b border-blue-200/70">
         <div className="mx-auto max-w-7xl px-6 py-14 lg:px-8 lg:py-16">
           <div className="max-w-3xl">
             <p className="text-sm font-semibold uppercase tracking-[0.14em] text-blue-700">
@@ -105,7 +105,7 @@ export default async function BrandsPage({ params }: PageProps) {
         </div>
       </section>
 
-      <section className="border-b border-slate-200 bg-slate-50">
+      <section className="mrt-blueprint-section border-b border-blue-200/70">
         <div className="mx-auto max-w-7xl px-6 py-12 lg:px-8">
           <div className="grid grid-cols-1 gap-5 lg:grid-cols-3">
             {brandItems.map((brand) => (
@@ -165,7 +165,7 @@ export default async function BrandsPage({ params }: PageProps) {
         </div>
       </section>
 
-      <section className="bg-white">
+      <section className="mrt-blueprint-section-strong border-b border-blue-200/70">
         <div className="mx-auto flex max-w-7xl flex-col gap-4 px-6 py-10 sm:flex-row sm:items-center sm:justify-between lg:px-8">
           <div>
             <p className="text-sm font-semibold text-slate-950">
