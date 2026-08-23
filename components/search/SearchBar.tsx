@@ -12,6 +12,7 @@ type Props = {
   className?: string;
   autoFocus?: boolean;
   exampleQueries?: string[];
+  compactMobileExamples?: boolean;
 };
 
 const SEARCH_DEBOUNCE_MS = 400;
@@ -104,6 +105,7 @@ export default function SearchBar({
   className = "",
   autoFocus = true,
   exampleQueries = DEFAULT_EXAMPLE_QUERIES,
+  compactMobileExamples = false,
 }: Props) {
   const router = useRouter();
   const pathname = usePathname();
@@ -648,12 +650,14 @@ export default function SearchBar({
 
       <div className="mt-4 flex flex-wrap items-center gap-2 text-sm">
         <span className="text-slate-500">{text.tryLabel}</span>
-        {exampleQueries.map((example) => (
+        {exampleQueries.map((example, index) => (
           <button
             key={example}
             type="button"
             onClick={() => handleExampleClick(example)}
-            className="rounded-full border border-slate-200 bg-white px-3 py-1.5 text-slate-700 transition hover:border-slate-300 hover:bg-slate-50"
+            className={`rounded-full border border-slate-200 bg-white px-3 py-1.5 text-slate-700 transition hover:border-slate-300 hover:bg-slate-50 ${
+              compactMobileExamples && index >= 3 ? "hidden sm:inline-flex" : ""
+            }`}
           >
             {example}
           </button>

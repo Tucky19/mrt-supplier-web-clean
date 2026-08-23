@@ -73,7 +73,7 @@ export default function SearchFirstHero({ locale }: { locale: string }) {
   ];
 
   return (
-    <section className="relative overflow-hidden border-b border-blue-200/70 bg-white/35 px-4 py-12 sm:py-16">
+    <section className="relative overflow-hidden border-b border-blue-200/70 bg-white/35 px-4 py-8 sm:py-16">
       <div
         aria-hidden="true"
         className="absolute inset-0 opacity-80 [background-image:linear-gradient(rgba(37,99,235,0.075)_1px,transparent_1px),linear-gradient(90deg,rgba(37,99,235,0.075)_1px,transparent_1px)] [background-size:48px_48px]"
@@ -87,29 +87,30 @@ export default function SearchFirstHero({ locale }: { locale: string }) {
           <p className="text-xs font-bold uppercase tracking-[0.18em] text-blue-700 sm:text-sm">
             B2B Industrial Sourcing &amp; RFQ
           </p>
-          <h1 className="mt-4 text-3xl font-bold leading-[1.14] tracking-tight text-[#0b1f3a] sm:text-5xl lg:text-[3.55rem]">
+          <h1 className="mt-3 text-[1.75rem] font-bold leading-[1.12] tracking-tight text-[#0b1f3a] sm:mt-4 sm:text-5xl lg:text-[3.55rem]">
             {isThai
               ? "ค้นหาอะไหล่อุตสาหกรรมด้วย Part No. และ Cross Reference"
               : "Find industrial parts by Part No. and Cross Reference"}
           </h1>
-          <p className="mx-auto mt-4 max-w-3xl text-sm leading-7 text-slate-600 sm:text-lg">
+          <p className="mx-auto mt-3 max-w-3xl text-sm leading-6 text-slate-600 sm:mt-4 sm:text-lg sm:leading-7">
             {isThai
               ? "ช่วยทีมจัดซื้อและทีมซ่อมบำรุงค้นหา Filters, Bearings และอะไหล่อุตสาหกรรม พร้อมส่งขอใบเสนอราคาในขั้นตอนเดียว"
               : "Help purchasing and maintenance teams find filters, bearings, and industrial parts, then submit an RFQ in one flow."}
           </p>
         </div>
 
-        <div className="mx-auto mt-8 max-w-6xl rounded-2xl border border-slate-200 bg-white p-4 shadow-[0_16px_42px_rgba(15,23,42,0.12)] sm:p-5">
+        <div className="mx-auto mt-6 max-w-6xl rounded-2xl border border-slate-200 bg-white p-3 shadow-[0_16px_42px_rgba(15,23,42,0.12)] sm:mt-8 sm:p-5">
           <div className="grid items-start gap-3 lg:grid-cols-[minmax(0,1fr)_auto]">
             <SearchBar
               locale={locale}
               className="max-w-none"
               autoFocus={false}
               exampleQueries={EXAMPLE_QUERIES}
+              compactMobileExamples
             />
             <Link
               href={`/${locale}/quote`}
-              className="inline-flex min-h-[60px] items-center justify-center rounded-xl border border-blue-600 bg-white px-6 text-sm font-semibold text-blue-700 transition hover:bg-blue-50"
+              className="inline-flex min-h-12 items-center justify-center rounded-xl border border-blue-600 bg-white px-6 text-sm font-semibold text-blue-700 transition hover:bg-blue-50 lg:min-h-[60px]"
             >
               {isThai ? "ขอใบเสนอราคา" : "Request Quote"}
             </Link>
