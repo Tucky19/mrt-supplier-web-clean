@@ -33,7 +33,7 @@ export default function ProductGrid({
 
   if (!products.length) {
     return (
-      <section id="products" className="border-t border-slate-200 bg-slate-50">
+      <section id="products" className="mrt-blueprint-section-strong border-t border-blue-200/70">
         <div className="mx-auto max-w-7xl px-6 py-16 lg:px-8">
           <h2 className="text-2xl font-semibold tracking-tight text-slate-950">
             {text.title}
@@ -45,7 +45,7 @@ export default function ProductGrid({
   }
 
   return (
-    <section id="products" className="border-t border-slate-200 bg-slate-50">
+    <section id="products" className="mrt-blueprint-section-strong border-t border-blue-200/70">
       <div className="mx-auto max-w-7xl px-6 py-16 lg:px-8">
         <div className="max-w-2xl">
           <p className="text-sm font-semibold uppercase tracking-[0.14em] text-slate-500">

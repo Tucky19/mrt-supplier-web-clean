@@ -38,6 +38,9 @@
 
   --shadow-sm: 0 1px 2px rgb(15 23 42 / 0.06);
   --shadow-md: 0 10px 24px rgb(15 23 42 / 0.1);
+
+  --mrt-blueprint-line: rgb(37 99 235 / 0.055);
+  --mrt-blueprint-major-line: rgb(30 64 175 / 0.075);
 }
 
 html {
@@ -61,4 +64,34 @@ body {
 
 * {
   box-sizing: border-box;
+}
+
+.mrt-blueprint-shell {
+  background-color: #eef4fb;
+  background-image:
+    radial-gradient(circle at 12% 4%, rgb(59 130 246 / 0.14), transparent 24rem),
+    radial-gradient(circle at 88% 24%, rgb(14 165 233 / 0.09), transparent 28rem),
+    linear-gradient(var(--mrt-blueprint-major-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--mrt-blueprint-major-line) 1px, transparent 1px),
+    linear-gradient(var(--mrt-blueprint-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--mrt-blueprint-line) 1px, transparent 1px),
+    linear-gradient(180deg, #f7faff 0%, #edf3fa 56%, #f5f8fc 100%);
+  background-size:
+    auto,
+    auto,
+    192px 192px,
+    192px 192px,
+    48px 48px,
+    48px 48px,
+    auto;
+}
+
+.mrt-blueprint-section {
+  background: rgb(248 250 252 / 0.76);
+  backdrop-filter: blur(2px);
+}
+
+.mrt-blueprint-section-strong {
+  background: rgb(255 255 255 / 0.88);
+  backdrop-filter: blur(4px);
 }

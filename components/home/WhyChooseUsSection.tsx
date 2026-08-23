@@ -14,7 +14,7 @@ export default function WhyChooseUsSection({ locale }: { locale: string }) {
   const section = getHomeWhyChooseUsText(locale);
 
   return (
-    <section className="border-t border-slate-200 bg-white">
+    <section className="mrt-blueprint-section border-t border-blue-200/70">
       <div className="mx-auto max-w-7xl px-6 py-16 lg:px-8">
         <div className="max-w-3xl">
           <p className="text-sm font-semibold uppercase tracking-[0.14em] text-slate-500">
