@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { usePathname, useSearchParams } from 'next/navigation';
 import { MessageCircle } from 'lucide-react';
@@ -80,15 +81,25 @@ export default function SiteHeader({ locale }: Props) {
         <Link
           href={`/${locale}`}
           aria-label={isThai ? "MRT Supplier Co.,Ltd หน้าแรก" : "MRT Supplier Co.,Ltd Home"}
-          className="min-w-0 flex-1 leading-tight md:flex-none"
+          className="min-w-0 flex-1 md:flex-none"
         >
-          <span className="block text-sm font-bold text-blue-950 sm:hidden">
-            MRT
-          </span>
-          <span className="hidden text-lg font-bold text-blue-950 sm:block">
-            MRT Supplier Co.,Ltd
-          </span>
-          <span className="hidden text-[10px] text-gray-400 sm:block">{text.tagline}</span>
+          <Image
+            src="/brand/mrt-logo-compact.svg"
+            alt="MRT Supplier"
+            width={205}
+            height={100}
+            priority
+            className="h-9 w-auto sm:hidden"
+          />
+          <Image
+            src="/brand/mrt-logo-a.svg"
+            alt="MRT Supplier"
+            width={430}
+            height={110}
+            priority
+            className="hidden h-11 w-auto sm:block"
+          />
+          <span className="sr-only">{text.tagline}</span>
         </Link>
 
         <nav className="hidden items-center gap-6 text-sm font-medium md:flex">
