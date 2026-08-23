@@ -8,7 +8,7 @@ type Props = {
   params: Promise<{ locale: string }>;
 };
 
-const SITE_URL = "https://mrtsupplier.com";
+const SITE_URL = "https://www.mrtsupplier.com";
 
 const organizationJsonLd = {
   "@context": "https://schema.org",

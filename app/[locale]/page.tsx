@@ -14,7 +14,7 @@ type PageProps = {
 };
 
 const LOCALES = ["th", "en"] as const;
-const SITE_URL = "https://mrtsupplier.com";
+const SITE_URL = "https://www.mrtsupplier.com";
 
 function getLocalizedAlternates(path = "") {
   return Object.fromEntries(

@@ -23,7 +23,7 @@ const DEFAULT_PRODUCT_LIMIT = 24;
 const SEARCH_RESULT_LIMIT = 48;
 const INITIAL_RENDER_COUNT = 12;
 const LOCALES = ["th", "en"] as const;
-const SITE_URL = "https://mrtsupplier.com";
+const SITE_URL = "https://www.mrtsupplier.com";
 
 function getLocalizedAlternates(path: string) {
   return Object.fromEntries(

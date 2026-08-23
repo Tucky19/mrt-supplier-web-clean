@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { products } from "@/data/products/index";
 import { relationPartNumbers } from "@/lib/products/relations";
 
-const SITE_URL = "https://mrtsupplier.com";
+const SITE_URL = "https://www.mrtsupplier.com";
 const LOCALES = ["th", "en"] as const;
 
 export default function sitemap(): MetadataRoute.Sitemap {
