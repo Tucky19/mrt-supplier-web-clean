@@ -18,7 +18,6 @@ export const metadata: Metadata = {
   icons: {
     icon: "/brand/mrt-mark.svg",
     shortcut: "/brand/mrt-mark.svg",
-    apple: "/brand/mrt-mark.svg",
   },
 };
 
