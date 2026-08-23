@@ -75,7 +75,7 @@ export default async function ContactPage({
   const address = locale === "th" ? contactDetails.addressTh : contactDetails.addressEn;
 
   return (
-    <main className="min-h-screen bg-slate-50">
+    <main className="mrt-blueprint-shell min-h-screen">
       <SiteHeader locale={locale} />
 
       <section className="mx-auto max-w-6xl px-4 py-10 sm:py-12">
