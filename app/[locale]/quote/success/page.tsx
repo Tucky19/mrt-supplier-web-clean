@@ -38,7 +38,7 @@ export default async function QuoteSuccessPage({
   const lineFailed = line === "0" || failures.includes("line_notify");
 
   return (
-    <main className="min-h-screen bg-slate-50">
+    <main className="mrt-blueprint-shell min-h-screen">
       <Suspense fallback={null}>
         <RFQSuccessDataLayer locale={locale} />
       </Suspense>
