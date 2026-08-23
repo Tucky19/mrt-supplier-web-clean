@@ -7,7 +7,7 @@ export default function QuoteCTASection({ locale }: { locale: string }) {
   const lineUrl = "https://lin.ee/S676yYH";
 
   return (
-    <section id="contact" className="border-t border-slate-200 bg-slate-50">
+    <section id="contact" className="mrt-blueprint-section border-t border-blue-200/70">
       <div className="mx-auto max-w-7xl px-6 py-16 lg:px-8">
         <div className="overflow-hidden rounded-3xl border border-slate-200 bg-slate-900 px-6 py-10 text-white shadow-sm lg:px-10 lg:py-12">
           <div className="max-w-3xl">

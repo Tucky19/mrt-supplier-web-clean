@@ -206,13 +206,13 @@ export default async function Page({
   ];
 
   return (
-    <main className="min-h-screen bg-slate-50">
+    <main className="mrt-blueprint-shell min-h-screen">
       <JsonLd data={breadcrumbJsonLd} />
       <SiteHeader locale={locale} />
 
       <SearchFirstHero locale={locale} />
 
-      <section className="border-b border-slate-200 bg-slate-50">
+      <section className="mrt-blueprint-section border-b border-blue-200/70">
         <div className="mx-auto grid max-w-7xl gap-8 px-6 py-14 lg:grid-cols-[0.85fr_1.15fr] lg:px-8">
           <div>
             <p className="text-sm font-semibold uppercase tracking-[0.14em] text-slate-500">
@@ -257,7 +257,7 @@ export default async function Page({
         </div>
       </section>
 
-      <section className="border-b border-slate-200 bg-white">
+      <section className="mrt-blueprint-section-strong border-b border-blue-200/70">
         <div className="mx-auto flex max-w-7xl flex-col gap-6 px-6 py-12 lg:flex-row lg:items-center lg:justify-between lg:px-8">
           <div className="max-w-2xl">
             <p className="text-sm font-semibold uppercase tracking-[0.14em] text-slate-500">

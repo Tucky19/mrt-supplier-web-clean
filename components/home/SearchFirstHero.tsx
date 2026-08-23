@@ -69,13 +69,14 @@ export default function SearchFirstHero({ locale }: { locale: string }) {
   ];
 
   return (
-    <section className="relative overflow-hidden border-b border-slate-200 bg-[#f7f9fc] px-4 py-12 sm:py-16">
+    <section className="relative overflow-hidden border-b border-blue-200/70 bg-white/35 px-4 py-12 sm:py-16">
       <div
         aria-hidden="true"
-        className="absolute inset-0 opacity-60 [background-image:linear-gradient(rgba(47,128,237,0.06)_1px,transparent_1px),linear-gradient(90deg,rgba(47,128,237,0.06)_1px,transparent_1px)] [background-size:48px_48px]"
+        className="absolute inset-0 opacity-80 [background-image:linear-gradient(rgba(37,99,235,0.075)_1px,transparent_1px),linear-gradient(90deg,rgba(37,99,235,0.075)_1px,transparent_1px)] [background-size:48px_48px]"
       />
-      <div aria-hidden="true" className="absolute -left-24 top-28 h-64 w-64 rounded-full border border-blue-100" />
-      <div aria-hidden="true" className="absolute -right-16 top-16 h-52 w-52 rotate-45 border border-blue-100" />
+      <div aria-hidden="true" className="absolute -left-24 top-28 h-64 w-64 rounded-full border border-blue-300/55" />
+      <div aria-hidden="true" className="absolute -right-16 top-16 h-52 w-52 rotate-45 border border-blue-300/55" />
+      <div aria-hidden="true" className="absolute left-[8%] top-0 h-72 w-72 rounded-full bg-blue-400/10 blur-3xl" />
 
       <div className="relative mx-auto max-w-7xl">
         <div className="mx-auto max-w-5xl text-center">

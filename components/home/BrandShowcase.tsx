@@ -19,7 +19,7 @@ export default function BrandShowcase({
   const copy = getHomeBrandShowcaseText(locale);
 
   return (
-    <section id="brands" className="border-t border-slate-200 bg-white">
+    <section id="brands" className="mrt-blueprint-section-strong border-t border-blue-200/70">
       <div className="mx-auto max-w-7xl px-6 py-12 sm:py-16 lg:px-8">
         <div className="max-w-3xl">
           <p className="text-sm font-semibold uppercase tracking-[0.14em] text-slate-500">
