@@ -15,6 +15,11 @@ export const metadata: Metadata = {
   },
   description:
     "Search industrial parts by part number, cross reference, or dimensions and submit RFQs to MRT Supplier.",
+  icons: {
+    icon: "/brand/mrt-mark.svg",
+    shortcut: "/brand/mrt-mark.svg",
+    apple: "/brand/mrt-mark.svg",
+  },
 };
 
 export default async function RootLayout({
