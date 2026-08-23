@@ -285,7 +285,7 @@ export default function QuotePage() {
   };
 
   return (
-    <div className="flex min-h-screen flex-col bg-slate-50">
+    <div className="mrt-blueprint-shell flex min-h-screen flex-col">
       <SiteHeader locale={locale} />
       <main className="flex-1 pb-[calc(6rem+env(safe-area-inset-bottom))] md:pb-0">
         <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8">
