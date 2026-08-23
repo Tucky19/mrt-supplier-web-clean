@@ -5,10 +5,14 @@ import {
   CircleGauge,
   Headset,
   Link2,
+  MessageCircle,
   PackageSearch,
   Users,
 } from "lucide-react";
+import TrackedLineLink from "@/components/analytics/TrackedLineLink";
 import SearchBar from "@/components/search/SearchBar";
+
+const LINE_URL = "https://lin.ee/S676yYH";
 
 const EXAMPLE_QUERIES = [
   "FUEL FILTER",
@@ -109,14 +113,25 @@ export default function SearchFirstHero({ locale }: { locale: string }) {
               {isThai ? "ขอใบเสนอราคา" : "Request Quote"}
             </Link>
           </div>
-          <div className="mt-3 border-t border-slate-100 pt-3 text-center text-xs text-slate-500 sm:text-left">
-            {isThai ? "ไม่พบสินค้าที่ต้องการ? " : "Cannot find the item? "}
-            <Link
-              href={`/${locale}/products?request=1#missing-product-request`}
-              className="font-semibold text-blue-700 hover:text-blue-900"
+          <div className="mt-3 flex flex-col gap-2 border-t border-slate-100 pt-3 text-center text-xs text-slate-500 sm:flex-row sm:items-center sm:justify-between sm:text-left">
+            <div>
+              {isThai ? "ไม่พบสินค้าที่ต้องการ? " : "Cannot find the item? "}
+              <Link
+                href={`/${locale}/products?request=1#missing-product-request`}
+                className="font-semibold text-blue-700 hover:text-blue-900"
+              >
+                {isThai ? "ส่งข้อมูลให้ทีมช่วยค้นหา →" : "Send details to our sourcing team →"}
+              </Link>
+            </div>
+            <TrackedLineLink
+              href={LINE_URL}
+              source="hero_search"
+              locale={locale}
+              className="inline-flex items-center justify-center gap-1.5 font-semibold text-[#07883d] transition hover:text-[#056d31]"
             >
-              {isThai ? "ส่งข้อมูลให้ทีมช่วยค้นหา →" : "Send details to our sourcing team →"}
-            </Link>
+              <MessageCircle className="h-4 w-4" aria-hidden="true" />
+              {isThai ? "ส่งรูปหรือ Part No. ทาง LINE" : "Send a photo or Part No. on LINE"}
+            </TrackedLineLink>
           </div>
         </div>
 

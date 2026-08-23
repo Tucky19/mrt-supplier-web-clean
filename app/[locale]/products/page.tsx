@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
+import { MessageCircle } from "lucide-react";
 import SearchEventTracker from "@/components/analytics/SearchEventTracker";
 import SearchResultsDataLayer from "@/components/analytics/SearchResultsDataLayer";
+import TrackedLineLink from "@/components/analytics/TrackedLineLink";
 import { getTranslations } from "next-intl/server";
 import SearchNoResultsTracker from "@/components/analytics/SearchNoResultsTracker";
 import MissingProductRequestForm from "@/components/products/MissingProductRequestForm";
@@ -24,6 +26,7 @@ const SEARCH_RESULT_LIMIT = 48;
 const INITIAL_RENDER_COUNT = 12;
 const LOCALES = ["th", "en"] as const;
 const SITE_URL = "https://www.mrtsupplier.com";
+const LINE_URL = "https://lin.ee/S676yYH";
 
 function getLocalizedAlternates(path: string) {
   return Object.fromEntries(
@@ -341,6 +344,17 @@ export default async function ProductsPage({
                     ? "ส่ง Part Number, Cross Reference, รูปสินค้า หรือข้อมูลการใช้งานให้ทีม MRT ช่วยตรวจสอบได้"
                     : "Send the part number, cross reference, product photo, or application details for our team to check."}
                 </p>
+                <TrackedLineLink
+                  href={LINE_URL}
+                  source="search_no_results"
+                  locale={locale}
+                  className="mt-4 inline-flex min-h-11 items-center justify-center gap-2 rounded-xl bg-[#06C755] px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-[#05b64d]"
+                >
+                  <MessageCircle className="h-5 w-5" aria-hidden="true" />
+                  {isThai
+                    ? "ให้ทีมช่วยค้นหาทาง LINE"
+                    : "Ask our team to search on LINE"}
+                </TrackedLineLink>
               </div>
             )}
 
