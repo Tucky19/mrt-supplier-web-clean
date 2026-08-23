@@ -187,7 +187,7 @@ export default async function ProductsPage({
       <JsonLd data={breadcrumbJsonLd} />
       <SiteHeader locale={locale} />
 
-      <section className="mrt-blueprint-section border-b border-blue-200/70">
+      <section className="border-b border-blue-200/70 bg-white/25">
         <div className="mx-auto max-w-[1440px] px-4 py-7 sm:px-6 sm:py-10 xl:px-8">
           <h1 className="text-2xl font-bold text-gray-900 sm:text-3xl">
             {isThai ? "ค้นหาสินค้า" : "Find Parts Fast"}
