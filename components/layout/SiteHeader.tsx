@@ -89,7 +89,7 @@ export default function SiteHeader({ locale }: Props) {
             width={205}
             height={100}
             priority
-            className="h-9 w-auto sm:hidden"
+            className="h-auto w-full max-w-[5.25rem] object-contain object-left sm:hidden"
           />
           <Image
             src="/brand/mrt-logo-a.svg"
