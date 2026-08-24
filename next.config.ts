@@ -7,6 +7,15 @@ const nextConfig: NextConfig = {
   allowedDevOrigins: ["192.168.1.49", "192.168.1.33"],
   skipProxyUrlNormalize: true,
   skipTrailingSlashRedirect: true,
+  async redirects() {
+    return [
+      {
+        source: "/catalog",
+        destination: "/th/products",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default withNextIntl(nextConfig);
