@@ -34,54 +34,12 @@ function getAbsoluteUrl(path: string) {
   return `${SITE_URL}${path.startsWith("/") ? path : `/${path}`}`;
 }
 
-function getProductDescription(product: Product) {
-  return (
-    product.description?.trim() ||
-    product.shortDescription?.trim() ||
-    product.spec?.trim() ||
-    `${product.brand} ${product.partNo}`
-  );
-}
-
 function getProductImage(product: Product) {
   if (!product.imageUrl || product.imageUrl === "/images/placeholder.jpg") {
     return null;
   }
 
   return getAbsoluteUrl(product.imageUrl);
-}
-
-function getProductJsonLd(product: Product, locale: string) {
-  const productUrl = `${SITE_URL}/${locale}/products/${encodeURIComponent(
-    product.partNo,
-  )}`;
-  const image = getProductImage(product);
-  const additionalProperty = product.specifications?.map((spec) => ({
-    "@type": "PropertyValue",
-    name: spec.label,
-    value: String(spec.value),
-  }));
-
-  return {
-    "@context": "https://schema.org",
-    "@type": "Product",
-    name: `${product.brand} ${product.partNo}`,
-    brand: {
-      "@type": "Brand",
-      name: product.brand,
-    },
-    sku: product.partNo,
-    mpn: product.partNo,
-    manufacturer: {
-      "@type": "Organization",
-      name: product.brand,
-    },
-    category: product.category,
-    description: getProductDescription(product),
-    url: productUrl,
-    ...(image ? { image } : {}),
-    ...(additionalProperty?.length ? { additionalProperty } : {}),
-  };
 }
 
 function getBreadcrumbJsonLd(product: Product, locale: string) {
@@ -222,7 +180,6 @@ export default async function ProductPage({ params }: PageProps) {
   return (
     <main className="mrt-blueprint-shell min-h-screen">
       <JsonLd data={getBreadcrumbJsonLd(product, locale)} />
-      <JsonLd data={getProductJsonLd(product, locale)} />
       <Suspense fallback={<div className="h-[72px] bg-white" />}>
         <SiteHeader locale={locale} />
       </Suspense>
