@@ -83,41 +83,47 @@ function getMatchPresentation(
   if (matchType === "Exact") {
     return {
       label: text.exactMatch,
-      className: "border-blue-200 bg-blue-50 text-blue-900",
+      className:
+        "border-[var(--color-primary)] bg-[var(--color-primary-soft)] text-[var(--color-primary)]",
     };
   }
 
   if (matchType === "Prefix" || matchType === "Contains") {
     return {
       label: text.partNumberMatch,
-      className: "border-sky-200 bg-sky-50 text-sky-900",
+      className:
+        "border-[var(--color-border-strong)] bg-[var(--color-surface-muted)] text-[var(--color-text)]",
     };
   }
 
   if (matchType === "Cross Ref") {
     return {
       label: `${text.crossReferenceMatch}${querySuffix}`,
-      className: "border-emerald-200 bg-emerald-50 text-emerald-900",
+      className:
+        "border-[var(--color-success)] bg-[var(--color-success-soft)] text-[var(--color-success-text)]",
     };
   }
 
   if (matchType === "Same-brand Ref") {
     return {
       label: `${text.sameBrandReferenceMatch}${querySuffix}`,
-      className: "border-teal-200 bg-teal-50 text-teal-900",
+      className:
+        "border-[var(--color-success)] bg-[var(--color-success-soft)] text-[var(--color-success-text)]",
     };
   }
 
   if (matchType === "Kit Component") {
     return {
       label: `${text.usedTogetherMatch}${querySuffix}`,
-      className: "border-amber-200 bg-amber-50 text-amber-900",
+      className:
+        "border-[var(--color-warning)] bg-[var(--color-warning-soft)] text-[var(--color-warning-text)]",
     };
   }
 
   return {
     label: text.relatedMatch,
-    className: "border-slate-200 bg-slate-100 text-slate-800",
+    className:
+      "border-[var(--color-border)] bg-[var(--color-surface-muted)] text-[var(--color-text)]",
   };
 }
 
@@ -163,8 +169,12 @@ export default function ProductCardV2({
     "Specification to be confirmed";
   const isRequest = product.stockStatus === "request";
   const statusLabel = isRequest ? text.statusRequest : text.statusAvailable;
-  const statusDotClass = isRequest ? "bg-amber-400" : "bg-emerald-500";
-  const statusTextClass = isRequest ? "text-amber-800" : "text-emerald-700";
+  const statusDotClass = isRequest
+    ? "bg-[var(--color-warning)]"
+    : "bg-[var(--color-success)]";
+  const statusTextClass = isRequest
+    ? "text-[var(--color-warning-text)]"
+    : "text-[var(--color-success-text)]";
   const hasProductImage = image !== "/images/placeholder.jpg";
   const quantity = parseQuantity(quantityInput);
   const officialReferenceLabel = isThai
@@ -247,22 +257,24 @@ export default function ProductCardV2({
   };
 
   return (
-    <div className="group flex h-full flex-col overflow-hidden rounded-[24px] border border-slate-200 bg-[linear-gradient(180deg,#ffffff_0%,#fcfdff_100%)] shadow-[0_10px_26px_rgba(15,23,42,0.05)] transition duration-200 hover:-translate-y-0.5 hover:border-slate-300 hover:shadow-[0_18px_38px_rgba(15,23,42,0.1)]">
-      <div className="border-b border-slate-200 bg-[linear-gradient(180deg,#f7fbfd_0%,#ffffff_100%)] p-3 sm:p-4">
+    <div className="group flex h-full flex-col overflow-hidden rounded-[var(--mrt-radius-lg)] border border-[var(--color-border)] bg-[var(--color-surface)] shadow-[var(--shadow-sm)] transition duration-200 hover:-translate-y-0.5 hover:border-[var(--color-border-strong)] hover:shadow-[var(--shadow-md)]">
+      <div className="border-b border-[var(--color-border)] bg-[var(--color-surface-muted)] p-3 sm:p-4">
         <div className="flex items-start justify-between gap-2">
           <div className="flex min-w-0 flex-wrap items-center gap-2">
-            <span className="inline-flex min-h-7 items-center rounded-full border border-sky-100 bg-[linear-gradient(180deg,#ffffff_0%,#f3f8ff_100%)] px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-700 shadow-sm">
+            <span className="inline-flex min-h-7 items-center rounded-full border border-[var(--color-border)] bg-[var(--color-surface)] px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-[var(--color-text)] shadow-[var(--shadow-sm)]">
               {product.brand}
             </span>
             {isSearchVariant && categoryLabel ? (
-              <span className="truncate text-[11px] font-medium text-slate-500">
+              <span className="truncate text-[11px] font-medium text-[var(--color-text-muted)]">
                 {categoryLabel}
               </span>
             ) : null}
           </div>
           <span
             className={`inline-flex min-h-7 shrink-0 items-center gap-1.5 rounded-full px-2.5 py-1 text-[11px] font-semibold ${statusTextClass} ${
-              isRequest ? "bg-amber-50" : "bg-emerald-50"
+              isRequest
+                ? "bg-[var(--color-warning-soft)]"
+                : "bg-[var(--color-success-soft)]"
             }`}
           >
             <span className={`h-2 w-2 rounded-full ${statusDotClass}`} />
@@ -284,23 +296,23 @@ export default function ProductCardV2({
 
             <Link
               href={`/${locale}/products/${encodeURIComponent(product.partNo)}`}
-              className="mt-2 block [overflow-wrap:anywhere] text-[1.4rem] font-semibold leading-tight tracking-[-0.035em] text-slate-950 transition-colors hover:text-blue-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-200 sm:text-[1.5rem]"
+              className="mt-2 block [overflow-wrap:anywhere] text-[1.4rem] font-semibold leading-tight tracking-[-0.035em] text-[var(--color-text)] transition-colors hover:text-[var(--color-primary-hover)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-surface-muted)] sm:text-[1.5rem]"
             >
               {product.partNo}
             </Link>
 
             {product.title ? (
-              <div className="mt-1 line-clamp-2 text-sm leading-5 text-slate-700">
+              <div className="mt-1 line-clamp-2 text-sm leading-5 text-[var(--color-text-muted)]">
                 {product.title}
               </div>
             ) : null}
 
             <div className="mt-3 grid grid-cols-[5.5rem_minmax(0,1fr)] gap-3">
               <div
-                className={`flex h-[5.5rem] items-center justify-center overflow-hidden rounded-2xl border shadow-[inset_0_1px_0_rgba(255,255,255,0.8)] ${
+                className={`flex h-[5.5rem] items-center justify-center overflow-hidden rounded-[var(--mrt-radius-md)] border shadow-[inset_0_1px_0_rgba(255,255,255,0.8)] ${
                   hasProductImage
-                    ? "border-slate-200 bg-[radial-gradient(circle_at_top,#ffffff_0%,#f8fafc_68%,#eef2f7_100%)]"
-                    : "border-dashed border-slate-200 bg-slate-50"
+                    ? "border-[var(--color-border)] bg-[var(--color-surface)]"
+                    : "border-dashed border-[var(--color-border)] bg-[var(--color-surface-muted)]"
                 }`}
               >
                 <img
@@ -314,11 +326,11 @@ export default function ProductCardV2({
                 />
               </div>
 
-              <div className="min-w-0 rounded-2xl border border-slate-200 bg-white/80 px-3 py-2.5">
-                <div className="text-[10px] font-semibold uppercase tracking-[0.14em] text-slate-400">
+              <div className="min-w-0 rounded-[var(--mrt-radius-md)] border border-[var(--color-border)] bg-[var(--color-surface)] px-3 py-2.5">
+                <div className="text-[10px] font-semibold uppercase tracking-[0.14em] text-[var(--color-text-muted)]">
                   {isThai ? "สเปกโดยสรุป" : "Specification Summary"}
                 </div>
-                <div className="mt-1 line-clamp-2 text-xs leading-5 text-slate-700 sm:text-sm">
+                <div className="mt-1 line-clamp-2 text-xs leading-5 text-[var(--color-text-muted)] sm:text-sm">
                   {specText}
                 </div>
               </div>
@@ -326,10 +338,10 @@ export default function ProductCardV2({
           </>
         ) : (
           <div
-            className={`mt-3 flex h-36 items-center justify-center overflow-hidden rounded-[20px] border shadow-[inset_0_1px_0_rgba(255,255,255,0.8)] transition-colors duration-200 sm:h-40 ${
+            className={`mt-3 flex h-36 items-center justify-center overflow-hidden rounded-[var(--mrt-radius-lg)] border shadow-[inset_0_1px_0_rgba(255,255,255,0.8)] transition-colors duration-200 sm:h-40 ${
               hasProductImage
-                ? "border-slate-200 bg-[radial-gradient(circle_at_top,#ffffff_0%,#f8fafc_68%,#eef2f7_100%)]"
-                : "border-dashed border-slate-200 bg-slate-50"
+                ? "border-[var(--color-border)] bg-[var(--color-surface)]"
+                : "border-dashed border-[var(--color-border)] bg-[var(--color-surface-muted)]"
             }`}
           >
             <img
@@ -348,28 +360,28 @@ export default function ProductCardV2({
       <div className="flex flex-1 flex-col p-4 sm:p-5">
         {!isSearchVariant ? (
           <>
-            <div className="text-[10px] font-semibold uppercase tracking-[0.16em] text-slate-400">
+            <div className="text-[10px] font-semibold uppercase tracking-[0.16em] text-[var(--color-text-muted)]">
               {isThai ? "รหัสสินค้า" : "Part Number"}
             </div>
 
             <Link
               href={`/${locale}/products/${encodeURIComponent(product.partNo)}`}
-              className="mt-1 [overflow-wrap:anywhere] text-[1.45rem] font-semibold leading-tight tracking-[-0.04em] text-slate-950 transition-colors hover:text-blue-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-200 sm:text-[1.55rem]"
+              className="mt-1 [overflow-wrap:anywhere] text-[1.45rem] font-semibold leading-tight tracking-[-0.04em] text-[var(--color-text)] transition-colors hover:text-[var(--color-primary-hover)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-surface)] sm:text-[1.55rem]"
             >
               {product.partNo}
             </Link>
 
             {product.title ? (
-              <div className="mt-2 min-h-[2.75rem] line-clamp-2 text-sm leading-6 text-slate-700">
+              <div className="mt-2 min-h-[2.75rem] line-clamp-2 text-sm leading-6 text-[var(--color-text-muted)]">
                 {product.title}
               </div>
             ) : null}
 
-            <div className="mt-4 rounded-[18px] border border-slate-200 bg-slate-50/80 px-3.5 py-3">
-              <div className="text-[10px] font-semibold uppercase tracking-[0.14em] text-slate-400">
+            <div className="mt-4 rounded-[var(--mrt-radius-md)] border border-[var(--color-border)] bg-[var(--color-surface-muted)] px-3.5 py-3">
+              <div className="text-[10px] font-semibold uppercase tracking-[0.14em] text-[var(--color-text-muted)]">
                 {isThai ? "สเปกโดยสรุป" : "Specification Summary"}
               </div>
-              <div className="mt-1.5 min-h-[3.25rem] line-clamp-2 text-sm leading-6 text-slate-700">
+              <div className="mt-1.5 min-h-[3.25rem] line-clamp-2 text-sm leading-6 text-[var(--color-text-muted)]">
                 {specText}
               </div>
             </div>
@@ -378,14 +390,14 @@ export default function ProductCardV2({
 
         {refs.length > 0 && (
           <div className={isSearchVariant ? "order-2 mt-3" : "mt-4"}>
-            <div className="mb-2 text-[10px] font-semibold uppercase tracking-[0.14em] text-slate-400">
+            <div className="mb-2 text-[10px] font-semibold uppercase tracking-[0.14em] text-[var(--color-text-muted)]">
               {text.references}
             </div>
             <div className="flex min-h-[2.5rem] flex-wrap content-start gap-2">
               {refs.map((ref) => (
                 <span
                   key={ref}
-                  className="rounded-full border border-slate-200 bg-white px-2.5 py-1 text-[10px] font-medium text-slate-700 shadow-sm sm:text-[11px]"
+                  className="rounded-full border border-[var(--color-border)] bg-[var(--color-surface)] px-2.5 py-1 text-[10px] font-medium text-[var(--color-text-muted)] shadow-[var(--shadow-sm)] sm:text-[11px]"
                 >
                   {ref}
                 </span>
@@ -395,7 +407,7 @@ export default function ProductCardV2({
         )}
 
         {!isSearchVariant && product.shortDescription && (
-          <div className="mt-4 hidden line-clamp-2 text-xs leading-5 text-slate-500 sm:block">
+          <div className="mt-4 hidden line-clamp-2 text-xs leading-5 text-[var(--color-text-muted)] sm:block">
             {product.shortDescription}
           </div>
         )}
@@ -406,18 +418,18 @@ export default function ProductCardV2({
               href={product.officialUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="mb-3 inline-flex text-xs font-medium text-sky-700 underline-offset-2 hover:text-sky-800 hover:underline"
+              className="mb-3 inline-flex text-xs font-medium text-[var(--color-primary)] underline-offset-2 hover:text-[var(--color-primary-hover)] hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-surface)]"
             >
               {officialReferenceLabel}
             </a>
           )}
 
-          <div className="mb-2 rounded-[16px] border border-slate-200 bg-slate-50/80 p-1.5">
+          <div className="mb-2 rounded-[var(--mrt-radius-md)] border border-[var(--color-border)] bg-[var(--color-surface-muted)] p-1.5">
             <div className="flex items-center gap-1.5">
               <button
                 type="button"
                 onClick={() => adjustQuantity(-1)}
-                className="inline-flex min-h-10 w-10 items-center justify-center rounded-xl border border-slate-200 bg-white text-base font-semibold text-slate-700 transition-colors hover:bg-slate-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-200"
+                className="inline-flex min-h-10 w-10 items-center justify-center rounded-[var(--mrt-radius-sm)] border border-[var(--color-border)] bg-[var(--color-surface)] text-base font-semibold text-[var(--color-text)] transition-colors hover:bg-[var(--color-primary-soft)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-surface-muted)]"
                 aria-label={isThai ? "Decrease quantity" : "Decrease quantity"}
               >
                 -
@@ -430,14 +442,15 @@ export default function ProductCardV2({
                 value={quantityInput}
                 onChange={(event) => handleQuantityChange(event.target.value)}
                 onBlur={handleQuantityBlur}
-                className="min-h-10 min-w-0 flex-1 rounded-xl border border-slate-200 bg-white px-3 text-center text-sm font-semibold text-slate-900 shadow-sm outline-none transition focus:border-slate-300 focus:ring-2 focus:ring-slate-200"
+                className="min-h-10 min-w-0 flex-1 rounded-[var(--mrt-radius-sm)] border border-[var(--color-border)] bg-[var(--color-surface)] px-3 text-center text-sm font-semibold text-[var(--color-text)] transition focus-visible:border-[var(--color-primary)] focus-visible:[outline-color:var(--color-focus-ring)] focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-focus-ring)]"
+                style={{ outlineColor: "var(--color-focus-ring)" }}
                 aria-label={isThai ? "Quantity" : "Quantity"}
               />
 
               <button
                 type="button"
                 onClick={() => adjustQuantity(1)}
-                className="inline-flex min-h-10 w-10 items-center justify-center rounded-xl border border-slate-200 bg-white text-base font-semibold text-slate-700 transition-colors hover:bg-slate-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-200"
+                className="inline-flex min-h-10 w-10 items-center justify-center rounded-[var(--mrt-radius-sm)] border border-[var(--color-border)] bg-[var(--color-surface)] text-base font-semibold text-[var(--color-text)] transition-colors hover:bg-[var(--color-primary-soft)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-surface-muted)]"
                 aria-label={isThai ? "Increase quantity" : "Increase quantity"}
               >
                 +
@@ -450,10 +463,10 @@ export default function ProductCardV2({
               type="button"
               onClick={handleAdd}
               disabled={justAdded}
-              className={`inline-flex min-h-11 flex-1 items-center justify-center gap-1.5 rounded-xl px-3 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-2 ${
+              className={`inline-flex min-h-11 flex-1 items-center justify-center gap-1.5 rounded-[var(--mrt-radius-md)] px-3 py-2.5 text-sm font-semibold text-[var(--color-text-inverse)] shadow-[var(--shadow-sm)] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-surface)] ${
                 justAdded
-                  ? "bg-emerald-600 focus-visible:ring-emerald-200"
-                  : "bg-slate-900 hover:bg-slate-800 focus-visible:ring-slate-300"
+                  ? "bg-[var(--color-success)]"
+                  : "bg-[var(--color-primary)] hover:bg-[var(--color-primary-hover)]"
               } ${justAdded ? "cursor-default" : ""}`}
             >
               <ShoppingCart size={16} />
@@ -462,7 +475,7 @@ export default function ProductCardV2({
 
             <Link
               href={`/${locale}/products/${encodeURIComponent(product.partNo)}`}
-              className={`inline-flex min-h-11 items-center justify-center rounded-xl border border-slate-300 px-3 py-2.5 text-sm font-medium text-slate-700 transition-colors hover:border-slate-400 hover:bg-slate-50 hover:text-slate-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-200 ${
+              className={`inline-flex min-h-11 items-center justify-center rounded-[var(--mrt-radius-md)] border border-[var(--color-border-strong)] px-3 py-2.5 text-sm font-medium text-[var(--color-text)] transition-colors hover:border-[var(--color-primary)] hover:bg-[var(--color-primary-soft)] hover:text-[var(--color-primary-hover)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-surface)] ${
                 isSearchVariant ? "shrink-0" : "flex-1"
               }`}
             >
@@ -475,7 +488,7 @@ export default function ProductCardV2({
               href={product.officialUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-3 inline-flex text-xs font-medium text-sky-700 underline-offset-2 hover:text-sky-800 hover:underline"
+              className="mt-3 inline-flex text-xs font-medium text-[var(--color-primary)] underline-offset-2 hover:text-[var(--color-primary-hover)] hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-surface)]"
             >
               {officialReferenceLabel}
             </a>

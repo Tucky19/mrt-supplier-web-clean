@@ -187,19 +187,19 @@ export default async function ProductsPage({
       <JsonLd data={breadcrumbJsonLd} />
       <SiteHeader locale={locale} />
 
-      <section className="border-b border-blue-200/70 bg-white/25">
+      <section className="border-b border-[var(--color-border)] bg-[var(--color-surface)]">
         <div className="mx-auto max-w-[1440px] px-4 py-7 sm:px-6 sm:py-10 xl:px-8">
-          <h1 className="text-2xl font-bold text-gray-900 sm:text-3xl">
+          <h1 className="text-2xl font-bold text-[var(--color-text)] sm:text-3xl">
             {isThai ? "ค้นหาสินค้า" : "Find Parts Fast"}
           </h1>
 
-          <p className="mt-2 max-w-2xl text-sm leading-6 text-gray-600 sm:text-base">
+          <p className="mt-2 max-w-2xl text-sm leading-6 text-[var(--color-text-muted)] sm:text-base">
             {isThai
               ? "ค้นหาด้วย Part Number, Cross Reference หรือขนาดสินค้า แล้วเพิ่มรายการเพื่อขอใบเสนอราคาได้ทันที"
               : "Search by part number, cross reference, or dimensions, then add matching items to your quote request."}
           </p>
 
-          <div className="-mx-4 sticky top-[64px] z-40 mt-5 border-y border-blue-100 bg-white/95 px-4 py-2.5 backdrop-blur md:static md:z-auto md:mx-0 md:border-y-0 md:bg-transparent md:px-0 md:py-0 md:backdrop-blur-0">
+          <div className="-mx-4 sticky top-[64px] z-40 mt-5 border-y border-[var(--color-border)] bg-[var(--color-surface)] px-4 py-2.5 backdrop-blur md:static md:z-auto md:mx-0 md:border-y-0 md:bg-transparent md:px-0 md:py-0 md:backdrop-blur-0">
             <SearchBar locale={locale} defaultValue={query} autoFocus={false} />
           </div>
 
@@ -210,7 +210,7 @@ export default async function ProductsPage({
               {searchGuidance.map((label) => (
                 <span
                   key={label}
-                  className="inline-flex rounded-full border border-slate-200 bg-slate-50 px-3 py-1.5 text-xs font-medium text-slate-700"
+                  className="inline-flex rounded-full border border-[var(--color-border)] bg-[var(--color-surface-muted)] px-3 py-1.5 text-xs font-medium text-[var(--color-text-muted)]"
                 >
                   {label}
                 </span>
@@ -219,7 +219,7 @@ export default async function ProductsPage({
 
             <a
               href={missingProductHref}
-              className="inline-flex w-fit rounded-full border border-blue-200 bg-blue-50 px-4 py-2 text-sm font-semibold text-blue-900 transition hover:border-blue-300 hover:bg-blue-100"
+              className="inline-flex w-fit rounded-full border border-[var(--color-border-strong)] bg-[var(--color-primary-soft)] px-4 py-2 text-sm font-semibold text-[var(--color-primary)] transition hover:border-[var(--color-primary)] hover:text-[var(--color-primary-hover)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-surface)]"
             >
               {isThai
                 ? "ไม่มี Part Number? ส่งข้อมูลให้ทีมช่วยหาเทียบ"
@@ -233,10 +233,10 @@ export default async function ProductsPage({
         id="results"
         className="mx-auto max-w-[1440px] scroll-mt-24 px-4 py-6 sm:px-6 sm:py-8 xl:px-8"
       >
-        <div className="mb-5 rounded-2xl border border-slate-200 bg-white px-4 py-3.5 shadow-sm sm:mb-6 sm:px-5 sm:py-4">
+        <div className="mb-5 rounded-[var(--mrt-radius-lg)] border border-[var(--color-border)] bg-[var(--color-surface)] px-4 py-3.5 shadow-[var(--shadow-sm)] sm:mb-6 sm:px-5 sm:py-4">
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
             <div>
-              <div className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">
+              <div className="text-xs font-semibold uppercase tracking-[0.14em] text-[var(--color-text-muted)]">
                 {hasQuery
                   ? isThai
                     ? "ผลการค้นหา"
@@ -246,7 +246,7 @@ export default async function ProductsPage({
                     : "Recommended List"}
               </div>
 
-              <div className="mt-1 text-sm font-medium leading-6 text-slate-800">
+              <div className="mt-1 text-sm font-medium leading-6 text-[var(--color-text)]">
                 {hasQuery
                   ? isThai
                     ? `พบผลลัพธ์สำหรับ "${query}"`
@@ -256,7 +256,7 @@ export default async function ProductsPage({
                     : "A faster starting list for search and RFQ"}
               </div>
 
-              <div className="mt-1 text-xs leading-5 text-slate-500">
+              <div className="mt-1 text-xs leading-5 text-[var(--color-text-muted)]">
                 {resultCountText}
               </div>
             </div>
@@ -268,7 +268,7 @@ export default async function ProductsPage({
                 </span>
                 <a
                   href={`/${locale}/products`}
-                  className="inline-flex items-center rounded-full border border-slate-300 px-3 py-1.5 text-xs font-medium text-slate-700 transition hover:border-slate-400 hover:bg-slate-50"
+                  className="inline-flex items-center rounded-full border border-[var(--color-border-strong)] px-3 py-1.5 text-xs font-medium text-[var(--color-text-muted)] transition hover:border-[var(--color-primary)] hover:bg-[var(--color-primary-soft)] hover:text-[var(--color-primary-hover)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-surface)]"
                 >
                   {isThai ? "ล้างคำค้น" : "Clear search"}
                 </a>
@@ -278,9 +278,9 @@ export default async function ProductsPage({
         </div>
 
         {hasCrossReferenceResults && (
-          <div className="mb-5 rounded-2xl border border-emerald-200 bg-emerald-50 px-4 py-4 shadow-sm sm:mb-6 sm:px-5">
+          <div className="mb-5 rounded-[var(--mrt-radius-lg)] border border-[var(--color-success)] bg-[var(--color-success-soft)] px-4 py-4 shadow-[var(--shadow-sm)] sm:mb-6 sm:px-5">
             <div className="flex gap-3">
-              <div className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-emerald-100 text-emerald-700">
+              <div className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[var(--color-surface)] text-[var(--color-success-text)]">
                 <svg
                   aria-hidden="true"
                   viewBox="0 0 20 20"
@@ -295,15 +295,15 @@ export default async function ProductsPage({
                 </svg>
               </div>
               <div className="min-w-0">
-                <h2 className="text-base font-semibold text-slate-950">
+                <h2 className="text-base font-semibold text-[var(--color-text)]">
                   {isThai ? "พบเบอร์เทียบแล้ว!" : "Reference matches found!"}
                 </h2>
-                <p className="mt-1 text-sm leading-6 text-slate-700">
+                <p className="mt-1 text-sm leading-6 text-[var(--color-success-text)]">
                   {isThai
                     ? `พบสินค้าอ้างอิงจาก “${query}” จำนวน ${crossReferenceResults.length} รายการ`
                     : `Found ${crossReferenceResults.length} reference products for “${query}”`}
                 </p>
-                <p className="mt-1 text-xs leading-5 text-slate-600">
+                <p className="mt-1 text-xs leading-5 text-[var(--color-text-muted)]">
                   {isThai
                     ? "กรุณาตรวจสอบสเปคและการใช้งานก่อนสั่งซื้อ"
                     : "Please confirm specifications and application before ordering."}
@@ -333,13 +333,13 @@ export default async function ProductsPage({
             ) : null}
 
             {visibleProducts.length === 0 && (
-              <div className="mb-5 rounded-2xl border border-dashed border-slate-300 bg-white px-6 py-6 text-center sm:mb-6">
-                <p className="text-base font-medium text-slate-900">
+              <div className="mb-5 rounded-[var(--mrt-radius-lg)] border border-dashed border-[var(--color-border-strong)] bg-[var(--color-surface)] px-6 py-6 text-center sm:mb-6">
+                <p className="text-base font-medium text-[var(--color-text)]">
                   {isThai
                     ? "ยังไม่พบสินค้าที่ตรงกับคำค้นหา"
                     : "No matching product found"}
                 </p>
-                <p className="mt-2 text-sm text-slate-500">
+                <p className="mt-2 text-sm text-[var(--color-text-muted)]">
                   {isThai
                     ? "ส่ง Part Number, Cross Reference, รูปสินค้า หรือข้อมูลการใช้งานให้ทีม MRT ช่วยตรวจสอบได้"
                     : "Send the part number, cross reference, product photo, or application details for our team to check."}
@@ -348,7 +348,7 @@ export default async function ProductsPage({
                   href={LINE_URL}
                   source="search_no_results"
                   locale={locale}
-                  className="mt-4 inline-flex min-h-11 items-center justify-center gap-2 rounded-xl bg-[#06C755] px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-[#05b64d]"
+                  className="mt-4 inline-flex min-h-11 items-center justify-center gap-2 rounded-[var(--mrt-radius-md)] bg-[var(--color-success)] px-5 py-2.5 text-sm font-semibold text-[var(--color-text-inverse)] transition hover:bg-[var(--color-success-hover)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-surface)]"
                 >
                   <MessageCircle className="h-5 w-5" aria-hidden="true" />
                   {isThai
