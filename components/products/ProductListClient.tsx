@@ -34,7 +34,7 @@ export default function ProductListClient({
 
   if (!products || products.length === 0) {
     return (
-      <div className="py-10 text-center text-gray-500">
+      <div className="py-10 text-center text-[var(--color-text-muted)]">
         {isThai ? "ไม่พบสินค้า" : "No products found"}
       </div>
     );
@@ -57,7 +57,7 @@ export default function ProductListClient({
       {hasMore && (
         <div className="mt-6 flex justify-center">
           <div className="flex flex-col items-center gap-3">
-            <div className="text-xs text-slate-500">
+            <div className="text-xs text-[var(--color-text-muted)]">
               {isThai
                 ? `กำลังแสดง ${visibleProducts.length} จาก ${products.length} รายการ`
                 : `Showing ${visibleProducts.length} of ${products.length} items`}
@@ -70,7 +70,7 @@ export default function ProductListClient({
                   Math.min(current + incrementCount, products.length)
                 )
               }
-              className="inline-flex min-h-11 items-center justify-center rounded-lg border border-slate-300 bg-white px-5 py-3 text-sm font-medium text-slate-700 transition hover:border-slate-400 hover:bg-slate-50"
+              className="inline-flex min-h-11 items-center justify-center rounded-[var(--mrt-radius-md)] border border-[var(--color-border-strong)] bg-[var(--color-surface)] px-5 py-3 text-sm font-medium text-[var(--color-text)] transition hover:border-[var(--color-primary)] hover:bg-[var(--color-primary-soft)] hover:text-[var(--color-primary-hover)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-canvas)]"
             >
               {isThai ? "โหลดเพิ่ม" : "Load more"}
             </button>
