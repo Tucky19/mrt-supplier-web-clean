@@ -14,16 +14,16 @@ export default function WhyChooseUsSection({ locale }: { locale: string }) {
   const section = getHomeWhyChooseUsText(locale);
 
   return (
-    <section className="mrt-blueprint-section border-t border-blue-200/70">
+    <section className="mrt-blueprint-section border-t border-[var(--color-border)]">
       <div className="mx-auto max-w-7xl px-6 py-16 lg:px-8">
         <div className="max-w-3xl">
-          <p className="text-sm font-semibold uppercase tracking-[0.14em] text-slate-500">
+          <p className="text-sm font-semibold uppercase tracking-[0.14em] text-[var(--color-text-muted)]">
             {section.eyebrow}
           </p>
-          <h2 className="mt-3 text-3xl font-semibold tracking-tight text-slate-950">
+          <h2 className="mt-3 text-3xl font-semibold tracking-tight text-[var(--color-text)]">
             {section.title}
           </h2>
-          <p className="mt-4 text-sm leading-7 text-slate-600 lg:text-base">
+          <p className="mt-4 text-sm leading-7 text-[var(--color-text-muted)] lg:text-base">
             {section.description}
           </p>
         </div>
@@ -36,17 +36,17 @@ export default function WhyChooseUsSection({ locale }: { locale: string }) {
             return (
               <article
                 key={key}
-                className="rounded-3xl border border-slate-200 bg-slate-50 p-6 shadow-sm transition hover:-translate-y-0.5 hover:border-slate-300 hover:shadow-md"
+                className="rounded-[var(--mrt-radius-lg)] border border-[var(--color-border)] bg-[var(--color-surface-muted)] p-6 shadow-[var(--shadow-sm)] transition hover:-translate-y-0.5 hover:border-[var(--color-border-strong)] hover:shadow-[var(--shadow-md)]"
               >
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-slate-100 bg-white text-slate-700 shadow-sm">
+                <div className="flex h-12 w-12 items-center justify-center rounded-[var(--mrt-radius-lg)] border border-[var(--color-border)] bg-[var(--color-surface)] text-[var(--color-text-muted)] shadow-[var(--shadow-sm)]">
                   <Icon className="h-5 w-5" />
                 </div>
 
-                <h3 className="mt-5 text-lg font-semibold text-slate-900">
+                <h3 className="mt-5 text-lg font-semibold text-[var(--color-text)]">
                   {item.title}
                 </h3>
 
-                <p className="mt-3 text-sm leading-7 text-slate-600">
+                <p className="mt-3 text-sm leading-7 text-[var(--color-text-muted)]">
                   {item.description}
                 </p>
               </article>

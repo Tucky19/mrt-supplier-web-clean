@@ -15,6 +15,8 @@ type PageProps = {
 
 const LOCALES = ["th", "en"] as const;
 const SITE_URL = "https://www.mrtsupplier.com";
+const lightFocusClass =
+  "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-surface)]";
 
 function getLocalizedAlternates(path = "") {
   return Object.fromEntries(
@@ -212,28 +214,28 @@ export default async function Page({
 
       <SearchFirstHero locale={locale} />
 
-      <section className="mrt-blueprint-section border-b border-blue-200/70">
+      <section className="mrt-blueprint-section border-b border-[var(--color-border)]">
         <div className="mx-auto grid max-w-7xl gap-8 px-6 py-14 lg:grid-cols-[0.85fr_1.15fr] lg:px-8">
           <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.14em] text-slate-500">
+            <p className="text-sm font-semibold uppercase tracking-[0.14em] text-[var(--color-text-muted)]">
               {isThai ? "HOW IT WORKS" : "How It Works"}
             </p>
-            <h2 className="mt-3 text-2xl font-semibold tracking-tight text-slate-950 sm:text-3xl">
+            <h2 className="mt-3 text-2xl font-semibold tracking-tight text-[var(--color-text)] sm:text-3xl">
               {isThai ? "RFQ 3 ขั้นตอนที่ชัดเจน" : "A clear 3-step RFQ workflow"}
             </h2>
-            <p className="mt-3 text-sm leading-6 text-slate-600">
+            <p className="mt-3 text-sm leading-6 text-[var(--color-text-muted)]">
               {isThai
                 ? "จากเบอร์อะไหล่ไปถึงการติดตามราคา โดยไม่ต้องเปลี่ยนขั้นตอนจัดซื้อเดิมของทีมคุณ"
                 : "From part numbers to quote follow-up without changing your team’s purchasing process."}
             </p>
-            <p className="mt-3 text-sm leading-6 text-slate-600">
+            <p className="mt-3 text-sm leading-6 text-[var(--color-text-muted)]">
               {isThai
                 ? "ติดต่อผ่าน LINE Official @mrtsupplier เพื่อส่งรูปสินค้า Part No. หรือรายละเอียดเพิ่มเติม"
                 : "Contact LINE Official @mrtsupplier to share photos, Part No., or additional details."}
             </p>
             <Link
               href={`/${locale}/quote`}
-              className="mt-6 inline-flex min-h-11 items-center justify-center rounded-xl bg-slate-950 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-slate-800"
+              className={`mt-6 inline-flex min-h-11 items-center justify-center rounded-[var(--mrt-radius-md)] bg-[var(--color-primary)] px-5 py-2.5 text-sm font-semibold text-[var(--color-text-inverse)] transition hover:bg-[var(--color-primary-hover)] ${lightFocusClass}`}
             >
               {isThai ? "เริ่ม RFQ" : "Start RFQ"}
             </Link>
@@ -241,14 +243,14 @@ export default async function Page({
 
           <div className="grid gap-4 md:grid-cols-3">
             {workflowSteps.map((item) => (
-              <article key={item.step} className="rounded-2xl border border-slate-200 bg-white p-5">
-                <div className="text-xs font-semibold tracking-[0.14em] text-sky-700">
+              <article key={item.step} className="rounded-[var(--mrt-radius-lg)] border border-[var(--color-border)] bg-[var(--color-surface)] p-5 shadow-[var(--shadow-sm)]">
+                <div className="text-xs font-semibold tracking-[0.14em] text-[var(--color-primary)]">
                   STEP {item.step}
                 </div>
-                <h3 className="mt-3 text-sm font-semibold leading-6 text-slate-950">
+                <h3 className="mt-3 text-sm font-semibold leading-6 text-[var(--color-text)]">
                   {item.title}
                 </h3>
-                <p className="mt-2 text-sm leading-6 text-slate-600">
+                <p className="mt-2 text-sm leading-6 text-[var(--color-text-muted)]">
                   {item.description}
                 </p>
               </article>
@@ -257,13 +259,13 @@ export default async function Page({
         </div>
       </section>
 
-      <section className="mrt-blueprint-section-strong border-b border-blue-200/70">
+      <section className="mrt-blueprint-section-strong border-b border-[var(--color-border)]">
         <div className="mx-auto flex max-w-7xl flex-col gap-6 px-6 py-12 lg:flex-row lg:items-center lg:justify-between lg:px-8">
           <div className="max-w-2xl">
-            <p className="text-sm font-semibold uppercase tracking-[0.14em] text-slate-500">
+            <p className="text-sm font-semibold uppercase tracking-[0.14em] text-[var(--color-text-muted)]">
               {isThai ? "CUSTOMERS & APPLICATIONS" : "Customers & Applications"}
             </p>
-            <h2 className="mt-3 text-2xl font-semibold tracking-tight text-slate-950">
+            <h2 className="mt-3 text-2xl font-semibold tracking-tight text-[var(--color-text)]">
               {isThai ? "สำหรับงาน Purchasing และ Maintenance ในโรงงาน" : "Built for industrial purchasing and maintenance"}
             </h2>
           </div>
@@ -272,7 +274,7 @@ export default async function Page({
             {customerSegments.map((item) => (
               <span
                 key={item}
-                className="rounded-full border border-slate-300 bg-slate-50 px-4 py-2 text-sm font-medium text-slate-700"
+                className="rounded-full border border-[var(--color-border-strong)] bg-[var(--color-surface-muted)] px-4 py-2 text-sm font-medium text-[var(--color-text-muted)]"
               >
                 {item}
               </span>
