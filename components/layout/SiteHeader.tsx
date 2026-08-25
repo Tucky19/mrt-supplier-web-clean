@@ -8,6 +8,8 @@ import TrackedLineLink from '@/components/analytics/TrackedLineLink';
 import { useQuote } from '@/providers/QuoteProvider';
 
 const LINE_URL = 'https://lin.ee/S676yYH';
+const lightFocusClass =
+  'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-surface)]';
 
 type Props = {
   locale: string;
@@ -73,35 +75,49 @@ export default function SiteHeader({ locale }: Props) {
   return (
     <header
       className={`sticky top-0 z-50 w-full transition ${
-        scrolled ? 'bg-white/95 shadow-md backdrop-blur' : 'bg-white'
+        scrolled
+          ? 'bg-[var(--color-surface)] shadow-[var(--shadow-md)] backdrop-blur'
+          : 'bg-[var(--color-surface)]'
       }`}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-3 sm:px-6">
         <Link
           href={`/${locale}`}
           aria-label={isThai ? "MRT Supplier Co.,Ltd หน้าแรก" : "MRT Supplier Co.,Ltd Home"}
-          className="min-w-0 flex-1 leading-tight md:flex-none"
+          className={`min-w-0 flex-1 rounded-[var(--mrt-radius-md)] leading-tight md:flex-none ${lightFocusClass}`}
         >
-          <span className="block text-sm font-bold text-blue-950 sm:hidden">
+          <span className="block text-sm font-bold text-[var(--color-text)] sm:hidden">
             MRT
           </span>
-          <span className="hidden text-lg font-bold text-blue-950 sm:block">
+          <span className="hidden text-lg font-bold text-[var(--color-text)] sm:block">
             MRT Supplier Co.,Ltd
           </span>
-          <span className="hidden text-[10px] text-gray-400 sm:block">{text.tagline}</span>
+          <span className="hidden text-[10px] text-[var(--color-text-muted)] sm:block">{text.tagline}</span>
         </Link>
 
         <nav className="hidden items-center gap-6 text-sm font-medium md:flex">
-          <Link href={`/${locale}`} className="hover:text-blue-900">
+          <Link
+            href={`/${locale}`}
+            className={`rounded-[var(--mrt-radius-md)] text-[var(--color-text)] hover:text-[var(--color-primary-hover)] ${lightFocusClass}`}
+          >
             {text.home}
           </Link>
-          <Link href={`/${locale}/products`} className="hover:text-blue-900">
+          <Link
+            href={`/${locale}/products`}
+            className={`rounded-[var(--mrt-radius-md)] text-[var(--color-text)] hover:text-[var(--color-primary-hover)] ${lightFocusClass}`}
+          >
             {text.products}
           </Link>
-          <Link href={`/${locale}/brands`} className="hover:text-blue-900">
+          <Link
+            href={`/${locale}/brands`}
+            className={`rounded-[var(--mrt-radius-md)] text-[var(--color-text)] hover:text-[var(--color-primary-hover)] ${lightFocusClass}`}
+          >
             {text.brands}
           </Link>
-          <Link href={`/${locale}/contact`} className="hover:text-blue-900">
+          <Link
+            href={`/${locale}/contact`}
+            className={`rounded-[var(--mrt-radius-md)] text-[var(--color-text)] hover:text-[var(--color-primary-hover)] ${lightFocusClass}`}
+          >
             {text.contact}
           </Link>
         </nav>
@@ -110,7 +126,7 @@ export default function SiteHeader({ locale }: Props) {
           <details className="group relative md:hidden">
             <summary
               aria-label={text.menu}
-              className="inline-flex h-10 w-10 cursor-pointer list-none items-center justify-center rounded-lg border border-slate-200 text-slate-700 transition hover:bg-slate-50"
+              className={`inline-flex h-11 w-11 cursor-pointer list-none items-center justify-center rounded-[var(--mrt-radius-md)] border border-[var(--color-border)] text-[var(--color-text-muted)] transition hover:bg-[var(--color-surface-muted)] hover:text-[var(--color-text)] ${lightFocusClass}`}
             >
               <span className="sr-only">{text.menu}</span>
               <svg
@@ -142,13 +158,13 @@ export default function SiteHeader({ locale }: Props) {
               </svg>
             </summary>
 
-            <div className="absolute right-0 top-[calc(100%+0.5rem)] w-48 rounded-2xl border border-slate-200 bg-white p-2 shadow-lg shadow-slate-200/70">
+            <div className="absolute right-0 top-[calc(100%+0.5rem)] w-48 rounded-[var(--mrt-radius-lg)] border border-[var(--color-border)] bg-[var(--color-surface)] p-2 shadow-[var(--shadow-md)]">
               <nav className="flex flex-col gap-1">
                 {mobileNavItems.map((item) => (
                   <Link
                     key={item.href}
                     href={item.href}
-                    className="whitespace-nowrap rounded-lg px-3 py-2 text-sm font-medium text-slate-700 transition hover:bg-slate-50 hover:text-blue-900"
+                    className={`flex min-h-11 items-center whitespace-nowrap rounded-[var(--mrt-radius-md)] px-3 py-2 text-sm font-medium text-[var(--color-text-muted)] transition hover:bg-[var(--color-surface-muted)] hover:text-[var(--color-primary-hover)] ${lightFocusClass}`}
                   >
                     {item.label}
                   </Link>
@@ -157,7 +173,7 @@ export default function SiteHeader({ locale }: Props) {
                   href={LINE_URL}
                   source="header_mobile_menu"
                   locale={locale}
-                  className="mt-1 inline-flex items-center gap-2 whitespace-nowrap rounded-lg bg-[#06C755] px-3 py-2 text-sm font-semibold text-white transition hover:bg-[#05b64d]"
+                  className={`mt-1 inline-flex min-h-11 items-center gap-2 whitespace-nowrap rounded-[var(--mrt-radius-md)] border border-[#06C755] bg-[#effcf4] px-3 py-2 text-sm font-semibold text-[var(--color-success-text)] transition hover:bg-[#e2f8ea] ${lightFocusClass}`}
                 >
                   <MessageCircle className="h-4 w-4" aria-hidden="true" />
                   {text.contactLine}
@@ -167,7 +183,7 @@ export default function SiteHeader({ locale }: Props) {
           </details>
 
           <div
-            className="inline-flex items-center rounded-full border border-slate-200 bg-slate-50 p-1"
+            className="inline-flex items-center rounded-full border border-[var(--color-border)] bg-[var(--color-surface-muted)] p-1"
             aria-label="Language switcher"
             title="Language switcher"
           >
@@ -179,10 +195,10 @@ export default function SiteHeader({ locale }: Props) {
                   key={targetLocale}
                   href={getLocaleHref(targetLocale)}
                   aria-current={isActive ? 'page' : undefined}
-                  className={`rounded-full px-2.5 py-1 text-[11px] font-semibold uppercase tracking-[0.08em] transition sm:px-3 ${
+                  className={`inline-flex min-h-11 items-center rounded-full px-4 py-1 text-[11px] font-semibold uppercase tracking-[0.08em] transition sm:min-h-7 sm:px-3 ${lightFocusClass} ${
                     isActive
-                      ? 'bg-white text-slate-900 shadow-sm'
-                      : 'text-slate-500 hover:text-slate-800'
+                      ? 'bg-[var(--color-surface)] text-[var(--color-text)] shadow-[var(--shadow-sm)]'
+                      : 'text-[var(--color-text-muted)] hover:text-[var(--color-text)]'
                   }`}
                 >
                   {targetLocale}
@@ -195,7 +211,7 @@ export default function SiteHeader({ locale }: Props) {
             href={LINE_URL}
             source="header_desktop"
             locale={locale}
-            className="hidden shrink-0 items-center justify-center gap-2 rounded-lg border border-[#06C755] bg-white px-3 py-2 text-sm font-semibold text-[#07883d] transition hover:bg-[#effcf4] lg:inline-flex"
+            className={`hidden shrink-0 items-center justify-center gap-2 rounded-[var(--mrt-radius-md)] border border-[#06C755] bg-[var(--color-surface)] px-3 py-2 text-sm font-semibold text-[var(--color-success-text)] transition hover:bg-[#effcf4] lg:inline-flex ${lightFocusClass}`}
           >
             <MessageCircle className="h-4 w-4" aria-hidden="true" />
             <span className="hidden xl:inline">{text.contactLine}</span>
@@ -205,12 +221,12 @@ export default function SiteHeader({ locale }: Props) {
           <Link
             href={`/${locale}/quote`}
             aria-label={ready && totalItems > 0 ? `${text.requestQuote}, ${text.quoteCount}` : text.requestQuote}
-            className="inline-flex shrink-0 items-center justify-center gap-1.5 rounded-lg bg-blue-900 px-3 py-2 text-sm font-semibold text-white hover:bg-blue-800 sm:px-4"
+            className={`inline-flex min-h-11 shrink-0 items-center justify-center gap-1.5 rounded-[var(--mrt-radius-md)] bg-[var(--color-primary)] px-3 py-2 text-sm font-semibold text-[var(--color-text-inverse)] hover:bg-[var(--color-primary-hover)] sm:min-h-0 sm:px-4 ${lightFocusClass}`}
           >
             <span className="sm:hidden">{isThai ? 'RFQ' : 'Quote'}</span>
             <span className="hidden sm:inline">{text.requestQuote}</span>
             {ready && totalItems > 0 ? (
-              <span className="inline-flex min-w-5 items-center justify-center rounded-full bg-white px-1.5 py-0.5 text-[11px] font-bold leading-none text-blue-950">
+              <span className="inline-flex min-w-5 items-center justify-center rounded-full bg-[var(--color-surface)] px-1.5 py-0.5 text-[11px] font-bold leading-none text-[var(--color-primary-hover)]">
                 {totalItems > 99 ? '99+' : totalItems}
               </span>
             ) : null}
