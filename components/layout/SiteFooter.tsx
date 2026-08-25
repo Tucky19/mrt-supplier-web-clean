@@ -2,6 +2,8 @@ import Link from "next/link";
 import TrackedLineLink from "@/components/analytics/TrackedLineLink";
 
 const LINE_URL = "https://lin.ee/S676yYH";
+const darkFocusClass =
+  "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)] focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950";
 
 type Props = {
   locale?: string;
@@ -32,19 +34,19 @@ export default function SiteFooter({ locale = "th", className = "" }: Props) {
             {isThai ? "ลิงก์ด่วน" : "Quick Links"}
           </p>
           <div className="mt-4 space-y-3 text-sm">
-            <Link href={`/${locale}`} className="block hover:text-white">
+            <Link href={`/${locale}`} className={`block rounded-sm hover:text-white ${darkFocusClass}`}>
               {isThai ? "หน้าแรก" : "Home"}
             </Link>
-            <Link href={`/${locale}/brands`} className="block hover:text-white">
+            <Link href={`/${locale}/brands`} className={`block rounded-sm hover:text-white ${darkFocusClass}`}>
               {isThai ? "แบรนด์" : "Brands"}
             </Link>
-            <Link href={`/${locale}#products`} className="block hover:text-white">
+            <Link href={`/${locale}#products`} className={`block rounded-sm hover:text-white ${darkFocusClass}`}>
               {isThai ? "สินค้า" : "Products"}
             </Link>
-            <Link href={`/${locale}/contact`} className="block hover:text-white">
+            <Link href={`/${locale}/contact`} className={`block rounded-sm hover:text-white ${darkFocusClass}`}>
               {isThai ? "ติดต่อเรา" : "Contact"}
             </Link>
-            <Link href={`/${locale}/quote`} className="block hover:text-white">
+            <Link href={`/${locale}/quote`} className={`block rounded-sm hover:text-white ${darkFocusClass}`}>
               {isThai ? "ขอใบเสนอราคา" : "Request Quote"}
             </Link>
           </div>
@@ -56,17 +58,17 @@ export default function SiteFooter({ locale = "th", className = "" }: Props) {
           </p>
           <div className="mt-4 space-y-3 text-sm text-slate-400">
             <p>sales@mrtsupplier.com</p>
-            <a href="tel:0970122111" className="block hover:text-white">
+            <a href="tel:0970122111" className={`block rounded-sm hover:text-white ${darkFocusClass}`}>
               097 012 2111
             </a>
-            <a href="tel:0815581323" className="block hover:text-white">
+            <a href="tel:0815581323" className={`block rounded-sm hover:text-white ${darkFocusClass}`}>
               081 558 1323
             </a>
             <TrackedLineLink
               href={LINE_URL}
               source="site_footer"
               locale={locale}
-              className="block hover:text-white"
+              className={`block rounded-sm hover:text-white ${darkFocusClass}`}
             >
               LINE: @mrtsupplier
             </TrackedLineLink>
