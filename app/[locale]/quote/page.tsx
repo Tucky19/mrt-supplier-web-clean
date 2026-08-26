@@ -285,7 +285,7 @@ export default function QuotePage() {
   };
 
   return (
-    <div className="mrt-blueprint-shell flex min-h-screen flex-col">
+    <div className="mrt-blueprint-shell flex min-h-screen flex-col bg-[var(--color-canvas)] text-[var(--color-text)]">
       <SiteHeader locale={locale} />
       <main className="flex-1 pb-[calc(6rem+env(safe-area-inset-bottom))] md:pb-0">
         <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8">
@@ -293,66 +293,66 @@ export default function QuotePage() {
           <div className="mb-4 flex flex-wrap gap-3">
             <Link
               href={`/${locale}`}
-              className="inline-flex rounded-full border border-slate-300 px-4 py-2 text-sm font-medium text-slate-700 transition hover:border-slate-400 hover:bg-white hover:text-slate-900"
+              className="inline-flex min-h-11 items-center rounded-full border border-[var(--color-border-strong)] px-4 py-2 text-sm font-medium text-[var(--color-text-muted)] transition hover:border-[var(--color-primary)] hover:bg-[var(--color-surface)] hover:text-[var(--color-primary)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-canvas)]"
             >
               {text.backToHome}
             </Link>
 
             <Link
               href={`/${locale}/products`}
-              className="inline-flex rounded-full border border-slate-300 px-4 py-2 text-sm font-medium text-slate-700 transition hover:border-slate-400 hover:bg-white hover:text-slate-900"
+              className="inline-flex min-h-11 items-center rounded-full border border-[var(--color-border-strong)] px-4 py-2 text-sm font-medium text-[var(--color-text-muted)] transition hover:border-[var(--color-primary)] hover:bg-[var(--color-surface)] hover:text-[var(--color-primary)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-canvas)]"
             >
               {text.backToProducts}
             </Link>
           </div>
 
-          <p className="text-sm font-semibold uppercase tracking-[0.14em] text-slate-500">
+          <p className="text-sm font-semibold uppercase tracking-[0.14em] text-[var(--color-text-muted)]">
             RFQ
           </p>
-          <h1 className="mt-2 text-3xl font-bold tracking-tight text-slate-950">
+          <h1 className="mt-2 text-3xl font-bold tracking-tight text-[var(--color-text)]">
             {text.quoteTitle}
           </h1>
-          <p className="mt-3 text-sm leading-7 text-slate-600 sm:text-base">
+          <p className="mt-3 text-sm leading-7 text-[var(--color-text-muted)] sm:text-base">
             {text.quoteIntro}
           </p>
         </div>
 
         <div className="mt-6 grid gap-3 md:grid-cols-3">
-          <div className="rounded-2xl border border-slate-200 bg-white px-4 py-4 shadow-sm">
-            <div className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">
+          <div className="rounded-[var(--mrt-radius-lg)] border border-[var(--color-border)] bg-[var(--color-surface)] px-4 py-4 shadow-[var(--shadow-sm)]">
+            <div className="text-xs font-semibold uppercase tracking-[0.14em] text-[var(--color-text-muted)]">
               {text.responseTime}
             </div>
-            <p className="mt-2 text-sm text-slate-700">{text.responseTimeBody}</p>
+            <p className="mt-2 text-sm text-[var(--color-text-muted)]">{text.responseTimeBody}</p>
           </div>
 
-          <div className="rounded-2xl border border-slate-200 bg-white px-4 py-4 shadow-sm">
-            <div className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">
+          <div className="rounded-[var(--mrt-radius-lg)] border border-[var(--color-border)] bg-[var(--color-surface)] px-4 py-4 shadow-[var(--shadow-sm)]">
+            <div className="text-xs font-semibold uppercase tracking-[0.14em] text-[var(--color-text-muted)]">
               {text.crossReference}
             </div>
-            <p className="mt-2 text-sm text-slate-700">{text.crossReferenceBody}</p>
+            <p className="mt-2 text-sm text-[var(--color-text-muted)]">{text.crossReferenceBody}</p>
           </div>
 
-          <div className="rounded-2xl border border-slate-200 bg-white px-4 py-4 shadow-sm">
-            <div className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">
+          <div className="rounded-[var(--mrt-radius-lg)] border border-[var(--color-border)] bg-[var(--color-surface)] px-4 py-4 shadow-[var(--shadow-sm)]">
+            <div className="text-xs font-semibold uppercase tracking-[0.14em] text-[var(--color-text-muted)]">
               {text.contactMethod}
             </div>
-            <p className="mt-2 text-sm text-slate-700">{text.contactMethodBody}</p>
+            <p className="mt-2 text-sm text-[var(--color-text-muted)]">{text.contactMethodBody}</p>
           </div>
         </div>
 
         <div className="mt-8 grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
-          <section className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm sm:p-6">
+          <section className="rounded-[var(--mrt-radius-lg)] border border-[var(--color-border)] bg-[var(--color-surface)] p-5 shadow-[var(--shadow-sm)] sm:p-6">
             <div className="flex items-center justify-between gap-4">
               <div>
-                <h2 className="text-lg font-semibold text-slate-950">{text.quoteItems}</h2>
-                <p className="mt-1 text-sm text-slate-500">{text.itemsInList(items.length)}</p>
+                <h2 className="text-lg font-semibold text-[var(--color-text)]">{text.quoteItems}</h2>
+                <p className="mt-1 text-sm text-[var(--color-text-muted)]">{text.itemsInList(items.length)}</p>
               </div>
 
               {items.length > 0 && !confirmingClear ? (
                 <button
                   type="button"
                   onClick={() => setConfirmingClear(true)}
-                  className="text-sm font-medium text-slate-500 transition hover:text-slate-800"
+                  className="inline-flex min-h-11 items-center rounded-[var(--mrt-radius-sm)] px-3 text-sm font-medium text-[var(--color-text-muted)] transition hover:bg-[var(--color-surface-muted)] hover:text-[var(--color-danger)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-surface)]"
                 >
                   {text.clearAll}
                 </button>
@@ -360,20 +360,20 @@ export default function QuotePage() {
             </div>
 
             {confirmingClear ? (
-              <div className="mt-4 flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-amber-200 bg-amber-50 px-4 py-3">
-                <p className="text-sm text-amber-900">{text.clearConfirm}</p>
+              <div className="mt-4 flex flex-wrap items-center justify-between gap-3 rounded-[var(--mrt-radius-lg)] border border-[var(--color-border)] bg-[var(--color-warning-soft)] px-4 py-3">
+                <p className="text-sm text-[var(--color-warning-text)]">{text.clearConfirm}</p>
                 <div className="flex gap-2">
                   <button
                     type="button"
                     onClick={() => setConfirmingClear(false)}
-                    className="rounded-lg border border-amber-300 bg-white px-3 py-2 text-sm font-medium text-amber-900 hover:bg-amber-100"
+                    className="inline-flex min-h-11 items-center rounded-[var(--mrt-radius-sm)] border border-[var(--color-border-strong)] bg-[var(--color-surface)] px-3 py-2 text-sm font-medium text-[var(--color-warning-text)] transition hover:bg-[var(--color-warning-soft)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-warning-soft)]"
                   >
                     {text.cancel}
                   </button>
                   <button
                     type="button"
                     onClick={handleConfirmClear}
-                    className="rounded-lg bg-amber-900 px-3 py-2 text-sm font-semibold text-white hover:bg-amber-800"
+                    className="inline-flex min-h-11 items-center rounded-[var(--mrt-radius-sm)] bg-[var(--color-warning-text)] px-3 py-2 text-sm font-semibold text-[var(--color-text-inverse)] transition hover:bg-[var(--color-warning-text)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-warning-soft)]"
                   >
                     {text.confirmClear}
                   </button>
@@ -385,20 +385,20 @@ export default function QuotePage() {
               <BulkAddToQuote locale={locale} />
 
               {items.length === 0 && (
-                <div className="rounded-2xl border border-dashed border-slate-300 bg-slate-50 px-6 py-10 text-center">
-                  <p className="text-base font-medium text-slate-900">{text.noItemsTitle}</p>
-                  <p className="mt-2 text-sm text-slate-500">{text.noItemsBody}</p>
+                <div className="rounded-[var(--mrt-radius-lg)] border border-dashed border-[var(--color-border-strong)] bg-[var(--color-surface-muted)] px-6 py-10 text-center">
+                  <p className="text-base font-medium text-[var(--color-text)]">{text.noItemsTitle}</p>
+                  <p className="mt-2 text-sm text-[var(--color-text-muted)]">{text.noItemsBody}</p>
                   <div className="mt-4 flex flex-wrap justify-center gap-3">
                     <Link
                       href={`/${locale}/products`}
-                      className="inline-flex rounded-lg border border-slate-300 px-4 py-2 text-sm font-medium text-slate-700 transition hover:bg-white"
+                      className="inline-flex min-h-11 items-center rounded-[var(--mrt-radius-sm)] border border-[var(--color-border-strong)] px-4 py-2 text-sm font-medium text-[var(--color-text-muted)] transition hover:bg-[var(--color-surface)] hover:text-[var(--color-primary)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-surface-muted)]"
                     >
                       {text.browseProducts}
                     </Link>
 
                     <Link
                       href={`/${locale}`}
-                      className="inline-flex rounded-lg border border-slate-300 px-4 py-2 text-sm font-medium text-slate-700 transition hover:bg-white"
+                      className="inline-flex min-h-11 items-center rounded-[var(--mrt-radius-sm)] border border-[var(--color-border-strong)] px-4 py-2 text-sm font-medium text-[var(--color-text-muted)] transition hover:bg-[var(--color-surface)] hover:text-[var(--color-primary)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-surface-muted)]"
                     >
                       {text.backToHome}
                     </Link>
@@ -409,12 +409,12 @@ export default function QuotePage() {
               {items.map((item) => (
                 <div
                   key={item.productId}
-                  className="rounded-2xl border border-slate-200 bg-slate-50 p-4"
+                  className="rounded-[var(--mrt-radius-lg)] border border-[var(--color-border)] bg-[var(--color-surface-muted)] p-4 shadow-[var(--shadow-sm)]"
                 >
                   <div className="flex items-start justify-between gap-4">
                     <div className="min-w-0">
-                      <div className="text-base font-semibold text-slate-950">{item.partNo}</div>
-                      <div className="mt-1 text-sm text-slate-500">
+                      <div className="text-base font-semibold text-[var(--color-text)]">{item.partNo}</div>
+                      <div className="mt-1 text-sm text-[var(--color-text-muted)]">
                         {item.brand || item.title || text.requestedItem}
                       </div>
                     </div>
@@ -422,24 +422,24 @@ export default function QuotePage() {
                     <button
                       type="button"
                       onClick={() => removeItem(item.productId)}
-                      className="text-sm font-medium text-red-600 transition hover:text-red-700"
+                      className="inline-flex min-h-11 items-center rounded-[var(--mrt-radius-sm)] px-3 text-sm font-medium text-[var(--color-danger)] transition hover:bg-[var(--color-danger-soft)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-surface-muted)]"
                     >
                       {text.remove}
                     </button>
                   </div>
 
                   <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-                    <div className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">
+                    <div className="text-xs font-semibold uppercase tracking-[0.14em] text-[var(--color-text-muted)]">
                       {text.quantity}
                     </div>
 
-                    <div className="w-full max-w-[220px] rounded-[16px] border border-slate-200 bg-white/80 p-1.5 sm:w-auto">
+                    <div className="w-full max-w-[220px] rounded-[var(--mrt-radius-lg)] border border-[var(--color-border)] bg-[var(--color-surface)] p-1.5 sm:w-auto">
                       <div className="flex items-center gap-1.5">
                       <button
                         type="button"
                         onClick={() => handleQuantityStep(item.productId, item.qty - 1)}
                         aria-label={`${text.decreaseQuantity} ${item.partNo}`}
-                        className="inline-flex min-h-10 w-10 items-center justify-center rounded-xl border border-slate-200 bg-white text-base font-semibold text-slate-700 transition hover:bg-slate-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-200"
+                        className="inline-flex min-h-11 w-11 items-center justify-center rounded-[var(--mrt-radius-md)] border border-[var(--color-border)] bg-[var(--color-surface)] text-base font-semibold text-[var(--color-text-muted)] transition hover:bg-[var(--color-surface-muted)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-surface)]"
                       >
                         -
                       </button>
@@ -452,14 +452,14 @@ export default function QuotePage() {
                         value={quantityInputs[item.productId] ?? String(item.qty)}
                         onChange={(e) => handleQuantityChange(item.productId, e.target.value)}
                         onBlur={() => handleQuantityBlur(item.productId)}
-                        className="min-h-10 min-w-0 flex-1 rounded-xl border border-slate-200 bg-white px-3 text-center text-sm font-semibold text-slate-900 shadow-sm outline-none transition focus:border-slate-300 focus:ring-2 focus:ring-slate-200"
+                        className="min-h-11 min-w-0 flex-1 rounded-[var(--mrt-radius-md)] border border-[var(--color-border)] bg-[var(--color-surface)] px-3 text-center text-sm font-semibold text-[var(--color-text)] shadow-[var(--shadow-sm)] outline-none transition focus-visible:border-[var(--color-focus-ring)] focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-surface)]"
                       />
 
                       <button
                         type="button"
                         onClick={() => handleQuantityStep(item.productId, item.qty + 1)}
                         aria-label={`${text.increaseQuantity} ${item.partNo}`}
-                        className="inline-flex min-h-10 w-10 items-center justify-center rounded-xl border border-slate-200 bg-white text-base font-semibold text-slate-700 transition hover:bg-slate-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-200"
+                        className="inline-flex min-h-11 w-11 items-center justify-center rounded-[var(--mrt-radius-md)] border border-[var(--color-border)] bg-[var(--color-surface)] text-base font-semibold text-[var(--color-text-muted)] transition hover:bg-[var(--color-surface-muted)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-surface)]"
                       >
                         +
                       </button>
@@ -474,19 +474,19 @@ export default function QuotePage() {
           <form
             onSubmit={handleSubmit}
             noValidate
-            className="scroll-mt-24 self-start rounded-3xl border border-slate-200 bg-white p-5 shadow-sm sm:p-6"
+            className="scroll-mt-24 self-start rounded-[var(--mrt-radius-lg)] border border-[var(--color-border)] bg-[var(--color-surface)] p-5 shadow-[var(--shadow-sm)] sm:p-6"
           >
             <div>
-              <h2 className="text-lg font-semibold text-slate-950">{text.contactDetails}</h2>
-              <p className="mt-1 text-sm text-slate-500">{text.contactDetailsBody}</p>
-              <p className="mt-2 text-xs text-slate-500">{text.requiredHelper}</p>
+              <h2 className="text-lg font-semibold text-[var(--color-text)]">{text.contactDetails}</h2>
+              <p className="mt-1 text-sm text-[var(--color-text-muted)]">{text.contactDetailsBody}</p>
+              <p className="mt-2 text-xs text-[var(--color-text-muted)]">{text.requiredHelper}</p>
             </div>
 
             <div className="mt-5 space-y-4">
               <div className="grid gap-4 sm:grid-cols-2">
                 <div>
-                  <label htmlFor="rfq-name" className="block text-sm font-medium text-slate-800">
-                    {text.yourName} <span className="text-red-600">*</span>
+                  <label htmlFor="rfq-name" className="block text-sm font-medium text-[var(--color-text)]">
+                    {text.yourName} <span className="text-[var(--color-danger)]">*</span>
                   </label>
                   <input
                     ref={nameInputRef}
@@ -497,29 +497,29 @@ export default function QuotePage() {
                     required
                     aria-invalid={Boolean(formErrors.name)}
                     aria-describedby={formErrors.name ? 'rfq-name-error' : undefined}
-                    className={`mt-2 w-full scroll-mt-24 rounded-xl border px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-blue-400 focus:ring-2 focus:ring-blue-100 ${
-                      formErrors.name ? 'border-red-400 bg-red-50/40' : 'border-slate-300'
+                    className={`mt-2 w-full scroll-mt-24 rounded-[var(--mrt-radius-md)] border px-4 py-3 text-sm text-[var(--color-text)] outline-none transition focus-visible:border-[var(--color-focus-ring)] focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-surface)] ${
+                      formErrors.name ? 'border-[var(--color-danger)] bg-[var(--color-danger-soft)]' : 'border-[var(--color-border-strong)]'
                     }`}
                     value={form.name}
                     onChange={(event) => updateFormField('name', event.target.value)}
                   />
                   {formErrors.name ? (
-                    <p id="rfq-name-error" className="mt-2 text-sm text-red-700">
+                    <p id="rfq-name-error" className="mt-2 text-sm text-[var(--color-danger)]">
                       {formErrors.name}
                     </p>
                   ) : null}
                 </div>
 
                 <div>
-                  <label htmlFor="rfq-company" className="block text-sm font-medium text-slate-800">
-                    {text.company} <span className="font-normal text-slate-500">({text.optional})</span>
+                  <label htmlFor="rfq-company" className="block text-sm font-medium text-[var(--color-text)]">
+                    {text.company} <span className="font-normal text-[var(--color-text-muted)]">({text.optional})</span>
                   </label>
                   <input
                     id="rfq-company"
                     name="company"
                     type="text"
                     autoComplete="organization"
-                    className="mt-2 w-full scroll-mt-24 rounded-xl border border-slate-300 px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-blue-400 focus:ring-2 focus:ring-blue-100"
+                    className="mt-2 w-full scroll-mt-24 rounded-[var(--mrt-radius-md)] border border-[var(--color-border-strong)] px-4 py-3 text-sm text-[var(--color-text)] outline-none transition focus-visible:border-[var(--color-focus-ring)] focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-surface)]"
                     value={form.company}
                     onChange={(event) => updateFormField('company', event.target.value)}
                   />
@@ -528,20 +528,20 @@ export default function QuotePage() {
 
               <fieldset
                 aria-describedby={formErrors.contact ? 'rfq-contact-error' : 'rfq-contact-helper'}
-                className={`rounded-2xl border p-4 ${
-                  formErrors.contact ? 'border-red-300 bg-red-50/40' : 'border-slate-200 bg-slate-50'
+                className={`rounded-[var(--mrt-radius-lg)] border p-4 ${
+                  formErrors.contact ? 'border-[var(--color-danger)] bg-[var(--color-danger-soft)]' : 'border-[var(--color-border)] bg-[var(--color-surface-muted)]'
                 }`}
               >
-                <legend className="px-1 text-sm font-semibold text-slate-900">
-                  {text.contactMethodRequired} <span className="text-red-600">*</span>
+                <legend className="px-1 text-sm font-semibold text-[var(--color-text)]">
+                  {text.contactMethodRequired} <span className="text-[var(--color-danger)]">*</span>
                 </legend>
-                <p id="rfq-contact-helper" className="mt-1 text-xs leading-5 text-slate-500">
+                <p id="rfq-contact-helper" className="mt-1 text-xs leading-5 text-[var(--color-text-muted)]">
                   {text.followUpRequiredBody}
                 </p>
 
                 <div className="mt-4 space-y-4">
                   <div>
-                    <label htmlFor="rfq-phone" className="block text-sm font-medium text-slate-800">
+                    <label htmlFor="rfq-phone" className="block text-sm font-medium text-[var(--color-text)]">
                       {text.phone}
                     </label>
                     <input
@@ -552,14 +552,14 @@ export default function QuotePage() {
                       inputMode="tel"
                       autoComplete="tel"
                       aria-invalid={Boolean(formErrors.contact)}
-                      className="mt-2 w-full scroll-mt-24 rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-blue-400 focus:ring-2 focus:ring-blue-100"
+                      className="mt-2 w-full scroll-mt-24 rounded-[var(--mrt-radius-md)] border border-[var(--color-border-strong)] bg-[var(--color-surface)] px-4 py-3 text-sm text-[var(--color-text)] outline-none transition focus-visible:border-[var(--color-focus-ring)] focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-surface-muted)]"
                       value={form.phone}
                       onChange={(event) => updateFormField('phone', event.target.value)}
                     />
                   </div>
 
                   <div>
-                    <label htmlFor="rfq-email" className="block text-sm font-medium text-slate-800">
+                    <label htmlFor="rfq-email" className="block text-sm font-medium text-[var(--color-text)]">
                       {text.email}
                     </label>
                     <input
@@ -569,14 +569,14 @@ export default function QuotePage() {
                       inputMode="email"
                       autoComplete="email"
                       aria-invalid={Boolean(formErrors.contact)}
-                      className="mt-2 w-full scroll-mt-24 rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-blue-400 focus:ring-2 focus:ring-blue-100"
+                      className="mt-2 w-full scroll-mt-24 rounded-[var(--mrt-radius-md)] border border-[var(--color-border-strong)] bg-[var(--color-surface)] px-4 py-3 text-sm text-[var(--color-text)] outline-none transition focus-visible:border-[var(--color-focus-ring)] focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-surface-muted)]"
                       value={form.email}
                       onChange={(event) => updateFormField('email', event.target.value)}
                     />
                   </div>
 
                   <div>
-                    <label htmlFor="rfq-line" className="block text-sm font-medium text-slate-800">
+                    <label htmlFor="rfq-line" className="block text-sm font-medium text-[var(--color-text)]">
                       {text.lineId}
                     </label>
                     <input
@@ -585,7 +585,7 @@ export default function QuotePage() {
                       type="text"
                       autoComplete="off"
                       aria-invalid={Boolean(formErrors.contact)}
-                      className="mt-2 w-full scroll-mt-24 rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-blue-400 focus:ring-2 focus:ring-blue-100"
+                      className="mt-2 w-full scroll-mt-24 rounded-[var(--mrt-radius-md)] border border-[var(--color-border-strong)] bg-[var(--color-surface)] px-4 py-3 text-sm text-[var(--color-text)] outline-none transition focus-visible:border-[var(--color-focus-ring)] focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-surface-muted)]"
                       value={form.lineId}
                       onChange={(event) => updateFormField('lineId', event.target.value)}
                     />
@@ -593,38 +593,38 @@ export default function QuotePage() {
                 </div>
 
                 {formErrors.contact ? (
-                  <p id="rfq-contact-error" className="mt-3 text-sm font-medium text-red-700">
+                  <p id="rfq-contact-error" className="mt-3 text-sm font-medium text-[var(--color-danger)]">
                     {formErrors.contact}
                   </p>
                 ) : null}
               </fieldset>
 
               <div>
-                <label htmlFor="rfq-note" className="block text-sm font-medium text-slate-800">
-                  {text.additionalNoteLabel} <span className="font-normal text-slate-500">({text.optional})</span>
+                <label htmlFor="rfq-note" className="block text-sm font-medium text-[var(--color-text)]">
+                  {text.additionalNoteLabel} <span className="font-normal text-[var(--color-text-muted)]">({text.optional})</span>
                 </label>
                 <textarea
                   id="rfq-note"
                   name="note"
-                  className="mt-2 w-full scroll-mt-24 rounded-xl border border-slate-300 px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-blue-400 focus:ring-2 focus:ring-blue-100"
+                  className="mt-2 w-full scroll-mt-24 rounded-[var(--mrt-radius-md)] border border-[var(--color-border-strong)] px-4 py-3 text-sm text-[var(--color-text)] outline-none transition focus-visible:border-[var(--color-focus-ring)] focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-surface)]"
                   rows={4}
                   value={form.note}
                   onChange={(event) => updateFormField('note', event.target.value)}
                 />
               </div>
 
-              <div className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-4">
-                <p className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">
+              <div className="rounded-[var(--mrt-radius-lg)] border border-[var(--color-border)] bg-[var(--color-surface-muted)] px-4 py-4">
+                <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[var(--color-text-muted)]">
                   {text.followUpRequired}
                 </p>
-                <p className="mt-2 text-sm leading-6 text-slate-600">{text.contactUseNote}</p>
+                <p className="mt-2 text-sm leading-6 text-[var(--color-text-muted)]">{text.contactUseNote}</p>
               </div>
             </div>
 
             {formErrors.items || formErrors.submit ? (
               <div
                 role="alert"
-                className="mt-5 rounded-2xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700"
+                className="mt-5 rounded-[var(--mrt-radius-lg)] border border-[var(--color-danger)] bg-[var(--color-danger-soft)] px-4 py-3 text-sm text-[var(--color-danger)]"
               >
                 {formErrors.items || formErrors.submit}
               </div>
@@ -633,7 +633,7 @@ export default function QuotePage() {
             <button
               type="submit"
               disabled={loading || !hasQuoteItems}
-              className="mt-6 w-full scroll-mb-24 rounded-xl bg-slate-900 py-3 text-base font-semibold text-white transition hover:bg-black disabled:cursor-not-allowed disabled:opacity-60"
+              className="mt-6 w-full scroll-mb-24 rounded-[var(--mrt-radius-md)] bg-[var(--color-primary)] py-3 text-base font-semibold text-[var(--color-text-inverse)] transition hover:bg-[var(--color-primary-hover)] disabled:cursor-not-allowed disabled:opacity-60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-surface)]"
             >
               {!hasQuoteItems
                 ? text.addProductsBeforeSubmitting
@@ -643,27 +643,27 @@ export default function QuotePage() {
             </button>
 
             {!hasQuoteItems && (
-              <p className="mt-3 text-sm text-slate-500">
+              <p className="mt-3 text-sm text-[var(--color-text-muted)]">
                 {text.emptySubmitHelper}
               </p>
             )}
 
-            <div className="mt-6 rounded-2xl border border-emerald-200 bg-emerald-50 p-4">
-              <p className="text-sm font-semibold text-emerald-950">{text.lineContinueTitle}</p>
-              <p className="mt-1 text-xs leading-5 text-emerald-800">{text.lineContinueBody}</p>
+            <div className="mt-6 rounded-[var(--mrt-radius-lg)] border border-[var(--color-border)] bg-[var(--color-success-soft)] p-4">
+              <p className="text-sm font-semibold text-[var(--color-success-text)]">{text.lineContinueTitle}</p>
+              <p className="mt-1 text-xs leading-5 text-[var(--color-success-text)]">{text.lineContinueBody}</p>
               <div className="mt-4 grid gap-2 sm:grid-cols-2">
                 <CopyButton
                   value={lineSummary}
                   label={text.copyRfqList}
                   copiedLabel={text.copiedRfqList}
                   disabled={!hasQuoteItems}
-                  className="inline-flex min-h-11 items-center justify-center rounded-xl border border-emerald-300 bg-white px-4 py-2.5 text-sm font-semibold text-emerald-900 transition hover:bg-emerald-100 disabled:cursor-not-allowed disabled:opacity-50"
+                  className="inline-flex min-h-11 items-center justify-center rounded-[var(--mrt-radius-md)] border border-[var(--color-border-strong)] bg-[var(--color-surface)] px-4 py-2.5 text-sm font-semibold text-[var(--color-success-text)] transition hover:bg-[var(--color-success-soft)] disabled:cursor-not-allowed disabled:opacity-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-success-soft)]"
                 />
                 <TrackedLineLink
                   href={LINE_URL}
                   source="quote_page_contact_card"
                   locale={locale}
-                  className="inline-flex min-h-11 items-center justify-center rounded-xl bg-emerald-600 px-4 py-2.5 text-center text-sm font-semibold text-white transition hover:bg-emerald-700"
+                  className="inline-flex min-h-11 items-center justify-center rounded-[var(--mrt-radius-md)] bg-[var(--color-success-text)] px-4 py-2.5 text-center text-sm font-semibold text-[var(--color-text-inverse)] transition hover:bg-[var(--color-success-text)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-success-soft)]"
                 >
                   {text.openLine}
                 </TrackedLineLink>
