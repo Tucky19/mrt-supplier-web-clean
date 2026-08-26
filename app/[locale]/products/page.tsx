@@ -13,6 +13,7 @@ import MultiPartNumberSearch from "@/components/search/MultiPartNumberSearch";
 import SearchBar from "@/components/search/SearchBar";
 import JsonLd from "@/components/seo/JsonLd";
 import { products } from "@/data/products/index";
+import { isPreliminaryRelation } from "@/lib/products/relations";
 import { searchProducts, type SearchResult } from "@/lib/search/search";
 import type { Product } from "@/types/product";
 
@@ -64,6 +65,14 @@ function getResultMatchType(product: Product | SearchResult | undefined) {
   }
 
   return product._matchType;
+}
+
+function isPreliminaryRelationResult(product: Product | SearchResult | undefined) {
+  if (!product || !("_matchedRelation" in product)) {
+    return false;
+  }
+
+  return isPreliminaryRelation(product._matchedRelation);
 }
 
 export async function generateMetadata({
@@ -164,6 +173,11 @@ export default async function ProductsPage({
     : [];
   const hasCrossReferenceResults =
     !hasExactPartNumberResult && crossReferenceResults.length > 0;
+  const onlyPreliminaryCrossReferenceResults =
+    hasCrossReferenceResults &&
+    crossReferenceResults.every((product) =>
+      isPreliminaryRelationResult(product),
+    );
   const showMissingProductRequest =
     requestMissingProduct || visibleProducts.length === 0;
   const initialVisibleCount = Math.min(
@@ -278,9 +292,21 @@ export default async function ProductsPage({
         </div>
 
         {hasCrossReferenceResults && (
-          <div className="mb-5 rounded-[var(--mrt-radius-lg)] border border-[var(--color-success)] bg-[var(--color-success-soft)] px-4 py-4 shadow-[var(--shadow-sm)] sm:mb-6 sm:px-5">
+          <div
+            className={`mb-5 rounded-[var(--mrt-radius-lg)] border px-4 py-4 shadow-[var(--shadow-sm)] sm:mb-6 sm:px-5 ${
+              onlyPreliminaryCrossReferenceResults
+                ? "border-[var(--color-warning)] bg-[var(--color-warning-soft)]"
+                : "border-[var(--color-success)] bg-[var(--color-success-soft)]"
+            }`}
+          >
             <div className="flex gap-3">
-              <div className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[var(--color-surface)] text-[var(--color-success-text)]">
+              <div
+                className={`mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[var(--color-surface)] ${
+                  onlyPreliminaryCrossReferenceResults
+                    ? "text-[var(--color-warning-text)]"
+                    : "text-[var(--color-success-text)]"
+                }`}
+              >
                 <svg
                   aria-hidden="true"
                   viewBox="0 0 20 20"
@@ -296,12 +322,28 @@ export default async function ProductsPage({
               </div>
               <div className="min-w-0">
                 <h2 className="text-base font-semibold text-[var(--color-text)]">
-                  {isThai ? "พบเบอร์เทียบแล้ว!" : "Reference matches found!"}
+                  {onlyPreliminaryCrossReferenceResults
+                    ? isThai
+                      ? "พบเบอร์อ้างอิงเบื้องต้น"
+                      : "Preliminary reference match found"
+                    : isThai
+                      ? "พบเบอร์เทียบแล้ว!"
+                      : "Reference matches found!"}
                 </h2>
-                <p className="mt-1 text-sm leading-6 text-[var(--color-success-text)]">
+                <p
+                  className={`mt-1 text-sm leading-6 ${
+                    onlyPreliminaryCrossReferenceResults
+                      ? "text-[var(--color-warning-text)]"
+                      : "text-[var(--color-success-text)]"
+                  }`}
+                >
                   {isThai
-                    ? `พบสินค้าอ้างอิงจาก “${query}” จำนวน ${crossReferenceResults.length} รายการ`
-                    : `Found ${crossReferenceResults.length} reference products for “${query}”`}
+                    ? onlyPreliminaryCrossReferenceResults
+                      ? `พบสินค้าอ้างอิงเบื้องต้นจาก “${query}” จำนวน ${crossReferenceResults.length} รายการ`
+                      : `พบสินค้าอ้างอิงจาก “${query}” จำนวน ${crossReferenceResults.length} รายการ`
+                    : onlyPreliminaryCrossReferenceResults
+                      ? `Found ${crossReferenceResults.length} preliminary reference products for “${query}”`
+                      : `Found ${crossReferenceResults.length} reference products for “${query}”`}
                 </p>
                 <p className="mt-1 text-xs leading-5 text-[var(--color-text-muted)]">
                   {isThai

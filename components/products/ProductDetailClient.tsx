@@ -10,7 +10,10 @@ import { gaAddToQuote, gaViewItem } from "@/lib/analytics/ga";
 import { trackEvent } from "@/lib/analytics/track";
 import { getProductUiText } from "@/lib/i18n/productUi";
 import { getProductImageUrl } from "@/lib/products/image";
-import { relationPartNumbers } from "@/lib/products/relations";
+import {
+  type ProductRelation,
+  normalizeProductRelations,
+} from "@/lib/products/relations";
 import { useQuote } from "@/providers/QuoteProvider";
 import type { Product } from "@/types/product";
 import ProductCrossReferenceCards from "./detail/ProductCrossReferenceCards";
@@ -262,16 +265,19 @@ export default function ProductDetailClient({ locale, product }: Props) {
     );
   }, [primaryImage, product.images]);
 
-  const refs = useMemo(
+  const relationItems = useMemo<ProductRelation[]>(
     () =>
       Array.from(
-        new Set([
-          ...relationPartNumbers(product.refs ?? [], "unknown"),
-          ...relationPartNumbers(product.crossReferences ?? [], "unknown"),
-        ]),
-      )
-        .map((value) => String(value).trim())
-        .filter(Boolean),
+        new Map(
+          [
+            ...normalizeProductRelations(product.refs ?? [], "unknown"),
+            ...normalizeProductRelations(product.crossReferences ?? [], "unknown"),
+          ].map((relation) => [
+            `${relation.brand ?? ""}|${relation.partNumber}`,
+            relation,
+          ]),
+        ).values(),
+      ),
     [product.refs, product.crossReferences],
   );
 
@@ -616,7 +622,7 @@ export default function ProductDetailClient({ locale, product }: Props) {
         <div className="min-w-0 lg:col-start-1 lg:row-start-2">
           <ProductCrossReferenceCards
             locale={locale}
-            refs={refs}
+            relations={relationItems}
             brand={product.brand}
             currentPartNo={product.partNo}
             sameBrandAlternatives={product.sameBrandAlternatives}

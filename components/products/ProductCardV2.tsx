@@ -8,12 +8,17 @@ import { gaAddToQuote } from "@/lib/analytics/ga";
 import { getProductUiText } from "@/lib/i18n/productUi";
 import { getSearchUiText } from "@/lib/i18n/searchUi";
 import { getProductImageUrl } from "@/lib/products/image";
-import { relationPartNumbers } from "@/lib/products/relations";
+import {
+  type ProductRelation,
+  isPreliminaryRelation,
+  normalizeProductRelations,
+} from "@/lib/products/relations";
 import { useQuote } from "@/providers/QuoteProvider";
 import type { Product } from "@/types/product";
 
 type SearchProduct = Product & {
   _matchType?: string;
+  _matchedRelation?: ProductRelation;
 };
 
 type ProductCardVariant = "default" | "search";
@@ -21,6 +26,7 @@ type ProductCardVariant = "default" | "search";
 type MatchPresentation = {
   label: string;
   className: string;
+  isPreliminary?: boolean;
 };
 
 function normalizeSpecLabel(value: string) {
@@ -75,10 +81,14 @@ function getMatchPresentation(
   matchType: string | undefined,
   query: string,
   text: ReturnType<typeof getSearchUiText>,
+  locale: string,
+  relation?: ProductRelation,
 ): MatchPresentation | null {
   if (!matchType || !query) return null;
 
   const querySuffix = ` · ${query}`;
+
+  const isPreliminary = isPreliminaryRelation(relation);
 
   if (matchType === "Exact") {
     return {
@@ -97,6 +107,18 @@ function getMatchPresentation(
   }
 
   if (matchType === "Cross Ref") {
+    if (isPreliminary) {
+      return {
+        label:
+          locale === "th"
+            ? `พบเบอร์อ้างอิงเบื้องต้น${querySuffix}`
+            : `Preliminary reference match${querySuffix}`,
+        className:
+          "border-[var(--color-warning)] bg-[var(--color-warning-soft)] text-[var(--color-warning-text)]",
+        isPreliminary: true,
+      };
+    }
+
     return {
       label: `${text.crossReferenceMatch}${querySuffix}`,
       className:
@@ -105,6 +127,18 @@ function getMatchPresentation(
   }
 
   if (matchType === "Same-brand Ref") {
+    if (isPreliminary) {
+      return {
+        label:
+          locale === "th"
+            ? `พบเบอร์อ้างอิงเบื้องต้น${querySuffix}`
+            : `Preliminary reference match${querySuffix}`,
+        className:
+          "border-[var(--color-warning)] bg-[var(--color-warning-soft)] text-[var(--color-warning-text)]",
+        isPreliminary: true,
+      };
+    }
+
     return {
       label: `${text.sameBrandReferenceMatch}${querySuffix}`,
       className:
@@ -125,6 +159,11 @@ function getMatchPresentation(
     className:
       "border-[var(--color-border)] bg-[var(--color-surface-muted)] text-[var(--color-text)]",
   };
+}
+
+function relationDisplayText(relation: ProductRelation) {
+  if (relation.brand) return `${relation.brand} ${relation.partNumber}`;
+  return relation.partNumber;
 }
 
 export default function ProductCardV2({
@@ -149,14 +188,16 @@ export default function ProductCardV2({
   const resetTimerRef = useRef<number | null>(null);
 
   const refs = Array.from(
-    new Set([
-      ...relationPartNumbers(product.refs ?? [], "unknown"),
-      ...relationPartNumbers(product.crossReferences ?? [], "unknown"),
-    ]),
-  )
-    .map((value) => String(value).trim())
-    .filter(Boolean)
-    .slice(0, 2);
+    new Map(
+      [
+        ...normalizeProductRelations(product.refs ?? [], "unknown"),
+        ...normalizeProductRelations(product.crossReferences ?? [], "unknown"),
+      ].map((relation) => [
+        `${relation.brand ?? ""}|${relation.partNumber}`,
+        relation,
+      ]),
+    ).values(),
+  ).slice(0, 2);
 
   const image = getProductImageUrl(
     product.brand,
@@ -190,7 +231,12 @@ export default function ProductCardV2({
     product._matchType,
     referenceQuery,
     searchText,
+    locale,
+    product._matchedRelation,
   );
+  const preliminaryRelationNotice = isThai
+    ? "เบอร์อ้างอิงเบื้องต้น: กรุณาตรวจสอบขนาด เกลียว และการใช้งานก่อนสั่งซื้อ"
+    : "Preliminary reference: verify dimensions, thread, and application before ordering.";
   const categoryLabel = formatCategoryLabel(product.category);
 
   useEffect(() => {
@@ -291,6 +337,11 @@ export default function ProductCardV2({
                 >
                   {matchPresentation.label}
                 </span>
+                {matchPresentation.isPreliminary ? (
+                  <p className="mt-2 rounded-[var(--mrt-radius-sm)] border border-[var(--color-warning)] bg-[var(--color-warning-soft)] px-3 py-2 text-xs leading-5 text-[var(--color-warning-text)]">
+                    {preliminaryRelationNotice}
+                  </p>
+                ) : null}
               </div>
             ) : null}
 
@@ -396,10 +447,19 @@ export default function ProductCardV2({
             <div className="flex min-h-[2.5rem] flex-wrap content-start gap-2">
               {refs.map((ref) => (
                 <span
-                  key={ref}
-                  className="rounded-full border border-[var(--color-border)] bg-[var(--color-surface)] px-2.5 py-1 text-[10px] font-medium text-[var(--color-text-muted)] shadow-[var(--shadow-sm)] sm:text-[11px]"
+                  key={`${ref.brand ?? ""}-${ref.partNumber}`}
+                  className={`inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-[10px] font-medium shadow-[var(--shadow-sm)] sm:text-[11px] ${
+                    isPreliminaryRelation(ref)
+                      ? "border-[var(--color-warning)] bg-[var(--color-warning-soft)] text-[var(--color-warning-text)]"
+                      : "border-[var(--color-border)] bg-[var(--color-surface)] text-[var(--color-text-muted)]"
+                  }`}
                 >
-                  {ref}
+                  {relationDisplayText(ref)}
+                  {isPreliminaryRelation(ref) ? (
+                    <span className="text-[9px] font-semibold uppercase tracking-[0.1em]">
+                      {isThai ? "เบื้องต้น" : "Prelim"}
+                    </span>
+                  ) : null}
                 </span>
               ))}
             </div>

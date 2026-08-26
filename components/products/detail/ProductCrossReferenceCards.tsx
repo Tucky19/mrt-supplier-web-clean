@@ -1,8 +1,20 @@
 import Link from "next/link";
+import {
+  type ProductRelation,
+  isPreliminaryRelation,
+} from "@/lib/products/relations";
 
 type ReferenceRow = {
   brand: string;
-  partNos: string[];
+  items: ReferenceItem[];
+};
+
+type ReferenceItem = {
+  brand: string;
+  partNo: string;
+  relationType: ProductRelation["relationType"];
+  verificationStatus: ProductRelation["verificationStatus"];
+  note?: string;
 };
 
 type SameBrandAlternativeRow = {
@@ -13,7 +25,7 @@ type SameBrandAlternativeRow = {
 
 type Props = {
   locale: string;
-  refs: string[];
+  relations: ProductRelation[];
   brand: string;
   currentPartNo?: string;
   sameBrandAlternatives?: SameBrandAlternativeRow[];
@@ -23,6 +35,18 @@ type ParsedReference = {
   brand: string;
   partNo: string;
 };
+
+const KNOWN_REFERENCE_BRANDS = [
+  "Fleetguard",
+  "Donaldson",
+  "MANN-FILTER",
+  "Baldwin",
+  "Mahle",
+  "Hengst",
+  "Caterpillar",
+  "KOMATSU",
+  "COMPAIR",
+];
 
 function SectionLabel({ children }: { children: React.ReactNode }) {
   return (
@@ -40,40 +64,100 @@ function normalizePartNo(value: string) {
   return value.trim().replace(/\s+/g, " ").toUpperCase();
 }
 
-function parseReference(value: string, fallbackBrand: string): ParsedReference | null {
+function parseReference(
+  value: string,
+  fallbackBrand: string,
+): ParsedReference | null {
   const raw = String(value ?? "").trim();
   if (!raw) return null;
 
   const separatorIndex = raw.indexOf(":");
-  if (separatorIndex === -1) {
+  if (separatorIndex !== -1) {
+    const parsedBrand = raw.slice(0, separatorIndex).trim();
+    const parsedPartNo = raw.slice(separatorIndex + 1).trim();
+
+    if (!parsedPartNo) return null;
+
     return {
-      brand: normalizeBrand(fallbackBrand),
-      partNo: normalizePartNo(raw),
+      brand: normalizeBrand(parsedBrand || fallbackBrand),
+      partNo: normalizePartNo(parsedPartNo),
     };
   }
 
-  const parsedBrand = raw.slice(0, separatorIndex).trim();
-  const parsedPartNo = raw.slice(separatorIndex + 1).trim();
+  const knownBrand = KNOWN_REFERENCE_BRANDS.find((candidate) =>
+    raw.toLowerCase().startsWith(`${candidate.toLowerCase()} `),
+  );
 
-  if (!parsedPartNo) return null;
+  if (knownBrand) {
+    return {
+      brand: normalizeBrand(knownBrand),
+      partNo: normalizePartNo(raw.slice(knownBrand.length).trim()),
+    };
+  }
 
   return {
-    brand: normalizeBrand(parsedBrand || fallbackBrand),
-    partNo: normalizePartNo(parsedPartNo),
+    brand: normalizeBrand(fallbackBrand),
+    partNo: normalizePartNo(raw),
   };
 }
 
-function addPartNo(map: Map<string, string[]>, brand: string, partNo: string) {
-  const current = map.get(brand) ?? [];
-  if (!current.includes(partNo)) {
-    current.push(partNo);
+function relationToReferenceItem(
+  relation: ProductRelation,
+  fallbackBrand: string,
+): ReferenceItem | null {
+  const parsed = parseReference(relation.partNumber, relation.brand ?? fallbackBrand);
+  if (!parsed) return null;
+
+  return {
+    brand: relation.brand ? normalizeBrand(relation.brand) : parsed.brand,
+    partNo: relation.brand ? normalizePartNo(relation.partNumber) : parsed.partNo,
+    relationType: relation.relationType,
+    verificationStatus: relation.verificationStatus,
+    note: relation.note,
+  };
+}
+
+function relationFromSameBrandAlternative(
+  item: SameBrandAlternativeRow,
+): ReferenceItem {
+  return {
+    brand: normalizeBrand(item.brand),
+    partNo: normalizePartNo(item.partNo),
+    relationType: "alternative",
+    verificationStatus: "pending",
+    note: item.note,
+  };
+}
+
+function addReferenceItem(map: Map<string, ReferenceItem[]>, item: ReferenceItem) {
+  const current = map.get(item.brand) ?? [];
+  if (!current.some((currentItem) => currentItem.partNo === item.partNo)) {
+    current.push(item);
   }
-  map.set(brand, current);
+  map.set(item.brand, current);
+}
+
+function isPreliminaryItem(item: ReferenceItem) {
+  return isPreliminaryRelation({
+    partNumber: item.partNo,
+    brand: item.brand,
+    relationType: item.relationType,
+    verificationStatus: item.verificationStatus,
+    note: item.note,
+  });
+}
+
+function statusLabel(item: ReferenceItem, isThai: boolean) {
+  if (isPreliminaryItem(item)) {
+    return isThai ? "เบื้องต้น" : "Preliminary";
+  }
+
+  return isThai ? "ยืนยันแล้ว" : "Verified";
 }
 
 export default function ProductCrossReferenceCards({
   locale,
-  refs,
+  relations,
   brand,
   currentPartNo,
   sameBrandAlternatives = [],
@@ -82,7 +166,7 @@ export default function ProductCrossReferenceCards({
   const normalizedCurrentBrand = normalizeBrand(brand);
   const normalizedCurrentPartNo = normalizePartNo(currentPartNo ?? "");
 
-  const grouped = new Map<string, string[]>();
+  const grouped = new Map<string, ReferenceItem[]>();
 
   sameBrandAlternatives
     .filter(
@@ -92,31 +176,35 @@ export default function ProductCrossReferenceCards({
         item.partNo.trim().length > 0 &&
         normalizePartNo(item.partNo) !== normalizedCurrentPartNo,
     )
+    .map(relationFromSameBrandAlternative)
     .forEach((item) => {
-      addPartNo(grouped, item.brand.trim(), item.partNo.trim());
+      addReferenceItem(grouped, item);
     });
 
-  refs
-    .map((value) => parseReference(value, brand))
-    .filter((item): item is ParsedReference => Boolean(item))
+  relations
+    .map((relation) => relationToReferenceItem(relation, brand))
+    .filter((item): item is ReferenceItem => Boolean(item))
     .filter((item) => item.partNo !== normalizedCurrentPartNo)
     .forEach((item) => {
       const alreadyIncludedAsSameBrand =
         item.brand === normalizedCurrentBrand &&
-        (grouped.get(brand) ?? []).some(
-          (partNo) => normalizePartNo(partNo) === item.partNo,
+        (grouped.get(normalizedCurrentBrand) ?? []).some(
+          (currentItem) => currentItem.partNo === item.partNo,
         );
 
       if (!alreadyIncludedAsSameBrand) {
-        addPartNo(grouped, item.brand, item.partNo);
+        addReferenceItem(grouped, item);
       }
     });
 
   const rows: ReferenceRow[] = Array.from(grouped.entries()).map(
-    ([rowBrand, partNos]) => ({
+    ([rowBrand, items]) => ({
       brand: rowBrand,
-      partNos,
+      items,
     }),
+  );
+  const hasPreliminaryReference = rows.some((row) =>
+    row.items.some(isPreliminaryItem),
   );
 
   if (rows.length === 0) {
@@ -150,11 +238,25 @@ export default function ProductCrossReferenceCards({
       <div className="overflow-hidden rounded-[28px] border border-slate-300 bg-white shadow-[0_12px_30px_rgba(15,23,42,0.05)]">
         <div className="h-1 w-full bg-[linear-gradient(90deg,#cbdff7_0%,#dceafc_55%,#eef5ff_100%)]" />
         <div className="border-b border-slate-200 bg-[linear-gradient(180deg,#f8fbff_0%,#ffffff_100%)] px-5 py-4 sm:px-6">
-          {!isThai ? <SectionLabel>Interchange</SectionLabel> : null}
+          {!isThai ? (
+            <SectionLabel>
+              {hasPreliminaryReference ? "References" : "Interchange"}
+            </SectionLabel>
+          ) : null}
           <h2 className={`${!isThai ? "mt-1.5" : ""} text-lg font-semibold tracking-[-0.02em] text-slate-950`}>
-            Interchange
+            {hasPreliminaryReference
+              ? isThai
+                ? "เบอร์อ้างอิง"
+                : "Reference Part Numbers"
+              : "Interchange"}
           </h2>
-          <p className="mt-1 text-sm leading-6 text-slate-600">Alternative Part Numbers</p>
+          <p className="mt-1 text-sm leading-6 text-slate-600">
+            {hasPreliminaryReference
+              ? isThai
+                ? "บางรายการเป็นเบอร์อ้างอิงเบื้องต้นและต้องตรวจสอบการใช้งานก่อนสั่งซื้อ"
+                : "Some references are preliminary and must be checked for application before ordering."
+              : "Alternative Part Numbers"}
+          </p>
         </div>
 
         <div className="px-5 py-4 sm:px-6">
@@ -177,7 +279,7 @@ export default function ProductCrossReferenceCards({
               <div className="divide-y divide-slate-200 bg-white">
                 {rows.map((row) => (
                   <div
-                    key={`${row.brand}-${row.partNos.join(",")}`}
+                    key={`${row.brand}-${row.items.map((item) => item.partNo).join(",")}`}
                     className="grid items-start"
                     style={{
                       gridTemplateColumns: "minmax(200px,0.95fr) minmax(220px,1.05fr)",
@@ -186,10 +288,26 @@ export default function ProductCrossReferenceCards({
                     <div className="break-words px-4 py-3.5 text-sm font-semibold leading-6 text-slate-800">
                       {row.brand}
                     </div>
-                    <div className="border-l border-slate-200 px-4 py-3.5 text-sm leading-6 text-slate-700">
-                      <span className="font-mono text-[13px] sm:text-sm">
-                        {row.partNos.join(", ")}
-                      </span>
+                    <div className="space-y-2 border-l border-slate-200 px-4 py-3.5 text-sm leading-6 text-slate-700">
+                      {row.items.map((item) => (
+                        <div
+                          key={`${row.brand}-${item.partNo}`}
+                          className="flex flex-wrap items-center gap-2"
+                        >
+                          <span className="font-mono text-[13px] sm:text-sm">
+                            {item.partNo}
+                          </span>
+                          <span
+                            className={`rounded-full border px-2 py-0.5 text-[10px] font-semibold uppercase tracking-[0.1em] ${
+                              isPreliminaryItem(item)
+                                ? "border-amber-200 bg-amber-50 text-amber-900"
+                                : "border-emerald-200 bg-emerald-50 text-emerald-800"
+                            }`}
+                          >
+                            {statusLabel(item, isThai)}
+                          </span>
+                        </div>
+                      ))}
                     </div>
                   </div>
                 ))}
@@ -199,11 +317,19 @@ export default function ProductCrossReferenceCards({
         </div>
       </div>
 
-      <div className="rounded-[20px] border border-slate-200 bg-slate-50/85 px-4 py-3 text-sm leading-6 text-slate-600">
-        {isThai
-          ? "ข้อมูล Interchange ใช้สำหรับอ้างอิงเบื้องต้น ทีมงานจะตรวจสอบความเข้ากันได้ของสเปก ขนาด เกลียว และการใช้งานก่อนเสนอราคา"
-          : "Interchange data is for preliminary reference. Our team reviews specification, size, thread, and application compatibility before quoting."}
-      </div>
+      {hasPreliminaryReference ? (
+        <div className="rounded-[20px] border border-amber-200 bg-amber-50 px-4 py-3 text-sm leading-6 text-amber-900">
+          {isThai
+            ? "เบอร์อ้างอิงเบื้องต้น: กรุณาตรวจสอบขนาด เกลียว และการใช้งานก่อนสั่งซื้อ"
+            : "Preliminary reference: verify dimensions, thread, and application before ordering."}
+        </div>
+      ) : (
+        <div className="rounded-[20px] border border-slate-200 bg-slate-50/85 px-4 py-3 text-sm leading-6 text-slate-600">
+          {isThai
+            ? "ข้อมูล Interchange ใช้สำหรับอ้างอิงเบื้องต้น ทีมงานจะตรวจสอบความเข้ากันได้ของสเปก ขนาด เกลียว และการใช้งานก่อนเสนอราคา"
+            : "Interchange data is for preliminary reference. Our team reviews specification, size, thread, and application compatibility before quoting."}
+        </div>
+      )}
     </div>
   );
 }
