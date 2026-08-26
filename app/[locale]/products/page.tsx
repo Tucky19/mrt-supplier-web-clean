@@ -173,6 +173,11 @@ export default async function ProductsPage({
     : [];
   const hasCrossReferenceResults =
     !hasExactPartNumberResult && crossReferenceResults.length > 0;
+  const hasPreliminaryCrossReferenceResults =
+    hasCrossReferenceResults &&
+    crossReferenceResults.some((product) =>
+      isPreliminaryRelationResult(product),
+    );
   const onlyPreliminaryCrossReferenceResults =
     hasCrossReferenceResults &&
     crossReferenceResults.every((product) =>
@@ -294,7 +299,7 @@ export default async function ProductsPage({
         {hasCrossReferenceResults && (
           <div
             className={`mb-5 rounded-[var(--mrt-radius-lg)] border px-4 py-4 shadow-[var(--shadow-sm)] sm:mb-6 sm:px-5 ${
-              onlyPreliminaryCrossReferenceResults
+              hasPreliminaryCrossReferenceResults
                 ? "border-[var(--color-warning)] bg-[var(--color-warning-soft)]"
                 : "border-[var(--color-success)] bg-[var(--color-success-soft)]"
             }`}
@@ -302,7 +307,7 @@ export default async function ProductsPage({
             <div className="flex gap-3">
               <div
                 className={`mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[var(--color-surface)] ${
-                  onlyPreliminaryCrossReferenceResults
+                  hasPreliminaryCrossReferenceResults
                     ? "text-[var(--color-warning-text)]"
                     : "text-[var(--color-success-text)]"
                 }`}
@@ -326,13 +331,17 @@ export default async function ProductsPage({
                     ? isThai
                       ? "พบเบอร์อ้างอิงเบื้องต้น"
                       : "Preliminary reference match found"
+                    : hasPreliminaryCrossReferenceResults
+                      ? isThai
+                        ? "พบข้อมูลเบอร์อ้างอิง"
+                        : "Reference matches found"
                     : isThai
                       ? "พบเบอร์เทียบแล้ว!"
                       : "Reference matches found!"}
                 </h2>
                 <p
                   className={`mt-1 text-sm leading-6 ${
-                    onlyPreliminaryCrossReferenceResults
+                    hasPreliminaryCrossReferenceResults
                       ? "text-[var(--color-warning-text)]"
                       : "text-[var(--color-success-text)]"
                   }`}
@@ -346,9 +355,13 @@ export default async function ProductsPage({
                       : `Found ${crossReferenceResults.length} reference products for “${query}”`}
                 </p>
                 <p className="mt-1 text-xs leading-5 text-[var(--color-text-muted)]">
-                  {isThai
-                    ? "กรุณาตรวจสอบสเปคและการใช้งานก่อนสั่งซื้อ"
-                    : "Please confirm specifications and application before ordering."}
+                  {hasPreliminaryCrossReferenceResults
+                    ? isThai
+                      ? "ผลลัพธ์บางรายการอาจเป็นข้อมูลอ้างอิงเบื้องต้น กรุณาตรวจสอบรายละเอียดก่อนสั่งซื้อ"
+                      : "Some results may be preliminary references. Verify the details before ordering."
+                    : isThai
+                      ? "กรุณาตรวจสอบสเปคและการใช้งานก่อนสั่งซื้อ"
+                      : "Please confirm specifications and application before ordering."}
                 </p>
               </div>
             </div>

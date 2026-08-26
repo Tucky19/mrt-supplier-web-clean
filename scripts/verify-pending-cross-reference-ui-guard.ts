@@ -100,6 +100,15 @@ try {
       approvedBy: "test",
       approvedAt: "2026-08-27T00:00:00.000Z",
     },
+    {
+      brand: "Fleetguard",
+      partNumber: "FFMIX",
+      relationType: "equivalent",
+      verificationStatus: "verified",
+      evidence: "fixture official source",
+      approvedBy: "test",
+      approvedAt: "2026-08-27T00:00:00.000Z",
+    },
   ] satisfies ProductRelationInput[];
 
   const [verifiedTop] = searchProducts("Fleetguard FF167", { limit: 5 });
@@ -113,6 +122,13 @@ try {
   legacyProduct.crossReferences = [
     ...(legacyProduct.crossReferences ?? []),
     "Fleetguard FF42000",
+    {
+      brand: "Fleetguard",
+      partNumber: "FFMIX",
+      relationType: "unknown",
+      verificationStatus: "pending",
+      evidenceNote: "fixture only; not catalog data",
+    },
   ];
 
   for (const query of ["FF42000", "Fleetguard FF42000"]) {
@@ -123,6 +139,30 @@ try {
       `${query} legacy relation should remain preliminary`,
     );
   }
+
+  const mixedResults = searchProducts("Fleetguard FFMIX", { limit: 5 });
+  const mixedRelationResults = mixedResults.filter(
+    (product) =>
+      product._matchType === "Cross Ref" || product._matchType === "Same-brand Ref",
+  );
+  const hasPreliminaryRelationResult = mixedRelationResults.some((product) =>
+    isPreliminaryRelation(product._matchedRelation),
+  );
+  const onlyPreliminaryRelationResults =
+    mixedRelationResults.length > 0 &&
+    mixedRelationResults.every((product) =>
+      isPreliminaryRelation(product._matchedRelation),
+    );
+
+  assert(
+    mixedRelationResults.map((product) => product.partNo).includes("P556245") &&
+      mixedRelationResults.map((product) => product.partNo).includes("P553004"),
+    "mixed relation fixture should return both verified and pending results",
+  );
+  assert(
+    hasPreliminaryRelationResult && !onlyPreliminaryRelationResults,
+    "mixed relation fixture should classify as neutral mixed status",
+  );
 
   assertTopParts("AF26395", ["C 20 500", "P778994"]);
   assertTopParts("Fleetguard AF26395", ["C 20 500", "P778994"]);
