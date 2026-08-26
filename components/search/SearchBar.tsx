@@ -91,7 +91,7 @@ function highlightMatch(text: string, query: string) {
   return (
     <>
       {before}
-      <mark className="rounded bg-yellow-100 px-0.5 text-inherit group-hover:bg-red-600 group-hover:text-white group-active:bg-red-600 group-active:text-white">
+      <mark className="rounded bg-[var(--color-warning-soft)] px-0.5 text-[var(--color-warning-text)] group-hover:bg-[var(--color-primary)] group-hover:text-[var(--color-text-inverse)] group-active:bg-[var(--color-primary)] group-active:text-[var(--color-text-inverse)]">
         {match}
       </mark>
       {after}
@@ -394,8 +394,8 @@ export default function SearchBar({
         aria-busy={isPending}
         className="relative w-full"
       >
-        <div className="flex min-h-[60px] items-center gap-3 rounded-full border border-slate-200 bg-white px-4 shadow-sm transition focus-within:border-blue-400 focus-within:shadow-md sm:px-5">
-          <span className="text-slate-400">
+        <div className="flex min-h-[60px] items-center gap-3 rounded-full border border-[var(--color-border)] bg-[var(--color-surface)] px-4 shadow-[var(--shadow-sm)] transition focus-within:border-[var(--color-focus-ring)] focus-within:ring-2 focus-within:ring-[var(--color-focus-ring)] focus-within:ring-offset-2 focus-within:ring-offset-[var(--color-surface)] sm:px-5">
+          <span className="text-[var(--color-text-muted)]">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5"
@@ -424,13 +424,13 @@ export default function SearchBar({
             onKeyDown={handleKeyDown}
             placeholder={text.searchPlaceholder}
             aria-label={text.searchInputLabel}
-            className="h-full w-full bg-transparent py-4 text-[15px] text-slate-900 placeholder:text-slate-400 outline-none"
+            className="h-full w-full bg-transparent py-4 text-[15px] text-[var(--color-text)] placeholder:text-[var(--color-text-muted)] outline-none"
           />
 
           <button
             type="submit"
             disabled={isPending}
-            className="rounded-full bg-blue-900 px-4 py-2 text-sm font-medium text-white transition hover:bg-blue-800 disabled:opacity-50 sm:px-5"
+            className="rounded-full bg-[var(--color-primary)] px-4 py-2 text-sm font-medium text-[var(--color-text-inverse)] transition hover:bg-[var(--color-primary-hover)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-surface)] disabled:opacity-50 sm:px-5"
           >
             {isPending ? text.searching : text.searchButton}
           </button>
@@ -441,14 +441,14 @@ export default function SearchBar({
         </span>
 
         {showDropdown && (
-          <div className="absolute left-0 right-0 top-[68px] z-20 max-h-[340px] overflow-y-auto rounded-2xl border border-slate-200 bg-white shadow-lg shadow-slate-200/70 sm:max-h-[380px]">
+          <div className="absolute left-0 right-0 top-[68px] z-20 max-h-[340px] overflow-y-auto rounded-[var(--mrt-radius-lg)] border border-[var(--color-border)] bg-[var(--color-surface)] shadow-[var(--shadow-md)] sm:max-h-[380px]">
             {visibleRecents.length > 0 && (
-              <section className="border-b border-slate-100">
-                <div className="bg-slate-50/70 px-4 py-2.5 text-[10px] font-semibold uppercase tracking-[0.12em] text-slate-500 sm:px-5">
+              <section className="border-b border-[var(--color-border)]">
+                <div className="bg-[var(--color-surface-muted)] px-4 py-2.5 text-[10px] font-semibold uppercase tracking-[0.12em] text-[var(--color-text-muted)] sm:px-5">
                   {text.recentSearches}
                 </div>
 
-                <div className="divide-y divide-slate-100">
+                <div className="divide-y divide-[var(--color-border)]">
                   {visibleRecents.map((recent, recentIndex) => (
                     <button
                       key={recent}
@@ -469,17 +469,17 @@ export default function SearchBar({
                           dropdownItems.length
                         )
                       }
-                      className={`group block w-full border-l-4 px-4 py-2.5 text-left text-sm transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-blue-200 sm:px-5 ${
+                      className={`group block w-full border-l-4 px-4 py-2.5 text-left text-sm transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[var(--color-focus-ring)] sm:px-5 ${
                         highlightedIndex === recentIndex
-                          ? "border-red-600 bg-slate-900 text-white"
-                          : "border-transparent text-slate-700 hover:bg-slate-700 hover:text-white active:border-red-600 active:bg-slate-900 active:text-white"
+                          ? "border-[var(--color-primary)] bg-[var(--color-primary)] text-[var(--color-text-inverse)]"
+                          : "border-transparent text-[var(--color-text-muted)] hover:bg-[var(--color-primary-hover)] hover:text-[var(--color-text-inverse)] active:border-[var(--color-primary)] active:bg-[var(--color-primary)] active:text-[var(--color-text-inverse)]"
                       }`}
                     >
                       <span
                         className={`block font-medium ${
                           highlightedIndex === recentIndex
-                            ? "text-white"
-                            : "text-slate-800 group-hover:text-white group-active:text-white"
+                            ? "text-[var(--color-text-inverse)]"
+                            : "text-[var(--color-text)] group-hover:text-[var(--color-text-inverse)] group-active:text-[var(--color-text-inverse)]"
                         }`}
                       >
                         {recent}
@@ -487,8 +487,8 @@ export default function SearchBar({
                       <span
                         className={`mt-0.5 block text-xs ${
                           highlightedIndex === recentIndex
-                            ? "text-slate-200"
-                            : "text-slate-400 group-hover:text-slate-200 group-active:text-slate-200"
+                            ? "text-[var(--color-primary-soft)]"
+                            : "text-[var(--color-text-muted)] group-hover:text-[var(--color-primary-soft)] group-active:text-[var(--color-primary-soft)]"
                         }`}
                       >
                         {text.recent}
@@ -500,12 +500,12 @@ export default function SearchBar({
             )}
 
             {flattenedSuggestions.length > 0 && (
-              <section className="border-b border-slate-100">
-                <div className="bg-slate-50/70 px-4 py-2.5 text-[10px] font-semibold uppercase tracking-[0.12em] text-slate-500 sm:px-5">
+              <section className="border-b border-[var(--color-border)]">
+                <div className="bg-[var(--color-surface-muted)] px-4 py-2.5 text-[10px] font-semibold uppercase tracking-[0.12em] text-[var(--color-text-muted)] sm:px-5">
                   {suggestionsTitle}
                 </div>
 
-                <div className="divide-y divide-slate-100">
+                <div className="divide-y divide-[var(--color-border)]">
                   {flattenedSuggestions.map((suggestion, suggestionIndex) => {
                     const currentIndex = suggestionStartIndex + suggestionIndex;
                     const label = getSuggestionLabel(suggestion._matchType, text);
@@ -545,10 +545,10 @@ export default function SearchBar({
                             dropdownItems.length
                           )
                         }
-                        className={`group block w-full border-l-4 px-4 py-2.5 text-left transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-blue-200 sm:px-5 sm:py-3 ${
+                        className={`group block w-full border-l-4 px-4 py-2.5 text-left transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[var(--color-focus-ring)] sm:px-5 sm:py-3 ${
                           isHighlighted
-                            ? "border-red-600 bg-slate-900 text-white [&_mark]:bg-red-600 [&_mark]:text-white"
-                            : "border-transparent hover:bg-slate-700 hover:text-white active:border-red-600 active:bg-slate-900 active:text-white"
+                            ? "border-[var(--color-primary)] bg-[var(--color-primary)] text-[var(--color-text-inverse)] [&_mark]:bg-[var(--color-primary-hover)] [&_mark]:text-[var(--color-text-inverse)]"
+                            : "border-transparent hover:bg-[var(--color-primary-hover)] hover:text-[var(--color-text-inverse)] active:border-[var(--color-primary)] active:bg-[var(--color-primary)] active:text-[var(--color-text-inverse)]"
                         }`}
                         >
                         <span className="flex min-w-0 flex-wrap items-center gap-2">
@@ -556,8 +556,8 @@ export default function SearchBar({
                             <span
                               className={`inline-flex max-w-full items-center rounded-full border px-2.5 py-1 text-[11px] font-semibold leading-none ${
                                 isHighlighted
-                                  ? "border-emerald-300/60 bg-emerald-400/15 text-emerald-100"
-                                  : "border-emerald-200 bg-emerald-50 text-emerald-800 group-hover:border-slate-500 group-hover:bg-slate-800 group-hover:text-emerald-100 group-active:border-emerald-300/60 group-active:bg-emerald-400/15 group-active:text-emerald-100"
+                                  ? "border-[var(--color-success-soft)] bg-[var(--color-success-soft)] text-[var(--color-success-text)]"
+                                  : "border-[var(--color-success-soft)] bg-[var(--color-success-soft)] text-[var(--color-success-text)] group-hover:border-[var(--color-success-soft)] group-hover:bg-[var(--color-success-soft)] group-hover:text-[var(--color-success-text)] group-active:border-[var(--color-success-soft)] group-active:bg-[var(--color-success-soft)] group-active:text-[var(--color-success-text)]"
                               }`}
                             >
                               {suggestion._matchType === "Kit Component"
@@ -568,8 +568,8 @@ export default function SearchBar({
                           <span
                             className={`min-w-0 break-all font-medium ${
                               isHighlighted
-                                ? "text-white"
-                                : "text-slate-900 group-hover:text-white group-active:text-white"
+                                ? "text-[var(--color-text-inverse)]"
+                                : "text-[var(--color-text)] group-hover:text-[var(--color-text-inverse)] group-active:text-[var(--color-text-inverse)]"
                             }`}
                           >
                             {highlightMatch(suggestion.partNo, draftQuery)}
@@ -578,8 +578,8 @@ export default function SearchBar({
                         <span
                           className={`mt-1 block text-xs leading-5 ${
                             isHighlighted
-                              ? "text-slate-200"
-                              : "text-slate-500 group-hover:text-slate-200 group-active:text-slate-200"
+                              ? "text-[var(--color-primary-soft)]"
+                              : "text-[var(--color-text-muted)] group-hover:text-[var(--color-primary-soft)] group-active:text-[var(--color-primary-soft)]"
                           }`}
                         >
                           {isRelationMatch ? (
@@ -591,13 +591,13 @@ export default function SearchBar({
                               <span
                                 className={`font-semibold uppercase tracking-wide ${
                                   isHighlighted
-                                    ? "text-slate-200"
-                                    : "text-slate-400 group-hover:text-slate-200 group-active:text-slate-200"
+                                    ? "text-[var(--color-primary-soft)]"
+                                    : "text-[var(--color-text-muted)] group-hover:text-[var(--color-primary-soft)] group-active:text-[var(--color-primary-soft)]"
                                 }`}
                               >
                                 {label}
                               </span>
-                              <span className="px-1.5 text-slate-300">•</span>
+                              <span className="px-1.5 text-[var(--color-border-strong)] group-hover:text-[var(--color-primary-soft)] group-active:text-[var(--color-primary-soft)]">•</span>
                               {highlightMatch(brandLabel, draftQuery)}
                               {suggestion.title ? (
                                 <>
@@ -633,14 +633,14 @@ export default function SearchBar({
                   onKeyDown={(event) =>
                     handleDropdownKeyDown(event, viewAllIndex, dropdownItems.length)
                   }
-                  className={`group block w-full border-l-4 px-4 py-3 text-left text-sm font-medium transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-blue-200 sm:px-5 ${
+                  className={`group block w-full border-l-4 px-4 py-3 text-left text-sm font-medium transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[var(--color-focus-ring)] sm:px-5 ${
                     highlightedIndex === viewAllIndex
-                      ? "border-red-600 bg-slate-900 text-white"
-                      : "border-transparent bg-slate-50/80 text-slate-700 hover:bg-slate-700 hover:text-white active:border-red-600 active:bg-slate-900 active:text-white"
+                      ? "border-[var(--color-primary)] bg-[var(--color-primary)] text-[var(--color-text-inverse)]"
+                      : "border-transparent bg-[var(--color-surface-muted)] text-[var(--color-text-muted)] hover:bg-[var(--color-primary-hover)] hover:text-[var(--color-text-inverse)] active:border-[var(--color-primary)] active:bg-[var(--color-primary)] active:text-[var(--color-text-inverse)]"
                   }`}
                 >
                   {text.viewAllResults} &quot;{trimmedQuery}&quot;
-                  <span className="ml-2 text-slate-400">→</span>
+                  <span className="ml-2 text-[var(--color-text-muted)] group-hover:text-[var(--color-primary-soft)] group-active:text-[var(--color-primary-soft)]">→</span>
                 </button>
               </section>
             )}
@@ -649,13 +649,13 @@ export default function SearchBar({
       </form>
 
       <div className="mt-4 flex flex-wrap items-center gap-2 text-sm">
-        <span className="text-slate-500">{text.tryLabel}</span>
+        <span className="text-[var(--color-text-muted)]">{text.tryLabel}</span>
         {exampleQueries.map((example, index) => (
           <button
             key={example}
             type="button"
             onClick={() => handleExampleClick(example)}
-            className={`rounded-full border border-slate-200 bg-white px-3 py-1.5 text-slate-700 transition hover:border-slate-300 hover:bg-slate-50 ${
+            className={`rounded-full border border-[var(--color-border)] bg-[var(--color-surface)] px-3 py-1.5 text-[var(--color-text-muted)] transition hover:border-[var(--color-border-strong)] hover:bg-[var(--color-primary-soft)] hover:text-[var(--color-primary)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-surface)] ${
               compactMobileExamples && index >= 3 ? "hidden sm:inline-flex" : ""
             }`}
           >
