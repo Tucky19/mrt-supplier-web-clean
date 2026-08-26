@@ -209,10 +209,10 @@ export default function BulkAddToQuote({ locale }: Props) {
   };
 
   return (
-    <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4 sm:p-5">
+    <div className="rounded-[var(--mrt-radius-lg)] border border-[var(--color-border)] bg-[var(--color-surface-muted)] p-4 shadow-[var(--shadow-sm)] sm:p-5">
       <div>
-        <h3 className="text-base font-semibold text-slate-950">{text.title}</h3>
-        <p className="mt-1 text-sm text-slate-600">{text.description}</p>
+        <h3 className="text-base font-semibold text-[var(--color-text)]">{text.title}</h3>
+        <p className="mt-1 text-sm text-[var(--color-text-muted)]">{text.description}</p>
       </div>
 
       <textarea
@@ -220,24 +220,24 @@ export default function BulkAddToQuote({ locale }: Props) {
         onChange={(event) => setValue(event.target.value)}
         placeholder={text.placeholder}
         rows={4}
-        className="mt-4 w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-blue-400 focus:ring-2 focus:ring-blue-100"
+        className="mt-4 w-full rounded-[var(--mrt-radius-md)] border border-[var(--color-border-strong)] bg-[var(--color-surface)] px-4 py-3 text-sm text-[var(--color-text)] outline-none transition placeholder:text-[var(--color-text-muted)] focus-visible:border-[var(--color-focus-ring)] focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-surface-muted)]"
       />
-      <p className="mt-2 text-xs text-slate-500">{text.example}</p>
+      <p className="mt-2 text-xs text-[var(--color-text-muted)]">{text.example}</p>
 
       <div className="mt-4 flex flex-wrap items-center gap-3">
         <button
           type="button"
           onClick={handleBulkAdd}
-          className="inline-flex rounded-xl bg-slate-900 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-black"
+          className="inline-flex min-h-11 items-center rounded-[var(--mrt-radius-md)] bg-[var(--color-primary)] px-4 py-2.5 text-sm font-semibold text-[var(--color-text-inverse)] transition hover:bg-[var(--color-primary-hover)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-surface-muted)]"
         >
           {text.button}
         </button>
       </div>
 
-      {error && <p className="mt-3 text-sm text-red-600">{error}</p>}
+      {error && <p className="mt-3 text-sm font-medium text-[var(--color-danger)]">{error}</p>}
 
       {feedback && !error && (
-        <div className="mt-3 rounded-xl border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm text-emerald-800">
+        <div className="mt-3 rounded-[var(--mrt-radius-md)] border border-[var(--color-border)] bg-[var(--color-success-soft)] px-4 py-3 text-sm text-[var(--color-success-text)]">
           <p className="font-medium">{text.success(feedback.added)}</p>
           {feedback.manual > 0 && <p className="mt-1">{text.manual(feedback.manual)}</p>}
         </div>
