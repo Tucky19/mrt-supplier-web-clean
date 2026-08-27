@@ -132,7 +132,38 @@ export const importedProducts = [
     ],
     "applications": [],
     "refs": [],
-    "crossReferences": [],
+    "crossReferences": [
+      {
+        "brand": "Fleetguard",
+        "partNumber": "FF42000",
+        "relationType": "unknown",
+        "verificationStatus": "verified",
+        "evidence": "Donaldson Filtration Products for Popular Agricultural Equipment",
+        "evidenceNote": "Donaldson Filtration Products for Popular Agricultural Equipment; printed PDF pages 6,7,8,10,11; equipment/application AGCO; CNH; JOHN DEERE; skid steer CASE-IH CNH/NEW HOLLAND; filter category Fuel; Boss-approved cross-reference mapping only, not guaranteed interchangeability.",
+        "approvedBy": "Boss/MRT Supplier",
+        "approvedAt": "2026-08-27T00:00:00.000Z"
+      },
+      {
+        "brand": "Baldwin",
+        "partNumber": "BF988",
+        "relationType": "unknown",
+        "verificationStatus": "verified",
+        "evidence": "Donaldson Filtration Products for Popular Agricultural Equipment",
+        "evidenceNote": "Donaldson Filtration Products for Popular Agricultural Equipment; printed PDF pages 6,7,8,10,11; equipment/application AGCO; CNH; JOHN DEERE; skid steer CASE-IH CNH/NEW HOLLAND; filter category Fuel; Boss-approved cross-reference mapping only, not guaranteed interchangeability.",
+        "approvedBy": "Boss/MRT Supplier",
+        "approvedAt": "2026-08-27T00:00:00.000Z"
+      },
+      {
+        "brand": "Wix",
+        "partNumber": "33358",
+        "relationType": "unknown",
+        "verificationStatus": "verified",
+        "evidence": "Donaldson Filtration Products for Popular Agricultural Equipment",
+        "evidenceNote": "Donaldson Filtration Products for Popular Agricultural Equipment; printed PDF pages 6,7,8,10,11; equipment/application AGCO; CNH; JOHN DEERE; skid steer CASE-IH CNH/NEW HOLLAND; filter category Fuel; Boss-approved cross-reference mapping only, not guaranteed interchangeability.",
+        "approvedBy": "Boss/MRT Supplier",
+        "approvedAt": "2026-08-27T00:00:00.000Z"
+      }
+    ],
     "officialUrl": "https://shop.donaldson.com/store/en-th/product/P553004/20849",
     "officialImageUrl": null,
     "imageUrl": "/images/products/donaldson/p553004.jpg",

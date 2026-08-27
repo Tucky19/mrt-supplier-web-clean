@@ -3198,6 +3198,41 @@ const donaldsonBatchNewA: RawDonaldson[] = [
     title: "Fuel Filter",
     category: "fuel_filter",
     spec: "Spin-on Twist&Drain fuel water separator",
+    crossReferences: [
+      {
+        brand: "Fleetguard",
+        partNumber: "FS1212",
+        relationType: "unknown",
+        verificationStatus: "verified",
+        evidence: "Donaldson Filtration Products for Popular Agricultural Equipment",
+        evidenceNote:
+          "Donaldson Filtration Products for Popular Agricultural Equipment; printed PDF pages 6,7,8; equipment/application AGCO; CASE; CNH; JOHN DEERE; filter category Fuel; Boss-approved cross-reference mapping only, not guaranteed interchangeability.",
+        approvedBy: "Boss/MRT Supplier",
+        approvedAt: "2026-08-27T00:00:00.000Z",
+      },
+      {
+        brand: "Baldwin",
+        partNumber: "BF1212",
+        relationType: "unknown",
+        verificationStatus: "verified",
+        evidence: "Donaldson Filtration Products for Popular Agricultural Equipment",
+        evidenceNote:
+          "Donaldson Filtration Products for Popular Agricultural Equipment; printed PDF pages 6,7,8; equipment/application AGCO; CASE; CNH; JOHN DEERE; filter category Fuel; Boss-approved cross-reference mapping only, not guaranteed interchangeability.",
+        approvedBy: "Boss/MRT Supplier",
+        approvedAt: "2026-08-27T00:00:00.000Z",
+      },
+      {
+        brand: "Wix",
+        partNumber: "3405MP",
+        relationType: "unknown",
+        verificationStatus: "verified",
+        evidence: "Donaldson Filtration Products for Popular Agricultural Equipment",
+        evidenceNote:
+          "Donaldson Filtration Products for Popular Agricultural Equipment; printed PDF pages 6,7,8; equipment/application AGCO; CASE; CNH; JOHN DEERE; filter category Fuel; Boss-approved cross-reference mapping only, not guaranteed interchangeability.",
+        approvedBy: "Boss/MRT Supplier",
+        approvedAt: "2026-08-27T00:00:00.000Z",
+      },
+    ],
     specifications: [
       { label: "Type", value: "Fuel Filter" },
       { label: "Separator", value: "Water Separator" },

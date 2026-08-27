@@ -81,7 +81,7 @@ try {
     ...(pendingProduct.crossReferences ?? []),
     {
       brand: "Fleetguard",
-      partNumber: "FF149",
+      partNumber: "FF149PENDING",
       relationType: "unknown",
       verificationStatus: "pending",
       evidenceNote: "fixture only; not catalog data",
@@ -92,7 +92,7 @@ try {
     [
       {
         brand: "Fleetguard",
-        partNumber: "FF149",
+        partNumber: "FF149PENDING",
         relationType: "unknown",
         verificationStatus: "pending",
       },
@@ -101,13 +101,13 @@ try {
   );
 
   assert(
-    pendingTerms.includes("FF149") &&
-      pendingTerms.includes("Fleetguard FF149") &&
-      pendingTerms.includes("Fleetguard: FF149"),
+    pendingTerms.includes("FF149PENDING") &&
+      pendingTerms.includes("Fleetguard FF149PENDING") &&
+      pendingTerms.includes("Fleetguard: FF149PENDING"),
     "structured relation search terms should include part-only and brand-aware forms",
   );
 
-  for (const query of ["FF149", "Fleetguard FF149"]) {
+  for (const query of ["FF149PENDING", "Fleetguard FF149PENDING"]) {
     const results = searchProducts(query, { limit: 5 });
     const [top] = results;
     assert(top?.partNo === "P550012", `${query} did not find P550012 first`);
@@ -118,7 +118,7 @@ try {
     );
     assert(
       top._matchedRelation?.brand === "Fleetguard" &&
-        top._matchedRelation.partNumber === "FF149",
+        top._matchedRelation.partNumber === "FF149PENDING",
       `${query} did not preserve matched relation brand/part metadata`,
     );
     assert(
@@ -136,7 +136,7 @@ try {
     ...(verifiedProduct.crossReferences ?? []),
     {
       brand: "Fleetguard",
-      partNumber: "FF167",
+      partNumber: "FF167VERIFIED",
       relationType: "equivalent",
       verificationStatus: "verified",
       evidence: "fixture official source",
@@ -154,14 +154,16 @@ try {
     },
   ] satisfies ProductRelationInput[];
 
-  const [verifiedTop] = searchProducts("Fleetguard FF167", { limit: 5 });
+  const [verifiedTop] = searchProducts("Fleetguard FF167VERIFIED", { limit: 5 });
   assert(verifiedTop?.partNo === "P556245", "verified structured relation did not search");
   assert(
     !isPreliminaryRelation(verifiedTop._matchedRelation),
     "verified structured relation should not be preliminary",
   );
   assert(
-    !hasPreliminaryRelationNoticeResult(searchProducts("Fleetguard FF167", { limit: 5 })),
+    !hasPreliminaryRelationNoticeResult(
+      searchProducts("Fleetguard FF167VERIFIED", { limit: 5 }),
+    ),
     "verified structured relation should not trigger preliminary notice wording",
   );
 
@@ -265,7 +267,7 @@ try {
   );
 
   console.log("Pending cross-reference UI guard validation passed");
-  console.log("FF149 and Fleetguard FF149 fixture searches returned P550012");
+  console.log("FF149PENDING and Fleetguard FF149PENDING fixture searches returned P550012");
   console.log("Pending same-brand fixture search returned P550148 with notice coverage");
   console.log("Existing legacy and structured relation searches preserved");
 } finally {
