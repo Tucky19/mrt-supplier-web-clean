@@ -67,8 +67,16 @@ function getResultMatchType(product: Product | SearchResult | undefined) {
   return product._matchType;
 }
 
+function isReferenceMatchType(matchType: string | null) {
+  return matchType === "Cross Ref" || matchType === "Same-brand Ref";
+}
+
 function isPreliminaryRelationResult(product: Product | SearchResult | undefined) {
-  if (!product || !("_matchedRelation" in product)) {
+  if (
+    !product ||
+    !("_matchedRelation" in product) ||
+    !isReferenceMatchType(getResultMatchType(product))
+  ) {
     return false;
   }
 
@@ -166,18 +174,10 @@ export default async function ProductsPage({
   const hasExactPartNumberResult = hasQuery
     ? visibleProducts.some((product) => getResultMatchType(product) === "Exact")
     : false;
-  const crossReferenceResults = hasQuery
-    ? visibleProducts.filter(
-        (product) => getResultMatchType(product) === "Cross Ref",
-      )
-    : [];
-  const hasCrossReferenceResults =
-    !hasExactPartNumberResult && crossReferenceResults.length > 0;
-  const hasPreliminaryCrossReferenceResults =
-    hasCrossReferenceResults &&
-    crossReferenceResults.some((product) =>
-      isPreliminaryRelationResult(product),
-    );
+  const hasPreliminaryRelationResults =
+    hasQuery &&
+    !hasExactPartNumberResult &&
+    visibleProducts.some((product) => isPreliminaryRelationResult(product));
   const showMissingProductRequest =
     requestMissingProduct || visibleProducts.length === 0;
   const initialVisibleCount = Math.min(
@@ -241,7 +241,7 @@ export default async function ProductsPage({
             </a>
           </div>
 
-          {hasPreliminaryCrossReferenceResults ? (
+          {hasPreliminaryRelationResults ? (
             <div className="mt-4 max-w-4xl rounded-[var(--mrt-radius-md)] border border-[var(--color-border)] bg-[var(--color-surface-muted)] px-3.5 py-3 text-sm shadow-[var(--shadow-sm)] sm:px-4">
               <div className="font-semibold text-[var(--color-text)]">
                 {isThai ? "ข้อมูลอ้างอิง" : "Reference information"}

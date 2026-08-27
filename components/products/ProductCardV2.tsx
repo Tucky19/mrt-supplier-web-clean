@@ -389,9 +389,6 @@ export default function ProductCardV2({
 
         {refs.length > 0 && (
           <div className={isSearchVariant ? "order-2 mt-3" : "mt-4"}>
-            <div className="mb-2 text-[10px] font-semibold uppercase tracking-[0.14em] text-[var(--color-text-muted)]">
-              {text.references}
-            </div>
             <div className="flex min-h-[2.5rem] flex-wrap content-start gap-2">
               {refs.map((ref) => (
                 <span

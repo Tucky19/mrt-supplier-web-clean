@@ -5,6 +5,10 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { gaSearch } from "@/lib/analytics/ga";
 import { useSearchSuggestions } from "@/hooks/useSearchSuggestions";
 import { getSearchUiText } from "@/lib/i18n/searchUi";
+import {
+  isPreliminaryRelation,
+  type ProductRelation,
+} from "@/lib/products/relations";
 
 type Props = {
   locale: string;
@@ -44,14 +48,24 @@ function getSuggestionLabel(
   return text.match;
 }
 
+function isReferenceSuggestion(matchType: string | undefined) {
+  return matchType === "Cross Ref" || matchType === "Same-brand Ref";
+}
+
 function getSuggestionSectionTitle(
-  label: string,
+  matchType: string | undefined,
+  matchedRelation: ProductRelation | undefined,
   text: ReturnType<typeof getSearchUiText>,
   locale: string,
 ) {
+  const label = getSuggestionLabel(matchType, text);
   if (label === text.partNumber) return text.partNumberMatches;
-  if (label === text.crossRef || label === text.sameBrandRef) {
-    return locale === "th" ? "ผลลัพธ์จากเบอร์อ้างอิง" : "Reference matches";
+  if (isReferenceSuggestion(matchType)) {
+    if (isPreliminaryRelation(matchedRelation)) {
+      return locale === "th" ? "ข้อมูลอ้างอิง" : "Reference information";
+    }
+
+    return locale === "th" ? "เบอร์อ้างอิงที่ยืนยันแล้ว" : "Verified references";
   }
   if (label === text.usedTogether) return text.usedTogetherMatches;
   return text.relatedMatches;
@@ -231,15 +245,19 @@ export default function SearchBar({
     const groups = new Map<string, typeof suggestions>();
 
     for (const suggestion of suggestions) {
-      const label = getSuggestionLabel(suggestion._matchType, text);
-      const current = groups.get(label) ?? [];
+      const title = getSuggestionSectionTitle(
+        suggestion._matchType,
+        suggestion._matchedRelation,
+        text,
+        locale,
+      );
+      const current = groups.get(title) ?? [];
       current.push(suggestion);
-      groups.set(label, current);
+      groups.set(title, current);
     }
 
-    return Array.from(groups.entries()).map(([label, items]) => ({
-      label,
-      title: getSuggestionSectionTitle(label, text, locale),
+    return Array.from(groups.entries()).map(([title, items]) => ({
+      title,
       items,
     }));
   }, [suggestions, text, locale]);
@@ -261,20 +279,27 @@ export default function SearchBar({
 
   const trimmedQuery = draftQuery.trim();
   const showViewAllResults = trimmedQuery.length >= 2;
+  const getSuggestionNavigationValue = (suggestion: (typeof suggestions)[number]) =>
+    isReferenceSuggestion(suggestion._matchType) && !hasExactPartNumberSuggestion
+      ? trimmedQuery
+      : suggestion.partNo;
   const dropdownItems = [
     ...visibleRecents.map((recent) => ({
       type: "recent" as const,
       value: recent,
+      navigateValue: recent,
     })),
     ...flattenedSuggestions.map((suggestion) => ({
       type: "suggestion" as const,
       value: suggestion.partNo,
+      navigateValue: getSuggestionNavigationValue(suggestion),
     })),
     ...(showViewAllResults
       ? [
           {
             type: "viewAll" as const,
             value: trimmedQuery,
+            navigateValue: trimmedQuery,
           },
         ]
       : []),
@@ -298,7 +323,7 @@ export default function SearchBar({
     e.preventDefault();
 
     if (highlightedIndex >= 0 && dropdownItems[highlightedIndex]) {
-      selectDropdownItem(dropdownItems[highlightedIndex].value);
+      selectDropdownItem(dropdownItems[highlightedIndex].navigateValue);
       return;
     }
 
@@ -508,8 +533,7 @@ export default function SearchBar({
                     const label = getSuggestionLabel(suggestion._matchType, text);
                     const isHighlighted = highlightedIndex === currentIndex;
                     const isRelationMatch =
-                      (suggestion._matchType === "Cross Ref" ||
-                        suggestion._matchType === "Same-brand Ref" ||
+                      (isReferenceSuggestion(suggestion._matchType) ||
                         suggestion._matchType === "Kit Component") &&
                       !hasExactPartNumberSuggestion;
                     const brandLabel = formatBrandLabel(suggestion.brand);
@@ -526,7 +550,11 @@ export default function SearchBar({
                         ref={(node) => {
                           dropdownOptionRefs.current[currentIndex] = node;
                         }}
-                        onClick={() => selectDropdownItem(suggestion.partNo)}
+                        onClick={() =>
+                          selectDropdownItem(
+                            getSuggestionNavigationValue(suggestion),
+                          )
+                        }
                         onMouseDown={(event) => event.preventDefault()}
                         onFocus={() => {
                           setIsFocused(true);

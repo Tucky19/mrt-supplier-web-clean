@@ -30,6 +30,40 @@ function assertTopParts(query: string, expected: string[]) {
   return results;
 }
 
+function isReferenceMatchType(matchType: string | undefined) {
+  return matchType === "Cross Ref" || matchType === "Same-brand Ref";
+}
+
+function hasPreliminaryRelationNoticeResult(results: ReturnType<typeof searchProducts>) {
+  const hasExactPartNumberResult = results.some((product) => product._matchType === "Exact");
+  return (
+    !hasExactPartNumberResult &&
+    results.some(
+      (product) =>
+        isReferenceMatchType(product._matchType) &&
+        isPreliminaryRelation(product._matchedRelation),
+    )
+  );
+}
+
+function suggestionNavigationValue(
+  query: string,
+  suggestion: ReturnType<typeof searchProducts>[number],
+  suggestions: ReturnType<typeof searchProducts>,
+) {
+  const normalizedQuery = query.trim().toLowerCase().replace(/[\s/_-]+/g, "");
+  const hasExactPartNumberSuggestion = suggestions.some(
+    (item) =>
+      item._matchType === "Exact" &&
+      item.partNo.trim().toLowerCase().replace(/[\s/_-]+/g, "") ===
+        normalizedQuery,
+  );
+
+  return isReferenceMatchType(suggestion._matchType) && !hasExactPartNumberSuggestion
+    ? query.trim()
+    : suggestion.partNo;
+}
+
 const fixtureProducts = ["P550012", "P556245", "P553004"].map(findProduct);
 const originals = new Map(
   fixtureProducts.map((product) => [
@@ -74,7 +108,8 @@ try {
   );
 
   for (const query of ["FF149", "Fleetguard FF149"]) {
-    const [top] = searchProducts(query, { limit: 5 });
+    const results = searchProducts(query, { limit: 5 });
+    const [top] = results;
     assert(top?.partNo === "P550012", `${query} did not find P550012 first`);
     assert(top._matchType === "Cross Ref", `${query} did not match as Cross Ref`);
     assert(
@@ -85,6 +120,14 @@ try {
       top._matchedRelation?.brand === "Fleetguard" &&
         top._matchedRelation.partNumber === "FF149",
       `${query} did not preserve matched relation brand/part metadata`,
+    );
+    assert(
+      hasPreliminaryRelationNoticeResult(results),
+      `${query} should trigger the page-level preliminary relation notice`,
+    );
+    assert(
+      suggestionNavigationValue(query, top, results) === query.trim(),
+      `${query} relation suggestion should preserve the customer reference query`,
     );
   }
 
@@ -116,6 +159,10 @@ try {
   assert(
     !isPreliminaryRelation(verifiedTop._matchedRelation),
     "verified structured relation should not be preliminary",
+  );
+  assert(
+    !hasPreliminaryRelationNoticeResult(searchProducts("Fleetguard FF167", { limit: 5 })),
+    "verified structured relation should not trigger preliminary notice wording",
   );
 
   const legacyProduct = findProduct("P553004");
@@ -163,6 +210,10 @@ try {
     hasPreliminaryRelationResult && !onlyPreliminaryRelationResults,
     "mixed relation fixture should classify as neutral mixed status",
   );
+  assert(
+    hasPreliminaryRelationNoticeResult(mixedResults),
+    "mixed relation fixture should still trigger one neutral page-level notice",
+  );
 
   assertTopParts("AF26395", ["C 20 500", "P778994"]);
   assertTopParts("Fleetguard AF26395", ["C 20 500", "P778994"]);
@@ -173,8 +224,49 @@ try {
   assertTopParts("LF667", ["P554004"]);
   assertTopParts("Fleetguard LF667", ["P554004"]);
 
+  const sameBrandResults = searchProducts("UCC HYDRAULICS MX1591410", { limit: 5 });
+  const [sameBrandTop] = sameBrandResults;
+  assert(
+    sameBrandTop?.partNo === "P550148",
+    "pending same-brand reference did not find P550148 first",
+  );
+  assert(
+    sameBrandTop._matchType === "Same-brand Ref",
+    "pending same-brand reference did not retain Same-brand Ref match type",
+  );
+  assert(
+    isPreliminaryRelation(sameBrandTop._matchedRelation),
+    "pending same-brand reference should expose preliminary relation status",
+  );
+  assert(
+    hasPreliminaryRelationNoticeResult(sameBrandResults),
+    "pending same-brand reference should trigger the page-level notice",
+  );
+  assert(
+    suggestionNavigationValue(
+      "UCC HYDRAULICS MX1591410",
+      sameBrandTop,
+      sameBrandResults,
+    ) === "UCC HYDRAULICS MX1591410",
+    "pending same-brand suggestion should preserve the customer reference query",
+  );
+
+  const exactResults = searchProducts("P551315", { limit: 5 });
+  const [exactTop] = exactResults;
+  assert(exactTop?.partNo === "P551315", "exact product fixture did not search");
+  assert(exactTop._matchType === "Exact", "exact product fixture did not match as Exact");
+  assert(
+    suggestionNavigationValue("P551315", exactTop, exactResults) === "P551315",
+    "exact suggestion should retain canonical product-number navigation",
+  );
+  assert(
+    !hasPreliminaryRelationNoticeResult(exactResults),
+    "exact product query should not trigger the relation notice",
+  );
+
   console.log("Pending cross-reference UI guard validation passed");
   console.log("FF149 and Fleetguard FF149 fixture searches returned P550012");
+  console.log("Pending same-brand fixture search returned P550148 with notice coverage");
   console.log("Existing legacy and structured relation searches preserved");
 } finally {
   for (const product of fixtureProducts) {
