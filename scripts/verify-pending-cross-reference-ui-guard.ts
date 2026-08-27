@@ -81,7 +81,7 @@ try {
     ...(pendingProduct.crossReferences ?? []),
     {
       brand: "Fleetguard",
-      partNumber: "FF149",
+      partNumber: "FF149PENDING",
       relationType: "unknown",
       verificationStatus: "pending",
       evidenceNote: "fixture only; not catalog data",
@@ -92,7 +92,7 @@ try {
     [
       {
         brand: "Fleetguard",
-        partNumber: "FF149",
+        partNumber: "FF149PENDING",
         relationType: "unknown",
         verificationStatus: "pending",
       },
@@ -101,13 +101,13 @@ try {
   );
 
   assert(
-    pendingTerms.includes("FF149") &&
-      pendingTerms.includes("Fleetguard FF149") &&
-      pendingTerms.includes("Fleetguard: FF149"),
+    pendingTerms.includes("FF149PENDING") &&
+      pendingTerms.includes("Fleetguard FF149PENDING") &&
+      pendingTerms.includes("Fleetguard: FF149PENDING"),
     "structured relation search terms should include part-only and brand-aware forms",
   );
 
-  for (const query of ["FF149", "Fleetguard FF149"]) {
+  for (const query of ["FF149PENDING", "Fleetguard FF149PENDING"]) {
     const results = searchProducts(query, { limit: 5 });
     const [top] = results;
     assert(top?.partNo === "P550012", `${query} did not find P550012 first`);
@@ -118,7 +118,7 @@ try {
     );
     assert(
       top._matchedRelation?.brand === "Fleetguard" &&
-        top._matchedRelation.partNumber === "FF149",
+        top._matchedRelation.partNumber === "FF149PENDING",
       `${query} did not preserve matched relation brand/part metadata`,
     );
     assert(
@@ -267,7 +267,7 @@ try {
   );
 
   console.log("Pending cross-reference UI guard validation passed");
-  console.log("FF149 and Fleetguard FF149 fixture searches returned P550012");
+  console.log("FF149PENDING and Fleetguard FF149PENDING fixture searches returned P550012");
   console.log("Pending same-brand fixture search returned P550148 with notice coverage");
   console.log("Existing legacy and structured relation searches preserved");
 } finally {

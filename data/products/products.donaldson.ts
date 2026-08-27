@@ -3203,9 +3203,34 @@ const donaldsonBatchNewA: RawDonaldson[] = [
         brand: "Fleetguard",
         partNumber: "FS1212",
         relationType: "unknown",
-        verificationStatus: "pending",
+        verificationStatus: "verified",
+        evidence: "Donaldson Filtration Products for Popular Agricultural Equipment",
         evidenceNote:
-          "Filtration Solutions for Agricultural Equipment excerpt; printed PDF pages 6,7,8; AGCO; CASE; CNH; JOHN DEERE; Fuel; provenance EVIDENCE_CANDIDATE_OFFICIAL_EXCERPT, not independently confirmed.",
+          "Donaldson Filtration Products for Popular Agricultural Equipment; printed PDF pages 6,7,8; equipment/application AGCO; CASE; CNH; JOHN DEERE; filter category Fuel; Boss-approved cross-reference mapping only, not guaranteed interchangeability.",
+        approvedBy: "Boss/MRT Supplier",
+        approvedAt: "2026-08-27T00:00:00.000Z",
+      },
+      {
+        brand: "Baldwin",
+        partNumber: "BF1212",
+        relationType: "unknown",
+        verificationStatus: "verified",
+        evidence: "Donaldson Filtration Products for Popular Agricultural Equipment",
+        evidenceNote:
+          "Donaldson Filtration Products for Popular Agricultural Equipment; printed PDF pages 6,7,8; equipment/application AGCO; CASE; CNH; JOHN DEERE; filter category Fuel; Boss-approved cross-reference mapping only, not guaranteed interchangeability.",
+        approvedBy: "Boss/MRT Supplier",
+        approvedAt: "2026-08-27T00:00:00.000Z",
+      },
+      {
+        brand: "Wix",
+        partNumber: "3405MP",
+        relationType: "unknown",
+        verificationStatus: "verified",
+        evidence: "Donaldson Filtration Products for Popular Agricultural Equipment",
+        evidenceNote:
+          "Donaldson Filtration Products for Popular Agricultural Equipment; printed PDF pages 6,7,8; equipment/application AGCO; CASE; CNH; JOHN DEERE; filter category Fuel; Boss-approved cross-reference mapping only, not guaranteed interchangeability.",
+        approvedBy: "Boss/MRT Supplier",
+        approvedAt: "2026-08-27T00:00:00.000Z",
       },
     ],
     specifications: [
