@@ -3198,6 +3198,16 @@ const donaldsonBatchNewA: RawDonaldson[] = [
     title: "Fuel Filter",
     category: "fuel_filter",
     spec: "Spin-on Twist&Drain fuel water separator",
+    crossReferences: [
+      {
+        brand: "Fleetguard",
+        partNumber: "FS1212",
+        relationType: "unknown",
+        verificationStatus: "pending",
+        evidenceNote:
+          "Filtration Solutions for Agricultural Equipment excerpt; printed PDF pages 6,7,8; AGCO; CASE; CNH; JOHN DEERE; Fuel; provenance EVIDENCE_CANDIDATE_OFFICIAL_EXCERPT, not independently confirmed.",
+      },
+    ],
     specifications: [
       { label: "Type", value: "Fuel Filter" },
       { label: "Separator", value: "Water Separator" },

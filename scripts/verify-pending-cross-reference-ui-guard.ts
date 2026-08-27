@@ -136,7 +136,7 @@ try {
     ...(verifiedProduct.crossReferences ?? []),
     {
       brand: "Fleetguard",
-      partNumber: "FF167",
+      partNumber: "FF167VERIFIED",
       relationType: "equivalent",
       verificationStatus: "verified",
       evidence: "fixture official source",
@@ -154,14 +154,16 @@ try {
     },
   ] satisfies ProductRelationInput[];
 
-  const [verifiedTop] = searchProducts("Fleetguard FF167", { limit: 5 });
+  const [verifiedTop] = searchProducts("Fleetguard FF167VERIFIED", { limit: 5 });
   assert(verifiedTop?.partNo === "P556245", "verified structured relation did not search");
   assert(
     !isPreliminaryRelation(verifiedTop._matchedRelation),
     "verified structured relation should not be preliminary",
   );
   assert(
-    !hasPreliminaryRelationNoticeResult(searchProducts("Fleetguard FF167", { limit: 5 })),
+    !hasPreliminaryRelationNoticeResult(
+      searchProducts("Fleetguard FF167VERIFIED", { limit: 5 }),
+    ),
     "verified structured relation should not trigger preliminary notice wording",
   );
 

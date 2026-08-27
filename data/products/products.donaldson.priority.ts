@@ -3980,7 +3980,16 @@ export const donaldsonPriorityProducts: Product[] = [
     ],
     officialUrl: "https://shop.donaldson.com/store/en-us/product/P556245",
     refs: [],
-    crossReferences: [],
+    crossReferences: [
+      {
+        brand: "Fleetguard",
+        partNumber: "FF167",
+        relationType: "unknown",
+        verificationStatus: "pending",
+        evidenceNote:
+          "Filtration Solutions for Agricultural Equipment excerpt; printed PDF pages 6,7,8,9,10,11; AGCO; CNH; JOHN DEERE; skid steer BOBCAT/GEHL/JCB/JOHN DEERE/NEW HOLLAND; Fuel; provenance EVIDENCE_CANDIDATE_OFFICIAL_EXCERPT, not independently confirmed.",
+      },
+    ],
     pairedParts: [],
     stockStatus: "request",
     sourceType: "official",
@@ -4034,7 +4043,16 @@ export const donaldsonPriorityProducts: Product[] = [
     ],
     officialUrl: "https://shop.donaldson.com/store/en-us/product/P550012",
     refs: [],
-    crossReferences: [],
+    crossReferences: [
+      {
+        brand: "Fleetguard",
+        partNumber: "FF149",
+        relationType: "unknown",
+        verificationStatus: "pending",
+        evidenceNote:
+          "Filtration Solutions for Agricultural Equipment excerpt; printed PDF pages 6,7,8,10,11; AGCO; CNH; JOHN DEERE; skid steer CASE-IH CNH/GEHL/JOHN DEERE/NEW HOLLAND; Fuel; provenance EVIDENCE_CANDIDATE_OFFICIAL_EXCERPT, not independently confirmed.",
+      },
+    ],
     pairedParts: [],
     stockStatus: "request",
     sourceType: "official",

@@ -132,7 +132,15 @@ export const importedProducts = [
     ],
     "applications": [],
     "refs": [],
-    "crossReferences": [],
+    "crossReferences": [
+      {
+        "brand": "Fleetguard",
+        "partNumber": "FF42000",
+        "relationType": "unknown",
+        "verificationStatus": "pending",
+        "evidenceNote": "Filtration Solutions for Agricultural Equipment excerpt; printed PDF pages 6,7,8,10,11; AGCO; CNH; JOHN DEERE; skid steer CASE-IH CNH/NEW HOLLAND; Fuel; provenance EVIDENCE_CANDIDATE_OFFICIAL_EXCERPT, not independently confirmed."
+      }
+    ],
     "officialUrl": "https://shop.donaldson.com/store/en-th/product/P553004/20849",
     "officialImageUrl": null,
     "imageUrl": "/images/products/donaldson/p553004.jpg",
