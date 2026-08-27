@@ -253,8 +253,8 @@ export default function ProductCrossReferenceCards({
           <p className="mt-1 text-sm leading-6 text-slate-600">
             {hasPreliminaryReference
               ? isThai
-                ? "บางรายการเป็นเบอร์อ้างอิงเบื้องต้นและต้องตรวจสอบการใช้งานก่อนสั่งซื้อ"
-                : "Some references are preliminary and must be checked for application before ordering."
+                ? "รายการเบอร์อ้างอิงสำหรับตรวจสอบกับทีมขาย"
+                : "Reference part numbers for sales review."
               : "Alternative Part Numbers"}
           </p>
         </div>
@@ -320,8 +320,8 @@ export default function ProductCrossReferenceCards({
       {hasPreliminaryReference ? (
         <div className="rounded-[20px] border border-amber-200 bg-amber-50 px-4 py-3 text-sm leading-6 text-amber-900">
           {isThai
-            ? "เบอร์อ้างอิงเบื้องต้น: กรุณาตรวจสอบขนาด เกลียว และการใช้งานก่อนสั่งซื้อ"
-            : "Preliminary reference: verify dimensions, thread, and application before ordering."}
+            ? "ข้อมูลเบอร์อ้างอิงนี้เป็นข้อมูลเบื้องต้น กรุณาตรวจสอบรุ่น สเปก ขนาด เกลียว และการใช้งานก่อนสั่งซื้อ"
+            : "This reference data is preliminary. Verify the model, specifications, dimensions, thread, and application before ordering."}
         </div>
       ) : (
         <div className="rounded-[20px] border border-slate-200 bg-slate-50/85 px-4 py-3 text-sm leading-6 text-slate-600">

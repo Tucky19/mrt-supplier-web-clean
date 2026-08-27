@@ -178,11 +178,6 @@ export default async function ProductsPage({
     crossReferenceResults.some((product) =>
       isPreliminaryRelationResult(product),
     );
-  const onlyPreliminaryCrossReferenceResults =
-    hasCrossReferenceResults &&
-    crossReferenceResults.every((product) =>
-      isPreliminaryRelationResult(product),
-    );
   const showMissingProductRequest =
     requestMissingProduct || visibleProducts.length === 0;
   const initialVisibleCount = Math.min(
@@ -214,8 +209,8 @@ export default async function ProductsPage({
 
           <p className="mt-2 max-w-2xl text-sm leading-6 text-[var(--color-text-muted)] sm:text-base">
             {isThai
-              ? "ค้นหาด้วย Part Number, Cross Reference หรือขนาดสินค้า แล้วเพิ่มรายการเพื่อขอใบเสนอราคาได้ทันที"
-              : "Search by part number, cross reference, or dimensions, then add matching items to your quote request."}
+              ? "ค้นหาด้วยเบอร์สินค้า เบอร์เดิม หรือเบอร์เทียบที่ใช้อยู่"
+              : "Search by product number, existing part number, or cross-reference."}
           </p>
 
           <div className="-mx-4 sticky top-[64px] z-40 mt-5 border-y border-[var(--color-border)] bg-[var(--color-surface)] px-4 py-2.5 backdrop-blur md:static md:z-auto md:mx-0 md:border-y-0 md:bg-transparent md:px-0 md:py-0 md:backdrop-blur-0">
@@ -298,15 +293,15 @@ export default async function ProductsPage({
 
         {hasCrossReferenceResults && (
           <div
-            className={`mb-5 rounded-[var(--mrt-radius-lg)] border px-4 py-4 shadow-[var(--shadow-sm)] sm:mb-6 sm:px-5 ${
+            className={`mb-5 rounded-[var(--mrt-radius-lg)] border px-4 py-3 shadow-[var(--shadow-sm)] sm:mb-6 sm:px-5 ${
               hasPreliminaryCrossReferenceResults
-                ? "border-[var(--color-warning)] bg-[var(--color-warning-soft)]"
+                ? "border-[var(--color-border)] bg-[var(--color-surface-muted)]"
                 : "border-[var(--color-success)] bg-[var(--color-success-soft)]"
             }`}
           >
-            <div className="flex gap-3">
+            <div className="flex gap-2.5">
               <div
-                className={`mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[var(--color-surface)] ${
+                className={`mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[var(--color-surface)] ${
                   hasPreliminaryCrossReferenceResults
                     ? "text-[var(--color-warning-text)]"
                     : "text-[var(--color-success-text)]"
@@ -316,7 +311,7 @@ export default async function ProductsPage({
                   aria-hidden="true"
                   viewBox="0 0 20 20"
                   fill="currentColor"
-                  className="h-5 w-5"
+                  className="h-4 w-4"
                 >
                   <path
                     fillRule="evenodd"
@@ -326,15 +321,11 @@ export default async function ProductsPage({
                 </svg>
               </div>
               <div className="min-w-0">
-                <h2 className="text-base font-semibold text-[var(--color-text)]">
-                  {onlyPreliminaryCrossReferenceResults
+                <h2 className="text-sm font-semibold text-[var(--color-text)] sm:text-base">
+                  {hasPreliminaryCrossReferenceResults
                     ? isThai
-                      ? "พบเบอร์อ้างอิงเบื้องต้น"
-                      : "Preliminary reference match found"
-                    : hasPreliminaryCrossReferenceResults
-                      ? isThai
-                        ? "พบข้อมูลเบอร์อ้างอิง"
-                        : "Reference matches found"
+                      ? "พบข้อมูลเบอร์อ้างอิง"
+                      : "Reference matches found"
                     : isThai
                       ? "พบเบอร์เทียบแล้ว!"
                       : "Reference matches found!"}
@@ -347,18 +338,14 @@ export default async function ProductsPage({
                   }`}
                 >
                   {isThai
-                    ? onlyPreliminaryCrossReferenceResults
-                      ? `พบสินค้าอ้างอิงเบื้องต้นจาก “${query}” จำนวน ${crossReferenceResults.length} รายการ`
-                      : `พบสินค้าอ้างอิงจาก “${query}” จำนวน ${crossReferenceResults.length} รายการ`
-                    : onlyPreliminaryCrossReferenceResults
-                      ? `Found ${crossReferenceResults.length} preliminary reference products for “${query}”`
-                      : `Found ${crossReferenceResults.length} reference products for “${query}”`}
+                    ? `พบสินค้าอ้างอิงจาก “${query}” จำนวน ${crossReferenceResults.length} รายการ`
+                    : `Found ${crossReferenceResults.length} reference products for “${query}”`}
                 </p>
                 <p className="mt-1 text-xs leading-5 text-[var(--color-text-muted)]">
                   {hasPreliminaryCrossReferenceResults
                     ? isThai
-                      ? "ผลลัพธ์บางรายการอาจเป็นข้อมูลอ้างอิงเบื้องต้น กรุณาตรวจสอบรายละเอียดก่อนสั่งซื้อ"
-                      : "Some results may be preliminary references. Verify the details before ordering."
+                      ? "ผลลัพธ์นี้มาจากข้อมูลเบอร์อ้างอิง กรุณาตรวจสอบรุ่นและสเปกก่อนสั่งซื้อ"
+                      : "These results come from reference data. Verify the model and specifications before ordering."
                     : isThai
                       ? "กรุณาตรวจสอบสเปคและการใช้งานก่อนสั่งซื้อ"
                       : "Please confirm specifications and application before ordering."}

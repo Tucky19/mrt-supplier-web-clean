@@ -17,7 +17,7 @@ type Props = {
 };
 
 const SEARCH_DEBOUNCE_MS = 400;
-const DEFAULT_EXAMPLE_QUERIES = ["P551315", "P553004", "hydraulic filter"];
+const DEFAULT_EXAMPLE_QUERIES = ["hydraulic filter", "air filter", "Fleetguard"];
 const RECENT_SEARCHES_KEY = "mrt_recent_searches_v1";
 const RECENT_SEARCHES_LIMIT = 5;
 const RESULTS_SECTION_ID = "results";
@@ -62,7 +62,7 @@ function getReferenceBadgeText(
   isPreliminary = false,
 ) {
   if (isPreliminary) {
-    return locale === "th" ? "อ้างอิงเบื้องต้น" : "Preliminary reference";
+    return locale === "th" ? "ข้อมูลอ้างอิง" : "Reference data";
   }
 
   const trimmed = query.trim().toUpperCase();
@@ -120,6 +120,10 @@ export default function SearchBar({
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const text = getSearchUiText(locale);
+  const searchPlaceholder =
+    locale === "th"
+      ? "ใส่เบอร์สินค้า หรือเบอร์เทียบ"
+      : "Enter a product number or cross-reference";
 
   const [draftQuery, setDraftQuery] = useState(defaultValue);
   const [isFocused, setIsFocused] = useState(false);
@@ -431,7 +435,7 @@ export default function SearchBar({
             onChange={(e) => setDraftQuery(e.target.value)}
             onFocus={() => setIsFocused(true)}
             onKeyDown={handleKeyDown}
-            placeholder={text.searchPlaceholder}
+            placeholder={searchPlaceholder}
             aria-label={text.searchInputLabel}
             className="h-full w-full bg-transparent py-4 text-[15px] text-[var(--color-text)] placeholder:text-[var(--color-text-muted)] outline-none"
           />

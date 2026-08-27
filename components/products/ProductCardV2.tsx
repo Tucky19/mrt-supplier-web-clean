@@ -111,10 +111,10 @@ function getMatchPresentation(
       return {
         label:
           locale === "th"
-            ? `พบเบอร์อ้างอิงเบื้องต้น${querySuffix}`
-            : `Preliminary reference match${querySuffix}`,
+            ? `ข้อมูลอ้างอิง${querySuffix}`
+            : `Reference data${querySuffix}`,
         className:
-          "border-[var(--color-warning)] bg-[var(--color-warning-soft)] text-[var(--color-warning-text)]",
+          "border-[var(--color-warning-soft)] bg-[var(--color-warning-soft)] text-[var(--color-warning-text)]",
         isPreliminary: true,
       };
     }
@@ -131,10 +131,10 @@ function getMatchPresentation(
       return {
         label:
           locale === "th"
-            ? `พบเบอร์อ้างอิงเบื้องต้น${querySuffix}`
-            : `Preliminary reference match${querySuffix}`,
+            ? `ข้อมูลอ้างอิง${querySuffix}`
+            : `Reference data${querySuffix}`,
         className:
-          "border-[var(--color-warning)] bg-[var(--color-warning-soft)] text-[var(--color-warning-text)]",
+          "border-[var(--color-warning-soft)] bg-[var(--color-warning-soft)] text-[var(--color-warning-text)]",
         isPreliminary: true,
       };
     }
@@ -234,9 +234,6 @@ export default function ProductCardV2({
     locale,
     product._matchedRelation,
   );
-  const preliminaryRelationNotice = isThai
-    ? "เบอร์อ้างอิงเบื้องต้น: กรุณาตรวจสอบขนาด เกลียว และการใช้งานก่อนสั่งซื้อ"
-    : "Preliminary reference: verify dimensions, thread, and application before ordering.";
   const categoryLabel = formatCategoryLabel(product.category);
 
   useEffect(() => {
@@ -337,11 +334,6 @@ export default function ProductCardV2({
                 >
                   {matchPresentation.label}
                 </span>
-                {matchPresentation.isPreliminary ? (
-                  <p className="mt-2 rounded-[var(--mrt-radius-sm)] border border-[var(--color-warning)] bg-[var(--color-warning-soft)] px-3 py-2 text-xs leading-5 text-[var(--color-warning-text)]">
-                    {preliminaryRelationNotice}
-                  </p>
-                ) : null}
               </div>
             ) : null}
 
