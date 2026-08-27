@@ -263,6 +263,12 @@ export default function SearchFirstHero({ locale }: { locale: string }) {
                   </li>
                 ))}
               </ul>
+
+              <p className="mt-3 text-center text-xs leading-5 text-[var(--color-text-muted)]">
+                {isThai
+                  ? "ไม่พบแบรนด์ของคุณในรายการ? ส่ง Part No. ให้ทีมงานตรวจสอบได้"
+                  : "Don’t see your brand listed? Send us the part number and our team will check it."}
+              </p>
             </div>
           </div>
         </div>
