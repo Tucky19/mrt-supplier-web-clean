@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
+import TrackedLineLink from "@/components/analytics/TrackedLineLink";
 import SiteFooter from "@/components/layout/SiteFooter";
 import SiteHeader from "@/components/layout/SiteHeader";
 import JsonLd from "@/components/seo/JsonLd";
@@ -16,6 +17,7 @@ type PageProps = {
 };
 
 const SITE_URL = "https://www.mrtsupplier.com";
+const LINE_URL = "https://lin.ee/S676yYH";
 const LOCALES = ["th", "en"] as const;
 const lightFocusClass =
   "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-surface)]";
@@ -64,7 +66,6 @@ export default async function BrandsPage({ params }: PageProps) {
   const { locale } = await params;
   const isThai = locale === "th";
   const title = isThai ? "แบรนด์สินค้า" : "Brands";
-  const productsLabel = isThai ? "ค้นหาสินค้า" : "Search products";
   const quoteLabel = isThai ? "ขอใบเสนอราคา" : "Request quote";
   const brandItems = getBrandsIndexItems();
   const breadcrumbJsonLd = {
@@ -168,33 +169,27 @@ export default async function BrandsPage({ params }: PageProps) {
       </section>
 
       <section className="mrt-blueprint-section-strong border-b border-[var(--color-border)]">
-        <div className="mx-auto flex max-w-7xl flex-col gap-4 px-6 py-10 sm:flex-row sm:items-center sm:justify-between lg:px-8">
-          <div>
-            <p className="text-sm font-semibold text-[var(--color-text)]">
+        <div className="mx-auto flex max-w-7xl flex-col gap-5 px-6 py-10 text-center sm:items-center lg:px-8">
+          <div className="max-w-3xl">
+            <p className="text-base font-semibold text-[var(--color-text)]">
               {isThai
-                ? "ต้องการค้นหาด้วย Part No. หรือ Cross Reference?"
-                : "Need to search by Part No. or Cross Reference?"}
+                ? "ตรวจสอบเบอร์เทียบและแบรนด์อื่นเพิ่มเติม"
+                : "Additional brand and cross-reference support"}
             </p>
-            <p className="mt-1 text-sm leading-6 text-[var(--color-text-muted)]">
+            <p className="mt-2 text-sm leading-7 text-[var(--color-text-muted)]">
               {isThai
-                ? "ค้นหาสินค้าใน catalog หรือส่ง RFQ ให้ทีมงานช่วยตรวจสอบรายการที่ต้องการ"
-                : "Search the catalog or send an RFQ for the team to review your required items."}
+                ? "นอกเหนือจากแบรนด์ที่แสดง เรายังรับตรวจสอบ Part No. จากแบรนด์อื่น เพื่อค้นหาเบอร์เทียบ Donaldson, MANN-FILTER หรือแนวทางจัดหาที่เหมาะสม"
+                : "Beyond the brands shown, we can review part numbers from other brands to identify a suitable Donaldson, MANN-FILTER, or sourcing option."}
             </p>
           </div>
-          <div className="flex flex-col gap-3 sm:flex-row">
-            <Link
-              href={`/${locale}/products`}
-              className={`inline-flex min-h-11 items-center justify-center rounded-[var(--mrt-radius-md)] bg-[var(--color-primary)] px-5 py-2.5 text-sm font-semibold text-[var(--color-text-inverse)] transition hover:bg-[var(--color-primary-hover)] ${lightFocusClass}`}
-            >
-              {productsLabel}
-            </Link>
-            <Link
-              href={`/${locale}/quote`}
-              className={`inline-flex min-h-11 items-center justify-center rounded-[var(--mrt-radius-md)] border border-[var(--color-border-strong)] bg-[var(--color-surface)] px-5 py-2.5 text-sm font-semibold text-[var(--color-text)] transition hover:border-[var(--color-primary)] hover:bg-[var(--color-primary-soft)] hover:text-[var(--color-primary-hover)] ${lightFocusClass}`}
-            >
-              {quoteLabel}
-            </Link>
-          </div>
+          <TrackedLineLink
+            href={LINE_URL}
+            source="brands_support_band"
+            locale={locale}
+            className={`inline-flex min-h-11 items-center justify-center rounded-[var(--mrt-radius-md)] bg-[var(--color-primary)] px-6 py-2.5 text-sm font-semibold text-[var(--color-text-inverse)] transition hover:bg-[var(--color-primary-hover)] ${lightFocusClass}`}
+          >
+            {isThai ? "ส่ง Part No. ให้ทีมงานตรวจสอบ" : "Send a part number"}
+          </TrackedLineLink>
         </div>
       </section>
 

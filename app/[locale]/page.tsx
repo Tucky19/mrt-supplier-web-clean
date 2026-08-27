@@ -96,15 +96,6 @@ export default async function Page({
     },
   ];
 
-  const supportingBrands = [
-    "Fleetguard",
-    "Komai",
-    "K-FLO",
-    "KOYO",
-    "IKO",
-    "Timken",
-  ];
-
   const productCategories = [
     {
       id: "hydraulic-filters",
@@ -283,11 +274,7 @@ export default async function Page({
         </div>
       </section>
 
-      <BrandShowcase
-        brands={featuredBrands}
-        supportingBrands={supportingBrands}
-        locale={locale}
-      />
+      <BrandShowcase brands={featuredBrands} locale={locale} />
       <WhyChooseUsSection locale={locale} />
       <ProductGrid products={productCategories} locale={locale} />
       <QuoteCTASection locale={locale} />
