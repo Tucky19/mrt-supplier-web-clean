@@ -1,5 +1,8 @@
 import Image from "next/image";
+import TrackedLineLink from "@/components/analytics/TrackedLineLink";
 import { getHomeBrandShowcaseText } from "@/lib/i18n/homeUi";
+
+const LINE_URL = "https://lin.ee/S676yYH";
 
 type Brand = {
   key: string;
@@ -9,11 +12,9 @@ type Brand = {
 
 export default function BrandShowcase({
   brands,
-  supportingBrands,
   locale,
 }: {
   brands: Brand[];
-  supportingBrands: string[];
   locale: string;
 }) {
   const copy = getHomeBrandShowcaseText(locale);
@@ -72,26 +73,28 @@ export default function BrandShowcase({
           </div>
         </div>
 
-        <div className="mt-10 border-t border-[var(--color-border)] pt-8">
-          <div className="max-w-2xl">
-            <h3 className="text-sm font-semibold uppercase tracking-[0.14em] text-[var(--color-text)]">
-              {copy.supportingHeading}
+        <div className="mt-10 border-t border-[var(--color-border)] pt-8 text-center">
+          <div className="mx-auto max-w-3xl">
+            <h3 className="text-base font-semibold text-[var(--color-text)]">
+              {locale === "th"
+                ? "ตรวจสอบเบอร์เทียบและแบรนด์อื่นเพิ่มเติม"
+                : "Additional brand and cross-reference support"}
             </h3>
-            <p className="mt-2 text-sm leading-6 text-[var(--color-text-muted)]">
-              {copy.supportingHelper}
+            <p className="mt-2 text-sm leading-7 text-[var(--color-text-muted)]">
+              {locale === "th"
+                ? "นอกเหนือจากแบรนด์ที่แสดง เรายังรับตรวจสอบ Part No. จากแบรนด์อื่น เพื่อค้นหาเบอร์เทียบ Donaldson, MANN-FILTER หรือแนวทางจัดหาที่เหมาะสม"
+                : "Beyond the brands shown, we can review part numbers from other brands to identify a suitable Donaldson, MANN-FILTER, or sourcing option."}
             </p>
           </div>
 
-          <div className="mt-5 flex flex-wrap gap-3">
-            {supportingBrands.map((brand) => (
-              <span
-                key={brand}
-                className="inline-flex rounded-full border border-[var(--color-border)] bg-[var(--color-surface-muted)] px-4 py-2 text-sm font-medium text-[var(--color-text-muted)]"
-              >
-                {brand}
-              </span>
-            ))}
-          </div>
+          <TrackedLineLink
+            href={LINE_URL}
+            source="home_brand_support"
+            locale={locale}
+            className="mt-5 inline-flex min-h-11 items-center justify-center rounded-[var(--mrt-radius-md)] bg-[var(--color-primary)] px-6 py-2.5 text-sm font-semibold text-[var(--color-text-inverse)] transition hover:bg-[var(--color-primary-hover)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-surface)]"
+          >
+            {locale === "th" ? "ส่ง Part No. ให้ทีมงานตรวจสอบ" : "Send a part number"}
+          </TrackedLineLink>
         </div>
       </div>
     </section>
