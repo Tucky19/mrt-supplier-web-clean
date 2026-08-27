@@ -152,10 +152,10 @@ function SurfaceCard({
 
 function VerificationNote({ locale }: { locale: string }) {
   return (
-    <div className="rounded-2xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm leading-6 text-amber-900">
+    <div className="rounded-2xl border border-slate-200 bg-slate-50/85 px-4 py-3 text-sm leading-6 text-slate-600">
       {locale === "th"
-        ? "หมายเหตุ: ข้อมูลสเปกใช้เพื่อการตรวจสอบเบื้องต้น กรุณายืนยันขนาด เกลียว รุ่นเครื่องจักร และการใช้งานก่อนสั่งซื้อ"
-        : "Note: Specifications are for preliminary checking. Please confirm dimensions, thread size, machine model, and application before ordering."}
+        ? "หมายเหตุ: กรุณายืนยันขนาด เกลียว รุ่นเครื่องจักร และการใช้งานก่อนสั่งซื้อ"
+        : "Note: Please confirm dimensions, thread size, machine model, and application before ordering."}
     </div>
   );
 }

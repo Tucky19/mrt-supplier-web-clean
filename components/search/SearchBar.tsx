@@ -5,7 +5,6 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { gaSearch } from "@/lib/analytics/ga";
 import { useSearchSuggestions } from "@/hooks/useSearchSuggestions";
 import { getSearchUiText } from "@/lib/i18n/searchUi";
-import { isPreliminaryRelation } from "@/lib/products/relations";
 
 type Props = {
   locale: string;
@@ -47,30 +46,15 @@ function getSuggestionLabel(
 
 function getSuggestionSectionTitle(
   label: string,
-  text: ReturnType<typeof getSearchUiText>
+  text: ReturnType<typeof getSearchUiText>,
+  locale: string,
 ) {
   if (label === text.partNumber) return text.partNumberMatches;
-  if (label === text.crossRef) return text.crossReferences;
-  if (label === text.sameBrandRef) return text.sameBrandReferences;
+  if (label === text.crossRef || label === text.sameBrandRef) {
+    return locale === "th" ? "ผลลัพธ์จากเบอร์อ้างอิง" : "Reference matches";
+  }
   if (label === text.usedTogether) return text.usedTogetherMatches;
   return text.relatedMatches;
-}
-
-function getReferenceBadgeText(
-  locale: string,
-  query: string,
-  isPreliminary = false,
-) {
-  if (isPreliminary) {
-    return locale === "th" ? "ข้อมูลอ้างอิง" : "Reference data";
-  }
-
-  const trimmed = query.trim().toUpperCase();
-  if (!trimmed) return locale === "th" ? "เทียบจากเบอร์ค้นหา" : "Reference match";
-
-  return locale === "th"
-    ? `เทียบจาก ${trimmed}`
-    : `Reference for ${trimmed}`;
 }
 
 function formatBrandLabel(brand: string) {
@@ -255,10 +239,10 @@ export default function SearchBar({
 
     return Array.from(groups.entries()).map(([label, items]) => ({
       label,
-      title: getSuggestionSectionTitle(label, text),
+      title: getSuggestionSectionTitle(label, text, locale),
       items,
     }));
-  }, [suggestions, text]);
+  }, [suggestions, text, locale]);
 
   const flattenedSuggestions = useMemo(
     () => groupedSuggestions.flatMap((group) => group.items),
@@ -523,17 +507,11 @@ export default function SearchBar({
                     const currentIndex = suggestionStartIndex + suggestionIndex;
                     const label = getSuggestionLabel(suggestion._matchType, text);
                     const isHighlighted = highlightedIndex === currentIndex;
-                    const isCrossReference =
-                      suggestion._matchType === "Cross Ref" &&
-                      !hasExactPartNumberSuggestion;
                     const isRelationMatch =
                       (suggestion._matchType === "Cross Ref" ||
                         suggestion._matchType === "Same-brand Ref" ||
                         suggestion._matchType === "Kit Component") &&
                       !hasExactPartNumberSuggestion;
-                    const isPreliminaryReference =
-                      isRelationMatch &&
-                      isPreliminaryRelation(suggestion._matchedRelation);
                     const brandLabel = formatBrandLabel(suggestion.brand);
                     const secondaryText = isRelationMatch
                       ? [brandLabel, suggestion.title]
@@ -568,27 +546,6 @@ export default function SearchBar({
                         }`}
                         >
                         <span className="flex min-w-0 flex-wrap items-center gap-2">
-                          {isRelationMatch ? (
-                            <span
-                              className={`inline-flex max-w-full items-center rounded-full border px-2.5 py-1 text-[11px] font-semibold leading-none ${
-                                isHighlighted
-                                  ? isPreliminaryReference
-                                    ? "border-[var(--color-warning-soft)] bg-[var(--color-warning-soft)] text-[var(--color-warning-text)]"
-                                    : "border-[var(--color-success-soft)] bg-[var(--color-success-soft)] text-[var(--color-success-text)]"
-                                  : isPreliminaryReference
-                                    ? "border-[var(--color-warning-soft)] bg-[var(--color-warning-soft)] text-[var(--color-warning-text)] group-hover:border-[var(--color-warning-soft)] group-hover:bg-[var(--color-warning-soft)] group-hover:text-[var(--color-warning-text)] group-active:border-[var(--color-warning-soft)] group-active:bg-[var(--color-warning-soft)] group-active:text-[var(--color-warning-text)]"
-                                    : "border-[var(--color-success-soft)] bg-[var(--color-success-soft)] text-[var(--color-success-text)] group-hover:border-[var(--color-success-soft)] group-hover:bg-[var(--color-success-soft)] group-hover:text-[var(--color-success-text)] group-active:border-[var(--color-success-soft)] group-active:bg-[var(--color-success-soft)] group-active:text-[var(--color-success-text)]"
-                              }`}
-                            >
-                              {suggestion._matchType === "Kit Component"
-                                ? label
-                                : getReferenceBadgeText(
-                                    locale,
-                                    draftQuery,
-                                    isPreliminaryReference,
-                                  )}
-                            </span>
-                          ) : null}
                           <span
                             className={`min-w-0 break-all font-medium ${
                               isHighlighted

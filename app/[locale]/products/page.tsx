@@ -240,6 +240,19 @@ export default async function ProductsPage({
                 : "No part number? Send details for our team to identify"}
             </a>
           </div>
+
+          {hasPreliminaryCrossReferenceResults ? (
+            <div className="mt-4 max-w-4xl rounded-[var(--mrt-radius-md)] border border-[var(--color-border)] bg-[var(--color-surface-muted)] px-3.5 py-3 text-sm shadow-[var(--shadow-sm)] sm:px-4">
+              <div className="font-semibold text-[var(--color-text)]">
+                {isThai ? "ข้อมูลอ้างอิง" : "Reference information"}
+              </div>
+              <p className="mt-1 leading-5 text-[var(--color-text-muted)]">
+                {isThai
+                  ? "ผลลัพธ์นี้ค้นพบจากเบอร์อ้างอิง กรุณาตรวจสอบรุ่นและสเปกก่อนสั่งซื้อ"
+                  : "These results were found through reference data. Verify the model and specifications before ordering."}
+              </p>
+            </div>
+          ) : null}
         </div>
       </section>
 
@@ -290,70 +303,6 @@ export default async function ProductsPage({
             )}
           </div>
         </div>
-
-        {hasCrossReferenceResults && (
-          <div
-            className={`mb-5 rounded-[var(--mrt-radius-lg)] border px-4 py-3 shadow-[var(--shadow-sm)] sm:mb-6 sm:px-5 ${
-              hasPreliminaryCrossReferenceResults
-                ? "border-[var(--color-border)] bg-[var(--color-surface-muted)]"
-                : "border-[var(--color-success)] bg-[var(--color-success-soft)]"
-            }`}
-          >
-            <div className="flex gap-2.5">
-              <div
-                className={`mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[var(--color-surface)] ${
-                  hasPreliminaryCrossReferenceResults
-                    ? "text-[var(--color-warning-text)]"
-                    : "text-[var(--color-success-text)]"
-                }`}
-              >
-                <svg
-                  aria-hidden="true"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                  className="h-4 w-4"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M16.704 5.29a1 1 0 010 1.42l-7.25 7.2a1 1 0 01-1.41 0L3.296 9.19a1 1 0 111.408-1.42l4.04 4.01 6.552-6.49a1 1 0 011.408 0z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-              </div>
-              <div className="min-w-0">
-                <h2 className="text-sm font-semibold text-[var(--color-text)] sm:text-base">
-                  {hasPreliminaryCrossReferenceResults
-                    ? isThai
-                      ? "พบข้อมูลเบอร์อ้างอิง"
-                      : "Reference matches found"
-                    : isThai
-                      ? "พบเบอร์เทียบแล้ว!"
-                      : "Reference matches found!"}
-                </h2>
-                <p
-                  className={`mt-1 text-sm leading-6 ${
-                    hasPreliminaryCrossReferenceResults
-                      ? "text-[var(--color-warning-text)]"
-                      : "text-[var(--color-success-text)]"
-                  }`}
-                >
-                  {isThai
-                    ? `พบสินค้าอ้างอิงจาก “${query}” จำนวน ${crossReferenceResults.length} รายการ`
-                    : `Found ${crossReferenceResults.length} reference products for “${query}”`}
-                </p>
-                <p className="mt-1 text-xs leading-5 text-[var(--color-text-muted)]">
-                  {hasPreliminaryCrossReferenceResults
-                    ? isThai
-                      ? "ผลลัพธ์นี้มาจากข้อมูลเบอร์อ้างอิง กรุณาตรวจสอบรุ่นและสเปกก่อนสั่งซื้อ"
-                      : "These results come from reference data. Verify the model and specifications before ordering."
-                    : isThai
-                      ? "กรุณาตรวจสอบสเปคและการใช้งานก่อนสั่งซื้อ"
-                      : "Please confirm specifications and application before ordering."}
-                </p>
-              </div>
-            </div>
-          </div>
-        )}
 
         {showMissingProductRequest && (
           <div className={visibleProducts.length === 0 ? "" : "mb-6"}>

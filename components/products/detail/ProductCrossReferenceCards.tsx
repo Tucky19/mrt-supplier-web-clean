@@ -147,14 +147,6 @@ function isPreliminaryItem(item: ReferenceItem) {
   });
 }
 
-function statusLabel(item: ReferenceItem, isThai: boolean) {
-  if (isPreliminaryItem(item)) {
-    return isThai ? "เบื้องต้น" : "Preliminary";
-  }
-
-  return isThai ? "ยืนยันแล้ว" : "Verified";
-}
-
 export default function ProductCrossReferenceCards({
   locale,
   relations,
@@ -297,15 +289,6 @@ export default function ProductCrossReferenceCards({
                           <span className="font-mono text-[13px] sm:text-sm">
                             {item.partNo}
                           </span>
-                          <span
-                            className={`rounded-full border px-2 py-0.5 text-[10px] font-semibold uppercase tracking-[0.1em] ${
-                              isPreliminaryItem(item)
-                                ? "border-amber-200 bg-amber-50 text-amber-900"
-                                : "border-emerald-200 bg-emerald-50 text-emerald-800"
-                            }`}
-                          >
-                            {statusLabel(item, isThai)}
-                          </span>
                         </div>
                       ))}
                     </div>
@@ -317,19 +300,11 @@ export default function ProductCrossReferenceCards({
         </div>
       </div>
 
-      {hasPreliminaryReference ? (
-        <div className="rounded-[20px] border border-amber-200 bg-amber-50 px-4 py-3 text-sm leading-6 text-amber-900">
-          {isThai
-            ? "ข้อมูลเบอร์อ้างอิงนี้เป็นข้อมูลเบื้องต้น กรุณาตรวจสอบรุ่น สเปก ขนาด เกลียว และการใช้งานก่อนสั่งซื้อ"
-            : "This reference data is preliminary. Verify the model, specifications, dimensions, thread, and application before ordering."}
-        </div>
-      ) : (
-        <div className="rounded-[20px] border border-slate-200 bg-slate-50/85 px-4 py-3 text-sm leading-6 text-slate-600">
-          {isThai
-            ? "ข้อมูล Interchange ใช้สำหรับอ้างอิงเบื้องต้น ทีมงานจะตรวจสอบความเข้ากันได้ของสเปก ขนาด เกลียว และการใช้งานก่อนเสนอราคา"
-            : "Interchange data is for preliminary reference. Our team reviews specification, size, thread, and application compatibility before quoting."}
-        </div>
-      )}
+      <div className="rounded-[20px] border border-slate-200 bg-slate-50/85 px-4 py-3 text-sm leading-6 text-slate-600">
+        {isThai
+          ? "ข้อมูลเบอร์อ้างอิงใช้เพื่อประกอบการตรวจสอบ กรุณาตรวจสอบรุ่น สเปก ขนาด เกลียว และการใช้งานก่อนสั่งซื้อ"
+          : "Reference information is provided for review. Verify the model, specifications, dimensions, thread, and application before ordering."}
+      </div>
     </div>
   );
 }
