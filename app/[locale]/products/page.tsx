@@ -13,6 +13,7 @@ import MultiPartNumberSearch from "@/components/search/MultiPartNumberSearch";
 import SearchBar from "@/components/search/SearchBar";
 import JsonLd from "@/components/seo/JsonLd";
 import { products } from "@/data/products/index";
+import { isPreliminaryRelation } from "@/lib/products/relations";
 import { searchProducts, type SearchResult } from "@/lib/search/search";
 import type { Product } from "@/types/product";
 
@@ -64,6 +65,22 @@ function getResultMatchType(product: Product | SearchResult | undefined) {
   }
 
   return product._matchType;
+}
+
+function isReferenceMatchType(matchType: string | null) {
+  return matchType === "Cross Ref" || matchType === "Same-brand Ref";
+}
+
+function isPreliminaryRelationResult(product: Product | SearchResult | undefined) {
+  if (
+    !product ||
+    !("_matchedRelation" in product) ||
+    !isReferenceMatchType(getResultMatchType(product))
+  ) {
+    return false;
+  }
+
+  return isPreliminaryRelation(product._matchedRelation);
 }
 
 export async function generateMetadata({
@@ -157,13 +174,10 @@ export default async function ProductsPage({
   const hasExactPartNumberResult = hasQuery
     ? visibleProducts.some((product) => getResultMatchType(product) === "Exact")
     : false;
-  const crossReferenceResults = hasQuery
-    ? visibleProducts.filter(
-        (product) => getResultMatchType(product) === "Cross Ref",
-      )
-    : [];
-  const hasCrossReferenceResults =
-    !hasExactPartNumberResult && crossReferenceResults.length > 0;
+  const hasPreliminaryRelationResults =
+    hasQuery &&
+    !hasExactPartNumberResult &&
+    visibleProducts.some((product) => isPreliminaryRelationResult(product));
   const showMissingProductRequest =
     requestMissingProduct || visibleProducts.length === 0;
   const initialVisibleCount = Math.min(
@@ -195,8 +209,8 @@ export default async function ProductsPage({
 
           <p className="mt-2 max-w-2xl text-sm leading-6 text-[var(--color-text-muted)] sm:text-base">
             {isThai
-              ? "ค้นหาด้วย Part Number, Cross Reference หรือขนาดสินค้า แล้วเพิ่มรายการเพื่อขอใบเสนอราคาได้ทันที"
-              : "Search by part number, cross reference, or dimensions, then add matching items to your quote request."}
+              ? "ค้นหาด้วยเบอร์สินค้า เบอร์เดิม หรือเบอร์เทียบที่ใช้อยู่"
+              : "Search by product number, existing part number, or cross-reference."}
           </p>
 
           <div className="-mx-4 sticky top-[64px] z-40 mt-5 border-y border-[var(--color-border)] bg-[var(--color-surface)] px-4 py-2.5 backdrop-blur md:static md:z-auto md:mx-0 md:border-y-0 md:bg-transparent md:px-0 md:py-0 md:backdrop-blur-0">
@@ -226,6 +240,19 @@ export default async function ProductsPage({
                 : "No part number? Send details for our team to identify"}
             </a>
           </div>
+
+          {hasPreliminaryRelationResults ? (
+            <div className="mt-4 max-w-4xl rounded-[var(--mrt-radius-md)] border border-[var(--color-border)] bg-[var(--color-surface-muted)] px-3.5 py-3 text-sm shadow-[var(--shadow-sm)] sm:px-4">
+              <div className="font-semibold text-[var(--color-text)]">
+                {isThai ? "ข้อมูลอ้างอิง" : "Reference information"}
+              </div>
+              <p className="mt-1 leading-5 text-[var(--color-text-muted)]">
+                {isThai
+                  ? "ผลลัพธ์นี้ค้นพบจากเบอร์อ้างอิง กรุณาตรวจสอบรุ่นและสเปกก่อนสั่งซื้อ"
+                  : "These results were found through reference data. Verify the model and specifications before ordering."}
+              </p>
+            </div>
+          ) : null}
         </div>
       </section>
 
@@ -276,42 +303,6 @@ export default async function ProductsPage({
             )}
           </div>
         </div>
-
-        {hasCrossReferenceResults && (
-          <div className="mb-5 rounded-[var(--mrt-radius-lg)] border border-[var(--color-success)] bg-[var(--color-success-soft)] px-4 py-4 shadow-[var(--shadow-sm)] sm:mb-6 sm:px-5">
-            <div className="flex gap-3">
-              <div className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[var(--color-surface)] text-[var(--color-success-text)]">
-                <svg
-                  aria-hidden="true"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                  className="h-5 w-5"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M16.704 5.29a1 1 0 010 1.42l-7.25 7.2a1 1 0 01-1.41 0L3.296 9.19a1 1 0 111.408-1.42l4.04 4.01 6.552-6.49a1 1 0 011.408 0z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-              </div>
-              <div className="min-w-0">
-                <h2 className="text-base font-semibold text-[var(--color-text)]">
-                  {isThai ? "พบเบอร์เทียบแล้ว!" : "Reference matches found!"}
-                </h2>
-                <p className="mt-1 text-sm leading-6 text-[var(--color-success-text)]">
-                  {isThai
-                    ? `พบสินค้าอ้างอิงจาก “${query}” จำนวน ${crossReferenceResults.length} รายการ`
-                    : `Found ${crossReferenceResults.length} reference products for “${query}”`}
-                </p>
-                <p className="mt-1 text-xs leading-5 text-[var(--color-text-muted)]">
-                  {isThai
-                    ? "กรุณาตรวจสอบสเปคและการใช้งานก่อนสั่งซื้อ"
-                    : "Please confirm specifications and application before ordering."}
-                </p>
-              </div>
-            </div>
-          </div>
-        )}
 
         {showMissingProductRequest && (
           <div className={visibleProducts.length === 0 ? "" : "mb-6"}>

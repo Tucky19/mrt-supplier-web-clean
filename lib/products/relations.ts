@@ -160,6 +160,24 @@ export function relationPartNumbers(
   );
 }
 
+export function relationSearchTerms(
+  values: unknown,
+  defaultRelationType: ProductRelationType,
+): string[] {
+  const terms = new Set<string>();
+
+  for (const relation of normalizeProductRelations(values, defaultRelationType)) {
+    terms.add(relation.partNumber);
+
+    if (relation.brand) {
+      terms.add(`${relation.brand} ${relation.partNumber}`);
+      terms.add(`${relation.brand}: ${relation.partNumber}`);
+    }
+  }
+
+  return Array.from(terms);
+}
+
 export function uniqueRelationPartNumbers(
   values: unknown,
   defaultRelationType: ProductRelationType,
@@ -250,5 +268,13 @@ export function hasRelationEvidence(relation: ProductRelation) {
       relation.source ||
       relation.evidenceUrl ||
       relation.evidenceNote,
+  );
+}
+
+export function isPreliminaryRelation(relation: ProductRelation | undefined) {
+  if (!relation) return false;
+  return (
+    relation.verificationStatus !== "verified" ||
+    relation.relationType === "unknown"
   );
 }

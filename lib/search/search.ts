@@ -6,7 +6,9 @@ import {
 } from "@/lib/search/dimensions";
 import {
   type ProductRelationInput,
-  relationPartNumbers,
+  type ProductRelation,
+  normalizeProductRelations,
+  relationSearchTerms,
 } from "@/lib/products/relations";
 
 type ProductSpecification = {
@@ -34,6 +36,8 @@ export type Product = {
 export type SearchResult = Product & {
   _score: number;
   _matchType: string;
+  _matchedRelation?: ProductRelation;
+  _matchedRelationField?: "refs" | "crossReferences";
 };
 
 const SPEC_ALIAS_MAP: Record<string, string[]> = {
@@ -119,6 +123,16 @@ function buildPartRelationTokens(values: string[]) {
   return Array.from(tokens);
 }
 
+function buildRelationSearchEntries(
+  values: unknown,
+  defaultRelationType: ProductRelation["relationType"],
+) {
+  return normalizeProductRelations(values, defaultRelationType).map((relation) => ({
+    relation,
+    tokens: buildPartRelationTokens(relationSearchTerms([relation], defaultRelationType)),
+  }));
+}
+
 function relationMatchesQuery(
   tokens: string[],
   queryVariants: string[],
@@ -146,6 +160,27 @@ function relationMatchesQuery(
     )
   ) {
     return "contains";
+  }
+
+  return null;
+}
+
+function findRelationMatch(
+  entries: ReturnType<typeof buildRelationSearchEntries>,
+  queryVariants: string[],
+  { allowPartialMatches = false }: { allowPartialMatches?: boolean } = {},
+) {
+  for (const entry of entries) {
+    const match = relationMatchesQuery(entry.tokens, queryVariants, {
+      allowPartialMatches,
+    });
+
+    if (match) {
+      return {
+        relation: entry.relation,
+        match,
+      };
+    }
   }
 
   return null;
@@ -344,11 +379,12 @@ export function searchProducts(
     const brand = normalize(item.brand);
     const title = normalize(item.title ?? "");
     const spec = normalize(item.spec ?? "");
-    const sameBrandRefs = buildPartRelationTokens(
-      relationPartNumbers(item.refs ?? [], "unknown"),
-    );
-    const crossReferences = buildPartRelationTokens(
-      relationPartNumbers(item.crossReferences ?? [], "unknown"),
+    let matchedRelation: ProductRelation | undefined;
+    let matchedRelationField: SearchResult["_matchedRelationField"];
+    const sameBrandRefs = buildRelationSearchEntries(item.refs ?? [], "unknown");
+    const crossReferences = buildRelationSearchEntries(
+      item.crossReferences ?? [],
+      "unknown",
     );
     const pairedParts = buildPartRelationTokens(
       (item.pairedParts ?? []).map((part) => part.partNo),
@@ -372,12 +408,12 @@ export function searchProducts(
     const relationMatchOptions = {
       allowPartialMatches: allowPartialRelationMatches,
     };
-    const sameBrandMatch = relationMatchesQuery(
+    const sameBrandMatch = findRelationMatch(
       sameBrandRefs,
       relationQueryVariants,
       relationMatchOptions,
     );
-    const crossRefMatch = relationMatchesQuery(
+    const crossRefMatch = findRelationMatch(
       crossReferences,
       relationQueryVariants,
       relationMatchOptions,
@@ -390,22 +426,30 @@ export function searchProducts(
 
     if (sameBrandMatch) {
       score +=
-        sameBrandMatch === "exact"
+        sameBrandMatch.match === "exact"
           ? 7000
-          : sameBrandMatch === "prefix"
+          : sameBrandMatch.match === "prefix"
             ? 6500
             : 6000;
-      if (!matchType) matchType = "Same-brand Ref";
+      if (!matchType) {
+        matchType = "Same-brand Ref";
+        matchedRelation = sameBrandMatch.relation;
+        matchedRelationField = "refs";
+      }
     }
 
     if (crossRefMatch) {
       score +=
-        crossRefMatch === "exact"
+        crossRefMatch.match === "exact"
           ? 7000
-          : crossRefMatch === "prefix"
+          : crossRefMatch.match === "prefix"
             ? 6500
             : 6000;
-      if (!matchType) matchType = "Cross Ref";
+      if (!matchType) {
+        matchType = "Cross Ref";
+        matchedRelation = crossRefMatch.relation;
+        matchedRelationField = "crossReferences";
+      }
     }
 
     if (pairedPartMatch) {
@@ -450,6 +494,8 @@ export function searchProducts(
       ...item,
       _score: score,
       _matchType: matchType,
+      _matchedRelation: matchedRelation,
+      _matchedRelationField: matchedRelationField,
     };
   });
 

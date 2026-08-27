@@ -8,12 +8,16 @@ import { gaAddToQuote } from "@/lib/analytics/ga";
 import { getProductUiText } from "@/lib/i18n/productUi";
 import { getSearchUiText } from "@/lib/i18n/searchUi";
 import { getProductImageUrl } from "@/lib/products/image";
-import { relationPartNumbers } from "@/lib/products/relations";
+import {
+  type ProductRelation,
+  normalizeProductRelations,
+} from "@/lib/products/relations";
 import { useQuote } from "@/providers/QuoteProvider";
 import type { Product } from "@/types/product";
 
 type SearchProduct = Product & {
   _matchType?: string;
+  _matchedRelation?: ProductRelation;
 };
 
 type ProductCardVariant = "default" | "search";
@@ -96,20 +100,8 @@ function getMatchPresentation(
     };
   }
 
-  if (matchType === "Cross Ref") {
-    return {
-      label: `${text.crossReferenceMatch}${querySuffix}`,
-      className:
-        "border-[var(--color-success)] bg-[var(--color-success-soft)] text-[var(--color-success-text)]",
-    };
-  }
-
-  if (matchType === "Same-brand Ref") {
-    return {
-      label: `${text.sameBrandReferenceMatch}${querySuffix}`,
-      className:
-        "border-[var(--color-success)] bg-[var(--color-success-soft)] text-[var(--color-success-text)]",
-    };
+  if (matchType === "Cross Ref" || matchType === "Same-brand Ref") {
+    return null;
   }
 
   if (matchType === "Kit Component") {
@@ -125,6 +117,11 @@ function getMatchPresentation(
     className:
       "border-[var(--color-border)] bg-[var(--color-surface-muted)] text-[var(--color-text)]",
   };
+}
+
+function relationDisplayText(relation: ProductRelation) {
+  if (relation.brand) return `${relation.brand} ${relation.partNumber}`;
+  return relation.partNumber;
 }
 
 export default function ProductCardV2({
@@ -149,14 +146,16 @@ export default function ProductCardV2({
   const resetTimerRef = useRef<number | null>(null);
 
   const refs = Array.from(
-    new Set([
-      ...relationPartNumbers(product.refs ?? [], "unknown"),
-      ...relationPartNumbers(product.crossReferences ?? [], "unknown"),
-    ]),
-  )
-    .map((value) => String(value).trim())
-    .filter(Boolean)
-    .slice(0, 2);
+    new Map(
+      [
+        ...normalizeProductRelations(product.refs ?? [], "unknown"),
+        ...normalizeProductRelations(product.crossReferences ?? [], "unknown"),
+      ].map((relation) => [
+        `${relation.brand ?? ""}|${relation.partNumber}`,
+        relation,
+      ]),
+    ).values(),
+  ).slice(0, 2);
 
   const image = getProductImageUrl(
     product.brand,
@@ -390,16 +389,13 @@ export default function ProductCardV2({
 
         {refs.length > 0 && (
           <div className={isSearchVariant ? "order-2 mt-3" : "mt-4"}>
-            <div className="mb-2 text-[10px] font-semibold uppercase tracking-[0.14em] text-[var(--color-text-muted)]">
-              {text.references}
-            </div>
             <div className="flex min-h-[2.5rem] flex-wrap content-start gap-2">
               {refs.map((ref) => (
                 <span
-                  key={ref}
-                  className="rounded-full border border-[var(--color-border)] bg-[var(--color-surface)] px-2.5 py-1 text-[10px] font-medium text-[var(--color-text-muted)] shadow-[var(--shadow-sm)] sm:text-[11px]"
+                  key={`${ref.brand ?? ""}-${ref.partNumber}`}
+                  className="inline-flex items-center gap-1.5 rounded-full border border-[var(--color-border)] bg-[var(--color-surface)] px-2.5 py-1 text-[10px] font-medium text-[var(--color-text-muted)] shadow-[var(--shadow-sm)] sm:text-[11px]"
                 >
-                  {ref}
+                  {relationDisplayText(ref)}
                 </span>
               ))}
             </div>
