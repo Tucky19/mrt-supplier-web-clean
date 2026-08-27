@@ -399,6 +399,17 @@ const rawDonaldson: RawDonaldson[] = [
       { label: "UPC Code", value: "742330026403" },
     ],
     cross_reference: [],
+    crossReferences: [
+      {
+        brand: "Sakura",
+        partNumber: "A5639",
+        relationType: "unknown",
+        verificationStatus: "pending",
+        evidence: "Donaldson MASTER INTERCHANGE",
+        evidenceNote:
+          "Donaldson MASTER INTERCHANGE; PDF file page 264, printed page 1226; Sakura A5639 same-row mapping to Donaldson P181191. FOR REFERENCE PURPOSES ONLY—CHECK VEHICLE APPLICATION LISTING FOR CORRECT DONALDSON FILTER.",
+      },
+    ],
   },
   {
     id: "donaldson-p181063",
@@ -408,6 +419,17 @@ const rawDonaldson: RawDonaldson[] = [
     category: "air_filter",
     stockStatus: "request" as const,
     cross_reference: [],
+    crossReferences: [
+      {
+        brand: "MANN & HUMMEL",
+        partNumber: "A5008340004",
+        relationType: "unknown",
+        verificationStatus: "pending",
+        evidence: "Donaldson MASTER INTERCHANGE",
+        evidenceNote:
+          "Donaldson MASTER INTERCHANGE; PDF file page 205, printed page 1167; MANN & HUMMEL A5008340004 same-row mapping to Donaldson P181063. FOR REFERENCE PURPOSES ONLY—CHECK VEHICLE APPLICATION LISTING FOR CORRECT DONALDSON FILTER.",
+      },
+    ],
     spec: "OD 174 mm x ID 107.3 mm x L 406.4 mm x Primary Finned Air Filter",
     specifications: [
       { label: "Outer Diameter", value: "174 mm (6.85 inch)" },
@@ -1981,6 +2003,17 @@ const donaldsonPhase3Batch03: RawDonaldson[] = [
     image: "/images/products/donaldson/p829333.jpg",
     stockStatus: "in_stock",
     cross_reference: [],
+    crossReferences: [
+      {
+        brand: "Fleetguard",
+        partNumber: "AF25558",
+        relationType: "unknown",
+        verificationStatus: "pending",
+        evidence: "Donaldson MASTER INTERCHANGE",
+        evidenceNote:
+          "Donaldson MASTER INTERCHANGE; PDF file page 107, printed page 1069; Fleetguard AF25558 same-row mapping to Donaldson P829333. FOR REFERENCE PURPOSES ONLY—CHECK VEHICLE APPLICATION LISTING FOR CORRECT DONALDSON FILTER.",
+      },
+    ],
     spec: "RadialSeal safety air filter",
     specifications: [
       { label: "Type", value: "Air Filter" },
@@ -2585,6 +2618,17 @@ const donaldsonBatchNewA: RawDonaldson[] = [
       { label: "Media Type", value: "Cellulose" },
       { label: "Collapse Burst", value: "5.2 bar (75 psi)" },
       { label: "UPC Code", value: "742330041659" },
+    ],
+    crossReferences: [
+      {
+        brand: "Sakura",
+        partNumber: "C1101",
+        relationType: "unknown",
+        verificationStatus: "pending",
+        evidence: "Donaldson MASTER INTERCHANGE",
+        evidenceNote:
+          "Donaldson MASTER INTERCHANGE; PDF file page 265, printed page 1227; Sakura C1101 same-row mapping to Donaldson P550227. FOR REFERENCE PURPOSES ONLY—CHECK VEHICLE APPLICATION LISTING FOR CORRECT DONALDSON FILTER.",
+      },
     ],
   },
   {
@@ -3231,6 +3275,15 @@ const donaldsonBatchNewA: RawDonaldson[] = [
           "Donaldson Filtration Products for Popular Agricultural Equipment; printed PDF pages 6,7,8; equipment/application AGCO; CASE; CNH; JOHN DEERE; filter category Fuel; Boss-approved cross-reference mapping only, not guaranteed interchangeability.",
         approvedBy: "Boss/MRT Supplier",
         approvedAt: "2026-08-27T00:00:00.000Z",
+      },
+      {
+        brand: "Wix",
+        partNumber: "33405MP",
+        relationType: "unknown",
+        verificationStatus: "pending",
+        evidence: "Donaldson MASTER INTERCHANGE",
+        evidenceNote:
+          "Donaldson MASTER INTERCHANGE; PDF file page 318, printed page 1280; Wix 33405MP same-row mapping to Donaldson P558000. FOR REFERENCE PURPOSES ONLY—CHECK VEHICLE APPLICATION LISTING FOR CORRECT DONALDSON FILTER.",
       },
     ],
     specifications: [

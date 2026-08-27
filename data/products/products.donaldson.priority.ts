@@ -49,7 +49,17 @@ export const donaldsonPriorityProducts: Product[] = [
     imageUrl: "/images/products/donaldson/p150135.png",
     officialUrl: "https://shop.donaldson.com/store/en-th/product/P150135/15676",
     refs: [],
-    crossReferences: [],
+    crossReferences: [
+      {
+        brand: "Sure Filter",
+        partNumber: "SFA0015",
+        relationType: "unknown",
+        verificationStatus: "pending",
+        evidence: "Donaldson MASTER INTERCHANGE",
+        evidenceNote:
+          "Donaldson MASTER INTERCHANGE; PDF file page 279, printed page 1241; Sure Filter SFA0015 same-row mapping to Donaldson P150135. FOR REFERENCE PURPOSES ONLY—CHECK VEHICLE APPLICATION LISTING FOR CORRECT DONALDSON FILTER.",
+      },
+    ],
     stockStatus: "request",
     sourceType: "official",
     dataQuality: "verified",
@@ -74,7 +84,17 @@ export const donaldsonPriorityProducts: Product[] = [
     imageUrl: "/images/products/donaldson/p158671.png",
     officialUrl: "https://shop.donaldson.com/store/en-th/product/P158671/15745",
     refs: [],
-    crossReferences: [],
+    crossReferences: [
+      {
+        brand: "Sure Filter",
+        partNumber: "SFA0057S",
+        relationType: "unknown",
+        verificationStatus: "pending",
+        evidence: "Donaldson MASTER INTERCHANGE",
+        evidenceNote:
+          "Donaldson MASTER INTERCHANGE; PDF file page 279, printed page 1241; Sure Filter SFA0057S same-row mapping to Donaldson P158671. FOR REFERENCE PURPOSES ONLY—CHECK VEHICLE APPLICATION LISTING FOR CORRECT DONALDSON FILTER.",
+      },
+    ],
     stockStatus: "request",
     sourceType: "official",
     dataQuality: "verified",
@@ -2704,7 +2724,17 @@ export const donaldsonPriorityProducts: Product[] = [
     ],
     officialUrl: "https://shop.donaldson.com/store/en-us/product/P827653",
     refs: [],
-    crossReferences: [],
+    crossReferences: [
+      {
+        brand: "Fleetguard",
+        partNumber: "AF25555",
+        relationType: "unknown",
+        verificationStatus: "pending",
+        evidence: "Donaldson MASTER INTERCHANGE",
+        evidenceNote:
+          "Donaldson MASTER INTERCHANGE; PDF file page 107, printed page 1069; Fleetguard AF25555 same-row mapping to Donaldson P827653. FOR REFERENCE PURPOSES ONLY—CHECK VEHICLE APPLICATION LISTING FOR CORRECT DONALDSON FILTER.",
+      },
+    ],
     stockStatus: "request",
     sourceType: "official",
     sourceNote: "Official Donaldson PDF",
@@ -4013,6 +4043,15 @@ export const donaldsonPriorityProducts: Product[] = [
           "Donaldson Filtration Products for Popular Agricultural Equipment; printed PDF pages 6,7,8,9,10,11; equipment/application AGCO; CNH; JOHN DEERE; skid steer BOBCAT/GEHL/JCB/JOHN DEERE/NEW HOLLAND; filter category Fuel; Boss-approved cross-reference mapping only, not guaranteed interchangeability.",
         approvedBy: "Boss/MRT Supplier",
         approvedAt: "2026-08-27T00:00:00.000Z",
+      },
+      {
+        brand: "Wix",
+        partNumber: "CR522",
+        relationType: "unknown",
+        verificationStatus: "pending",
+        evidence: "Donaldson MASTER INTERCHANGE",
+        evidenceNote:
+          "Donaldson MASTER INTERCHANGE; PDF file page 317, printed page 1279; Wix CR522 same-row mapping to Donaldson P556245. FOR REFERENCE PURPOSES ONLY—CHECK VEHICLE APPLICATION LISTING FOR CORRECT DONALDSON FILTER.",
       },
     ],
     pairedParts: [],
