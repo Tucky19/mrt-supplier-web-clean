@@ -20,7 +20,7 @@ export default function SiteFooter({ locale = "th", className = "" }: Props) {
       <div className="mx-auto grid max-w-7xl gap-10 px-6 py-14 lg:grid-cols-[1.2fr_0.8fr_0.9fr] lg:px-8">
         <div>
           <p className="text-lg font-semibold text-white">
-            {isThai ? "MRT Supplier Co., Ltd." : "MRT Supplier"}
+            {isThai ? "บริษัท เอ็ม อาร์ ที ซัพพลายเออร์ จำกัด" : "MRT Supplier Co., Ltd."}
           </p>
           <p className="mt-4 max-w-md text-sm leading-7 text-slate-400">
             {isThai
@@ -80,8 +80,8 @@ export default function SiteFooter({ locale = "th", className = "" }: Props) {
       <div className="border-t border-slate-800">
         <div className="mx-auto max-w-7xl px-6 py-5 text-xs text-slate-500 lg:px-8">
           {isThai
-            ? "© 2026 MRT Supplier Co., Ltd. สงวนลิขสิทธิ์"
-            : "© 2026 MRT Supplier. All rights reserved."}
+            ? "© 2026 บริษัท เอ็ม อาร์ ที ซัพพลายเออร์ จำกัด สงวนลิขสิทธิ์"
+            : "© 2026 MRT Supplier Co., Ltd. All rights reserved."}
         </div>
       </div>
     </footer>

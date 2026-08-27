@@ -1,12 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import {
-  AirVent,
-  CircleGauge,
   Headset,
   Link2,
   MessageCircle,
-  PackageSearch,
   Users,
 } from "lucide-react";
 import TrackedLineLink from "@/components/analytics/TrackedLineLink";
@@ -44,10 +41,70 @@ const BRANDS = [
   },
 ];
 
-const CATEGORIES = [
-  { name: "Air Filter", query: "air filter", icon: AirVent },
-  { name: "Hydraulic Filter", query: "hydraulic filter", icon: PackageSearch },
-  { name: "Bearings", query: "bearing", icon: CircleGauge },
+const SECONDARY_BRANDS = [
+  {
+    name: "Fleetguard",
+    logo: "/images/brands/secondary/fleetguard.png",
+    width: 225,
+    height: 225,
+    slotClassName: "h-10 sm:h-11",
+  },
+  {
+    name: "Baldwin Filters",
+    logo: "/images/brands/secondary/baldwin-filters.png",
+    width: 600,
+    height: 600,
+    slotClassName: "h-10 sm:h-11",
+  },
+  {
+    name: "Wix Filters",
+    logo: "/images/brands/secondary/wix-filters.png",
+    width: 2000,
+    height: 1862,
+    slotClassName: "h-10 sm:h-11",
+  },
+  {
+    name: "Parker",
+    logo: "/images/brands/secondary/parker.png",
+    width: 518,
+    height: 518,
+    slotClassName: "h-9 sm:h-10",
+  },
+  {
+    name: "K-FLO",
+    logo: "/images/brands/secondary/k-flo.png",
+    width: 210,
+    height: 90,
+    slotClassName: "h-8 sm:h-9",
+  },
+  {
+    name: "Atlas Copco",
+    logo: "/images/brands/secondary/atlas-copco.webp",
+    width: 330,
+    height: 159,
+    slotClassName: "h-8 sm:h-9",
+  },
+  {
+    name: "XCMG",
+    logo: "/images/brands/secondary/xcmg.png",
+    width: 1020,
+    height: 680,
+    slotClassName: "h-8 sm:h-9",
+  },
+  {
+    name: "SANY",
+    logo: "/images/brands/secondary/sany.png",
+    width: 824,
+    height: 1000,
+    slotClassName: "h-11 sm:h-12",
+  },
+  {
+    name: "LiuGong",
+    logo: "/images/brands/secondary/liugong.png",
+    width: 2000,
+    height: 707,
+    slotClassName: "h-7 sm:h-8",
+  },
 ];
 
 export default function SearchFirstHero({ locale }: { locale: string }) {
@@ -170,20 +227,42 @@ export default function SearchFirstHero({ locale }: { locale: string }) {
               ))}
             </div>
 
-            <div className="grid overflow-hidden rounded-[var(--mrt-radius-lg)] border border-[var(--color-border)] bg-[var(--color-surface)] shadow-[var(--shadow-sm)] sm:grid-cols-3">
-              {CATEGORIES.map((category) => {
-                const Icon = category.icon;
-                return (
-                  <Link
-                    key={category.name}
-                    href={`/${locale}/products?q=${encodeURIComponent(category.query)}`}
-                    className={`flex min-h-24 items-center gap-3 border-b border-[var(--color-border)] px-5 py-4 text-sm font-semibold text-[var(--color-text)] transition hover:bg-[var(--color-primary-soft)] sm:border-b-0 sm:border-r last:border-0 ${insetFocusClass}`}
+            <div className="rounded-[var(--mrt-radius-lg)] border border-[var(--color-border)] bg-[var(--color-surface)] p-4 shadow-[var(--shadow-sm)] sm:p-5">
+              <div className="mx-auto max-w-xl text-center">
+                <p className="text-sm font-semibold text-[var(--color-text)]">
+                  {isThai
+                    ? "รับตรวจสอบเบอร์เทียบจากหลายแบรนด์"
+                    : "Cross-reference support for multiple brands"}
+                </p>
+                <p className="mt-2 text-xs leading-5 text-[var(--color-text-muted)] sm:text-sm sm:leading-6">
+                  {isThai
+                    ? "ส่งเบอร์เดิมของคุณ เพื่อค้นหาตัวเลือก Donaldson หรือ MANN-FILTER ที่เหมาะกับการใช้งาน"
+                    : "Send us your existing part number to find a suitable Donaldson or MANN-FILTER option."}
+                </p>
+              </div>
+
+              <ul
+                aria-label={isThai ? "แบรนด์ที่รองรับการตรวจสอบเบอร์เทียบ" : "Brands supported for cross-reference review"}
+                className="mt-4 grid grid-cols-3 gap-2 sm:flex sm:flex-wrap sm:justify-center"
+              >
+                {SECONDARY_BRANDS.map((brand, index) => (
+                  <li
+                    key={brand.name}
+                    className={`flex min-h-16 items-center justify-center rounded-[var(--mrt-radius-md)] border border-[var(--color-border)] bg-white px-3 py-2 sm:min-h-14 ${
+                      index > 4 ? "sm:basis-[calc(25%-0.5rem)]" : "sm:basis-[calc(20%-0.5rem)]"
+                    }`}
                   >
-                    <Icon className="h-8 w-8 shrink-0 text-[var(--color-primary)]" strokeWidth={1.6} />
-                    <span>{category.name}</span>
-                  </Link>
-                );
-              })}
+                    <Image
+                      src={brand.logo}
+                      alt={brand.name}
+                      width={brand.width}
+                      height={brand.height}
+                      className={`w-full object-contain ${brand.slotClassName}`}
+                      sizes="(max-width: 640px) 30vw, 120px"
+                    />
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </div>
