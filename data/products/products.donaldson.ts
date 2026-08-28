@@ -429,6 +429,24 @@ const rawDonaldson: RawDonaldson[] = [
         evidenceNote:
           "Donaldson MASTER INTERCHANGE; PDF file page 205, printed page 1167; MANN & HUMMEL A5008340004 same-row mapping to Donaldson P181063. FOR REFERENCE PURPOSES ONLY—CHECK VEHICLE APPLICATION LISTING FOR CORRECT DONALDSON FILTER.",
       },
+      {
+        brand: "Fleetguard",
+        partNumber: "AF1735K",
+        relationType: "unknown",
+        verificationStatus: "pending",
+        evidence: "Donaldson MASTER INTERCHANGE",
+        evidenceNote:
+          "Donaldson MASTER INTERCHANGE; PDF file page 106, printed page 1068; Fleetguard AF1735K same-row mapping to Donaldson P181063. FOR REFERENCE PURPOSES ONLY—CHECK VEHICLE APPLICATION LISTING FOR CORRECT DONALDSON FILTER.",
+      },
+      {
+        brand: "MAN",
+        partNumber: "50083040004",
+        relationType: "unknown",
+        verificationStatus: "pending",
+        evidence: "Donaldson MASTER INTERCHANGE",
+        evidenceNote:
+          "Donaldson MASTER INTERCHANGE; PDF file page 204, printed page 1166; MAN displayed number 50.08304-0004, normalized customer search form 50083040004, same-row mapping to Donaldson P181063. FOR REFERENCE PURPOSES ONLY—CHECK VEHICLE APPLICATION LISTING FOR CORRECT DONALDSON FILTER.",
+      },
     ],
     spec: "OD 174 mm x ID 107.3 mm x L 406.4 mm x Primary Finned Air Filter",
     specifications: [
@@ -987,6 +1005,17 @@ const donaldsonBatch1: RawDonaldson[] = [
     spec: "OD 351.6 mm x ID 240.7 mm x L 406.4 mm x Primary Round Air Filter",
     refs: [],
     cross_reference: [],
+    crossReferences: [
+      {
+        brand: "Sure Filter",
+        partNumber: "SFA1036",
+        relationType: "unknown",
+        verificationStatus: "pending",
+        evidence: "Donaldson MASTER INTERCHANGE",
+        evidenceNote:
+          "Donaldson MASTER INTERCHANGE; PDF file page 279, printed page 1241; Sure Filter SFA1036 same-row mapping to Donaldson P181036. FOR REFERENCE PURPOSES ONLY—CHECK VEHICLE APPLICATION LISTING FOR CORRECT DONALDSON FILTER.",
+      },
+    ],
     specifications: [
       { label: "Outer Diameter", value: "351.6 mm (13.84 inch)" },
       { label: "Inner Diameter", value: "240.7 mm (9.48 inch)" },
@@ -2012,6 +2041,15 @@ const donaldsonPhase3Batch03: RawDonaldson[] = [
         evidence: "Donaldson MASTER INTERCHANGE",
         evidenceNote:
           "Donaldson MASTER INTERCHANGE; PDF file page 107, printed page 1069; Fleetguard AF25558 same-row mapping to Donaldson P829333. FOR REFERENCE PURPOSES ONLY—CHECK VEHICLE APPLICATION LISTING FOR CORRECT DONALDSON FILTER.",
+      },
+      {
+        brand: "Sakura",
+        partNumber: "A5540",
+        relationType: "unknown",
+        verificationStatus: "pending",
+        evidence: "Donaldson MASTER INTERCHANGE",
+        evidenceNote:
+          "Donaldson MASTER INTERCHANGE; PDF file page 264, printed page 1226; Sakura A5540 same-row mapping to Donaldson P829333. FOR REFERENCE PURPOSES ONLY—CHECK VEHICLE APPLICATION LISTING FOR CORRECT DONALDSON FILTER.",
       },
     ],
     spec: "RadialSeal safety air filter",
@@ -3615,6 +3653,26 @@ const donaldsonRfqSkeletonBatch: RawDonaldson[] = [
       { label: "Style", value: "Round" },
       { label: "Media Type", value: "Cellulose" },
       { label: "UPC Code", value: "742330025796" },
+    ],
+    crossReferences: [
+      {
+        brand: "Fleetguard",
+        partNumber: "AF1768",
+        relationType: "unknown",
+        verificationStatus: "pending",
+        evidence: "Donaldson MASTER INTERCHANGE",
+        evidenceNote:
+          "Donaldson MASTER INTERCHANGE; PDF file page 106, printed page 1068; Fleetguard AF1768 same-row mapping to Donaldson P181080. FOR REFERENCE PURPOSES ONLY—CHECK VEHICLE APPLICATION LISTING FOR CORRECT DONALDSON FILTER.",
+      },
+      {
+        brand: "MANN & HUMMEL",
+        partNumber: "C24430",
+        relationType: "unknown",
+        verificationStatus: "pending",
+        evidence: "Donaldson MASTER INTERCHANGE",
+        evidenceNote:
+          "Donaldson MASTER INTERCHANGE; PDF file page 206, printed page 1168; MANN & HUMMEL C24430 same-row mapping to Donaldson P181080. FOR REFERENCE PURPOSES ONLY—CHECK VEHICLE APPLICATION LISTING FOR CORRECT DONALDSON FILTER.",
+      },
     ],
   },
   {

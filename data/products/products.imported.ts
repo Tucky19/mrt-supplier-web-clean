@@ -508,6 +508,16 @@ export const importedProducts = [
         "label": "UPC Code",
         "value": "742330025970"
       }
+    ],
+    "crossReferences": [
+      {
+        "brand": "Sakura",
+        "partNumber": "A5507",
+        "relationType": "unknown",
+        "verificationStatus": "pending",
+        "evidence": "Donaldson MASTER INTERCHANGE",
+        "evidenceNote": "Donaldson MASTER INTERCHANGE; PDF file page 264, printed page 1226; Sakura A5507 same-row mapping to Donaldson P181103. FOR REFERENCE PURPOSES ONLY—CHECK VEHICLE APPLICATION LISTING FOR CORRECT DONALDSON FILTER."
+      }
     ]
   },
   {
