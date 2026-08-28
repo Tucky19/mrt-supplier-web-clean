@@ -6,11 +6,13 @@ import {
 import { searchProducts } from "@/lib/search/search";
 
 type BatchPair = {
-  brand: "Fleetguard" | "Wix" | "MANN & HUMMEL" | "Sure Filter" | "Sakura";
+  brand: "Fleetguard" | "Wix" | "MANN & HUMMEL" | "MAN" | "Sure Filter" | "Sakura";
   partNumber: string;
   donaldson: string;
   pdfFilePage: number;
   printedPage: string;
+  extraQueries?: string[];
+  requiredEvidenceText?: string[];
 };
 
 const DISCLAIMER =
@@ -47,17 +49,19 @@ const batchPairs: BatchPair[] = [
   },
   {
     brand: "MANN & HUMMEL",
-    partNumber: "C18436",
-    donaldson: "P181063",
+    partNumber: "C24430",
+    donaldson: "P181080",
     pdfFilePage: 206,
     printedPage: "1168",
   },
   {
-    brand: "MANN & HUMMEL",
+    brand: "MAN",
     partNumber: "50083040004",
     donaldson: "P181063",
     pdfFilePage: 204,
     printedPage: "1166",
+    extraQueries: ["50.08304-0004", "MAN 50.08304-0004"],
+    requiredEvidenceText: ["50.08304-0004", "50083040004"],
   },
   {
     brand: "Sure Filter",
@@ -154,6 +158,12 @@ function assertStoredRelation(pair: BatchPair) {
       relation.evidenceNote.includes(DISCLAIMER),
     `${pair.donaldson}/${pair.partNumber} evidenceNote is missing PDF context`,
   );
+  for (const requiredText of pair.requiredEvidenceText ?? []) {
+    assert(
+      relation.evidenceNote?.includes(requiredText),
+      `${pair.donaldson}/${pair.partNumber} evidenceNote is missing ${requiredText}`,
+    );
+  }
 }
 
 function assertSearchQuery(pair: BatchPair, query: string) {
@@ -206,7 +216,11 @@ assert(products.length === 453, `active catalog changed: ${products.length}`);
 for (const pair of batchPairs) {
   assertStoredRelation(pair);
 
-  for (const query of [pair.partNumber, `${pair.brand} ${pair.partNumber}`]) {
+  for (const query of [
+    pair.partNumber,
+    `${pair.brand} ${pair.partNumber}`,
+    ...(pair.extraQueries ?? []),
+  ]) {
     const results = assertSearchQuery(pair, query);
     console.log(
       `${query} -> ${results
@@ -228,7 +242,7 @@ for (const pair of batchPairs) {
   );
 }
 
-for (const excluded of ["P550388", "FS1006", "LF3000", "LF9009", "33358"]) {
+for (const excluded of ["P550388", "FS1006", "LF3000", "LF9009", "33358", "C18436"]) {
   assert(
     batchPairs.every(
       (pair) => pair.donaldson !== excluded && pair.partNumber !== excluded,

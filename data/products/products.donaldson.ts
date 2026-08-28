@@ -439,22 +439,13 @@ const rawDonaldson: RawDonaldson[] = [
           "Donaldson MASTER INTERCHANGE; PDF file page 106, printed page 1068; Fleetguard AF1735K same-row mapping to Donaldson P181063. FOR REFERENCE PURPOSES ONLY—CHECK VEHICLE APPLICATION LISTING FOR CORRECT DONALDSON FILTER.",
       },
       {
-        brand: "MANN & HUMMEL",
-        partNumber: "C18436",
-        relationType: "unknown",
-        verificationStatus: "pending",
-        evidence: "Donaldson MASTER INTERCHANGE",
-        evidenceNote:
-          "Donaldson MASTER INTERCHANGE; PDF file page 206, printed page 1168; MANN & HUMMEL C18436 same-row mapping to Donaldson P181063. FOR REFERENCE PURPOSES ONLY—CHECK VEHICLE APPLICATION LISTING FOR CORRECT DONALDSON FILTER.",
-      },
-      {
-        brand: "MANN & HUMMEL",
+        brand: "MAN",
         partNumber: "50083040004",
         relationType: "unknown",
         verificationStatus: "pending",
         evidence: "Donaldson MASTER INTERCHANGE",
         evidenceNote:
-          "Donaldson MASTER INTERCHANGE; PDF file page 204, printed page 1166; MANN & HUMMEL 50083040004 same-row mapping to Donaldson P181063. FOR REFERENCE PURPOSES ONLY—CHECK VEHICLE APPLICATION LISTING FOR CORRECT DONALDSON FILTER.",
+          "Donaldson MASTER INTERCHANGE; PDF file page 204, printed page 1166; MAN displayed number 50.08304-0004, normalized customer search form 50083040004, same-row mapping to Donaldson P181063. FOR REFERENCE PURPOSES ONLY—CHECK VEHICLE APPLICATION LISTING FOR CORRECT DONALDSON FILTER.",
       },
     ],
     spec: "OD 174 mm x ID 107.3 mm x L 406.4 mm x Primary Finned Air Filter",
@@ -3672,6 +3663,15 @@ const donaldsonRfqSkeletonBatch: RawDonaldson[] = [
         evidence: "Donaldson MASTER INTERCHANGE",
         evidenceNote:
           "Donaldson MASTER INTERCHANGE; PDF file page 106, printed page 1068; Fleetguard AF1768 same-row mapping to Donaldson P181080. FOR REFERENCE PURPOSES ONLY—CHECK VEHICLE APPLICATION LISTING FOR CORRECT DONALDSON FILTER.",
+      },
+      {
+        brand: "MANN & HUMMEL",
+        partNumber: "C24430",
+        relationType: "unknown",
+        verificationStatus: "pending",
+        evidence: "Donaldson MASTER INTERCHANGE",
+        evidenceNote:
+          "Donaldson MASTER INTERCHANGE; PDF file page 206, printed page 1168; MANN & HUMMEL C24430 same-row mapping to Donaldson P181080. FOR REFERENCE PURPOSES ONLY—CHECK VEHICLE APPLICATION LISTING FOR CORRECT DONALDSON FILTER.",
       },
     ],
   },
