@@ -1300,7 +1300,18 @@ export const uploadedProducts = [
 
   applications: ["CUMMINS 154709"],
   refs: ["CUMMINS 154709"],
-  crossReferences: ["CUMMINS 154709"],
+  crossReferences: [
+    "CUMMINS 154709",
+    {
+      brand: "Wix",
+      partNumber: "33109MP",
+      relationType: "unknown",
+      verificationStatus: "pending",
+      evidence: "Donaldson MASTER INTERCHANGE",
+      evidenceNote:
+        "Donaldson MASTER INTERCHANGE; PDF file page 317, printed page 1279; Wix 33109MP same-row mapping to Donaldson P550105. FOR REFERENCE PURPOSES ONLY—CHECK VEHICLE APPLICATION LISTING FOR CORRECT DONALDSON FILTER.",
+    },
+  ],
 
   officialUrl: "https://shop.donaldson.com/store/en-th/product/P550105/20105",
   officialImageUrl: null,

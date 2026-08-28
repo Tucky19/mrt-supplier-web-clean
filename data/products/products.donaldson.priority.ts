@@ -123,7 +123,17 @@ export const donaldsonPriorityProducts: Product[] = [
     imageUrl: "/images/products/donaldson/p181119.png",
     officialUrl: "https://shop.donaldson.com/store/en-us/product/P181119",
     refs: [],
-    crossReferences: [],
+    crossReferences: [
+      {
+        brand: "Sure Filter",
+        partNumber: "SFA1119P",
+        relationType: "unknown",
+        verificationStatus: "pending",
+        evidence: "Donaldson MASTER INTERCHANGE",
+        evidenceNote:
+          "Donaldson MASTER INTERCHANGE; PDF file page 279, printed page 1241; Sure Filter SFA1119P same-row mapping to Donaldson P181119. FOR REFERENCE PURPOSES ONLY—CHECK VEHICLE APPLICATION LISTING FOR CORRECT DONALDSON FILTER.",
+      },
+    ],
     stockStatus: "request",
     sourceType: "official",
     dataQuality: "verified",
@@ -3764,7 +3774,17 @@ export const donaldsonPriorityProducts: Product[] = [
     ],
     officialUrl: "https://shop.donaldson.com/store/en-us/product/P550106",
     refs: [],
-    crossReferences: [],
+    crossReferences: [
+      {
+        brand: "Wix",
+        partNumber: "33115",
+        relationType: "unknown",
+        verificationStatus: "pending",
+        evidence: "Donaldson MASTER INTERCHANGE",
+        evidenceNote:
+          "Donaldson MASTER INTERCHANGE; PDF file page 317, printed page 1279; Wix 33115 same-row mapping to Donaldson P550106. FOR REFERENCE PURPOSES ONLY—CHECK VEHICLE APPLICATION LISTING FOR CORRECT DONALDSON FILTER.",
+      },
+    ],
     pairedParts: [],
     stockStatus: "request",
     sourceType: "official",
