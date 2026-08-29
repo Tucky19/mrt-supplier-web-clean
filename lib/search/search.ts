@@ -1,7 +1,11 @@
 import { products } from "@/data/products/index";
 import { synonyms } from "@/data/synonyms";
 import {
+  dimensionDistanceMm,
+  dimensionToleranceForProduct,
+  hasDimensionSearchCriteria,
   matchesDimensions,
+  parseDimensionSearchCriteria,
   type DimensionSearchCriteria,
 } from "@/lib/search/dimensions";
 import {
@@ -403,6 +407,35 @@ export function searchProducts(
   const query = normalize(q);
 
   if (!query) return [];
+
+  const dimensionCriteria = parseDimensionSearchCriteria(q);
+  if (hasDimensionSearchCriteria(dimensionCriteria)) {
+    return catalog
+      .map((item: Product): SearchResult | null => {
+        const toleranceMm = dimensionToleranceForProduct(item);
+        if (
+          !matchesDimensions(item, {
+            ...dimensionCriteria,
+            toleranceMm,
+          })
+        ) {
+          return null;
+        }
+
+        const distanceMm = dimensionDistanceMm(item, dimensionCriteria);
+        return {
+          ...item,
+          _score: 9000 - distanceMm * 100,
+          _matchType: "Dimensions",
+        };
+      })
+      .filter((item): item is SearchResult => item !== null)
+      .sort((a, b) => {
+        if (b._score !== a._score) return b._score - a._score;
+        return a.partNo.localeCompare(b.partNo);
+      })
+      .slice(0, limit);
+  }
 
   const queryVariants = buildQueryVariants(query);
   const specQuery = queryWithoutBrandQualifier(
