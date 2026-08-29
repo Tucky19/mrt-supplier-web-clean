@@ -324,6 +324,41 @@ function buildSpecQueryTokens(query: string) {
   return Array.from(tokens);
 }
 
+function buildRecognizedBrandQualifiers(catalog: Product[]) {
+  const brands = new Set<string>();
+
+  for (const item of catalog) {
+    const productBrand = normalizeLoose(item.brand ?? "");
+    if (productBrand) {
+      brands.add(productBrand);
+    }
+
+    for (const relation of [
+      ...normalizeProductRelations(item.refs ?? [], "unknown"),
+      ...normalizeProductRelations(item.crossReferences ?? [], "unknown"),
+    ]) {
+      const relationBrand = normalizeLoose(relation.brand ?? "");
+      if (relationBrand) {
+        brands.add(relationBrand);
+      }
+    }
+  }
+
+  return Array.from(brands).sort((a, b) => b.length - a.length);
+}
+
+function queryWithoutBrandQualifier(query: string, brandQualifiers: string[]) {
+  const looseQuery = normalizeLoose(query);
+
+  for (const brand of brandQualifiers) {
+    if (looseQuery.startsWith(`${brand} `)) {
+      return looseQuery.slice(brand.length).trim();
+    }
+  }
+
+  return query;
+}
+
 function scoreSpecQueryMatches(specTerms: Set<string>, query: string) {
   const queryTokens = buildSpecQueryTokens(query);
   if (queryTokens.length === 0) {
@@ -370,6 +405,11 @@ export function searchProducts(
   if (!query) return [];
 
   const queryVariants = buildQueryVariants(query);
+  const specQuery = queryWithoutBrandQualifier(
+    q,
+    buildRecognizedBrandQualifiers(catalog),
+  );
+  const normalizedSpecQuery = normalize(specQuery);
 
   const scored: SearchResult[] = catalog.map((item: Product) => {
     let score = 0;
@@ -467,12 +507,12 @@ export function searchProducts(
       if (!matchType) matchType = "Title";
     }
 
-    if (spec.includes(query)) {
-      score += spec.startsWith(query) ? 1100 : 800;
+    if (normalizedSpecQuery && spec.includes(normalizedSpecQuery)) {
+      score += spec.startsWith(normalizedSpecQuery) ? 1100 : 800;
       if (!matchType) matchType = "Spec";
     }
 
-    const specMatchScore = scoreSpecQueryMatches(specTerms, q);
+    const specMatchScore = scoreSpecQueryMatches(specTerms, specQuery);
     if (specMatchScore > 0) {
       score += specMatchScore;
       if (!matchType) matchType = "Spec";
