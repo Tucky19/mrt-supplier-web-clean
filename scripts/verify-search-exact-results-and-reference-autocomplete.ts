@@ -1,5 +1,6 @@
 import {
   focusSearchResults,
+  searchFocusedProducts,
   searchProducts,
 } from "@/lib/search/search";
 
@@ -52,6 +53,27 @@ const partialReferenceNumbers = new Set(
 assert(
   partialReferenceNumbers.has("33651XE"),
   "partial 33651 autocomplete should include 33651XE",
+);
+
+const focusedPartialResults = searchFocusedProducts("336", { limit: 48 });
+assert(
+  focusedPartialResults.length > 0 &&
+    focusedPartialResults.every((result) =>
+      [
+        "Exact",
+        "Prefix",
+        "Cross Ref",
+        "Same-brand Ref",
+        "Kit Component",
+      ].includes(result._matchType),
+    ),
+  "partial part-number search should exclude unrelated title/spec results",
+);
+assert(
+  focusedPartialResults.some(
+    (result) => result._matchedRelation?.partNumber === "33651XE",
+  ),
+  "partial 336 results should include the stored 33651XE reference",
 );
 
 const exactDonaldsonResults = focusSearchResults(
