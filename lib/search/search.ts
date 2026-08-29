@@ -3,9 +3,8 @@ import { synonyms } from "@/data/synonyms";
 import {
   dimensionDistanceMm,
   dimensionToleranceForProduct,
-  hasDimensionSearchCriteria,
+  isFilterProduct,
   matchesDimensions,
-  parseDimensionSearchCriteria,
   type DimensionSearchCriteria,
 } from "@/lib/search/dimensions";
 import {
@@ -408,35 +407,6 @@ export function searchProducts(
 
   if (!query) return [];
 
-  const dimensionCriteria = parseDimensionSearchCriteria(q);
-  if (hasDimensionSearchCriteria(dimensionCriteria)) {
-    return catalog
-      .map((item: Product): SearchResult | null => {
-        const toleranceMm = dimensionToleranceForProduct(item);
-        if (
-          !matchesDimensions(item, {
-            ...dimensionCriteria,
-            toleranceMm,
-          })
-        ) {
-          return null;
-        }
-
-        const distanceMm = dimensionDistanceMm(item, dimensionCriteria);
-        return {
-          ...item,
-          _score: 9000 - distanceMm * 100,
-          _matchType: "Dimensions",
-        };
-      })
-      .filter((item): item is SearchResult => item !== null)
-      .sort((a, b) => {
-        if (b._score !== a._score) return b._score - a._score;
-        return a.partNo.localeCompare(b.partNo);
-      })
-      .slice(0, limit);
-  }
-
   const queryVariants = buildQueryVariants(query);
   const specQuery = queryWithoutBrandQualifier(
     q,
@@ -660,6 +630,72 @@ export function searchFallback(q: string, limit = 5): Product[] {
     .sort((a, b) => b.similarity - a.similarity)
     .slice(0, limit)
     .map((entry) => entry.item);
+}
+
+export type FilterDimensionCategory =
+  | "all"
+  | "air_filter"
+  | "oil_filter"
+  | "fuel_filter"
+  | "hydraulic_filter";
+
+function matchesFilterDimensionCategory(
+  item: Product,
+  category: FilterDimensionCategory,
+) {
+  if (category === "all") return true;
+
+  const text = normalize(`${item.category ?? ""} ${item.title ?? ""}`);
+  if (category === "air_filter") return text.includes("air");
+  if (category === "oil_filter") {
+    return text.includes("oil") || text.includes("lube");
+  }
+  if (category === "fuel_filter") {
+    return text.includes("fuel") || text.includes("waterseparator");
+  }
+  return text.includes("hydraulic");
+}
+
+export function searchFilterProductsByDimensions(
+  criteria: DimensionSearchCriteria,
+  {
+    category = "all",
+    limit = 100,
+  }: { category?: FilterDimensionCategory; limit?: number } = {},
+): SearchResult[] {
+  const hasCriteria =
+    criteria.outerDiameterMm !== undefined ||
+    criteria.innerDiameterMm !== undefined ||
+    criteria.lengthMm !== undefined ||
+    criteria.widthMm !== undefined ||
+    Boolean(criteria.threadSize?.trim());
+
+  if (!hasCriteria) return [];
+
+  const catalog = Array.isArray(products) ? products : [];
+  return catalog
+    .filter(
+      (item) =>
+        isFilterProduct(item) &&
+        matchesFilterDimensionCategory(item, category) &&
+        matchesDimensions(item, {
+          ...criteria,
+          toleranceMm: dimensionToleranceForProduct(item),
+        }),
+    )
+    .map((item) => {
+      const distanceMm = dimensionDistanceMm(item, criteria);
+      return {
+        ...item,
+        _score: 9000 - distanceMm * 100,
+        _matchType: "Dimensions",
+      };
+    })
+    .sort((a, b) => {
+      if (b._score !== a._score) return b._score - a._score;
+      return a.partNo.localeCompare(b.partNo);
+    })
+    .slice(0, limit);
 }
 
 export function searchProductsByDimensions(
