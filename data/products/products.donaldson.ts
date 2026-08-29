@@ -50,6 +50,17 @@ const rawDonaldson: RawDonaldson[] = [
   brand: "Donaldson",
   title: "Hydraulic Filter, Spin-On",
   category: "hydraulic_filter",
+    crossReferences: [
+      {
+        brand: "Sakura",
+        partNumber: "FS8002",
+        relationType: "unknown",
+        verificationStatus: "pending",
+        evidence: "Donaldson MASTER INTERCHANGE",
+        evidenceNote:
+          "Donaldson MASTER INTERCHANGE; PDF file page 265, printed page 1227; Sakura FS8002 same-row mapping to Donaldson P550388. FOR REFERENCE PURPOSES ONLY—CHECK VEHICLE APPLICATION LISTING FOR CORRECT DONALDSON FILTER.",
+      },
+    ],
   spec: "OD 93mm × L 173mm × 1-12 UN",
   officialUrl: "https://shop.donaldson.com/store/en-us/product/P550388/20328",
   specifications: [
@@ -360,6 +371,17 @@ const rawDonaldson: RawDonaldson[] = [
     image: "/images/products/donaldson/p181059.jpg",
     officialUrl: "https://shop.donaldson.com/store/en-us/product/P181059/17821",
     cross_reference: [],
+    crossReferences: [
+      {
+        brand: "Fleetguard",
+        partNumber: "AF1733K",
+        relationType: "unknown",
+        verificationStatus: "pending",
+        evidence: "Donaldson MASTER INTERCHANGE",
+        evidenceNote:
+          "Donaldson MASTER INTERCHANGE; PDF file page 106, printed page 1068; Fleetguard AF1733K same-row mapping to Donaldson P181059. FOR REFERENCE PURPOSES ONLY—CHECK VEHICLE APPLICATION LISTING FOR CORRECT DONALDSON FILTER.",
+      },
+    ],
     spec: "OD 154.6 mm x ID 88.3 mm x L 381 mm x Primary Finned Air Filter",
     specifications: [
       { label: "Outer Diameter", value: "154.6 mm (6.09 inch)" },
@@ -980,6 +1002,17 @@ const donaldsonBatch1: RawDonaldson[] = [
     spec: "OD 323.6 mm x ID 212.9 mm x L 660.4 mm x Primary Round Air Filter",
     refs: [],
     cross_reference: [],
+    crossReferences: [
+      {
+        brand: "Sure Filter",
+        partNumber: "SFA1009",
+        relationType: "unknown",
+        verificationStatus: "pending",
+        evidence: "Donaldson MASTER INTERCHANGE",
+        evidenceNote:
+          "Donaldson MASTER INTERCHANGE; PDF file page 279, printed page 1241; Sure Filter SFA1009 same-row mapping to Donaldson P181009. FOR REFERENCE PURPOSES ONLY—CHECK VEHICLE APPLICATION LISTING FOR CORRECT DONALDSON FILTER.",
+      },
+    ],
     specifications: [
       { label: "Overall Length", value: "673.1 mm (26.50 inch)" },
       { label: "Outer Diameter", value: "323.6 mm (12.74 inch)" },
@@ -2940,6 +2973,17 @@ const donaldsonBatchNewA: RawDonaldson[] = [
     brand: "Donaldson",
     title: "Fuel Filter",
     category: "fuel_filter",
+    crossReferences: [
+      {
+        brand: "Wix",
+        partNumber: "33651XE",
+        relationType: "unknown",
+        verificationStatus: "pending",
+        evidence: "Donaldson MASTER INTERCHANGE",
+        evidenceNote:
+          "Donaldson MASTER INTERCHANGE; PDF file page 318, printed page 1280; Wix 33651XE same-row mapping to Donaldson P550467. FOR REFERENCE PURPOSES ONLY—CHECK VEHICLE APPLICATION LISTING FOR CORRECT DONALDSON FILTER.",
+      },
+    ],
     officialUrl: "https://shop.donaldson.com/store/en-th/product/P550467/20394",
     spec: "Fuel water separator cartridge",
     specifications: [
@@ -3282,6 +3326,15 @@ const donaldsonBatchNewA: RawDonaldson[] = [
     spec: "Spin-on Twist&Drain fuel water separator",
     crossReferences: [
       {
+        brand: "Sure Filter",
+        partNumber: "SFF1212",
+        relationType: "unknown",
+        verificationStatus: "pending",
+        evidence: "Donaldson MASTER INTERCHANGE",
+        evidenceNote:
+          "Donaldson MASTER INTERCHANGE; PDF file page 280, printed page 1242; Sure Filter SFF1212 same-row mapping to Donaldson P558000. FOR REFERENCE PURPOSES ONLY—CHECK VEHICLE APPLICATION LISTING FOR CORRECT DONALDSON FILTER.",
+      },
+      {
         brand: "Fleetguard",
         partNumber: "FS1212",
         relationType: "unknown",
@@ -3540,6 +3593,17 @@ const donaldsonRfqSkeletonBatch: RawDonaldson[] = [
     partNo: "P119374",
     brand: "Donaldson",
     category: "filter",
+    crossReferences: [
+      {
+        brand: "MANN & HUMMEL",
+        partNumber: "C1881",
+        relationType: "unknown",
+        verificationStatus: "pending",
+        evidence: "Donaldson MASTER INTERCHANGE",
+        evidenceNote:
+          "Donaldson MASTER INTERCHANGE; PDF file page 206, printed page 1168; MANN & HUMMEL C1881 same-row mapping to Donaldson P119374. FOR REFERENCE PURPOSES ONLY—CHECK VEHICLE APPLICATION LISTING FOR CORRECT DONALDSON FILTER.",
+      },
+    ],
     title: "Donaldson Filter P119374",
     spec: "Specification to be confirmed",
     stockStatus: "request",
