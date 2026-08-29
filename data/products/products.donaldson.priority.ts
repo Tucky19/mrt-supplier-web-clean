@@ -51,6 +51,15 @@ export const donaldsonPriorityProducts: Product[] = [
     refs: [],
     crossReferences: [
       {
+        brand: "Fleetguard",
+        partNumber: "AF1869",
+        relationType: "unknown",
+        verificationStatus: "pending",
+        evidence: "Donaldson MASTER INTERCHANGE",
+        evidenceNote:
+          "Donaldson MASTER INTERCHANGE; PDF file page 106, printed page 1068; Fleetguard AF1869 same-row mapping to Donaldson P150135. FOR REFERENCE PURPOSES ONLY—CHECK VEHICLE APPLICATION LISTING FOR CORRECT DONALDSON FILTER.",
+      },
+      {
         brand: "Sure Filter",
         partNumber: "SFA0015",
         relationType: "unknown",
@@ -124,6 +133,15 @@ export const donaldsonPriorityProducts: Product[] = [
     officialUrl: "https://shop.donaldson.com/store/en-us/product/P181119",
     refs: [],
     crossReferences: [
+      {
+        brand: "MANN & HUMMEL",
+        partNumber: "C18369",
+        relationType: "unknown",
+        verificationStatus: "pending",
+        evidence: "Donaldson MASTER INTERCHANGE",
+        evidenceNote:
+          "Donaldson MASTER INTERCHANGE; PDF file page 206, printed page 1168; MANN & HUMMEL C18369 same-row mapping to Donaldson P181119. FOR REFERENCE PURPOSES ONLY—CHECK VEHICLE APPLICATION LISTING FOR CORRECT DONALDSON FILTER.",
+      },
       {
         brand: "Sure Filter",
         partNumber: "SFA1119P",
@@ -1099,7 +1117,17 @@ export const donaldsonPriorityProducts: Product[] = [
     imageUrl: "/images/products/donaldson/p780006.png",
     officialUrl: "https://shop.donaldson.com/store/en-us/product/P780006",
     refs: [],
-    crossReferences: [],
+    crossReferences: [
+      {
+        brand: "Fleetguard",
+        partNumber: "AF25062",
+        relationType: "unknown",
+        verificationStatus: "pending",
+        evidence: "Donaldson MASTER INTERCHANGE",
+        evidenceNote:
+          "Donaldson MASTER INTERCHANGE; PDF file page 106, printed page 1068; Fleetguard AF25062 same-row mapping to Donaldson P780006. FOR REFERENCE PURPOSES ONLY—CHECK VEHICLE APPLICATION LISTING FOR CORRECT DONALDSON FILTER.",
+      },
+    ],
     stockStatus: "request",
     sourceType: "official",
     dataQuality: "verified",
@@ -1750,7 +1778,17 @@ export const donaldsonPriorityProducts: Product[] = [
     imageUrl: "/images/products/donaldson/p550816.png",
     officialUrl: "https://shop.donaldson.com/store/en-us/product/P550816",
     refs: [],
-    crossReferences: [],
+    crossReferences: [
+      {
+        brand: "Sakura",
+        partNumber: "H5502",
+        relationType: "unknown",
+        verificationStatus: "pending",
+        evidence: "Donaldson MASTER INTERCHANGE",
+        evidenceNote:
+          "Donaldson MASTER INTERCHANGE; PDF file page 265, printed page 1227; Sakura H5502 same-row mapping to Donaldson P550816. FOR REFERENCE PURPOSES ONLY—CHECK VEHICLE APPLICATION LISTING FOR CORRECT DONALDSON FILTER.",
+      },
+    ],
     stockStatus: "request",
     sourceType: "official",
     dataQuality: "verified",
