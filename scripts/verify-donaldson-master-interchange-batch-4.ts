@@ -1,4 +1,5 @@
 import { products } from "@/data/products/index";
+import { normalizeProductRelations } from "@/lib/products/relations";
 import { searchProducts } from "@/lib/search/search";
 
 type ExpectedRelation = {
@@ -38,15 +39,17 @@ for (const item of expected) {
   const product = products.find((candidate) => candidate.partNo === item.donaldson);
   assert(product, `missing active Donaldson product ${item.donaldson}`);
 
-  const relation = product?.crossReferences?.find(
+  const relation = normalizeProductRelations(
+    product?.crossReferences ?? [],
+    "unknown",
+  ).find(
     (candidate) =>
-      typeof candidate !== "string" &&
       candidate.brand === item.brand &&
       candidate.partNumber === item.competitor,
   );
 
-  assert(relation && typeof relation !== "string", `missing ${item.brand} ${item.competitor}`);
-  if (!relation || typeof relation === "string") continue;
+  assert(relation, `missing ${item.brand} ${item.competitor}`);
+  if (!relation) continue;
 
   assert(relation.relationType === "unknown", `${item.competitor} relationType changed`);
   assert(relation.verificationStatus === "pending", `${item.competitor} status changed`);
