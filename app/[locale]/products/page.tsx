@@ -15,7 +15,6 @@ import JsonLd from "@/components/seo/JsonLd";
 import { products } from "@/data/products/index";
 import { isPreliminaryRelation } from "@/lib/products/relations";
 import {
-  focusSearchResults,
   searchFocusedProducts,
   type SearchResult,
 } from "@/lib/search/search";
@@ -171,9 +170,9 @@ export default async function ProductsPage({
       ];
 
   const visibleProducts: Array<Product | SearchResult> = hasQuery
-    ? focusSearchResults(
-        searchFocusedProducts(query, { limit: SEARCH_RESULT_LIMIT }),
-      ).map((hit) => hydrateSearchHit(hit, products))
+    ? searchFocusedProducts(query, { limit: SEARCH_RESULT_LIMIT }).map((hit) =>
+        hydrateSearchHit(hit, products),
+      )
     : products.slice(0, DEFAULT_PRODUCT_LIMIT);
   const hasExactPartNumberResult = hasQuery
     ? visibleProducts.some((product) => getResultMatchType(product) === "Exact")
