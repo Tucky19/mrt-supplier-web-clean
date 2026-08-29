@@ -14,7 +14,11 @@ import SearchBar from "@/components/search/SearchBar";
 import JsonLd from "@/components/seo/JsonLd";
 import { products } from "@/data/products/index";
 import { isPreliminaryRelation } from "@/lib/products/relations";
-import { searchProducts, type SearchResult } from "@/lib/search/search";
+import {
+  focusSearchResults,
+  searchProducts,
+  type SearchResult,
+} from "@/lib/search/search";
 import type { Product } from "@/types/product";
 
 type PageProps = {
@@ -167,9 +171,9 @@ export default async function ProductsPage({
       ];
 
   const visibleProducts: Array<Product | SearchResult> = hasQuery
-    ? searchProducts(query, { limit: SEARCH_RESULT_LIMIT }).map((hit) =>
-        hydrateSearchHit(hit, products),
-      )
+    ? focusSearchResults(
+        searchProducts(query, { limit: SEARCH_RESULT_LIMIT }),
+      ).map((hit) => hydrateSearchHit(hit, products))
     : products.slice(0, DEFAULT_PRODUCT_LIMIT);
   const hasExactPartNumberResult = hasQuery
     ? visibleProducts.some((product) => getResultMatchType(product) === "Exact")
