@@ -7,6 +7,7 @@ import {
   parseDimensionSearchCriteria,
   parseMillimeters,
 } from "@/lib/search/dimensions";
+import { searchProducts } from "@/lib/search/search";
 import type { Product } from "@/types/product";
 
 assert.equal(parseMillimeters("128.8 mm (5.07 inch)"), 128.8);
@@ -98,5 +99,22 @@ assert.equal(
   }),
   false,
 );
+
+const catalogDimensionResults = searchProducts("OD 93", { limit: 50 });
+assert.ok(catalogDimensionResults.length > 0);
+assert.ok(
+  catalogDimensionResults.every(
+    (result) => result._matchType === "Dimensions",
+  ),
+);
+assert.ok(
+  catalogDimensionResults.some((result) => result.partNo === "P550388"),
+);
+for (let index = 1; index < catalogDimensionResults.length; index += 1) {
+  assert.ok(
+    catalogDimensionResults[index - 1]._score >=
+      catalogDimensionResults[index]._score,
+  );
+}
 
 console.log("Dimension search verification passed.");
