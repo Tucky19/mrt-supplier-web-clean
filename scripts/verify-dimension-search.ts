@@ -2,12 +2,11 @@ import assert from "node:assert/strict";
 import {
   dimensionToleranceForProduct,
   getNormalizedDimensions,
-  hasDimensionSearchCriteria,
+  isFilterProduct,
   matchesDimensions,
-  parseDimensionSearchCriteria,
   parseMillimeters,
 } from "@/lib/search/dimensions";
-import { searchProducts } from "@/lib/search/search";
+import { searchFilterProductsByDimensions } from "@/lib/search/search";
 import type { Product } from "@/types/product";
 
 assert.equal(parseMillimeters("128.8 mm (5.07 inch)"), 128.8);
@@ -54,18 +53,6 @@ assert.equal(
   false,
 );
 
-const parsedCriteria = parseDimensionSearchCriteria(
-  "OD 130 ID 85 Length 280 Thread 1-1/8-16 UN",
-);
-assert.deepEqual(parsedCriteria, {
-  outerDiameterMm: 130,
-  innerDiameterMm: 85,
-  lengthMm: 280,
-  widthMm: undefined,
-  threadSize: "1-1/8-16 UN",
-});
-assert.equal(hasDimensionSearchCriteria(parsedCriteria), true);
-
 const bearing: Product = {
   id: "bearing-test",
   partNo: "6205ZZ",
@@ -100,11 +87,19 @@ assert.equal(
   false,
 );
 
-const catalogDimensionResults = searchProducts("OD 93", { limit: 50 });
+assert.equal(isFilterProduct(filter), true);
+assert.equal(isFilterProduct(bearing), false);
+
+const catalogDimensionResults = searchFilterProductsByDimensions(
+  { outerDiameterMm: 93 },
+  { limit: 100 },
+);
 assert.ok(catalogDimensionResults.length > 0);
 assert.ok(
   catalogDimensionResults.every(
-    (result) => result._matchType === "Dimensions",
+    (result) =>
+      result._matchType === "Dimensions" &&
+      !String(result.category ?? "").toLowerCase().includes("bearing"),
   ),
 );
 assert.ok(
@@ -116,5 +111,22 @@ for (let index = 1; index < catalogDimensionResults.length; index += 1) {
       catalogDimensionResults[index]._score,
   );
 }
+
+const exactP550388 = searchFilterProductsByDimensions({
+  outerDiameterMm: 93,
+  lengthMm: 173,
+  threadSize: "1-12 UN",
+});
+assert.ok(exactP550388.some((result) => result.partNo === "P550388"));
+
+const boundaryP550388 = searchFilterProductsByDimensions({
+  outerDiameterMm: 96,
+});
+assert.ok(boundaryP550388.some((result) => result.partNo === "P550388"));
+
+const outsideP550388 = searchFilterProductsByDimensions({
+  outerDiameterMm: 96.01,
+});
+assert.ok(!outsideP550388.some((result) => result.partNo === "P550388"));
 
 console.log("Dimension search verification passed.");
