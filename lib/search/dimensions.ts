@@ -119,6 +119,101 @@ export function getNormalizedDimensions(product: Product): NormalizedDimensions 
   };
 }
 
+export const FILTER_DIMENSION_TOLERANCE_MM = 3;
+
+export function isFilterProduct(product: Product) {
+  const category = String(product.category ?? "").toLowerCase();
+  const title = String(product.title ?? "").toLowerCase();
+
+  if (category.includes("bearing") || title.includes("bearing")) {
+    return false;
+  }
+
+  return category.includes("filter") || title.includes("filter");
+}
+
+export function dimensionToleranceForProduct(product: Product) {
+  return isFilterProduct(product) ? FILTER_DIMENSION_TOLERANCE_MM : 0;
+}
+
+function dimensionValueAfterLabel(query: string, labels: string[]) {
+  const labelPattern = labels.join("|");
+  const match = query.match(
+    new RegExp(
+      `(?:^|\\s)(?:${labelPattern})\\s*[:=]?\\s*(-?\\d+(?:\\.\\d+)?)\\s*(?:mm)?(?=\\s|$)`,
+      "i",
+    ),
+  );
+
+  return match ? Number(match[1]) : undefined;
+}
+
+export function parseDimensionSearchCriteria(
+  query: string,
+): DimensionSearchCriteria {
+  const criteria: DimensionSearchCriteria = {
+    outerDiameterMm: dimensionValueAfterLabel(query, [
+      "od",
+      "outer\\s*diameter",
+    ]),
+    innerDiameterMm: dimensionValueAfterLabel(query, [
+      "id",
+      "inner\\s*diameter",
+      "bore(?:\\s*diameter)?",
+    ]),
+    lengthMm: dimensionValueAfterLabel(query, [
+      "l",
+      "length",
+      "height",
+    ]),
+    widthMm: dimensionValueAfterLabel(query, ["w", "width"]),
+  };
+  const threadMatch = query.match(
+    /(?:^|\s)thread(?:\s*size)?\s*[:=]?\s*(.+?)(?=\s+(?:od|id|outer\s*diameter|inner\s*diameter|length|height|width)\b|$)/i,
+  );
+
+  if (threadMatch?.[1]?.trim()) {
+    criteria.threadSize = threadMatch[1].trim();
+  }
+
+  return criteria;
+}
+
+export function hasDimensionSearchCriteria(
+  criteria: DimensionSearchCriteria,
+) {
+  return (
+    criteria.outerDiameterMm !== undefined ||
+    criteria.innerDiameterMm !== undefined ||
+    criteria.lengthMm !== undefined ||
+    criteria.widthMm !== undefined ||
+    Boolean(criteria.threadSize?.trim())
+  );
+}
+
+export function dimensionDistanceMm(
+  product: Product,
+  criteria: DimensionSearchCriteria,
+) {
+  const normalized = getNormalizedDimensions(product);
+  const fields: DimensionField[] = [
+    "outerDiameterMm",
+    "innerDiameterMm",
+    "lengthMm",
+    "widthMm",
+  ];
+
+  return fields.reduce((distance, field) => {
+    const requested = criteria[field];
+    if (requested === undefined) return distance;
+
+    const actual = normalized[field];
+    return actual === undefined
+      ? Number.POSITIVE_INFINITY
+      : distance + Math.abs(actual - requested);
+  }, 0);
+}
+
 export function matchesDimensions(
   product: Product,
   criteria: DimensionSearchCriteria,
