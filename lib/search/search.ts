@@ -556,6 +556,31 @@ export function searchProducts(
     .slice(0, limit);
 }
 
+export function focusSearchResults(results: SearchResult[]): SearchResult[] {
+  const exactPartResults = results.filter((item) => item._matchType === "Exact");
+  if (exactPartResults.length > 0) {
+    return exactPartResults;
+  }
+
+  const exactReferenceResults = results.filter(
+    (item) =>
+      item._matchType === "Cross Ref" ||
+      item._matchType === "Same-brand Ref",
+  );
+  if (exactReferenceResults.length > 0) {
+    return exactReferenceResults;
+  }
+
+  const exactKitResults = results.filter(
+    (item) => item._matchType === "Kit Component",
+  );
+  if (exactKitResults.length > 0) {
+    return exactKitResults;
+  }
+
+  return results;
+}
+
 export function searchFallback(q: string, limit = 5): Product[] {
   const query = normalize(q);
   if (!query) return [];
