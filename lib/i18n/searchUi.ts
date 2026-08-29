@@ -29,6 +29,9 @@ export function getSearchUiText(locale: string) {
       : "Same-brand reference",
     usedTogetherMatch: isThai ? "สินค้าที่ใช้ร่วมกัน" : "Used-together part",
     relatedMatch: isThai ? "ผลลัพธ์ที่เกี่ยวข้อง" : "Related match",
+    dimensionMatch: isThai
+      ? "ขนาดใกล้เคียง ±3 มม."
+      : "Dimension match ±3 mm",
     viewAllResults: isThai
       ? "ดูผลลัพธ์ทั้งหมดสำหรับ"
       : "View all results for",
