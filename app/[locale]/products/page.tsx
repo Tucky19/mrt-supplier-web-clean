@@ -16,7 +16,7 @@ import { products } from "@/data/products/index";
 import { isPreliminaryRelation } from "@/lib/products/relations";
 import {
   focusSearchResults,
-  searchProducts,
+  searchFocusedProducts,
   type SearchResult,
 } from "@/lib/search/search";
 import type { Product } from "@/types/product";
@@ -172,7 +172,7 @@ export default async function ProductsPage({
 
   const visibleProducts: Array<Product | SearchResult> = hasQuery
     ? focusSearchResults(
-        searchProducts(query, { limit: SEARCH_RESULT_LIMIT }),
+        searchFocusedProducts(query, { limit: SEARCH_RESULT_LIMIT }),
       ).map((hit) => hydrateSearchHit(hit, products))
     : products.slice(0, DEFAULT_PRODUCT_LIMIT);
   const hasExactPartNumberResult = hasQuery
