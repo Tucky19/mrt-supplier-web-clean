@@ -660,7 +660,7 @@ export function searchFilterProductsByDimensions(
   criteria: DimensionSearchCriteria,
   {
     category = "all",
-    limit = 100,
+    limit = 500,
   }: { category?: FilterDimensionCategory; limit?: number } = {},
 ): SearchResult[] {
   const hasCriteria =

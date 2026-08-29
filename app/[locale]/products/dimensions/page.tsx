@@ -88,7 +88,7 @@ export default async function FilterDimensionSearchPage({
   const results = hasCriteria
     ? searchFilterProductsByDimensions(criteria, {
         category,
-        limit: 100,
+        limit: 500,
       })
     : [];
   const queryLabel = [
