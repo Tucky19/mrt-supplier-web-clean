@@ -177,6 +177,11 @@ export default async function ProductsPage({
   const hasExactPartNumberResult = hasQuery
     ? visibleProducts.some((product) => getResultMatchType(product) === "Exact")
     : false;
+  const hasDimensionResults =
+    hasQuery &&
+    visibleProducts.some(
+      (product) => getResultMatchType(product) === "Dimensions",
+    );
   const hasPreliminaryRelationResults =
     hasQuery &&
     !hasExactPartNumberResult &&
@@ -243,6 +248,19 @@ export default async function ProductsPage({
                 : "No part number? Send details for our team to identify"}
             </a>
           </div>
+
+          {hasDimensionResults ? (
+            <div className="mt-4 max-w-4xl rounded-[var(--mrt-radius-md)] border border-[var(--color-border)] bg-[var(--color-surface-muted)] px-3.5 py-3 text-sm shadow-[var(--shadow-sm)] sm:px-4">
+              <div className="font-semibold text-[var(--color-text)]">
+                {isThai ? "ค้นหาจากขนาด" : "Dimension search"}
+              </div>
+              <p className="mt-1 leading-5 text-[var(--color-text-muted)]">
+                {isThai
+                  ? "ผลลัพธ์ไส้กรองอยู่ในช่วง ±3 มม. จากขนาดที่ระบุ และเรียงจากขนาดที่ใกล้ที่สุด กรุณาตรวจสอบสเปกก่อนสั่งซื้อ"
+                  : "Filter results are within ±3 mm of the requested dimensions and sorted by closest fit. Verify specifications before ordering."}
+              </p>
+            </div>
+          ) : null}
 
           {hasPreliminaryRelationResults ? (
             <div className="mt-4 max-w-4xl rounded-[var(--mrt-radius-md)] border border-[var(--color-border)] bg-[var(--color-surface-muted)] px-3.5 py-3 text-sm shadow-[var(--shadow-sm)] sm:px-4">
