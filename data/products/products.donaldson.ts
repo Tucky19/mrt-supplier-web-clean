@@ -48,8 +48,8 @@ const rawDonaldson: RawDonaldson[] = [
   id: "donaldson-p550388",
   partNo: "P550388",
   brand: "Donaldson",
-  title: "Oil Filter",
-  category: "oil_filter",
+  title: "Hydraulic Filter, Spin-On",
+  category: "hydraulic_filter",
   spec: "OD 93mm × L 173mm × 1-12 UN",
   officialUrl: "https://shop.donaldson.com/store/en-us/product/P550388/20328",
   specifications: [
