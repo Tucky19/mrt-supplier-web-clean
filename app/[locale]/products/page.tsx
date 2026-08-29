@@ -161,12 +161,10 @@ export default async function ProductsPage({
     ? [
         "ค้นหาด้วย Part No.",
         "ค้นหาด้วย Cross Reference",
-        "ค้นหาด้วย OD / ID / Length / Thread Size",
       ]
     : [
         "Search by Part No.",
         "Search by Cross Reference",
-        "Search by OD / ID / Length / Thread Size",
       ];
 
   const visibleProducts: Array<Product | SearchResult> = hasQuery
@@ -177,11 +175,6 @@ export default async function ProductsPage({
   const hasExactPartNumberResult = hasQuery
     ? visibleProducts.some((product) => getResultMatchType(product) === "Exact")
     : false;
-  const hasDimensionResults =
-    hasQuery &&
-    visibleProducts.some(
-      (product) => getResultMatchType(product) === "Dimensions",
-    );
   const hasPreliminaryRelationResults =
     hasQuery &&
     !hasExactPartNumberResult &&
@@ -237,6 +230,12 @@ export default async function ProductsPage({
                   {label}
                 </span>
               ))}
+              <a
+                href={`/${locale}/products/dimensions`}
+                className="inline-flex rounded-full border border-[var(--color-primary)] bg-[var(--color-primary-soft)] px-3 py-1.5 text-xs font-semibold text-[var(--color-primary)] transition hover:bg-[var(--color-primary)] hover:text-[var(--color-text-inverse)]"
+              >
+                {isThai ? "ค้นหาด้วยขนาดไส้กรอง" : "Search filters by dimensions"}
+              </a>
             </div>
 
             <a
@@ -248,19 +247,6 @@ export default async function ProductsPage({
                 : "No part number? Send details for our team to identify"}
             </a>
           </div>
-
-          {hasDimensionResults ? (
-            <div className="mt-4 max-w-4xl rounded-[var(--mrt-radius-md)] border border-[var(--color-border)] bg-[var(--color-surface-muted)] px-3.5 py-3 text-sm shadow-[var(--shadow-sm)] sm:px-4">
-              <div className="font-semibold text-[var(--color-text)]">
-                {isThai ? "ค้นหาจากขนาด" : "Dimension search"}
-              </div>
-              <p className="mt-1 leading-5 text-[var(--color-text-muted)]">
-                {isThai
-                  ? "ผลลัพธ์ไส้กรองอยู่ในช่วง ±3 มม. จากขนาดที่ระบุ และเรียงจากขนาดที่ใกล้ที่สุด กรุณาตรวจสอบสเปกก่อนสั่งซื้อ"
-                  : "Filter results are within ±3 mm of the requested dimensions and sorted by closest fit. Verify specifications before ordering."}
-              </p>
-            </div>
-          ) : null}
 
           {hasPreliminaryRelationResults ? (
             <div className="mt-4 max-w-4xl rounded-[var(--mrt-radius-md)] border border-[var(--color-border)] bg-[var(--color-surface-muted)] px-3.5 py-3 text-sm shadow-[var(--shadow-sm)] sm:px-4">
