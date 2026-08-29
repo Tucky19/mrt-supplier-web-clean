@@ -119,6 +119,46 @@ export function getNormalizedDimensions(product: Product): NormalizedDimensions 
   };
 }
 
+export const FILTER_DIMENSION_TOLERANCE_MM = 3;
+
+export function isFilterProduct(product: Product) {
+  const category = String(product.category ?? "").toLowerCase();
+  const title = String(product.title ?? "").toLowerCase();
+
+  if (category.includes("bearing") || title.includes("bearing")) {
+    return false;
+  }
+
+  return category.includes("filter") || title.includes("filter");
+}
+
+export function dimensionToleranceForProduct(product: Product) {
+  return isFilterProduct(product) ? FILTER_DIMENSION_TOLERANCE_MM : 0;
+}
+
+export function dimensionDistanceMm(
+  product: Product,
+  criteria: DimensionSearchCriteria,
+) {
+  const normalized = getNormalizedDimensions(product);
+  const fields: DimensionField[] = [
+    "outerDiameterMm",
+    "innerDiameterMm",
+    "lengthMm",
+    "widthMm",
+  ];
+
+  return fields.reduce((distance, field) => {
+    const requested = criteria[field];
+    if (requested === undefined) return distance;
+
+    const actual = normalized[field];
+    return actual === undefined
+      ? Number.POSITIVE_INFINITY
+      : distance + Math.abs(actual - requested);
+  }, 0);
+}
+
 export function matchesDimensions(
   product: Product,
   criteria: DimensionSearchCriteria,

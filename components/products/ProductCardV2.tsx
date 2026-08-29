@@ -104,6 +104,14 @@ function getMatchPresentation(
     return null;
   }
 
+  if (matchType === "Dimensions") {
+    return {
+      label: text.dimensionMatch,
+      className:
+        "border-[var(--color-border-strong)] bg-[var(--color-primary-soft)] text-[var(--color-primary)]",
+    };
+  }
+
   if (matchType === "Kit Component") {
     return {
       label: `${text.usedTogetherMatch}${querySuffix}`,

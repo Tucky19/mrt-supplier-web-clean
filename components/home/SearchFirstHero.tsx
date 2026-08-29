@@ -4,6 +4,7 @@ import {
   Headset,
   Link2,
   MessageCircle,
+  Ruler,
   Users,
 } from "lucide-react";
 import TrackedLineLink from "@/components/analytics/TrackedLineLink";
@@ -176,6 +177,32 @@ export default function SearchFirstHero({ locale }: { locale: string }) {
               {isThai ? "ขอใบเสนอราคา" : "Request Quote"}
             </Link>
           </div>
+          <div className="mt-3 flex flex-col gap-2 rounded-[var(--mrt-radius-md)] border border-[var(--color-border)] bg-[var(--color-primary-soft)] px-3.5 py-3 sm:flex-row sm:items-center sm:justify-between sm:px-4">
+            <div className="flex items-center justify-center gap-2 text-center sm:justify-start sm:text-left">
+              <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[var(--color-surface)] text-[var(--color-primary)]">
+                <Ruler className="h-4 w-4" aria-hidden="true" />
+              </span>
+              <div>
+                <p className="text-sm font-semibold text-[var(--color-text)]">
+                  {isThai
+                    ? "ไม่มี Part No. แต่ทราบขนาดไส้กรอง?"
+                    : "No Part No., but know the filter dimensions?"}
+                </p>
+                <p className="mt-0.5 text-xs text-[var(--color-text-muted)]">
+                  {isThai
+                    ? "ค้นหาจาก OD, ID, Length/Height และ Thread Size"
+                    : "Search by OD, ID, Length/Height, and Thread Size"}
+                </p>
+              </div>
+            </div>
+            <Link
+              href={`/${locale}/products/dimensions`}
+              className={`inline-flex min-h-10 shrink-0 items-center justify-center rounded-[var(--mrt-radius-md)] border border-[var(--color-primary)] bg-[var(--color-surface)] px-4 text-sm font-semibold text-[var(--color-primary)] transition hover:bg-[var(--color-primary)] hover:text-[var(--color-text-inverse)] ${lightFocusClass}`}
+            >
+              {isThai ? "ค้นหาด้วยขนาด →" : "Search by dimensions →"}
+            </Link>
+          </div>
+
           <div className="mt-3 flex flex-col gap-2 border-t border-[var(--color-border)] pt-3 text-center text-xs text-[var(--color-text-muted)] sm:flex-row sm:items-center sm:justify-between sm:text-left">
             <div>
               {isThai ? "ไม่พบสินค้าที่ต้องการ? " : "Cannot find the item? "}

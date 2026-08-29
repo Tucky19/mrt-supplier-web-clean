@@ -161,12 +161,10 @@ export default async function ProductsPage({
     ? [
         "ค้นหาด้วย Part No.",
         "ค้นหาด้วย Cross Reference",
-        "ค้นหาด้วย OD / ID / Length / Thread Size",
       ]
     : [
         "Search by Part No.",
         "Search by Cross Reference",
-        "Search by OD / ID / Length / Thread Size",
       ];
 
   const visibleProducts: Array<Product | SearchResult> = hasQuery
@@ -232,6 +230,12 @@ export default async function ProductsPage({
                   {label}
                 </span>
               ))}
+              <a
+                href={`/${locale}/products/dimensions`}
+                className="inline-flex rounded-full border border-[var(--color-primary)] bg-[var(--color-primary-soft)] px-3 py-1.5 text-xs font-semibold text-[var(--color-primary)] transition hover:bg-[var(--color-primary)] hover:text-[var(--color-text-inverse)]"
+              >
+                {isThai ? "ค้นหาด้วยขนาดไส้กรอง" : "Search filters by dimensions"}
+              </a>
             </div>
 
             <a
