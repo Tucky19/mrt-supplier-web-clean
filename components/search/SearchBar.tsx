@@ -279,9 +279,13 @@ export default function SearchBar({
 
   const trimmedQuery = draftQuery.trim();
   const showViewAllResults = trimmedQuery.length >= 2;
+  const getSuggestionDisplayValue = (suggestion: (typeof suggestions)[number]) =>
+    isReferenceSuggestion(suggestion._matchType)
+      ? suggestion._matchedRelation?.partNumber ?? suggestion.partNo
+      : suggestion.partNo;
   const getSuggestionNavigationValue = (suggestion: (typeof suggestions)[number]) =>
     isReferenceSuggestion(suggestion._matchType) && !hasExactPartNumberSuggestion
-      ? trimmedQuery
+      ? getSuggestionDisplayValue(suggestion)
       : suggestion.partNo;
   const dropdownItems = [
     ...visibleRecents.map((recent) => ({
@@ -581,7 +585,10 @@ export default function SearchBar({
                                 : "text-[var(--color-text)] group-hover:text-[var(--color-text-inverse)] group-active:text-[var(--color-text-inverse)]"
                             }`}
                           >
-                            {highlightMatch(suggestion.partNo, draftQuery)}
+                            {highlightMatch(
+                              getSuggestionDisplayValue(suggestion),
+                              draftQuery,
+                            )}
                           </span>
                         </span>
                         <span
