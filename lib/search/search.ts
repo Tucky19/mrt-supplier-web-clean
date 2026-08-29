@@ -581,6 +581,33 @@ export function focusSearchResults(results: SearchResult[]): SearchResult[] {
   return results;
 }
 
+export function searchFocusedProducts(
+  q: string,
+  { limit = 50 }: { limit?: number } = {},
+): SearchResult[] {
+  const exactResults = searchProducts(q, { limit });
+  const focusedExactResults = focusSearchResults(exactResults);
+
+  if (focusedExactResults !== exactResults) {
+    return focusedExactResults;
+  }
+
+  const partialCandidates = searchProducts(q, {
+    limit,
+    allowPartialRelationMatches: true,
+  }).filter((item) =>
+    [
+      "Exact",
+      "Prefix",
+      "Cross Ref",
+      "Same-brand Ref",
+      "Kit Component",
+    ].includes(item._matchType),
+  );
+
+  return partialCandidates.length > 0 ? partialCandidates : exactResults;
+}
+
 export function searchFallback(q: string, limit = 5): Product[] {
   const query = normalize(q);
   if (!query) return [];
