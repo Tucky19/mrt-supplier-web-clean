@@ -1,6 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
-import { parseMultiPartInputs } from "@/lib/search/multiPartInput";
-import { focusSearchResults, searchProducts } from "@/lib/search/search";
+import {
+  MAX_MULTI_PART_ROWS,
+  parseMultiPartInputs,
+} from "@/lib/search/multiPartInput";
+import { createExactProductLookup } from "@/lib/search/search";
 
 export const dynamic = "force-dynamic";
 
@@ -26,15 +29,18 @@ export async function POST(req: NextRequest) {
 
   const rows = parseMultiPartInputs(rawPartNumbers);
 
+  if (rows.length > MAX_MULTI_PART_ROWS) {
+    return NextResponse.json(
+      { error: "too_many_items", maxItems: MAX_MULTI_PART_ROWS },
+      { status: 400 },
+    );
+  }
+
+  const exactLookup = createExactProductLookup();
+
   const results = rows.map((row) => {
-    const matches: ProductMatch[] = focusSearchResults(
-      searchProducts(row.originalPartNo, { limit: 25 }),
-    )
-      .filter((item) =>
-        ["Exact", "Cross Ref", "Same-brand Ref", "Kit Component"].includes(
-          item._matchType,
-        ),
-      )
+    const matches: ProductMatch[] = exactLookup
+      .find(row.originalPartNo)
       .map((item) => ({
         id: item.id,
         partNo: item.partNo,
