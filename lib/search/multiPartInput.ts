@@ -4,7 +4,7 @@ export type MultiPartInputRow = {
   qty: number;
 };
 
-const MAX_ROWS = 100;
+export const MAX_MULTI_PART_ROWS = 100;
 const MAX_QTY = 999;
 
 export function normalizeMultiPartNumber(value: string) {
@@ -59,7 +59,6 @@ function mergeRows(rows: Array<{ partNo: string; qty: number }>) {
       continue;
     }
 
-    if (merged.size >= MAX_ROWS) break;
     merged.set(normalizedPartNo, {
       originalPartNo: row.partNo,
       normalizedPartNo,
