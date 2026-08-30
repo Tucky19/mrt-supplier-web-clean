@@ -225,7 +225,7 @@ export default function MultiPartNumberSearch({ locale }: Props) {
   };
 
   return (
-    <div className="mt-4 max-w-4xl">
+    <div className="mt-4 w-full">
       {!expanded ? (
         <button
           type="button"
