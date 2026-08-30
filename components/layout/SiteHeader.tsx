@@ -30,6 +30,7 @@ export default function SiteHeader({ locale }: Props) {
     home: isThai ? '\u0e2b\u0e19\u0e49\u0e32\u0e41\u0e23\u0e01' : 'Home',
     products: isThai ? '\u0e2a\u0e34\u0e19\u0e04\u0e49\u0e32' : 'Products',
     brands: isThai ? '\u0e41\u0e1a\u0e23\u0e19\u0e14\u0e4c\u0e2a\u0e34\u0e19\u0e04\u0e49\u0e32' : 'Brands',
+    feedback: isThai ? 'ติชมการใช้งาน' : 'Feedback',
     contact: isThai ? '\u0e15\u0e34\u0e14\u0e15\u0e48\u0e2d\u0e40\u0e23\u0e32' : 'Contact',
     requestQuote: isThai
       ? '\u0e02\u0e2d\u0e43\u0e1a\u0e40\u0e2a\u0e19\u0e2d\u0e23\u0e32\u0e04\u0e32'
@@ -68,6 +69,7 @@ export default function SiteHeader({ locale }: Props) {
     { href: `/${locale}`, label: text.home },
     { href: `/${locale}/products`, label: text.products },
     { href: `/${locale}/brands`, label: text.brands },
+    { href: `/${locale}/feedback`, label: text.feedback },
     { href: `/${locale}/contact`, label: text.contact },
     { href: `/${locale}/quote`, label: text.requestQuote },
   ];
@@ -113,6 +115,12 @@ export default function SiteHeader({ locale }: Props) {
             className={`rounded-[var(--mrt-radius-md)] text-[var(--color-text)] hover:text-[var(--color-primary-hover)] ${lightFocusClass}`}
           >
             {text.brands}
+          </Link>
+          <Link
+            href={`/${locale}/feedback`}
+            className={`rounded-[var(--mrt-radius-md)] text-[var(--color-text)] hover:text-[var(--color-primary-hover)] ${lightFocusClass}`}
+          >
+            {text.feedback}
           </Link>
           <Link
             href={`/${locale}/contact`}
