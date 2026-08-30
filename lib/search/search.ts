@@ -13,6 +13,7 @@ import {
   normalizeProductRelations,
   relationSearchTerms,
 } from "@/lib/products/relations";
+import { hasVerifiedMrtStock, isMrtCoreBrand } from "@/lib/products/stock";
 
 type ProductSpecification = {
   label: string;
@@ -34,6 +35,13 @@ export type Product = {
     note?: string;
   }>;
   specifications?: ProductSpecification[];
+  stockStatus?: string;
+  mrtStockEvidence?: {
+    status: "in_stock";
+    checkedAt: string;
+    source: "physical_count" | "internal_record";
+    note?: string;
+  };
 };
 
 export type SearchResult = Product & {
@@ -46,6 +54,23 @@ export type SearchResult = Product & {
 export type ExactProductLookup = {
   find: (query: string) => SearchResult[];
 };
+
+function mrtBrandPriority(product: Product) {
+  if (hasVerifiedMrtStock(product) && !isMrtCoreBrand(product.brand)) return 3;
+  if (isMrtCoreBrand(product.brand)) return 2;
+  return 1;
+}
+
+function sortByMrtPriority(results: SearchResult[]) {
+  return [...results].sort((a, b) => {
+    if (b._score !== a._score) return b._score - a._score;
+
+    const priorityDifference = mrtBrandPriority(b) - mrtBrandPriority(a);
+    if (priorityDifference !== 0) return priorityDifference;
+
+    return a.partNo.localeCompare(b.partNo);
+  });
+}
 
 const SPEC_ALIAS_MAP: Record<string, string[]> = {
   outerdiameter: ["outerdiameter", "od"],
@@ -551,6 +576,9 @@ export function searchProducts(
     .sort((a, b) => {
       if (b._score !== a._score) return b._score - a._score;
 
+      const priorityDifference = mrtBrandPriority(b) - mrtBrandPriority(a);
+      if (priorityDifference !== 0) return priorityDifference;
+
       const aPart = normalize(a.partNo);
       const bPart = normalize(b.partNo);
       const aDistance = Math.abs(aPart.length - query.length);
@@ -630,7 +658,34 @@ export function createExactProductLookup(): ExactProductLookup {
 export function focusSearchResults(results: SearchResult[]): SearchResult[] {
   const exactPartResults = results.filter((item) => item._matchType === "Exact");
   if (exactPartResults.length > 0) {
-    return exactPartResults;
+    const verifiedStockedNonCoreResults = exactPartResults.filter(
+      (item) => hasVerifiedMrtStock(item) && !isMrtCoreBrand(item.brand),
+    );
+    const coreReferenceResults = results.filter(
+      (item) =>
+        isMrtCoreBrand(item.brand) &&
+        (item._matchType === "Cross Ref" ||
+          item._matchType === "Same-brand Ref"),
+    );
+
+    if (
+      verifiedStockedNonCoreResults.length > 0 &&
+      coreReferenceResults.length > 0
+    ) {
+      return sortByMrtPriority([
+        ...verifiedStockedNonCoreResults,
+        ...coreReferenceResults,
+      ]);
+    }
+
+    if (
+      exactPartResults.every((item) => !isMrtCoreBrand(item.brand)) &&
+      coreReferenceResults.length > 0
+    ) {
+      return sortByMrtPriority(coreReferenceResults);
+    }
+
+    return sortByMrtPriority(exactPartResults);
   }
 
   const exactReferenceResults = results.filter(
@@ -639,14 +694,14 @@ export function focusSearchResults(results: SearchResult[]): SearchResult[] {
       item._matchType === "Same-brand Ref",
   );
   if (exactReferenceResults.length > 0) {
-    return exactReferenceResults;
+    return sortByMrtPriority(exactReferenceResults);
   }
 
   const exactKitResults = results.filter(
     (item) => item._matchType === "Kit Component",
   );
   if (exactKitResults.length > 0) {
-    return exactKitResults;
+    return sortByMrtPriority(exactKitResults);
   }
 
   return results;
