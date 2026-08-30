@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
-import { products } from "@/data/products/index";
+import { parseMultiPartInputs } from "@/lib/search/multiPartInput";
+import { focusSearchResults, searchProducts } from "@/lib/search/search";
 
 export const dynamic = "force-dynamic";
 
@@ -13,15 +14,9 @@ type ProductMatch = {
   brand?: string;
   title?: string;
   category?: string;
+  matchType: string;
+  matchedReference?: string;
 };
-
-function normalizePartNo(value: string) {
-  return value.trim().toLowerCase().replace(/[\s/_-]+/g, "");
-}
-
-function cleanPartNo(value: unknown) {
-  return String(value ?? "").replace(/\s+/g, " ").trim();
-}
 
 export async function POST(req: NextRequest) {
   const body = (await req.json().catch(() => ({}))) as LookupRequest;
@@ -29,46 +24,33 @@ export async function POST(req: NextRequest) {
     ? body.partNumbers
     : [];
 
-  const rows: Array<{ originalPartNo: string; normalizedPartNo: string }> = [];
-  const seen = new Set<string>();
-
-  for (const rawPartNo of rawPartNumbers) {
-    const originalPartNo = cleanPartNo(rawPartNo);
-    const normalizedPartNo = normalizePartNo(originalPartNo);
-
-    if (!originalPartNo || !normalizedPartNo || seen.has(normalizedPartNo)) {
-      continue;
-    }
-
-    seen.add(normalizedPartNo);
-    rows.push({ originalPartNo, normalizedPartNo });
-  }
-
-  const matchesByNormalizedPartNo = new Map<string, ProductMatch[]>();
-
-  for (const product of products) {
-    const normalizedPartNo = normalizePartNo(product.partNo);
-    if (!normalizedPartNo) continue;
-
-    const matches = matchesByNormalizedPartNo.get(normalizedPartNo) ?? [];
-    matches.push({
-      id: product.id,
-      partNo: product.partNo,
-      brand: product.brand,
-      title: product.title,
-      category: product.category,
-    });
-    matchesByNormalizedPartNo.set(normalizedPartNo, matches);
-  }
+  const rows = parseMultiPartInputs(rawPartNumbers);
 
   const results = rows.map((row) => {
-    const matches = matchesByNormalizedPartNo.get(row.normalizedPartNo) ?? [];
+    const matches: ProductMatch[] = focusSearchResults(
+      searchProducts(row.originalPartNo, { limit: 25 }),
+    )
+      .filter((item) =>
+        ["Exact", "Cross Ref", "Same-brand Ref", "Kit Component"].includes(
+          item._matchType,
+        ),
+      )
+      .map((item) => ({
+        id: item.id,
+        partNo: item.partNo,
+        brand: item.brand,
+        title: item.title,
+        category: item.category,
+        matchType: item._matchType,
+        matchedReference: item._matchedRelation?.partNumber,
+      }));
 
     if (matches.length === 1) {
       return {
         status: "found" as const,
         originalPartNo: row.originalPartNo,
         normalizedPartNo: row.normalizedPartNo,
+        qty: row.qty,
         product: matches[0],
       };
     }
@@ -78,6 +60,7 @@ export async function POST(req: NextRequest) {
         status: "ambiguous" as const,
         originalPartNo: row.originalPartNo,
         normalizedPartNo: row.normalizedPartNo,
+        qty: row.qty,
         matches,
       };
     }
@@ -86,6 +69,7 @@ export async function POST(req: NextRequest) {
       status: "missing" as const,
       originalPartNo: row.originalPartNo,
       normalizedPartNo: row.normalizedPartNo,
+      qty: row.qty,
     };
   });
 
