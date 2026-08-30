@@ -2,7 +2,10 @@
 
 import Link from "next/link";
 import { useMemo, useState } from "react";
-import { parseMultiPartText } from "@/lib/search/multiPartInput";
+import {
+  MAX_MULTI_PART_ROWS,
+  parseMultiPartText,
+} from "@/lib/search/multiPartInput";
 import { useQuote } from "@/providers/QuoteProvider";
 
 type Props = {
@@ -51,6 +54,8 @@ type AmbiguousResult = {
 type LookupResult = FoundResult | MissingResult | AmbiguousResult;
 
 type LookupResponse = {
+  error?: string;
+  maxItems?: number;
   results?: LookupResult[];
 };
 
@@ -88,6 +93,7 @@ export default function MultiPartNumberSearch({ locale }: Props) {
         checking: "กำลังตรวจสอบ...",
         reset: "ล้างรายการ",
         empty: "กรุณาวาง Part Number อย่างน้อย 1 รายการ",
+        tooMany: `รองรับสูงสุด ${MAX_MULTI_PART_ROWS} รายการต่อครั้ง กรุณาแบ่งรายการแล้วลองใหม่`,
         found: "พบสินค้า",
         referenceFound: "พบข้อมูลอ้างอิง",
         missing: "ไม่พบในรายการเว็บไซต์ — ให้ทีมช่วยตรวจสอบ",
@@ -115,6 +121,7 @@ export default function MultiPartNumberSearch({ locale }: Props) {
         checking: "Checking...",
         reset: "Clear",
         empty: "Please paste at least 1 Part Number.",
+        tooMany: `Up to ${MAX_MULTI_PART_ROWS} items are supported per request. Please split the list and try again.`,
         found: "Found",
         referenceFound: "Reference result",
         missing: "Not listed — our team will check",
@@ -142,6 +149,12 @@ export default function MultiPartNumberSearch({ locale }: Props) {
       return;
     }
 
+    if (parsedRows.length > MAX_MULTI_PART_ROWS) {
+      setError(text.tooMany);
+      setResults([]);
+      return;
+    }
+
     setLoading(true);
 
     try {
@@ -158,13 +171,19 @@ export default function MultiPartNumberSearch({ locale }: Props) {
 
       const data = (await response.json()) as LookupResponse;
 
+      if (data.error === "too_many_items") {
+        throw new Error(text.tooMany);
+      }
+
       if (!response.ok || !Array.isArray(data.results)) {
         throw new Error(text.failed);
       }
 
       setResults(data.results);
-    } catch {
-      setError(text.failed);
+    } catch (requestError) {
+      setError(
+        requestError instanceof Error ? requestError.message : text.failed,
+      );
       setResults([]);
     } finally {
       setLoading(false);
