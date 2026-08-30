@@ -46,6 +46,9 @@ export default function SiteFooter({ locale = "th", className = "" }: Props) {
             <Link href={`/${locale}/contact`} className={`block rounded-sm hover:text-white ${darkFocusClass}`}>
               {isThai ? "ติดต่อเรา" : "Contact"}
             </Link>
+            <Link href={`/${locale}/feedback`} className={`block rounded-sm hover:text-white ${darkFocusClass}`}>
+              {isThai ? "ติชมการใช้งาน" : "Website Feedback"}
+            </Link>
             <Link href={`/${locale}/quote`} className={`block rounded-sm hover:text-white ${darkFocusClass}`}>
               {isThai ? "ขอใบเสนอราคา" : "Request Quote"}
             </Link>
