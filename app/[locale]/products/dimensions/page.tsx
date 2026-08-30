@@ -23,7 +23,6 @@ const CATEGORY_OPTIONS: Array<{
   th: string;
   en: string;
 }> = [
-  { value: "all", th: "ไส้กรองทุกประเภท", en: "All filter types" },
   { value: "air_filter", th: "ไส้กรองอากาศ", en: "Air filters" },
   { value: "oil_filter", th: "ไส้กรองน้ำมันเครื่อง", en: "Oil / lube filters" },
   { value: "fuel_filter", th: "ไส้กรองเชื้อเพลิง", en: "Fuel filters" },
@@ -38,10 +37,12 @@ function parsePositiveNumber(value: string | undefined) {
   return Number.isFinite(parsed) && parsed >= 0 ? parsed : undefined;
 }
 
-function normalizeCategory(value: string | undefined): FilterDimensionCategory {
+function normalizeCategory(
+  value: string | undefined,
+): FilterDimensionCategory | undefined {
   return CATEGORY_OPTIONS.some((option) => option.value === value)
     ? (value as FilterDimensionCategory)
-    : "all";
+    : undefined;
 }
 
 export async function generateMetadata({
@@ -79,13 +80,14 @@ export default async function FilterDimensionSearchPage({
     criteria.innerDiameterMm !== undefined ||
     criteria.lengthMm !== undefined ||
     Boolean(criteria.threadSize);
+  const canSearch = hasCriteria && category !== undefined;
   const suppliedDimensionCount = [
     criteria.outerDiameterMm,
     criteria.innerDiameterMm,
     criteria.lengthMm,
     criteria.threadSize,
   ].filter((value) => value !== undefined && value !== "").length;
-  const results = hasCriteria
+  const results = canSearch
     ? searchFilterProductsByDimensions(criteria, {
         category,
         limit: 500,
@@ -143,9 +145,13 @@ export default async function FilterDimensionSearchPage({
                   </span>
                   <select
                     name="category"
-                    defaultValue={category}
+                    required
+                    defaultValue={category ?? ""}
                     className="min-h-11 w-full rounded-[var(--mrt-radius-md)] border border-[var(--color-border-strong)] bg-[var(--color-surface)] px-3 text-sm text-[var(--color-text)]"
                   >
+                    <option value="" disabled>
+                      {isThai ? "เลือกประเภทไส้กรอง" : "Select filter type"}
+                    </option>
                     {CATEGORY_OPTIONS.map((option) => (
                       <option key={option.value} value={option.value}>
                         {isThai ? option.th : option.en}
@@ -236,6 +242,12 @@ export default async function FilterDimensionSearchPage({
               {isThai
                 ? "กรอกอย่างน้อย 1 ขนาดเพื่อเริ่มค้นหา"
                 : "Enter at least one dimension to start searching."}
+            </div>
+          ) : !category ? (
+            <div className="rounded-[var(--mrt-radius-lg)] border border-dashed border-[var(--color-border-strong)] bg-[var(--color-surface)] px-6 py-8 text-center text-sm text-[var(--color-text-muted)]">
+              {isThai
+                ? "กรุณาเลือกประเภทไส้กรองก่อนค้นหาด้วยขนาด"
+                : "Select a filter type before searching by dimensions."}
             </div>
           ) : (
             <>
