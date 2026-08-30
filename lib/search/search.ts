@@ -43,6 +43,10 @@ export type SearchResult = Product & {
   _matchedRelationField?: "refs" | "crossReferences";
 };
 
+export type ExactProductLookup = {
+  find: (query: string) => SearchResult[];
+};
+
 const SPEC_ALIAS_MAP: Record<string, string[]> = {
   outerdiameter: ["outerdiameter", "od"],
   innerdiameter: ["innerdiameter", "id"],
@@ -557,6 +561,70 @@ export function searchProducts(
       return a.partNo.localeCompare(b.partNo);
     })
     .slice(0, limit);
+}
+
+export function createExactProductLookup(): ExactProductLookup {
+  const catalog = Array.isArray(products) ? products : [];
+  const index = new Map<string, Map<string, SearchResult>>();
+
+  function addResult(key: string, result: SearchResult) {
+    if (!key) return;
+
+    const keyedResults = index.get(key) ?? new Map<string, SearchResult>();
+    const existing = keyedResults.get(result.id);
+
+    if (!existing || result._score > existing._score) {
+      keyedResults.set(result.id, result);
+    }
+
+    index.set(key, keyedResults);
+  }
+
+  for (const item of catalog) {
+    addResult(normalize(item.partNo), {
+      ...item,
+      _score: 10000,
+      _matchType: "Exact",
+    });
+
+    for (const entry of buildRelationSearchEntries(item.refs ?? [], "unknown")) {
+      for (const token of entry.tokens) {
+        addResult(token, {
+          ...item,
+          _score: 7000,
+          _matchType: "Same-brand Ref",
+          _matchedRelation: entry.relation,
+          _matchedRelationField: "refs",
+        });
+      }
+    }
+
+    for (const entry of buildRelationSearchEntries(
+      item.crossReferences ?? [],
+      "unknown",
+    )) {
+      for (const token of entry.tokens) {
+        addResult(token, {
+          ...item,
+          _score: 7000,
+          _matchType: "Cross Ref",
+          _matchedRelation: entry.relation,
+          _matchedRelationField: "crossReferences",
+        });
+      }
+    }
+  }
+
+  return {
+    find(query: string) {
+      const matches = Array.from(index.get(normalize(query))?.values() ?? []);
+      const exactMatches = matches.filter((item) => item._matchType === "Exact");
+
+      return (exactMatches.length > 0 ? exactMatches : matches).sort((a, b) =>
+        a.partNo.localeCompare(b.partNo),
+      );
+    },
+  };
 }
 
 export function focusSearchResults(results: SearchResult[]): SearchResult[] {
