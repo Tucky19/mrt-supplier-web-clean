@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useMemo, useState } from "react";
+import { parseMultiPartText } from "@/lib/search/multiPartInput";
 import { useQuote } from "@/providers/QuoteProvider";
 
 type Props = {
@@ -12,12 +13,15 @@ type FoundResult = {
   status: "found";
   originalPartNo: string;
   normalizedPartNo: string;
+  qty: number;
   product: {
     id: string;
     partNo: string;
     brand?: string;
     title?: string;
     category?: string;
+    matchType: string;
+    matchedReference?: string;
   };
 };
 
@@ -25,18 +29,22 @@ type MissingResult = {
   status: "missing";
   originalPartNo: string;
   normalizedPartNo: string;
+  qty: number;
 };
 
 type AmbiguousResult = {
   status: "ambiguous";
   originalPartNo: string;
   normalizedPartNo: string;
+  qty: number;
   matches: Array<{
     id: string;
     partNo: string;
     brand?: string;
     title?: string;
     category?: string;
+    matchType: string;
+    matchedReference?: string;
   }>;
 };
 
@@ -45,33 +53,6 @@ type LookupResult = FoundResult | MissingResult | AmbiguousResult;
 type LookupResponse = {
   results?: LookupResult[];
 };
-
-function normalizePartNo(value: string) {
-  return value.trim().toLowerCase().replace(/[\s/_-]+/g, "");
-}
-
-function cleanPartNo(value: string) {
-  return value.replace(/\s+/g, " ").trim();
-}
-
-function parsePartNumbers(value: string) {
-  const rows: Array<{ originalPartNo: string; normalizedPartNo: string }> = [];
-  const seen = new Set<string>();
-
-  for (const line of value.split(/\r?\n/)) {
-    const originalPartNo = cleanPartNo(line);
-    const normalizedPartNo = normalizePartNo(originalPartNo);
-
-    if (!originalPartNo || !normalizedPartNo || seen.has(normalizedPartNo)) {
-      continue;
-    }
-
-    seen.add(normalizedPartNo);
-    rows.push({ originalPartNo, normalizedPartNo });
-  }
-
-  return rows;
-}
 
 export default function MultiPartNumberSearch({ locale }: Props) {
   const isThai = locale === "th";
@@ -83,8 +64,10 @@ export default function MultiPartNumberSearch({ locale }: Props) {
   const [error, setError] = useState("");
   const [added, setAdded] = useState(false);
 
-  const parsedRows = useMemo(() => parsePartNumbers(value), [value]);
-  const foundCount = results.filter((result) => result.status === "found").length;
+  const parsedRows = useMemo(() => parseMultiPartText(value), [value]);
+  const foundCount = results.filter(
+    (result) => result.status === "found",
+  ).length;
   const missingCount = results.filter(
     (result) => result.status === "missing",
   ).length;
@@ -98,14 +81,15 @@ export default function MultiPartNumberSearch({ locale }: Props) {
         trigger: "ค้นหาหลายรายการ",
         title: "ค้นหาหลายรายการ",
         description:
-          "วาง Part Number หลายรายการ เพื่อให้ทีมช่วยตรวจสอบและจัดหา",
+          "วาง Part Number ทีละบรรทัด หรือคัดลอก 2 คอลัมน์ Part Number และจำนวนจาก Excel",
         placeholder:
-          "ตัวอย่าง:\nP553000\nC 20 500\nWK 842/2\nWDK 11 102/9\nUNKNOWN-TEST-001",
+          "ตัวอย่าง:\nP553000\t2\nAF25555\t1\nCR522 x 3\nUNKNOWN-TEST-001",
         check: "ตรวจสอบรายการ",
         checking: "กำลังตรวจสอบ...",
         reset: "ล้างรายการ",
         empty: "กรุณาวาง Part Number อย่างน้อย 1 รายการ",
         found: "พบสินค้า",
+        referenceFound: "พบข้อมูลอ้างอิง",
         missing: "ไม่พบในรายการเว็บไซต์ — ให้ทีมช่วยตรวจสอบ",
         ambiguous: "พบข้อมูลซ้ำ ต้องตรวจสอบก่อนเพิ่ม",
         addAll: "เพิ่มทั้งหมดไปยังรายการขอราคา",
@@ -116,19 +100,23 @@ export default function MultiPartNumberSearch({ locale }: Props) {
             ambiguous ? `, ข้อมูลซ้ำ ${ambiguous} รายการ` : ""
           }`,
         failed: "ตรวจสอบรายการไม่สำเร็จ กรุณาลองอีกครั้ง",
+        quantity: (qty: number) => `จำนวน ${qty}`,
+        referenceNotice:
+          "ผลลัพธ์จากเบอร์อ้างอิง กรุณาตรวจสอบรุ่นและสเปกก่อนสั่งซื้อ",
       }
     : {
         trigger: "Search multiple items",
         title: "Search multiple items",
         description:
-          "Paste multiple Part Numbers for our team to check and source",
+          "Paste one Part Number per line, or copy two Excel columns containing Part Number and quantity.",
         placeholder:
-          "Example:\nP553000\nC 20 500\nWK 842/2\nWDK 11 102/9\nUNKNOWN-TEST-001",
+          "Example:\nP553000\t2\nAF25555\t1\nCR522 x 3\nUNKNOWN-TEST-001",
         check: "Check items",
         checking: "Checking...",
         reset: "Clear",
         empty: "Please paste at least 1 Part Number.",
         found: "Found",
+        referenceFound: "Reference result",
         missing: "Not listed — our team will check",
         ambiguous: "Duplicate catalog matches — review before adding",
         addAll: "Add all to quote request",
@@ -139,6 +127,9 @@ export default function MultiPartNumberSearch({ locale }: Props) {
             ambiguous ? `, ambiguous ${ambiguous}` : ""
           }`,
         failed: "Could not check items. Please try again.",
+        quantity: (qty: number) => `Qty ${qty}`,
+        referenceNotice:
+          "Reference result — verify the application and specifications before ordering.",
       };
 
   const handleLookup = async () => {
@@ -158,7 +149,10 @@ export default function MultiPartNumberSearch({ locale }: Props) {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          partNumbers: parsedRows.map((row) => row.originalPartNo),
+          partNumbers: parsedRows.map((row) => ({
+            partNo: row.originalPartNo,
+            qty: row.qty,
+          })),
         }),
       });
 
@@ -185,7 +179,7 @@ export default function MultiPartNumberSearch({ locale }: Props) {
           partNo: result.product.partNo,
           brand: result.product.brand,
           title: result.product.title,
-          qty: 1,
+          qty: result.qty,
         });
         continue;
       }
@@ -196,7 +190,7 @@ export default function MultiPartNumberSearch({ locale }: Props) {
           partNo: result.originalPartNo,
           brand: isThai ? "ให้ทีมช่วยตรวจสอบ" : "Manual Request",
           title: isThai ? "รายการที่ลูกค้าระบุ" : "Customer requested part",
-          qty: 1,
+          qty: result.qty,
         });
       }
     }
@@ -278,8 +272,12 @@ export default function MultiPartNumberSearch({ locale }: Props) {
                 {results.map((result) => {
                   const isFound = result.status === "found";
                   const isAmbiguous = result.status === "ambiguous";
+                  const isReference =
+                    isFound && result.product.matchType !== "Exact";
                   const statusLabel = isFound
-                    ? text.found
+                    ? isReference
+                      ? text.referenceFound
+                      : text.found
                     : isAmbiguous
                       ? text.ambiguous
                       : text.missing;
@@ -296,6 +294,9 @@ export default function MultiPartNumberSearch({ locale }: Props) {
                         <div className="mt-0.5 break-all font-semibold text-slate-950">
                           {result.originalPartNo}
                         </div>
+                        <div className="mt-1 text-xs text-slate-500">
+                          {text.quantity(result.qty)}
+                        </div>
                       </div>
 
                       <div className="min-w-0">
@@ -305,14 +306,19 @@ export default function MultiPartNumberSearch({ locale }: Props) {
                               {result.product.partNo}
                             </div>
                             <div className="mt-0.5 text-xs leading-5 text-slate-500">
-                              {[result.product.brand, result.product.title ?? result.product.category]
+                              {[
+                                result.product.brand,
+                                result.product.title ?? result.product.category,
+                              ]
                                 .filter(Boolean)
                                 .join(" • ")}
                             </div>
                           </>
                         ) : isAmbiguous ? (
                           <div className="text-xs leading-5 text-amber-700">
-                            {result.matches.map((match) => match.partNo).join(", ")}
+                            {result.matches
+                              .map((match) => match.partNo)
+                              .join(", ")}
                           </div>
                         ) : (
                           <div className="text-xs leading-5 text-slate-500">
@@ -337,6 +343,15 @@ export default function MultiPartNumberSearch({ locale }: Props) {
                 })}
               </div>
             </div>
+          ) : null}
+
+          {results.some(
+            (result) =>
+              result.status === "found" && result.product.matchType !== "Exact",
+          ) ? (
+            <p className="mt-3 text-xs leading-5 text-slate-500">
+              {text.referenceNotice}
+            </p>
           ) : null}
 
           {results.length > 0 ? (
