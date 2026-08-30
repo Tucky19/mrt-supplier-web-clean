@@ -56,6 +56,12 @@ export type Product = {
 
   dataQuality?: "verified" | "draft" | "basic" | "needs_review";
   stockStatus?: "in_stock" | "low_stock" | "request" | string;
+  mrtStockEvidence?: {
+    status: "in_stock";
+    checkedAt: string;
+    source: "physical_count" | "internal_record";
+    note?: string;
+  };
   isFeatured?: boolean;
   sourceType?: "official" | "catalog" | "internal" | "mixed" | string;
   sourceNote?: string;
