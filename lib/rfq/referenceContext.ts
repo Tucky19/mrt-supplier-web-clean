@@ -75,3 +75,18 @@ export function mergeRfqReferenceContext(
 ): RfqReferenceContext | undefined {
   return incoming ?? existing;
 }
+
+export function getRfqReferenceContextKey(meta: unknown): string {
+  const context = getRfqReferenceContext(meta);
+  if (!context) return "";
+
+  const relation = context.matchedRelation;
+  return [
+    context.searchQuery,
+    context.matchType,
+    safeText(relation?.brand).toUpperCase(),
+    safeText(relation?.partNumber).toUpperCase(),
+    relation?.relationType ?? "",
+    relation?.verificationStatus ?? "",
+  ].join("|");
+}
