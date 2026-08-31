@@ -172,12 +172,8 @@ export default async function ProductsPage({
         hydrateSearchHit(hit, products),
       )
     : products.slice(0, DEFAULT_PRODUCT_LIMIT);
-  const hasExactPartNumberResult = hasQuery
-    ? visibleProducts.some((product) => getResultMatchType(product) === "Exact")
-    : false;
   const hasPreliminaryRelationResults =
     hasQuery &&
-    !hasExactPartNumberResult &&
     visibleProducts.some((product) => isPreliminaryRelationResult(product));
   const showMissingProductRequest =
     requestMissingProduct || visibleProducts.length === 0;

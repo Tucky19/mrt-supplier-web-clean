@@ -269,7 +269,7 @@ const searchSnapshots = {
   },
 };
 
-assert(products.length === 453, `active product count changed: ${products.length}`);
+assert(products.length === 455, `active product count changed: ${products.length}`);
 
 for (const [query, expected] of Object.entries(searchSnapshots)) {
   const results = searchProducts(query, { limit: 48 });
