@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import {
   buildRfqReferenceContext,
   getRfqReferenceContext,
+  getRfqReferenceContexts,
   getRfqReferenceContextKey,
   mergeRfqReferenceContext,
 } from "@/lib/rfq/referenceContext";
@@ -55,16 +56,28 @@ const laterContext = buildRfqReferenceContext({
   matchType: "Cross Ref",
 });
 
+const mergedContexts = mergeRfqReferenceContext(fs1242Context, laterContext);
 assert.deepEqual(
-  mergeRfqReferenceContext(fs1242Context, laterContext),
-  laterContext,
-  "the latest customer search should replace stale reference context",
+  getRfqReferenceContexts(mergedContexts).map((context) => context.searchQuery),
+  ["FS1242", "3355903"],
+  "every customer search contributing to a merged quote row should be preserved",
 );
 
 assert.equal(
   getRfqReferenceContextKey(fs1242Context),
-  "FS1242|Cross Ref|FLEETGUARD|FS1242|unknown|pending",
-  "duplicate identity should normalize the complete reference context",
+  "FS1242|Cross Ref",
+  "duplicate identity should use the customer-visible reference context",
+);
+
+const fs1242WithoutRelation = buildRfqReferenceContext({
+  searchQuery: "FS1242",
+  offeredPartNo: "P551864",
+  matchType: "Cross Ref",
+});
+assert.equal(
+  getRfqReferenceContextKey(fs1242Context),
+  getRfqReferenceContextKey(fs1242WithoutRelation),
+  "the same customer-visible request should dedupe across search entry paths",
 );
 
 assert.notEqual(
