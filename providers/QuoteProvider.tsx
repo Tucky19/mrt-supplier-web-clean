@@ -3,7 +3,7 @@
 import { createContext, useContext, useEffect, useState } from 'react';
 import {
   mergeRfqReferenceContext,
-  type RfqReferenceContext,
+  type RfqReferenceMetadata,
 } from '@/lib/rfq/referenceContext';
 
 type QuoteItem = {
@@ -12,7 +12,7 @@ type QuoteItem = {
   brand?: string;
   title?: string;
   qty: number;
-  meta?: RfqReferenceContext;
+  meta?: RfqReferenceMetadata;
 };
 
 type QuoteContextValue = {
