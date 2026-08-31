@@ -2,6 +2,7 @@ import crypto from "crypto";
 import { prisma } from "@/lib/db";
 import { genRequestId } from "@/lib/rfq/id";
 import { validateRfqPayload } from "@/lib/rfq/validate";
+import { getRfqReferenceContextKey } from "@/lib/rfq/referenceContext";
 import { logRfqEvent } from "@/lib/rfq/events";
 import { consumeRfqRateLimit } from "@/lib/rfq/rateLimit";
 import { sendRfqLineNotification } from "@/lib/line/sendRfqLineNotification";
@@ -115,14 +116,25 @@ function isSameRfqLite(a: any, b: any) {
       .map((x) => ({
         partNo: String(x?.partNo ?? "").trim(),
         qty: Number(x?.qty ?? 0),
+        referenceContext: getRfqReferenceContextKey(x?.meta),
       }))
-      .sort((p, q) => (p.partNo + p.qty).localeCompare(q.partNo + q.qty));
+      .sort((p, q) =>
+        (p.partNo + p.qty + p.referenceContext).localeCompare(
+          q.partNo + q.qty + q.referenceContext
+        )
+      );
 
   const A = norm(aItems);
   const B = norm(bItems);
 
   for (let i = 0; i < A.length; i++) {
-    if (A[i].partNo !== B[i].partNo || A[i].qty !== B[i].qty) return false;
+    if (
+      A[i].partNo !== B[i].partNo ||
+      A[i].qty !== B[i].qty ||
+      A[i].referenceContext !== B[i].referenceContext
+    ) {
+      return false;
+    }
   }
 
   return sameContact;
@@ -230,6 +242,7 @@ if (!RFQ_DEV_MOCK_ENABLED) {
         items: last.items.map((x: any) => ({
           partNo: x.partNo,
           qty: x.qty,
+          meta: x.meta,
         })),
       };
 
@@ -242,6 +255,7 @@ if (!RFQ_DEV_MOCK_ENABLED) {
         items: v.data.items.map((x) => ({
           partNo: x.partNo,
           qty: x.qty,
+          meta: x.meta,
         })),
       };
 
