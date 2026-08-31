@@ -18,6 +18,7 @@ import {
   getMissingProductThreadSystemLabel,
   isMissingProductRequestSource,
 } from "@/lib/rfq/missingProductRequest";
+import { getRfqReferenceContexts } from "@/lib/rfq/referenceContext";
 type PageProps = {
   params: Promise<{ id: string }>;
 };
@@ -385,10 +386,19 @@ export default async function AdminRfqDetailPage({ params }: PageProps) {
                     </thead>
 
                     <tbody className="divide-y divide-slate-200 bg-white">
-                      {items.map((item: (typeof items)[number]) => (
+                      {items.map((item: (typeof items)[number]) => {
+                        const referenceQueries = getRfqReferenceContexts(item.meta).map(
+                          (context) => context.searchQuery,
+                        );
+                        return (
                         <tr key={item.id}>
                           <td className="px-4 py-4 text-sm font-medium text-slate-900">
-                            {item.partNo}
+                            <div>{item.partNo}</div>
+                            {referenceQueries.length > 0 ? (
+                              <div className="mt-1 text-xs font-normal text-blue-700">
+                                Customer searched: {referenceQueries.join(", ")}
+                              </div>
+                            ) : null}
                           </td>
                           <td className="px-4 py-4 text-sm text-slate-700">
                             {item.brand || "-"}
@@ -410,7 +420,8 @@ export default async function AdminRfqDetailPage({ params }: PageProps) {
                             {item.qty}
                           </td>
                         </tr>
-                      ))}
+                        );
+                      })}
                     </tbody>
                   </table>
                 </div>

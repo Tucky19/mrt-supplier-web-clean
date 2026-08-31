@@ -9,6 +9,7 @@ import { getProductUiText } from "@/lib/i18n/productUi";
 import { getSearchUiText } from "@/lib/i18n/searchUi";
 import { getProductImageUrl } from "@/lib/products/image";
 import { hasVerifiedMrtStock, isMrtCoreBrand } from "@/lib/products/stock";
+import { buildRfqReferenceContext } from "@/lib/rfq/referenceContext";
 import {
   type ProductRelation,
   normalizeProductRelations,
@@ -237,12 +238,20 @@ export default function ProductCardV2({
   };
 
   const handleAdd = () => {
+    const meta = buildRfqReferenceContext({
+      searchQuery: referenceQuery,
+      offeredPartNo: product.partNo,
+      matchType: product._matchType,
+      matchedRelation: product._matchedRelation,
+    });
+
     addItem({
       productId: product.id,
       partNo: product.partNo,
       brand: product.brand,
       title: product.title,
       qty: quantity,
+      meta,
     });
 
     gaAddToQuote(

@@ -6,6 +6,7 @@ import {
   MAX_MULTI_PART_ROWS,
   parseMultiPartText,
 } from "@/lib/search/multiPartInput";
+import { buildRfqReferenceContext } from "@/lib/rfq/referenceContext";
 import { useQuote } from "@/providers/QuoteProvider";
 
 type Props = {
@@ -193,12 +194,19 @@ export default function MultiPartNumberSearch({ locale }: Props) {
   const handleAddAll = () => {
     for (const result of results) {
       if (result.status === "found") {
+        const meta = buildRfqReferenceContext({
+          searchQuery: result.originalPartNo,
+          offeredPartNo: result.product.partNo,
+          matchType: result.product.matchType,
+        });
+
         addItem({
           productId: result.product.id,
           partNo: result.product.partNo,
           brand: result.product.brand,
           title: result.product.title,
           qty: result.qty,
+          meta,
         });
         continue;
       }

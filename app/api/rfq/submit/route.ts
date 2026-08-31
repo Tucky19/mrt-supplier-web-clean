@@ -2,6 +2,7 @@ import crypto from "crypto";
 import { prisma } from "@/lib/db";
 import { genRequestId } from "@/lib/rfq/id";
 import { validateRfqPayload } from "@/lib/rfq/validate";
+import { findSameRfqLite } from "@/lib/rfq/dedupe";
 import { logRfqEvent } from "@/lib/rfq/events";
 import { consumeRfqRateLimit } from "@/lib/rfq/rateLimit";
 import { sendRfqLineNotification } from "@/lib/line/sendRfqLineNotification";
@@ -97,37 +98,6 @@ function getClientIp(req: Request) {
   return req.headers.get("x-real-ip") || "0.0.0.0";
 }
 
-function isSameRfqLite(a: any, b: any) {
-  const aC = a?.customer ?? {};
-  const bC = b?.customer ?? {};
-
-  const sameContact =
-    (aC.phone || "") === (bC.phone || "") &&
-    (aC.email || "") === (bC.email || "") &&
-    (aC.lineId || "") === (bC.lineId || "");
-
-  const aItems = Array.isArray(a?.items) ? a.items : [];
-  const bItems = Array.isArray(b?.items) ? b.items : [];
-  if (aItems.length !== bItems.length) return false;
-
-  const norm = (xs: any[]) =>
-    xs
-      .map((x) => ({
-        partNo: String(x?.partNo ?? "").trim(),
-        qty: Number(x?.qty ?? 0),
-      }))
-      .sort((p, q) => (p.partNo + p.qty).localeCompare(q.partNo + q.qty));
-
-  const A = norm(aItems);
-  const B = norm(bItems);
-
-  for (let i = 0; i < A.length; i++) {
-    if (A[i].partNo !== B[i].partNo || A[i].qty !== B[i].qty) return false;
-  }
-
-  return sameContact;
-}
-
 export async function POST(req: Request) {
   const traceId = getTraceId(req);
   let requestId: string | undefined;
@@ -202,13 +172,13 @@ export async function POST(req: Request) {
 
     
     // 3) Duplicate guard (2 นาที)
-let last = null;
+let recentCandidates: any[] = [];
 
 if (!RFQ_DEV_MOCK_ENABLED) {
   try {
     const since = new Date(Date.now() - 2 * 60 * 1000);
 
-    last = await prisma.rfq.findFirst({
+    recentCandidates = await prisma.rfq.findMany({
       where: { ipHash, createdAt: { gte: since } },
       orderBy: { createdAt: "desc" },
       include: { items: true },
@@ -216,22 +186,24 @@ if (!RFQ_DEV_MOCK_ENABLED) {
   } catch (error) {
     console.error("[RFQ_DUPLICATE_CHECK_ERROR]", error);
     // fail-open: ไม่ block flow
-    last = null;
+    recentCandidates = [];
   }
 }
 
-    if (last) {
-      const candidate = {
+    if (recentCandidates.length > 0) {
+      const candidates = recentCandidates.map((recent) => ({
+        ...recent,
         customer: {
-          phone: last.phone ?? "",
-          email: last.email ?? "",
-          lineId: last.lineId ?? "",
+          phone: recent.phone ?? "",
+          email: recent.email ?? "",
+          lineId: recent.lineId ?? "",
         },
-        items: last.items.map((x: any) => ({
+        items: recent.items.map((x: any) => ({
           partNo: x.partNo,
           qty: x.qty,
+          meta: x.meta,
         })),
-      };
+      }));
 
       const incoming = {
         customer: {
@@ -242,23 +214,25 @@ if (!RFQ_DEV_MOCK_ENABLED) {
         items: v.data.items.map((x) => ({
           partNo: x.partNo,
           qty: x.qty,
+          meta: x.meta,
         })),
       };
 
-      if (isSameRfqLite(candidate, incoming)) {
+      const duplicate = findSameRfqLite(candidates, incoming);
+      if (duplicate) {
         logApiEvent("info", "rfq.submit.deduped", {
           traceId,
           route: "/api/rfq/submit",
-          requestId: last.requestId,
-          rfqId: last.id,
+          requestId: duplicate.requestId,
+          rfqId: duplicate.id,
           itemCount: incoming.items.length,
         });
 
         return jsonWithTrace(
           {
             ok: true,
-            requestId: last.requestId,
-            rfqId: last.id,
+            requestId: duplicate.requestId,
+            rfqId: duplicate.id,
             deduped: true,
           },
           undefined,
@@ -379,6 +353,7 @@ if (!RFQ_DEV_MOCK_ENABLED) {
       title: x.title ?? undefined,
       spec: x.spec ?? undefined,
       qty: x.qty,
+      meta: x.meta ?? undefined,
     }));
 
     // 5) Email admin

@@ -1,6 +1,10 @@
 'use client';
 
 import { createContext, useContext, useEffect, useState } from 'react';
+import {
+  mergeRfqReferenceContext,
+  type RfqReferenceMetadata,
+} from '@/lib/rfq/referenceContext';
 
 type QuoteItem = {
   productId: string;
@@ -8,6 +12,7 @@ type QuoteItem = {
   brand?: string;
   title?: string;
   qty: number;
+  meta?: RfqReferenceMetadata;
 };
 
 type QuoteContextValue = {
@@ -75,7 +80,11 @@ export function QuoteProvider({ children }: { children: React.ReactNode }) {
       if (existing) {
         return prev.map((i) =>
           i.productId === item.productId
-            ? { ...i, qty: i.qty + (item.qty ?? 1) }
+            ? {
+                ...i,
+                qty: i.qty + (item.qty ?? 1),
+                meta: mergeRfqReferenceContext(i.meta, item.meta),
+              }
             : i
         );
       }

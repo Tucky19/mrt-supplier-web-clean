@@ -5,6 +5,7 @@ import {
   getMissingProductRequestItemDetails,
   isMissingProductRequestItem,
 } from "@/lib/rfq/missingProductRequest";
+import { getRfqReferenceContexts } from "@/lib/rfq/referenceContext";
 
 function safeStr(v: unknown) {
   return String(v ?? "")
@@ -210,6 +211,9 @@ function subjectPart(input: unknown) {
 function buildItemsText(items: MailQuoteItem[]) {
   return items
     .map((it, idx) => {
+      const referenceQueries = getRfqReferenceContexts(it.meta).map(
+        (context) => context.searchQuery,
+      );
       const parts = [
         `${idx + 1}. ลำดับ / Item: ${idx + 1}`,
         `เบอร์สินค้า / Part No.: ${displayText(it.partNo)}`,
@@ -219,6 +223,9 @@ function buildItemsText(items: MailQuoteItem[]) {
         `หมวดหมู่ / Category: ${displayText(it.category)}`,
         it.spec ? `Spec: ${displayText(it.spec)}` : "",
         `Product ID: ${displayText(it.productId)}`,
+        referenceQueries.length > 0
+          ? `เบอร์ที่ลูกค้าค้นหา / Customer searched: ${referenceQueries.join(", ")}`
+          : "",
       ].filter(Boolean);
 
       return parts.join(" | ");
@@ -229,6 +236,9 @@ function buildItemsText(items: MailQuoteItem[]) {
 function buildItemsHtml(items: MailQuoteItem[]) {
   const rows = items
     .map((it, idx) => {
+      const referenceQueries = getRfqReferenceContexts(it.meta).map(
+        (context) => context.searchQuery,
+      );
       return `
         <tr>
           <td style="padding:0 0 12px;">
@@ -269,6 +279,14 @@ function buildItemsHtml(items: MailQuoteItem[]) {
                       <td style="width:34%;padding:10px 12px;color:#64748b;vertical-align:top;">หมวดหมู่ / Category</td>
                       <td style="padding:10px 12px;color:#111827;vertical-align:top;overflow-wrap:anywhere;word-break:break-word;">${escapeHtml(displayText(it.category))}</td>
                     </tr>
+                    ${
+                      referenceQueries.length > 0
+                        ? `<tr>
+                      <td style="width:34%;padding:10px 12px;border-top:1px solid #eef2f7;color:#64748b;vertical-align:top;">เบอร์ที่ลูกค้าค้นหา / Customer searched</td>
+                      <td style="padding:10px 12px;border-top:1px solid #eef2f7;color:#0f3fb5;font-weight:700;vertical-align:top;overflow-wrap:anywhere;word-break:break-word;">${escapeHtml(referenceQueries.join(", "))}</td>
+                    </tr>`
+                        : ""
+                    }
                   </table>
                 </td>
               </tr>
