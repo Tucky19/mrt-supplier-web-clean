@@ -68,3 +68,10 @@ export function getRfqReferenceContext(meta: unknown): RfqReferenceContext | nul
     matchedRelation: value.matchedRelation,
   };
 }
+
+export function mergeRfqReferenceContext(
+  existing: RfqReferenceContext | undefined,
+  incoming: RfqReferenceContext | undefined,
+): RfqReferenceContext | undefined {
+  return incoming ?? existing;
+}
