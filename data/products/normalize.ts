@@ -54,6 +54,7 @@ export function normalizeProduct(p: any): Product {
     dataQuality: p.dataQuality ?? "draft",
 
     stockStatus: p.stockStatus ?? "request",
+    mrtStockEvidence: p.mrtStockEvidence ?? undefined,
     sourceType: p.sourceType ?? undefined,
     sourceNote: p.sourceNote ?? undefined,
     type: p.type ?? undefined,
