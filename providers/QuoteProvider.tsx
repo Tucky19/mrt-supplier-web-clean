@@ -1,6 +1,7 @@
 'use client';
 
 import { createContext, useContext, useEffect, useState } from 'react';
+import type { RfqReferenceContext } from '@/lib/rfq/referenceContext';
 
 type QuoteItem = {
   productId: string;
@@ -8,6 +9,7 @@ type QuoteItem = {
   brand?: string;
   title?: string;
   qty: number;
+  meta?: RfqReferenceContext;
 };
 
 type QuoteContextValue = {

@@ -10,6 +10,7 @@ import BulkAddToQuote from '@/components/quote/BulkAddToQuote';
 import CopyButton from '@/components/ui/CopyButton';
 import { gaBeginCheckout, gaViewCart, type GAItem } from '@/lib/analytics/ga';
 import { getRfqUiText } from '@/lib/i18n/rfqUi';
+import { getRfqReferenceContext } from '@/lib/rfq/referenceContext';
 import { useQuote } from '@/providers/QuoteProvider';
 
 const RFQ_SUCCESS_STORAGE_KEY = 'mrt_rfq_success_data';
@@ -89,7 +90,12 @@ export default function QuotePage() {
     () =>
       [
         'MRT Supplier RFQ',
-        ...items.map((item) => `${item.partNo} x ${item.qty}`),
+        ...items.map((item) => {
+          const reference = getRfqReferenceContext(item.meta);
+          return `${item.partNo} x ${item.qty}${
+            reference ? ` (searched: ${reference.searchQuery})` : ''
+          }`;
+        }),
       ].join('\n'),
     [items],
   );
@@ -417,6 +423,12 @@ export default function QuotePage() {
                       <div className="mt-1 text-sm text-[var(--color-text-muted)]">
                         {item.brand || item.title || text.requestedItem}
                       </div>
+                      {getRfqReferenceContext(item.meta) ? (
+                        <div className="mt-2 text-sm font-medium text-[var(--color-primary)]">
+                          {locale === 'th' ? 'เบอร์ที่ลูกค้าค้นหา' : 'Customer searched'}:{' '}
+                          {getRfqReferenceContext(item.meta)?.searchQuery}
+                        </div>
+                      ) : null}
                     </div>
 
                     <button
