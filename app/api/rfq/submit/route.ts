@@ -379,6 +379,7 @@ if (!RFQ_DEV_MOCK_ENABLED) {
       title: x.title ?? undefined,
       spec: x.spec ?? undefined,
       qty: x.qty,
+      meta: x.meta ?? undefined,
     }));
 
     // 5) Email admin
