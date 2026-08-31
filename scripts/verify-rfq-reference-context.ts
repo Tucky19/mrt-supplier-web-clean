@@ -5,6 +5,7 @@ import {
   getRfqReferenceContextKey,
   mergeRfqReferenceContext,
 } from "@/lib/rfq/referenceContext";
+import { findSameRfqLite } from "@/lib/rfq/dedupe";
 
 const fs1242Context = buildRfqReferenceContext({
   searchQuery: "fs1242",
@@ -76,6 +77,22 @@ assert.equal(
   getRfqReferenceContextKey(undefined),
   "",
   "items without reference context should retain the existing duplicate behavior",
+);
+
+const customer = { phone: "0812345678", email: "", lineId: "" };
+const contextA = {
+  customer,
+  items: [{ partNo: "P551864", qty: 1, meta: fs1242Context }],
+};
+const contextB = {
+  customer,
+  items: [{ partNo: "P551864", qty: 1, meta: laterContext }],
+};
+
+assert.equal(
+  findSameRfqLite([contextB, contextA], contextA),
+  contextA,
+  "a retry must match any equivalent RFQ inside the duplicate window, not only the newest one",
 );
 
 console.log("RFQ reference-context verification passed.");
