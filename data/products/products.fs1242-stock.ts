@@ -41,6 +41,7 @@ export const fs1242StockProducts: Product[] = [
       { label: "Gasket ID", value: "62.5 mm (2.46 inch)" },
       { label: "Type", value: "Fuel/Water Separator Spin-On" },
     ],
+    imageUrl: "/images/products/donaldson/p551864.jpg",
     officialUrl: "https://shop.donaldson.com/store/en-us/product/P551864/75230",
     refs: [],
     crossReferences: [
