@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import {
   buildRfqReferenceContext,
   getRfqReferenceContext,
+  getRfqReferenceContextKey,
   mergeRfqReferenceContext,
 } from "@/lib/rfq/referenceContext";
 
@@ -57,6 +58,24 @@ assert.deepEqual(
   mergeRfqReferenceContext(fs1242Context, laterContext),
   laterContext,
   "the latest customer search should replace stale reference context",
+);
+
+assert.equal(
+  getRfqReferenceContextKey(fs1242Context),
+  "FS1242|Cross Ref|FLEETGUARD|FS1242|unknown|pending",
+  "duplicate identity should normalize the complete reference context",
+);
+
+assert.notEqual(
+  getRfqReferenceContextKey(fs1242Context),
+  getRfqReferenceContextKey(laterContext),
+  "different customer search references must not be treated as duplicate RFQs",
+);
+
+assert.equal(
+  getRfqReferenceContextKey(undefined),
+  "",
+  "items without reference context should retain the existing duplicate behavior",
 );
 
 console.log("RFQ reference-context verification passed.");
