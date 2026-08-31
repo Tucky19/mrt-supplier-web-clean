@@ -11,6 +11,11 @@ assert(fleetguard, "missing active Fleetguard FS1242");
 assert(donaldson, "missing active Donaldson P551864");
 assert.equal(fleetguard.brand, "Fleetguard");
 assert.equal(hasVerifiedMrtStock(fleetguard), true, "FS1242 must carry verified MRT stock evidence");
+const cumminsReference = normalizeProductRelations(fleetguard.refs, "unknown").find(
+  (item) => item.brand === "Cummins" && item.partNumber === "3355903",
+);
+assert(cumminsReference, "FS1242 missing structured Cummins 3355903 reference");
+assert.equal(cumminsReference.verificationStatus, "pending");
 assert.equal(donaldson.brand, "Donaldson");
 
 const relation = normalizeProductRelations(donaldson.crossReferences, "unknown").find(
@@ -32,6 +37,15 @@ assert.deepEqual(
 );
 assert.equal(results[0]?._matchType, "Exact");
 assert.equal(results[1]?._matchType, "Cross Ref");
+assert.equal(
+  results.some(
+    (product) =>
+      product._matchedRelation?.relationType === "unknown" &&
+      product._matchedRelation.verificationStatus === "pending",
+  ),
+  true,
+  "FS1242 results must expose the pending P551864 relation for the page warning",
+);
 
 for (const product of products) {
   const relations = normalizeProductRelations(product.crossReferences, "unknown");

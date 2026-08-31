@@ -35,9 +35,7 @@ function isReferenceMatchType(matchType: string | undefined) {
 }
 
 function hasPreliminaryRelationNoticeResult(results: ReturnType<typeof searchProducts>) {
-  const hasExactPartNumberResult = results.some((product) => product._matchType === "Exact");
   return (
-    !hasExactPartNumberResult &&
     results.some(
       (product) =>
         isReferenceMatchType(product._matchType) &&

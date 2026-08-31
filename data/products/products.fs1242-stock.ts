@@ -12,7 +12,17 @@ export const fs1242StockProducts: Product[] = [
       { label: "Type", value: "Fuel/Water Separator Spin-On" },
       { label: "Application Reference", value: "Cummins 3355903" },
     ],
-    refs: ["Cummins 3355903"],
+    refs: [
+      {
+        brand: "Cummins",
+        partNumber: "3355903",
+        relationType: "unknown",
+        verificationStatus: "pending",
+        evidence: "MRT physical stock photo",
+        evidenceNote:
+          "Boss-provided physical MRT stock photo dated 2026-08-31 shows Cummins 3355903 printed on the sealed Fleetguard FS1242. Confirm the equipment/application before selection.",
+      },
+    ],
     crossReferences: [],
     stockStatus: "in_stock",
     mrtStockEvidence: {
