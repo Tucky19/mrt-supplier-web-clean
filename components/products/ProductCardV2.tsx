@@ -8,6 +8,7 @@ import { gaAddToQuote } from "@/lib/analytics/ga";
 import { getProductUiText } from "@/lib/i18n/productUi";
 import { getSearchUiText } from "@/lib/i18n/searchUi";
 import { getProductImageUrl } from "@/lib/products/image";
+import { hasVerifiedMrtStock, isMrtCoreBrand } from "@/lib/products/stock";
 import {
   type ProductRelation,
   normalizeProductRelations,
@@ -175,7 +176,15 @@ export default function ProductCardV2({
     buildSpecificationSummary(product) ||
     "Specification to be confirmed";
   const isRequest = product.stockStatus === "request";
-  const statusLabel = isRequest ? text.statusRequest : text.statusAvailable;
+  const showMrtStockBadge =
+    hasVerifiedMrtStock(product) && !isMrtCoreBrand(product.brand);
+  const statusLabel = showMrtStockBadge
+    ? isThai
+      ? "MRT มีสินค้า"
+      : "In MRT stock"
+    : isRequest
+      ? text.statusRequest
+      : text.statusAvailable;
   const statusDotClass = isRequest
     ? "bg-[var(--color-warning)]"
     : "bg-[var(--color-success)]";
