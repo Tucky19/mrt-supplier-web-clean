@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import {
   buildRfqReferenceContext,
   getRfqReferenceContext,
+  mergeRfqReferenceContext,
 } from "@/lib/rfq/referenceContext";
 
 const fs1242Context = buildRfqReferenceContext({
@@ -33,5 +34,29 @@ assert.equal(
 );
 
 assert.equal(getRfqReferenceContext({ searchQuery: "FS1242" }), null);
+
+assert.deepEqual(
+  mergeRfqReferenceContext(undefined, fs1242Context),
+  fs1242Context,
+  "an incoming cross-reference should be retained when a quote item already exists",
+);
+
+assert.deepEqual(
+  mergeRfqReferenceContext(fs1242Context, undefined),
+  fs1242Context,
+  "an existing cross-reference should remain when a direct add has no context",
+);
+
+const laterContext = buildRfqReferenceContext({
+  searchQuery: "3355903",
+  offeredPartNo: "P551864",
+  matchType: "Cross Ref",
+});
+
+assert.deepEqual(
+  mergeRfqReferenceContext(fs1242Context, laterContext),
+  laterContext,
+  "the latest customer search should replace stale reference context",
+);
 
 console.log("RFQ reference-context verification passed.");
