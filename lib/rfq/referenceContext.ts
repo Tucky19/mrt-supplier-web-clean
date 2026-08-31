@@ -12,6 +12,13 @@ export type RfqReferenceContext = {
   };
 };
 
+export type RfqReferenceMetadata =
+  | RfqReferenceContext
+  | {
+      source: "product_search_references";
+      references: RfqReferenceContext[];
+    };
+
 function safeText(value: unknown, maxLength = 120) {
   return String(value ?? "").trim().slice(0, maxLength);
 }
@@ -47,7 +54,7 @@ export function buildRfqReferenceContext(input: {
   };
 }
 
-export function getRfqReferenceContext(meta: unknown): RfqReferenceContext | null {
+function parseRfqReferenceContext(meta: unknown): RfqReferenceContext | null {
   if (!meta || typeof meta !== "object") return null;
 
   const value = meta as Partial<RfqReferenceContext>;
@@ -69,24 +76,59 @@ export function getRfqReferenceContext(meta: unknown): RfqReferenceContext | nul
   };
 }
 
+function visibleContextKey(context: RfqReferenceContext): string {
+  return `${context.searchQuery}|${context.matchType}`;
+}
+
+export function getRfqReferenceContexts(meta: unknown): RfqReferenceContext[] {
+  const values =
+    meta && typeof meta === "object" &&
+    (meta as { source?: unknown }).source === "product_search_references" &&
+    Array.isArray((meta as { references?: unknown }).references)
+      ? (meta as { references: unknown[] }).references
+      : [meta];
+
+  const contexts = new Map<string, RfqReferenceContext>();
+  for (const value of values) {
+    const context = parseRfqReferenceContext(value);
+    if (!context) continue;
+
+    const key = visibleContextKey(context);
+    const existing = contexts.get(key);
+    contexts.set(key, {
+      ...existing,
+      ...context,
+      matchedRelation: context.matchedRelation ?? existing?.matchedRelation,
+    });
+  }
+
+  return Array.from(contexts.values());
+}
+
+export function getRfqReferenceContext(meta: unknown): RfqReferenceContext | null {
+  return getRfqReferenceContexts(meta)[0] ?? null;
+}
+
 export function mergeRfqReferenceContext(
-  existing: RfqReferenceContext | undefined,
-  incoming: RfqReferenceContext | undefined,
-): RfqReferenceContext | undefined {
-  return incoming ?? existing;
+  existing: RfqReferenceMetadata | undefined,
+  incoming: RfqReferenceMetadata | undefined,
+): RfqReferenceMetadata | undefined {
+  const contexts = getRfqReferenceContexts({
+    source: "product_search_references",
+    references: [
+      ...getRfqReferenceContexts(existing),
+      ...getRfqReferenceContexts(incoming),
+    ],
+  });
+
+  if (contexts.length === 0) return undefined;
+  if (contexts.length === 1) return contexts[0];
+  return { source: "product_search_references", references: contexts };
 }
 
 export function getRfqReferenceContextKey(meta: unknown): string {
-  const context = getRfqReferenceContext(meta);
-  if (!context) return "";
-
-  const relation = context.matchedRelation;
-  return [
-    context.searchQuery,
-    context.matchType,
-    safeText(relation?.brand).toUpperCase(),
-    safeText(relation?.partNumber).toUpperCase(),
-    relation?.relationType ?? "",
-    relation?.verificationStatus ?? "",
-  ].join("|");
+  return getRfqReferenceContexts(meta)
+    .map(visibleContextKey)
+    .sort()
+    .join("||");
 }
