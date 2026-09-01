@@ -90,12 +90,13 @@ export default function SiteHeader({ locale }: Props) {
           className={`min-w-0 flex-1 rounded-[var(--mrt-radius-md)] md:flex-none ${lightFocusClass}`}
         >
           <Image
-            src="/logo-mrt-icon-a.png"
-            alt=""
-            width={512}
-            height={512}
+            src="/logo-mrt-a.png"
+            alt="MRT Supplier"
+            width={954}
+            height={379}
             priority
-            className="h-9 w-9 rounded-[10px] sm:hidden"
+            className="h-auto w-14 sm:hidden min-[360px]:w-20"
+            sizes="(min-width: 360px) 80px, 56px"
           />
           <Image
             src="/logo-mrt-a.png"
