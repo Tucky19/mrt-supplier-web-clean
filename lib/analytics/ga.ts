@@ -19,6 +19,18 @@ function hasGtag() {
   return typeof window !== "undefined" && typeof window.gtag === "function";
 }
 
+function normalizeEventParams(params?: GAParams): GAParams {
+  if (!params || !("source" in params) || "event_source" in params) {
+    return params ?? {};
+  }
+
+  const { source, ...rest } = params;
+  return {
+    ...rest,
+    event_source: source,
+  };
+}
+
 export function pushDataLayer(payload: GAParams) {
   if (typeof window === "undefined") return;
 
@@ -31,33 +43,45 @@ export function pushDataLayer(payload: GAParams) {
 }
 
 function pushEcommerceEvent(eventName: string, params?: GAParams) {
+  const normalizedParams = normalizeEventParams(params);
+
   pushDataLayer({ ecommerce: null });
+
+  const GA_ID = process.env.NEXT_PUBLIC_GA4_ID;
+  if (GA_ID && hasGtag()) {
+    window.gtag!("event", eventName, normalizedParams);
+    return;
+  }
+
   pushDataLayer({
     event: eventName,
-    ...(params ?? {}),
+    ...normalizedParams,
   });
 }
 
 export function gaEvent(eventName: string, params?: GAParams) {
-  if (!hasGtag()) return;
-
   try {
-    window.gtag!("event", eventName, params ?? {});
+    const normalizedParams = normalizeEventParams(params);
+    const GA_ID = process.env.NEXT_PUBLIC_GA4_ID;
+    if (GA_ID && hasGtag()) {
+      window.gtag!("event", eventName, normalizedParams);
+      return;
+    }
+
+    pushDataLayer({ event: eventName, ...normalizedParams });
   } catch {
     // ignore
   }
 }
 
 export function gaPageView(url: string) {
-  if (!hasGtag()) return;
-
   try {
     const GA_ID = process.env.NEXT_PUBLIC_GA4_ID;
-    if (!GA_ID) return;
-
-    window.gtag!("config", GA_ID, {
-      page_path: url,
-    });
+    if (GA_ID && hasGtag()) {
+      window.gtag!("config", GA_ID, {
+        page_path: url,
+      });
+    }
   } catch {
     // ignore
   }

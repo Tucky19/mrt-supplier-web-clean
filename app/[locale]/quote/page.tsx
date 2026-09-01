@@ -636,6 +636,17 @@ export default function QuotePage() {
                   {text.followUpRequired}
                 </p>
                 <p className="mt-2 text-sm leading-6 text-[var(--color-text-muted)]">{text.contactUseNote}</p>
+                <p className="mt-2 text-xs leading-5 text-[var(--color-text-muted)]">
+                  {locale === 'th'
+                    ? 'ดูรายละเอียดการเก็บและใช้ข้อมูลได้ใน'
+                    : 'See how we handle submitted information in our'}{' '}
+                  <Link
+                    href={`/${locale}/privacy`}
+                    className="font-medium text-[var(--color-primary)] underline underline-offset-2"
+                  >
+                    {locale === 'th' ? 'นโยบายความเป็นส่วนตัว' : 'Privacy Policy'}
+                  </Link>
+                </p>
               </div>
             </div>
 

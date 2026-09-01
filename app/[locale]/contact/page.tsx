@@ -1,4 +1,5 @@
 import Link from "next/link";
+import type { Metadata } from "next";
 import {
   Clock,
   FileText,
@@ -13,6 +14,30 @@ import SiteFooter from "@/components/layout/SiteFooter";
 import SiteHeader from "@/components/layout/SiteHeader";
 
 const LINE_URL = "https://lin.ee/S676yYH";
+
+type PageProps = {
+  params: Promise<{ locale: string }>;
+};
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { locale } = await params;
+  const isThai = locale === "th";
+
+  return {
+    title: isThai ? "ติดต่อและส่ง RFQ" : "Contact and Send an RFQ",
+    description: isThai
+      ? "ติดต่อ MRT Supplier หรือส่ง RFQ สำหรับไส้กรอง ตลับลูกปืน และอะไหล่อุตสาหกรรม พร้อมข้อมูล Part Number หรือรุ่นเครื่องจักร"
+      : "Contact MRT Supplier or send an RFQ for industrial filters, bearings, and spare parts using a part number or machine model.",
+    alternates: {
+      canonical: `/${locale}/contact`,
+      languages: {
+        th: "/th/contact",
+        en: "/en/contact",
+        "x-default": "/th/contact",
+      },
+    },
+  };
+}
 
 const contactDetails = {
   company: "MRT Supplier Co., Ltd.",
@@ -68,9 +93,7 @@ function getCopy(locale: string) {
 
 export default async function ContactPage({
   params,
-}: {
-  params: Promise<{ locale: string }>;
-}) {
+}: PageProps) {
   const { locale } = await params;
   const text = getCopy(locale);
   const address = locale === "th" ? contactDetails.addressTh : contactDetails.addressEn;

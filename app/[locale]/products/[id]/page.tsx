@@ -135,10 +135,10 @@ export async function generateMetadata({
   const productPath = `/products/${encodedPartNo}`;
   const canonical = `${SITE_URL}/${locale}${productPath}`;
   const title = isThai
-    ? `${product.partNo} ${product.brand} | สเปคสินค้าและขอใบเสนอราคา | MRT Supplier`
+    ? `${product.partNo} ${product.brand} | สเปกสินค้าและขอใบเสนอราคา | MRT Supplier`
     : `${product.partNo} ${product.brand} | Product Specs and RFQ | MRT Supplier`;
   const description = isThai
-    ? `${product.brand} ${product.partNo} สำหรับงานอุตสาหกรรม ดูสเปค เบอร์เทียบ และส่งขอใบเสนอราคา MRT Supplier`
+    ? `${product.brand} ${product.partNo} สำหรับงานอุตสาหกรรม ดูสเปก เบอร์เทียบ และส่งขอใบเสนอราคา MRT Supplier`
     : `View ${product.brand} ${product.partNo} product specifications, cross references, and request a quote from MRT Supplier.`;
   const image = getProductImage(product);
 
