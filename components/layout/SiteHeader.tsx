@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { usePathname, useSearchParams } from 'next/navigation';
 import { MessageCircle } from 'lucide-react';
@@ -86,15 +87,26 @@ export default function SiteHeader({ locale }: Props) {
         <Link
           href={`/${locale}`}
           aria-label={isThai ? "MRT Supplier Co., Ltd. หน้าแรก" : "MRT Supplier Co., Ltd. Home"}
-          className={`min-w-0 flex-1 rounded-[var(--mrt-radius-md)] leading-tight md:flex-none ${lightFocusClass}`}
+          className={`min-w-0 flex-1 rounded-[var(--mrt-radius-md)] md:flex-none ${lightFocusClass}`}
         >
-          <span className="block text-sm font-bold text-[var(--color-text)] sm:hidden">
-            MRT
-          </span>
-          <span className="hidden text-lg font-bold text-[var(--color-text)] sm:block">
-            MRT Supplier Co., Ltd.
-          </span>
-          <span className="hidden text-[10px] text-[var(--color-text-muted)] sm:block">{text.tagline}</span>
+          <Image
+            src="/logo-mrt-icon-a.png"
+            alt=""
+            width={512}
+            height={512}
+            priority
+            className="h-9 w-9 rounded-[10px] sm:hidden"
+          />
+          <Image
+            src="/logo-mrt-a.png"
+            alt="MRT Supplier"
+            width={922}
+            height={412}
+            priority
+            className="hidden h-auto w-[112px] sm:block lg:w-[126px]"
+            sizes="(min-width: 1024px) 126px, 112px"
+          />
+          <span className="sr-only">{text.tagline}</span>
         </Link>
 
         <nav className="hidden items-center gap-6 text-sm font-medium md:flex">

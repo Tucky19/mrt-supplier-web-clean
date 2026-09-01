@@ -15,7 +15,7 @@ const organizationJsonLd = {
   "@type": "Organization",
   name: "MRT Supplier Co., Ltd.",
   url: SITE_URL,
-  logo: `${SITE_URL}/logo-mrt.png`,
+  logo: `${SITE_URL}/logo-mrt-a.png`,
   contactPoint: [
     {
       "@type": "ContactPoint",

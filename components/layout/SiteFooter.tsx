@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import TrackedLineLink from "@/components/analytics/TrackedLineLink";
 
 const LINE_URL = "https://lin.ee/S676yYH";
@@ -19,9 +20,19 @@ export default function SiteFooter({ locale = "th", className = "" }: Props) {
     >
       <div className="mx-auto grid max-w-7xl gap-10 px-6 py-14 lg:grid-cols-[1.2fr_0.8fr_0.9fr] lg:px-8">
         <div>
-          <p className="text-lg font-semibold text-white">
-            {isThai ? "บริษัท เอ็มอาร์ที ซัพพลายเออร์ จำกัด" : "MRT Supplier Co., Ltd."}
-          </p>
+          <div className="flex items-center gap-3">
+            <Image
+              src="/logo-mrt-icon-a.png"
+              alt=""
+              width={512}
+              height={512}
+              className="h-12 w-12 shrink-0 rounded-xl"
+              sizes="48px"
+            />
+            <p className="text-lg font-semibold text-white">
+              {isThai ? "บริษัท เอ็มอาร์ที ซัพพลายเออร์ จำกัด" : "MRT Supplier Co., Ltd."}
+            </p>
+          </div>
           <p className="mt-4 max-w-md text-sm leading-7 text-slate-400">
             {isThai
               ? "บริการจัดหาอะไหล่อุตสาหกรรมสำหรับโรงงาน ทีมซ่อมบำรุง และฝ่ายจัดซื้อ พร้อมการตอบกลับอย่างมืออาชีพ"
