@@ -43,14 +43,15 @@ function getCopy(locale: string) {
       ? "เลือกช่องทางที่สะดวก หรือส่ง RFQ เพื่อให้ทีมงานตรวจสอบรายการสินค้าและติดต่อกลับ"
       : "Choose the channel that works best, or send an RFQ for product review and follow-up.",
     phone: isThai ? "โทรศัพท์" : "Phone",
+    salesPhone: isThai ? "ฝ่ายขาย" : "Sales",
     email: isThai ? "อีเมล" : "Email",
     line: isThai ? "LINE Official" : "LINE Official",
     website: isThai ? "เว็บไซต์" : "Website",
     address: isThai ? "ที่อยู่บริษัท" : "Company Address",
     businessHours: isThai ? "เวลาทำการ" : "Business Hours",
     businessHoursBody: isThai
-      ? "จันทร์-ศุกร์ 08:30-17:30"
-      : "Monday-Friday, 08:30-17:30",
+      ? "จันทร์-ศุกร์ 09:30-17:30 • เสาร์ 10:30-15:30 • อาทิตย์ปิด"
+      : "Monday-Friday, 09:30-17:30 • Saturday, 10:30-15:30 • Sunday closed",
     businessHoursNote: isThai
       ? "RFQ และข้อความ LINE จะได้รับการตรวจสอบในช่วงเวลาทำการ"
       : "RFQs and LINE inquiries are reviewed during business hours.",
@@ -126,7 +127,7 @@ export default async function ContactPage({
                     href="tel:0815581323"
                     className="flex min-h-11 items-center text-base font-semibold text-[var(--color-text)] transition hover:text-[var(--color-primary)] focus-visible:[outline:2px_solid_var(--color-focus-ring)] focus-visible:[outline-offset:2px] focus-visible:ring-2 focus-visible:ring-[color:var(--color-focus-ring)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-surface-muted)]"
                   >
-                    {contactDetails.phoneSecondary}
+                    {text.salesPhone}: {contactDetails.phoneSecondary}
                   </a>
                 </div>
               </div>
