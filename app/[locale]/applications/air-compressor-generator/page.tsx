@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import {
+  ArrowRight,
   Droplets,
   Factory,
   FileText,
@@ -17,13 +18,13 @@ import SiteHeader from "@/components/layout/SiteHeader";
 const SITE_URL = "https://www.mrtsupplier.com";
 
 const applicationItems = [
-  { key: "screw", icon: Wind },
-  { key: "piston", icon: Gauge },
-  { key: "tank", icon: Factory },
-  { key: "dryer", icon: Droplets },
-  { key: "line", icon: Filter },
-  { key: "spares", icon: Wrench },
-  { key: "generator", icon: Zap },
+  { key: "screw", slug: "screw-compressor", icon: Wind },
+  { key: "piston", slug: "piston-compressor", icon: Gauge },
+  { key: "tank", slug: "air-tank", icon: Factory },
+  { key: "dryer", slug: "air-dryer", icon: Droplets },
+  { key: "line", slug: "line-filter", icon: Filter },
+  { key: "spares", slug: "compressor-spares", icon: Wrench },
+  { key: "generator", slug: "generator-filters", icon: Zap },
 ] as const;
 
 function getCopy(locale: string) {
@@ -41,6 +42,7 @@ function getCopy(locale: string) {
     applicationsBody: isThai
       ? "ส่งรุ่นเครื่องจักรหรือเบอร์เดิมมาให้ทีมงานตรวจสอบก่อนเสนอราคา โดยไม่สมมติว่าเบอร์เทียบใช้แทนกันได้หากยังไม่มีหลักฐาน"
       : "Send the machine model or existing part number for review before quotation. We do not assume interchangeability where supporting evidence is not available.",
+    detailsLabel: isThai ? "ดูรายละเอียด" : "View details",
     items: {
       screw: {
         title: "Screw Compressor",
@@ -197,9 +199,10 @@ export default async function AirCompressorGeneratorPage({
               const copy = text.items[item.key];
 
               return (
-                <article
+                <Link
                   key={item.key}
-                  className="min-w-0 rounded-[var(--mrt-radius-lg)] border border-[var(--color-border)] bg-[var(--color-surface)] p-5 shadow-[var(--shadow-sm)]"
+                  href={`/${locale}/applications/${item.slug}`}
+                  className="group min-w-0 rounded-[var(--mrt-radius-lg)] border border-[var(--color-border)] bg-[var(--color-surface)] p-5 shadow-[var(--shadow-sm)] transition hover:-translate-y-0.5 hover:border-[var(--color-border-strong)] hover:shadow-[var(--shadow-md)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)] focus-visible:ring-offset-2"
                 >
                   <div className="flex h-10 w-10 items-center justify-center rounded-[var(--mrt-radius-md)] bg-[var(--color-primary-soft)] text-[var(--color-primary)]">
                     <Icon className="h-5 w-5" aria-hidden="true" />
@@ -210,7 +213,11 @@ export default async function AirCompressorGeneratorPage({
                   <p className="mt-2 text-sm leading-6 text-[var(--color-text-muted)]">
                     {copy.body}
                   </p>
-                </article>
+                  <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-[var(--color-primary)]">
+                    {text.detailsLabel}
+                    <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" aria-hidden="true" />
+                  </span>
+                </Link>
               );
             })}
           </div>
