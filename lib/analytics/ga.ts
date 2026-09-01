@@ -39,25 +39,27 @@ function pushEcommerceEvent(eventName: string, params?: GAParams) {
 }
 
 export function gaEvent(eventName: string, params?: GAParams) {
-  if (!hasGtag()) return;
-
   try {
-    window.gtag!("event", eventName, params ?? {});
+    const GA_ID = process.env.NEXT_PUBLIC_GA4_ID;
+    if (GA_ID && hasGtag()) {
+      window.gtag!("event", eventName, params ?? {});
+      return;
+    }
+
+    pushDataLayer({ event: eventName, ...(params ?? {}) });
   } catch {
     // ignore
   }
 }
 
 export function gaPageView(url: string) {
-  if (!hasGtag()) return;
-
   try {
     const GA_ID = process.env.NEXT_PUBLIC_GA4_ID;
-    if (!GA_ID) return;
-
-    window.gtag!("config", GA_ID, {
-      page_path: url,
-    });
+    if (GA_ID && hasGtag()) {
+      window.gtag!("config", GA_ID, {
+        page_path: url,
+      });
+    }
   } catch {
     // ignore
   }

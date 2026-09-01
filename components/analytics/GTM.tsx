@@ -2,6 +2,32 @@ import Script from "next/script";
 
 const GTM_ID = "GTM-5FB498FW";
 
+export function GoogleConsentDefaults() {
+  return (
+    <script
+      id="google-consent-defaults"
+      dangerouslySetInnerHTML={{
+        __html: `
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){window.dataLayer.push(arguments);}
+        window.gtag = window.gtag || gtag;
+        var consentChoice = null;
+        try { consentChoice = localStorage.getItem('mrt_cookie_consent'); } catch (e) {}
+        var consentValue = consentChoice === 'accepted' ? 'granted' : 'denied';
+        gtag('consent', 'default', {
+          ad_storage: consentValue,
+          analytics_storage: consentValue,
+          ad_user_data: consentValue,
+          ad_personalization: consentValue,
+          wait_for_update: 500
+        });
+        gtag('set', 'ads_data_redaction', true);
+      `,
+      }}
+    />
+  );
+}
+
 export function GTMHead() {
   return (
     <Script id="gtm-head" strategy="afterInteractive">

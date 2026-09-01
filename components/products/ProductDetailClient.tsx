@@ -75,6 +75,10 @@ function normalizeComparableText(value: string) {
   return value.trim().toLowerCase().replace(/\s+/g, " ");
 }
 
+function containsThai(value: string) {
+  return /[\u0E00-\u0E7F]/.test(value);
+}
+
 function getCategorySummary(category: string | undefined, locale: string) {
   const isThai = locale === "th";
   const key = String(category ?? "").trim().toLowerCase();
@@ -209,6 +213,7 @@ function buildTopProductInfo(product: Product, locale: string) {
 
 function buildDescriptionBlock(product: Product, locale: string) {
   const fallbackInfo = buildTopProductInfo(product, locale);
+  const isThai = locale === "th";
   const specText = normalizeComparableText(String(product.spec ?? ""));
   const structuredValues = (product.specifications ?? [])
     .map((item) => normalizeComparableText(String(item?.value ?? "")))
@@ -221,6 +226,7 @@ function buildDescriptionBlock(product: Product, locale: string) {
   ]
     .map((value) => String(value ?? "").trim())
     .filter(Boolean)
+    .filter((paragraph) => isThai || !containsThai(paragraph))
     .filter((paragraph, index, array) => {
       const normalized = normalizeComparableText(paragraph);
 

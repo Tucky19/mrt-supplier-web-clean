@@ -53,11 +53,19 @@ export async function generateMetadata({
 
   return {
     title: isThai
-      ? "ค้นหาไส้กรองด้วยขนาด | MRT Supplier"
-      : "Search Filters by Dimensions | MRT Supplier",
+      ? "ค้นหาไส้กรองด้วยขนาด"
+      : "Search Filters by Dimensions",
     description: isThai
       ? "ค้นหาไส้กรองจาก OD, ID, Length/Height และ Thread Size โดยรองรับช่วงขนาด ±3 มม."
       : "Find filters by OD, ID, length or height, and thread size with a ±3 mm filter tolerance.",
+    alternates: {
+      canonical: `/${locale}/products/dimensions`,
+      languages: {
+        th: "/th/products/dimensions",
+        en: "/en/products/dimensions",
+        "x-default": "/th/products/dimensions",
+      },
+    },
   };
 }
 

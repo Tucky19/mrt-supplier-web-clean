@@ -37,8 +37,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   }
 
   const title = isThai
-    ? `${product.partNo} รหัสเทียบ | MRT Supplier`
-    : `${product.partNo} Cross Reference | MRT Supplier`;
+    ? `${product.partNo} รหัสเทียบ`
+    : `${product.partNo} Cross Reference`;
   const description = isThai
     ? `ดูรหัสเทียบและสินค้าอ้างอิงสำหรับ ${product.partNo} พร้อมลิงก์ไปยังหน้าสินค้า`
     : `View compatible parts and cross reference information for ${product.partNo}.`;
@@ -48,6 +48,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     description,
     alternates: {
       canonical: `/${locale}/cross-reference/${encodeURIComponent(product.partNo)}`,
+      languages: {
+        th: `/th/cross-reference/${encodeURIComponent(product.partNo)}`,
+        en: `/en/cross-reference/${encodeURIComponent(product.partNo)}`,
+        "x-default": `/th/cross-reference/${encodeURIComponent(product.partNo)}`,
+      },
     },
   };
 }
@@ -65,7 +70,7 @@ export default async function ProductPage({ params }: PageProps) {
       </Suspense>
 
       <section className="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-12">
-        <ProductHero product={product} />
+        <ProductHero locale={locale} product={product} />
       </section>
 
       <SiteFooter locale={locale} />

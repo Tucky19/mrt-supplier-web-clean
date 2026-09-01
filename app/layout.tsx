@@ -5,7 +5,12 @@ import { Suspense } from "react";
 import { getLocale } from "next-intl/server";
 import GA4 from "@/components/analytics/GA4";
 import GA4PageView from "@/components/analytics/GA4PageView";
-import { GTMBody, GTMHead } from "@/components/analytics/GTM";
+import {
+  GoogleConsentDefaults,
+  GTMBody,
+  GTMHead,
+} from "@/components/analytics/GTM";
+import CookieConsent from "@/components/privacy/CookieConsent";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.mrtsupplier.com"),
@@ -28,6 +33,7 @@ export default async function RootLayout({
   return (
     <html lang={lang} data-scroll-behavior="smooth">
       <head>
+        <GoogleConsentDefaults />
         <GTMHead />
       </head>
       <body className="bg-slate-50 text-slate-950">
@@ -37,6 +43,7 @@ export default async function RootLayout({
           <GA4PageView />
         </Suspense>
         {children}
+        <CookieConsent locale={lang} />
       </body>
     </html>
   );

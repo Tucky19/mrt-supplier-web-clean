@@ -16,11 +16,19 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   return {
     title: isThai
-      ? "ติชมการใช้งานเว็บไซต์ | MRT Supplier"
-      : "Website Feedback | MRT Supplier",
+      ? "ติชมการใช้งานเว็บไซต์"
+      : "Website Feedback",
     description: isThai
       ? "ส่งปัญหาหรือข้อเสนอแนะเกี่ยวกับการค้นหาและข้อมูลสินค้าผ่าน LINE Official ของ MRT Supplier"
       : "Send website search issues, product-data corrections, or suggestions through MRT Supplier LINE Official.",
+    alternates: {
+      canonical: `/${locale}/feedback`,
+      languages: {
+        th: "/th/feedback",
+        en: "/en/feedback",
+        "x-default": "/th/feedback",
+      },
+    },
   };
 }
 

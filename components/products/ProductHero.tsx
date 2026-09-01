@@ -1,15 +1,28 @@
 "use client";
 
-import Link from "next/link";
 import { useQuote } from "@/providers/QuoteProvider";
 import { useToast } from "@/components/ui/ToastProvider";
 import { ShoppingCart, ExternalLink } from "lucide-react";
 import { relationPartNumbers } from "@/lib/products/relations";
 import type { Product } from "@/types/product";
 
-export default function ProductHero({ product }: { product: Product }) {
+function containsThai(value: string) {
+  return /[\u0E00-\u0E7F]/.test(value);
+}
+
+export default function ProductHero({
+  locale,
+  product,
+}: {
+  locale: string;
+  product: Product;
+}) {
   const { addItem } = useQuote();
   const { show } = useToast();
+  const isThai = locale === "th";
+  const description = String(product.description ?? "").trim();
+  const visibleDescription =
+    !isThai && containsThai(description) ? "" : description;
 
   const handleAdd = () => {
     addItem({
@@ -20,7 +33,11 @@ export default function ProductHero({ product }: { product: Product }) {
       qty: 1,
     });
 
-    show(`Added ${product.partNo} to quote`);
+    show(
+      isThai
+        ? `เพิ่ม ${product.partNo} ในรายการขอราคาแล้ว`
+        : `Added ${product.partNo} to quote`,
+    );
   };
 
  const image =
@@ -62,7 +79,7 @@ export default function ProductHero({ product }: { product: Product }) {
 
         {/* PART NO */}
         <div className="text-gray-600">
-          Part Number: <span className="font-medium">{product.partNo}</span>
+          {isThai ? "Part No." : "Part Number"}: <span className="font-medium">{product.partNo}</span>
         </div>
 
         {/* SHORT SPEC */}
@@ -73,9 +90,9 @@ export default function ProductHero({ product }: { product: Product }) {
         )}
 
         {/* DESCRIPTION */}
-        {product.description && (
+        {visibleDescription && (
           <p className="text-sm text-gray-600">
-            {product.description}
+            {visibleDescription}
           </p>
         )}
 
@@ -105,7 +122,7 @@ export default function ProductHero({ product }: { product: Product }) {
             className="inline-flex items-center gap-2 rounded-lg bg-[#0F172A] px-5 py-3 text-white text-sm hover:bg-black transition"
           >
             <ShoppingCart size={16} />
-            Add to Quote
+            {isThai ? "เพิ่มในรายการขอราคา" : "Add to Quote"}
           </button>
 
           {product.officialUrl && (
@@ -114,7 +131,7 @@ export default function ProductHero({ product }: { product: Product }) {
               target="_blank"
               className="inline-flex items-center gap-2 rounded-lg border border-gray-300 px-5 py-3 text-sm text-gray-700 hover:bg-gray-100 transition"
             >
-              Official Page
+              {isThai ? "หน้าข้อมูลทางการ" : "Official Page"}
               <ExternalLink size={14} />
             </a>
           )}
@@ -125,7 +142,7 @@ export default function ProductHero({ product }: { product: Product }) {
       {product.specifications && product.specifications.length > 0 && (
         <div className="md:col-span-2 mt-6">
           <h2 className="text-lg font-semibold mb-4 text-gray-900">
-            Specifications
+            {isThai ? "ข้อมูลจำเพาะ" : "Specifications"}
           </h2>
 
           <div className="border rounded-xl overflow-hidden">
