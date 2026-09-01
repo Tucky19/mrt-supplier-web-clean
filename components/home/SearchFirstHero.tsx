@@ -232,8 +232,8 @@ export default function SearchFirstHero({ locale }: { locale: string }) {
             <span className="h-px flex-1 bg-[var(--color-border)]" />
           </div>
 
-          <div className="mt-4 grid gap-4 lg:grid-cols-2">
-            <div className="grid overflow-hidden rounded-[var(--mrt-radius-lg)] border border-[var(--color-border)] bg-[var(--color-surface)] shadow-[var(--shadow-sm)] sm:grid-cols-3">
+          <div className="mt-4 grid min-w-0 gap-4 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
+            <div className="grid min-w-0 overflow-hidden rounded-[var(--mrt-radius-lg)] border border-[var(--color-border)] bg-[var(--color-surface)] shadow-[var(--shadow-sm)] sm:grid-cols-3">
               {BRANDS.map((brand) => (
                 <Link
                   key={brand.name}
@@ -254,7 +254,7 @@ export default function SearchFirstHero({ locale }: { locale: string }) {
               ))}
             </div>
 
-            <div className="rounded-[var(--mrt-radius-lg)] border border-[var(--color-border)] bg-[var(--color-surface)] p-4 shadow-[var(--shadow-sm)] sm:p-5">
+            <div className="min-w-0 rounded-[var(--mrt-radius-lg)] border border-[var(--color-border)] bg-[var(--color-surface)] p-4 shadow-[var(--shadow-sm)] sm:p-5">
               <div className="mx-auto max-w-xl text-center">
                 <p className="text-sm font-semibold text-[var(--color-text)]">
                   {isThai
@@ -300,18 +300,18 @@ export default function SearchFirstHero({ locale }: { locale: string }) {
           </div>
         </div>
 
-        <div className="mx-auto mt-7 grid max-w-7xl overflow-hidden rounded-[var(--mrt-radius-lg)] border border-[var(--color-border)] bg-[var(--color-surface)] md:grid-cols-3">
+        <div className="mx-auto mt-7 grid max-w-7xl min-w-0 overflow-hidden rounded-[var(--mrt-radius-lg)] border border-[var(--color-border)] bg-[var(--color-surface)] md:grid-cols-[repeat(3,minmax(0,1fr))]">
           {trustItems.map((item) => {
             const Icon = item.icon;
             return (
               <article
                 key={item.title}
-                className="flex gap-4 border-b border-[var(--color-border)] p-5 last:border-0 md:border-b-0 md:border-r md:last:border-r-0"
+                className="flex min-w-0 gap-4 border-b border-[var(--color-border)] p-5 last:border-0 md:border-b-0 md:border-r md:last:border-r-0"
               >
                 <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-[var(--color-border)] bg-[var(--color-primary-soft)] text-[var(--color-primary)]">
                   <Icon className="h-6 w-6" strokeWidth={1.7} />
                 </span>
-                <div>
+                <div className="min-w-0">
                   <h2 className="text-sm font-semibold text-[var(--color-text)]">{item.title}</h2>
                   <p className="mt-1 text-xs leading-5 text-[var(--color-text-muted)]">{item.description}</p>
                 </div>
