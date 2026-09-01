@@ -24,7 +24,7 @@ export default function SiteFooter({ locale = "th", className = "" }: Props) {
           </p>
           <p className="mt-4 max-w-md text-sm leading-7 text-slate-400">
             {isThai
-              ? "บริการจัดหาอะไหล่อุตสาหกรรมสำหับโรงงาน ทีมซ่อมบำภุง และฝ่ายจัดซื้อ พร้อมการตอบกลับอย่างมืออาชีพ"
+              ? "บริการจัดหาอะไหล่อุตสาหกรรมสำหรับโรงงาน ทีมซ่อมบำรุง และฝ่ายจัดซื้อ พร้อมการตอบกลับอย่างมืออาชีพ"
               : "Industrial spare parts sourcing for factories, maintenance teams, and procurement departments."}
           </p>
         </div>
