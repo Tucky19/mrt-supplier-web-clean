@@ -1,7 +1,7 @@
 export default function TrustedStrip() {
   const items = [
     "อะไหล่แท้ / Genuine Parts",
-    "รองรับเบอร์เทียบ Cross Reference",
+    "รองรับการเทียบเบอร์ (Cross Reference)",
     "รองรับงานจัดซื้อ B2B / RFQ",
     "พร้อมค้นหาด้วย Part Number และรุ่นเครื่อง",
   ];

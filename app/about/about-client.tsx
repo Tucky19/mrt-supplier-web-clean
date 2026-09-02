@@ -76,7 +76,7 @@ export default function AboutClient() {
               <li className="rounded-xl border border-neutral-200 bg-neutral-50 p-4">
                 <div className="font-semibold text-neutral-900">ตอบไว + ตามสเปก</div>
                 <div className="mt-1 text-sm">
-                  ระบุสเปก/เบอร์เทียบ/การใช้งาน ช่วยลดรอบการคุย
+                  ระบุสเปก/เบอร์ที่ต้องการเทียบ/การใช้งาน ช่วยลดรอบการคุย
                 </div>
               </li>
             </ul>

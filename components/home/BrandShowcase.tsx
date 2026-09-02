@@ -77,12 +77,12 @@ export default function BrandShowcase({
           <div className="mx-auto max-w-3xl">
             <h3 className="text-base font-semibold text-[var(--color-text)]">
               {locale === "th"
-                ? "ตรวจสอบเบอร์เทียบและแบรนด์อื่นเพิ่มเติม"
+                ? "ค้นหาและเทียบเบอร์จากแบรนด์อื่นเพิ่มเติม"
                 : "Additional brand and cross-reference support"}
             </h3>
             <p className="mt-2 text-sm leading-7 text-[var(--color-text-muted)]">
               {locale === "th"
-                ? "นอกเหนือจากแบรนด์ที่แสดง เรายังรับตรวจสอบ Part No. จากแบรนด์อื่น เพื่อค้นหาเบอร์เทียบ Donaldson, MANN-FILTER หรือแนวทางจัดหาที่เหมาะสม"
+                ? "นอกเหนือจากแบรนด์ที่แสดง เรายังรับค้นหา Part No. จากแบรนด์อื่น เพื่อเทียบเบอร์กับ Donaldson, MANN-FILTER หรือหาแนวทางจัดหาที่เหมาะสม"
                 : "Beyond the brands shown, we can review part numbers from other brands to identify a suitable Donaldson, MANN-FILTER, or sourcing option."}
             </p>
           </div>

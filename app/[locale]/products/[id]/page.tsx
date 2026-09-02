@@ -138,7 +138,7 @@ export async function generateMetadata({
     ? `${product.partNo} ${product.brand} | สเปกสินค้าและขอใบเสนอราคา | MRT Supplier`
     : `${product.partNo} ${product.brand} | Product Specs and RFQ | MRT Supplier`;
   const description = isThai
-    ? `${product.brand} ${product.partNo} สำหรับงานอุตสาหกรรม ดูสเปก เบอร์เทียบ และส่งขอใบเสนอราคา MRT Supplier`
+    ? `${product.brand} ${product.partNo} สำหรับงานอุตสาหกรรม ดูสเปก เทียบเบอร์ และส่งขอใบเสนอราคา MRT Supplier`
     : `View ${product.brand} ${product.partNo} product specifications, cross references, and request a quote from MRT Supplier.`;
   const image = getProductImage(product);
 

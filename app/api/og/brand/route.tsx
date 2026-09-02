@@ -23,7 +23,7 @@ export async function GET(request: Request) {
   const subtitle = truncate(
     requestedSubtitle ||
       (locale === "th"
-        ? "จัดหาสินค้าอุตสาหกรรม พร้อมช่วยตรวจสอบและเทียบเบอร์ก่อนเสนอราคา"
+        ? "จัดหาสินค้าอุตสาหกรรม พร้อมช่วยค้นหาและเทียบเบอร์ก่อนเสนอราคา"
         : "Industrial parts sourcing with verification and cross-reference support before quotation."),
     110
   );

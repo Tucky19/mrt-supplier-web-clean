@@ -45,7 +45,7 @@ export default async function FeedbackPage({ params }: PageProps) {
         {
           icon: CircleAlert,
           title: "ข้อมูลสินค้าอาจไม่ถูกต้อง",
-          body: "แจ้ง Part Number และข้อมูลที่ต้องการให้ทีมตรวจสอบ เช่น รูป ขนาด หรือเบอร์เทียบ",
+          body: "แจ้ง Part Number และข้อมูลที่ต้องการให้ทีมตรวจสอบ เช่น รูป ขนาด หรือข้อมูลสำหรับเทียบเบอร์",
         },
         {
           icon: Lightbulb,

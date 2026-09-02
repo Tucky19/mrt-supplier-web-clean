@@ -6,7 +6,7 @@ export function getMissingProductUiText(locale: string) {
       ? "ไม่มี Part Number ก็ส่งให้เราช่วยหาเทียบได้"
       : "No part number? We can help identify it.",
     description: isThai
-      ? "เลือกประเภทกรอง ใส่ขนาดที่วัดได้ หรือแนบรายละเอียดสินค้า ทีม MRT Supplier จะช่วยตรวจสอบสเปกและหาเบอร์เทียบที่เหมาะสมให้"
+      ? "เลือกประเภทกรอง ใส่ขนาดที่วัดได้ หรือแนบรายละเอียดสินค้า ทีม MRT Supplier จะช่วยตรวจสอบสเปกและเทียบเบอร์ที่เหมาะสมให้"
       : "Send the filter type, measured dimensions, or product details. MRT Supplier will help verify the specification and find a suitable reference or alternative.",
     primaryButton: isThai ? "ส่งข้อมูลให้ทีมช่วยหาเทียบ" : "Send product details",
     secondaryButton: isThai ? "ติดต่อทาง LINE" : "Contact via LINE",

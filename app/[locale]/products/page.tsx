@@ -206,7 +206,7 @@ export default async function ProductsPage({
 
           <p className="mt-2 max-w-2xl text-sm leading-6 text-[var(--color-text-muted)] sm:text-base">
             {isThai
-              ? "ค้นหาด้วยเบอร์สินค้า เบอร์เดิม หรือเบอร์เทียบที่ใช้อยู่"
+              ? "ค้นหาด้วยเบอร์สินค้า เบอร์เดิม หรือใช้ฟังก์ชันเทียบเบอร์"
               : "Search by product number, existing part number, or cross-reference."}
           </p>
 
