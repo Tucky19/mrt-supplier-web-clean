@@ -11,11 +11,11 @@ export function getHomeBrandShowcaseText(locale: string) {
       : "We support trusted core brands and additional industrial brands for maintenance, procurement, and cross-reference sourcing needs.",
     coreHeading: "Core Brands",
     coreHelper: isThai
-      ? "แบรนด์หลักที่ใช้งานบ่อยในกลุ่มไส้กรอง แบริ่ง และอะไหล่อุตสาหกรรม"
+      ? "แบรนด์หลักที่ใช้งานบ่อยในกลุ่มไส้กรอง ตลับลูกปืน และอะไหล่อุตสาหกรรม"
       : "Frequently requested brands across filtration, bearings, and industrial spare parts.",
     supportingHeading: "Supporting Brands",
     supportingHelper: isThai
-      ? "รองรับการตรวจสอบและจัดหาตามเบอร์สินค้า หรือข้อมูล Cross Reference"
+      ? "รองรับการค้นหาและจัดหาตามเบอร์สินค้า หรือข้อมูล Cross Reference"
       : "Available for part-number checks, sourcing requests, and cross-reference review.",
     items: {
       donaldson: isThai
@@ -25,7 +25,7 @@ export function getHomeBrandShowcaseText(locale: string) {
         ? "ไส้กรองสำหรับงานซ่อมบำรุง โรงงาน และงานจัดหาอะไหล่อุตสาหกรรม"
         : "Filters for maintenance, factory operations, and industrial spare-parts sourcing.",
       ntn: isThai
-        ? "แบริ่งและลูกปืนอุตสาหกรรมสำหรับเครื่องจักร ระบบส่งกำลัง และอุปกรณ์หมุน"
+        ? "ตลับลูกปืนอุตสาหกรรมสำหรับเครื่องจักร ระบบส่งกำลัง และอุปกรณ์หมุน"
         : "Industrial bearings for machinery, power transmission, and rotating equipment.",
     },
   };
@@ -82,7 +82,7 @@ export function getHomeProductGridText(locale: string) {
     eyebrow: "PRODUCT CATEGORIES",
     title: isThai ? "กลุ่มสินค้าที่รองรับ" : "Product Categories We Support",
     description: isThai
-      ? "ค้นหาหรือส่ง RFQ สำหรับไส้กรอง แบริ่ง และอะไหล่อุตสาหกรรมที่ใช้ในงานซ่อมบำรุงและจัดซื้อ"
+      ? "ค้นหาหรือส่ง RFQ สำหรับไส้กรอง ตลับลูกปืน และอะไหล่อุตสาหกรรมที่ใช้ในงานซ่อมบำรุงและจัดซื้อ"
       : "Search or request quotations for filtration, bearings, and industrial spare parts used in maintenance and procurement workflows.",
     empty: isThai
       ? "ยังไม่มีกลุ่มสินค้าที่แสดงในขณะนี้"

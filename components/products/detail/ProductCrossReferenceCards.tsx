@@ -205,11 +205,11 @@ export default function ProductCrossReferenceCards({
         <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
           <div>
             <h2 className="text-base font-semibold text-slate-950">
-              {isThai ? "ต้องการหาเบอร์เทียบ?" : "Need a cross reference?"}
+              {isThai ? "ต้องการเทียบเบอร์?" : "Need a cross reference?"}
             </h2>
             <p className="mt-1 text-sm leading-6 text-slate-600">
               {isThai
-                ? "ส่งข้อมูลให้ทีมช่วยตรวจสอบเบอร์เทียบที่เหมาะสม"
+                ? "ส่งข้อมูลให้ทีมช่วยค้นหาและเทียบเบอร์"
                 : "Send details and our team can help identify a suitable interchange."}
             </p>
           </div>

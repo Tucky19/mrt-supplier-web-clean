@@ -140,11 +140,11 @@ export default async function Page({
         en: "Bearings",
       },
       subtitle: {
-        th: "แบริ่งและลูกปืนอุตสาหกรรม",
+        th: "ตลับลูกปืนอุตสาหกรรม",
         en: "",
       },
       description: {
-        th: "รองรับแบริ่งสำหรับงานซ่อมบำรุง เครื่องจักร และระบบส่งกำลังในโรงงาน",
+        th: "รองรับตลับลูกปืนสำหรับงานซ่อมบำรุง เครื่องจักร และระบบส่งกำลังในโรงงาน",
         en: "Industrial bearings for maintenance, machinery, and power transmission applications.",
       },
     },

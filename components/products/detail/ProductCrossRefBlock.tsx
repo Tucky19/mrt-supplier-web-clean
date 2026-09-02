@@ -62,7 +62,7 @@ export default function ProductCrossRefBlock({
         </p>
         <h2 className="text-lg font-semibold text-slate-950">
           {locale === "th"
-            ? "เบอร์เทียบ / OEM Reference"
+            ? "เทียบเบอร์ / OEM Reference"
             : "Cross References / OEM References"}
         </h2>
       </div>

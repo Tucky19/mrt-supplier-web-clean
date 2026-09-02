@@ -120,7 +120,7 @@ export default function SearchBar({
   const text = getSearchUiText(locale);
   const searchPlaceholder =
     locale === "th"
-      ? "ใส่เบอร์สินค้า หรือเบอร์เทียบ"
+      ? "ใส่เบอร์สินค้าเพื่อค้นหาหรือเทียบเบอร์"
       : "Enter a product number or cross-reference";
 
   const [draftQuery, setDraftQuery] = useState(defaultValue);

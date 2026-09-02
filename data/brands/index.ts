@@ -71,7 +71,7 @@ export const brands: BrandInfo[] = [
     description:
       "กลุ่มสินค้าไส้กรองสำหรับงานอุตสาหกรรม เครื่องจักร และงานซ่อมบำรุง",
     ogSubtitle:
-      "จัดหาสินค้า Donaldson พร้อมช่วยตรวจสอบและเทียบเบอร์ก่อนเสนอราคา",
+      "จัดหาสินค้า Donaldson พร้อมช่วยค้นหาและเทียบเบอร์ก่อนเสนอราคา",
     logoUrl: "/brands/donaldson.png",
   },
   {
@@ -124,7 +124,7 @@ export const brands: BrandInfo[] = [
     description:
       "กลุ่มสินค้าไส้กรองอากาศ น้ำมัน เชื้อเพลิง และงานกรองอุตสาหกรรม",
     ogSubtitle:
-      "จัดหาสินค้า MANN-FILTER พร้อมช่วยตรวจสอบและเทียบเบอร์ก่อนเสนอราคา",
+      "จัดหาสินค้า MANN-FILTER พร้อมช่วยค้นหาและเทียบเบอร์ก่อนเสนอราคา",
     logoUrl: "/brands/mann-filter.png",
   },
   {
@@ -147,7 +147,7 @@ export const brands: BrandInfo[] = [
     },
     description: "จัดหาสินค้า Fleetguard สำหรับงานกรองและอะไหล่อุตสาหกรรม",
     ogSubtitle:
-      "จัดหาสินค้า Fleetguard พร้อมช่วยตรวจสอบและเทียบเบอร์ก่อนเสนอราคา",
+      "จัดหาสินค้า Fleetguard พร้อมช่วยค้นหาและเทียบเบอร์ก่อนเสนอราคา",
     logoUrl: "/brands/fleetguard.png",
   },
 ];

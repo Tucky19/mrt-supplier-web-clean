@@ -258,7 +258,7 @@ export default function SearchFirstHero({ locale }: { locale: string }) {
               <div className="mx-auto max-w-xl text-center">
                 <p className="text-sm font-semibold text-[var(--color-text)]">
                   {isThai
-                    ? "รับตรวจสอบเบอร์เทียบจากหลายแบรนด์"
+                    ? "รับค้นหาและเทียบเบอร์จากหลายแบรนด์"
                     : "Cross-reference support for multiple brands"}
                 </p>
                 <p className="mt-2 text-xs leading-5 text-[var(--color-text-muted)] sm:text-sm sm:leading-6">
@@ -269,7 +269,7 @@ export default function SearchFirstHero({ locale }: { locale: string }) {
               </div>
 
               <ul
-                aria-label={isThai ? "แบรนด์ที่รองรับการตรวจสอบเบอร์เทียบ" : "Brands supported for cross-reference review"}
+                aria-label={isThai ? "แบรนด์ที่รองรับการค้นหาและเทียบเบอร์" : "Brands supported for cross-reference review"}
                 className="mt-4 grid grid-cols-3 gap-2 sm:flex sm:flex-wrap sm:justify-center"
               >
                 {SECONDARY_BRANDS.map((brand, index) => (
