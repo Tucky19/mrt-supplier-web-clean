@@ -12,6 +12,7 @@ import { newProducts } from "./products.new";
 import { ntnProducts } from "./products.ntn";
 import { uploadedProducts } from "./products.uploaded";
 import { importedProducts } from "./products.imported";
+import { officialProducts20260903 } from "./products.official-2026-09-03";
 
 const EXCLUDED_ACTIVE_PART_NOS = new Set([
   "6205-ZZ",
@@ -43,6 +44,7 @@ const rawProducts = [
   ...uploadedProducts,
   ...donaldsonPriorityProducts,
    ...importedProducts,
+  ...officialProducts20260903,
 ];
 
 export const products = Array.from(
