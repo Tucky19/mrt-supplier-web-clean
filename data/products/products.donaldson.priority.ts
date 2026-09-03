@@ -2578,6 +2578,7 @@ export const donaldsonPriorityProducts: Product[] = [
     category: "air_filter",
     title: "Air Filter, Secondary",
     spec: "Overall L 469 mm x OD 127 mm x ID 94 mm x Secondary Air Filter",
+    officialUrl: "https://shop.donaldson.com/store/en-us/product/P836245",
     specifications: [
       { label: "Overall Length", value: "469 mm (18.46 inch)" },
       { label: "Outer Diameter", value: "127 mm (5.00 inch)" },

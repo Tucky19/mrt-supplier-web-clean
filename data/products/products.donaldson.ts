@@ -3680,7 +3680,7 @@ const donaldsonRfqSkeletonBatch: RawDonaldson[] = [
   category: "air_filter",
   title: "Air Filter",
   spec: "Primary round air filter. Overall length 398.4 mm, outer diameter 307.2 mm, inner diameter 196.1 mm, length 385.7 mm, bolt hole diameter 16.76 mm, efficiency 99.9 tested to ISO 5011.",
-  officialUrl: null,
+  officialUrl: "https://shop.donaldson.com/store/en-us/product/P181056",
   stockStatus: "request",
   specifications: [
     { label: "Category", value: "Air Filter" },
