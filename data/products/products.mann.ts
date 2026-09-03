@@ -1728,6 +1728,8 @@ export const mannProducts = [
     crossReferences: [],
     imageUrl: "/images/products/mann/WDK_725.jpg",
     detailImageUrl: "/images/products/mann/WDK_725-dim.jpg",
+    officialUrl:
+      "https://www.mann-filter.com/en/catalog/international/search-results/product.html/wdk725_mann-filter.html",
     gtin: "4011558862107",
     stockStatus: "request",
     sourceType: "official",
@@ -1754,6 +1756,8 @@ export const mannProducts = [
     crossReferences: [],
     imageUrl: "/images/products/mann/WDK_11_102_9.jpg",
     detailImageUrl: "/images/products/mann/WDK_11_102_9-dim.jpg",
+    officialUrl:
+      "https://www.mann-filter.com/en/catalog/international/search-results/product.html/wdk11102/9_mann-filter.html",
     gtin: "4011558862800",
     stockStatus: "request",
     sourceType: "official",
@@ -1781,6 +1785,8 @@ export const mannProducts = [
     crossReferences: [],
     imageUrl: "/images/products/mann/WD_962.jpg",
     detailImageUrl: "/images/products/mann/WD_962-dim.jpg",
+    officialUrl:
+      "https://www.mann-filter.com/en/catalog/international/search-results/product.html/wd962_mann-filter.html",
     gtin: "4011558850906",
     stockStatus: "request",
     sourceType: "official",
@@ -1808,6 +1814,8 @@ export const mannProducts = [
     crossReferences: [],
     imageUrl: "/images/products/mann/WD_950.jpg",
     detailImageUrl: "/images/products/mann/WD_950-dim.jpg",
+    officialUrl:
+      "https://www.mann-filter.com/en/catalog/international/search-results/product.html/wd950_mann-filter.html",
     gtin: "4011558850500",
     stockStatus: "request",
     sourceType: "official",
@@ -1834,6 +1842,8 @@ export const mannProducts = [
     crossReferences: [],
     imageUrl: "/images/products/mann/WDK_962_16.jpg",
     detailImageUrl: "/images/products/mann/WDK_962_16-dim.jpg",
+    officialUrl:
+      "https://www.mann-filter.com/en/catalog/international/search-results/product.html/wdk962/16_mann-filter.html",
     gtin: "4011558862305",
     stockStatus: "request",
     sourceType: "official",
@@ -1861,6 +1871,8 @@ export const mannProducts = [
     crossReferences: [],
     imageUrl: "/images/products/mann/WD_13_145.jpg",
     detailImageUrl: "/images/products/mann/WD_13_145-dim.jpg",
+    officialUrl:
+      "https://www.mann-filter.com/en/catalog/international/search-results/product.html/wd13145_mann-filter.html",
     gtin: "4011558851200",
     stockStatus: "request",
     sourceType: "official",
@@ -1888,6 +1900,8 @@ export const mannProducts = [
     crossReferences: [],
     imageUrl: "/images/products/mann/WD_940.jpg",
     detailImageUrl: "/images/products/mann/WD_940-dim.jpg",
+    officialUrl:
+      "https://www.mann-filter.com/en/catalog/international/search-results/product.html/wd940_mann-filter.html",
     gtin: "4011558850203",
     stockStatus: "request",
     sourceType: "official",
@@ -1915,6 +1929,8 @@ export const mannProducts = [
     crossReferences: [],
     imageUrl: "/images/products/mann/WD_920.jpg",
     detailImageUrl: "/images/products/mann/WD_920-dim.jpg",
+    officialUrl:
+      "https://www.mann-filter.com/en/catalog/international/search-results/product.html/wd920_mann-filter.html",
     gtin: "4011558850104",
     stockStatus: "request",
     sourceType: "official",
@@ -1941,6 +1957,8 @@ export const mannProducts = [
     crossReferences: [],
     imageUrl: "/images/products/mann/WD_1374.jpg",
     detailImageUrl: "/images/products/mann/WD_1374-dim.jpg",
+    officialUrl:
+      "https://www.mann-filter.com/en/catalog/international/search-results/product.html/wd1374_mann-filter.html",
     gtin: "4011558851101",
     stockStatus: "request",
     sourceType: "official",
@@ -1967,6 +1985,8 @@ export const mannProducts = [
     crossReferences: [],
     imageUrl: "/images/products/mann/WDK_9002.jpg",
     detailImageUrl: "/images/products/mann/WDK_9002-dim.jpg",
+    officialUrl:
+      "https://www.mann-filter.com/en/catalog/international/search-results/product.html/wdk9002_mann-filter.html",
     gtin: "4011558092450",
     stockStatus: "request",
     sourceType: "official",
@@ -1994,6 +2014,8 @@ export const mannProducts = [
     crossReferences: [],
     imageUrl: "/images/products/mann/W_1160.jpg",
     detailImageUrl: "/images/products/mann/W_1160-dim.jpg",
+    officialUrl:
+      "https://www.mann-filter.com/en/catalog/international/search-results/product.html/w1160_mann-filter.html",
     gtin: "4011558715601",
     stockStatus: "request",
     sourceType: "official",
@@ -2021,6 +2043,8 @@ export const mannProducts = [
     crossReferences: [],
     imageUrl: "/images/products/mann/W_13_145_3.jpg",
     detailImageUrl: "/images/products/mann/W_13_145_3-dim.jpg",
+    officialUrl:
+      "https://www.mann-filter.com/en/catalog/international/search-results/product.html/w13145/3_mann-filter.html",
     gtin: "4011558716905",
     stockStatus: "request",
     sourceType: "official",
@@ -2049,6 +2073,8 @@ export const mannProducts = [
     crossReferences: [],
     imageUrl: "/images/products/mann/W_940.jpg",
     detailImageUrl: "/images/products/mann/W_940-dim.jpg",
+    officialUrl:
+      "https://www.mann-filter.com/en/catalog/international/search-results/product.html/w940_mann-filter.html",
     gtin: "4011558712006",
     stockStatus: "request",
     sourceType: "official",

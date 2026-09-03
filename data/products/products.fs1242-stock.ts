@@ -24,6 +24,9 @@ export const fs1242StockProducts: Product[] = [
       },
     ],
     crossReferences: [],
+    imageUrl:
+      "https://www.fleetguard.com/cdn-cgi/image/fit=scale-down,format=auto,onerror=redirect,width=800/https://atmus.widen.net/content/clw7liie4e/original/FS1242.jpg",
+    officialUrl: "https://www.fleetguard.com/product/FS1242",
     stockStatus: "in_stock",
     mrtStockEvidence: {
       status: "in_stock",
