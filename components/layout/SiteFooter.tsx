@@ -54,6 +54,12 @@ export default function SiteFooter({ locale = "th", className = "" }: Props) {
             <Link href={`/${locale}#products`} className={`block rounded-sm hover:text-white ${darkFocusClass}`}>
               {isThai ? "สินค้า" : "Products"}
             </Link>
+            <Link
+              href={`/${locale}/applications/air-compressor-generator`}
+              className={`block rounded-sm hover:text-white ${darkFocusClass}`}
+            >
+              {isThai ? "Compressor / Generator" : "Compressor / Generator"}
+            </Link>
             <Link href={`/${locale}/contact`} className={`block rounded-sm hover:text-white ${darkFocusClass}`}>
               {isThai ? "ติดต่อเรา" : "Contact"}
             </Link>
