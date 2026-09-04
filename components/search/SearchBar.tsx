@@ -22,6 +22,7 @@ type Props = {
 const SEARCH_DEBOUNCE_MS = 400;
 const DEFAULT_EXAMPLE_QUERIES = ["hydraulic filter", "air filter", "Fleetguard"];
 const RECENT_SEARCHES_KEY = "mrt_recent_searches_v1";
+const SEARCH_FOCUS_TRANSFER_KEY = "mrt_search_focus_transfer_v1";
 const RECENT_SEARCHES_LIMIT = 5;
 const RESULTS_SECTION_ID = "results";
 
@@ -136,6 +137,22 @@ export default function SearchBar({
 
   useEffect(() => {
     try {
+      if (window.sessionStorage.getItem(SEARCH_FOCUS_TRANSFER_KEY) !== "1") {
+        return;
+      }
+
+      window.sessionStorage.removeItem(SEARCH_FOCUS_TRANSFER_KEY);
+      const input = inputRef.current;
+      if (!input) return;
+
+      input.focus();
+      const cursorPosition = input.value.length;
+      input.setSelectionRange(cursorPosition, cursorPosition);
+    } catch {}
+  }, []);
+
+  useEffect(() => {
+    try {
       const raw = window.localStorage.getItem(RECENT_SEARCHES_KEY);
       if (!raw) return;
 
@@ -207,6 +224,12 @@ export default function SearchBar({
       : nextPath;
 
     lastSyncedQueryRef.current = trimmed;
+
+    if (pathname !== nextPath && trimmed.length >= 2) {
+      try {
+        window.sessionStorage.setItem(SEARCH_FOCUS_TRANSFER_KEY, "1");
+      } catch {}
+    }
 
     startTransition(() => {
       if (pathname === nextPath) {
