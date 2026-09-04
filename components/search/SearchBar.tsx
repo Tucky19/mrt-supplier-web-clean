@@ -259,8 +259,9 @@ export default function SearchBar({
 
   const visibleRecents = useMemo(() => {
     const trimmed = draftQuery.trim().toLowerCase();
+    if (trimmed) return [];
+
     return recentSearches
-      .filter((item) => (trimmed ? item.toLowerCase().includes(trimmed) : true))
       .slice(0, RECENT_SEARCHES_LIMIT);
   }, [draftQuery, recentSearches]);
 
@@ -490,7 +491,7 @@ export default function SearchBar({
         </span>
 
         {showDropdown && (
-          <div className="absolute left-0 right-0 top-[68px] z-20 max-h-[340px] overflow-y-auto rounded-[var(--mrt-radius-lg)] border border-[var(--color-border)] bg-[var(--color-surface)] shadow-[var(--shadow-md)] sm:max-h-[380px]">
+          <div className="absolute left-0 right-0 top-[68px] z-20 overflow-hidden rounded-[var(--mrt-radius-lg)] border border-[var(--color-border)] bg-[var(--color-surface)] shadow-[var(--shadow-md)]">
             {visibleRecents.length > 0 && (
               <section className="border-b border-[var(--color-border)]">
                 <div className="bg-[var(--color-surface-muted)] px-4 py-2.5 text-[10px] font-semibold uppercase tracking-[0.12em] text-[var(--color-text-muted)] sm:px-5">
@@ -565,10 +566,10 @@ export default function SearchBar({
                       !hasExactPartNumberSuggestion;
                     const brandLabel = formatBrandLabel(suggestion.brand);
                     const secondaryText = isRelationMatch
-                      ? [brandLabel, suggestion.title]
+                      ? `${label} \u2192 ${brandLabel} ${suggestion.partNo}`
+                      : [brandLabel, suggestion.title]
                           .filter(Boolean)
-                          .join(" \u00B7 ")
-                      : "";
+                          .join(" \u00B7 ");
 
                     return (
                       <button
@@ -621,31 +622,9 @@ export default function SearchBar({
                               : "text-[var(--color-text-muted)] group-hover:text-[var(--color-primary-soft)] group-active:text-[var(--color-primary-soft)]"
                           }`}
                         >
-                          {isRelationMatch ? (
-                            <span className="font-semibold">
-                              {highlightMatch(secondaryText, draftQuery)}
-                            </span>
-                          ) : (
-                            <>
-                              <span
-                                className={`font-semibold uppercase tracking-wide ${
-                                  isHighlighted
-                                    ? "text-[var(--color-primary-soft)]"
-                                    : "text-[var(--color-text-muted)] group-hover:text-[var(--color-primary-soft)] group-active:text-[var(--color-primary-soft)]"
-                                }`}
-                              >
-                                {label}
-                              </span>
-                              <span className="px-1.5 text-[var(--color-border-strong)] group-hover:text-[var(--color-primary-soft)] group-active:text-[var(--color-primary-soft)]">•</span>
-                              {highlightMatch(brandLabel, draftQuery)}
-                              {suggestion.title ? (
-                                <>
-                                  {text.bySeparator}
-                                  {highlightMatch(suggestion.title, draftQuery)}
-                                </>
-                              ) : null}
-                            </>
-                          )}
+                          <span className="font-semibold">
+                            {highlightMatch(secondaryText, draftQuery)}
+                          </span>
                         </span>
                       </button>
                     );
