@@ -66,31 +66,34 @@ export default function CookieConsent({ locale }: { locale: string }) {
   return (
     <section
       aria-label={isThai ? "การตั้งค่าคุกกี้" : "Cookie preferences"}
-      className="fixed inset-x-3 bottom-3 z-50 mx-auto max-w-3xl rounded-2xl border border-slate-300 bg-white p-4 shadow-2xl sm:p-5"
+      className="fixed inset-x-3 bottom-[calc(5rem+env(safe-area-inset-bottom))] z-50 mx-auto max-w-5xl rounded-xl border border-slate-300 bg-white px-4 py-3 shadow-xl md:bottom-3 md:grid md:grid-cols-[minmax(0,1fr)_auto] md:items-center md:gap-5"
     >
-      <h2 className="text-base font-semibold text-slate-950">
-        {isThai ? "การใช้คุกกี้บนเว็บไซต์" : "Cookies on this website"}
-      </h2>
-      <p className="mt-2 text-sm leading-6 text-slate-600">
-        {isThai
-          ? "เราใช้คุกกี้ที่จำเป็นต่อการทำงาน และขออนุญาตใช้ข้อมูลการวิเคราะห์และการตลาดเพื่อปรับปรุงเว็บไซต์และวัดผลการหาลูกค้าใหม่"
-          : "We use essential technology and ask permission to use analytics and advertising measurement data to improve the website and measure new-customer acquisition."}{" "}
-        <Link href={`/${locale}/privacy`} className="font-medium text-sky-700 underline">
-          {isThai ? "อ่านนโยบายความเป็นส่วนตัว" : "Read the Privacy Policy"}
-        </Link>
-      </p>
-      <div className="mt-4 flex flex-col-reverse gap-2 sm:flex-row sm:justify-end">
+      <div>
+        <h2 className="text-sm font-semibold text-slate-950">
+          {isThai ? "การใช้คุกกี้บนเว็บไซต์" : "Cookies on this website"}
+        </h2>
+        <p className="mt-1 text-xs leading-5 text-slate-600 sm:text-sm">
+          {isThai
+            ? "เราใช้คุกกี้ที่จำเป็นต่อการทำงาน และขออนุญาตใช้ข้อมูลการวิเคราะห์และการตลาดเพื่อปรับปรุงเว็บไซต์"
+            : "We use essential technology and ask permission to use analytics and advertising data to improve the website."}{" "}
+          <Link href={`/${locale}/privacy`} className="font-medium text-sky-700 underline">
+            {isThai ? "อ่านนโยบายความเป็นส่วนตัว" : "Read the Privacy Policy"}
+          </Link>
+        </p>
+      </div>
+      <div className="mt-3 flex flex-col-reverse gap-2 sm:flex-row sm:justify-end md:mt-0">
         <button
           type="button"
           onClick={() => save("rejected")}
-          className="min-h-11 rounded-xl border border-slate-300 px-4 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50"
+          aria-label={isThai ? "ปฏิเสธคุกกี้วิเคราะห์และการตลาด" : "Reject analytics and advertising cookies"}
+          className="min-h-10 whitespace-nowrap rounded-lg border border-slate-300 px-4 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50"
         >
-          {isThai ? "ปฏิเสธคุกกี้วิเคราะห์/การตลาด" : "Reject analytics/ads"}
+          {isThai ? "ปฏิเสธ" : "Reject"}
         </button>
         <button
           type="button"
           onClick={() => save("accepted")}
-          className="min-h-11 rounded-xl bg-slate-900 px-4 py-2 text-sm font-semibold text-white hover:bg-slate-800"
+          className="min-h-10 whitespace-nowrap rounded-lg bg-slate-900 px-4 py-2 text-sm font-semibold text-white hover:bg-slate-800"
         >
           {isThai ? "ยอมรับ" : "Accept"}
         </button>
