@@ -1,4 +1,5 @@
 import { getProductImageUrl } from "@/lib/products/image";
+import { normalizeCanonicalProductRelations } from "@/lib/products/relations";
 import { normalizeProducts } from "./normalize";
 import { batch4FeaturedProducts } from "./products.batch4.featured";
 import { batch4Products } from "./products.batch4";
@@ -13,6 +14,7 @@ import { ntnProducts } from "./products.ntn";
 import { uploadedProducts } from "./products.uploaded";
 import { importedProducts } from "./products.imported";
 import { officialProducts20260903 } from "./products.official-2026-09-03";
+import { stanadyneCrossReferencesByDonaldson } from "./stanadyne-cross-references";
 
 const EXCLUDED_ACTIVE_PART_NOS = new Set([
   "6205-ZZ",
@@ -53,6 +55,8 @@ export const products = Array.from(
       .filter((product) => !EXCLUDED_ACTIVE_PART_NOS.has(product.partNo))
       .map((product) => {
       const key = normalizePartNo(product.partNo);
+      const stanadyneCrossReferences =
+        stanadyneCrossReferencesByDonaldson[product.partNo] ?? [];
 
       return [
         key,
@@ -68,7 +72,13 @@ export const products = Array.from(
             product.imageUrl
           ),
           refs: product.refs ?? [],
-          crossReferences: product.crossReferences ?? [],
+          crossReferences: normalizeCanonicalProductRelations(
+            [
+              ...(product.crossReferences ?? []),
+              ...stanadyneCrossReferences,
+            ],
+            "unknown",
+          ),
         },
       ];
     })
