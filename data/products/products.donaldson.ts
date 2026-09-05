@@ -323,6 +323,7 @@ const rawDonaldson: RawDonaldson[] = [
   {
     id: "donaldson-p181035",
     partNo: "P181035",
+    officialUrl: "https://shop.donaldson.com/store/en-us/product/P181035/17798",
     brand: "Donaldson",
     title: "Air Filter",
     category: "air_filter",
@@ -338,6 +339,7 @@ const rawDonaldson: RawDonaldson[] = [
   {
     id: "donaldson-p181046",
     partNo: "P181046",
+    officialUrl: "https://shop.donaldson.com/store/en-us/product/P181046/17809",
     brand: "Donaldson",
     title: "Air Filter",
     category: "air_filter",
@@ -353,6 +355,7 @@ const rawDonaldson: RawDonaldson[] = [
   {
     id: "donaldson-p181052",
     partNo: "P181052",
+    officialUrl: "https://shop.donaldson.com/store/en-us/product/P181052/17814",
     brand: "Donaldson",
     title: "Air Filter",
     category: "air_filter",
@@ -441,6 +444,7 @@ const rawDonaldson: RawDonaldson[] = [
   {
     id: "donaldson-p181063",
     partNo: "P181063",
+    officialUrl: "https://shop.donaldson.com/store/en-us/product/P181063/17825",
     brand: "Donaldson",
     title: "Air Filter, Primary Finned",
     category: "air_filter",
@@ -1844,6 +1848,7 @@ const donaldsonBatch1: RawDonaldson[] = [
   {
     id: "donaldson-p181063",
     partNo: "P181063",
+    officialUrl: "https://shop.donaldson.com/store/en-us/product/P181063/17825",
     brand: "Donaldson",
     title: "Donaldson Filter P181063",
     category: "filter",
@@ -3482,6 +3487,7 @@ const donaldsonBatchNewA: RawDonaldson[] = [
   {
     id: "donaldson-p181035",
     partNo: "P181035",
+    officialUrl: "https://shop.donaldson.com/store/en-us/product/P181035/17798",
     brand: "Donaldson",
     title: "Donaldson Filter P181035",
     category: "filter",
@@ -3518,6 +3524,7 @@ const donaldsonBatchNewA: RawDonaldson[] = [
   {
     id: "donaldson-p181046",
     partNo: "P181046",
+    officialUrl: "https://shop.donaldson.com/store/en-us/product/P181046/17809",
     brand: "Donaldson",
     title: "Donaldson Filter P181046",
     category: "filter",
@@ -3532,6 +3539,7 @@ const donaldsonBatchNewA: RawDonaldson[] = [
   {
     id: "donaldson-p181052",
     partNo: "P181052",
+    officialUrl: "https://shop.donaldson.com/store/en-us/product/P181052/17814",
     brand: "Donaldson",
     title: "Donaldson Filter P181052",
     category: "filter",
@@ -3685,7 +3693,7 @@ const donaldsonRfqSkeletonBatch: RawDonaldson[] = [
   category: "air_filter",
   title: "Air Filter",
   spec: "Primary round air filter. Overall length 398.4 mm, outer diameter 307.2 mm, inner diameter 196.1 mm, length 385.7 mm, bolt hole diameter 16.76 mm, efficiency 99.9 tested to ISO 5011.",
-  officialUrl: "https://shop.donaldson.com/store/en-us/product/P181056",
+  officialUrl: "https://shop.donaldson.com/store/en-us/product/P181056/17818",
   stockStatus: "request",
   specifications: [
     { label: "Category", value: "Air Filter" },
