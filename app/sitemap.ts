@@ -1,6 +1,5 @@
 import type { MetadataRoute } from "next";
 import { products } from "@/data/products/index";
-import { relationPartNumbers } from "@/lib/products/relations";
 
 const SITE_URL = "https://www.mrtsupplier.com";
 const LOCALES = ["th", "en"] as const;
@@ -49,18 +48,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
         )}`,
         changeFrequency: "weekly",
         priority: 0.8,
-      });
-    }
-
-    for (const product of products) {
-      if (!relationPartNumbers(product.refs ?? [], "unknown").length) continue;
-
-      entries.push({
-        url: `${SITE_URL}/${locale}/cross-reference/${encodeURIComponent(
-          product.partNo,
-        )}`,
-        changeFrequency: "weekly",
-        priority: 0.7,
       });
     }
   }
