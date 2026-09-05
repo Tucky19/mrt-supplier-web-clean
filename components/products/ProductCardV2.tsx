@@ -195,8 +195,8 @@ export default function ProductCardV2({
   const hasProductImage = image !== "/images/placeholder.jpg";
   const quantity = parseQuantity(quantityInput);
   const officialReferenceLabel = isThai
-    ? "อ้างอิงจากผู้ผลิต"
-    : "Official Reference";
+    ? "หน้าสินค้าทางการ"
+    : "Official Product Page";
   const addButtonLabel = justAdded
     ? isThai
       ? "เพิ่มแล้ว"
