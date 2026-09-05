@@ -141,6 +141,14 @@ This automated pass checks the active catalog structure, relation integrity, loc
 | Medium | Cross Reference | W 940/5 | COMPAIR 98262/101 is stored in both refs and crossReferences. |
 | Medium | Cross Reference | W 940/5 | KOMATSU 600 211 5240 is stored in both refs and crossReferences. |
 
+## Cross Reference overlap classification
+
+- 114 overlap records were inspected.
+- 114/114 are identical legacy strings stored in both `refs` and `crossReferences`.
+- 114/114 normalize to relation type `unknown` and verification status `pending`.
+- 0 records contain conflicting metadata or a verified value that could be lost.
+- Runtime consumers currently read both fields. Do not bulk-delete source values until legacy consumers are migrated to one canonical relation field.
+
 ## Official-source review of High findings
 
 | Record | Official evidence checked | Decision |
