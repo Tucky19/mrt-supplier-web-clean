@@ -63,10 +63,10 @@ function getSuggestionSectionTitle(
   if (label === text.partNumber) return text.partNumberMatches;
   if (isReferenceSuggestion(matchType)) {
     if (isPreliminaryRelation(matchedRelation)) {
-      return locale === "th" ? "ข้อมูลอ้างอิง" : "Reference information";
+      return locale === "th" ? "Cross Reference (รอตรวจสอบ)" : "Reference information";
     }
 
-    return locale === "th" ? "เบอร์อ้างอิงที่ยืนยันแล้ว" : "Verified references";
+    return locale === "th" ? "Verified Cross Reference" : "Verified references";
   }
   if (label === text.usedTogether) return text.usedTogetherMatches;
   return text.relatedMatches;
@@ -121,7 +121,7 @@ export default function SearchBar({
   const text = getSearchUiText(locale);
   const searchPlaceholder =
     locale === "th"
-      ? "ใส่เบอร์สินค้าเพื่อค้นหาหรือเทียบเบอร์"
+      ? "ใส่ Part No. หรือ Cross Reference"
       : "Enter a product number or cross-reference";
 
   const [draftQuery, setDraftQuery] = useState(defaultValue);
