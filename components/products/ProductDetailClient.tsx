@@ -338,7 +338,9 @@ export default function ProductDetailClient({ locale, product }: Props) {
   );
   const hasSpecContent = Boolean(product.spec?.trim()) || specRows.length > 0;
 
-  const pairedPartsTitle = isThai ? "ชุดกรองที่ใช้คู่กัน" : "Paired Filter";
+  const pairedPartsTitle = isThai
+    ? "ชุดไส้กรองอากาศที่ใช้ร่วมกัน"
+    : "Compatible Air Filter Set";
   const addToQuoteLabel = justAdded
     ? isThai
       ? "เพิ่มในใบเสนอราคาแล้ว"
@@ -347,11 +349,11 @@ export default function ProductDetailClient({ locale, product }: Props) {
 
   const getPairedRelationLabel = (relation: "outer" | "inner" | "paired") => {
     if (relation === "inner") {
-      return isThai ? "ไส้กรองใน" : "Inner filter";
+      return isThai ? "ลูกใน (Safety Filter)" : "Inner element (Safety Filter)";
     }
 
     if (relation === "outer") {
-      return isThai ? "ไส้กรองนอก" : "Outer filter";
+      return isThai ? "ลูกนอก (Primary Filter)" : "Outer element (Primary Filter)";
     }
 
     return isThai ? "ชิ้นส่วนที่ใช้คู่กัน" : "Paired part";
@@ -455,9 +457,6 @@ export default function ProductDetailClient({ locale, product }: Props) {
                 <span className="rounded-full bg-slate-900 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-white">
                   {product.brand.toUpperCase()}
                 </span>
-                <span className="rounded-full border border-slate-300 bg-white px-3 py-1 text-[11px] font-medium text-slate-600">
-                  OEM Reference
-                </span>
                 <span className="rounded-full border border-sky-200 bg-sky-50 px-3 py-1 text-[11px] font-medium text-sky-700">
                   {text.industrialGrade}
                 </span>
@@ -502,6 +501,41 @@ export default function ProductDetailClient({ locale, product }: Props) {
                   </div>
                 </div>
               )}
+
+              {pairedParts.length > 0 && (
+                <SurfaceCard className="px-5 py-5 sm:px-6">
+                  <SectionLabel>{pairedPartsTitle}</SectionLabel>
+
+                  <div className="mt-4 space-y-3">
+                    {pairedParts.map((item) => (
+                      <div
+                        key={`${item.partNo}-${item.relation}`}
+                        className="rounded-2xl border border-slate-300 bg-slate-50/85 px-4 py-4"
+                      >
+                        <div className="text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-500">
+                          {getPairedRelationLabel(item.relation)}
+                        </div>
+
+                        <div className="mt-3 flex flex-wrap items-center gap-3">
+                          <Link
+                            href={`/${locale}/products/${encodeURIComponent(item.partNo)}`}
+                            className="inline-flex min-h-10 items-center rounded-full border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-800 transition-colors hover:border-slate-400 hover:bg-slate-100"
+                          >
+                            {item.partNo}
+                          </Link>
+                        </div>
+
+                        {item.note && (
+                          <p className="mt-3 text-xs leading-6 text-slate-500">
+                            {item.note}
+                          </p>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                </SurfaceCard>
+              )}
+
 
               <div className="rounded-[24px] border border-slate-300 bg-[linear-gradient(180deg,#f7fafc_0%,#ffffff_100%)] p-4 shadow-[0_8px_24px_rgba(15,23,42,0.05)] sm:p-5">
                 <SectionLabel>{text.readyToQuote}</SectionLabel>
@@ -572,40 +606,6 @@ export default function ProductDetailClient({ locale, product }: Props) {
               <VerificationNote locale={locale} />
             </div>
           </SurfaceCard>
-
-          {pairedParts.length > 0 && (
-            <SurfaceCard className="px-5 py-5 sm:px-6">
-              <SectionLabel>{pairedPartsTitle}</SectionLabel>
-
-              <div className="mt-4 space-y-3">
-                {pairedParts.map((item) => (
-                  <div
-                    key={`${item.partNo}-${item.relation}`}
-                    className="rounded-2xl border border-slate-300 bg-slate-50/85 px-4 py-4"
-                  >
-                    <div className="text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-500">
-                      {getPairedRelationLabel(item.relation)}
-                    </div>
-
-                    <div className="mt-3 flex flex-wrap items-center gap-3">
-                      <Link
-                        href={`/${locale}/products/${encodeURIComponent(item.partNo)}`}
-                        className="inline-flex min-h-10 items-center rounded-full border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-800 transition-colors hover:border-slate-400 hover:bg-slate-100"
-                      >
-                        {item.partNo}
-                      </Link>
-                    </div>
-
-                    {item.note && (
-                      <p className="mt-3 text-xs leading-6 text-slate-500">
-                        {item.note}
-                      </p>
-                    )}
-                  </div>
-                ))}
-              </div>
-            </SurfaceCard>
-          )}
 
           {applications.length > 0 && (
             <SurfaceCard className="px-5 py-5 sm:px-6">
