@@ -245,20 +245,17 @@ export default function ProductCrossReferenceCards({
           <p className="mt-1 text-sm leading-6 text-slate-600">
             {hasPreliminaryReference
               ? isThai
-                ? "รายการCross Referenceสำหรับตรวจสอบกับทีมขาย"
+                ? "รายการ Cross Reference สำหรับตรวจสอบกับทีมขาย"
                 : "Reference part numbers for sales review."
               : "Alternative Part Numbers"}
           </p>
         </div>
 
         <div className="px-5 py-4 sm:px-6">
-          <div className="overflow-x-auto rounded-[22px] border border-slate-200 bg-slate-50/40">
-            <div className="min-w-[560px]">
+          <div className="overflow-hidden rounded-[22px] border border-slate-200 bg-slate-50/40">
+            <div className="min-w-0">
               <div
-                className="grid border-b border-slate-200 bg-slate-100/90"
-                style={{
-                  gridTemplateColumns: "minmax(200px,0.95fr) minmax(220px,1.05fr)",
-                }}
+                className="grid grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] border-b border-slate-200 bg-slate-100/90 sm:grid-cols-[minmax(200px,0.95fr)_minmax(220px,1.05fr)]"
               >
                 <div className="whitespace-nowrap px-4 py-3 text-xs font-semibold text-slate-600">
                   Brand / Manufacturer
@@ -272,10 +269,7 @@ export default function ProductCrossReferenceCards({
                 {rows.map((row) => (
                   <div
                     key={`${row.brand}-${row.items.map((item) => item.partNo).join(",")}`}
-                    className="grid items-start"
-                    style={{
-                      gridTemplateColumns: "minmax(200px,0.95fr) minmax(220px,1.05fr)",
-                    }}
+                    className="grid grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] items-start sm:grid-cols-[minmax(200px,0.95fr)_minmax(220px,1.05fr)]"
                   >
                     <div className="break-words px-4 py-3.5 text-sm font-semibold leading-6 text-slate-800">
                       {row.brand}
@@ -302,7 +296,7 @@ export default function ProductCrossReferenceCards({
 
       <div className="rounded-[20px] border border-slate-200 bg-slate-50/85 px-4 py-3 text-sm leading-6 text-slate-600">
         {isThai
-          ? "ข้อมูลCross Referenceใช้เพื่อประกอบการตรวจสอบ กรุณาตรวจสอบรุ่น สเปก ขนาด เกลียว และการใช้งานก่อนสั่งซื้อ"
+          ? "ข้อมูล Cross Reference ใช้เพื่อประกอบการตรวจสอบ กรุณาตรวจสอบรุ่น สเปก ขนาด เกลียว และการใช้งานก่อนสั่งซื้อ"
           : "Reference information is provided for review. Verify the model, specifications, dimensions, thread, and application before ordering."}
       </div>
     </div>
