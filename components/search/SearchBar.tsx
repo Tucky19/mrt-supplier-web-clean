@@ -304,9 +304,7 @@ export default function SearchBar({
   const trimmedQuery = draftQuery.trim();
   const showViewAllResults = trimmedQuery.length >= 2;
   const getSuggestionDisplayValue = (suggestion: (typeof suggestions)[number]) =>
-    isReferenceSuggestion(suggestion._matchType)
-      ? suggestion._matchedRelation?.partNumber ?? suggestion.partNo
-      : suggestion.partNo;
+    suggestion.partNo;
   const getSuggestionNavigationValue = (suggestion: (typeof suggestions)[number]) =>
     isReferenceSuggestion(suggestion._matchType) && !hasExactPartNumberSuggestion
       ? getSuggestionDisplayValue(suggestion)
@@ -565,11 +563,13 @@ export default function SearchBar({
                         suggestion._matchType === "Kit Component") &&
                       !hasExactPartNumberSuggestion;
                     const brandLabel = formatBrandLabel(suggestion.brand);
+                    const matchedPartNumber =
+                      suggestion._matchedRelation?.partNumber ?? draftQuery.trim();
                     const secondaryText = isRelationMatch
-                      ? `${label} \u2192 ${brandLabel} ${suggestion.partNo}`
+                      ? `${label} ${matchedPartNumber} → ${brandLabel} ${suggestion.partNo}`
                       : [brandLabel, suggestion.title]
                           .filter(Boolean)
-                          .join(" \u00B7 ");
+                          .join(" · ");
 
                     return (
                       <button
