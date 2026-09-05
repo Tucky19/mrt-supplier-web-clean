@@ -15,6 +15,7 @@ import { uploadedProducts } from "./products.uploaded";
 import { importedProducts } from "./products.imported";
 import { officialProducts20260903 } from "./products.official-2026-09-03";
 import { stanadyneCrossReferencesByDonaldson } from "./stanadyne-cross-references";
+import { getVerifiedAirFilterPairedParts } from "./air-filter-pairs";
 
 const EXCLUDED_ACTIVE_PART_NOS = new Set([
   "6205-ZZ",
@@ -30,7 +31,10 @@ const EXCLUDED_ACTIVE_PART_NOS = new Set([
 ]);
 
 function normalizePartNo(value: string) {
-  return value.trim().toLowerCase().replace(/[\s/_-]+/g, "");
+  return value
+    .trim()
+    .toLowerCase()
+    .replace(/[\s/_-]+/g, "");
 }
 
 const rawProducts = [
@@ -45,7 +49,7 @@ const rawProducts = [
   ...fs1242StockProducts,
   ...uploadedProducts,
   ...donaldsonPriorityProducts,
-   ...importedProducts,
+  ...importedProducts,
   ...officialProducts20260903,
 ];
 
@@ -54,33 +58,47 @@ export const products = Array.from(
     normalizeProducts(rawProducts)
       .filter((product) => !EXCLUDED_ACTIVE_PART_NOS.has(product.partNo))
       .map((product) => {
-      const key = normalizePartNo(product.partNo);
-      const stanadyneCrossReferences =
-        stanadyneCrossReferencesByDonaldson[product.partNo] ?? [];
+        const key = normalizePartNo(product.partNo);
+        const stanadyneCrossReferences =
+          stanadyneCrossReferencesByDonaldson[product.partNo] ?? [];
+        const verifiedAirFilterPairs = getVerifiedAirFilterPairedParts(
+          product.partNo,
+        );
+        const pairedParts = [
+          ...(product.pairedParts ?? []),
+          ...verifiedAirFilterPairs,
+        ].filter(
+          (pairedPart, index, allPairedParts) =>
+            allPairedParts.findIndex(
+              (candidate) =>
+                normalizePartNo(candidate.partNo) ===
+                normalizePartNo(pairedPart.partNo),
+            ) === index,
+        );
 
-      return [
-        key,
-        {
-          ...product,
-          title: product.title || `${product.brand?.toUpperCase()} ${product.partNo}`,
-          description:
-            product.description ||
-            `Industrial part ${product.partNo} with OEM reference support.`,
-          imageUrl: getProductImageUrl(
-            product.brand,
-            product.partNo,
-            product.imageUrl
-          ),
-          refs: product.refs ?? [],
-          crossReferences: normalizeCanonicalProductRelations(
-            [
-              ...(product.crossReferences ?? []),
-              ...stanadyneCrossReferences,
-            ],
-            "unknown",
-          ),
-        },
-      ];
-    })
-  ).values()
+        return [
+          key,
+          {
+            ...product,
+            title:
+              product.title ||
+              `${product.brand?.toUpperCase()} ${product.partNo}`,
+            description:
+              product.description ||
+              `Industrial part ${product.partNo} with OEM reference support.`,
+            imageUrl: getProductImageUrl(
+              product.brand,
+              product.partNo,
+              product.imageUrl,
+            ),
+            refs: product.refs ?? [],
+            crossReferences: normalizeCanonicalProductRelations(
+              [...(product.crossReferences ?? []), ...stanadyneCrossReferences],
+              "unknown",
+            ),
+            pairedParts,
+          },
+        ];
+      }),
+  ).values(),
 );
