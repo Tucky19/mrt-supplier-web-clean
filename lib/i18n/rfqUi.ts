@@ -14,7 +14,7 @@ export function getRfqUiText(locale: string) {
       : "Our team responds within 24 hours.",
     crossReference: isThai ? "Cross Reference" : "Cross Reference",
     crossReferenceBody: isThai
-      ? "รองรับการช่วยเทียบรหัส OEM และ aftermarket"
+      ? "รองรับการตรวจสอบ OEM Part No. และ Aftermarket Cross Reference"
       : "We support OEM and aftermarket cross-reference matching.",
     contactMethod: isThai ? "ช่องทางติดต่อ" : "Contact Method",
     contactMethodBody: isThai
