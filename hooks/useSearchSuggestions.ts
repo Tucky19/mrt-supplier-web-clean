@@ -3,7 +3,7 @@
 import { useMemo } from "react";
 import { searchProducts, type SearchResult } from "@/lib/search/search";
 
-const SUGGESTION_LIMIT = 5;
+const SUGGESTION_LIMIT = 4;
 
 export function useSearchSuggestions(query: string): SearchResult[] {
   return useMemo(() => {

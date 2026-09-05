@@ -24,15 +24,11 @@ export const importedProducts = [
     ],
     "applications": [],
     "refs": [
-      "Donaldson: P553639",
-      "Fleetguard: LF9009",
       "Fleetguard: LF3000",
       "SURE: SFO3000",
       "Sakura: C5707"
     ],
     "crossReferences": [
-      "Donaldson: P553639",
-      "Fleetguard: LF9009",
       "Fleetguard: LF3000",
       "SURE: SFO3000",
       "Sakura: C5707"

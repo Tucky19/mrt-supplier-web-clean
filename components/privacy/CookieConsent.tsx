@@ -56,7 +56,7 @@ export default function CookieConsent({ locale }: { locale: string }) {
       <button
         type="button"
         onClick={() => setChoice(null)}
-        className="fixed bottom-[calc(5rem+env(safe-area-inset-bottom))] left-3 z-50 rounded-full border border-slate-300 bg-white/95 px-3 py-2 text-xs font-medium text-slate-700 shadow-md backdrop-blur hover:bg-slate-50 md:bottom-3"
+        className="fixed bottom-[calc(5rem+env(safe-area-inset-bottom))] left-3 z-10 rounded-full border border-slate-300 bg-white/95 px-3 py-2 text-xs font-medium text-slate-700 shadow-md backdrop-blur hover:bg-slate-50 md:bottom-3"
       >
         {isThai ? "ตั้งค่าคุกกี้" : "Cookie settings"}
       </button>
