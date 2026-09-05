@@ -565,8 +565,6 @@ export default function SearchBar({
                     const brandLabel = formatBrandLabel(suggestion.brand);
                     const matchedPartNumber =
                       suggestion._matchedRelation?.partNumber ?? draftQuery.trim();
-                    const matchedPartNumber =
-                      suggestion._matchedRelation?.partNumber ?? draftQuery.trim();
                     const secondaryText = isRelationMatch
                       ? `${label} ${matchedPartNumber} \u2192 ${brandLabel} ${suggestion.partNo}`
                       : [brandLabel, suggestion.title]
