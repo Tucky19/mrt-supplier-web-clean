@@ -5,7 +5,7 @@ export function getProductUiText(locale: string) {
     statusAvailable: isThai ? "พร้อมเสนอราคา" : "Available",
     statusRequest: isThai ? "ตรวจสอบสต็อก" : "Check Availability",
     addedToQuote: isThai ? "เพิ่มใน RFQ แล้ว" : "Added to quote",
-    viewOfficial: isThai ? "ดูข้อมูลอ้างอิง" : "View Official",
+    viewOfficial: isThai ? "ดูข้อมูลทางการ" : "View Official",
     details: isThai ? "รายละเอียด" : "Details",
     addToQuote: isThai ? "เพิ่มใน RFQ" : "Add to Quote",
     requestQuote: isThai ? "ขอใบเสนอราคา" : "Request Quote",
@@ -15,14 +15,14 @@ export function getProductUiText(locale: string) {
       ? "เพิ่มสินค้ารายการนี้ใน RFQ หรือขอใบเสนอราคาได้ทันที พร้อมบริการช่วยเทียบรหัส"
       : "Add this part to your RFQ list or request a quote immediately for cross-reference support.",
     rfqSupportNote: isThai
-      ? "รองรับการเทียบรหัส OEM และติดตาม RFQ ภายใน 24 ชั่วโมง"
+      ? "รองรับการตรวจสอบ OEM Part No. และติดตาม RFQ ภายใน 24 ชั่วโมง"
       : "OEM reference support and RFQ follow-up within 24 hours",
     crossReference: isThai ? "Cross Reference" : "Cross Reference",
-    references: isThai ? "ข้อมูลอ้างอิง" : "References",
+    references: isThai ? "Cross Reference" : "References",
     applications: isThai ? "การใช้งาน" : "Applications",
     specifications: isThai ? "สเปก" : "Specifications",
     viewOfficialSource: isThai
-      ? "ดูข้อมูลอ้างอิงจากแหล่งทางการ"
+      ? "ดูข้อมูลจาก Official Source"
       : "View Official Source",
   };
 }

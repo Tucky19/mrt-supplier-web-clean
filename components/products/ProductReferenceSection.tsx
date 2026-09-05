@@ -14,7 +14,7 @@ export default function ProductReferenceSection({
       <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
         <div className="max-w-3xl">
           <div className="text-xs font-semibold uppercase tracking-[0.16em] text-cyan-300">
-            Manufacturer Reference
+            Official Product Information
           </div>
 
           <h2 className="mt-2 text-xl font-semibold text-white">

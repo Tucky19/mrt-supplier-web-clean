@@ -338,7 +338,9 @@ export default function ProductDetailClient({ locale, product }: Props) {
   );
   const hasSpecContent = Boolean(product.spec?.trim()) || specRows.length > 0;
 
-  const pairedPartsTitle = isThai ? "ชุดกรองที่ใช้คู่กัน" : "Paired Filter";
+  const pairedPartsTitle = isThai
+    ? "ชุดไส้กรองอากาศที่ใช้ร่วมกัน"
+    : "Compatible Air Filter Set";
   const addToQuoteLabel = justAdded
     ? isThai
       ? "เพิ่มในใบเสนอราคาแล้ว"
@@ -347,11 +349,11 @@ export default function ProductDetailClient({ locale, product }: Props) {
 
   const getPairedRelationLabel = (relation: "outer" | "inner" | "paired") => {
     if (relation === "inner") {
-      return isThai ? "ไส้กรองใน" : "Inner filter";
+      return isThai ? "ลูกใน (Safety Filter)" : "Inner element (Safety Filter)";
     }
 
     if (relation === "outer") {
-      return isThai ? "ไส้กรองนอก" : "Outer filter";
+      return isThai ? "ลูกนอก (Primary Filter)" : "Outer element (Primary Filter)";
     }
 
     return isThai ? "ชิ้นส่วนที่ใช้คู่กัน" : "Paired part";
@@ -446,17 +448,67 @@ export default function ProductDetailClient({ locale, product }: Props) {
           </div>
 
           <ProductGallery images={images} partNo={product.partNo} />
+
+          {pairedParts.length > 0 && (
+            <SurfaceCard className="px-5 py-5 sm:px-6">
+              <SectionLabel>{pairedPartsTitle}</SectionLabel>
+              <p className="mt-2 text-xs leading-6 text-slate-500">
+                {isThai
+                  ? "Part No. ที่ผู้ผลิตระบุว่าใช้ร่วมกันในชุดกรองอากาศ"
+                  : "Manufacturer-listed parts that can be installed as one filter set."}
+              </p>
+
+              <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-1">
+                {pairedParts.map((item) => (
+                  <Link
+                    key={`${item.partNo}-${item.relation}`}
+                    href={`/${locale}/products/${encodeURIComponent(item.partNo)}`}
+                    className="group grid grid-cols-[5.5rem_minmax(0,1fr)] items-center gap-4 rounded-2xl border border-slate-300 bg-slate-50/85 p-3 transition hover:border-sky-300 hover:bg-sky-50"
+                  >
+                    <span className="flex h-[5.5rem] items-center justify-center overflow-hidden rounded-xl border border-slate-200 bg-white p-2">
+                      <Image
+                        src={getProductImageUrl(product.brand, item.partNo)}
+                        alt={`${product.brand} ${item.partNo}`}
+                        width={88}
+                        height={88}
+                        className="h-full w-full object-contain transition group-hover:scale-105"
+                      />
+                    </span>
+
+                    <span className="min-w-0">
+                      <span className="block text-[11px] font-semibold uppercase tracking-[0.12em] text-slate-500">
+                        {getPairedRelationLabel(item.relation)}
+                      </span>
+                      <span className="mt-1 block break-all text-lg font-semibold text-slate-900">
+                        {item.partNo}
+                      </span>
+                      {item.note && (
+                        <span className="mt-1 block text-xs leading-5 text-slate-500">
+                          {item.note}
+                        </span>
+                      )}
+                    </span>
+                  </Link>
+                ))}
+              </div>
+            </SurfaceCard>
+          )}
+
+          <ProductCrossReferenceCards
+            locale={locale}
+            relations={relationItems}
+            brand={product.brand}
+            currentPartNo={product.partNo}
+            sameBrandAlternatives={product.sameBrandAlternatives}
+          />
         </div>
 
-        <div className="min-w-0 self-start space-y-4 lg:col-start-2 lg:row-span-2 lg:row-start-1">
+        <div className="min-w-0 self-start space-y-4">
           <SurfaceCard className="overflow-hidden">
             <div className="hidden border-b border-slate-300 bg-[linear-gradient(180deg,#f8fbfd_0%,#ffffff_100%)] px-4 py-4 sm:px-6 sm:py-5 lg:block">
               <div className="flex flex-wrap items-center gap-2.5">
                 <span className="rounded-full bg-slate-900 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-white">
                   {product.brand.toUpperCase()}
-                </span>
-                <span className="rounded-full border border-slate-300 bg-white px-3 py-1 text-[11px] font-medium text-slate-600">
-                  OEM Reference
                 </span>
                 <span className="rounded-full border border-sky-200 bg-sky-50 px-3 py-1 text-[11px] font-medium text-sky-700">
                   {text.industrialGrade}
@@ -502,6 +554,7 @@ export default function ProductDetailClient({ locale, product }: Props) {
                   </div>
                 </div>
               )}
+
 
               <div className="rounded-[24px] border border-slate-300 bg-[linear-gradient(180deg,#f7fafc_0%,#ffffff_100%)] p-4 shadow-[0_8px_24px_rgba(15,23,42,0.05)] sm:p-5">
                 <SectionLabel>{text.readyToQuote}</SectionLabel>
@@ -573,40 +626,6 @@ export default function ProductDetailClient({ locale, product }: Props) {
             </div>
           </SurfaceCard>
 
-          {pairedParts.length > 0 && (
-            <SurfaceCard className="px-5 py-5 sm:px-6">
-              <SectionLabel>{pairedPartsTitle}</SectionLabel>
-
-              <div className="mt-4 space-y-3">
-                {pairedParts.map((item) => (
-                  <div
-                    key={`${item.partNo}-${item.relation}`}
-                    className="rounded-2xl border border-slate-300 bg-slate-50/85 px-4 py-4"
-                  >
-                    <div className="text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-500">
-                      {getPairedRelationLabel(item.relation)}
-                    </div>
-
-                    <div className="mt-3 flex flex-wrap items-center gap-3">
-                      <Link
-                        href={`/${locale}/products/${encodeURIComponent(item.partNo)}`}
-                        className="inline-flex min-h-10 items-center rounded-full border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-800 transition-colors hover:border-slate-400 hover:bg-slate-100"
-                      >
-                        {item.partNo}
-                      </Link>
-                    </div>
-
-                    {item.note && (
-                      <p className="mt-3 text-xs leading-6 text-slate-500">
-                        {item.note}
-                      </p>
-                    )}
-                  </div>
-                ))}
-              </div>
-            </SurfaceCard>
-          )}
-
           {applications.length > 0 && (
             <SurfaceCard className="px-5 py-5 sm:px-6">
               <SectionLabel>{text.applications}</SectionLabel>
@@ -625,15 +644,6 @@ export default function ProductDetailClient({ locale, product }: Props) {
           )}
         </div>
 
-        <div className="min-w-0 lg:col-start-1 lg:row-start-2">
-          <ProductCrossReferenceCards
-            locale={locale}
-            relations={relationItems}
-            brand={product.brand}
-            currentPartNo={product.partNo}
-            sameBrandAlternatives={product.sameBrandAlternatives}
-          />
-        </div>
       </div>
 
       <div className="fixed inset-x-0 bottom-0 z-40 border-t border-slate-300 bg-white/95 px-4 pb-[calc(0.75rem+env(safe-area-inset-bottom))] pt-3 backdrop-blur md:hidden">

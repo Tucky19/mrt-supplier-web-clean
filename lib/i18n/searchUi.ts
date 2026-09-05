@@ -22,10 +22,10 @@ export function getSearchUiText(locale: string) {
     usedTogetherMatches: isThai ? "Used together / Kit components" : "Used together / Kit components",
     relatedMatches: isThai ? "ผลลัพธ์ที่เกี่ยวข้อง" : "Related Matches",
     exactMatch: isThai ? "ตรงกับ Part Number" : "Exact part match",
-    partNumberMatch: isThai ? "ตรงกับรหัสสินค้า" : "Part number match",
+    partNumberMatch: isThai ? "ตรงกับ Part No." : "Part number match",
     crossReferenceMatch: isThai ? "ตรงกับ Cross Reference" : "Cross-reference match",
     sameBrandReferenceMatch: isThai
-      ? "รหัสอ้างอิงแบรนด์เดียวกัน"
+      ? "Same-brand Reference"
       : "Same-brand reference",
     usedTogetherMatch: isThai ? "สินค้าที่ใช้ร่วมกัน" : "Used-together part",
     relatedMatch: isThai ? "ผลลัพธ์ที่เกี่ยวข้อง" : "Related match",

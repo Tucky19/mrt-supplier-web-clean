@@ -193,10 +193,11 @@ export default function ProductCardV2({
     ? "text-[var(--color-warning-text)]"
     : "text-[var(--color-success-text)]";
   const hasProductImage = image !== "/images/placeholder.jpg";
+  const showReferenceChips = product.category !== "air_filter";
   const quantity = parseQuantity(quantityInput);
   const officialReferenceLabel = isThai
-    ? "อ้างอิงจากผู้ผลิต"
-    : "Official Reference";
+    ? "หน้าสินค้าทางการ"
+    : "Official Product Page";
   const addButtonLabel = justAdded
     ? isThai
       ? "เพิ่มแล้ว"
@@ -386,7 +387,7 @@ export default function ProductCardV2({
         {!isSearchVariant ? (
           <>
             <div className="text-[10px] font-semibold uppercase tracking-[0.16em] text-[var(--color-text-muted)]">
-              {isThai ? "รหัสสินค้า" : "Part Number"}
+              {isThai ? "Part No." : "Part Number"}
             </div>
 
             <Link
@@ -413,7 +414,7 @@ export default function ProductCardV2({
           </>
         ) : null}
 
-        {refs.length > 0 && (
+        {showReferenceChips && refs.length > 0 && (
           <div className={isSearchVariant ? "order-2 mt-3" : "mt-4"}>
             <div className="flex min-h-[2.5rem] flex-wrap content-start gap-2">
               {refs.map((ref) => (

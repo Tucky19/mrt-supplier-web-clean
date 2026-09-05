@@ -63,10 +63,10 @@ function getSuggestionSectionTitle(
   if (label === text.partNumber) return text.partNumberMatches;
   if (isReferenceSuggestion(matchType)) {
     if (isPreliminaryRelation(matchedRelation)) {
-      return locale === "th" ? "ข้อมูลอ้างอิง" : "Reference information";
+      return locale === "th" ? "Cross Reference (รอตรวจสอบ)" : "Reference information";
     }
 
-    return locale === "th" ? "เบอร์อ้างอิงที่ยืนยันแล้ว" : "Verified references";
+    return locale === "th" ? "Verified Cross Reference" : "Verified references";
   }
   if (label === text.usedTogether) return text.usedTogetherMatches;
   return text.relatedMatches;
@@ -121,7 +121,7 @@ export default function SearchBar({
   const text = getSearchUiText(locale);
   const searchPlaceholder =
     locale === "th"
-      ? "ใส่เบอร์สินค้าเพื่อค้นหาหรือเทียบเบอร์"
+      ? "ใส่ Part No. หรือ Cross Reference"
       : "Enter a product number or cross-reference";
 
   const [draftQuery, setDraftQuery] = useState(defaultValue);
@@ -304,9 +304,7 @@ export default function SearchBar({
   const trimmedQuery = draftQuery.trim();
   const showViewAllResults = trimmedQuery.length >= 2;
   const getSuggestionDisplayValue = (suggestion: (typeof suggestions)[number]) =>
-    isReferenceSuggestion(suggestion._matchType)
-      ? suggestion._matchedRelation?.partNumber ?? suggestion.partNo
-      : suggestion.partNo;
+    suggestion.partNo;
   const getSuggestionNavigationValue = (suggestion: (typeof suggestions)[number]) =>
     isReferenceSuggestion(suggestion._matchType) && !hasExactPartNumberSuggestion
       ? getSuggestionDisplayValue(suggestion)
@@ -565,8 +563,10 @@ export default function SearchBar({
                         suggestion._matchType === "Kit Component") &&
                       !hasExactPartNumberSuggestion;
                     const brandLabel = formatBrandLabel(suggestion.brand);
+                    const matchedPartNumber =
+                      suggestion._matchedRelation?.partNumber ?? draftQuery.trim();
                     const secondaryText = isRelationMatch
-                      ? `${label} \u2192 ${brandLabel} ${suggestion.partNo}`
+                      ? `${label} ${matchedPartNumber} \u2192 ${brandLabel} ${suggestion.partNo}`
                       : [brandLabel, suggestion.title]
                           .filter(Boolean)
                           .join(" \u00B7 ");
