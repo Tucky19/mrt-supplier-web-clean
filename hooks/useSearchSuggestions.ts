@@ -1,7 +1,11 @@
 "use client";
 
 import { useMemo } from "react";
-import { searchProducts, type SearchResult } from "@/lib/search/search";
+import {
+  searchProducts,
+  sortSearchSuggestions,
+  type SearchResult,
+} from "@/lib/search/search";
 
 const SUGGESTION_LIMIT = 4;
 
@@ -32,7 +36,7 @@ export function useSearchSuggestions(query: string): SearchResult[] {
 
     const seenPartNumbers = new Set<string>();
 
-    return results
+    return sortSearchSuggestions(results)
       .filter((result) => {
         const key = result.partNo
           .trim()
