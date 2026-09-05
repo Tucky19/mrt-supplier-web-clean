@@ -387,7 +387,7 @@ export default function ProductCardV2({
         {!isSearchVariant ? (
           <>
             <div className="text-[10px] font-semibold uppercase tracking-[0.16em] text-[var(--color-text-muted)]">
-              {isThai ? "รหัสสินค้า" : "Part Number"}
+              {isThai ? "Part No." : "Part Number"}
             </div>
 
             <Link
