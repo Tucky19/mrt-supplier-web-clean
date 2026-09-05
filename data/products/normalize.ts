@@ -2,17 +2,36 @@ import type { Product } from "@/types/product";
 import { normalizeCanonicalProductRelations } from "@/lib/products/relations";
 
 export function normalizeProduct(p: any): Product {
-  const refs = Array.isArray(p.refs)
-    ? normalizeCanonicalProductRelations(p.refs, "unknown")
+  const rawRefs = Array.isArray(p.refs)
+    ? p.refs
     : Array.isArray(p.oemReferences)
-    ? normalizeCanonicalProductRelations(p.oemReferences, "unknown")
+      ? p.oemReferences
+      : [];
+  const rawCrossReferences = Array.isArray(p.crossReferences)
+    ? p.crossReferences
     : [];
 
-  const crossReferences = Array.isArray(p.crossReferences)
-    ? normalizeCanonicalProductRelations(p.crossReferences, "unknown")
-    : Array.isArray(p.refs)
-    ? normalizeCanonicalProductRelations(p.refs, "unknown")
-    : [];
+  const crossReferences = normalizeCanonicalProductRelations(
+    rawCrossReferences,
+    "unknown",
+  );
+  const crossReferenceLegacyKeys = new Set(
+    rawCrossReferences
+      .filter((value: unknown): value is string => typeof value === "string")
+      .map((value: string) =>
+        value.trim().toLowerCase().replace(/[\\s/_-]+/g, ""),
+      ),
+  );
+  const refs = normalizeCanonicalProductRelations(
+    rawRefs.filter(
+      (value: unknown) =>
+        typeof value !== "string" ||
+        !crossReferenceLegacyKeys.has(
+          value.trim().toLowerCase().replace(/[\\s/_-]+/g, ""),
+        ),
+    ),
+    "unknown",
+  );
 
   return {
     id: String(p.id ?? p.partNo),
