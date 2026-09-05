@@ -448,9 +448,17 @@ export default function ProductDetailClient({ locale, product }: Props) {
           </div>
 
           <ProductGallery images={images} partNo={product.partNo} />
+
+          <ProductCrossReferenceCards
+            locale={locale}
+            relations={relationItems}
+            brand={product.brand}
+            currentPartNo={product.partNo}
+            sameBrandAlternatives={product.sameBrandAlternatives}
+          />
         </div>
 
-        <div className="min-w-0 self-start space-y-4 lg:col-start-2 lg:row-span-2 lg:row-start-1">
+        <div className="min-w-0 self-start space-y-4">
           <SurfaceCard className="overflow-hidden">
             <div className="hidden border-b border-slate-300 bg-[linear-gradient(180deg,#f8fbfd_0%,#ffffff_100%)] px-4 py-4 sm:px-6 sm:py-5 lg:block">
               <div className="flex flex-wrap items-center gap-2.5">
@@ -625,15 +633,6 @@ export default function ProductDetailClient({ locale, product }: Props) {
           )}
         </div>
 
-        <div className="min-w-0 lg:col-start-1 lg:row-start-2">
-          <ProductCrossReferenceCards
-            locale={locale}
-            relations={relationItems}
-            brand={product.brand}
-            currentPartNo={product.partNo}
-            sameBrandAlternatives={product.sameBrandAlternatives}
-          />
-        </div>
       </div>
 
       <div className="fixed inset-x-0 bottom-0 z-40 border-t border-slate-300 bg-white/95 px-4 pb-[calc(0.75rem+env(safe-area-inset-bottom))] pt-3 backdrop-blur md:hidden">
