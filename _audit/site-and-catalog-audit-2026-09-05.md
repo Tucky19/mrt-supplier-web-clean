@@ -171,6 +171,20 @@ This automated pass checks the active catalog structure, relation integrity, loc
 | basic | 25 |
 | needs_review | 4 |
 
+## UX/UI audit status
+
+| Area | Finding | Status |
+| --- | --- | --- |
+| Search suggestions | Duplicate-looking entries for one Part No. | Fixed in PR #107 |
+| Partial Part No. search | A relation-only hit could outrank direct `p50` Part No. prefixes | Fixed in PR #107 |
+| Result ordering | Default products and prefix suggestions were not naturally sorted by Part No. | Fixed in PR #107 |
+| Search overlay | Cookie control could overlap search suggestions | Fixed in PR #107 |
+| Product detail layout | Independent columns created excessive blank space | Fixed in PR #107 |
+| Air-filter pairing | Primary/Safety relationship was unclear and had no product thumbnails | Fixed in PR #107 |
+| Cross Reference mobile table | A 560 px minimum width forced horizontal scrolling | Fixed in PR #107 follow-up |
+| Thai technical wording | Mixed translated and technical labels reduced clarity | First terminology pass completed in PR #107; site-wide consistency remains queued |
+| Responsive visual QA | Desktop, notebook, tablet, and mobile browser screenshots | Pending live-browser pass |
+
 ## Manual audit queue
 
 1. Verify High findings first; do not publish inferred corrections.
