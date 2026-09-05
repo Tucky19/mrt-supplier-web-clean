@@ -18,12 +18,12 @@ export default function ProductOfficialReference({
   return (
     <div className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm">
       <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-500">
-        {locale === "th" ? "อ้างอิงจากผู้ผลิต" : "Official Reference"}
+        {locale === "th" ? "ข้อมูลสินค้าทางการ" : "Official Product Information"}
       </p>
       <p className="mt-3 text-sm leading-7 text-slate-600">
         {locale === "th"
-          ? "ใช้ข้อมูลจากผู้ผลิตเพื่อตรวจสอบรายละเอียดและความเข้ากันได้เพิ่มเติมก่อนส่ง RFQ"
-          : "Use the manufacturer page to verify details and compatibility before sending an RFQ."}
+          ? "ตรวจสอบรายละเอียดและสเปกจากหน้าสินค้าทางการก่อนส่ง RFQ"
+          : "Verify product details and specifications on the official product page before sending an RFQ."}
       </p>
       <a
         href={officialUrl}
