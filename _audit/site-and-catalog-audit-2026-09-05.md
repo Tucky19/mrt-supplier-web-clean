@@ -24,8 +24,8 @@ This automated pass checks the active catalog structure, relation integrity, loc
 
 | Severity | Area | Part No. | Finding |
 | --- | --- | --- | --- |
-| High | Paired filter | P836245 | P812160 is missing the reciprocal inner relation. |
-| High | Paired filter | X770691 | Paired Part No. P785391 is not in the active catalog. |
+| High | Paired filter | P836245 | Existing one-way P812160 pairing is not confirmed by the current official product pages; hold and do not infer a reciprocal relation. |
+| High | Paired filter | X770691 | P785391 is officially confirmed as a Safety RadialSeal filter and is related to kit X770691, but it is missing from the active catalog and has no approved local image. |
 | Medium | Cross Reference | C 14 200 | P778984 is stored in both refs and crossReferences. |
 | Medium | Cross Reference | C 16 400 | P778972 is stored in both refs and crossReferences. |
 | Medium | Cross Reference | C 20 325/2 | Donaldson P771561 is stored in both refs and crossReferences. |
@@ -140,6 +140,20 @@ This automated pass checks the active catalog structure, relation integrity, loc
 | Medium | Cross Reference | W 920/21 | JOHN DEERE AM31205 is stored in both refs and crossReferences. |
 | Medium | Cross Reference | W 940/5 | COMPAIR 98262/101 is stored in both refs and crossReferences. |
 | Medium | Cross Reference | W 940/5 | KOMATSU 600 211 5240 is stored in both refs and crossReferences. |
+
+## Official-source review of High findings
+
+| Record | Official evidence checked | Decision |
+| --- | --- | --- |
+| P785391 / X770691 | Donaldson identifies P785391 as **AIR FILTER, SAFETY RADIALSEAL** (OD 150.9 mm, ID 109 mm, length 459 mm) and lists X770691 as an alternate Air Filter Kit. | Evidence is sufficient to prepare a product record, but publication remains blocked until an approved product image and final field-by-field review are available. |
+| P836245 / P812160 | Donaldson identifies P836245 as **AIR FILTER, SECONDARY** and P812160 as **AIR FILTER, PRIMARY RADIALSEAL**. The current official pages reviewed do not explicitly identify them as a matched pair. | Do not add a reciprocal relation and do not present the pair as verified. Keep on hold until an official application, catalog, or related-parts source explicitly links both Part Nos. |
+
+Official sources reviewed:
+
+- https://shop.donaldson.com/store/en-us/product/P785391/35991
+- https://shop.donaldson.com/store/en-nz/product/P785391/35991
+- https://shop.donaldson.com/store/en-us/product/P836245/41896
+- https://shop.donaldson.com/store/en-jp/product/P812160/41821
 
 ## Category distribution
 
