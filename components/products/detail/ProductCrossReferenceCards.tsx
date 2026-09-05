@@ -205,11 +205,11 @@ export default function ProductCrossReferenceCards({
         <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
           <div>
             <h2 className="text-base font-semibold text-slate-950">
-              {isThai ? "ต้องการเทียบเบอร์?" : "Need a cross reference?"}
+              {isThai ? "ต้องการหา Cross Reference?" : "Need a cross reference?"}
             </h2>
             <p className="mt-1 text-sm leading-6 text-slate-600">
               {isThai
-                ? "ส่งข้อมูลให้ทีมช่วยค้นหาและเทียบเบอร์"
+                ? "ส่งข้อมูลให้ทีมช่วยค้นหาและตรวจสอบ Cross Reference"
                 : "Send details and our team can help identify a suitable interchange."}
             </p>
           </div>
@@ -218,7 +218,7 @@ export default function ProductCrossReferenceCards({
             href={`/${locale}/products?request=1#missing-product-request`}
             className="inline-flex min-h-10 shrink-0 items-center justify-center rounded-full bg-slate-900 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-slate-800"
           >
-            {isThai ? "ส่งข้อมูลให้ทีมช่วยหาเทียบ" : "Send details"}
+            {isThai ? "ส่งข้อมูลให้ทีมช่วยหา Cross Reference" : "Send details"}
           </Link>
         </div>
       </div>
@@ -238,14 +238,14 @@ export default function ProductCrossReferenceCards({
           <h2 className={`${!isThai ? "mt-1.5" : ""} text-lg font-semibold tracking-[-0.02em] text-slate-950`}>
             {hasPreliminaryReference
               ? isThai
-                ? "เบอร์อ้างอิง"
+                ? "Cross Reference"
                 : "Reference Part Numbers"
               : "Interchange"}
           </h2>
           <p className="mt-1 text-sm leading-6 text-slate-600">
             {hasPreliminaryReference
               ? isThai
-                ? "รายการเบอร์อ้างอิงสำหรับตรวจสอบกับทีมขาย"
+                ? "รายการCross Referenceสำหรับตรวจสอบกับทีมขาย"
                 : "Reference part numbers for sales review."
               : "Alternative Part Numbers"}
           </p>
@@ -302,7 +302,7 @@ export default function ProductCrossReferenceCards({
 
       <div className="rounded-[20px] border border-slate-200 bg-slate-50/85 px-4 py-3 text-sm leading-6 text-slate-600">
         {isThai
-          ? "ข้อมูลเบอร์อ้างอิงใช้เพื่อประกอบการตรวจสอบ กรุณาตรวจสอบรุ่น สเปก ขนาด เกลียว และการใช้งานก่อนสั่งซื้อ"
+          ? "ข้อมูลCross Referenceใช้เพื่อประกอบการตรวจสอบ กรุณาตรวจสอบรุ่น สเปก ขนาด เกลียว และการใช้งานก่อนสั่งซื้อ"
           : "Reference information is provided for review. Verify the model, specifications, dimensions, thread, and application before ordering."}
       </div>
     </div>
