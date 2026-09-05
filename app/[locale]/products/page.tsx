@@ -206,7 +206,7 @@ export default async function ProductsPage({
 
           <p className="mt-2 max-w-2xl text-sm leading-6 text-[var(--color-text-muted)] sm:text-base">
             {isThai
-              ? "ค้นหาด้วยเบอร์สินค้า เบอร์เดิม หรือใช้ฟังก์ชันเทียบเบอร์"
+              ? "ค้นหาด้วย Part No. เดิม หรือ Cross Reference"
               : "Search by product number, existing part number, or cross-reference."}
           </p>
 
@@ -247,11 +247,11 @@ export default async function ProductsPage({
           {hasPreliminaryRelationResults ? (
             <div className="mt-4 max-w-4xl rounded-[var(--mrt-radius-md)] border border-[var(--color-border)] bg-[var(--color-surface-muted)] px-3.5 py-3 text-sm shadow-[var(--shadow-sm)] sm:px-4">
               <div className="font-semibold text-[var(--color-text)]">
-                {isThai ? "ข้อมูลอ้างอิง" : "Reference information"}
+                {isThai ? "Cross Reference" : "Reference information"}
               </div>
               <p className="mt-1 leading-5 text-[var(--color-text-muted)]">
                 {isThai
-                  ? "ผลลัพธ์นี้ค้นพบจากเบอร์อ้างอิง กรุณาตรวจสอบรุ่นและสเปกก่อนสั่งซื้อ"
+                  ? "ผลลัพธ์นี้ค้นพบจาก Cross Reference กรุณาตรวจสอบรุ่นและสเปกก่อนสั่งซื้อ"
                   : "These results were found through reference data. Verify the model and specifications before ordering."}
               </p>
             </div>
