@@ -19,7 +19,7 @@ export function normalizeProduct(p: any): Product {
     rawCrossReferences
       .filter((value: unknown): value is string => typeof value === "string")
       .map((value: string) =>
-        value.trim().toLowerCase().replace(/[\\s/_-]+/g, ""),
+        value.trim().toLowerCase().replace(/[\s/_-]+/g, ""),
       ),
   );
   const refs = normalizeCanonicalProductRelations(
@@ -27,7 +27,7 @@ export function normalizeProduct(p: any): Product {
       (value: unknown) =>
         typeof value !== "string" ||
         !crossReferenceLegacyKeys.has(
-          value.trim().toLowerCase().replace(/[\\s/_-]+/g, ""),
+          value.trim().toLowerCase().replace(/[\s/_-]+/g, ""),
         ),
     ),
     "unknown",
