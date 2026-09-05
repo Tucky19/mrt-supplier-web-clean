@@ -449,6 +449,51 @@ export default function ProductDetailClient({ locale, product }: Props) {
 
           <ProductGallery images={images} partNo={product.partNo} />
 
+          {pairedParts.length > 0 && (
+            <SurfaceCard className="px-5 py-5 sm:px-6">
+              <SectionLabel>{pairedPartsTitle}</SectionLabel>
+              <p className="mt-2 text-xs leading-6 text-slate-500">
+                {isThai
+                  ? "เบอร์ที่ผู้ผลิตระบุว่าสามารถติดตั้งเป็นชุดเดียวกัน"
+                  : "Manufacturer-listed parts that can be installed as one filter set."}
+              </p>
+
+              <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-1">
+                {pairedParts.map((item) => (
+                  <Link
+                    key={`${item.partNo}-${item.relation}`}
+                    href={`/${locale}/products/${encodeURIComponent(item.partNo)}`}
+                    className="group grid grid-cols-[5.5rem_minmax(0,1fr)] items-center gap-4 rounded-2xl border border-slate-300 bg-slate-50/85 p-3 transition hover:border-sky-300 hover:bg-sky-50"
+                  >
+                    <span className="flex h-[5.5rem] items-center justify-center overflow-hidden rounded-xl border border-slate-200 bg-white p-2">
+                      <Image
+                        src={getProductImageUrl(product.brand, item.partNo)}
+                        alt={`${product.brand} ${item.partNo}`}
+                        width={88}
+                        height={88}
+                        className="h-full w-full object-contain transition group-hover:scale-105"
+                      />
+                    </span>
+
+                    <span className="min-w-0">
+                      <span className="block text-[11px] font-semibold uppercase tracking-[0.12em] text-slate-500">
+                        {getPairedRelationLabel(item.relation)}
+                      </span>
+                      <span className="mt-1 block break-all text-lg font-semibold text-slate-900">
+                        {item.partNo}
+                      </span>
+                      {item.note && (
+                        <span className="mt-1 block text-xs leading-5 text-slate-500">
+                          {item.note}
+                        </span>
+                      )}
+                    </span>
+                  </Link>
+                ))}
+              </div>
+            </SurfaceCard>
+          )}
+
           <ProductCrossReferenceCards
             locale={locale}
             relations={relationItems}
@@ -508,40 +553,6 @@ export default function ProductDetailClient({ locale, product }: Props) {
                     ))}
                   </div>
                 </div>
-              )}
-
-              {pairedParts.length > 0 && (
-                <SurfaceCard className="px-5 py-5 sm:px-6">
-                  <SectionLabel>{pairedPartsTitle}</SectionLabel>
-
-                  <div className="mt-4 space-y-3">
-                    {pairedParts.map((item) => (
-                      <div
-                        key={`${item.partNo}-${item.relation}`}
-                        className="rounded-2xl border border-slate-300 bg-slate-50/85 px-4 py-4"
-                      >
-                        <div className="text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-500">
-                          {getPairedRelationLabel(item.relation)}
-                        </div>
-
-                        <div className="mt-3 flex flex-wrap items-center gap-3">
-                          <Link
-                            href={`/${locale}/products/${encodeURIComponent(item.partNo)}`}
-                            className="inline-flex min-h-10 items-center rounded-full border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-800 transition-colors hover:border-slate-400 hover:bg-slate-100"
-                          >
-                            {item.partNo}
-                          </Link>
-                        </div>
-
-                        {item.note && (
-                          <p className="mt-3 text-xs leading-6 text-slate-500">
-                            {item.note}
-                          </p>
-                        )}
-                      </div>
-                    ))}
-                  </div>
-                </SurfaceCard>
               )}
 
 
