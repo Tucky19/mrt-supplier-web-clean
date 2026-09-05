@@ -454,7 +454,7 @@ export default function ProductDetailClient({ locale, product }: Props) {
               <SectionLabel>{pairedPartsTitle}</SectionLabel>
               <p className="mt-2 text-xs leading-6 text-slate-500">
                 {isThai
-                  ? "เบอร์ที่ผู้ผลิตระบุว่าสามารถติดตั้งเป็นชุดเดียวกัน"
+                  ? "Part No. ที่ผู้ผลิตระบุว่าใช้ร่วมกันในชุดกรองอากาศ"
                   : "Manufacturer-listed parts that can be installed as one filter set."}
               </p>
 
