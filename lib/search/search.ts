@@ -722,6 +722,32 @@ export function searchFocusedProducts(
   return partialCandidates.length > 0 ? partialCandidates : exactResults;
 }
 
+export function sortSearchSuggestions(results: SearchResult[]): SearchResult[] {
+  const suggestionRank = (result: SearchResult) => {
+    if (result._matchType === "Exact") return 0;
+    if (result._matchType === "Prefix") return 1;
+    return 2;
+  };
+
+  return [...results].sort((a, b) => {
+    const rankDifference = suggestionRank(a) - suggestionRank(b);
+    if (rankDifference !== 0) return rankDifference;
+
+    if (suggestionRank(a) <= 1) {
+      return a.partNo.localeCompare(b.partNo, undefined, {
+        numeric: true,
+        sensitivity: "base",
+      });
+    }
+
+    if (b._score !== a._score) return b._score - a._score;
+    return a.partNo.localeCompare(b.partNo, undefined, {
+      numeric: true,
+      sensitivity: "base",
+    });
+  });
+}
+
 export function searchFallback(q: string, limit = 5): Product[] {
   const query = normalize(q);
   if (!query) return [];
