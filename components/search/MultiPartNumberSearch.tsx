@@ -96,7 +96,7 @@ export default function MultiPartNumberSearch({ locale }: Props) {
         empty: "กรุณาวาง Part Number อย่างน้อย 1 รายการ",
         tooMany: `รองรับสูงสุด ${MAX_MULTI_PART_ROWS} รายการต่อครั้ง กรุณาแบ่งรายการแล้วลองใหม่`,
         found: "พบสินค้า",
-        referenceFound: "พบข้อมูลอ้างอิง",
+        referenceFound: "พบ Cross Reference",
         missing: "ไม่พบในรายการเว็บไซต์ — ให้ทีมช่วยตรวจสอบ",
         ambiguous: "พบข้อมูลซ้ำ ต้องตรวจสอบก่อนเพิ่ม",
         addAll: "เพิ่มทั้งหมดไปยังรายการขอราคา",
@@ -109,7 +109,7 @@ export default function MultiPartNumberSearch({ locale }: Props) {
         failed: "ตรวจสอบรายการไม่สำเร็จ กรุณาลองอีกครั้ง",
         quantity: (qty: number) => `จำนวน ${qty}`,
         referenceNotice:
-          "ผลลัพธ์จากเบอร์อ้างอิง กรุณาตรวจสอบรุ่นและสเปกก่อนสั่งซื้อ",
+          "ผลลัพธ์จาก Cross Reference กรุณาตรวจสอบรุ่นและสเปกก่อนสั่งซื้อ",
       }
     : {
         trigger: "Search multiple items",
