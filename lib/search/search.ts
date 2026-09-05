@@ -496,31 +496,19 @@ export function searchProducts(
       relationMatchOptions,
     );
 
-    if (sameBrandMatch) {
-      score +=
-        sameBrandMatch.match === "exact"
-          ? 7000
-          : sameBrandMatch.match === "prefix"
-            ? 6500
-            : 6000;
-      if (!matchType) {
-        matchType = "Same-brand Ref";
-        matchedRelation = sameBrandMatch.relation;
-        matchedRelationField = "refs";
-      }
-    }
+    const relationMatch = crossRefMatch ?? sameBrandMatch;
 
-    if (crossRefMatch) {
+    if (relationMatch) {
       score +=
-        crossRefMatch.match === "exact"
+        relationMatch.match === "exact"
           ? 7000
-          : crossRefMatch.match === "prefix"
+          : relationMatch.match === "prefix"
             ? 6500
             : 6000;
       if (!matchType) {
-        matchType = "Cross Ref";
-        matchedRelation = crossRefMatch.relation;
-        matchedRelationField = "crossReferences";
+        matchType = crossRefMatch ? "Cross Ref" : "Same-brand Ref";
+        matchedRelation = relationMatch.relation;
+        matchedRelationField = crossRefMatch ? "crossReferences" : "refs";
       }
     }
 
