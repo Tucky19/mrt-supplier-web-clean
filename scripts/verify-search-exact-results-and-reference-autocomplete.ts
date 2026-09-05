@@ -2,6 +2,7 @@ import {
   focusSearchResults,
   searchFocusedProducts,
   searchProducts,
+  sortSearchSuggestions,
 } from "@/lib/search/search";
 
 function assert(condition: unknown, message: string) {
@@ -95,6 +96,24 @@ assert(
 assert(
   p50Results[0]?.partNo.toLowerCase().startsWith("p50"),
   "p50 should not rank P823295 ahead of direct Part No. prefix matches",
+);
+
+const p50Suggestions = sortSearchSuggestions(
+  searchProducts("p50", {
+    limit: 24,
+    allowPartialRelationMatches: true,
+  }),
+).filter((result) =>
+  ["Exact", "Prefix", "Cross Ref", "Same-brand Ref"].includes(
+    result._matchType,
+  ),
+);
+const p50PrefixNumbers = p50Suggestions
+  .filter((result) => result._matchType === "Prefix")
+  .map((result) => result.partNo);
+assert(
+  p50PrefixNumbers.indexOf("P500186") < p50PrefixNumbers.indexOf("P502072"),
+  "p50 suggestions should sort direct Part No. prefixes naturally",
 );
 
 const exactDonaldsonResults = focusSearchResults(
