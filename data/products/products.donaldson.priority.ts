@@ -130,7 +130,7 @@ export const donaldsonPriorityProducts: Product[] = [
       { label: "UPC Code", value: "742330026083" },
     ],
     imageUrl: "/images/products/donaldson/p181119.png",
-    officialUrl: "https://shop.donaldson.com/store/en-us/product/P181119",
+    officialUrl: "https://shop.donaldson.com/store/en-us/product/P181119/17871",
     refs: [],
     crossReferences: [
       {
