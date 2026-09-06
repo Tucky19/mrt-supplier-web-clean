@@ -30,16 +30,19 @@ const BRANDS = [
     name: "Donaldson",
     logo: "/brands/donaldson.png",
     query: "Donaldson",
+    logoClassName: "scale-[0.9]",
   },
   {
     name: "MANN-FILTER",
     logo: "/brands/mann-filter.png",
     query: "MANN-FILTER",
+    logoClassName: "scale-105",
   },
   {
     name: "NTN",
     logo: "/brands/ntn.png",
     query: "NTN",
+    logoClassName: "scale-105",
   },
 ];
 
@@ -181,7 +184,7 @@ export default function SearchFirstHero({ locale }: { locale: string }) {
                       alt={brand.name}
                       fill
                       sizes="(max-width: 640px) 190px, 220px"
-                      className="object-contain object-center"
+                      className={`object-contain object-center ${brand.logoClassName}`}
                     />
                   </div>
                   <span

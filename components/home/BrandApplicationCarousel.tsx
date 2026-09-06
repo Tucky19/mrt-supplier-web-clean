@@ -20,68 +20,60 @@ type BrandSet = {
   desktopRows?: SecondaryBrand[][];
 };
 
+const FILTER_BRANDS: SecondaryBrand[] = [
+  { name: "Fleetguard", logo: "/images/brands/secondary/fleetguard.png", width: 225, height: 225 },
+  { name: "Baldwin Filters", logo: "/images/brands/secondary/baldwin-filters.png", width: 600, height: 600 },
+  { name: "WIX Filters", logo: "/images/brands/secondary/wix-filters.png", width: 2000, height: 1862 },
+  { name: "Parker", logo: "/images/brands/secondary/parker.png", width: 518, height: 518 },
+  { name: "K-FLO", logo: "/images/brands/secondary/k-flo.png", width: 210, height: 90 },
+  { name: "SURE FILTER", logo: "/images/brands/secondary/sure-filter.webp", width: 500, height: 300 },
+  { name: "FULL", logo: "/images/brands/secondary/full-filter.webp", width: 500, height: 300 },
+  { name: "BACKCUP", logo: "/images/brands/secondary/backcup.webp", width: 900, height: 400 },
+];
+
+const APPLICATION_BRANDS: SecondaryBrand[] = [
+  { name: "Atlas Copco", logo: "/images/brands/secondary/atlas-copco.webp", width: 330, height: 159 },
+  { name: "Hitachi", logo: "/images/brands/secondary/hitachi.webp", width: 800, height: 320 },
+  { name: "Kobelco", logo: "/images/brands/secondary/kobelco.webp", width: 800, height: 320 },
+  { name: "Ingersoll Rand", logo: "/images/brands/secondary/ingersoll-rand.webp", width: 800, height: 320 },
+  { name: "MTU", logo: "/images/brands/secondary/mtu.webp", width: 800, height: 450 },
+  { name: "Cummins", logo: "/images/brands/secondary/cummins.svg", width: 800, height: 320 },
+  { name: "Perkins", logo: "/images/brands/secondary/perkins.webp", width: 800, height: 320 },
+  { name: "Mitsubishi", logo: "/images/brands/secondary/mitsubishi.svg", width: 800, height: 320 },
+  { name: "Denyo", logo: "/images/brands/secondary/denyo.webp", width: 800, height: 320 },
+];
+
+const BEARING_EQUIPMENT_BRANDS: SecondaryBrand[] = [
+  { name: "KOYO / JTEKT", logo: "/images/brands/secondary/koyo.webp", width: 800, height: 320, query: "KOYO" },
+  { name: "IKO", logo: "/images/brands/secondary/iko.webp", width: 800, height: 320 },
+  { name: "FAG / Schaeffler", logo: "/images/brands/secondary/fag.webp", width: 800, height: 320, query: "FAG" },
+  { name: "XCMG", logo: "/images/brands/secondary/xcmg.png", width: 1020, height: 680 },
+  { name: "LiuGong", logo: "/images/brands/secondary/liugong.png", width: 2000, height: 707 },
+  { name: "Zoomlion", logo: "/images/brands/secondary/zoomlion.webp", width: 800, height: 320 },
+  { name: "SDLG", logo: "/images/brands/secondary/sdlg.webp", width: 800, height: 320 },
+];
+
 const BRAND_SETS: BrandSet[] = [
   {
     title: { th: "ไส้กรอง", en: "Filters" },
-    brands: [
-    { name: "Fleetguard", logo: "/images/brands/secondary/fleetguard.png", width: 225, height: 225, slotClassName: "h-10 sm:h-11" },
-    { name: "Baldwin Filters", logo: "/images/brands/secondary/baldwin-filters.png", width: 600, height: 600, slotClassName: "h-10 sm:h-11" },
-    { name: "WIX Filters", logo: "/images/brands/secondary/wix-filters.png", width: 2000, height: 1862, slotClassName: "h-10 sm:h-11" },
-    { name: "Parker", logo: "/images/brands/secondary/parker.png", width: 518, height: 518, slotClassName: "h-9 sm:h-10" },
-    { name: "K-FLO", logo: "/images/brands/secondary/k-flo.png", width: 210, height: 90, slotClassName: "h-8 sm:h-9" },
-    { name: "SURE FILTER", logo: "/images/brands/secondary/sure-filter.webp", width: 500, height: 300, slotClassName: "h-10 sm:h-11" },
-    { name: "FULL", logo: "/images/brands/secondary/full-filter.webp", width: 500, height: 300, slotClassName: "h-10 sm:h-11" },
-    { name: "BACKCUP", logo: "/images/brands/secondary/backcup.webp", width: 900, height: 400, slotClassName: "h-10 scale-125 sm:h-11" },
-    ],
-  },
-  {
-    title: { th: "ลูกปืน", en: "Bearings" },
-    brands: [
-      { name: "KOYO / JTEKT", logo: "/images/brands/secondary/koyo.webp", width: 800, height: 320, slotClassName: "h-10 sm:h-11", query: "KOYO" },
-      { name: "IKO", logo: "/images/brands/secondary/iko.webp", width: 800, height: 320, slotClassName: "h-10 sm:h-11" },
-      { name: "FAG / Schaeffler", logo: "/images/brands/secondary/fag.webp", width: 800, height: 320, slotClassName: "h-10 sm:h-11", query: "FAG" },
-    ],
+    brands: FILTER_BRANDS,
+    desktopRows: [FILTER_BRANDS.slice(0, 4), FILTER_BRANDS.slice(4)],
   },
   {
     title: {
       th: "เครื่องลม เครื่องกำเนิดไฟฟ้า และเครื่องยนต์",
       en: "Air Compressors, Generators & Engines",
     },
-    desktopRows: [
-      [
-      { name: "Atlas Copco", logo: "/images/brands/secondary/atlas-copco.webp", width: 330, height: 159, slotClassName: "h-8 sm:h-9" },
-      { name: "Hitachi", logo: "/images/brands/secondary/hitachi.webp", width: 800, height: 320, slotClassName: "h-10 sm:h-11" },
-      { name: "Kobelco", logo: "/images/brands/secondary/kobelco.webp", width: 800, height: 320, slotClassName: "h-10 sm:h-11" },
-      { name: "Ingersoll Rand", logo: "/images/brands/secondary/ingersoll-rand.webp", width: 800, height: 320, slotClassName: "h-10 sm:h-11" },
-      ],
-      [
-      { name: "MTU", logo: "/images/brands/secondary/mtu.webp", width: 800, height: 450, slotClassName: "h-10 sm:h-11" },
-      { name: "Cummins", logo: "/images/brands/secondary/cummins.svg", width: 800, height: 320, slotClassName: "h-10 sm:h-11" },
-      { name: "Perkins", logo: "/images/brands/secondary/perkins.webp", width: 800, height: 320, slotClassName: "h-10 sm:h-11" },
-      { name: "Mitsubishi", logo: "/images/brands/secondary/mitsubishi.svg", width: 800, height: 320, slotClassName: "h-10 sm:h-11" },
-      { name: "Denyo", logo: "/images/brands/secondary/denyo.webp", width: 800, height: 320, slotClassName: "h-10 sm:h-11" },
-      ],
-    ],
-    brands: [
-      { name: "Atlas Copco", logo: "/images/brands/secondary/atlas-copco.webp", width: 330, height: 159, slotClassName: "h-8 sm:h-9" },
-      { name: "Hitachi", logo: "/images/brands/secondary/hitachi.webp", width: 800, height: 320, slotClassName: "h-10 sm:h-11" },
-      { name: "Kobelco", logo: "/images/brands/secondary/kobelco.webp", width: 800, height: 320, slotClassName: "h-10 sm:h-11" },
-      { name: "Ingersoll Rand", logo: "/images/brands/secondary/ingersoll-rand.webp", width: 800, height: 320, slotClassName: "h-10 sm:h-11" },
-      { name: "MTU", logo: "/images/brands/secondary/mtu.webp", width: 800, height: 450, slotClassName: "h-10 sm:h-11" },
-      { name: "Cummins", logo: "/images/brands/secondary/cummins.svg", width: 800, height: 320, slotClassName: "h-10 sm:h-11" },
-      { name: "Perkins", logo: "/images/brands/secondary/perkins.webp", width: 800, height: 320, slotClassName: "h-10 sm:h-11" },
-      { name: "Mitsubishi", logo: "/images/brands/secondary/mitsubishi.svg", width: 800, height: 320, slotClassName: "h-10 sm:h-11" },
-      { name: "Denyo", logo: "/images/brands/secondary/denyo.webp", width: 800, height: 320, slotClassName: "h-10 sm:h-11" },
-    ],
+    brands: APPLICATION_BRANDS,
+    desktopRows: [APPLICATION_BRANDS.slice(0, 4), APPLICATION_BRANDS.slice(4)],
   },
   {
-    title: { th: "เครื่องจักรหนักจากจีน", en: "Chinese Heavy Equipment" },
-    brands: [
-      { name: "XCMG", logo: "/images/brands/secondary/xcmg.png", width: 1020, height: 680, slotClassName: "h-8 sm:h-9" },
-      { name: "LiuGong", logo: "/images/brands/secondary/liugong.png", width: 2000, height: 707, slotClassName: "h-7 sm:h-8" },
-      { name: "Zoomlion", logo: "/images/brands/secondary/zoomlion.webp", width: 800, height: 320, slotClassName: "h-10 sm:h-11" },
-      { name: "SDLG", logo: "/images/brands/secondary/sdlg.webp", width: 800, height: 320, slotClassName: "h-10 sm:h-11" },
-    ],
+    title: {
+      th: "ลูกปืนและเครื่องจักรหนักจากจีน",
+      en: "Bearings & Chinese Heavy Equipment",
+    },
+    brands: BEARING_EQUIPMENT_BRANDS,
+    desktopRows: [BEARING_EQUIPMENT_BRANDS.slice(0, 3), BEARING_EQUIPMENT_BRANDS.slice(3)],
   },
 ];
 
@@ -126,7 +118,7 @@ export default function BrandApplicationCarousel({ locale }: { locale: string })
             alt={brand.name}
             width={brand.width ?? 320}
             height={brand.height ?? 120}
-            className={`w-full object-contain ${brand.slotClassName ?? "h-8 sm:h-9"}`}
+            className={`h-11 w-full object-contain sm:h-12 ${brand.slotClassName ?? ""}`}
             sizes="(max-width: 640px) 25vw, 105px"
           />
         ) : (
@@ -183,7 +175,14 @@ export default function BrandApplicationCarousel({ locale }: { locale: string })
               <div className="hidden min-h-[136px] flex-col justify-center gap-2 sm:flex">
                 {activeSet.desktopRows.map((row, rowIndex) => (
                   <ul key={rowIndex} className="flex justify-center gap-2">
-                    {row.map((brand) => renderBrand(brand, "basis-[calc(20%-0.5rem)]"))}
+                    {row.map((brand) =>
+                      renderBrand(
+                        brand,
+                        row.length === 5
+                          ? "basis-[calc(20%-0.5rem)]"
+                          : "basis-[calc(25%-0.5rem)]",
+                      ),
+                    )}
                   </ul>
                 ))}
               </div>
