@@ -8,6 +8,7 @@ import {
   Users,
 } from "lucide-react";
 import TrackedLineLink from "@/components/analytics/TrackedLineLink";
+import BrandApplicationCarousel from "@/components/home/BrandApplicationCarousel";
 import SearchBar from "@/components/search/SearchBar";
 
 const LINE_URL = "https://lin.ee/S676yYH";
@@ -39,72 +40,6 @@ const BRANDS = [
     name: "NTN",
     logo: "/brands/ntn.png",
     query: "NTN",
-  },
-];
-
-const SECONDARY_BRANDS = [
-  {
-    name: "Fleetguard",
-    logo: "/images/brands/secondary/fleetguard.png",
-    width: 225,
-    height: 225,
-    slotClassName: "h-10 sm:h-11",
-  },
-  {
-    name: "Baldwin Filters",
-    logo: "/images/brands/secondary/baldwin-filters.png",
-    width: 600,
-    height: 600,
-    slotClassName: "h-10 sm:h-11",
-  },
-  {
-    name: "Wix Filters",
-    logo: "/images/brands/secondary/wix-filters.png",
-    width: 2000,
-    height: 1862,
-    slotClassName: "h-10 sm:h-11",
-  },
-  {
-    name: "Parker",
-    logo: "/images/brands/secondary/parker.png",
-    width: 518,
-    height: 518,
-    slotClassName: "h-9 sm:h-10",
-  },
-  {
-    name: "K-FLO",
-    logo: "/images/brands/secondary/k-flo.png",
-    width: 210,
-    height: 90,
-    slotClassName: "h-8 sm:h-9",
-  },
-  {
-    name: "Atlas Copco",
-    logo: "/images/brands/secondary/atlas-copco.webp",
-    width: 330,
-    height: 159,
-    slotClassName: "h-8 sm:h-9",
-  },
-  {
-    name: "XCMG",
-    logo: "/images/brands/secondary/xcmg.png",
-    width: 1020,
-    height: 680,
-    slotClassName: "h-8 sm:h-9",
-  },
-  {
-    name: "SANY",
-    logo: "/images/brands/secondary/sany.png",
-    width: 824,
-    height: 1000,
-    slotClassName: "h-11 sm:h-12",
-  },
-  {
-    name: "LiuGong",
-    logo: "/images/brands/secondary/liugong.png",
-    width: 2000,
-    height: 707,
-    slotClassName: "h-7 sm:h-8",
   },
 ];
 
@@ -254,49 +189,7 @@ export default function SearchFirstHero({ locale }: { locale: string }) {
               ))}
             </div>
 
-            <div className="min-w-0 rounded-[var(--mrt-radius-lg)] border border-[var(--color-border)] bg-[var(--color-surface)] p-4 shadow-[var(--shadow-sm)] sm:p-5">
-              <div className="mx-auto max-w-xl text-center">
-                <p className="text-sm font-semibold text-[var(--color-text)]">
-                  {isThai
-                    ? "รับค้นหาและเทียบเบอร์จากหลายแบรนด์"
-                    : "Cross-reference support for multiple brands"}
-                </p>
-                <p className="mt-2 text-xs leading-5 text-[var(--color-text-muted)] sm:text-sm sm:leading-6">
-                  {isThai
-                    ? "ส่งเบอร์เดิมของคุณ เพื่อค้นหาตัวเลือก Donaldson หรือ MANN-FILTER ที่เหมาะกับการใช้งาน"
-                    : "Send us your existing part number to find a suitable Donaldson or MANN-FILTER option."}
-                </p>
-              </div>
-
-              <ul
-                aria-label={isThai ? "แบรนด์ที่รองรับการค้นหาและเทียบเบอร์" : "Brands supported for cross-reference review"}
-                className="mt-4 grid grid-cols-3 gap-2 sm:flex sm:flex-wrap sm:justify-center"
-              >
-                {SECONDARY_BRANDS.map((brand, index) => (
-                  <li
-                    key={brand.name}
-                    className={`flex min-h-16 items-center justify-center rounded-[var(--mrt-radius-md)] border border-[var(--color-border)] bg-white px-3 py-2 sm:min-h-14 ${
-                      index > 4 ? "sm:basis-[calc(25%-0.5rem)]" : "sm:basis-[calc(20%-0.5rem)]"
-                    }`}
-                  >
-                    <Image
-                      src={brand.logo}
-                      alt={brand.name}
-                      width={brand.width}
-                      height={brand.height}
-                      className={`w-full object-contain ${brand.slotClassName}`}
-                      sizes="(max-width: 640px) 30vw, 120px"
-                    />
-                  </li>
-                ))}
-              </ul>
-
-              <p className="mt-3 text-center text-xs leading-5 text-[var(--color-text-muted)]">
-                {isThai
-                  ? "ไม่พบแบรนด์ของคุณในรายการ? ส่ง Part No. ให้ทีมงานตรวจสอบได้"
-                  : "Don’t see your brand listed? Send us the part number and our team will check it."}
-              </p>
-            </div>
+            <BrandApplicationCarousel locale={locale} />
           </div>
         </div>
 
