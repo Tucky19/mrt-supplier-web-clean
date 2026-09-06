@@ -173,7 +173,7 @@ export default function SearchFirstHero({ locale }: { locale: string }) {
           </div>
 
           <div className="mt-4 grid min-w-0 items-stretch gap-4 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
-            <div className="flex h-full min-w-0 flex-col overflow-hidden rounded-[var(--mrt-radius-lg)] border border-[var(--color-border)] bg-white/45 shadow-[var(--shadow-sm)]">
+            <div className="flex h-full min-w-0 flex-col overflow-hidden rounded-[var(--mrt-radius-lg)] border border-[var(--color-border)] bg-white/40 shadow-[var(--shadow-sm)] backdrop-blur-[1px]">
               <div className="relative aspect-video w-full overflow-hidden bg-transparent">
                 <Image
                   src="/images/brands/primary-brand-showcase.jpeg"
@@ -199,7 +199,7 @@ export default function SearchFirstHero({ locale }: { locale: string }) {
                 </Link>
                 ))}
               </div>
-              <div className="flex flex-col gap-1 border-t border-[var(--color-border)] bg-white/70 px-4 py-3 text-center backdrop-blur-sm sm:flex-row sm:items-center sm:justify-between sm:text-left">
+              <div className="flex min-h-[58px] flex-col justify-center gap-1 border-t border-[var(--color-border)] bg-white/45 px-4 py-3 text-center backdrop-blur-sm sm:flex-row sm:items-center sm:justify-between sm:text-left">
                 <p className="text-sm font-semibold text-[var(--color-text)]">
                   {isThai ? "แบรนด์หลักที่ MRT รองรับ" : "Primary brands supported by MRT"}
                 </p>

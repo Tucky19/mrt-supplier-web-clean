@@ -108,7 +108,7 @@ export default function BrandApplicationCarousel({ locale }: { locale: string })
     <li key={brand.name} className={itemClassName}>
       <Link
         href={`/${locale}/products?q=${encodeURIComponent(brand.query ?? brand.name)}`}
-        className={`group flex min-h-16 items-center justify-center overflow-hidden rounded-[var(--mrt-radius-md)] border border-[var(--color-border)] bg-white px-3 py-2 transition hover:border-[var(--color-primary)] hover:bg-[var(--color-primary-soft)] sm:min-h-14 ${focusClass}`}
+        className={`group flex min-h-16 items-center justify-center overflow-hidden rounded-[var(--mrt-radius-md)] border border-[var(--color-border)] bg-white/70 px-3 py-2 backdrop-blur-sm transition hover:border-[var(--color-primary)] hover:bg-white/90 sm:min-h-14 ${focusClass}`}
         aria-label={`${isThai ? "ค้นหาแบรนด์" : "Search brand"} ${brand.name}`}
       >
         {brand.logo ? (
@@ -131,7 +131,7 @@ export default function BrandApplicationCarousel({ locale }: { locale: string })
 
   return (
     <div
-      className="flex h-full min-w-0 flex-col rounded-[var(--mrt-radius-lg)] border border-[var(--color-border)] bg-[var(--color-surface)] p-4 shadow-[var(--shadow-sm)] sm:p-5"
+      className="flex h-full min-w-0 flex-col overflow-hidden rounded-[var(--mrt-radius-lg)] border border-[var(--color-border)] bg-white/40 p-4 shadow-[var(--shadow-sm)] backdrop-blur-[1px] sm:p-5"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
       onFocus={() => setIsPaused(true)}
@@ -220,11 +220,13 @@ export default function BrandApplicationCarousel({ locale }: { locale: string })
         ))}
       </div>
 
-      <p className="mt-3 text-center text-xs leading-5 text-[var(--color-text-muted)]">
-        {isThai
-          ? "ชื่อแบรนด์ใช้เพื่อช่วยระบุสินค้าและการใช้งาน ไม่ได้หมายความว่า MRT Supplier เป็นตัวแทนจำหน่ายทุกแบรนด์"
-          : "Brand names support product and application identification; they do not imply authorized distributorship."}
-      </p>
+      <div className="-mx-4 -mb-4 mt-auto flex min-h-[58px] items-center justify-center border-t border-[var(--color-border)] bg-white/45 px-4 py-3 backdrop-blur-sm sm:-mx-5 sm:-mb-5 sm:px-5">
+        <p className="text-center text-xs leading-5 text-[var(--color-text-muted)]">
+          {isThai
+            ? "ชื่อแบรนด์ใช้เพื่อช่วยระบุสินค้าและการใช้งาน ไม่ได้หมายความว่า MRT Supplier เป็นตัวแทนจำหน่ายทุกแบรนด์"
+            : "Brand names support product and application identification; they do not imply authorized distributorship."}
+        </p>
+      </div>
     </div>
   );
 }
