@@ -35,7 +35,7 @@ const APPLICATION_BRANDS: SecondaryBrand[] = [
   { name: "Atlas Copco", logo: "/images/brands/secondary/atlas-copco.webp", width: 330, height: 159 },
   { name: "Hitachi", logo: "/images/brands/secondary/hitachi.webp", width: 800, height: 320 },
   { name: "Kobelco", logo: "/images/brands/secondary/kobelco.webp", width: 800, height: 320 },
-  { name: "Ingersoll Rand", logo: "/images/brands/secondary/ingersoll-rand.webp", width: 800, height: 320 },
+  { name: "Ingersoll Rand", logo: "/images/brands/secondary/ingersoll-rand.webp", width: 800, height: 320, slotClassName: "scale-[1.45]" },
   { name: "MTU", logo: "/images/brands/secondary/mtu.webp", width: 800, height: 450 },
   { name: "Cummins", logo: "/images/brands/secondary/cummins.svg", width: 800, height: 320 },
   { name: "Perkins", logo: "/images/brands/secondary/perkins.webp", width: 800, height: 320 },
@@ -46,11 +46,11 @@ const APPLICATION_BRANDS: SecondaryBrand[] = [
 const BEARING_EQUIPMENT_BRANDS: SecondaryBrand[] = [
   { name: "KOYO / JTEKT", logo: "/images/brands/secondary/koyo.webp", width: 800, height: 320, query: "KOYO" },
   { name: "IKO", logo: "/images/brands/secondary/iko.webp", width: 800, height: 320 },
-  { name: "FAG / Schaeffler", logo: "/images/brands/secondary/fag.webp", width: 800, height: 320, query: "FAG" },
+  { name: "FAG / Schaeffler", logo: "/images/brands/secondary/fag.webp", width: 800, height: 320, slotClassName: "scale-[1.35]", query: "FAG" },
   { name: "XCMG", logo: "/images/brands/secondary/xcmg.png", width: 1020, height: 680 },
   { name: "LiuGong", logo: "/images/brands/secondary/liugong.png", width: 2000, height: 707 },
   { name: "Zoomlion", logo: "/images/brands/secondary/zoomlion.webp", width: 800, height: 320 },
-  { name: "SDLG", logo: "/images/brands/secondary/sdlg.webp", width: 800, height: 320 },
+  { name: "SDLG", logo: "/images/brands/secondary/sdlg.webp", width: 800, height: 320, slotClassName: "scale-[1.55]" },
 ];
 
 const BRAND_SETS: BrandSet[] = [
