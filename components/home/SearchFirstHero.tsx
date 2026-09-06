@@ -29,7 +29,7 @@ const PRIMARY_BRAND_HOTSPOTS = [
   {
     name: "Donaldson",
     query: "Donaldson",
-    position: "left-[3%] top-[11%] h-[36%] w-[47%]",
+    position: "left-[3%] top-[15%] h-[35%] w-[47%]",
   },
   {
     name: "NTN",
@@ -176,12 +176,12 @@ export default function SearchFirstHero({ locale }: { locale: string }) {
             <div className="flex h-full min-w-0 flex-col overflow-hidden rounded-[var(--mrt-radius-lg)] border border-[var(--color-border)] bg-white/40 shadow-[var(--shadow-sm)] backdrop-blur-[1px]">
               <div className="relative aspect-video w-full overflow-hidden bg-transparent">
                 <Image
-                  src="/images/brands/primary-brand-showcase.jpeg"
+                  src="/images/brands/primary-brand-showcase.webp"
                   alt={isThai ? "แบรนด์หลัก Donaldson, NTN, MANN-FILTER และ Fleetguard" : "Primary brands: Donaldson, NTN, MANN-FILTER, and Fleetguard"}
                   fill
                   priority
                   sizes="(max-width: 1024px) 100vw, 50vw"
-                  className="object-cover opacity-[0.82] mix-blend-multiply brightness-[1.03] contrast-[0.94] saturate-[0.82]"
+                  className="object-cover"
                 />
                 {PRIMARY_BRAND_HOTSPOTS.map((brand) => (
                 <Link
