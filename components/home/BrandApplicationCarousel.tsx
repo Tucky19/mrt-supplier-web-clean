@@ -5,89 +5,46 @@ import Link from "next/link";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useEffect, useState } from "react";
 
-type Brand = {
+type SecondaryBrand = {
   name: string;
   logo?: string;
-  imageClassName?: string;
+  width?: number;
+  height?: number;
+  slotClassName?: string;
+  query?: string;
 };
 
-type BrandGroup = {
-  key: string;
-  title: { th: string; en: string };
-  description: { th: string; en: string };
-  brands: Brand[];
-};
-
-const GROUPS: BrandGroup[] = [
-  {
-    key: "bearings",
-    title: { th: "ผู้เชี่ยวชาญด้านลูกปืน", en: "Bearing specialists" },
-    description: {
-      th: "รับค้นหาและจัดหาลูกปืนจากแบรนด์ที่ทีมงานมีแหล่งจัดหาและประสบการณ์",
-      en: "Bearing sourcing support from brands covered by our experienced supply network.",
-    },
-    brands: [
-      { name: "KOYO / JTEKT", logo: "/koyo.svg" },
-      { name: "IKO", logo: "/iko.svg" },
-      { name: "FAG / Schaeffler" },
-    ],
-  },
-  {
-    key: "filters",
-    title: { th: "ผู้เชี่ยวชาญด้านไส้กรอง", en: "Filter specialists" },
-    description: {
-      th: "รับค้นหาไส้กรองจาก Part No. ขนาด และ Specification ก่อนเสนอราคา",
-      en: "Filter sourcing by part number, dimensions, and specification before quotation.",
-    },
-    brands: [
-      { name: "SURE FILTER", logo: "/images/brands/secondary/sure-filter.webp" },
-      { name: "FULL", logo: "/images/brands/secondary/full-filter.webp" },
-      { name: "BACKCUP", logo: "/images/brands/secondary/backcup.webp", imageClassName: "scale-125" },
-    ],
-  },
-  {
-    key: "compressors",
-    title: { th: "ไส้กรองสำหรับเครื่องอัดอากาศ", en: "Air compressor applications" },
-    description: {
-      th: "รับค้นหาไส้กรองและ Oil Separator จากรุ่นเครื่องและ Part No.",
-      en: "Filter and oil separator sourcing by compressor model and part number.",
-    },
-    brands: [
-      { name: "Atlas Copco", logo: "/images/brands/secondary/atlas-copco.webp" },
-      { name: "Hitachi" },
-      { name: "Kobelco" },
-      { name: "Ingersoll Rand" },
-    ],
-  },
-  {
-    key: "generators",
-    title: { th: "ไส้กรองสำหรับ Generator และเครื่องยนต์", en: "Generator & engine applications" },
-    description: {
-      th: "ตรวจสอบจากรุ่น Generator รุ่นเครื่องยนต์ และ Part No. ก่อนเสนอราคา",
-      en: "Reviewed by generator model, engine model, and part number before quotation.",
-    },
-    brands: [
-      { name: "MTU", logo: "/images/brands/secondary/mtu.webp" },
-      { name: "Cummins" },
-      { name: "Perkins" },
-      { name: "Mitsubishi" },
-      { name: "Denyo" },
-    ],
-  },
-  {
-    key: "china-heavy-equipment",
-    title: { th: "เครื่องจักรหนักและงานจัดหาไส้กรองจากจีน", en: "Chinese heavy equipment & filter sourcing" },
-    description: {
-      th: "รับจัดหาเฉพาะไส้กรองและอะไหล่เครื่องจักรหนัก โดยตรวจรุ่นเครื่อง เครื่องยนต์ และ Part No.",
-      en: "Sourcing limited to filters and heavy-equipment parts, checked by machine, engine, and part number.",
-    },
-    brands: [
-      { name: "LiuGong", logo: "/images/brands/secondary/liugong.png" },
-      { name: "XCMG", logo: "/images/brands/secondary/xcmg.png" },
-      { name: "Zoomlion" },
-      { name: "SDLG" },
-    ],
-  },
+const BRAND_SETS: SecondaryBrand[][] = [
+  [
+    { name: "Fleetguard", logo: "/images/brands/secondary/fleetguard.png", width: 225, height: 225, slotClassName: "h-10 sm:h-11" },
+    { name: "Baldwin Filters", logo: "/images/brands/secondary/baldwin-filters.png", width: 600, height: 600, slotClassName: "h-10 sm:h-11" },
+    { name: "WIX Filters", logo: "/images/brands/secondary/wix-filters.png", width: 2000, height: 1862, slotClassName: "h-10 sm:h-11" },
+    { name: "Parker", logo: "/images/brands/secondary/parker.png", width: 518, height: 518, slotClassName: "h-9 sm:h-10" },
+    { name: "K-FLO", logo: "/images/brands/secondary/k-flo.png", width: 210, height: 90, slotClassName: "h-8 sm:h-9" },
+    { name: "Atlas Copco", logo: "/images/brands/secondary/atlas-copco.webp", width: 330, height: 159, slotClassName: "h-8 sm:h-9" },
+    { name: "XCMG", logo: "/images/brands/secondary/xcmg.png", width: 1020, height: 680, slotClassName: "h-8 sm:h-9" },
+    { name: "LiuGong", logo: "/images/brands/secondary/liugong.png", width: 2000, height: 707, slotClassName: "h-7 sm:h-8" },
+  ],
+  [
+    { name: "KOYO / JTEKT", logo: "/koyo.svg", width: 320, height: 120, slotClassName: "h-9 sm:h-10", query: "KOYO" },
+    { name: "IKO", logo: "/iko.svg", width: 320, height: 120, slotClassName: "h-9 sm:h-10" },
+    { name: "FAG / Schaeffler", query: "FAG" },
+    { name: "SURE FILTER", logo: "/images/brands/secondary/sure-filter.webp", width: 500, height: 300, slotClassName: "h-10 sm:h-11" },
+    { name: "FULL", logo: "/images/brands/secondary/full-filter.webp", width: 500, height: 300, slotClassName: "h-10 sm:h-11" },
+    { name: "BACKCUP", logo: "/images/brands/secondary/backcup.webp", width: 900, height: 400, slotClassName: "h-10 scale-125 sm:h-11" },
+    { name: "Hitachi" },
+    { name: "Kobelco" },
+  ],
+  [
+    { name: "Ingersoll Rand" },
+    { name: "MTU", logo: "/images/brands/secondary/mtu.webp", width: 800, height: 450, slotClassName: "h-10 sm:h-11" },
+    { name: "Cummins" },
+    { name: "Perkins" },
+    { name: "Mitsubishi" },
+    { name: "Denyo" },
+    { name: "Zoomlion" },
+    { name: "SDLG" },
+  ],
 ];
 
 const focusClass =
@@ -97,24 +54,23 @@ export default function BrandApplicationCarousel({ locale }: { locale: string })
   const isThai = locale === "th";
   const [activeIndex, setActiveIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
-  const activeGroup = GROUPS[activeIndex];
 
   useEffect(() => {
-    if (isPaused) return;
+    if (isPaused || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
     const timer = window.setInterval(() => {
-      setActiveIndex((current) => (current + 1) % GROUPS.length);
+      setActiveIndex((current) => (current + 1) % BRAND_SETS.length);
     }, 6000);
 
     return () => window.clearInterval(timer);
   }, [isPaused]);
 
   const showPrevious = () => {
-    setActiveIndex((current) => (current - 1 + GROUPS.length) % GROUPS.length);
+    setActiveIndex((current) => (current - 1 + BRAND_SETS.length) % BRAND_SETS.length);
   };
 
   const showNext = () => {
-    setActiveIndex((current) => (current + 1) % GROUPS.length);
+    setActiveIndex((current) => (current + 1) % BRAND_SETS.length);
   };
 
   return (
@@ -127,80 +83,80 @@ export default function BrandApplicationCarousel({ locale }: { locale: string })
         if (!event.currentTarget.contains(event.relatedTarget)) setIsPaused(false);
       }}
       aria-roledescription="carousel"
-      aria-label={isThai ? "กลุ่มแบรนด์และงานที่ MRT Supplier รองรับ" : "Brand and application groups supported by MRT Supplier"}
+      aria-label={isThai ? "แบรนด์รองที่รองรับการค้นหาและจัดหา" : "Secondary brands supported for search and sourcing"}
     >
-      <div className="flex items-start justify-between gap-3">
-        <div className="min-w-0">
-          <p className="text-sm font-semibold text-[var(--color-text)]">
-            {isThai ? activeGroup.title.th : activeGroup.title.en}
-          </p>
-          <p className="mt-1 text-xs leading-5 text-[var(--color-text-muted)] sm:text-sm sm:leading-6">
-            {isThai ? activeGroup.description.th : activeGroup.description.en}
-          </p>
-        </div>
-        <div className="flex shrink-0 gap-1.5">
-          <button
-            type="button"
-            onClick={showPrevious}
-            className={`inline-flex h-9 w-9 items-center justify-center rounded-full border border-[var(--color-border)] bg-white text-[var(--color-text-muted)] transition hover:border-[var(--color-primary)] hover:text-[var(--color-primary)] ${focusClass}`}
-            aria-label={isThai ? "แสดงกลุ่มก่อนหน้า" : "Show previous group"}
-          >
-            <ChevronLeft className="h-4 w-4" aria-hidden="true" />
-          </button>
-          <button
-            type="button"
-            onClick={showNext}
-            className={`inline-flex h-9 w-9 items-center justify-center rounded-full border border-[var(--color-border)] bg-white text-[var(--color-text-muted)] transition hover:border-[var(--color-primary)] hover:text-[var(--color-primary)] ${focusClass}`}
-            aria-label={isThai ? "แสดงกลุ่มถัดไป" : "Show next group"}
-          >
-            <ChevronRight className="h-4 w-4" aria-hidden="true" />
-          </button>
-        </div>
+      <div className="mx-auto max-w-xl text-center">
+        <p className="text-sm font-semibold text-[var(--color-text)]">
+          {isThai ? "รับค้นหาและเทียบเบอร์จากหลายแบรนด์" : "Cross-reference support for multiple brands"}
+        </p>
+        <p className="mt-2 text-xs leading-5 text-[var(--color-text-muted)] sm:text-sm sm:leading-6">
+          {isThai
+            ? "ค้นหาแบรนด์ที่คุณใช้อยู่ หรือส่ง Part No. ให้ทีมงานช่วยตรวจสอบ"
+            : "Find a brand you use, or send its part number for our team to review."}
+        </p>
       </div>
 
-      <div
-        key={activeGroup.key}
-        className="mt-4 grid grid-cols-2 gap-2 sm:grid-cols-3"
-        aria-live="polite"
-      >
-        {activeGroup.brands.map((brand) => (
-          <Link
-            key={brand.name}
-            href={`/${locale}/products?q=${encodeURIComponent(brand.name.split(" /")[0])}`}
-            className={`group flex min-h-20 flex-col items-center justify-center gap-2 overflow-hidden rounded-[var(--mrt-radius-md)] border border-[var(--color-border)] bg-white px-3 py-2 text-center transition hover:border-[var(--color-primary)] hover:bg-[var(--color-primary-soft)] ${focusClass}`}
-          >
-            {brand.logo ? (
-              <span className="relative block h-10 w-full">
-                <Image
-                  src={brand.logo}
-                  alt=""
-                  fill
-                  sizes="(max-width: 640px) 45vw, 150px"
-                  className={`object-contain ${brand.imageClassName ?? ""}`}
-                />
-              </span>
-            ) : (
-              <span className="flex h-10 items-center text-base font-bold tracking-tight text-slate-700">
-                {brand.name}
-              </span>
-            )}
-            <span className="text-[11px] font-semibold text-[var(--color-text-muted)] group-hover:text-[var(--color-primary)]">
-              {brand.name}
-            </span>
-          </Link>
-        ))}
+      <div className="relative mt-4 px-7 sm:px-8">
+        <button
+          type="button"
+          onClick={showPrevious}
+          className={`absolute left-0 top-1/2 z-10 inline-flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full border border-[var(--color-border)] bg-white text-[var(--color-text-muted)] shadow-sm transition hover:border-[var(--color-primary)] hover:text-[var(--color-primary)] ${focusClass}`}
+          aria-label={isThai ? "แสดงแบรนด์ชุดก่อนหน้า" : "Show previous brand set"}
+        >
+          <ChevronLeft className="h-4 w-4" aria-hidden="true" />
+        </button>
+
+        <ul
+          key={activeIndex}
+          aria-live="polite"
+          className="brand-set-enter grid grid-cols-3 gap-2 sm:flex sm:min-h-[136px] sm:flex-wrap sm:content-center sm:justify-center"
+        >
+          {BRAND_SETS[activeIndex].map((brand) => (
+            <li key={brand.name} className="sm:basis-[calc(20%-0.5rem)]">
+              <Link
+                href={`/${locale}/products?q=${encodeURIComponent(brand.query ?? brand.name)}`}
+                className={`group flex min-h-16 items-center justify-center overflow-hidden rounded-[var(--mrt-radius-md)] border border-[var(--color-border)] bg-white px-3 py-2 transition hover:border-[var(--color-primary)] hover:bg-[var(--color-primary-soft)] sm:min-h-14 ${focusClass}`}
+                aria-label={`${isThai ? "ค้นหาแบรนด์" : "Search brand"} ${brand.name}`}
+              >
+                {brand.logo ? (
+                  <Image
+                    src={brand.logo}
+                    alt={brand.name}
+                    width={brand.width ?? 320}
+                    height={brand.height ?? 120}
+                    className={`w-full object-contain ${brand.slotClassName ?? "h-8 sm:h-9"}`}
+                    sizes="(max-width: 640px) 25vw, 105px"
+                  />
+                ) : (
+                  <span className="text-center text-xs font-bold leading-4 text-slate-600 group-hover:text-[var(--color-primary)] sm:text-sm">
+                    {brand.name}
+                  </span>
+                )}
+              </Link>
+            </li>
+          ))}
+        </ul>
+
+        <button
+          type="button"
+          onClick={showNext}
+          className={`absolute right-0 top-1/2 z-10 inline-flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full border border-[var(--color-border)] bg-white text-[var(--color-text-muted)] shadow-sm transition hover:border-[var(--color-primary)] hover:text-[var(--color-primary)] ${focusClass}`}
+          aria-label={isThai ? "แสดงแบรนด์ชุดถัดไป" : "Show next brand set"}
+        >
+          <ChevronRight className="h-4 w-4" aria-hidden="true" />
+        </button>
       </div>
 
-      <div className="mt-4 flex items-center justify-center gap-2" aria-label={isThai ? "เลือกกลุ่มแบรนด์" : "Choose brand group"}>
-        {GROUPS.map((group, index) => (
+      <div className="mt-3 flex items-center justify-center gap-2" aria-label={isThai ? "เลือกชุดแบรนด์" : "Choose brand set"}>
+        {BRAND_SETS.map((_, index) => (
           <button
-            key={group.key}
+            key={index}
             type="button"
             onClick={() => setActiveIndex(index)}
-            className={`h-2.5 rounded-full transition-all ${
-              index === activeIndex ? "w-7 bg-[var(--color-primary)]" : "w-2.5 bg-[var(--color-border-strong)] hover:bg-[var(--color-primary)]"
+            className={`h-2 rounded-full transition-all ${
+              index === activeIndex ? "w-6 bg-[var(--color-primary)]" : "w-2 bg-[var(--color-border-strong)] hover:bg-[var(--color-primary)]"
             } ${focusClass}`}
-            aria-label={`${isThai ? "แสดง" : "Show"} ${isThai ? group.title.th : group.title.en}`}
+            aria-label={`${isThai ? "แสดงแบรนด์ชุดที่" : "Show brand set"} ${index + 1}`}
             aria-current={index === activeIndex ? "true" : undefined}
           />
         ))}
@@ -208,8 +164,8 @@ export default function BrandApplicationCarousel({ locale }: { locale: string })
 
       <p className="mt-3 text-center text-xs leading-5 text-[var(--color-text-muted)]">
         {isThai
-          ? "ชื่อแบรนด์ใช้เพื่อระบุการใช้งานและช่วยค้นหาสินค้า ไม่ได้หมายความว่า MRT Supplier เป็นตัวแทนจำหน่ายทุกแบรนด์"
-          : "Brand names identify applications and support product sourcing; they do not imply authorized distributorship."}
+          ? "ชื่อแบรนด์ใช้เพื่อช่วยระบุสินค้าและการใช้งาน ไม่ได้หมายความว่า MRT Supplier เป็นตัวแทนจำหน่ายทุกแบรนด์"
+          : "Brand names support product and application identification; they do not imply authorized distributorship."}
       </p>
     </div>
   );
