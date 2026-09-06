@@ -44,7 +44,7 @@ const APPLICATION_BRANDS: SecondaryBrand[] = [
 ];
 
 const BEARING_EQUIPMENT_BRANDS: SecondaryBrand[] = [
-  { name: "KOYO / JTEKT", logo: "/images/brands/secondary/koyo.webp", width: 800, height: 320, query: "KOYO" },
+  { name: "KOYO", logo: "/images/brands/secondary/koyo.webp", width: 900, height: 500 },
   { name: "IKO", logo: "/images/brands/secondary/iko.webp", width: 800, height: 320 },
   { name: "FAG / Schaeffler", logo: "/images/brands/secondary/fag.webp", width: 800, height: 320, slotClassName: "scale-[1.35]", query: "FAG" },
   { name: "XCMG", logo: "/images/brands/secondary/xcmg.png", width: 1020, height: 680 },
