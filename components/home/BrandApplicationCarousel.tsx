@@ -45,11 +45,11 @@ const APPLICATION_BRANDS: SecondaryBrand[] = [
 const BEARING_EQUIPMENT_BRANDS: SecondaryBrand[] = [
   { name: "KOYO", logo: "/images/brands/secondary/koyo.webp", width: 900, height: 500 },
   { name: "IKO", logo: "/images/brands/secondary/iko.webp", width: 800, height: 320 },
-  { name: "FAG / Schaeffler", logo: "/images/brands/secondary/fag.webp", width: 800, height: 320, slotClassName: "scale-[1.35]", query: "FAG" },
-  { name: "XCMG", logo: "/images/brands/secondary/xcmg.png", width: 1020, height: 680 },
+  { name: "FAG / Schaeffler", logo: "/images/brands/secondary/fag.webp", width: 800, height: 320, slotClassName: "scale-[1.55]", query: "FAG" },
+  { name: "XCMG", logo: "/images/brands/secondary/xcmg.png", width: 1020, height: 680, slotClassName: "scale-[1.22]" },
   { name: "LiuGong", logo: "/images/brands/secondary/liugong.png", width: 2000, height: 707 },
-  { name: "Zoomlion", logo: "/images/brands/secondary/zoomlion.webp", width: 800, height: 320 },
-  { name: "SDLG", logo: "/images/brands/secondary/sdlg.webp", width: 800, height: 320, slotClassName: "scale-[1.55]" },
+  { name: "Zoomlion", logo: "/images/brands/secondary/zoomlion.webp", width: 800, height: 320, slotClassName: "scale-[1.25]" },
+  { name: "SDLG", logo: "/images/brands/secondary/sdlg.webp", width: 800, height: 320, slotClassName: "scale-[1.35]" },
 ];
 
 const BRAND_SETS: BrandSet[] = [
