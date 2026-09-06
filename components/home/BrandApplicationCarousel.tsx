@@ -47,12 +47,14 @@ const BRAND_SETS: BrandSet[] = [
       { name: "Atlas Copco", logo: "/images/brands/secondary/atlas-copco.webp", width: 330, height: 159, slotClassName: "h-8 sm:h-9" },
       { name: "Hitachi", logo: "/images/brands/secondary/hitachi.webp", width: 800, height: 320, slotClassName: "h-10 sm:h-11" },
       { name: "Kobelco", logo: "/images/brands/secondary/kobelco.webp", width: 800, height: 320, slotClassName: "h-10 sm:h-11" },
+      { name: "Ingersoll Rand", logo: "/images/brands/secondary/ingersoll-rand.webp", width: 800, height: 320, slotClassName: "h-10 sm:h-11" },
     ],
   },
   {
     title: { th: "Generator และเครื่องยนต์", en: "Generators & Engines" },
     brands: [
     { name: "MTU", logo: "/images/brands/secondary/mtu.webp", width: 800, height: 450, slotClassName: "h-10 sm:h-11" },
+      { name: "Cummins", logo: "/images/brands/secondary/cummins.svg", width: 800, height: 320, slotClassName: "h-10 sm:h-11" },
       { name: "Perkins", logo: "/images/brands/secondary/perkins.webp", width: 800, height: 320, slotClassName: "h-10 sm:h-11" },
       { name: "Mitsubishi", logo: "/images/brands/secondary/mitsubishi.svg", width: 800, height: 320, slotClassName: "h-10 sm:h-11" },
       { name: "Denyo", logo: "/images/brands/secondary/denyo.webp", width: 800, height: 320, slotClassName: "h-10 sm:h-11" },
@@ -63,6 +65,8 @@ const BRAND_SETS: BrandSet[] = [
     brands: [
       { name: "XCMG", logo: "/images/brands/secondary/xcmg.png", width: 1020, height: 680, slotClassName: "h-8 sm:h-9" },
       { name: "LiuGong", logo: "/images/brands/secondary/liugong.png", width: 2000, height: 707, slotClassName: "h-7 sm:h-8" },
+      { name: "Zoomlion", logo: "/images/brands/secondary/zoomlion.webp", width: 800, height: 320, slotClassName: "h-10 sm:h-11" },
+      { name: "SDLG", logo: "/images/brands/secondary/sdlg.webp", width: 800, height: 320, slotClassName: "h-10 sm:h-11" },
     ],
   },
 ];
