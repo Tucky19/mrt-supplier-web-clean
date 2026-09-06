@@ -170,8 +170,8 @@ export default function SearchFirstHero({ locale }: { locale: string }) {
             <span className="h-px flex-1 bg-[var(--color-border)]" />
           </div>
 
-          <div className="mt-4 grid min-w-0 gap-4 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
-            <div className="grid min-w-0 overflow-hidden rounded-[var(--mrt-radius-lg)] border border-[var(--color-border)] bg-[var(--color-surface)] shadow-[var(--shadow-sm)] sm:grid-cols-3">
+          <div className="mt-4 grid min-w-0 items-stretch gap-4 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
+            <div className="grid h-full min-w-0 overflow-hidden rounded-[var(--mrt-radius-lg)] border border-[var(--color-border)] bg-[var(--color-surface)] shadow-[var(--shadow-sm)] sm:grid-cols-3">
               {BRANDS.map((brand) => (
                 <Link
                   key={brand.name}

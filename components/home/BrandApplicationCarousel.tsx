@@ -132,7 +132,7 @@ export default function BrandApplicationCarousel({ locale }: { locale: string })
 
   return (
     <div
-      className="min-w-0 rounded-[var(--mrt-radius-lg)] border border-[var(--color-border)] bg-[var(--color-surface)] p-4 shadow-[var(--shadow-sm)] sm:p-5"
+      className="flex h-full min-w-0 flex-col rounded-[var(--mrt-radius-lg)] border border-[var(--color-border)] bg-[var(--color-surface)] p-4 shadow-[var(--shadow-sm)] sm:p-5"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
       onFocus={() => setIsPaused(true)}
@@ -153,7 +153,7 @@ export default function BrandApplicationCarousel({ locale }: { locale: string })
         </p>
       </div>
 
-      <div className="relative mt-4 px-7 sm:px-8">
+      <div className="relative mt-4 flex-1 px-7 sm:px-8">
         <button
           type="button"
           onClick={showPrevious}
@@ -163,8 +163,8 @@ export default function BrandApplicationCarousel({ locale }: { locale: string })
           <ChevronLeft className="h-4 w-4" aria-hidden="true" />
         </button>
 
-        <div key={activeIndex} className="brand-set-enter" aria-live="polite">
-          <p className="mb-2 text-center text-[11px] font-semibold uppercase tracking-[0.12em] text-[var(--color-primary)]">
+        <div key={activeIndex} className="brand-set-enter" aria-live="polite" aria-atomic="true">
+          <p className="mb-2 flex min-h-8 items-center justify-center text-center text-[11px] font-semibold uppercase leading-4 tracking-[0.12em] text-[var(--color-primary)]">
             {isThai ? activeSet.title.th : activeSet.title.en}
           </p>
           {activeSet.desktopRows ? (
