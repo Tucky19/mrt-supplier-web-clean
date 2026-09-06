@@ -14,37 +14,57 @@ type SecondaryBrand = {
   query?: string;
 };
 
-const BRAND_SETS: SecondaryBrand[][] = [
-  [
+type BrandSet = {
+  title: { th: string; en: string };
+  brands: SecondaryBrand[];
+};
+
+const BRAND_SETS: BrandSet[] = [
+  {
+    title: { th: "ไส้กรอง", en: "Filters" },
+    brands: [
     { name: "Fleetguard", logo: "/images/brands/secondary/fleetguard.png", width: 225, height: 225, slotClassName: "h-10 sm:h-11" },
     { name: "Baldwin Filters", logo: "/images/brands/secondary/baldwin-filters.png", width: 600, height: 600, slotClassName: "h-10 sm:h-11" },
     { name: "WIX Filters", logo: "/images/brands/secondary/wix-filters.png", width: 2000, height: 1862, slotClassName: "h-10 sm:h-11" },
     { name: "Parker", logo: "/images/brands/secondary/parker.png", width: 518, height: 518, slotClassName: "h-9 sm:h-10" },
     { name: "K-FLO", logo: "/images/brands/secondary/k-flo.png", width: 210, height: 90, slotClassName: "h-8 sm:h-9" },
-    { name: "Atlas Copco", logo: "/images/brands/secondary/atlas-copco.webp", width: 330, height: 159, slotClassName: "h-8 sm:h-9" },
-    { name: "XCMG", logo: "/images/brands/secondary/xcmg.png", width: 1020, height: 680, slotClassName: "h-8 sm:h-9" },
-    { name: "LiuGong", logo: "/images/brands/secondary/liugong.png", width: 2000, height: 707, slotClassName: "h-7 sm:h-8" },
-  ],
-  [
-    { name: "KOYO / JTEKT", logo: "/koyo.svg", width: 320, height: 120, slotClassName: "h-9 sm:h-10", query: "KOYO" },
-    { name: "IKO", logo: "/iko.svg", width: 320, height: 120, slotClassName: "h-9 sm:h-10" },
-    { name: "FAG / Schaeffler", query: "FAG" },
     { name: "SURE FILTER", logo: "/images/brands/secondary/sure-filter.webp", width: 500, height: 300, slotClassName: "h-10 sm:h-11" },
     { name: "FULL", logo: "/images/brands/secondary/full-filter.webp", width: 500, height: 300, slotClassName: "h-10 sm:h-11" },
     { name: "BACKCUP", logo: "/images/brands/secondary/backcup.webp", width: 900, height: 400, slotClassName: "h-10 scale-125 sm:h-11" },
-    { name: "Hitachi" },
-    { name: "Kobelco" },
-  ],
-  [
-    { name: "Ingersoll Rand" },
+    ],
+  },
+  {
+    title: { th: "ลูกปืน", en: "Bearings" },
+    brands: [
+      { name: "KOYO / JTEKT", logo: "/images/brands/secondary/koyo.webp", width: 800, height: 320, slotClassName: "h-10 sm:h-11", query: "KOYO" },
+      { name: "IKO", logo: "/images/brands/secondary/iko.webp", width: 800, height: 320, slotClassName: "h-10 sm:h-11" },
+      { name: "FAG / Schaeffler", logo: "/images/brands/secondary/fag.webp", width: 800, height: 320, slotClassName: "h-10 sm:h-11", query: "FAG" },
+    ],
+  },
+  {
+    title: { th: "เครื่องอัดอากาศ", en: "Air Compressors" },
+    brands: [
+      { name: "Atlas Copco", logo: "/images/brands/secondary/atlas-copco.webp", width: 330, height: 159, slotClassName: "h-8 sm:h-9" },
+      { name: "Hitachi", logo: "/images/brands/secondary/hitachi.webp", width: 800, height: 320, slotClassName: "h-10 sm:h-11" },
+      { name: "Kobelco", logo: "/images/brands/secondary/kobelco.webp", width: 800, height: 320, slotClassName: "h-10 sm:h-11" },
+    ],
+  },
+  {
+    title: { th: "Generator และเครื่องยนต์", en: "Generators & Engines" },
+    brands: [
     { name: "MTU", logo: "/images/brands/secondary/mtu.webp", width: 800, height: 450, slotClassName: "h-10 sm:h-11" },
-    { name: "Cummins" },
-    { name: "Perkins" },
-    { name: "Mitsubishi" },
-    { name: "Denyo" },
-    { name: "Zoomlion" },
-    { name: "SDLG" },
-  ],
+      { name: "Perkins", logo: "/images/brands/secondary/perkins.webp", width: 800, height: 320, slotClassName: "h-10 sm:h-11" },
+      { name: "Mitsubishi", logo: "/images/brands/secondary/mitsubishi.svg", width: 800, height: 320, slotClassName: "h-10 sm:h-11" },
+      { name: "Denyo", logo: "/images/brands/secondary/denyo.webp", width: 800, height: 320, slotClassName: "h-10 sm:h-11" },
+    ],
+  },
+  {
+    title: { th: "เครื่องจักรหนักจากจีน", en: "Chinese Heavy Equipment" },
+    brands: [
+      { name: "XCMG", logo: "/images/brands/secondary/xcmg.png", width: 1020, height: 680, slotClassName: "h-8 sm:h-9" },
+      { name: "LiuGong", logo: "/images/brands/secondary/liugong.png", width: 2000, height: 707, slotClassName: "h-7 sm:h-8" },
+    ],
+  },
 ];
 
 const focusClass =
@@ -106,13 +126,13 @@ export default function BrandApplicationCarousel({ locale }: { locale: string })
           <ChevronLeft className="h-4 w-4" aria-hidden="true" />
         </button>
 
-        <ul
-          key={activeIndex}
-          aria-live="polite"
-          className="brand-set-enter grid grid-cols-3 gap-2 sm:flex sm:min-h-[136px] sm:flex-wrap sm:content-center sm:justify-center"
-        >
-          {BRAND_SETS[activeIndex].map((brand) => (
-            <li key={brand.name} className="sm:basis-[calc(20%-0.5rem)]">
+        <div key={activeIndex} className="brand-set-enter" aria-live="polite">
+          <p className="mb-2 text-center text-[11px] font-semibold uppercase tracking-[0.12em] text-[var(--color-primary)]">
+            {isThai ? BRAND_SETS[activeIndex].title.th : BRAND_SETS[activeIndex].title.en}
+          </p>
+          <ul className="flex min-h-[136px] flex-wrap content-center justify-center gap-2">
+          {BRAND_SETS[activeIndex].brands.map((brand) => (
+            <li key={brand.name} className="basis-[calc(33.333%-0.375rem)] sm:basis-[calc(20%-0.5rem)]">
               <Link
                 href={`/${locale}/products?q=${encodeURIComponent(brand.query ?? brand.name)}`}
                 className={`group flex min-h-16 items-center justify-center overflow-hidden rounded-[var(--mrt-radius-md)] border border-[var(--color-border)] bg-white px-3 py-2 transition hover:border-[var(--color-primary)] hover:bg-[var(--color-primary-soft)] sm:min-h-14 ${focusClass}`}
@@ -135,7 +155,8 @@ export default function BrandApplicationCarousel({ locale }: { locale: string })
               </Link>
             </li>
           ))}
-        </ul>
+          </ul>
+        </div>
 
         <button
           type="button"
@@ -148,7 +169,7 @@ export default function BrandApplicationCarousel({ locale }: { locale: string })
       </div>
 
       <div className="mt-3 flex items-center justify-center gap-2" aria-label={isThai ? "เลือกชุดแบรนด์" : "Choose brand set"}>
-        {BRAND_SETS.map((_, index) => (
+        {BRAND_SETS.map((set, index) => (
           <button
             key={index}
             type="button"
@@ -156,7 +177,7 @@ export default function BrandApplicationCarousel({ locale }: { locale: string })
             className={`h-2 rounded-full transition-all ${
               index === activeIndex ? "w-6 bg-[var(--color-primary)]" : "w-2 bg-[var(--color-border-strong)] hover:bg-[var(--color-primary)]"
             } ${focusClass}`}
-            aria-label={`${isThai ? "แสดงแบรนด์ชุดที่" : "Show brand set"} ${index + 1}`}
+            aria-label={`${isThai ? "แสดงหมวด" : "Show category"} ${isThai ? set.title.th : set.title.en}`}
             aria-current={index === activeIndex ? "true" : undefined}
           />
         ))}
