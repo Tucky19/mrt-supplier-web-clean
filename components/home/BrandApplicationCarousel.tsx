@@ -32,13 +32,13 @@ const FILTER_BRANDS: SecondaryBrand[] = [
 
 const APPLICATION_BRANDS: SecondaryBrand[] = [
   { name: "Atlas Copco", logo: "/images/brands/secondary/atlas-copco.webp", width: 330, height: 159 },
-  { name: "Hitachi", logo: "/images/brands/secondary/hitachi.webp", width: 800, height: 320 },
+  { name: "Hitachi", logo: "/images/brands/secondary/hitachi.webp", width: 800, height: 320, slotClassName: "scale-[1.4]" },
   { name: "Kobelco", logo: "/images/brands/secondary/kobelco.webp", width: 800, height: 320 },
-  { name: "Ingersoll Rand", logo: "/images/brands/secondary/ingersoll-rand.png", width: 447, height: 447, slotClassName: "scale-[1.45]" },
+  { name: "Ingersoll Rand", logo: "/images/brands/secondary/ingersoll-rand.png", width: 447, height: 447, slotClassName: "scale-[1.32]" },
   { name: "MTU", logo: "/images/brands/secondary/mtu.webp", width: 800, height: 450 },
-  { name: "Cummins", logo: "/images/brands/secondary/cummins.svg", width: 800, height: 320 },
-  { name: "Perkins", logo: "/images/brands/secondary/perkins.webp", width: 800, height: 320 },
-  { name: "Mitsubishi", logo: "/images/brands/secondary/mitsubishi.svg", width: 800, height: 320 },
+  { name: "Cummins", logo: "/images/brands/secondary/cummins.svg", width: 800, height: 320, slotClassName: "scale-[0.85]" },
+  { name: "Perkins", logo: "/images/brands/secondary/perkins.webp", width: 800, height: 320, slotClassName: "scale-[1.1]" },
+  { name: "Mitsubishi", logo: "/images/brands/secondary/mitsubishi.svg", width: 800, height: 320, slotClassName: "scale-[1.28]" },
   { name: "Denyo", logo: "/images/brands/secondary/denyo.jpg", width: 400, height: 222 },
 ];
 
