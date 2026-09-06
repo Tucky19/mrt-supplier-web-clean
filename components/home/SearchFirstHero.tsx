@@ -173,18 +173,23 @@ export default function SearchFirstHero({ locale }: { locale: string }) {
                 <Link
                   key={brand.name}
                   href={`/${locale}/products?q=${encodeURIComponent(brand.query)}`}
-                  className={`flex min-h-24 items-center justify-between gap-3 border-b border-[var(--color-border)] px-5 py-4 transition hover:bg-[var(--color-primary-soft)] sm:border-b-0 sm:border-r last:border-0 ${insetFocusClass}`}
+                  className={`group relative flex min-h-32 items-center justify-center border-b border-[var(--color-border)] px-8 py-5 transition hover:bg-[var(--color-primary-soft)] sm:min-h-36 sm:border-b-0 sm:border-r last:border-0 ${insetFocusClass}`}
                 >
-                  <div className="relative h-12 min-w-0 flex-1">
+                  <div className="relative h-16 w-full max-w-[190px] sm:h-20 sm:max-w-[220px]">
                     <Image
                       src={brand.logo}
                       alt={brand.name}
                       fill
-                      sizes="180px"
-                      className="object-contain object-left"
+                      sizes="(max-width: 640px) 190px, 220px"
+                      className="object-contain object-center"
                     />
                   </div>
-                  <span className="text-xs font-semibold text-[var(--color-text-muted)]">→</span>
+                  <span
+                    className="absolute bottom-3 right-3 inline-flex h-7 w-7 items-center justify-center rounded-full border border-[var(--color-border)] bg-white text-sm font-semibold text-[var(--color-primary)] shadow-sm transition group-hover:translate-x-0.5 group-hover:border-[var(--color-primary)]"
+                    aria-hidden="true"
+                  >
+                    →
+                  </span>
                 </Link>
               ))}
             </div>

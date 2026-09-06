@@ -17,6 +17,7 @@ type SecondaryBrand = {
 type BrandSet = {
   title: { th: string; en: string };
   brands: SecondaryBrand[];
+  desktopRows?: SecondaryBrand[][];
 };
 
 const BRAND_SETS: BrandSet[] = [
@@ -42,18 +43,31 @@ const BRAND_SETS: BrandSet[] = [
     ],
   },
   {
-    title: { th: "เครื่องอัดอากาศ", en: "Air Compressors" },
+    title: {
+      th: "เครื่องลม เครื่องกำเนิดไฟฟ้า และเครื่องยนต์",
+      en: "Air Compressors, Generators & Engines",
+    },
+    desktopRows: [
+      [
+      { name: "Atlas Copco", logo: "/images/brands/secondary/atlas-copco.webp", width: 330, height: 159, slotClassName: "h-8 sm:h-9" },
+      { name: "Hitachi", logo: "/images/brands/secondary/hitachi.webp", width: 800, height: 320, slotClassName: "h-10 sm:h-11" },
+      { name: "Kobelco", logo: "/images/brands/secondary/kobelco.webp", width: 800, height: 320, slotClassName: "h-10 sm:h-11" },
+      { name: "Ingersoll Rand", logo: "/images/brands/secondary/ingersoll-rand.webp", width: 800, height: 320, slotClassName: "h-10 sm:h-11" },
+      ],
+      [
+      { name: "MTU", logo: "/images/brands/secondary/mtu.webp", width: 800, height: 450, slotClassName: "h-10 sm:h-11" },
+      { name: "Cummins", logo: "/images/brands/secondary/cummins.svg", width: 800, height: 320, slotClassName: "h-10 sm:h-11" },
+      { name: "Perkins", logo: "/images/brands/secondary/perkins.webp", width: 800, height: 320, slotClassName: "h-10 sm:h-11" },
+      { name: "Mitsubishi", logo: "/images/brands/secondary/mitsubishi.svg", width: 800, height: 320, slotClassName: "h-10 sm:h-11" },
+      { name: "Denyo", logo: "/images/brands/secondary/denyo.webp", width: 800, height: 320, slotClassName: "h-10 sm:h-11" },
+      ],
+    ],
     brands: [
       { name: "Atlas Copco", logo: "/images/brands/secondary/atlas-copco.webp", width: 330, height: 159, slotClassName: "h-8 sm:h-9" },
       { name: "Hitachi", logo: "/images/brands/secondary/hitachi.webp", width: 800, height: 320, slotClassName: "h-10 sm:h-11" },
       { name: "Kobelco", logo: "/images/brands/secondary/kobelco.webp", width: 800, height: 320, slotClassName: "h-10 sm:h-11" },
       { name: "Ingersoll Rand", logo: "/images/brands/secondary/ingersoll-rand.webp", width: 800, height: 320, slotClassName: "h-10 sm:h-11" },
-    ],
-  },
-  {
-    title: { th: "Generator และเครื่องยนต์", en: "Generators & Engines" },
-    brands: [
-    { name: "MTU", logo: "/images/brands/secondary/mtu.webp", width: 800, height: 450, slotClassName: "h-10 sm:h-11" },
+      { name: "MTU", logo: "/images/brands/secondary/mtu.webp", width: 800, height: 450, slotClassName: "h-10 sm:h-11" },
       { name: "Cummins", logo: "/images/brands/secondary/cummins.svg", width: 800, height: 320, slotClassName: "h-10 sm:h-11" },
       { name: "Perkins", logo: "/images/brands/secondary/perkins.webp", width: 800, height: 320, slotClassName: "h-10 sm:h-11" },
       { name: "Mitsubishi", logo: "/images/brands/secondary/mitsubishi.svg", width: 800, height: 320, slotClassName: "h-10 sm:h-11" },
@@ -97,6 +111,33 @@ export default function BrandApplicationCarousel({ locale }: { locale: string })
     setActiveIndex((current) => (current + 1) % BRAND_SETS.length);
   };
 
+  const activeSet = BRAND_SETS[activeIndex];
+
+  const renderBrand = (brand: SecondaryBrand, itemClassName: string) => (
+    <li key={brand.name} className={itemClassName}>
+      <Link
+        href={`/${locale}/products?q=${encodeURIComponent(brand.query ?? brand.name)}`}
+        className={`group flex min-h-16 items-center justify-center overflow-hidden rounded-[var(--mrt-radius-md)] border border-[var(--color-border)] bg-white px-3 py-2 transition hover:border-[var(--color-primary)] hover:bg-[var(--color-primary-soft)] sm:min-h-14 ${focusClass}`}
+        aria-label={`${isThai ? "ค้นหาแบรนด์" : "Search brand"} ${brand.name}`}
+      >
+        {brand.logo ? (
+          <Image
+            src={brand.logo}
+            alt={brand.name}
+            width={brand.width ?? 320}
+            height={brand.height ?? 120}
+            className={`w-full object-contain ${brand.slotClassName ?? "h-8 sm:h-9"}`}
+            sizes="(max-width: 640px) 25vw, 105px"
+          />
+        ) : (
+          <span className="text-center text-xs font-bold leading-4 text-slate-600 group-hover:text-[var(--color-primary)] sm:text-sm">
+            {brand.name}
+          </span>
+        )}
+      </Link>
+    </li>
+  );
+
   return (
     <div
       className="min-w-0 rounded-[var(--mrt-radius-lg)] border border-[var(--color-border)] bg-[var(--color-surface)] p-4 shadow-[var(--shadow-sm)] sm:p-5"
@@ -132,34 +173,28 @@ export default function BrandApplicationCarousel({ locale }: { locale: string })
 
         <div key={activeIndex} className="brand-set-enter" aria-live="polite">
           <p className="mb-2 text-center text-[11px] font-semibold uppercase tracking-[0.12em] text-[var(--color-primary)]">
-            {isThai ? BRAND_SETS[activeIndex].title.th : BRAND_SETS[activeIndex].title.en}
+            {isThai ? activeSet.title.th : activeSet.title.en}
           </p>
-          <ul className="flex min-h-[136px] flex-wrap content-center justify-center gap-2">
-          {BRAND_SETS[activeIndex].brands.map((brand) => (
-            <li key={brand.name} className="basis-[calc(33.333%-0.375rem)] sm:basis-[calc(20%-0.5rem)]">
-              <Link
-                href={`/${locale}/products?q=${encodeURIComponent(brand.query ?? brand.name)}`}
-                className={`group flex min-h-16 items-center justify-center overflow-hidden rounded-[var(--mrt-radius-md)] border border-[var(--color-border)] bg-white px-3 py-2 transition hover:border-[var(--color-primary)] hover:bg-[var(--color-primary-soft)] sm:min-h-14 ${focusClass}`}
-                aria-label={`${isThai ? "ค้นหาแบรนด์" : "Search brand"} ${brand.name}`}
-              >
-                {brand.logo ? (
-                  <Image
-                    src={brand.logo}
-                    alt={brand.name}
-                    width={brand.width ?? 320}
-                    height={brand.height ?? 120}
-                    className={`w-full object-contain ${brand.slotClassName ?? "h-8 sm:h-9"}`}
-                    sizes="(max-width: 640px) 25vw, 105px"
-                  />
-                ) : (
-                  <span className="text-center text-xs font-bold leading-4 text-slate-600 group-hover:text-[var(--color-primary)] sm:text-sm">
-                    {brand.name}
-                  </span>
-                )}
-              </Link>
-            </li>
-          ))}
-          </ul>
+          {activeSet.desktopRows ? (
+            <>
+              <ul className="grid min-h-[208px] grid-cols-3 content-center gap-2 sm:hidden">
+                {activeSet.brands.map((brand) => renderBrand(brand, "min-w-0"))}
+              </ul>
+              <div className="hidden min-h-[136px] flex-col justify-center gap-2 sm:flex">
+                {activeSet.desktopRows.map((row, rowIndex) => (
+                  <ul key={rowIndex} className="flex justify-center gap-2">
+                    {row.map((brand) => renderBrand(brand, "basis-[calc(20%-0.5rem)]"))}
+                  </ul>
+                ))}
+              </div>
+            </>
+          ) : (
+            <ul className="flex min-h-[208px] flex-wrap content-center justify-center gap-2 sm:min-h-[136px]">
+              {activeSet.brands.map((brand) =>
+                renderBrand(brand, "basis-[calc(33.333%-0.375rem)] sm:basis-[calc(20%-0.5rem)]"),
+              )}
+            </ul>
+          )}
         </div>
 
         <button
