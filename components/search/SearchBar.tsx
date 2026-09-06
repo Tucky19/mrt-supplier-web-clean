@@ -19,7 +19,6 @@ type Props = {
   compactMobileExamples?: boolean;
 };
 
-const SEARCH_DEBOUNCE_MS = 400;
 const DEFAULT_EXAMPLE_QUERIES = ["hydraulic filter", "air filter", "Fleetguard"];
 const RECENT_SEARCHES_KEY = "mrt_recent_searches_v1";
 const SEARCH_FOCUS_TRANSFER_KEY = "mrt_search_focus_transfer_v1";
@@ -243,19 +242,6 @@ export default function SearchBar({
       scrollToResults();
     }
   };
-
-  useEffect(() => {
-    const trimmed = draftQuery.trim();
-
-    if (trimmed.length > 0 && trimmed.length < 2) return;
-    if (trimmed === lastSyncedQueryRef.current) return;
-
-    const timeout = window.setTimeout(() => {
-      navigateToQuery(trimmed);
-    }, SEARCH_DEBOUNCE_MS);
-
-    return () => window.clearTimeout(timeout);
-  }, [draftQuery, searchParams, pathname, locale, router]);
 
   const visibleRecents = useMemo(() => {
     const trimmed = draftQuery.trim().toLowerCase();
