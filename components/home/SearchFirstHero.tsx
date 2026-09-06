@@ -25,24 +25,26 @@ const EXAMPLE_QUERIES = [
   "OIL SEPARATOR",
 ];
 
-const BRANDS = [
+const PRIMARY_BRAND_HOTSPOTS = [
   {
     name: "Donaldson",
-    logo: "/brands/donaldson.png",
     query: "Donaldson",
-    logoClassName: "scale-[0.9]",
-  },
-  {
-    name: "MANN-FILTER",
-    logo: "/brands/mann-filter.png",
-    query: "MANN-FILTER",
-    logoClassName: "scale-105",
+    position: "left-[3%] top-[11%] h-[36%] w-[47%]",
   },
   {
     name: "NTN",
-    logo: "/brands/ntn.png",
     query: "NTN",
-    logoClassName: "scale-105",
+    position: "left-[50%] top-[16%] h-[32%] w-[46%]",
+  },
+  {
+    name: "MANN-FILTER",
+    query: "MANN-FILTER",
+    position: "left-[6%] top-[49%] h-[32%] w-[39%]",
+  },
+  {
+    name: "Fleetguard",
+    query: "Fleetguard",
+    position: "left-[45%] top-[51%] h-[33%] w-[47%]",
   },
 ];
 
@@ -171,30 +173,40 @@ export default function SearchFirstHero({ locale }: { locale: string }) {
           </div>
 
           <div className="mt-4 grid min-w-0 items-stretch gap-4 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
-            <div className="grid h-full min-w-0 overflow-hidden rounded-[var(--mrt-radius-lg)] border border-[var(--color-border)] bg-[var(--color-surface)] shadow-[var(--shadow-sm)] sm:grid-cols-3">
-              {BRANDS.map((brand) => (
+            <div className="flex h-full min-w-0 flex-col overflow-hidden rounded-[var(--mrt-radius-lg)] border border-[var(--color-border)] bg-[var(--color-surface)] shadow-[var(--shadow-sm)]">
+              <div className="relative aspect-video w-full overflow-hidden bg-slate-50">
+                <Image
+                  src="/images/brands/primary-brand-showcase.jpeg"
+                  alt={isThai ? "แบรนด์หลัก Donaldson, NTN, MANN-FILTER และ Fleetguard" : "Primary brands: Donaldson, NTN, MANN-FILTER, and Fleetguard"}
+                  fill
+                  priority
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-cover"
+                />
+                {PRIMARY_BRAND_HOTSPOTS.map((brand) => (
                 <Link
                   key={brand.name}
                   href={`/${locale}/products?q=${encodeURIComponent(brand.query)}`}
-                  className={`group relative flex min-h-32 items-center justify-center border-b border-[var(--color-border)] px-8 py-5 transition hover:bg-[var(--color-primary-soft)] sm:min-h-36 sm:border-b-0 sm:border-r last:border-0 ${insetFocusClass}`}
+                  className={`group absolute rounded-lg transition hover:bg-white/15 ${brand.position} ${insetFocusClass}`}
+                  aria-label={`${isThai ? "ค้นหาสินค้าแบรนด์" : "Search products from"} ${brand.name}`}
                 >
-                  <div className="relative h-16 w-full max-w-[190px] sm:h-20 sm:max-w-[220px]">
-                    <Image
-                      src={brand.logo}
-                      alt={brand.name}
-                      fill
-                      sizes="(max-width: 640px) 190px, 220px"
-                      className={`object-contain object-center ${brand.logoClassName}`}
-                    />
-                  </div>
                   <span
-                    className="absolute bottom-3 right-3 inline-flex h-7 w-7 items-center justify-center rounded-full border border-[var(--color-border)] bg-white text-sm font-semibold text-[var(--color-primary)] shadow-sm transition group-hover:translate-x-0.5 group-hover:border-[var(--color-primary)]"
+                    className="absolute bottom-2 right-2 inline-flex h-7 w-7 translate-x-1 items-center justify-center rounded-full border border-white/80 bg-white/95 text-sm font-semibold text-[var(--color-primary)] opacity-0 shadow-sm transition group-hover:translate-x-0 group-hover:opacity-100 group-focus-visible:translate-x-0 group-focus-visible:opacity-100"
                     aria-hidden="true"
                   >
                     →
                   </span>
                 </Link>
-              ))}
+                ))}
+              </div>
+              <div className="flex flex-col gap-1 border-t border-[var(--color-border)] px-4 py-3 text-center sm:flex-row sm:items-center sm:justify-between sm:text-left">
+                <p className="text-sm font-semibold text-[var(--color-text)]">
+                  {isThai ? "แบรนด์หลักที่ MRT รองรับ" : "Primary brands supported by MRT"}
+                </p>
+                <p className="text-xs text-[var(--color-text-muted)]">
+                  {isThai ? "กดที่โลโก้เพื่อค้นหาสินค้า" : "Select a logo to search products"}
+                </p>
+              </div>
             </div>
 
             <BrandApplicationCarousel locale={locale} />

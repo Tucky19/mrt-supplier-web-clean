@@ -21,7 +21,6 @@ type BrandSet = {
 };
 
 const FILTER_BRANDS: SecondaryBrand[] = [
-  { name: "Fleetguard", logo: "/images/brands/secondary/fleetguard.png", width: 225, height: 225 },
   { name: "Baldwin Filters", logo: "/images/brands/secondary/baldwin-filters.png", width: 600, height: 600 },
   { name: "WIX Filters", logo: "/images/brands/secondary/wix-filters.png", width: 2000, height: 1862 },
   { name: "Parker", logo: "/images/brands/secondary/parker.png", width: 518, height: 518 },
