@@ -8,6 +8,7 @@ import {
   Users,
 } from "lucide-react";
 import TrackedLineLink from "@/components/analytics/TrackedLineLink";
+import BrandApplicationCarousel from "@/components/home/BrandApplicationCarousel";
 import SearchBar from "@/components/search/SearchBar";
 
 const LINE_URL = "https://lin.ee/S676yYH";
@@ -24,87 +25,26 @@ const EXAMPLE_QUERIES = [
   "OIL SEPARATOR",
 ];
 
-const BRANDS = [
+const PRIMARY_BRAND_HOTSPOTS = [
   {
     name: "Donaldson",
-    logo: "/brands/donaldson.png",
     query: "Donaldson",
-  },
-  {
-    name: "MANN-FILTER",
-    logo: "/brands/mann-filter.png",
-    query: "MANN-FILTER",
+    position: "left-[3%] top-[15%] h-[35%] w-[47%]",
   },
   {
     name: "NTN",
-    logo: "/brands/ntn.png",
     query: "NTN",
+    position: "left-[50%] top-[16%] h-[32%] w-[46%]",
   },
-];
-
-const SECONDARY_BRANDS = [
+  {
+    name: "MANN-FILTER",
+    query: "MANN-FILTER",
+    position: "left-[6%] top-[49%] h-[32%] w-[39%]",
+  },
   {
     name: "Fleetguard",
-    logo: "/images/brands/secondary/fleetguard.png",
-    width: 225,
-    height: 225,
-    slotClassName: "h-10 sm:h-11",
-  },
-  {
-    name: "Baldwin Filters",
-    logo: "/images/brands/secondary/baldwin-filters.png",
-    width: 600,
-    height: 600,
-    slotClassName: "h-10 sm:h-11",
-  },
-  {
-    name: "Wix Filters",
-    logo: "/images/brands/secondary/wix-filters.png",
-    width: 2000,
-    height: 1862,
-    slotClassName: "h-10 sm:h-11",
-  },
-  {
-    name: "Parker",
-    logo: "/images/brands/secondary/parker.png",
-    width: 518,
-    height: 518,
-    slotClassName: "h-9 sm:h-10",
-  },
-  {
-    name: "K-FLO",
-    logo: "/images/brands/secondary/k-flo.png",
-    width: 210,
-    height: 90,
-    slotClassName: "h-8 sm:h-9",
-  },
-  {
-    name: "Atlas Copco",
-    logo: "/images/brands/secondary/atlas-copco.webp",
-    width: 330,
-    height: 159,
-    slotClassName: "h-8 sm:h-9",
-  },
-  {
-    name: "XCMG",
-    logo: "/images/brands/secondary/xcmg.png",
-    width: 1020,
-    height: 680,
-    slotClassName: "h-8 sm:h-9",
-  },
-  {
-    name: "SANY",
-    logo: "/images/brands/secondary/sany.png",
-    width: 824,
-    height: 1000,
-    slotClassName: "h-11 sm:h-12",
-  },
-  {
-    name: "LiuGong",
-    logo: "/images/brands/secondary/liugong.png",
-    width: 2000,
-    height: 707,
-    slotClassName: "h-7 sm:h-8",
+    query: "Fleetguard",
+    position: "left-[45%] top-[51%] h-[33%] w-[47%]",
   },
 ];
 
@@ -232,71 +172,44 @@ export default function SearchFirstHero({ locale }: { locale: string }) {
             <span className="h-px flex-1 bg-[var(--color-border)]" />
           </div>
 
-          <div className="mt-4 grid min-w-0 gap-4 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
-            <div className="grid min-w-0 overflow-hidden rounded-[var(--mrt-radius-lg)] border border-[var(--color-border)] bg-[var(--color-surface)] shadow-[var(--shadow-sm)] sm:grid-cols-3">
-              {BRANDS.map((brand) => (
+          <div className="mt-4 grid min-w-0 items-stretch gap-4 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
+            <div className="flex h-full min-w-0 flex-col overflow-hidden rounded-[var(--mrt-radius-lg)] border border-[var(--color-border)] bg-white/40 shadow-[var(--shadow-sm)] backdrop-blur-[1px]">
+              <div className="relative aspect-video w-full overflow-hidden bg-transparent">
+                <Image
+                  src="/images/brands/primary-brand-showcase.webp"
+                  alt={isThai ? "แบรนด์หลัก Donaldson, NTN, MANN-FILTER และ Fleetguard" : "Primary brands: Donaldson, NTN, MANN-FILTER, and Fleetguard"}
+                  fill
+                  priority
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-cover"
+                />
+                {PRIMARY_BRAND_HOTSPOTS.map((brand) => (
                 <Link
                   key={brand.name}
                   href={`/${locale}/products?q=${encodeURIComponent(brand.query)}`}
-                  className={`flex min-h-24 items-center justify-between gap-3 border-b border-[var(--color-border)] px-5 py-4 transition hover:bg-[var(--color-primary-soft)] sm:border-b-0 sm:border-r last:border-0 ${insetFocusClass}`}
+                  className={`group absolute rounded-lg transition hover:bg-white/15 ${brand.position} ${insetFocusClass}`}
+                  aria-label={`${isThai ? "ค้นหาสินค้าแบรนด์" : "Search products from"} ${brand.name}`}
                 >
-                  <div className="relative h-12 min-w-0 flex-1">
-                    <Image
-                      src={brand.logo}
-                      alt={brand.name}
-                      fill
-                      sizes="180px"
-                      className="object-contain object-left"
-                    />
-                  </div>
-                  <span className="text-xs font-semibold text-[var(--color-text-muted)]">→</span>
+                  <span
+                    className="absolute bottom-2 right-2 inline-flex h-7 w-7 translate-x-1 items-center justify-center rounded-full border border-white/80 bg-white/95 text-sm font-semibold text-[var(--color-primary)] opacity-0 shadow-sm transition group-hover:translate-x-0 group-hover:opacity-100 group-focus-visible:translate-x-0 group-focus-visible:opacity-100"
+                    aria-hidden="true"
+                  >
+                    →
+                  </span>
                 </Link>
-              ))}
-            </div>
-
-            <div className="min-w-0 rounded-[var(--mrt-radius-lg)] border border-[var(--color-border)] bg-[var(--color-surface)] p-4 shadow-[var(--shadow-sm)] sm:p-5">
-              <div className="mx-auto max-w-xl text-center">
+                ))}
+              </div>
+              <div className="flex min-h-[58px] flex-col justify-center gap-1 border-t border-[var(--color-border)] bg-white/45 px-4 py-3 text-center backdrop-blur-sm sm:flex-row sm:items-center sm:justify-between sm:text-left">
                 <p className="text-sm font-semibold text-[var(--color-text)]">
-                  {isThai
-                    ? "รับค้นหาและเทียบเบอร์จากหลายแบรนด์"
-                    : "Cross-reference support for multiple brands"}
+                  {isThai ? "แบรนด์หลักที่ MRT รองรับ" : "Primary brands supported by MRT"}
                 </p>
-                <p className="mt-2 text-xs leading-5 text-[var(--color-text-muted)] sm:text-sm sm:leading-6">
-                  {isThai
-                    ? "ส่งเบอร์เดิมของคุณ เพื่อค้นหาตัวเลือก Donaldson หรือ MANN-FILTER ที่เหมาะกับการใช้งาน"
-                    : "Send us your existing part number to find a suitable Donaldson or MANN-FILTER option."}
+                <p className="text-xs text-[var(--color-text-muted)]">
+                  {isThai ? "กดที่โลโก้เพื่อค้นหาสินค้า" : "Select a logo to search products"}
                 </p>
               </div>
-
-              <ul
-                aria-label={isThai ? "แบรนด์ที่รองรับการค้นหาและเทียบเบอร์" : "Brands supported for cross-reference review"}
-                className="mt-4 grid grid-cols-3 gap-2 sm:flex sm:flex-wrap sm:justify-center"
-              >
-                {SECONDARY_BRANDS.map((brand, index) => (
-                  <li
-                    key={brand.name}
-                    className={`flex min-h-16 items-center justify-center rounded-[var(--mrt-radius-md)] border border-[var(--color-border)] bg-white px-3 py-2 sm:min-h-14 ${
-                      index > 4 ? "sm:basis-[calc(25%-0.5rem)]" : "sm:basis-[calc(20%-0.5rem)]"
-                    }`}
-                  >
-                    <Image
-                      src={brand.logo}
-                      alt={brand.name}
-                      width={brand.width}
-                      height={brand.height}
-                      className={`w-full object-contain ${brand.slotClassName}`}
-                      sizes="(max-width: 640px) 30vw, 120px"
-                    />
-                  </li>
-                ))}
-              </ul>
-
-              <p className="mt-3 text-center text-xs leading-5 text-[var(--color-text-muted)]">
-                {isThai
-                  ? "ไม่พบแบรนด์ของคุณในรายการ? ส่ง Part No. ให้ทีมงานตรวจสอบได้"
-                  : "Don’t see your brand listed? Send us the part number and our team will check it."}
-              </p>
             </div>
+
+            <BrandApplicationCarousel locale={locale} />
           </div>
         </div>
 
