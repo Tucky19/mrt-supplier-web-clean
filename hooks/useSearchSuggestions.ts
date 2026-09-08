@@ -31,7 +31,31 @@ export function useSearchSuggestions(query: string): SearchResult[] {
     );
 
     if (exactMatches.length > 0) {
-      return exactMatches.slice(0, SUGGESTION_LIMIT);
+      const exactBrands = new Set(
+        exactMatches.map((result) => result.brand.trim().toLowerCase()),
+      );
+      const exactPartNumbers = exactMatches.map((result) =>
+        result.partNo.trim().toLowerCase().replace(/[\s/_-]+/g, ""),
+      );
+      const sameBrandPartVariants = results.filter((result) => {
+        if (result._matchType !== "Prefix") return false;
+        if (!exactBrands.has(result.brand.trim().toLowerCase())) return false;
+
+        const candidatePartNo = result.partNo
+          .trim()
+          .toLowerCase()
+          .replace(/[\s/_-]+/g, "");
+        return exactPartNumbers.some(
+          (exactPartNo) =>
+            candidatePartNo.startsWith(exactPartNo) &&
+            candidatePartNo.length > exactPartNo.length,
+        );
+      });
+
+      return sortSearchSuggestions([
+        ...exactMatches,
+        ...sameBrandPartVariants,
+      ]).slice(0, SUGGESTION_LIMIT);
     }
 
     const seenPartNumbers = new Set<string>();
@@ -41,7 +65,7 @@ export function useSearchSuggestions(query: string): SearchResult[] {
         const key = result.partNo
           .trim()
           .toLowerCase()
-          .replace(/[\\s/_-]+/g, "");
+          .replace(/[\s/_-]+/g, "");
 
         if (!key || seenPartNumbers.has(key)) return false;
         seenPartNumbers.add(key);
