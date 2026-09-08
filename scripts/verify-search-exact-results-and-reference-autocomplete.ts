@@ -98,6 +98,15 @@ assert(
   "p50 should not rank P823295 ahead of direct Part No. prefix matches",
 );
 
+const w962FocusedNumbers = searchFocusedProducts("W962", { limit: 48 }).map(
+  (result) => result.partNo.replace(/[\s/_-]+/g, "").toUpperCase(),
+);
+assert(
+  w962FocusedNumbers.includes("W962") &&
+    w962FocusedNumbers.includes("W96214"),
+  "W962 search should show both W 962 and W 962/14",
+);
+
 const p50Suggestions = sortSearchSuggestions(
   searchProducts("p50", {
     limit: 24,

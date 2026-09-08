@@ -646,6 +646,23 @@ export function createExactProductLookup(): ExactProductLookup {
 export function focusSearchResults(results: SearchResult[]): SearchResult[] {
   const exactPartResults = results.filter((item) => item._matchType === "Exact");
   if (exactPartResults.length > 0) {
+    const exactPartNumbers = new Set(
+      exactPartResults.map((item) => normalize(item.partNo)),
+    );
+    const exactBrands = new Set(
+      exactPartResults.map((item) => normalize(item.brand)),
+    );
+    const sameBrandPartVariants = results.filter((item) => {
+      if (item._matchType !== "Prefix") return false;
+      if (!exactBrands.has(normalize(item.brand))) return false;
+
+      const candidatePartNo = normalize(item.partNo);
+      return Array.from(exactPartNumbers).some(
+        (exactPartNo) =>
+          candidatePartNo.startsWith(exactPartNo) &&
+          candidatePartNo.length > exactPartNo.length,
+      );
+    });
     const verifiedStockedNonCoreResults = exactPartResults.filter(
       (item) => hasVerifiedMrtStock(item) && !isMrtCoreBrand(item.brand),
     );
@@ -673,7 +690,10 @@ export function focusSearchResults(results: SearchResult[]): SearchResult[] {
       return sortByMrtPriority(coreReferenceResults);
     }
 
-    return sortByMrtPriority(exactPartResults);
+    return sortByMrtPriority([
+      ...exactPartResults,
+      ...sameBrandPartVariants,
+    ]);
   }
 
   const exactReferenceResults = results.filter(
