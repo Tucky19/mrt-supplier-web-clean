@@ -3,7 +3,7 @@ export function getProductUiText(locale: string) {
 
   return {
     statusAvailable: isThai ? "พร้อมเสนอราคา" : "Available",
-    statusRequest: isThai ? "มีสินค้า" : "Check Availability",
+    statusRequest: isThai ? "มีสินค้า" : "In Stock",
     addedToQuote: isThai ? "เพิ่มใน RFQ แล้ว" : "Added to quote",
     viewOfficial: isThai ? "ดูข้อมูลทางการ" : "View Official",
     details: isThai ? "รายละเอียด" : "Details",
