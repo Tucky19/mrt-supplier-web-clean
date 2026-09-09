@@ -8,7 +8,6 @@ import { gaAddToQuote } from "@/lib/analytics/ga";
 import { getProductUiText } from "@/lib/i18n/productUi";
 import { getSearchUiText } from "@/lib/i18n/searchUi";
 import { getProductImageUrl } from "@/lib/products/image";
-import { hasVerifiedMrtStock } from "@/lib/products/stock";
 import { buildRfqReferenceContext } from "@/lib/rfq/referenceContext";
 import {
   type ProductRelation,
@@ -176,21 +175,9 @@ export default function ProductCardV2({
     product.spec?.trim() ||
     buildSpecificationSummary(product) ||
     "Specification to be confirmed";
-  const isRequest = product.stockStatus === "request";
-  const showMrtStockBadge = hasVerifiedMrtStock(product);
-  const statusLabel = showMrtStockBadge
-    ? isThai
-      ? "MRT มีสินค้า"
-      : "In MRT stock"
-    : isRequest
-      ? text.statusRequest
-      : text.statusAvailable;
-  const statusDotClass = isRequest
-    ? "bg-[var(--color-warning)]"
-    : "bg-[var(--color-success)]";
-  const statusTextClass = isRequest
-    ? "text-[var(--color-warning-text)]"
-    : "text-[var(--color-success-text)]";
+  const statusLabel = text.statusAvailable;
+  const statusDotClass = "bg-[var(--color-success)]";
+  const statusTextClass = "text-[var(--color-success-text)]";
   const hasProductImage = image !== "/images/placeholder.jpg";
   const showReferenceChips = product.category !== "air_filter";
   const quantity = parseQuantity(quantityInput);
@@ -296,11 +283,7 @@ export default function ProductCardV2({
             ) : null}
           </div>
           <span
-            className={`inline-flex min-h-7 shrink-0 items-center gap-1.5 rounded-full px-2.5 py-1 text-[11px] font-semibold ${statusTextClass} ${
-              isRequest
-                ? "bg-[var(--color-warning-soft)]"
-                : "bg-[var(--color-success-soft)]"
-            }`}
+            className={`inline-flex min-h-7 shrink-0 items-center gap-1.5 rounded-full bg-[var(--color-success-soft)] px-2.5 py-1 text-[11px] font-semibold ${statusTextClass}`}
           >
             <span className={`h-2 w-2 rounded-full ${statusDotClass}`} />
             {statusLabel}
