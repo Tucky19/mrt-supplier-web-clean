@@ -337,7 +337,7 @@ export default function ProductCardV2({
               <div
                 className={`flex h-[5.5rem] items-center justify-center overflow-hidden rounded-[var(--mrt-radius-md)] border shadow-[inset_0_1px_0_rgba(255,255,255,0.8)] ${
                   hasProductImage
-                    ? "border-[var(--color-border)] bg-[var(--color-surface)]"
+                    ? "border-[var(--color-border)] bg-white"
                     : "border-dashed border-[var(--color-border)] bg-[var(--color-surface-muted)]"
                 }`}
               >
@@ -364,16 +364,16 @@ export default function ProductCardV2({
           </>
         ) : (
           <div
-            className={`mt-3 flex h-36 items-center justify-center overflow-hidden rounded-[var(--mrt-radius-lg)] border shadow-[inset_0_1px_0_rgba(255,255,255,0.8)] transition-colors duration-200 sm:h-40 ${
+            className={`mt-3 flex aspect-square w-full items-center justify-center overflow-hidden rounded-[var(--mrt-radius-lg)] border shadow-[inset_0_1px_0_rgba(255,255,255,0.8)] transition-colors duration-200 ${
               hasProductImage
-                ? "border-[var(--color-border)] bg-[var(--color-surface)]"
+                ? "border-[var(--color-border)] bg-white"
                 : "border-dashed border-[var(--color-border)] bg-[var(--color-surface-muted)]"
             }`}
           >
             <img
               src={image}
               alt={`${product.brand} ${product.partNo}`}
-              className="h-full w-full object-contain p-4 transition duration-200 group-hover:scale-[1.03] group-hover:brightness-105 sm:p-5"
+              className="h-full w-full object-contain p-5 transition duration-200 group-hover:scale-[1.03] group-hover:brightness-105 sm:p-6"
               loading="lazy"
               onError={(event) => {
                 event.currentTarget.src = "/images/placeholder.jpg";
