@@ -1,3 +1,25 @@
+import type { ProductRelationInput } from "@/lib/products/relations";
+
+const europiclonCrossReferenceEvidence = {
+  relationType: "equivalent" as const,
+  verificationStatus: "verified" as const,
+  evidence: "Cross reference and Dimensional Specifications — EUROPICLON table",
+  evidenceNote:
+    "Manufacturer cross-reference table supplied and approved by Boss on 2026-09-09; Primary and Safety rows are kept separate.",
+  approvedBy: "Boss/MRT Supplier",
+  approvedAt: "2026-09-09T00:00:00.000Z",
+};
+
+function verifiedEuropiclonCrossReferences(
+  entries: ReadonlyArray<readonly [brand: string, partNumber: string]>,
+): ProductRelationInput[] {
+  return entries.map(([brand, partNumber]) => ({
+    brand,
+    partNumber,
+    ...europiclonCrossReferenceEvidence,
+  }));
+}
+
 export const mannProducts = [
   {
     id: "mann-c1250",
@@ -230,20 +252,20 @@ export const mannProducts = [
     applications: [
       "AVIA ASHOK LEYLAND MOTORS AD/D-Line; BOMAG BW-Series; DEUTZ-FAHR Agrotron/Agrotron MK3; JCB JS/JZ Hydraulic Excavators; LIEBHERR R/A 300 and R/A 900 Hydraulic Excavators",
     ],
-    refs: [
-      "Donaldson: P778994",
-      "Baldwin: RS3992",
-      "Fleetguard: AF26395",
-      "Mahle: LX 2020",
-      "Hengst: E1900L",
-    ],
-    crossReferences: [
-      "Donaldson: P778994",
-      "Baldwin: RS3992",
-      "Fleetguard: AF26395",
-      "Mahle: LX 2020",
-      "Hengst: E1900L",
-    ],
+    refs: verifiedEuropiclonCrossReferences([
+      ["Donaldson", "P778994"],
+      ["Baldwin", "RS3992"],
+      ["Fleetguard", "AF26395"],
+      ["Mahle", "LX 2020"],
+      ["Hengst", "E1900L"],
+    ]),
+    crossReferences: verifiedEuropiclonCrossReferences([
+      ["Donaldson", "P778994"],
+      ["Baldwin", "RS3992"],
+      ["Fleetguard", "AF26395"],
+      ["Mahle", "LX 2020"],
+      ["Hengst", "E1900L"],
+    ]),
     imageUrl: "/images/products/mann/C_20_500.jpg",
     detailImageUrl: "/images/products/mann/C_20_500-dim.jpg",
     officialUrl:
@@ -279,20 +301,20 @@ export const mannProducts = [
       { label: "Anti-drain Valve", value: "No" },
     ],
     applications: [],
-    refs: [
-      "Donaldson: P780036",
-      "Baldwin: RS3993",
-      "Fleetguard: AF26396",
-      "Mahle: LXS 272",
-      "Hengst: E1900LS",
-    ],
-    crossReferences: [
-      "Donaldson: P780036",
-      "Baldwin: RS3993",
-      "Fleetguard: AF26396",
-      "Mahle: LXS 272",
-      "Hengst: E1900LS",
-    ],
+    refs: verifiedEuropiclonCrossReferences([
+      ["Donaldson", "P780036"],
+      ["Baldwin", "RS3993"],
+      ["Fleetguard", "AF26396"],
+      ["Mahle", "LXS 272"],
+      ["Hengst", "E1900LS"],
+    ]),
+    crossReferences: verifiedEuropiclonCrossReferences([
+      ["Donaldson", "P780036"],
+      ["Baldwin", "RS3993"],
+      ["Fleetguard", "AF26396"],
+      ["Mahle", "LXS 272"],
+      ["Hengst", "E1900LS"],
+    ]),
     imageUrl: "/images/products/mann/CF_500.jpg",
     detailImageUrl: "/images/products/mann/CF_500-dim.jpg",
     officialUrl:
@@ -608,17 +630,21 @@ export const mannProducts = [
     applications: [],
     refs: [
       "LIEBHERR 571 558 808",
-      "Donaldson: P782105",
-      "Baldwin: RS3996",
-      "Fleetguard: AF26399",
-      "Hengst: E630L01",
+      ...verifiedEuropiclonCrossReferences([
+        ["Donaldson", "P782105"],
+        ["Baldwin", "RS3996"],
+        ["Fleetguard", "AF26399"],
+        ["Hengst", "E630L01"],
+      ]),
     ],
     crossReferences: [
       "LIEBHERR 571 558 808",
-      "Donaldson: P782105",
-      "Baldwin: RS3996",
-      "Fleetguard: AF26399",
-      "Hengst: E630L01",
+      ...verifiedEuropiclonCrossReferences([
+        ["Donaldson", "P782105"],
+        ["Baldwin", "RS3996"],
+        ["Fleetguard", "AF26399"],
+        ["Hengst", "E630L01"],
+      ]),
     ],
     imageUrl: "/images/products/mann/C_25_710_3.jpg",
     detailImageUrl: "/images/products/mann/C_25_710_3-dim.jpg",
@@ -672,20 +698,20 @@ export const mannProducts = [
       { label: "Height (H)", value: "404 mm (15.906 inch)" },
     ],
     applications: [],
-    refs: [
-      "Donaldson: P782104",
-      "Baldwin: RS3994",
-      "Fleetguard: AF26397",
-      "Mahle: LX 1801",
-      "Hengst: E2000L",
-    ],
-    crossReferences: [
-      "Donaldson: P782104",
-      "Baldwin: RS3994",
-      "Fleetguard: AF26397",
-      "Mahle: LX 1801",
-      "Hengst: E2000L",
-    ],
+    refs: verifiedEuropiclonCrossReferences([
+      ["Donaldson", "P782104"],
+      ["Baldwin", "RS3994"],
+      ["Fleetguard", "AF26397"],
+      ["Mahle", "LX 1801"],
+      ["Hengst", "E2000L"],
+    ]),
+    crossReferences: verifiedEuropiclonCrossReferences([
+      ["Donaldson", "P782104"],
+      ["Baldwin", "RS3994"],
+      ["Fleetguard", "AF26397"],
+      ["Mahle", "LX 1801"],
+      ["Hengst", "E2000L"],
+    ]),
     imageUrl: "/images/products/mann/C_23_610.jpg",
     detailImageUrl: "/images/products/mann/C_23_610-dim.jpg",
     officialUrl:
@@ -923,18 +949,18 @@ export const mannProducts = [
     applications: [
       "CLAAS Lexion, Lexion II, Medion, Mega, Tucano; SENNEBOGEN 600-Series, 800D-Series, 800E-Series",
     ],
-    refs: [
-      "Donaldson: P782108",
-      "Baldwin: RS3997",
-      "Fleetguard: AF26400",
-      "Hengst: E630LS",
-    ],
-    crossReferences: [
-      "Donaldson: P782108",
-      "Baldwin: RS3997",
-      "Fleetguard: AF26400",
-      "Hengst: E630LS",
-    ],
+    refs: verifiedEuropiclonCrossReferences([
+      ["Donaldson", "P782108"],
+      ["Baldwin", "RS3997"],
+      ["Fleetguard", "AF26400"],
+      ["Hengst", "E630LS"],
+    ]),
+    crossReferences: verifiedEuropiclonCrossReferences([
+      ["Donaldson", "P782108"],
+      ["Baldwin", "RS3997"],
+      ["Fleetguard", "AF26400"],
+      ["Hengst", "E630LS"],
+    ]),
     imageUrl: "/images/products/mann/CF_710.jpg",
     detailImageUrl: "/images/products/mann/CF_710-dim.jpg",
     officialUrl:
@@ -965,18 +991,18 @@ export const mannProducts = [
     applications: [
       "CATERPILLAR 900 / AP / BG; CLAAS Dominator, Tucano; DEUTZ-FAHR Agrotron/Agro",
     ],
-    refs: [
-      "Donaldson: P782107",
-      "Baldwin: RS3995",
-      "Fleetguard: AF26398",
-      "Hengst: E2000LS",
-    ],
-    crossReferences: [
-      "Donaldson: P782107",
-      "Baldwin: RS3995",
-      "Fleetguard: AF26398",
-      "Hengst: E2000LS",
-    ],
+    refs: verifiedEuropiclonCrossReferences([
+      ["Donaldson", "P782107"],
+      ["Baldwin", "RS3995"],
+      ["Fleetguard", "AF26398"],
+      ["Hengst", "E2000LS"],
+    ]),
+    crossReferences: verifiedEuropiclonCrossReferences([
+      ["Donaldson", "P782107"],
+      ["Baldwin", "RS3995"],
+      ["Fleetguard", "AF26398"],
+      ["Hengst", "E2000LS"],
+    ]),
     imageUrl: "/images/products/mann/CF_610.jpg",
     detailImageUrl: "/images/products/mann/CF_610-dim.jpg",
     officialUrl:
@@ -1152,18 +1178,18 @@ export const mannProducts = [
     applications: [
       "BOGE S-Series / SO-Series; CLAAS Lexion; INGERSOLL-RAND Portable-Series; ROSTSELMASH Acros-Series; SENNEBOGEN 800C / 800D-Series; WIRTGEN W-Series",
     ],
-    refs: [
-      "Donaldson: P782106",
-      "Baldwin: RS3998",
-      "Fleetguard: AF26401",
-      "Hengst: E631L01",
-    ],
-    crossReferences: [
-      "Donaldson: P782106",
-      "Baldwin: RS3998",
-      "Fleetguard: AF26401",
-      "Hengst: E631L01",
-    ],
+    refs: verifiedEuropiclonCrossReferences([
+      ["Donaldson", "P782106"],
+      ["Baldwin", "RS3998"],
+      ["Fleetguard", "AF26401"],
+      ["Hengst", "E631L01"],
+    ]),
+    crossReferences: verifiedEuropiclonCrossReferences([
+      ["Donaldson", "P782106"],
+      ["Baldwin", "RS3998"],
+      ["Fleetguard", "AF26401"],
+      ["Hengst", "E631L01"],
+    ]),
     imageUrl: "/images/products/mann/C_30_810_3.jpg",
     detailImageUrl: "/images/products/mann/C_30_810_3-dim.jpg",
     officialUrl:
