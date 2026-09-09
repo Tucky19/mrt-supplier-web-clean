@@ -4348,6 +4348,12 @@ export const donaldsonPriorityProducts: Product[] = [
     crossReferences: [],
     pairedParts: [],
     stockStatus: "in_stock",
+    mrtStockEvidence: {
+      status: "in_stock",
+      checkedAt: "2026-09-09",
+      source: "internal_record",
+      note: "Boss confirmed MRT stock on 2026-09-09.",
+    },
     sourceType: "official",
     sourceNote: "Official Donaldson product specification supplied by user",
     dataQuality: "verified",

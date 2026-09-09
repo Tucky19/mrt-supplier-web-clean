@@ -8,7 +8,7 @@ import { gaAddToQuote } from "@/lib/analytics/ga";
 import { getProductUiText } from "@/lib/i18n/productUi";
 import { getSearchUiText } from "@/lib/i18n/searchUi";
 import { getProductImageUrl } from "@/lib/products/image";
-import { hasVerifiedMrtStock, isMrtCoreBrand } from "@/lib/products/stock";
+import { hasVerifiedMrtStock } from "@/lib/products/stock";
 import { buildRfqReferenceContext } from "@/lib/rfq/referenceContext";
 import {
   type ProductRelation,
@@ -177,8 +177,7 @@ export default function ProductCardV2({
     buildSpecificationSummary(product) ||
     "Specification to be confirmed";
   const isRequest = product.stockStatus === "request";
-  const showMrtStockBadge =
-    hasVerifiedMrtStock(product) && !isMrtCoreBrand(product.brand);
+  const showMrtStockBadge = hasVerifiedMrtStock(product);
   const statusLabel = showMrtStockBadge
     ? isThai
       ? "MRT มีสินค้า"
