@@ -48,9 +48,9 @@ function ProductGallery({
 
   return (
     <div className="space-y-4">
-      <div className="overflow-hidden rounded-[28px] border border-slate-300 bg-[linear-gradient(180deg,#ffffff_0%,#f8fafc_100%)] p-5 shadow-[0_18px_42px_rgba(15,23,42,0.08)] sm:p-7">
-        <div className="rounded-[22px] border border-slate-200 bg-white p-4 sm:p-6">
-          <div className="relative h-72 w-full sm:h-80">
+      <div className="overflow-hidden rounded-[28px] border border-slate-300 bg-white p-5 shadow-[0_18px_42px_rgba(15,23,42,0.08)] sm:p-7">
+        <div className="mx-auto aspect-square w-full max-w-[32rem] rounded-[22px] border border-slate-200 bg-white p-4 sm:p-6">
+          <div className="relative h-full w-full">
             <Image
               src={imageSrc}
               alt={partNo}
