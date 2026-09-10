@@ -25,21 +25,11 @@ function parseSmtpSecure(value: string, port: number) {
   return port === 465;
 }
 
-function parseEmailList(value: string) {
-  const items = value
-    .split(",")
-    .map((item) => safeStr(item))
-    .filter(Boolean);
-
-  const unique = Array.from(new Set(items));
-  return unique.length > 0 ? unique : undefined;
-}
-
 function formatFromAddress(address: string) {
   return `"MRT Supplier" <${address}>`;
 }
 
-const PUBLIC_REPLY_TO_EMAIL = "sales@mrtsupplier.com";
+const PUBLIC_REPLY_TO_EMAIL = "rfq01@mrtsupplier.com";
 const PUBLIC_WEBSITE = "www.mrtsupplier.com";
 const PUBLIC_PHONE = "081-558-1323 / 097-012-2111";
 const PUBLIC_LINE_ID = "@mrtsupplier";
@@ -55,8 +45,9 @@ function getMailEnv() {
   const secure = parseSmtpSecure(safeStr(process.env.SMTP_SECURE), port);
   const user = safeStr(process.env.SMTP_USER);
   const pass = safeStr(process.env.SMTP_PASS);
-  const to = safeStr(process.env.RFQ_TO_EMAIL || user);
-  const cc = parseEmailList(safeStr(process.env.RFQ_CC_EMAIL || ""));
+  // RFQ belongs to its dedicated mailbox, independently of legacy sales routing.
+  const to = PUBLIC_REPLY_TO_EMAIL;
+  const cc = undefined;
   const fromAddress = safeStr(process.env.RFQ_FROM_EMAIL || user);
   const from = fromAddress ? formatFromAddress(fromAddress) : "";
 
@@ -420,7 +411,7 @@ function buildContactHtml() {
       <tr>
         <td style="padding:0 0 10px;color:#111827;overflow-wrap:anywhere;word-break:break-word;">
           Website: <a href="https://www.mrtsupplier.com" style="display:inline-block;padding:4px 0;color:#0f766e;text-decoration:underline;">${PUBLIC_WEBSITE}</a><br />
-          Email: <a href="mailto:sales@mrtsupplier.com" style="display:inline-block;padding:4px 0;color:#0f766e;text-decoration:underline;">${PUBLIC_REPLY_TO_EMAIL}</a><br />
+          Email: <a href="mailto:rfq01@mrtsupplier.com" style="display:inline-block;padding:4px 0;color:#0f766e;text-decoration:underline;">${PUBLIC_REPLY_TO_EMAIL}</a><br />
           Phone: <a href="tel:0815581323" style="display:inline-block;padding:4px 0;color:#0f766e;text-decoration:underline;">081-558-1323</a> / <a href="tel:0970122111" style="display:inline-block;padding:4px 0;color:#0f766e;text-decoration:underline;">097-012-2111</a><br />
           LINE Official: <strong>${PUBLIC_LINE_ID}</strong>
         </td>
