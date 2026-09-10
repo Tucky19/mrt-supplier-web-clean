@@ -142,10 +142,10 @@ export default async function QuoteSuccessPage({
             </a>
 
             <a
-              href="mailto:sales@mrtsupplier.com"
+              href="mailto:rfq01@mrtsupplier.com"
               className="rounded-full border border-[var(--color-border-strong)] px-5 py-3 text-sm font-medium text-[var(--color-text-muted)] transition hover:border-[var(--color-primary)] hover:text-[var(--color-primary-hover)] focus-visible:[outline:2px_solid_var(--color-focus-ring)] focus-visible:[outline-offset:2px] focus-visible:ring-2 focus-visible:ring-[color:var(--color-focus-ring)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-surface)]"
             >
-              sales@mrtsupplier.com
+              rfq01@mrtsupplier.com
             </a>
 
             <a

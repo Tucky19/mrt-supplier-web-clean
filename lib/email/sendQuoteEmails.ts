@@ -19,7 +19,7 @@ type QuotePayload = {
   quoteId?: string | number;
 };
 
-const PUBLIC_REPLY_TO_EMAIL = "sales@mrtsupplier.com";
+const PUBLIC_REPLY_TO_EMAIL = "rfq01@mrtsupplier.com";
 
 function escapeHtml(input: string) {
   return String(input ?? "")
@@ -162,7 +162,7 @@ function customerHtml(payload: QuotePayload) {
             <p style="margin:0;color:#374151;font-size:14px;line-height:1.7;">
               LINE Official: @mrtsupplier<br />
               LINE Add Friend: https://lin.ee/S676yYH<br />
-              Email: sales@mrtsupplier.com<br />
+              Email: rfq01@mrtsupplier.com<br />
               Phone: 081-558-1323 / 097-012-2111<br />
               Website: www.mrtsupplier.com
             </p>
@@ -214,7 +214,7 @@ ${buildItemsText(payload.items)}
 Need urgent assistance?
 LINE Official: @mrtsupplier
 LINE Add Friend: https://lin.ee/S676yYH
-Email: sales@mrtsupplier.com
+Email: rfq01@mrtsupplier.com
 Phone: 081-558-1323 / 097-012-2111
 Website: www.mrtsupplier.com
   `.trim();
@@ -333,10 +333,8 @@ function getTransporter() {
 export async function sendQuoteEmails(payload: QuotePayload) {
   const transporter = getTransporter();
 
-  const rfqToEmail =
-    process.env.RFQ_TO_EMAIL || process.env.SMTP_USER || "rfq01@mrtsupplier.com";
+  const rfqToEmail = PUBLIC_REPLY_TO_EMAIL;
 
-  const rfqCcEmail = process.env.RFQ_CC_EMAIL || "";
   const fromEmail =
     process.env.RFQ_FROM_EMAIL || process.env.SMTP_USER || "rfq01@mrtsupplier.com";
 
@@ -362,7 +360,6 @@ export async function sendQuoteEmails(payload: QuotePayload) {
     transporter.sendMail({
       from,
       to: rfqToEmail,
-      cc: rfqCcEmail || undefined,
       subject: salesSubject,
       html: salesHtml(payload),
       text: salesText(payload),

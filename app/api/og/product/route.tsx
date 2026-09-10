@@ -11,8 +11,6 @@ const size = {
   height: 630,
 };
 
-export const contentType = "image/png";
-
 type Product = {
   id: string;
   partNo: string;

@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { getSearchSuggestionItems } from "@/app/api/search/suggest/route";
+import { getSearchSuggestionItems } from "@/lib/search/suggestions";
 
 export const dynamic = "force-dynamic";
 
