@@ -26,7 +26,7 @@ export type EmailRfqPayload = {
   items: EmailRfqItem[];
 };
 
-const PUBLIC_REPLY_TO_EMAIL = "sales@mrtsupplier.com";
+const PUBLIC_REPLY_TO_EMAIL = "rfq01@mrtsupplier.com";
 
 function env(name: string, fallback = "") {
   return process.env[name]?.trim() || fallback;
@@ -120,8 +120,7 @@ function getTransporter() {
 export async function sendAdminRfqEmail(payload: EmailRfqPayload) {
   const transporter = getTransporter();
 
-  const to = env("RFQ_TO_EMAIL");
-  const cc = env("RFQ_CC_EMAIL");
+  const to = PUBLIC_REPLY_TO_EMAIL;
   const from = env("RFQ_FROM_EMAIL", env("SMTP_USER"));
 
   if (!to || !from) {
@@ -193,7 +192,6 @@ export async function sendAdminRfqEmail(payload: EmailRfqPayload) {
     return await transporter.sendMail({
       from,
       to,
-      cc: cc || undefined,
       replyTo: customer.email?.trim() || PUBLIC_REPLY_TO_EMAIL,
       subject,
       html,
@@ -253,7 +251,7 @@ export async function sendCustomerRfqConfirmationEmail(payload: EmailRfqPayload)
 
       <p style="margin:0 0 14px;color:#374151;font-size:14px;line-height:1.7;">
         Website: <strong>www.mrtsupplier.com</strong><br />
-        Email: <strong>sales@mrtsupplier.com</strong><br />
+        Email: <strong>rfq01@mrtsupplier.com</strong><br />
         Phone: <strong>081-558-1323 / 097-012-2111</strong><br />
         LINE Official: <strong>@mrtsupplier</strong><br />
         LINE Add Friend: <strong>https://lin.ee/S676yYH</strong>
@@ -273,7 +271,7 @@ export async function sendCustomerRfqConfirmationEmail(payload: EmailRfqPayload)
     `Request ID: ${payload.requestId}`,
     `Total Items: ${payload.items.length}`,
     "Website: www.mrtsupplier.com",
-    "Email: sales@mrtsupplier.com",
+    "Email: rfq01@mrtsupplier.com",
     "Phone: 081-558-1323 / 097-012-2111",
     "LINE Official: @mrtsupplier",
     "LINE Add Friend: https://lin.ee/S676yYH",
