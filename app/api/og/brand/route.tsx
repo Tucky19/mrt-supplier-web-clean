@@ -9,8 +9,6 @@ const size = {
   height: 630,
 };
 
-export const contentType = "image/png";
-
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
 
