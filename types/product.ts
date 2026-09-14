@@ -42,6 +42,7 @@ export type Product = {
 
   application?: string[];
   applications?: string[];
+  vehicleApplications?: string[];
   equipment?: string[];
   thread?: string;
 

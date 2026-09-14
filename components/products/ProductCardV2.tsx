@@ -175,9 +175,11 @@ export default function ProductCardV2({
     product.spec?.trim() ||
     buildSpecificationSummary(product) ||
     "Specification to be confirmed";
-  const statusLabel = text.statusAvailable;
-  const statusDotClass = "bg-[var(--color-success)]";
-  const statusTextClass = "text-[var(--color-success-text)]";
+  const needsInquiry = Boolean(product.vehicleApplications?.length) && product.stockStatus === "request";
+  const statusLabel = needsInquiry ? (isThai ? "สอบถาม" : "Inquire") : text.statusAvailable;
+  const statusDotClass = needsInquiry ? "bg-[var(--color-warning)]" : "bg-[var(--color-success)]";
+  const statusTextClass = needsInquiry ? "text-[var(--color-warning-text)]" : "text-[var(--color-success-text)]";
+  const statusBackgroundClass = needsInquiry ? "bg-[var(--color-warning-soft)]" : "bg-[var(--color-success-soft)]";
   const hasProductImage = image !== "/images/placeholder.jpg";
   const showReferenceChips = product.category !== "air_filter";
   const quantity = parseQuantity(quantityInput);
@@ -283,7 +285,7 @@ export default function ProductCardV2({
             ) : null}
           </div>
           <span
-            className={`inline-flex min-h-7 shrink-0 items-center gap-1.5 rounded-full bg-[var(--color-success-soft)] px-2.5 py-1 text-[11px] font-semibold ${statusTextClass}`}
+            className={`inline-flex min-h-7 shrink-0 items-center gap-1.5 rounded-full ${statusBackgroundClass} px-2.5 py-1 text-[11px] font-semibold ${statusTextClass}`}
           >
             <span className={`h-2 w-2 rounded-full ${statusDotClass}`} />
             {statusLabel}
@@ -395,6 +397,14 @@ export default function ProductCardV2({
             </div>
           </>
         ) : null}
+
+        {Boolean(product.vehicleApplications?.length) && (
+          <div className="mt-3 space-y-2 text-sm leading-6 text-[var(--color-text)] [overflow-wrap:anywhere]">
+            {product.vehicleApplications?.map((application) => (
+              <p key={application}>{application}</p>
+            ))}
+          </div>
+        )}
 
         {showReferenceChips && refs.length > 0 && (
           <div className={isSearchVariant ? "order-2 mt-3" : "mt-4"}>

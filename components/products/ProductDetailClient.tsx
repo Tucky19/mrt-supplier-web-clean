@@ -293,12 +293,13 @@ export default function ProductDetailClient({ locale, product }: Props) {
         new Set([
           ...(product.application ?? []),
           ...(product.applications ?? []),
+          ...(product.vehicleApplications ?? []),
         ]),
       )
         .map((value) => String(value).trim())
         .filter(Boolean)
         .slice(0, 6),
-    [product.application, product.applications],
+    [product.application, product.applications, product.vehicleApplications],
   );
 
   const pairedParts = useMemo(
