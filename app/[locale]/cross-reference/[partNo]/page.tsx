@@ -11,6 +11,19 @@ type PageProps = {
   params: Promise<{ locale: string; partNo: string }>;
 };
 
+// Route params can retain percent-encoded spaces in product identifiers.
+function findProductByRoutePartNo(partNo: string) {
+  const exact = products.find((p: Product) => p.partNo === partNo);
+  if (exact) return exact;
+
+  try {
+    const decoded = decodeURIComponent(partNo);
+    return products.find((p: Product) => p.partNo === decoded);
+  } catch {
+    return undefined;
+  }
+}
+
 export function generateStaticParams() {
   const locales = ["en", "th"];
 
@@ -24,7 +37,7 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { partNo, locale } = await params;
-  const product = products.find((p: Product) => p.partNo === partNo);
+  const product = findProductByRoutePartNo(partNo);
   const isThai = locale === "th";
 
   if (!product) {
@@ -59,7 +72,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default async function ProductPage({ params }: PageProps) {
   const { locale, partNo } = await params;
-  const product = products.find((p: Product) => p.partNo === partNo);
+  const product = findProductByRoutePartNo(partNo);
 
   if (!product) notFound();
 
