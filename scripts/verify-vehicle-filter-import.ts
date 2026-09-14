@@ -7,7 +7,7 @@ import { searchFocusedProducts } from "@/lib/search/search";
 assert.equal(vehicleFilterProducts.length, 18);
 assert.equal(vehicleFilterProducts.reduce((n, p) => n + (p.vehicleApplications?.length ?? 0), 0), 19);
 assert.equal(vehicleFilterProducts.filter((p) => p.stockStatus === "in_stock").length, 15);
-assert.deepEqual(vehicleFilterProducts.filter((p) => p.stockStatus === "request").map((p) => p.partNo).sort(), ["HU721X", "P903541", "P955737"]);
+assert.deepEqual(vehicleFilterProducts.filter((p) => p.stockStatus === "request").map((p) => p.partNo).sort(), ["HU721XKIT", "P903541", "P955737"]);
 
 for (const source of vehicleFilterProducts) {
   const matching = products.filter((p) => p.partNo === source.partNo);
@@ -38,3 +38,8 @@ for (const [query, expected] of [["BLACK CLUBS BO234", "P550335"], ["BLACK CLUBS
   assert(searchFocusedProducts(query, { limit: 100 }).some((r) => r.partNo === expected));
 }
 console.log("PASS: 19 vehicle rows / 18 products, OEM and vehicle search, BLACK CLUBS references, status and exclusion checks.");
+
+for (const query of ["HU721X", "HU 721 x KIT", "22023120"]) {
+  assert(searchFocusedProducts(query, { limit: 100 }).some((r) => r.partNo === "HU721XKIT"), `KIT search missing: ${query}`);
+}
+assert.equal(products.find((p) => p.partNo === "HU721XKIT")?.id, "mannfilter-hu721x");

@@ -878,14 +878,14 @@ export const vehicleFilterProducts: Product[] = [
   },
   {
     "id": "mannfilter-hu721x",
-    "partNo": "HU721X",
+    "partNo": "HU721XKIT",
     "brand": "MANN-FILTER",
-    "title": "กรองน้ำมันเกียร์",
+    "title": "HU 721 x KIT — กรองระบบเกียร์ไฮดรอลิก",
     "category": "oil_filter",
-    "spec": "กรองน้ำมันเกียร์",
-    "description": "VOLVO 440 FH: กรองน้ำมันเกียร์ 22023120 → MANN-FILTER HU721X",
+    "spec": "OD 64 mm x ID 31 mm x H 150 mm | HU 721 x KIT",
+    "description": "VOLVO 440 FH: กรองน้ำมันเกียร์ 22023120 → MANN-FILTER HU 721 x KIT",
     "vehicleApplications": [
-      "VOLVO 440 FH: กรองน้ำมันเกียร์ 22023120 → MANN-FILTER HU721X"
+      "VOLVO 440 FH: กรองน้ำมันเกียร์ 22023120 → MANN-FILTER HU 721 x KIT"
     ],
     "crossReferences": [
       {
@@ -899,9 +899,37 @@ export const vehicleFilterProducts: Product[] = [
       }
     ],
     "stockStatus": "request",
-    "sourceType": "internal",
-    "sourceNote": "รายการ_น้ำมันและกรอง.xlsx; รายการทั้งหมด. Boss confirmed scope and card statuses on 2026-09-14.",
-    "dataQuality": "basic"
+    "sourceType": "mixed",
+    "sourceNote": "รายการ_น้ำมันและกรอง.xlsx; รายการทั้งหมด. Boss confirmed scope and card statuses on 2026-09-14. Boss confirmed using HU 721 x KIT as shown in supplied images. Replaces the spreadsheet shorthand HU721X; original product ID retained for URL continuity. Dimensions, GTIN and included screws/gasket transcribed from 01-image.png; original dimension JPEG HU_721_x_KIT-dim-1.jfif. Screenshot availability is not MRT stock evidence. Screenshot SHA-256 7f5b3e88b27cc6978314dc1757c62a941f2febbb0f6c833537e52e8a834fd2b1.",
+    "dataQuality": "basic",
+    "gtin": "4011558298708",
+    "imageUrl": "/images/products/mann/hu721xkit-dim.jpg",
+    "specifications": [
+      {
+        "label": "Outer Diameter (A)",
+        "value": "64 mm"
+      },
+      {
+        "label": "Inner Diameter (B)",
+        "value": "31 mm"
+      },
+      {
+        "label": "Inner Diameter 1 (C)",
+        "value": "31 mm"
+      },
+      {
+        "label": "Height (H)",
+        "value": "150 mm"
+      },
+      {
+        "label": "Included accessories",
+        "value": "Screws and gasket"
+      },
+      {
+        "label": "GTIN",
+        "value": "4011558298708"
+      }
+    ]
   },
   {
     "id": "mannfilter-cu31001",
