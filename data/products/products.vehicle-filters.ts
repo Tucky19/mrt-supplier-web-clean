@@ -907,9 +907,9 @@ export const vehicleFilterProducts: Product[] = [
     "id": "mannfilter-cu31001",
     "partNo": "CU31001",
     "brand": "MANN-FILTER",
-    "title": "กรองแอร์1",
+    "title": "กรองแอร์ภายในห้องโดยสาร",
     "category": "cabin_filter",
-    "spec": "กรองแอร์1",
+    "spec": "L 302 mm x W 203 mm x H 32 mm | Cabin Air Filter",
     "description": "VOLVO 440 FH: กรองแอร์1 23515329 → MANN-FILTER CU31001",
     "vehicleApplications": [
       "VOLVO 440 FH: กรองแอร์1 23515329 → MANN-FILTER CU31001"
@@ -926,15 +926,39 @@ export const vehicleFilterProducts: Product[] = [
       }
     ],
     "stockStatus": "in_stock",
-    "sourceType": "internal",
-    "sourceNote": "รายการ_น้ำมันและกรอง.xlsx; รายการทั้งหมด. Boss confirmed scope and card statuses on 2026-09-14.",
+    "sourceType": "mixed",
+    "sourceNote": "รายการ_น้ำมันและกรอง.xlsx; รายการทั้งหมด. Boss confirmed scope and card statuses on 2026-09-14. MANN-FILTER CU 31 001 supplied catalog screenshot (02-image.png) and original dimension JPEG (CU_31_001-dim-1.jfif); dimensions and GTIN transcribed from screenshot. Screenshot availability is not MRT stock evidence. Screenshot SHA-256 782184cb65af2982002faae57804ee79860e1aaef9a4e45aea10d2b848d7b417.",
     "dataQuality": "basic",
     "mrtStockEvidence": {
       "status": "in_stock",
       "checkedAt": "2026-09-14",
       "source": "internal_record",
       "note": "Boss confirmed the มีสินค้า label from รายการ_น้ำมันและกรอง.xlsx on 2026-09-14."
-    }
+    },
+    "gtin": "4011558033071",
+    "imageUrl": "/images/products/mann/cu31001-dim.jpg",
+    "specifications": [
+      {
+        "label": "Length (A)",
+        "value": "302 mm"
+      },
+      {
+        "label": "Width (B)",
+        "value": "203 mm"
+      },
+      {
+        "label": "Height (H)",
+        "value": "32 mm"
+      },
+      {
+        "label": "Filter Type",
+        "value": "Particle filter"
+      },
+      {
+        "label": "GTIN",
+        "value": "4011558033071"
+      }
+    ]
   },
   {
     "id": "donaldson-p955737",
