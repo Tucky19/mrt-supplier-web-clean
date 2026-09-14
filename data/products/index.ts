@@ -17,6 +17,7 @@ import { officialProducts20260903 } from "./products.official-2026-09-03";
 import { stanadyneCrossReferencesByDonaldson } from "./stanadyne-cross-references";
 import { sureSakuraCrossReferencesByDonaldson } from "./sure-sakura-cross-references";
 import { getVerifiedAirFilterPairedParts } from "./air-filter-pairs";
+import { vehicleFilterProducts } from "./products.vehicle-filters";
 
 const EXCLUDED_ACTIVE_PART_NOS = new Set([
   "6205-ZZ",
@@ -56,10 +57,21 @@ const rawProducts = [
 
 export const products = Array.from(
   new Map(
-    normalizeProducts(rawProducts)
+    normalizeProducts([
+      ...rawProducts,
+      ...vehicleFilterProducts.filter(
+        (incoming) => !rawProducts.some(
+          (existing) => normalizePartNo(existing.partNo) === normalizePartNo(incoming.partNo),
+        ),
+      ),
+    ])
       .filter((product) => !EXCLUDED_ACTIVE_PART_NOS.has(product.partNo))
       .map((product) => {
         const key = normalizePartNo(product.partNo);
+        const vehicleData = vehicleFilterProducts.find(
+          (incoming) => normalizePartNo(incoming.partNo) === key &&
+            incoming.brand.toLowerCase() === product.brand.toLowerCase(),
+        );
         const stanadyneCrossReferences =
           stanadyneCrossReferencesByDonaldson[product.partNo] ?? [];
         const sureSakuraCrossReferences =
@@ -85,6 +97,11 @@ export const products = Array.from(
           key,
           {
             ...product,
+            ...(vehicleData ? {
+              vehicleApplications: vehicleData.vehicleApplications,
+              stockStatus: vehicleData.stockStatus,
+              mrtStockEvidence: vehicleData.mrtStockEvidence,
+            } : {}),
             title:
               product.title ||
               `${product.brand?.toUpperCase()} ${product.partNo}`,
@@ -102,6 +119,7 @@ export const products = Array.from(
                 ...(product.crossReferences ?? []),
                 ...stanadyneCrossReferences,
                 ...sureSakuraCrossReferences,
+                ...(vehicleData?.crossReferences ?? []),
               ],
               "unknown",
             ),

@@ -65,6 +65,7 @@ export function normalizeProduct(p: any): Product {
     pairedParts: Array.isArray(p.pairedParts) ? p.pairedParts : undefined,
     application: Array.isArray(p.application) ? p.application : undefined,
     applications: Array.isArray(p.applications) ? p.applications : undefined,
+    vehicleApplications: Array.isArray(p.vehicleApplications) ? p.vehicleApplications : undefined,
     equipment: Array.isArray(p.equipment) ? p.equipment : undefined,
     thread: p.thread ?? undefined,
 

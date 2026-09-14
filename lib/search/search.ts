@@ -26,6 +26,7 @@ export type Product = {
   brand: string;
   category?: string;
   title?: string;
+  vehicleApplications?: string[];
   spec?: string;
   refs?: ProductRelationInput[];
   crossReferences?: ProductRelationInput[];
@@ -525,6 +526,11 @@ export function searchProducts(
     if (title.includes(query)) {
       score += title.startsWith(query) ? 1800 : 1200;
       if (!matchType) matchType = "Title";
+    }
+
+    if (item.vehicleApplications?.some((application) => normalize(application).includes(query))) {
+      score += 1500;
+      if (!matchType) matchType = "Application";
     }
 
     if (normalizedSpecQuery && spec.includes(normalizedSpecQuery)) {
