@@ -15,6 +15,7 @@ import { uploadedProducts } from "./products.uploaded";
 import { importedProducts } from "./products.imported";
 import { officialProducts20260903 } from "./products.official-2026-09-03";
 import { stanadyneCrossReferencesByDonaldson } from "./stanadyne-cross-references";
+import { sureSakuraCrossReferencesByDonaldson } from "./sure-sakura-cross-references";
 import { getVerifiedAirFilterPairedParts } from "./air-filter-pairs";
 
 const EXCLUDED_ACTIVE_PART_NOS = new Set([
@@ -61,6 +62,10 @@ export const products = Array.from(
         const key = normalizePartNo(product.partNo);
         const stanadyneCrossReferences =
           stanadyneCrossReferencesByDonaldson[product.partNo] ?? [];
+        const sureSakuraCrossReferences =
+          product.brand?.toLowerCase() === "donaldson"
+            ? sureSakuraCrossReferencesByDonaldson[product.partNo] ?? []
+            : [];
         const verifiedAirFilterPairs = getVerifiedAirFilterPairedParts(
           product.partNo,
         );
@@ -93,7 +98,11 @@ export const products = Array.from(
             ),
             refs: product.refs ?? [],
             crossReferences: normalizeCanonicalProductRelations(
-              [...(product.crossReferences ?? []), ...stanadyneCrossReferences],
+              [
+                ...(product.crossReferences ?? []),
+                ...stanadyneCrossReferences,
+                ...sureSakuraCrossReferences,
+              ],
               "unknown",
             ),
             pairedParts,
