@@ -7,6 +7,8 @@ import { getTranslations } from "next-intl/server";
 import SearchNoResultsTracker from "@/components/analytics/SearchNoResultsTracker";
 import MissingProductRequestForm from "@/components/products/MissingProductRequestForm";
 import ProductListClient from "@/components/products/ProductListClient";
+import ProductDiscoveryLinks from "@/components/products/ProductDiscoveryLinks";
+import { productDiscovery } from "@/lib/products/discovery";
 import SiteFooter from "@/components/layout/SiteFooter";
 import SiteHeader from "@/components/layout/SiteHeader";
 import MultiPartNumberSearch from "@/components/search/MultiPartNumberSearch";
@@ -259,6 +261,16 @@ export default async function ProductsPage({
           ) : null}
         </div>
       </section>
+
+      {!hasQuery && !requestMissingProduct && (
+        <ProductDiscoveryLinks
+          locale={locale}
+          items={productDiscovery.flatMap((entry) => {
+            const product = products.find((item) => item.partNo === entry.partNo);
+            return product ? [{ product, label: isThai ? entry.th : entry.en }] : [];
+          })}
+        />
+      )}
 
       <section
         id="results"
