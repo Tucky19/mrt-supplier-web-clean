@@ -7,6 +7,7 @@ import ProductDetailClient from "@/components/products/ProductDetailClient";
 import JsonLd from "@/components/seo/JsonLd";
 import { products as catalogProducts } from "@/data/products/index";
 import { relationPartNumbers } from "@/lib/products/relations";
+import { getProductDiscoveryLabel } from "@/lib/products/discovery";
 import type { Product } from "@/types/product";
 
 type PageProps = {
@@ -134,10 +135,17 @@ export async function generateMetadata({
   const encodedPartNo = encodeURIComponent(product.partNo);
   const productPath = `/products/${encodedPartNo}`;
   const canonical = `${SITE_URL}/${locale}${productPath}`;
-  const title = isThai
+  const discoveryLabel = getProductDiscoveryLabel(product.partNo, locale);
+  const title = discoveryLabel
+    ? `${product.brand} ${product.partNo} ${discoveryLabel} | MRT Supplier`
+    : isThai
     ? `${product.partNo} ${product.brand} | สเปกสินค้าและขอใบเสนอราคา | MRT Supplier`
     : `${product.partNo} ${product.brand} | Product Specs and RFQ | MRT Supplier`;
-  const description = isThai
+  const description = discoveryLabel
+    ? isThai
+      ? `${product.brand} ${product.partNo} ${discoveryLabel} ดูรูปและสเปกสินค้า ส่งเบอร์กรองหรือรุ่นเครื่องพร้อมจำนวนให้ MRT Supplier ตรวจสอบและขอใบเสนอราคา`
+      : `${product.brand} ${product.partNo} ${discoveryLabel}. View photos and specifications. Send your part number or machine model and quantity to MRT Supplier for verification and a quote.`
+    : isThai
     ? `${product.brand} ${product.partNo} สำหรับงานอุตสาหกรรม ดูสเปก เทียบเบอร์ และส่งขอใบเสนอราคา MRT Supplier`
     : `View ${product.brand} ${product.partNo} product specifications, cross references, and request a quote from MRT Supplier.`;
   const image = getProductImage(product);
@@ -185,6 +193,11 @@ export default async function ProductPage({ params }: PageProps) {
       </Suspense>
 
       <section className="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-12">
+        {getProductDiscoveryLabel(product.partNo, locale) && (
+          <p className="mb-4 text-sm text-[var(--color-text-muted)]">
+            {product.brand} {product.partNo} — {getProductDiscoveryLabel(product.partNo, locale)}
+          </p>
+        )}
         <ProductDetailClient
           locale={locale}
           product={product}
