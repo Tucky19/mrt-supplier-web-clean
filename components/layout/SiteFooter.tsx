@@ -20,15 +20,17 @@ export default function SiteFooter({ locale = "th", className = "" }: Props) {
     >
       <div className="mx-auto grid max-w-7xl gap-10 px-6 py-14 lg:grid-cols-[1.2fr_0.8fr_0.9fr] lg:px-8">
         <div>
-          <div className="flex items-center gap-3">
-            <Image
-              src="/logo-mrt-icon-a.png"
-              alt=""
-              width={512}
-              height={512}
-              className="h-12 w-12 shrink-0 rounded-xl"
-              sizes="48px"
-            />
+          <div className="flex flex-wrap items-center gap-4">
+            <div className="rounded-xl bg-white px-4 py-3 shadow-sm">
+              <Image
+                src="/logo-mrt-a.png"
+                alt="MRT Supplier"
+                width={954}
+                height={379}
+                className="h-auto w-40"
+                sizes="160px"
+              />
+            </div>
             <p className="text-lg font-semibold text-white">
               {isThai ? "บริษัท เอ็มอาร์ที ซัพพลายเออร์ จำกัด" : "MRT Supplier Co., Ltd."}
             </p>
