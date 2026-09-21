@@ -19,6 +19,9 @@ import { sureSakuraCrossReferencesByDonaldson } from "./sure-sakura-cross-refere
 import { getVerifiedAirFilterPairedParts } from "./air-filter-pairs";
 import { vehicleFilterProducts } from "./products.vehicle-filters";
 
+import { supplierCrossReferences } from "./supplier-cross-references";
+import { supplierSelectionProducts } from "./products.supplier-selection";
+
 const EXCLUDED_ACTIVE_PART_NOS = new Set([
   "6205-ZZ",
   "6205-LLU",
@@ -59,6 +62,11 @@ export const products = Array.from(
   new Map(
     normalizeProducts([
       ...rawProducts,
+      ...supplierSelectionProducts.filter(
+        (incoming) => ![...rawProducts, ...vehicleFilterProducts].some(
+          (existing) => normalizePartNo(existing.partNo) === normalizePartNo(incoming.partNo),
+        ),
+      ),
       ...vehicleFilterProducts.filter(
         (incoming) => !rawProducts.some(
           (existing) => normalizePartNo(existing.partNo) === normalizePartNo(incoming.partNo),
@@ -117,6 +125,7 @@ export const products = Array.from(
             crossReferences: normalizeCanonicalProductRelations(
               [
                 ...(product.crossReferences ?? []),
+                ...(supplierCrossReferences[key] ?? []),
                 ...stanadyneCrossReferences,
                 ...sureSakuraCrossReferences,
                 ...(vehicleData?.crossReferences ?? []),
