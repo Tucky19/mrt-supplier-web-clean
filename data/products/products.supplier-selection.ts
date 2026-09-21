@@ -127,13 +127,39 @@ export const supplierSelectionProducts: Product[] = [
   {
     "id": "other-aa90138-r",
     "partNo": "AA90138-R",
-    "brand": "Other",
+    "brand": "Fleetguard",
     "category": "air_filter",
-    "title": "กรองอากาศ AA90138-R",
-    "description": "กรองอากาศ รหัส AA90138-R ติดต่อ MRT Supplier เพื่อยืนยันรายละเอียดและขอใบเสนอราคา",
+    "title": "ชุดกรองอากาศ Fleetguard AA90138-R",
+    "description": "ชุดกรองอากาศ Fleetguard AA90138 (Air Dual Kit) ประกอบด้วย AF26531 และ AF26532 สามารถขอราคาแยกเฉพาะ AF26531 หรือ AF26532 ได้ รหัส R ระบุผลิตในจีนตามข้อมูลที่ MRT ยืนยัน",
     "stockStatus": "request",
-    "dataQuality": "needs_review",
-    "sourceType": "internal"
+    "dataQuality": "basic",
+    "sourceType": "internal",
+    "specifications": [
+      {
+        "label": "ประเทศผลิต (ข้อมูล MRT)",
+        "value": "จีน"
+      },
+      {
+        "label": "รหัสชุดผู้ผลิต",
+        "value": "AA90138"
+      },
+      {
+        "label": "กรองภายในชุด",
+        "value": "AF26531 + AF26532"
+      }
+    ],
+    "pairedParts": [
+      {
+        "partNo": "AF26531",
+        "relation": "paired",
+        "note": "กรองภายในชุด สามารถขอราคาแยกชิ้นได้"
+      },
+      {
+        "partNo": "AF26532",
+        "relation": "paired",
+        "note": "กรองภายในชุด สามารถขอราคาแยกชิ้นได้"
+      }
+    ]
   },
   {
     "id": "donaldson-p533930",
@@ -1487,5 +1513,41 @@ export const supplierSelectionProducts: Product[] = [
     "stockStatus": "request",
     "dataQuality": "needs_review",
     "sourceType": "internal"
+  },
+  {
+    "id": "fleetguard-af26531",
+    "partNo": "AF26531",
+    "brand": "Fleetguard",
+    "category": "air_filter",
+    "title": "กรองอากาศ Fleetguard AF26531",
+    "description": "กรองอากาศ Fleetguard AF26531 จำหน่ายแยกชิ้น เป็นส่วนประกอบของชุด AA90138 สามารถขอราคาเฉพาะเบอร์นี้ได้โดยไม่ต้องซื้อทั้งชุด",
+    "stockStatus": "request",
+    "dataQuality": "basic",
+    "sourceType": "internal",
+    "pairedParts": [
+      {
+        "partNo": "AA90138-R",
+        "relation": "paired",
+        "note": "เลือกขอราคาทั้งชุด AA90138-R ซึ่งประกอบด้วย AF26531 และ AF26532"
+      }
+    ]
+  },
+  {
+    "id": "fleetguard-af26532",
+    "partNo": "AF26532",
+    "brand": "Fleetguard",
+    "category": "air_filter",
+    "title": "กรองอากาศ Fleetguard AF26532",
+    "description": "กรองอากาศ Fleetguard AF26532 จำหน่ายแยกชิ้น เป็นส่วนประกอบของชุด AA90138 สามารถขอราคาเฉพาะเบอร์นี้ได้โดยไม่ต้องซื้อทั้งชุด",
+    "stockStatus": "request",
+    "dataQuality": "basic",
+    "sourceType": "internal",
+    "pairedParts": [
+      {
+        "partNo": "AA90138-R",
+        "relation": "paired",
+        "note": "เลือกขอราคาทั้งชุด AA90138-R ซึ่งประกอบด้วย AF26531 และ AF26532"
+      }
+    ]
   }
 ];
