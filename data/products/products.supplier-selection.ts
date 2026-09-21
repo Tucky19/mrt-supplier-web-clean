@@ -94,12 +94,12 @@ export const supplierSelectionProducts: Product[] = [
   {
     "id": "other-4570092941",
     "partNo": "4570092941",
-    "brand": "Other",
+    "brand": "MANN-FILTER",
     "category": "other",
     "title": "เสื้อกรอง 4570092941",
     "description": "เสื้อกรอง รหัส 4570092941 ติดต่อ MRT Supplier เพื่อยืนยันรายละเอียดและขอใบเสนอราคา",
     "stockStatus": "request",
-    "dataQuality": "needs_review",
+    "dataQuality": "basic",
     "sourceType": "internal"
   },
   {
@@ -116,12 +116,12 @@ export const supplierSelectionProducts: Product[] = [
   {
     "id": "other-df5112",
     "partNo": "DF5112",
-    "brand": "Other",
+    "brand": "Sotras",
     "category": "air_oil_separator",
     "title": "ไส้กรองแยกน้ำมัน DF5112",
     "description": "ไส้กรองแยกน้ำมัน รหัส DF5112 ติดต่อ MRT Supplier เพื่อยืนยันรายละเอียดและขอใบเสนอราคา",
     "stockStatus": "request",
-    "dataQuality": "needs_review",
+    "dataQuality": "basic",
     "sourceType": "internal"
   },
   {
@@ -197,12 +197,12 @@ export const supplierSelectionProducts: Product[] = [
   {
     "id": "other-4900053601",
     "partNo": "4900053601",
-    "brand": "Other",
+    "brand": "MANN-FILTER",
     "category": "air_oil_separator",
     "title": "ไส้กรองแยกน้ำมัน 4900053601",
     "description": "ไส้กรองแยกน้ำมัน รหัส 4900053601 ติดต่อ MRT Supplier เพื่อยืนยันรายละเอียดและขอใบเสนอราคา",
     "stockStatus": "request",
-    "dataQuality": "needs_review",
+    "dataQuality": "basic",
     "sourceType": "internal"
   },
   {

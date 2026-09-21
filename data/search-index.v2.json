@@ -1,12 +1,12 @@
 {
   "version": 2,
-  "generatedAt": "2026-09-21T08:59:35.831Z",
+  "generatedAt": "2026-09-21T09:12:33.552Z",
   "counts": {
     "items": 630,
     "prefix2": 65,
     "prefix3": 137,
     "prefix4": 253,
-    "tokenKeys": 3368,
+    "tokenKeys": 3369,
     "refKeys": 46,
     "xrefKeys": 982,
     "pairedPartKeys": 66
@@ -25467,7 +25467,7 @@
       "id": "other-4570092941",
       "partNo": "4570092941",
       "partNoNorm": "4570092941",
-      "brand": "Other",
+      "brand": "MANN-FILTER",
       "title": "เสื้อกรอง 4570092941",
       "category": "other",
       "spec": "",
@@ -25497,7 +25497,7 @@
       "id": "other-df5112",
       "partNo": "DF5112",
       "partNoNorm": "df5112",
-      "brand": "Other",
+      "brand": "Sotras",
       "title": "ไส้กรองแยกน้ำมัน DF5112",
       "category": "air_oil_separator",
       "spec": "",
@@ -25596,7 +25596,7 @@
       "id": "other-4900053601",
       "partNo": "4900053601",
       "partNoNorm": "4900053601",
-      "brand": "Other",
+      "brand": "MANN-FILTER",
       "title": "ไส้กรองแยกน้ำมัน 4900053601",
       "category": "air_oil_separator",
       "spec": "",
@@ -37392,11 +37392,13 @@
       "other-kw2140c1",
       "mann-filter-w1374-6",
       "donaldson-p821883",
+      "other-4570092941",
       "donaldson-p785965",
       "other-aa90138-r",
       "donaldson-p533930",
       "donaldson-p608766",
       "mann-filter-c18902",
+      "other-4900053601",
       "other-cb3030",
       "donaldson-g065424",
       "donaldson-p502667",
@@ -47727,7 +47729,9 @@
       "mann-wd962-32",
       "mann-filter-c1140",
       "mann-filter-w1374-6",
+      "other-4570092941",
       "mann-filter-c18902",
+      "other-4900053601",
       "mann-filter-c1574",
       "mann-filter-lb13145-21",
       "mann-filter-wd724-6",
@@ -54518,8 +54522,6 @@
       "donaldson-g100319",
       "other-kw2140c1",
       "other-4570092941",
-      "other-df5112",
-      "other-4900053601",
       "other-cb3030",
       "donaldson-p166387",
       "other-df5019",
@@ -56343,6 +56345,9 @@
       "donaldson-p785965"
     ],
     "df5112": [
+      "other-df5112"
+    ],
+    "sotras": [
       "other-df5112"
     ],
     "df": [
