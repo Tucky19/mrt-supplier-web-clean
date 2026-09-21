@@ -41,6 +41,19 @@ function getLocalizedAlternates(path: string) {
   );
 }
 
+function getRecommendedProducts(): Product[] {
+  const perBrand = DEFAULT_PRODUCT_LIMIT / 2;
+  const groups = ["Donaldson", "MANN-FILTER"].map((brand) =>
+    sortProductsByPartNo(
+      products.filter((product) => product.brand === brand && !product.partNumberOnly),
+    ).slice(0, perBrand),
+  );
+
+  return Array.from({ length: perBrand }, (_, index) =>
+    groups.flatMap((group) => group[index] ? [group[index]] : []),
+  ).flat();
+}
+
 function normalizePartNo(value: string) {
   return value.trim().toLowerCase().replace(/[\s/_-]+/g, "");
 }
@@ -174,7 +187,7 @@ export default async function ProductsPage({
     ? searchFocusedProducts(query, { limit: SEARCH_RESULT_LIMIT }).map((hit) =>
         hydrateSearchHit(hit, products),
       )
-    : sortProductsByPartNo(products).slice(0, DEFAULT_PRODUCT_LIMIT);
+    : getRecommendedProducts();
   const hasPreliminaryRelationResults =
     hasQuery &&
     visibleProducts.some((product) => isPreliminaryRelationResult(product));
