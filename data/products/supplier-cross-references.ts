@@ -244,11 +244,19 @@ const partNumbersByProduct: Record<string, string[]> = {
   ]
 };
 
+function referenceBrand(partNumber: string): string {
+  if (/^[PGRBX]\d{6}$/.test(partNumber)) return "Donaldson";
+  if (/^(AF|FF|FS|LF|HF)\d/.test(partNumber)) return "Fleetguard";
+  if (/^(W|WD|WK|WDK|HU|LB|CF)\d/.test(partNumber) || /^C\d{4,5}(\/\d+)?$/.test(partNumber)) return "MANN-FILTER";
+  return "Other";
+}
+
 export const supplierCrossReferences: Record<string, ProductRelationInput[]> = Object.fromEntries(
   Object.entries(partNumbersByProduct).map(([key, partNumbers]) => [
     key,
     partNumbers.map((partNumber) => ({
       partNumber,
+      brand: referenceBrand(partNumber),
       relationType: "equivalent",
       verificationStatus: "verified",
       source: "Customer-provided supplier product list",
