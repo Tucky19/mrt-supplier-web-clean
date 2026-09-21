@@ -1,15 +1,15 @@
 {
   "version": 2,
-  "generatedAt": "2026-09-21T08:59:35.831Z",
+  "generatedAt": "2026-09-21T10:52:48.959Z",
   "counts": {
-    "items": 630,
-    "prefix2": 65,
-    "prefix3": 137,
-    "prefix4": 253,
-    "tokenKeys": 3368,
+    "items": 634,
+    "prefix2": 66,
+    "prefix3": 138,
+    "prefix4": 255,
+    "tokenKeys": 3388,
     "refKeys": 46,
-    "xrefKeys": 982,
-    "pairedPartKeys": 66
+    "xrefKeys": 984,
+    "pairedPartKeys": 70
   },
   "items": [
     {
@@ -63,6 +63,8 @@
           "value": "742330044995"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -141,6 +143,8 @@
           "value": "742330081129"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -225,6 +229,8 @@
           "value": "742330000649"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -445,6 +451,8 @@
           "value": "742330242278"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -661,6 +669,8 @@
           "value": "742330008720"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -722,6 +732,8 @@
           "value": "742330009901"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -784,6 +796,8 @@
           "value": "742330009925"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -836,6 +850,8 @@
           "value": "742330010464"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -892,6 +908,8 @@
           "value": "742330010976"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -952,6 +970,8 @@
           "value": "742330011652"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -1069,6 +1089,8 @@
           "value": "742330012710"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -1181,6 +1203,8 @@
           "value": "742330013700"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -1250,6 +1274,8 @@
           "value": "742330025154"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -1442,6 +1468,8 @@
           "value": "742330026076"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -1611,6 +1639,8 @@
           "value": "742330203804"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -1675,6 +1705,8 @@
           "value": "742330201817"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -1795,6 +1827,8 @@
           "value": "742330049068"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -1870,7 +1904,9 @@
           "value": "742330041154"
         }
       ],
-      "stock": "in_stock",
+      "checkAvailability": true,
+      "partNumberOnly": false,
+      "stock": "request",
       "refs": [],
       "crossReferences": [
         "UCC HYDRAULICS MX1591410",
@@ -1935,7 +1971,9 @@
           "value": "742330040744"
         }
       ],
-      "stock": "in_stock",
+      "checkAvailability": true,
+      "partNumberOnly": false,
+      "stock": "request",
       "refs": [],
       "crossReferences": [
         "SFH1140"
@@ -2005,6 +2043,8 @@
           "value": "742330045619"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -2080,7 +2120,9 @@
           "value": "742330001028"
         }
       ],
-      "stock": "in_stock",
+      "checkAvailability": true,
+      "partNumberOnly": false,
+      "stock": "request",
       "refs": [],
       "crossReferences": [],
       "pairedParts": []
@@ -2116,7 +2158,9 @@
           "value": "23 micron"
         }
       ],
-      "stock": "in_stock",
+      "checkAvailability": true,
+      "partNumberOnly": false,
+      "stock": "request",
       "refs": [],
       "crossReferences": [
         "P565060"
@@ -2178,6 +2222,8 @@
           "value": "742330126288"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -2244,6 +2290,8 @@
           "value": "742330044704"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -2303,6 +2351,8 @@
           "value": "742330044728"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -2370,6 +2420,8 @@
           "value": "742330111031"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -2433,7 +2485,9 @@
           "value": "742330197479"
         }
       ],
-      "stock": "in_stock",
+      "checkAvailability": true,
+      "partNumberOnly": false,
+      "stock": "request",
       "refs": [],
       "crossReferences": [
         "P550880"
@@ -2495,6 +2549,8 @@
           "value": "742330047767"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -3003,6 +3059,8 @@
           "value": "742330126318"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -3210,6 +3268,8 @@
           "value": "742330025598"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -3287,6 +3347,8 @@
           "value": "742330043875"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -3364,6 +3426,8 @@
           "value": "742330043288"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -3423,6 +3487,8 @@
           "value": "742330144145"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -3503,7 +3569,9 @@
           "value": "742330200629"
         }
       ],
-      "stock": "in_stock",
+      "checkAvailability": true,
+      "partNumberOnly": false,
+      "stock": "request",
       "refs": [],
       "crossReferences": [],
       "pairedParts": []
@@ -3563,6 +3631,8 @@
           "value": "742330025635"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -3636,6 +3706,8 @@
           "value": "742330087244"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -3718,7 +3790,9 @@
           "value": "742330044247"
         }
       ],
-      "stock": "in_stock",
+      "checkAvailability": true,
+      "partNumberOnly": false,
+      "stock": "request",
       "refs": [],
       "crossReferences": [
         "C1822",
@@ -3774,7 +3848,9 @@
           "value": "742330043868"
         }
       ],
-      "stock": "in_stock",
+      "checkAvailability": true,
+      "partNumberOnly": false,
+      "stock": "request",
       "refs": [],
       "crossReferences": [
         "F6504",
@@ -3853,7 +3929,9 @@
           "value": "Not for Marine Applications"
         }
       ],
-      "stock": "in_stock",
+      "checkAvailability": true,
+      "partNumberOnly": false,
+      "stock": "request",
       "refs": [],
       "crossReferences": [
         "KFW6733"
@@ -3943,7 +4021,9 @@
           "value": "Not for Marine Applications"
         }
       ],
-      "stock": "in_stock",
+      "checkAvailability": true,
+      "partNumberOnly": false,
+      "stock": "request",
       "refs": [],
       "crossReferences": [
         "P551423",
@@ -4045,6 +4125,8 @@
           "value": "742330042182"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -4073,7 +4155,9 @@
           "value": "Safety"
         }
       ],
-      "stock": "in_stock",
+      "checkAvailability": true,
+      "partNumberOnly": false,
+      "stock": "request",
       "refs": [],
       "crossReferences": [
         "A5635",
@@ -4110,7 +4194,9 @@
           "value": "RadialSeal"
         }
       ],
-      "stock": "in_stock",
+      "checkAvailability": true,
+      "partNumberOnly": false,
+      "stock": "request",
       "refs": [],
       "crossReferences": [
         "A8505",
@@ -4141,7 +4227,9 @@
           "value": "RadialSeal"
         }
       ],
-      "stock": "in_stock",
+      "checkAvailability": true,
+      "partNumberOnly": false,
+      "stock": "request",
       "refs": [],
       "crossReferences": [
         "AF25558",
@@ -4173,6 +4261,8 @@
           "value": "Full Flow"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -4233,7 +4323,9 @@
           "value": "742330043790"
         }
       ],
-      "stock": "in_stock",
+      "checkAvailability": true,
+      "partNumberOnly": false,
+      "stock": "request",
       "refs": [],
       "crossReferences": [
         "SFH6141"
@@ -4263,7 +4355,9 @@
           "value": "Full Flow"
         }
       ],
-      "stock": "in_stock",
+      "checkAvailability": true,
+      "partNumberOnly": false,
+      "stock": "request",
       "refs": [],
       "crossReferences": [
         "C12022",
@@ -4296,7 +4390,9 @@
           "value": "Finned"
         }
       ],
-      "stock": "in_stock",
+      "checkAvailability": true,
+      "partNumberOnly": false,
+      "stock": "request",
       "refs": [],
       "crossReferences": [
         "A7990",
@@ -4325,7 +4421,9 @@
           "value": "Cartridge"
         }
       ],
-      "stock": "in_stock",
+      "checkAvailability": true,
+      "partNumberOnly": false,
+      "stock": "request",
       "refs": [],
       "crossReferences": [
         "F5506",
@@ -4389,6 +4487,8 @@
           "value": "742330128084"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -4415,7 +4515,9 @@
           "value": "Spin-On"
         }
       ],
-      "stock": "in_stock",
+      "checkAvailability": true,
+      "partNumberOnly": false,
+      "stock": "request",
       "refs": [],
       "crossReferences": [
         "FC1804",
@@ -4447,7 +4549,9 @@
           "value": "Full Flow"
         }
       ],
-      "stock": "in_stock",
+      "checkAvailability": true,
+      "partNumberOnly": false,
+      "stock": "request",
       "refs": [],
       "crossReferences": [],
       "pairedParts": []
@@ -4511,7 +4615,9 @@
           "value": "742330040294"
         }
       ],
-      "stock": "in_stock",
+      "checkAvailability": true,
+      "partNumberOnly": false,
+      "stock": "request",
       "refs": [],
       "crossReferences": [
         "C6504",
@@ -4542,7 +4648,9 @@
           "value": "Vent Panel"
         }
       ],
-      "stock": "in_stock",
+      "checkAvailability": true,
+      "partNumberOnly": false,
+      "stock": "request",
       "refs": [],
       "crossReferences": [],
       "pairedParts": []
@@ -4570,7 +4678,9 @@
           "value": "Full Flow"
         }
       ],
-      "stock": "in_stock",
+      "checkAvailability": true,
+      "partNumberOnly": false,
+      "stock": "request",
       "refs": [],
       "crossReferences": [
         "C7601",
@@ -4686,7 +4796,9 @@
           "value": "Not for Marine Applications"
         }
       ],
-      "stock": "in_stock",
+      "checkAvailability": true,
+      "partNumberOnly": false,
+      "stock": "request",
       "refs": [],
       "crossReferences": [
         "WK842/2",
@@ -4776,7 +4888,9 @@
           "value": "742330200414"
         }
       ],
-      "stock": "in_stock",
+      "checkAvailability": true,
+      "partNumberOnly": false,
+      "stock": "request",
       "refs": [],
       "crossReferences": [],
       "pairedParts": []
@@ -4836,7 +4950,9 @@
           "value": "742330043790"
         }
       ],
-      "stock": "in_stock",
+      "checkAvailability": true,
+      "partNumberOnly": false,
+      "stock": "request",
       "refs": [],
       "crossReferences": [],
       "pairedParts": []
@@ -4904,7 +5020,9 @@
           "value": "742330042441"
         }
       ],
-      "stock": "in_stock",
+      "checkAvailability": true,
+      "partNumberOnly": false,
+      "stock": "request",
       "refs": [],
       "crossReferences": [
         "FC5601",
@@ -4937,7 +5055,9 @@
           "value": "Full Flow"
         }
       ],
-      "stock": "in_stock",
+      "checkAvailability": true,
+      "partNumberOnly": false,
+      "stock": "request",
       "refs": [],
       "crossReferences": [
         "SFO4407"
@@ -4967,7 +5087,9 @@
           "value": "Spin-On"
         }
       ],
-      "stock": "in_stock",
+      "checkAvailability": true,
+      "partNumberOnly": false,
+      "stock": "request",
       "refs": [],
       "crossReferences": [
         "FC6501",
@@ -4998,7 +5120,9 @@
           "value": "Full Flow"
         }
       ],
-      "stock": "in_stock",
+      "checkAvailability": true,
+      "partNumberOnly": false,
+      "stock": "request",
       "refs": [],
       "crossReferences": [
         "C7910",
@@ -5029,6 +5153,8 @@
           "value": "Full Flow"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -5112,7 +5238,9 @@
           "value": "742330040119"
         }
       ],
-      "stock": "in_stock",
+      "checkAvailability": true,
+      "partNumberOnly": false,
+      "stock": "request",
       "refs": [],
       "crossReferences": [
         "C1104",
@@ -5145,7 +5273,9 @@
           "value": "Spin-On"
         }
       ],
-      "stock": "in_stock",
+      "checkAvailability": true,
+      "partNumberOnly": false,
+      "stock": "request",
       "refs": [],
       "crossReferences": [
         "P551553",
@@ -5176,7 +5306,9 @@
           "value": "Full Flow"
         }
       ],
-      "stock": "in_stock",
+      "checkAvailability": true,
+      "partNumberOnly": false,
+      "stock": "request",
       "refs": [],
       "crossReferences": [],
       "pairedParts": []
@@ -5236,7 +5368,9 @@
           "value": "Not for Marine Applications"
         }
       ],
-      "stock": "in_stock",
+      "checkAvailability": true,
+      "partNumberOnly": false,
+      "stock": "request",
       "refs": [],
       "crossReferences": [
         "BF7699D",
@@ -5370,7 +5504,9 @@
           "value": "742330040508"
         }
       ],
-      "stock": "in_stock",
+      "checkAvailability": true,
+      "partNumberOnly": false,
+      "stock": "request",
       "refs": [],
       "crossReferences": [
         "TOYOTA 2330356301",
@@ -5416,7 +5552,9 @@
           "value": "742330040584"
         }
       ],
-      "stock": "in_stock",
+      "checkAvailability": true,
+      "partNumberOnly": false,
+      "stock": "request",
       "refs": [],
       "crossReferences": [
         "MITSUBISHI ME064356",
@@ -5656,6 +5794,8 @@
           "value": "Full Flow"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -5956,6 +6096,8 @@
           "value": "742330041659"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -6044,6 +6186,8 @@
           "value": "742330041970"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -6208,6 +6352,8 @@
           "value": "742330042342"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -6279,6 +6425,8 @@
           "value": "742330042380"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -6361,6 +6509,8 @@
           "value": "62 mm"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -6432,6 +6582,8 @@
           "value": "742330088067"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -6499,6 +6651,8 @@
           "value": "742330106617"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -6587,7 +6741,9 @@
           "value": "21 micron"
         }
       ],
-      "stock": "in_stock",
+      "checkAvailability": true,
+      "partNumberOnly": false,
+      "stock": "request",
       "refs": [
         "VOLVO 4775565"
       ],
@@ -6657,6 +6813,8 @@
           "value": "742330108208"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -6691,6 +6849,8 @@
           "value": "16 micron"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -6825,6 +6985,8 @@
           "value": "742330116364"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -7007,7 +7169,9 @@
           "value": "742330137734"
         }
       ],
-      "stock": "in_stock",
+      "checkAvailability": true,
+      "partNumberOnly": false,
+      "stock": "request",
       "refs": [],
       "crossReferences": [
         "22988765"
@@ -7097,6 +7261,8 @@
           "value": "742330142974"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -7239,6 +7405,8 @@
           "value": "742330146989"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -7319,6 +7487,8 @@
           "value": "742330043059"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -7401,6 +7571,8 @@
           "value": "742330043158"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -7580,6 +7752,8 @@
           "value": "742330177273"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -7612,6 +7786,8 @@
           "value": "Twist&Drain"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -7646,6 +7822,8 @@
           "value": "Full Flow"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -7706,6 +7884,8 @@
           "value": "Full Flow"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -7748,6 +7928,8 @@
           "value": "35 micron"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -7816,6 +7998,8 @@
           "value": "742330025352"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -7853,6 +8037,8 @@
           "value": "Finned"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -7988,6 +8174,8 @@
           "value": "742330025468"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -8018,6 +8206,8 @@
           "value": "Round"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -8128,6 +8318,8 @@
           "value": "Finned"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -8193,7 +8385,9 @@
           "value": "742330015827"
         }
       ],
-      "stock": "in_stock",
+      "checkAvailability": true,
+      "partNumberOnly": false,
+      "stock": "request",
       "refs": [],
       "crossReferences": [
         "PALL HC9600FUS8H",
@@ -8346,6 +8540,8 @@
           "value": "742330016183"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -8414,6 +8610,8 @@
           "value": "742330016206"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -8470,6 +8668,8 @@
           "value": "742330194386"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -8628,7 +8828,9 @@
           "value": "742330198124"
         }
       ],
-      "stock": "in_stock",
+      "checkAvailability": true,
+      "partNumberOnly": false,
+      "stock": "request",
       "refs": [],
       "crossReferences": [
         "FURUKAWA 08841201041",
@@ -8690,6 +8892,8 @@
           "value": "Full Flow"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -8725,6 +8929,8 @@
           "value": "Full Flow"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -8865,6 +9071,8 @@
           "value": "Cartridge"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -8893,6 +9101,8 @@
           "value": "Full Flow"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -8919,6 +9129,8 @@
           "value": "Cartridge"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -8971,6 +9183,8 @@
           "value": "Water Separator"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -8995,6 +9209,8 @@
           "value": "Spin-On"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -9079,6 +9295,8 @@
           "value": "1 L"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -9135,6 +9353,8 @@
           "value": "Round"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -9161,6 +9381,8 @@
           "value": "Safety"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -9471,6 +9693,8 @@
           "value": "Radialseal"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [
         "CATERPILLAR 6I2503"
@@ -9522,6 +9746,8 @@
           "value": "Safety"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [
         "CATERPILLAR 6I2504"
@@ -9561,6 +9787,8 @@
           "value": "RadialSeal"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -9592,6 +9820,8 @@
           "value": "RadialSeal"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -9624,6 +9854,8 @@
           "value": "Synthetic"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -9659,6 +9891,8 @@
           "value": "Activated Carbon"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -9743,6 +9977,8 @@
           "value": "742330009918"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -9848,6 +10084,8 @@
           "value": "Safety"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -9909,6 +10147,8 @@
           "value": "Duramax"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -9937,6 +10177,8 @@
           "value": "Duramax"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -9997,6 +10239,8 @@
           "value": "Primary"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -10063,6 +10307,8 @@
           "value": "742330025796"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -10133,6 +10379,8 @@
           "value": "742330086759"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -10169,6 +10417,8 @@
           "value": "RadialSeal"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -10256,6 +10506,8 @@
           "value": "Not for Marine Applications"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -10284,6 +10536,8 @@
           "value": "Full Flow"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -10315,6 +10569,8 @@
           "value": "RadialSeal"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -10346,7 +10602,9 @@
           "value": "1 1/4\"-12"
         }
       ],
-      "stock": "in_stock",
+      "checkAvailability": true,
+      "partNumberOnly": false,
+      "stock": "request",
       "refs": [],
       "crossReferences": [
         "SFF5036"
@@ -10384,7 +10642,9 @@
           "value": "17 micron"
         }
       ],
-      "stock": "in_stock",
+      "checkAvailability": true,
+      "partNumberOnly": false,
+      "stock": "request",
       "refs": [],
       "crossReferences": [
         "Donaldson: P553639",
@@ -10440,6 +10700,8 @@
           "value": "Round"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -10509,6 +10771,8 @@
           "value": "Cellulose"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -10549,7 +10813,9 @@
           "value": "9 micron"
         }
       ],
-      "stock": "in_stock",
+      "checkAvailability": true,
+      "partNumberOnly": false,
+      "stock": "request",
       "refs": [],
       "crossReferences": [
         "KOMATSU 6003118290",
@@ -10626,6 +10892,8 @@
           "value": "742330081792"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -10697,6 +10965,8 @@
           "value": "742330081808"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -10736,6 +11006,8 @@
           "value": "Finned"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -10773,6 +11045,8 @@
           "value": "Finned"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -10809,6 +11083,8 @@
           "value": "Round"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -10867,6 +11143,8 @@
           "value": "742330025970"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -10945,6 +11223,8 @@
           "value": "742330026403"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -10978,6 +11258,8 @@
           "value": "Cartridge"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -11026,6 +11308,8 @@
           "value": "Cartridge"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -11054,6 +11338,8 @@
           "value": "Duramax"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -11086,7 +11372,9 @@
           "value": "134 mm (5.276 inch)"
         }
       ],
-      "stock": "in_stock",
+      "checkAvailability": true,
+      "partNumberOnly": false,
+      "stock": "request",
       "refs": [],
       "crossReferences": [
         "COMPAIR 76288"
@@ -11120,7 +11408,9 @@
           "value": "125 mm (4.921 inch)"
         }
       ],
-      "stock": "in_stock",
+      "checkAvailability": true,
+      "partNumberOnly": false,
+      "stock": "request",
       "refs": [],
       "crossReferences": [
         "BOGE 569 726 300",
@@ -11176,7 +11466,9 @@
           "value": "No"
         }
       ],
-      "stock": "in_stock",
+      "checkAvailability": true,
+      "partNumberOnly": false,
+      "stock": "request",
       "refs": [],
       "crossReferences": [],
       "pairedParts": []
@@ -11284,6 +11576,8 @@
           "value": "1"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -11339,6 +11633,8 @@
           "value": "1"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -11396,6 +11692,8 @@
           "value": "1"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -11453,7 +11751,9 @@
           "value": "No"
         }
       ],
-      "stock": "in_stock",
+      "checkAvailability": true,
+      "partNumberOnly": false,
+      "stock": "request",
       "refs": [
         "P778994",
         "RS3992",
@@ -11593,6 +11893,8 @@
           "value": "No"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -11623,6 +11925,8 @@
           "value": "375 mm"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -11683,7 +11987,9 @@
           "value": "No"
         }
       ],
-      "stock": "in_stock",
+      "checkAvailability": true,
+      "partNumberOnly": false,
+      "stock": "request",
       "refs": [],
       "crossReferences": [
         "P780012"
@@ -11793,7 +12099,9 @@
           "value": "No"
         }
       ],
-      "stock": "in_stock",
+      "checkAvailability": true,
+      "partNumberOnly": false,
+      "stock": "request",
       "refs": [],
       "crossReferences": [],
       "pairedParts": []
@@ -12017,7 +12325,9 @@
           "value": "539 mm (21.22 inch)"
         }
       ],
-      "stock": "in_stock",
+      "checkAvailability": true,
+      "partNumberOnly": false,
+      "stock": "request",
       "refs": [
         "P782105",
         "RS3996",
@@ -12068,7 +12378,9 @@
           "value": "360 mm (14.173 inch)"
         }
       ],
-      "stock": "in_stock",
+      "checkAvailability": true,
+      "partNumberOnly": false,
+      "stock": "request",
       "refs": [],
       "crossReferences": [],
       "pairedParts": []
@@ -12212,7 +12524,9 @@
           "value": "No"
         }
       ],
-      "stock": "in_stock",
+      "checkAvailability": true,
+      "partNumberOnly": false,
+      "stock": "request",
       "refs": [],
       "crossReferences": [],
       "pairedParts": []
@@ -12260,7 +12574,9 @@
           "value": "No"
         }
       ],
-      "stock": "in_stock",
+      "checkAvailability": true,
+      "partNumberOnly": false,
+      "stock": "request",
       "refs": [],
       "crossReferences": [],
       "pairedParts": []
@@ -12475,7 +12791,9 @@
           "value": "No"
         }
       ],
-      "stock": "in_stock",
+      "checkAvailability": true,
+      "partNumberOnly": false,
+      "stock": "request",
       "refs": [],
       "crossReferences": [],
       "pairedParts": []
@@ -12527,7 +12845,9 @@
           "value": "No"
         }
       ],
-      "stock": "in_stock",
+      "checkAvailability": true,
+      "partNumberOnly": false,
+      "stock": "request",
       "refs": [
         "P782108",
         "RS3997",
@@ -12651,7 +12971,9 @@
           "value": "No"
         }
       ],
-      "stock": "in_stock",
+      "checkAvailability": true,
+      "partNumberOnly": false,
+      "stock": "request",
       "refs": [],
       "crossReferences": [],
       "pairedParts": []
@@ -12743,7 +13065,9 @@
           "value": "No"
         }
       ],
-      "stock": "in_stock",
+      "checkAvailability": true,
+      "partNumberOnly": false,
+      "stock": "request",
       "refs": [],
       "crossReferences": [
         "P780024"
@@ -12793,7 +13117,9 @@
           "value": "Yes"
         }
       ],
-      "stock": "in_stock",
+      "checkAvailability": true,
+      "partNumberOnly": false,
+      "stock": "request",
       "refs": [],
       "crossReferences": [],
       "pairedParts": []
@@ -12885,7 +13211,9 @@
           "value": "No"
         }
       ],
-      "stock": "in_stock",
+      "checkAvailability": true,
+      "partNumberOnly": false,
+      "stock": "request",
       "refs": [
         "P782106",
         "RS3998",
@@ -13171,6 +13499,8 @@
           "value": "Yes / 1"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -13227,6 +13557,8 @@
           "value": "No"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -13409,6 +13741,8 @@
           "value": "No"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -13465,6 +13799,8 @@
           "value": "No"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -13577,6 +13913,8 @@
           "value": "No"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -13629,6 +13967,8 @@
           "value": "1"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -13681,6 +14021,8 @@
           "value": "1"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -13781,6 +14123,8 @@
           "value": "1"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -13919,6 +14263,8 @@
           "value": "2.5 bar"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -14013,6 +14359,8 @@
           "value": "212 mm"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -14061,6 +14409,8 @@
           "value": "2.5 bar"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -14109,6 +14459,8 @@
           "value": "2.5 bar"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -14157,6 +14509,8 @@
           "value": "2.5 bar"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -14201,6 +14555,8 @@
           "value": "177 mm"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -14341,6 +14697,8 @@
           "value": "2.5 bar"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -14393,6 +14751,8 @@
           "value": "1"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -14561,6 +14921,8 @@
           "value": "276 mm"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -14769,6 +15131,8 @@
           "value": "4.094 in"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -14805,7 +15169,9 @@
           "value": "16 micron"
         }
       ],
-      "stock": "in_stock",
+      "checkAvailability": true,
+      "partNumberOnly": false,
+      "stock": "request",
       "refs": [],
       "crossReferences": [
         "FF42000",
@@ -14859,6 +15225,8 @@
           "value": "98% @ 5 micron"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -15035,6 +15403,8 @@
           "value": "Water Separator"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -15066,7 +15436,9 @@
           "value": "4 micron"
         }
       ],
-      "stock": "in_stock",
+      "checkAvailability": true,
+      "partNumberOnly": false,
+      "stock": "request",
       "refs": [],
       "crossReferences": [
         "Fleetguard: LF3000",
@@ -15160,6 +15532,8 @@
           "value": "10.3 bar"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -15226,6 +15600,8 @@
           "value": "742330044308"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -15557,7 +15933,9 @@
           "value": "742330197462"
         }
       ],
-      "stock": "in_stock",
+      "checkAvailability": true,
+      "partNumberOnly": false,
+      "stock": "request",
       "refs": [],
       "crossReferences": [
         "P550881"
@@ -15765,7 +16143,9 @@
           "value": "742330016190"
         }
       ],
-      "stock": "in_stock",
+      "checkAvailability": true,
+      "partNumberOnly": false,
+      "stock": "request",
       "refs": [
         "CASE/CASE IH X724693"
       ],
@@ -15929,6 +16309,8 @@
           "value": "742330013717"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -16002,6 +16384,8 @@
           "value": "742330026083"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -16131,6 +16515,8 @@
           "value": "742330015889"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -16495,6 +16881,8 @@
           "value": "742330020388"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -17302,6 +17690,8 @@
           "value": "742330024430"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -17422,6 +17812,8 @@
           "value": "742330149409"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -17580,6 +17972,8 @@
           "value": "742330195475"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -17779,6 +18173,8 @@
           "value": "742330201688"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -17932,6 +18328,8 @@
           "value": "742330044223"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -18057,6 +18455,8 @@
           "value": "742330106150"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -18127,6 +18527,8 @@
           "value": "742330017432"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -18191,6 +18593,8 @@
           "value": "742330197899"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -18251,6 +18655,8 @@
           "value": "742330197882"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -18366,6 +18772,8 @@
           "value": "742330982013"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -18398,6 +18806,8 @@
           "value": "742330008140"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -18458,6 +18868,8 @@
           "value": "742330048962"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -18542,6 +18954,8 @@
           "value": "742330044445"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -18610,6 +19024,8 @@
           "value": "742330202463"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -18678,6 +19094,8 @@
           "value": "742330087251"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -18745,6 +19163,8 @@
           "value": "742330045015"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -18808,6 +19228,8 @@
           "value": "742330017470"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -18868,6 +19290,8 @@
           "value": "742330104835"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -18928,6 +19352,8 @@
           "value": "742330194836"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -19016,6 +19442,8 @@
           "value": "742330124147"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -19072,6 +19500,8 @@
           "value": "742330043943"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -19155,6 +19585,8 @@
           "value": "742330043844"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -19214,6 +19646,8 @@
           "value": "742330045145"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -19332,6 +19766,8 @@
           "value": "742330242872"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -19392,6 +19828,8 @@
           "value": "742330017524"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -19474,6 +19912,8 @@
           "value": "742330191095"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -19526,6 +19966,8 @@
           "value": "742330043318"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -19597,6 +20039,8 @@
           "value": "742330043776"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -19680,6 +20124,8 @@
           "value": "742330190883"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -19732,6 +20178,8 @@
           "value": "742330017692"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -19800,6 +20248,8 @@
           "value": "742330182369"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -19858,6 +20308,8 @@
           "value": "742330017647"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -19906,6 +20358,8 @@
           "value": "742330080863"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -19946,6 +20400,8 @@
           "value": "742330220993"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -20006,6 +20462,8 @@
           "value": "742330150269"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -20070,6 +20528,8 @@
           "value": "742330163177"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -20130,6 +20590,8 @@
           "value": "742330108390"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -20193,6 +20655,8 @@
           "value": "742330112809"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -20262,6 +20726,8 @@
           "value": "742330108406"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -20320,6 +20786,8 @@
           "value": "742330966723"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -20388,6 +20856,8 @@
           "value": "742330220610"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -20428,6 +20898,8 @@
           "value": "742330237878"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -20488,6 +20960,8 @@
           "value": "742330187197"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -20516,6 +20990,8 @@
           "value": "Duramax"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -20570,6 +21046,8 @@
           "value": "Spin-On"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -20594,6 +21072,8 @@
           "value": "Spin-On"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -20624,6 +21104,8 @@
           "value": "Full-Flow"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -20648,6 +21130,8 @@
           "value": "Spin-On"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -20672,6 +21156,8 @@
           "value": "Box"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -20728,6 +21214,8 @@
           "value": "CUMMINS 3089916"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -20786,6 +21274,8 @@
           "value": "RadialSeal"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -20823,6 +21313,8 @@
           "value": "RadialSeal"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -20851,6 +21343,8 @@
           "value": "Round"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -20881,6 +21375,8 @@
           "value": "RadialSeal"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -20912,6 +21408,8 @@
           "value": "Obround"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -20968,6 +21466,8 @@
           "value": "742330187333"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -21034,6 +21534,8 @@
           "value": "742330049051"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -21110,6 +21612,8 @@
           "value": "742330044629"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -21177,6 +21681,8 @@
           "value": "742330203491"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -21231,6 +21737,8 @@
           "value": "742330963722"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -21291,6 +21799,8 @@
           "value": "742330042601"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -21358,6 +21868,8 @@
           "value": "742330203118"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -21402,6 +21914,8 @@
           "value": "742330045220"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -21464,6 +21978,8 @@
           "value": "742330049075"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -21527,6 +22043,8 @@
           "value": "742330989296"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -21579,6 +22097,8 @@
           "value": "742330963708"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -21647,6 +22167,8 @@
           "value": "742330043417"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -21695,6 +22217,8 @@
           "value": "742330963715"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -21751,6 +22275,8 @@
           "value": "742330165102"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -21813,6 +22339,8 @@
           "value": "742330112786"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -21873,6 +22401,8 @@
           "value": "742330112793"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -21929,6 +22459,8 @@
           "value": "742330010617"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -22018,6 +22550,8 @@
           "value": "742330043578"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -22093,6 +22627,8 @@
           "value": "742330186732"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -22145,6 +22681,8 @@
           "value": "742330049044"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -22228,6 +22766,8 @@
           "value": "742330044391"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -22289,6 +22829,8 @@
           "value": "742330194829"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -22368,6 +22910,8 @@
           "value": "742330049013"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -22423,6 +22967,8 @@
           "value": "742330039502"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -22493,6 +23039,8 @@
           "value": "742330043882"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -22580,6 +23128,8 @@
           "value": "742330106594"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -22663,6 +23213,8 @@
           "value": "742330045077"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -22743,6 +23295,8 @@
           "value": "742330200728"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -22821,6 +23375,8 @@
           "value": "742330088050"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -22879,6 +23435,8 @@
           "value": "742330194935"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -22965,6 +23523,8 @@
           "value": "742330194881"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -23029,6 +23589,8 @@
           "value": "Spin-On"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -23085,6 +23647,8 @@
           "value": "Cellulose"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -23254,6 +23818,8 @@
           "value": "Spin-On"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -23315,7 +23881,9 @@
           "value": "0.75 bar (11 psi)"
         }
       ],
-      "stock": "in_stock",
+      "checkAvailability": true,
+      "partNumberOnly": false,
+      "stock": "request",
       "refs": [],
       "crossReferences": [
         "C11105",
@@ -23370,6 +23938,8 @@
           "value": "742330045602"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -23429,6 +23999,8 @@
           "value": "JOHN DEERE RE59754"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -23543,6 +24115,8 @@
           "value": "742330043264"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -23597,6 +24171,8 @@
           "value": "Cartridge"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -23655,6 +24231,8 @@
           "value": "1.8 bar (26 psi)"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -23771,6 +24349,8 @@
           "value": "742330045176"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -23835,6 +24415,8 @@
           "value": "742330040256"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -24012,6 +24594,8 @@
           "value": "742330183656"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -24071,6 +24655,8 @@
           "value": "742330233559"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -24306,6 +24892,8 @@
           "value": "742330193419"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -24405,6 +24993,8 @@
           "value": "742330965238"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -24461,6 +25051,8 @@
           "value": "742330257272"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -24505,6 +25097,8 @@
           "value": "742330970591"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -24905,6 +25499,8 @@
       "spec": "FUEL FILTER, SPIN-ON",
       "imageUrl": "/images/products/donaldson/p550932.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -24965,6 +25561,8 @@
       "spec": "AIR FILTER KIT",
       "imageUrl": "/images/products/donaldson/x770689.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -24995,6 +25593,8 @@
       "spec": "FUEL FILTER, WATER SEPARATOR CARTRIDGE",
       "imageUrl": "/images/products/donaldson/r011812.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -25040,6 +25640,8 @@
       "spec": "FUEL FILTER, WATER SEPARATOR SPIN-ON",
       "imageUrl": "/images/products/donaldson/p955606.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -25133,6 +25735,8 @@
       "spec": "FUEL FILTER, CARTRIDGE",
       "imageUrl": "/images/products/donaldson/p550460.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -25148,6 +25752,8 @@
       "spec": "FUEL FILTER, WATER SEPARATOR SPIN-ON",
       "imageUrl": "/images/products/donaldson/p550904.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -25163,6 +25769,8 @@
       "spec": "FUEL FILTER, WATER SEPARATOR SPIN-ON",
       "imageUrl": "/images/products/donaldson/p551424.webp",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -25331,6 +25939,8 @@
           "value": "212 mm"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -25348,6 +25958,8 @@
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -25363,6 +25975,8 @@
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -25378,6 +25992,8 @@
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -25396,6 +26012,8 @@
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -25411,6 +26029,8 @@
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -25426,6 +26046,8 @@
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -25443,6 +26065,8 @@
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -25458,6 +26082,8 @@
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -25467,12 +26093,14 @@
       "id": "other-4570092941",
       "partNo": "4570092941",
       "partNoNorm": "4570092941",
-      "brand": "Other",
-      "title": "เสื้อกรอง 4570092941",
+      "brand": "MANN-FILTER",
+      "title": "อะไหล่ MANN+HUMMEL HD Europiclon 700",
       "category": "other",
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -25488,6 +26116,8 @@
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -25497,12 +26127,14 @@
       "id": "other-df5112",
       "partNo": "DF5112",
       "partNoNorm": "df5112",
-      "brand": "Other",
+      "brand": "SOTRAS",
       "title": "ไส้กรองแยกน้ำมัน DF5112",
       "category": "air_oil_separator",
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -25531,6 +26163,8 @@
           "value": "AF26531 + AF26532"
         }
       ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -25557,6 +26191,8 @@
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -25572,6 +26208,8 @@
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -25587,6 +26225,8 @@
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -25596,12 +26236,39 @@
       "id": "other-4900053601",
       "partNo": "4900053601",
       "partNoNorm": "4900053601",
-      "brand": "Other",
-      "title": "ไส้กรองแยกน้ำมัน 4900053601",
+      "brand": "MANN-FILTER",
+      "title": "กรองแยกน้ำมันออกจากอากาศ 4900053601",
       "category": "air_oil_separator",
-      "spec": "",
+      "spec": "LE5001X reference: OD 70 mm × ID 40 mm × H 200 mm",
       "imageUrl": "/images/placeholder.jpg",
-      "specifications": [],
+      "specifications": [
+        {
+          "label": "ข้อมูลสเปคอ้างอิง",
+          "value": "MANN-FILTER LE5001X (เบอร์ใช้แทนกันได้)"
+        },
+        {
+          "label": "Product Type",
+          "value": "Air-Oil Separator"
+        },
+        {
+          "label": "Outer Diameter",
+          "value": "70 mm"
+        },
+        {
+          "label": "Inner Diameter",
+          "value": "40 mm"
+        },
+        {
+          "label": "Height",
+          "value": "200 mm"
+        },
+        {
+          "label": "Gasket",
+          "value": "Included"
+        }
+      ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -25619,6 +26286,8 @@
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -25634,6 +26303,8 @@
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -25649,6 +26320,8 @@
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -25664,6 +26337,8 @@
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -25681,6 +26356,8 @@
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -25690,12 +26367,14 @@
       "id": "other-df5019",
       "partNo": "DF5019",
       "partNoNorm": "df5019",
-      "brand": "Other",
+      "brand": "SOTRAS",
       "title": "ไส้กรองแยกน้ำมัน DF5019",
       "category": "air_oil_separator",
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -25711,6 +26390,8 @@
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -25726,6 +26407,8 @@
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -25741,6 +26424,8 @@
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -25750,12 +26435,35 @@
       "id": "other-pl250",
       "partNo": "PL250",
       "partNoNorm": "pl250",
-      "brand": "Other",
-      "title": "กรองเชื้อเพลิงดักน้ำ PL250",
+      "brand": "MANN-FILTER",
+      "title": "กรองน้ำมันเชื้อเพลิง MANN-FILTER PreLine PL250",
       "category": "fuel_filter",
-      "spec": "",
-      "imageUrl": "/images/placeholder.jpg",
-      "specifications": [],
+      "spec": "OD 93 mm × H 190 mm • M16×1.5",
+      "imageUrl": "/images/products/mann/pl250.jpg",
+      "specifications": [
+        {
+          "label": "Outer Diameter A",
+          "value": "93 mm"
+        },
+        {
+          "label": "Gasket Inside Diameter B",
+          "value": "62 mm"
+        },
+        {
+          "label": "Gasket Outside Diameter C",
+          "value": "72 mm"
+        },
+        {
+          "label": "Thread G",
+          "value": "M16×1.5"
+        },
+        {
+          "label": "Height H",
+          "value": "190 mm"
+        }
+      ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -25771,6 +26479,8 @@
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -25788,6 +26498,8 @@
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -25803,6 +26515,8 @@
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -25818,6 +26532,8 @@
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -25833,6 +26549,8 @@
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -25842,18 +26560,44 @@
       "id": "other-aa90145r",
       "partNo": "AA90145R",
       "partNoNorm": "aa90145r",
-      "brand": "Other",
-      "title": "กรองอากาศ AA90145R",
+      "brand": "Fleetguard",
+      "title": "ชุดกรองอากาศ Fleetguard AA90145R",
       "category": "air_filter",
-      "spec": "",
+      "spec": "AF26614 + AF26613",
       "imageUrl": "/images/placeholder.jpg",
-      "specifications": [],
+      "specifications": [
+        {
+          "label": "Manufacturer Kit",
+          "value": "AA90145"
+        },
+        {
+          "label": "Kit Contents",
+          "value": "AF26614-1 + AF26613-1"
+        },
+        {
+          "label": "Country of Origin MRT",
+          "value": "China"
+        }
+      ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [
         "KAS345"
       ],
-      "pairedParts": []
+      "pairedParts": [
+        {
+          "partNo": "AF26614",
+          "relation": "outer",
+          "note": "กรองนอกในชุด AA90145"
+        },
+        {
+          "partNo": "AF26613",
+          "relation": "inner",
+          "note": "กรองใน ผู้ผลิตระบุไม่จำหน่ายแยก ตรวจสอบการจัดหาก่อนสั่งซื้อ"
+        }
+      ]
     },
     {
       "id": "donaldson-p502269",
@@ -25865,6 +26609,8 @@
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -25880,6 +26626,8 @@
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -25895,6 +26643,8 @@
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -25910,6 +26660,8 @@
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -25925,6 +26677,8 @@
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -25934,12 +26688,75 @@
       "id": "other-c085004",
       "partNo": "C085004",
       "partNoNorm": "c085004",
-      "brand": "Other",
-      "title": "กรองอากาศ C085004",
+      "brand": "Donaldson",
+      "title": "กรองอากาศ Donaldson DuraLite C085004",
       "category": "air_filter",
-      "spec": "",
-      "imageUrl": "/images/placeholder.jpg",
-      "specifications": [],
+      "spec": "OD 215.9 mm × L 241.3 mm • Outlet 76.2 mm",
+      "imageUrl": "/images/products/donaldson/c085004.jpg",
+      "specifications": [
+        {
+          "label": "Outlet Diameter",
+          "value": "76.2 mm"
+        },
+        {
+          "label": "Body Diameter Maximum",
+          "value": "215.9 mm"
+        },
+        {
+          "label": "Body Length",
+          "value": "241.3 mm"
+        },
+        {
+          "label": "Efficiency Test Standard",
+          "value": "ISO 5011"
+        },
+        {
+          "label": "Rated Flow LR",
+          "value": "4.8 m³/min"
+        },
+        {
+          "label": "Rated Flow MR",
+          "value": "5.8 m³/min"
+        },
+        {
+          "label": "Rated Flow HR",
+          "value": "6.9 m³/min"
+        },
+        {
+          "label": "Restriction LR",
+          "value": "10 mbar"
+        },
+        {
+          "label": "Restriction MR",
+          "value": "14.91 mbar"
+        },
+        {
+          "label": "Restriction HR",
+          "value": "19.91 mbar"
+        },
+        {
+          "label": "Family",
+          "value": "ECC"
+        },
+        {
+          "label": "Type",
+          "value": "Primary"
+        },
+        {
+          "label": "Style",
+          "value": "Round"
+        },
+        {
+          "label": "Media Type",
+          "value": "Cellulose"
+        },
+        {
+          "label": "UPC",
+          "value": "742330000960"
+        }
+      ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -25955,6 +26772,8 @@
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -25970,6 +26789,8 @@
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -25985,6 +26806,8 @@
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -26000,6 +26823,8 @@
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -26015,6 +26840,8 @@
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -26032,6 +26859,8 @@
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -26047,6 +26876,8 @@
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -26062,6 +26893,8 @@
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -26077,6 +26910,8 @@
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -26103,6 +26938,8 @@
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -26118,6 +26955,8 @@
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -26133,6 +26972,8 @@
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -26148,6 +26989,8 @@
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -26159,12 +27002,14 @@
       "id": "other-sa6069",
       "partNo": "SA6069",
       "partNoNorm": "sa6069",
-      "brand": "Other",
+      "brand": "SOTRAS",
       "title": "กรองอากาศ SA6069",
       "category": "air_filter",
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -26180,6 +27025,8 @@
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -26195,6 +27042,8 @@
       "spec": "",
       "imageUrl": "/images/products/donaldson/p550861.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -26210,6 +27059,8 @@
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -26229,6 +27080,8 @@
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -26244,6 +27097,8 @@
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -26259,6 +27114,8 @@
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -26274,6 +27131,8 @@
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -26289,6 +27148,8 @@
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -26304,6 +27165,8 @@
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -26319,6 +27182,8 @@
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -26338,6 +27203,8 @@
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -26353,6 +27220,8 @@
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -26370,6 +27239,8 @@
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -26385,6 +27256,8 @@
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -26400,6 +27273,8 @@
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -26415,6 +27290,8 @@
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -26430,6 +27307,8 @@
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -26448,6 +27327,8 @@
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -26463,6 +27344,8 @@
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -26478,6 +27361,8 @@
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -26493,6 +27378,8 @@
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -26508,6 +27395,8 @@
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -26523,6 +27412,8 @@
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -26538,6 +27429,8 @@
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -26553,6 +27446,8 @@
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -26568,6 +27463,8 @@
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -26583,6 +27480,8 @@
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -26598,6 +27497,8 @@
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -26613,6 +27514,8 @@
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -26628,6 +27531,8 @@
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -26643,6 +27548,8 @@
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -26658,6 +27565,8 @@
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -26673,6 +27582,8 @@
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -26688,6 +27599,8 @@
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -26705,6 +27618,8 @@
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -26720,6 +27635,8 @@
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -26735,6 +27652,8 @@
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -26750,6 +27669,8 @@
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -26765,6 +27686,8 @@
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -26780,6 +27703,8 @@
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -26795,6 +27720,8 @@
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -26810,6 +27737,8 @@
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -26825,6 +27754,8 @@
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -26840,6 +27771,8 @@
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -26855,6 +27788,8 @@
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -26870,6 +27805,8 @@
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -26885,6 +27822,8 @@
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -26900,6 +27839,8 @@
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -26915,6 +27856,8 @@
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -26930,6 +27873,8 @@
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -26945,6 +27890,8 @@
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -26960,6 +27907,8 @@
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -26977,6 +27926,8 @@
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -26992,6 +27943,8 @@
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -27007,6 +27960,8 @@
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -27022,6 +27977,8 @@
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -27037,6 +27994,8 @@
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -27052,6 +28011,8 @@
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -27067,6 +28028,8 @@
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -27082,6 +28045,8 @@
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -27097,6 +28062,8 @@
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -27112,6 +28079,8 @@
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -27127,6 +28096,8 @@
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -27142,6 +28113,8 @@
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -27157,6 +28130,8 @@
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -27172,6 +28147,8 @@
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -27187,6 +28164,8 @@
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -27202,6 +28181,8 @@
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -27217,6 +28198,8 @@
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -27232,6 +28215,8 @@
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -27242,15 +28227,41 @@
       "partNo": "KAS282",
       "partNoNorm": "kas282",
       "brand": "K-FLO",
-      "title": "กรองอากาศ KAS282",
+      "title": "ชุดกรองอากาศ K-FLO KAS282",
       "category": "air_filter",
-      "spec": "",
+      "spec": "Equivalent kit: C30850/2 + CF1600",
       "imageUrl": "/images/placeholder.jpg",
-      "specifications": [],
+      "specifications": [
+        {
+          "label": "Equivalent Kit",
+          "value": "MANN-FILTER C30850/2 + CF1600"
+        },
+        {
+          "label": "Reference Outer Filter",
+          "value": "C30850/2: OD 303 mm × ID 191 mm × H 476 mm"
+        },
+        {
+          "label": "Reference Inner Filter",
+          "value": "CF1600: OD 161 mm × ID 145 mm × H 471 mm"
+        }
+      ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
-      "pairedParts": []
+      "pairedParts": [
+        {
+          "partNo": "C 30 850/2",
+          "relation": "outer",
+          "note": "กรองนอก MANN-FILTER ของชุดเทียบ ดูสเปคที่หน้าสินค้า"
+        },
+        {
+          "partNo": "CF 1600",
+          "relation": "inner",
+          "note": "กรองใน MANN-FILTER ของชุดเทียบ ดูสเปคที่หน้าสินค้า"
+        }
+      ]
     },
     {
       "id": "other-khl1178",
@@ -27262,6 +28273,8 @@
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -27277,6 +28290,8 @@
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -27292,6 +28307,8 @@
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -27309,6 +28326,8 @@
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -27326,6 +28345,8 @@
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -27341,6 +28362,8 @@
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -27356,6 +28379,8 @@
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -27371,6 +28396,8 @@
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -27388,6 +28415,8 @@
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -27403,6 +28432,8 @@
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [
@@ -27421,6 +28452,8 @@
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -27436,6 +28469,8 @@
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": true,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -27451,6 +28486,8 @@
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -27472,6 +28509,8 @@
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
       "specifications": [],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -27480,6 +28519,169 @@
           "partNo": "AA90138-R",
           "relation": "paired",
           "note": "เลือกขอราคาทั้งชุด AA90138-R ซึ่งประกอบด้วย AF26531 และ AF26532"
+        }
+      ]
+    },
+    {
+      "id": "mannfilter-le5001x",
+      "partNo": "LE5001X",
+      "partNoNorm": "le5001x",
+      "brand": "MANN-FILTER",
+      "title": "กรองแยกน้ำมันออกจากอากาศ LE5001X",
+      "category": "oil_separator",
+      "spec": "OD 70 mm × ID 40 mm × H 200 mm",
+      "imageUrl": "/images/placeholder.jpg",
+      "specifications": [
+        {
+          "label": "Product Type",
+          "value": "Air-Oil Separator"
+        },
+        {
+          "label": "Outer Diameter",
+          "value": "70 mm"
+        },
+        {
+          "label": "Inner Diameter",
+          "value": "40 mm"
+        },
+        {
+          "label": "Height",
+          "value": "200 mm"
+        },
+        {
+          "label": "Gasket",
+          "value": "Included"
+        }
+      ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
+      "stock": "request",
+      "refs": [],
+      "crossReferences": [
+        "4900053601"
+      ],
+      "pairedParts": []
+    },
+    {
+      "id": "fleetguard-af26614",
+      "partNo": "AF26614",
+      "partNoNorm": "af26614",
+      "brand": "Fleetguard",
+      "title": "กรองอากาศ Primary Fleetguard AF26614",
+      "category": "air_filter",
+      "spec": "OD 198.1 mm × L 342 mm",
+      "imageUrl": "/images/placeholder.jpg",
+      "specifications": [
+        {
+          "label": "Type",
+          "value": "Primary"
+        },
+        {
+          "label": "Outer Diameter",
+          "value": "198.1 mm"
+        },
+        {
+          "label": "Length",
+          "value": "342 mm"
+        },
+        {
+          "label": "Inner Diameter",
+          "value": "110 mm"
+        },
+        {
+          "label": "Media Type",
+          "value": "Cellulose"
+        },
+        {
+          "label": "Full Life Efficiency",
+          "value": "99.9%"
+        }
+      ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
+      "stock": "request",
+      "refs": [],
+      "crossReferences": [],
+      "pairedParts": [
+        {
+          "partNo": "AF26613",
+          "relation": "inner",
+          "note": "ใช้ร่วมกันในชุด AA90145"
+        }
+      ]
+    },
+    {
+      "id": "fleetguard-af26613",
+      "partNo": "AF26613",
+      "partNoNorm": "af26613",
+      "brand": "Fleetguard",
+      "title": "กรองอากาศ Secondary Fleetguard AF26613",
+      "category": "air_filter",
+      "spec": "OD 106.9 mm × L 321 mm",
+      "imageUrl": "/images/placeholder.jpg",
+      "specifications": [
+        {
+          "label": "Type",
+          "value": "Secondary"
+        },
+        {
+          "label": "Outer Diameter",
+          "value": "106.9 mm"
+        },
+        {
+          "label": "Length",
+          "value": "321 mm"
+        }
+      ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
+      "stock": "request",
+      "refs": [],
+      "crossReferences": [],
+      "pairedParts": [
+        {
+          "partNo": "AF26614",
+          "relation": "outer",
+          "note": "ใช้ร่วมกันในชุด AA90145"
+        }
+      ]
+    },
+    {
+      "id": "kflo-kas345",
+      "partNo": "KAS345",
+      "partNoNorm": "kas345",
+      "brand": "K-FLO",
+      "title": "ชุดกรองอากาศ K-FLO KAS345",
+      "category": "air_filter",
+      "spec": "Equivalent kit: AA90145R (AF26614 + AF26613)",
+      "imageUrl": "/images/placeholder.jpg",
+      "specifications": [
+        {
+          "label": "Equivalent Kit",
+          "value": "Fleetguard AA90145R"
+        },
+        {
+          "label": "Reference Kit Contents",
+          "value": "AF26614 + AF26613"
+        }
+      ],
+      "checkAvailability": true,
+      "partNumberOnly": false,
+      "stock": "request",
+      "refs": [],
+      "crossReferences": [
+        "AA90145R"
+      ],
+      "pairedParts": [
+        {
+          "partNo": "AF26614",
+          "relation": "outer",
+          "note": "กรองนอกของชุด Fleetguard ที่ใช้เทียบ ไม่ใช่รหัสชิ้นส่วน K-FLO"
+        },
+        {
+          "partNo": "AF26613",
+          "relation": "inner",
+          "note": "กรองในของชุด Fleetguard ที่ใช้เทียบ ไม่ใช่รหัสชิ้นส่วน K-FLO"
         }
       ]
     },
@@ -29036,7 +30238,8 @@
       "other-kas297",
       "other-kas282",
       "other-kas199",
-      "other-ka043"
+      "other-ka043",
+      "kflo-kas345"
     ],
     "ks": [
       "other-kse1047"
@@ -29057,7 +30260,12 @@
     ],
     "af": [
       "fleetguard-af26531",
-      "fleetguard-af26532"
+      "fleetguard-af26532",
+      "fleetguard-af26614",
+      "fleetguard-af26613"
+    ],
+    "le": [
+      "mannfilter-le5001x"
     ],
     "cu": [
       "mannfilter-cu31001"
@@ -29931,7 +31139,8 @@
     "kas": [
       "other-kas297",
       "other-kas282",
-      "other-kas199"
+      "other-kas199",
+      "kflo-kas345"
     ],
     "kse": [
       "other-kse1047"
@@ -29963,7 +31172,12 @@
     ],
     "af2": [
       "fleetguard-af26531",
-      "fleetguard-af26532"
+      "fleetguard-af26532",
+      "fleetguard-af26614",
+      "fleetguard-af26613"
+    ],
+    "le5": [
+      "mannfilter-le5001x"
     ],
     "cu3": [
       "mannfilter-cu31001"
@@ -31086,7 +32300,15 @@
     ],
     "af26": [
       "fleetguard-af26531",
-      "fleetguard-af26532"
+      "fleetguard-af26532",
+      "fleetguard-af26614",
+      "fleetguard-af26613"
+    ],
+    "le50": [
+      "mannfilter-le5001x"
+    ],
+    "kas3": [
+      "kflo-kas345"
     ],
     "p784": [
       "donaldson-p784473"
@@ -31200,6 +32422,7 @@
       "donaldson-p550012",
       "donaldson-p505982",
       "donaldson-p171520",
+      "other-c085004",
       "donaldson-p550225",
       "donaldson-p551853",
       "donaldson-p551026",
@@ -31454,6 +32677,7 @@
       "donaldson-p556245",
       "donaldson-p505982",
       "donaldson-p502643",
+      "other-c085004",
       "donaldson-p551853",
       "donaldson-p551026",
       "donaldson-p954895"
@@ -31678,7 +32902,8 @@
       "donaldson-p781399",
       "donaldson-p902311",
       "donaldson-p556287",
-      "donaldson-p556245"
+      "donaldson-p556245",
+      "other-c085004"
     ],
     "20": [
       "donaldson-p555461",
@@ -31976,6 +33201,7 @@
       "donaldson-p550026",
       "donaldson-p502193",
       "donaldson-r010077",
+      "other-kas282",
       "donaldson-p551853",
       "donaldson-p954895"
     ],
@@ -32162,6 +33388,8 @@
       "donaldson-p550484",
       "donaldson-p554770",
       "donaldson-p502193",
+      "other-4900053601",
+      "mannfilter-le5001x",
       "donaldson-p502007",
       "donaldson-p550453"
     ],
@@ -32576,6 +33804,7 @@
       "donaldson-p550106",
       "donaldson-p502913",
       "donaldson-r011836",
+      "other-pl250",
       "ntn-6210c3",
       "ntn-6205cm",
       "ntn-6205c3",
@@ -32762,6 +33991,8 @@
       "donaldson-p554770",
       "donaldson-p171520",
       "donaldson-p502522",
+      "other-4900053601",
+      "mannfilter-le5001x",
       "donaldson-p954895"
     ],
     "71": [
@@ -32851,7 +34082,8 @@
       "donaldson-p550750",
       "donaldson-p554770",
       "donaldson-p502193",
-      "mann-wd962-32"
+      "mann-wd962-32",
+      "other-pl250"
     ],
     "73": [
       "donaldson-p131394",
@@ -32974,6 +34206,7 @@
       "donaldson-p171520",
       "donaldson-p182034",
       "donaldson-p535365",
+      "other-c085004",
       "donaldson-p550453",
       "donaldson-p903541"
     ],
@@ -33299,6 +34532,7 @@
       "donaldson-p550012",
       "donaldson-p502643",
       "donaldson-p158678",
+      "other-c085004",
       "donaldson-p502007",
       "donaldson-p506115"
     ],
@@ -33385,7 +34619,8 @@
       "donaldson-p550939",
       "donaldson-p550909",
       "donaldson-p550106",
-      "mann-wd962-32"
+      "mann-wd962-32",
+      "other-pl250"
     ],
     "94": [
       "donaldson-b105012",
@@ -33688,6 +34923,7 @@
       "donaldson-r800103",
       "donaldson-p182034",
       "donaldson-p535365",
+      "fleetguard-af26614",
       "donaldson-p552050",
       "donaldson-p550225",
       "donaldson-p550453",
@@ -33807,7 +35043,8 @@
       "donaldson-p550148",
       "donaldson-p500196",
       "donaldson-p812924",
-      "donaldson-p550012"
+      "donaldson-p550012",
+      "fleetguard-af26613"
     ],
     "107": [
       "donaldson-p550084",
@@ -33861,6 +35098,7 @@
       "donaldson-p551257",
       "donaldson-p551381",
       "donaldson-p554105",
+      "fleetguard-af26614",
       "donaldson-p552050",
       "donaldson-p781466",
       "donaldson-p506115"
@@ -34138,7 +35376,8 @@
       "donaldson-p173055",
       "donaldson-p173238",
       "donaldson-p171520",
-      "mann-cf1600"
+      "mann-cf1600",
+      "other-kas282"
     ],
     "146": [
       "donaldson-p782105",
@@ -34234,7 +35473,8 @@
     "161": [
       "donaldson-p778972",
       "mann-c23115",
-      "mann-cf1600"
+      "mann-cf1600",
+      "other-kas282"
     ],
     "162": [
       "donaldson-p119373",
@@ -34359,9 +35599,13 @@
     "189": [
       "mann-batch9-wk842-2"
     ],
+    "190": [
+      "other-pl250"
+    ],
     "191": [
       "mann-batch1-c30850-2",
-      "mann-batch3-c30703"
+      "mann-batch3-c30703",
+      "other-kas282"
     ],
     "192": [
       "donaldson-p782109"
@@ -34395,6 +35639,7 @@
       "donaldson-p771561",
       "mann-batch2-c20325-2",
       "mann-batch10-cf810",
+      "fleetguard-af26614",
       "donaldson-p955737"
     ],
     "199": [
@@ -34426,7 +35671,9 @@
       "donaldson-p765075",
       "donaldson-p166136",
       "donaldson-p557380",
-      "donaldson-p171520"
+      "donaldson-p171520",
+      "other-4900053601",
+      "mannfilter-le5001x"
     ],
     "201": [
       "donaldson-p181045",
@@ -34491,7 +35738,8 @@
     ],
     "215": [
       "donaldson-c085002",
-      "donaldson-p780006"
+      "donaldson-p780006",
+      "other-c085004"
     ],
     "216": [
       "mann-batch7-wdk9002",
@@ -34581,7 +35829,8 @@
     ],
     "241": [
       "donaldson-p782105",
-      "mann-c23115"
+      "mann-c23115",
+      "other-c085004"
     ],
     "243": [
       "donaldson-p551026"
@@ -34765,7 +36014,8 @@
     "303": [
       "mann-batch1-c30850-2",
       "mann-batch3-c30703",
-      "donaldson-p778335"
+      "donaldson-p778335",
+      "other-kas282"
     ],
     "304": [
       "donaldson-p127315",
@@ -34815,7 +36065,8 @@
       "mann-c14200"
     ],
     "321": [
-      "donaldson-p827653"
+      "donaldson-p827653",
+      "fleetguard-af26613"
     ],
     "323": [
       "donaldson-p181009",
@@ -34866,7 +36117,8 @@
       "donaldson-p181118",
       "donaldson-p181104",
       "donaldson-p537449",
-      "donaldson-p182034"
+      "donaldson-p182034",
+      "fleetguard-af26614"
     ],
     "343": [
       "donaldson-p181034",
@@ -35106,13 +36358,15 @@
       "donaldson-p812160"
     ],
     "471": [
-      "mann-cf1600"
+      "mann-cf1600",
+      "other-kas282"
     ],
     "475": [
       "donaldson-p500940"
     ],
     "476": [
-      "mann-batch1-c30850-2"
+      "mann-batch1-c30850-2",
+      "other-kas282"
     ],
     "480": [
       "donaldson-c105003",
@@ -35312,6 +36566,9 @@
     "678": [
       "donaldson-b105006"
     ],
+    "700": [
+      "other-4570092941"
+    ],
     "703": [
       "mann-batch3-c30703"
     ],
@@ -35390,7 +36647,8 @@
       "mann-batch1-c713"
     ],
     "850": [
-      "mann-batch1-c30850-2"
+      "mann-batch1-c30850-2",
+      "other-kas282"
     ],
     "858": [
       "mann-c1112-2",
@@ -35559,7 +36817,8 @@
     "1600": [
       "mann-batch1-c30850-2",
       "donaldson-p777551",
-      "mann-cf1600"
+      "mann-cf1600",
+      "other-kas282"
     ],
     "1611": [
       "donaldson-p550422",
@@ -35811,6 +37070,7 @@
       "donaldson-r800103",
       "donaldson-p182034",
       "donaldson-p535365",
+      "other-c085004",
       "donaldson-p784473"
     ],
     "5240": [
@@ -36775,6 +38035,7 @@
       "donaldson-p173489",
       "donaldson-p176324",
       "donaldson-p136255",
+      "other-c085004",
       "donaldson-p763995",
       "donaldson-x002251",
       "donaldson-p821963",
@@ -37392,11 +38653,13 @@
       "other-kw2140c1",
       "mann-filter-w1374-6",
       "donaldson-p821883",
+      "other-4570092941",
       "donaldson-p785965",
       "other-aa90138-r",
       "donaldson-p533930",
       "donaldson-p608766",
       "mann-filter-c18902",
+      "other-4900053601",
       "other-cb3030",
       "donaldson-g065424",
       "donaldson-p502667",
@@ -37482,6 +38745,10 @@
       "other-khl1080",
       "fleetguard-af26531",
       "fleetguard-af26532",
+      "mannfilter-le5001x",
+      "fleetguard-af26614",
+      "fleetguard-af26613",
+      "kflo-kas345",
       "donaldson-p552050",
       "donaldson-p550225",
       "donaldson-p551853",
@@ -37917,6 +39184,13 @@
       "donaldson-p534436",
       "mann-cf1600",
       "mann-wd962-32",
+      "other-4900053601",
+      "other-pl250",
+      "other-c085004",
+      "other-kas282",
+      "mannfilter-le5001x",
+      "fleetguard-af26614",
+      "fleetguard-af26613",
       "donaldson-p552050",
       "donaldson-p550225",
       "donaldson-p551853",
@@ -38291,6 +39565,13 @@
       "donaldson-p535365",
       "mann-cf1600",
       "mann-wd962-32",
+      "other-4900053601",
+      "other-pl250",
+      "other-c085004",
+      "other-kas282",
+      "mannfilter-le5001x",
+      "fleetguard-af26614",
+      "fleetguard-af26613",
       "donaldson-p552050",
       "donaldson-p550225",
       "donaldson-p551853",
@@ -38609,6 +39890,9 @@
       "donaldson-p534436",
       "mann-cf1600",
       "mann-wd962-32",
+      "other-4900053601",
+      "other-kas282",
+      "mannfilter-le5001x",
       "donaldson-p552050",
       "donaldson-p550225",
       "donaldson-p551853",
@@ -39155,6 +40439,12 @@
       "donaldson-p535365",
       "mann-cf1600",
       "mann-wd962-32",
+      "other-4900053601",
+      "other-pl250",
+      "other-kas282",
+      "mannfilter-le5001x",
+      "fleetguard-af26614",
+      "fleetguard-af26613",
       "donaldson-p552050",
       "donaldson-p550225",
       "donaldson-p551853",
@@ -39526,6 +40816,12 @@
       "donaldson-p535365",
       "mann-cf1600",
       "mann-wd962-32",
+      "other-4900053601",
+      "other-pl250",
+      "other-c085004",
+      "mannfilter-le5001x",
+      "fleetguard-af26614",
+      "fleetguard-af26613",
       "donaldson-p552050",
       "donaldson-p550225",
       "donaldson-p551853",
@@ -40068,6 +41364,10 @@
       "donaldson-p535365",
       "mann-cf1600",
       "mann-wd962-32",
+      "other-4900053601",
+      "other-kas282",
+      "mannfilter-le5001x",
+      "fleetguard-af26614",
       "donaldson-p550453",
       "mannfilter-hu721x",
       "donaldson-p506115"
@@ -40365,6 +41665,9 @@
       "donaldson-r800103",
       "donaldson-p182034",
       "donaldson-p535365",
+      "other-c085004",
+      "fleetguard-af26614",
+      "fleetguard-af26613",
       "donaldson-p552050",
       "donaldson-p550225",
       "donaldson-p551853",
@@ -40711,6 +42014,8 @@
       "donaldson-r800103",
       "donaldson-p182034",
       "donaldson-p535365",
+      "other-c085004",
+      "fleetguard-af26614",
       "donaldson-p552050",
       "donaldson-p550225",
       "donaldson-p551853",
@@ -41602,6 +42907,7 @@
       "donaldson-r800103",
       "donaldson-p182034",
       "donaldson-p535365",
+      "other-c085004",
       "donaldson-p552050",
       "donaldson-p550225",
       "donaldson-p502007",
@@ -41840,6 +43146,8 @@
       "donaldson-r800103",
       "donaldson-p182034",
       "donaldson-p535365",
+      "other-c085004",
+      "fleetguard-af26614",
       "donaldson-p552050",
       "donaldson-p550225",
       "donaldson-p502007",
@@ -42278,6 +43586,11 @@
       "donaldson-p535365",
       "mann-cf1600",
       "mann-wd962-32",
+      "other-4900053601",
+      "other-c085004",
+      "mannfilter-le5001x",
+      "fleetguard-af26614",
+      "fleetguard-af26613",
       "donaldson-p552050",
       "donaldson-p550225",
       "donaldson-p551853",
@@ -42448,6 +43761,8 @@
       "donaldson-r800103",
       "donaldson-p182034",
       "donaldson-p535365",
+      "other-c085004",
+      "fleetguard-af26614",
       "donaldson-p552050",
       "donaldson-p550225",
       "donaldson-p502007",
@@ -42655,6 +43970,8 @@
       "donaldson-b105002",
       "donaldson-p785590",
       "donaldson-p777871",
+      "other-c085004",
+      "fleetguard-af26614",
       "donaldson-p552050",
       "donaldson-p502007",
       "donaldson-p550453",
@@ -43103,6 +44420,7 @@
       "donaldson-r800103",
       "donaldson-p182034",
       "donaldson-p535365",
+      "other-c085004",
       "donaldson-p552050",
       "donaldson-p550225",
       "donaldson-p551853",
@@ -44057,6 +45375,10 @@
       "other-kf007",
       "fleetguard-af26531",
       "fleetguard-af26532",
+      "mannfilter-le5001x",
+      "fleetguard-af26614",
+      "fleetguard-af26613",
+      "kflo-kas345",
       "donaldson-p781466",
       "donaldson-p784473",
       "mannfilter-cu31001",
@@ -44076,7 +45398,8 @@
       "donaldson-p537449",
       "donaldson-p550390",
       "donaldson-p550012",
-      "donaldson-p166416"
+      "donaldson-p166416",
+      "other-c085004"
     ],
     "body": [
       "donaldson-x770088",
@@ -44088,7 +45411,8 @@
       "donaldson-c105003",
       "donaldson-c105004",
       "donaldson-p537449",
-      "donaldson-p500199"
+      "donaldson-p500199",
+      "other-c085004"
     ],
     "max": [
       "donaldson-x770088",
@@ -44110,7 +45434,8 @@
       "donaldson-c085002",
       "donaldson-c105003",
       "donaldson-c105004",
-      "donaldson-b105002"
+      "donaldson-b105002",
+      "other-c085004"
     ],
     "maximum": [
       "donaldson-x770088",
@@ -44121,7 +45446,8 @@
       "donaldson-c085002",
       "donaldson-c105003",
       "donaldson-p537449",
-      "donaldson-p500199"
+      "donaldson-p500199",
+      "other-c085004"
     ],
     "rated": [
       "donaldson-x770088",
@@ -44132,7 +45458,8 @@
       "donaldson-c105003",
       "donaldson-c105004",
       "fleetguard-lf14000nn",
-      "donaldson-p537449"
+      "donaldson-p537449",
+      "other-c085004"
     ],
     "flow": [
       "donaldson-x770088",
@@ -44209,6 +45536,7 @@
       "donaldson-p554770",
       "donaldson-r010077",
       "donaldson-p502363",
+      "other-c085004",
       "donaldson-p552050",
       "donaldson-p502007"
     ],
@@ -44250,6 +45578,7 @@
       "donaldson-p554770",
       "donaldson-p166416",
       "donaldson-p171520",
+      "other-c085004",
       "donaldson-p502007"
     ],
     "m3": [
@@ -44270,7 +45599,8 @@
       "donaldson-c105003",
       "donaldson-c105004",
       "fleetguard-lf14000nn",
-      "donaldson-p537449"
+      "donaldson-p537449",
+      "other-c085004"
     ],
     "cfm": [
       "donaldson-x770088",
@@ -44289,7 +45619,8 @@
       "donaldson-b105036",
       "donaldson-c085002",
       "donaldson-c105003",
-      "donaldson-c105004"
+      "donaldson-c105004",
+      "other-c085004"
     ],
     "hr": [
       "donaldson-x770088",
@@ -44318,6 +45649,7 @@
       "donaldson-p555680",
       "donaldson-p550939",
       "donaldson-r010077",
+      "other-c085004",
       "donaldson-p502007"
     ],
     "restriction": [
@@ -44328,7 +45660,8 @@
       "donaldson-c085002",
       "donaldson-c105003",
       "donaldson-c105004",
-      "donaldson-p537449"
+      "donaldson-p537449",
+      "other-c085004"
     ],
     "mbar": [
       "donaldson-x770088",
@@ -44338,7 +45671,8 @@
       "donaldson-c085002",
       "donaldson-c105003",
       "donaldson-c105004",
-      "donaldson-p537449"
+      "donaldson-p537449",
+      "other-c085004"
     ],
     "h2o": [
       "donaldson-x770088",
@@ -44450,7 +45784,8 @@
       "donaldson-p158678",
       "donaldson-r800103",
       "donaldson-p182034",
-      "donaldson-p535365"
+      "donaldson-p535365",
+      "other-c085004"
     ],
     "brand": [
       "donaldson-x770088",
@@ -44745,6 +46080,7 @@
       "donaldson-r800103",
       "donaldson-p182034",
       "donaldson-p535365",
+      "other-c085004",
       "donaldson-p552050",
       "donaldson-p550225",
       "donaldson-p551853",
@@ -45066,6 +46402,7 @@
       "donaldson-r800103",
       "donaldson-p182034",
       "donaldson-p535365",
+      "other-c085004",
       "donaldson-p552050",
       "donaldson-p551853",
       "donaldson-p551026",
@@ -45110,7 +46447,8 @@
       "donaldson-p822686",
       "donaldson-p533781",
       "donaldson-x770691",
-      "donaldson-p182034"
+      "donaldson-p182034",
+      "other-c085004"
     ],
     "ecb": [
       "donaldson-b105006",
@@ -45183,7 +46521,8 @@
     ],
     "ecc": [
       "donaldson-c085002",
-      "donaldson-c105003"
+      "donaldson-c105003",
+      "other-c085004"
     ],
     "742330000946": [
       "donaldson-c085002"
@@ -45744,6 +47083,9 @@
       "donaldson-p502643",
       "mann-cf1600",
       "mann-wd962-32",
+      "other-4900053601",
+      "other-pl250",
+      "mannfilter-le5001x",
       "donaldson-p784473",
       "mannfilter-hu721x",
       "mannfilter-cu31001",
@@ -46704,6 +48046,7 @@
       "donaldson-r010077",
       "donaldson-r011836",
       "mann-wd962-32",
+      "other-pl250",
       "donaldson-p552050",
       "donaldson-p550225",
       "donaldson-p551853",
@@ -47038,6 +48381,9 @@
       "donaldson-p502643",
       "donaldson-r011836",
       "mann-wd962-32",
+      "other-4900053601",
+      "other-pl250",
+      "mannfilter-le5001x",
       "donaldson-p552050",
       "donaldson-p550225",
       "donaldson-p551853",
@@ -47312,6 +48658,7 @@
       "other-z-opl-05",
       "other-1-omd180",
       "other-1-oks440",
+      "fleetguard-af26614",
       "donaldson-p552050",
       "donaldson-p502007"
     ],
@@ -47415,6 +48762,7 @@
       "other-bo102",
       "other-bo234",
       "other-kse1047",
+      "mannfilter-le5001x",
       "mannfilter-hu721x"
     ],
     "un": [
@@ -47727,14 +49075,19 @@
       "mann-wd962-32",
       "mann-filter-c1140",
       "mann-filter-w1374-6",
+      "other-4570092941",
       "mann-filter-c18902",
+      "other-4900053601",
       "mann-filter-c1574",
       "mann-filter-lb13145-21",
+      "other-pl250",
       "mann-filter-wd724-6",
       "mann-filter-w712",
       "mann-filter-c1368",
       "mann-filter-tb1394-1x",
       "mann-filter-cf1280",
+      "other-kas282",
+      "mannfilter-le5001x",
       "mannfilter-hu721x",
       "mannfilter-cu31001"
     ],
@@ -47768,8 +49121,12 @@
       "donaldson-p505982",
       "donaldson-p502643",
       "other-aa90138-r",
+      "other-aa90145r",
       "fleetguard-af26531",
-      "fleetguard-af26532"
+      "fleetguard-af26532",
+      "fleetguard-af26614",
+      "fleetguard-af26613",
+      "kflo-kas345"
     ],
     "af26399": [
       "donaldson-p782105",
@@ -48028,7 +49385,8 @@
       "donaldson-p554620",
       "donaldson-p550588",
       "donaldson-p550440",
-      "donaldson-p553004"
+      "donaldson-p553004",
+      "other-pl250"
     ],
     "fc6202": [
       "donaldson-p554620"
@@ -48192,6 +49550,7 @@
       "donaldson-p550880",
       "donaldson-p836245",
       "mann-cf1600",
+      "fleetguard-af26613",
       "donaldson-p550225"
     ],
     "p550880": [
@@ -48231,7 +49590,8 @@
       "other-ka043",
       "other-kh140a",
       "other-kh692ll",
-      "other-khl1080"
+      "other-khl1080",
+      "kflo-kas345"
     ],
     "ka460": [
       "donaldson-p771561",
@@ -48372,7 +49732,8 @@
       "mann-batch10-cf810",
       "donaldson-p777551",
       "mann-cf1600",
-      "mann-filter-cf1280"
+      "mann-filter-cf1280",
+      "other-kas282"
     ],
     "p778984": [
       "donaldson-p780024",
@@ -49400,6 +50761,7 @@
       "other-df5019",
       "mann-filter-lb13145-21",
       "other-kse1047",
+      "mannfilter-le5001x",
       "donaldson-p551853",
       "donaldson-p551026",
       "donaldson-p954895",
@@ -50247,6 +51609,9 @@
       "donaldson-p550065",
       "donaldson-x770691",
       "donaldson-x770689",
+      "other-aa90145r",
+      "other-kas282",
+      "kflo-kas345",
       "mannfilter-hu721x"
     ],
     "mitsubishi": [
@@ -50363,7 +51728,9 @@
       "donaldson-r000958",
       "donaldson-p502477",
       "mann-cf1600",
-      "mann-wd962-32"
+      "mann-wd962-32",
+      "other-4900053601",
+      "mannfilter-le5001x"
     ],
     "742330040584": [
       "donaldson-p550065"
@@ -51046,7 +52413,8 @@
       "donaldson-p158678",
       "donaldson-r800103",
       "donaldson-p182034",
-      "donaldson-p535365"
+      "donaldson-p535365",
+      "other-c085004"
     ],
     "742330025352": [
       "donaldson-p181034"
@@ -52649,7 +54017,8 @@
       "mann-batch2-cf300",
       "mann-batch3-cf200",
       "mann-batch3-c30810-3",
-      "mann-batch10-cf810"
+      "mann-batch10-cf810",
+      "other-4570092941"
     ],
     "4011558152505": [
       "mann-c20500"
@@ -52820,7 +54189,8 @@
       "mann-batch1-c30850-2"
     ],
     "c308502": [
-      "mann-batch1-c30850-2"
+      "mann-batch1-c30850-2",
+      "other-kas282"
     ],
     "c3": [
       "mann-batch1-c30850-2",
@@ -53436,7 +54806,8 @@
     "of": [
       "mann-batch9-wk842-2",
       "mann-batch9-wk723",
-      "mann-batch9-wk1060-1"
+      "mann-batch9-wk1060-1",
+      "other-aa90145r"
     ],
     "wk8": [
       "mann-batch9-wk842-2"
@@ -53545,7 +54916,8 @@
       "other-pl250"
     ],
     "preline": [
-      "mann-batch9-pl420x"
+      "mann-batch9-pl420x",
+      "other-pl250"
     ],
     "055": [
       "mann-batch9-pl420x"
@@ -53620,7 +54992,8 @@
       "donaldson-p551315"
     ],
     "outside": [
-      "donaldson-p551315"
+      "donaldson-p551315",
+      "other-pl250"
     ],
     "lf14000nn": [
       "fleetguard-lf14000nn"
@@ -53638,7 +55011,8 @@
       "fleetguard-lf14000nn"
     ],
     "inside": [
-      "fleetguard-lf14000nn"
+      "fleetguard-lf14000nn",
+      "other-pl250"
     ],
     "kpa": [
       "fleetguard-lf14000nn"
@@ -53668,7 +55042,8 @@
       "fleetguard-lf14000nn"
     ],
     "china": [
-      "fleetguard-lf14000nn"
+      "fleetguard-lf14000nn",
+      "other-aa90145r"
     ],
     "europe": [
       "fleetguard-lf14000nn"
@@ -53715,7 +55090,10 @@
       "donaldson-p551864"
     ],
     "reference": [
-      "fleetguard-fs1242"
+      "fleetguard-fs1242",
+      "other-4900053601",
+      "other-kas282",
+      "kflo-kas345"
     ],
     "fs": [
       "fleetguard-fs1242"
@@ -54518,18 +55896,11 @@
       "donaldson-g100319",
       "other-kw2140c1",
       "other-4570092941",
-      "other-df5112",
-      "other-4900053601",
       "other-cb3030",
       "donaldson-p166387",
-      "other-df5019",
-      "other-pl250",
-      "other-aa90145r",
-      "other-c085004",
       "other-3970040989",
       "donaldson-x002251",
-      "other-fp1111",
-      "other-sa6069"
+      "other-fp1111"
     ],
     "742330008140": [
       "donaldson-p105612"
@@ -56234,7 +57605,8 @@
     ],
     "cf1600": [
       "donaldson-p777551",
-      "mann-cf1600"
+      "mann-cf1600",
+      "other-kas282"
     ],
     "4011558231705": [
       "mann-cf1600"
@@ -56339,11 +57711,22 @@
     "4570092941": [
       "other-4570092941"
     ],
+    "hummel": [
+      "other-4570092941"
+    ],
+    "hd": [
+      "other-4570092941"
+    ],
     "p785965": [
       "donaldson-p785965"
     ],
     "df5112": [
       "other-df5112"
+    ],
+    "sotras": [
+      "other-df5112",
+      "other-df5019",
+      "other-sa6069"
     ],
     "df": [
       "other-df5112",
@@ -56371,7 +57754,8 @@
       "fleetguard-af26532"
     ],
     "mrt": [
-      "other-aa90138-r"
+      "other-aa90138-r",
+      "other-aa90145r"
     ],
     "aa90138r": [
       "other-aa90138-r",
@@ -56406,10 +57790,17 @@
       "mann-filter-c18902"
     ],
     "4900053601": [
-      "other-4900053601"
+      "other-4900053601",
+      "mannfilter-le5001x"
     ],
     "le5001x": [
-      "other-4900053601"
+      "other-4900053601",
+      "mannfilter-le5001x"
+    ],
+    "included": [
+      "other-4900053601",
+      "mannfilter-le5001x",
+      "mannfilter-hu721x"
     ],
     "cb3030": [
       "other-cb3030"
@@ -56502,9 +57893,39 @@
       "donaldson-p771555"
     ],
     "aa90145r": [
-      "other-aa90145r"
+      "other-aa90145r",
+      "kflo-kas345"
+    ],
+    "af26614": [
+      "other-aa90145r",
+      "fleetguard-af26614",
+      "fleetguard-af26613",
+      "kflo-kas345"
+    ],
+    "af26613": [
+      "other-aa90145r",
+      "fleetguard-af26614",
+      "fleetguard-af26613",
+      "kflo-kas345"
     ],
     "kas345": [
+      "other-aa90145r",
+      "kflo-kas345"
+    ],
+    "manufacturer": [
+      "other-aa90145r"
+    ],
+    "aa90145": [
+      "other-aa90145r"
+    ],
+    "contents": [
+      "other-aa90145r",
+      "kflo-kas345"
+    ],
+    "country": [
+      "other-aa90145r"
+    ],
+    "origin": [
       "other-aa90145r"
     ],
     "p502269": [
@@ -56529,6 +57950,9 @@
       "donaldson-p136255"
     ],
     "c085004": [
+      "other-c085004"
+    ],
+    "742330000960": [
       "other-c085004"
     ],
     "p763995": [
@@ -57251,12 +58675,14 @@
       "other-kas297",
       "other-kas282",
       "other-kas199",
-      "other-ka043"
+      "other-ka043",
+      "kflo-kas345"
     ],
     "kas": [
       "other-kas297",
       "other-kas282",
-      "other-kas199"
+      "other-kas199",
+      "kflo-kas345"
     ],
     "kas2": [
       "other-kas297",
@@ -57275,6 +58701,13 @@
       "other-kse1047"
     ],
     "kas282": [
+      "other-kas282"
+    ],
+    "equivalent": [
+      "other-kas282",
+      "kflo-kas345"
+    ],
+    "c30850": [
       "other-kas282"
     ],
     "khl1178": [
@@ -57396,15 +58829,36 @@
     ],
     "af": [
       "fleetguard-af26531",
-      "fleetguard-af26532"
+      "fleetguard-af26532",
+      "fleetguard-af26614",
+      "fleetguard-af26613"
     ],
     "af2": [
       "fleetguard-af26531",
-      "fleetguard-af26532"
+      "fleetguard-af26532",
+      "fleetguard-af26614",
+      "fleetguard-af26613"
     ],
     "af26": [
       "fleetguard-af26531",
-      "fleetguard-af26532"
+      "fleetguard-af26532",
+      "fleetguard-af26614",
+      "fleetguard-af26613"
+    ],
+    "le": [
+      "mannfilter-le5001x"
+    ],
+    "le5": [
+      "mannfilter-le5001x"
+    ],
+    "le50": [
+      "mannfilter-le5001x"
+    ],
+    "life": [
+      "fleetguard-af26614"
+    ],
+    "kas3": [
+      "kflo-kas345"
     ],
     "p552050": [
       "donaldson-p552050"
@@ -57512,9 +58966,6 @@
       "donaldson-p954895"
     ],
     "hu721xkit": [
-      "mannfilter-hu721x"
-    ],
-    "included": [
       "mannfilter-hu721x"
     ],
     "accessories": [
@@ -60674,6 +62125,12 @@
     "hf35549": [
       "other-kh140a"
     ],
+    "4900053601": [
+      "mannfilter-le5001x"
+    ],
+    "aa90145r": [
+      "kflo-kas345"
+    ],
     "15613evo20": [
       "donaldson-p552050"
     ],
@@ -60917,6 +62374,22 @@
     ],
     "af26532": [
       "other-aa90138-r"
+    ],
+    "af26614": [
+      "other-aa90145r",
+      "fleetguard-af26613",
+      "kflo-kas345"
+    ],
+    "af26613": [
+      "other-aa90145r",
+      "fleetguard-af26614",
+      "kflo-kas345"
+    ],
+    "c308502": [
+      "other-kas282"
+    ],
+    "cf1600": [
+      "other-kas282"
     ],
     "aa90138r": [
       "fleetguard-af26531",

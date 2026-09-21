@@ -423,8 +423,23 @@ export default function ProductDetailClient({ locale, product }: Props) {
     router.push(`/${locale}/quote`);
   };
 
+  if (product.partNumberOnly) {
+    return (
+      <section className="mx-auto max-w-3xl rounded-3xl border border-slate-300 bg-white p-6 sm:p-10">
+        <h1 className="break-all text-3xl font-semibold text-slate-950">{product.partNo}</h1>
+        <span className="mt-4 inline-flex rounded-full bg-amber-50 px-3 py-1 text-sm font-medium text-amber-800">{text.statusCheck}</span>
+        <div className="mt-8 flex flex-wrap gap-3">
+          <button onClick={handleAdd} disabled={justAdded} className="rounded-xl bg-slate-900 px-5 py-3 font-semibold text-white">{addToQuoteLabel}</button>
+          <button onClick={handleRequestQuote} className="rounded-xl border border-slate-300 px-5 py-3 font-medium">{text.requestQuote}</button>
+          <TrackedLineLink href={LINE_URL} source="product_detail_rfq_card" locale={locale} className="rounded-xl border border-emerald-200 bg-emerald-50 px-5 py-3 font-medium text-emerald-800">LINE</TrackedLineLink>
+        </div>
+      </section>
+    );
+  }
+
   return (
     <>
+      {product.checkAvailability && <span className="mb-4 inline-flex rounded-full bg-amber-50 px-3 py-1 text-sm font-medium text-amber-800">{text.statusCheck}</span>}
       <div className="grid gap-6 pb-[calc(8rem+env(safe-area-inset-bottom))] md:pb-0 lg:grid-cols-[minmax(0,1.08fr)_minmax(0,1fr)] lg:gap-10">
         <div className="min-w-0 space-y-4 lg:col-start-1 lg:row-start-1">
           <div className="rounded-[24px] border border-slate-300 bg-white px-4 py-4 shadow-[0_8px_24px_rgba(15,23,42,0.05)] lg:hidden">
@@ -455,8 +470,8 @@ export default function ProductDetailClient({ locale, product }: Props) {
               <SectionLabel>{pairedPartsTitle}</SectionLabel>
               <p className="mt-2 text-xs leading-6 text-slate-500">
                 {isThai
-                  ? "Part No. ที่ผู้ผลิตระบุว่าใช้ร่วมกันในชุดกรองอากาศ"
-                  : "Manufacturer-listed parts that can be installed as one filter set."}
+                  ? "ส่วนประกอบชุดกรองหรือกรองของชุดเทียบ ตามหมายเหตุของแต่ละเบอร์"
+                  : "Kit components or parts of an equivalent kit; see each part’s note."}
               </p>
 
               <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-1">

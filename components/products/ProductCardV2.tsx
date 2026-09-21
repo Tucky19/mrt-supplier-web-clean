@@ -175,8 +175,8 @@ export default function ProductCardV2({
     product.spec?.trim() ||
     buildSpecificationSummary(product) ||
     "Specification to be confirmed";
-  const needsInquiry = Boolean(product.vehicleApplications?.length) && product.stockStatus === "request";
-  const statusLabel = needsInquiry ? (isThai ? "สอบถาม" : "Inquire") : text.statusAvailable;
+  const needsInquiry = product.checkAvailability || Boolean(product.vehicleApplications?.length) && product.stockStatus === "request";
+  const statusLabel = product.checkAvailability ? text.statusCheck : needsInquiry ? (isThai ? "สอบถาม" : "Inquire") : text.statusAvailable;
   const statusDotClass = needsInquiry ? "bg-[var(--color-warning)]" : "bg-[var(--color-success)]";
   const statusTextClass = needsInquiry ? "text-[var(--color-warning-text)]" : "text-[var(--color-success-text)]";
   const statusBackgroundClass = needsInquiry ? "bg-[var(--color-warning-soft)]" : "bg-[var(--color-success-soft)]";
@@ -269,6 +269,21 @@ export default function ProductCardV2({
       resetTimerRef.current = null;
     }, 1500);
   };
+
+  if (product.partNumberOnly) {
+    return (
+      <div className="flex h-full flex-col gap-4 rounded-2xl border border-slate-200 bg-white p-5">
+        <Link href={`/${locale}/products/${encodeURIComponent(product.partNo)}`} className="break-all text-2xl font-semibold text-slate-900">
+          {product.partNo}
+        </Link>
+        <span className="self-start rounded-full bg-amber-50 px-3 py-1 text-sm font-medium text-amber-800">{text.statusCheck}</span>
+        <div className="mt-auto flex flex-wrap gap-3 pt-3">
+          <button type="button" onClick={handleAdd} disabled={justAdded} className="rounded-xl bg-slate-900 px-4 py-3 text-sm font-semibold text-white">{addButtonLabel}</button>
+          <Link href={`/${locale}/products/${encodeURIComponent(product.partNo)}`} className="rounded-xl border border-slate-300 px-4 py-3 text-sm">{text.details}</Link>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="group flex h-full flex-col overflow-hidden rounded-[var(--mrt-radius-lg)] border border-[var(--color-border)] bg-[var(--color-surface)] shadow-[var(--shadow-sm)] transition duration-200 hover:-translate-y-0.5 hover:border-[var(--color-border-strong)] hover:shadow-[var(--shadow-md)]">

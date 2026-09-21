@@ -131,17 +131,17 @@ export async function generateMetadata({
     };
   }
 
-  const shouldNoIndex = !hasIndexableProductSignals(product);
+  const shouldNoIndex = product.partNumberOnly || !hasIndexableProductSignals(product);
   const encodedPartNo = encodeURIComponent(product.partNo);
   const productPath = `/products/${encodedPartNo}`;
   const canonical = `${SITE_URL}/${locale}${productPath}`;
   const discoveryLabel = getProductDiscoveryLabel(product.partNo, locale);
-  const title = discoveryLabel
+  const title = product.partNumberOnly ? `${product.partNo} | MRT Supplier` : discoveryLabel
     ? `${product.brand} ${product.partNo} ${discoveryLabel} | MRT Supplier`
     : isThai
     ? `${product.partNo} ${product.brand} | สเปกสินค้าและขอใบเสนอราคา | MRT Supplier`
     : `${product.partNo} ${product.brand} | Product Specs and RFQ | MRT Supplier`;
-  const description = discoveryLabel
+  const description = product.partNumberOnly ? `${product.partNo} — ${isThai ? "ตรวจสอบสินค้า" : "Check availability"}` : discoveryLabel
     ? isThai
       ? `${product.brand} ${product.partNo} ${discoveryLabel} ดูรูปและสเปกสินค้า ส่งเบอร์กรองหรือรุ่นเครื่องพร้อมจำนวนให้ MRT Supplier ตรวจสอบและขอใบเสนอราคา`
       : `${product.brand} ${product.partNo} ${discoveryLabel}. View photos and specifications. Send your part number or machine model and quantity to MRT Supplier for verification and a quote.`
@@ -193,7 +193,7 @@ export default async function ProductPage({ params }: PageProps) {
       </Suspense>
 
       <section className="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-12">
-        {getProductDiscoveryLabel(product.partNo, locale) && (
+        {!product.partNumberOnly && getProductDiscoveryLabel(product.partNo, locale) && (
           <p className="mb-4 text-sm text-[var(--color-text-muted)]">
             {product.brand} {product.partNo} — {getProductDiscoveryLabel(product.partNo, locale)}
           </p>

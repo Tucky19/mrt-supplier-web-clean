@@ -56,6 +56,8 @@ export type Product = {
   keywords?: string[];
 
   dataQuality?: "verified" | "draft" | "basic" | "needs_review";
+  checkAvailability?: boolean;
+  partNumberOnly?: boolean;
   stockStatus?: "in_stock" | "low_stock" | "request" | string;
   mrtStockEvidence?: {
     status: "in_stock";

@@ -115,6 +115,8 @@ function buildSearchDocument(product: Product) {
         label: safeStr(item.label),
         value: safeStr(item.value),
       })),
+    checkAvailability: product.checkAvailability,
+    partNumberOnly: product.partNumberOnly,
     stock: safeStr(product.stockStatus || "request"),
     refs,
     crossReferences,
