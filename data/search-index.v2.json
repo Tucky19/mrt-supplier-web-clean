@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generatedAt": "2026-09-21T10:52:48.959Z",
+  "generatedAt": "2026-09-21T11:19:41.991Z",
   "counts": {
     "items": 634,
     "prefix2": 66,
@@ -9977,9 +9977,8 @@
           "value": "742330009918"
         }
       ],
-      "checkAvailability": true,
-      "partNumberOnly": false,
-      "stock": "request",
+      "checkAvailability": false,
+      "stock": "in_stock",
       "refs": [],
       "crossReferences": [
         "A6008",
@@ -11751,9 +11750,8 @@
           "value": "No"
         }
       ],
-      "checkAvailability": true,
-      "partNumberOnly": false,
-      "stock": "request",
+      "checkAvailability": false,
+      "stock": "in_stock",
       "refs": [
         "P778994",
         "RS3992",
@@ -11925,9 +11923,8 @@
           "value": "375 mm"
         }
       ],
-      "checkAvailability": true,
-      "partNumberOnly": false,
-      "stock": "request",
+      "checkAvailability": false,
+      "stock": "in_stock",
       "refs": [],
       "crossReferences": [
         "P778972"
@@ -12791,9 +12788,8 @@
           "value": "No"
         }
       ],
-      "checkAvailability": true,
-      "partNumberOnly": false,
-      "stock": "request",
+      "checkAvailability": false,
+      "stock": "in_stock",
       "refs": [],
       "crossReferences": [],
       "pairedParts": []
@@ -22459,9 +22455,8 @@
           "value": "742330010617"
         }
       ],
-      "checkAvailability": true,
-      "partNumberOnly": false,
-      "stock": "request",
+      "checkAvailability": false,
+      "stock": "in_stock",
       "refs": [],
       "crossReferences": [
         "A1307",

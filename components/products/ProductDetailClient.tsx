@@ -439,7 +439,11 @@ export default function ProductDetailClient({ locale, product }: Props) {
 
   return (
     <>
-      {product.checkAvailability && <span className="mb-4 inline-flex rounded-full bg-amber-50 px-3 py-1 text-sm font-medium text-amber-800">{text.statusCheck}</span>}
+      {product.checkAvailability !== undefined && (
+        <span className={`mb-4 inline-flex rounded-full px-3 py-1 text-sm font-medium ${product.checkAvailability ? "bg-amber-50 text-amber-800" : "bg-emerald-50 text-emerald-800"}`}>
+          {product.checkAvailability ? text.statusCheck : text.statusAvailable}
+        </span>
+      )}
       <div className="grid gap-6 pb-[calc(8rem+env(safe-area-inset-bottom))] md:pb-0 lg:grid-cols-[minmax(0,1.08fr)_minmax(0,1fr)] lg:gap-10">
         <div className="min-w-0 space-y-4 lg:col-start-1 lg:row-start-1">
           <div className="rounded-[24px] border border-slate-300 bg-white px-4 py-4 shadow-[0_8px_24px_rgba(15,23,42,0.05)] lg:hidden">
