@@ -1,3 +1,4 @@
+import { asianEquipmentProducts, applyAsianEquipmentData } from "./donaldson-asian-equipment";
 import { applySupplierPresentation } from "./supplier-presentation";
 import { getProductImageUrl } from "@/lib/products/image";
 import { normalizeCanonicalProductRelations } from "@/lib/products/relations";
@@ -59,9 +60,17 @@ const rawProducts = [
   ...officialProducts20260903,
 ];
 
+const existingPartKeys = new Set(
+  [...rawProducts, ...supplierSelectionProducts, ...vehicleFilterProducts].map((p) => normalizePartNo(p.partNo)),
+);
+const newAsianPartKeys = new Set(asianEquipmentProducts
+  .filter((p) => !existingPartKeys.has(normalizePartNo(p.partNo)))
+  .map((p) => normalizePartNo(p.partNo)));
+
 export const products = Array.from(
   new Map(
     normalizeProducts([
+      ...asianEquipmentProducts.filter((p) => newAsianPartKeys.has(normalizePartNo(p.partNo))),
       ...rawProducts,
       ...supplierSelectionProducts.filter(
         (incoming) => ![...rawProducts, ...vehicleFilterProducts].some(
@@ -138,4 +147,8 @@ export const products = Array.from(
         ];
       }),
   ).values(),
-).map(applySupplierPresentation);
+).map(applySupplierPresentation).map((product) => applyAsianEquipmentData(
+  newAsianPartKeys.has(normalizePartNo(product.partNo))
+    ? { ...product, checkAvailability: true, partNumberOnly: true, stockStatus: "request" }
+    : product,
+));

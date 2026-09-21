@@ -115,6 +115,8 @@ function buildSearchDocument(product: Product) {
         label: safeStr(item.label),
         value: safeStr(item.value),
       })),
+    catalogApplications: product.catalogApplications ?? [],
+    vehicleApplications: product.vehicleApplications ?? [],
     checkAvailability: product.checkAvailability,
     partNumberOnly: product.partNumberOnly,
     stock: safeStr(product.stockStatus || "request"),
@@ -159,12 +161,15 @@ function buildIndex(catalog: Product[]) {
       ...item.refs,
       ...item.crossReferences,
       ...pairedPartNumbers,
+      ...item.vehicleApplications,
+      ...item.catalogApplications.flatMap((entry) => [entry.equipment, ...entry.oemPartNumbers]),
       ...item.specifications.flatMap((spec) => [spec.label, spec.value]),
     ].join(" ");
 
     const tokens = unique([
       ...tokenize(textBlob),
       ...buildTokensFromPartNo(item.partNo),
+      ...item.catalogApplications.flatMap((entry) => entry.oemPartNumbers.map(normalizePartNo)),
       ...relationPartTokens,
     ]);
 

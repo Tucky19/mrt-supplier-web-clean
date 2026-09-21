@@ -18,6 +18,7 @@ import { useQuote } from "@/providers/QuoteProvider";
 import type { Product } from "@/types/product";
 import ProductCrossReferenceCards from "./detail/ProductCrossReferenceCards";
 import ProductOfficialReference from "./detail/ProductOfficialReference";
+import ProductCatalogApplications from "./detail/ProductCatalogApplications";
 import ProductSpecTable from "./detail/ProductSpecTable";
 
 type Props = {
@@ -428,6 +429,7 @@ export default function ProductDetailClient({ locale, product }: Props) {
       <section className="mx-auto max-w-3xl rounded-3xl border border-slate-300 bg-white p-6 sm:p-10">
         <h1 className="break-all text-3xl font-semibold text-slate-950">{product.partNo}</h1>
         <span className="mt-4 inline-flex rounded-full bg-amber-50 px-3 py-1 text-sm font-medium text-amber-800">{text.statusCheck}</span>
+        <ProductCatalogApplications entries={product.catalogApplications} locale={locale} />
         <div className="mt-8 flex flex-wrap gap-3">
           <button onClick={handleAdd} disabled={justAdded} className="rounded-xl bg-slate-900 px-5 py-3 font-semibold text-white">{addToQuoteLabel}</button>
           <button onClick={handleRequestQuote} className="rounded-xl border border-slate-300 px-5 py-3 font-medium">{text.requestQuote}</button>
@@ -645,6 +647,8 @@ export default function ProductDetailClient({ locale, product }: Props) {
               <VerificationNote locale={locale} />
             </div>
           </SurfaceCard>
+
+          <ProductCatalogApplications entries={product.catalogApplications} locale={locale} />
 
           {applications.length > 0 && (
             <SurfaceCard className="px-5 py-5 sm:px-6">

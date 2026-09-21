@@ -1,3 +1,4 @@
+import type { CatalogApplication } from "@/types/product";
 import { products } from "@/data/products/index";
 import { synonyms } from "@/data/synonyms";
 import {
@@ -27,6 +28,7 @@ export type Product = {
   category?: string;
   title?: string;
   vehicleApplications?: string[];
+  catalogApplications?: CatalogApplication[];
   spec?: string;
   refs?: ProductRelationInput[];
   crossReferences?: ProductRelationInput[];
@@ -525,6 +527,18 @@ export function searchProducts(
       if (!matchType) matchType = "Kit Component";
     }
 
+    const catalogOemMatch = item.catalogApplications?.some((entry) =>
+      entry.oemPartNumbers.some((partNo) => normalize(partNo) === query),
+    );
+    if (catalogOemMatch) {
+      score += 7000;
+      if (!matchType) matchType = "Catalog OEM";
+    }
+    if (item.catalogApplications?.some((entry) => normalize(entry.equipment).includes(query))) {
+      score += 1500;
+      if (!matchType) matchType = "Application";
+    }
+
     if (title.includes(query)) {
       score += title.startsWith(query) ? 1800 : 1200;
       if (!matchType) matchType = "Title";
@@ -610,6 +624,12 @@ export function createExactProductLookup(): ExactProductLookup {
       _score: 10000,
       _matchType: "Exact",
     });
+
+    for (const application of item.catalogApplications ?? []) {
+      for (const oem of application.oemPartNumbers) {
+        addResult(normalize(oem), { ...item, _score: 7000, _matchType: "Catalog OEM" });
+      }
+    }
 
     for (const entry of buildRelationSearchEntries(item.refs ?? [], "unknown")) {
       for (const token of entry.tokens) {
@@ -707,7 +727,8 @@ export function focusSearchResults(results: SearchResult[]): SearchResult[] {
   const exactReferenceResults = results.filter(
     (item) =>
       item._matchType === "Cross Ref" ||
-      item._matchType === "Same-brand Ref",
+      item._matchType === "Same-brand Ref" ||
+      item._matchType === "Catalog OEM",
   );
   if (exactReferenceResults.length > 0) {
     return sortByMrtPriority(exactReferenceResults);
