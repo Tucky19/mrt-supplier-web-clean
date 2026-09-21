@@ -24,7 +24,7 @@ export default function SiteFooter({ locale = "th", className = "" }: Props) {
             <div className="rounded-xl bg-white px-4 py-3 shadow-sm">
               <Image
                 src="/logo-mrt-a.png"
-                alt="MRT Supplier"
+                alt=""
                 width={954}
                 height={379}
                 className="h-auto w-40"
