@@ -72,9 +72,6 @@ const partNumbersByProduct: Record<string, string[]> = {
   "p550881": [
     "P550880"
   ],
-  "aa90138r": [
-    "AF26531/32"
-  ],
   "p164381": [
     "P164375",
     "P163542"

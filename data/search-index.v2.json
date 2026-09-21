@@ -1,15 +1,15 @@
 {
   "version": 2,
-  "generatedAt": "2026-09-21T05:46:00.420Z",
+  "generatedAt": "2026-09-21T08:39:14.273Z",
   "counts": {
-    "items": 628,
-    "prefix2": 64,
-    "prefix3": 136,
-    "prefix4": 252,
-    "tokenKeys": 3362,
+    "items": 630,
+    "prefix2": 65,
+    "prefix3": 137,
+    "prefix4": 253,
+    "tokenKeys": 3366,
     "refKeys": 46,
-    "xrefKeys": 984,
-    "pairedPartKeys": 62
+    "xrefKeys": 982,
+    "pairedPartKeys": 66
   },
   "items": [
     {
@@ -25512,18 +25512,40 @@
       "id": "other-aa90138-r",
       "partNo": "AA90138-R",
       "partNoNorm": "aa90138r",
-      "brand": "Other",
-      "title": "กรองอากาศ AA90138-R",
+      "brand": "Fleetguard",
+      "title": "ชุดกรองอากาศ Fleetguard AA90138-R",
       "category": "air_filter",
       "spec": "",
       "imageUrl": "/images/placeholder.jpg",
-      "specifications": [],
+      "specifications": [
+        {
+          "label": "ประเทศผลิต (ข้อมูล MRT)",
+          "value": "จีน"
+        },
+        {
+          "label": "รหัสชุดผู้ผลิต",
+          "value": "AA90138"
+        },
+        {
+          "label": "กรองภายในชุด",
+          "value": "AF26531 + AF26532"
+        }
+      ],
       "stock": "request",
       "refs": [],
-      "crossReferences": [
-        "AF26531/32"
-      ],
-      "pairedParts": []
+      "crossReferences": [],
+      "pairedParts": [
+        {
+          "partNo": "AF26531",
+          "relation": "paired",
+          "note": "กรองภายในชุด สามารถขอราคาแยกชิ้นได้"
+        },
+        {
+          "partNo": "AF26532",
+          "relation": "paired",
+          "note": "กรองภายในชุด สามารถขอราคาแยกชิ้นได้"
+        }
+      ]
     },
     {
       "id": "donaldson-p533930",
@@ -27420,6 +27442,48 @@
       "pairedParts": []
     },
     {
+      "id": "fleetguard-af26531",
+      "partNo": "AF26531",
+      "partNoNorm": "af26531",
+      "brand": "Fleetguard",
+      "title": "กรองอากาศ Fleetguard AF26531",
+      "category": "air_filter",
+      "spec": "",
+      "imageUrl": "/images/placeholder.jpg",
+      "specifications": [],
+      "stock": "request",
+      "refs": [],
+      "crossReferences": [],
+      "pairedParts": [
+        {
+          "partNo": "AA90138-R",
+          "relation": "paired",
+          "note": "เลือกขอราคาทั้งชุด AA90138-R ซึ่งประกอบด้วย AF26531 และ AF26532"
+        }
+      ]
+    },
+    {
+      "id": "fleetguard-af26532",
+      "partNo": "AF26532",
+      "partNoNorm": "af26532",
+      "brand": "Fleetguard",
+      "title": "กรองอากาศ Fleetguard AF26532",
+      "category": "air_filter",
+      "spec": "",
+      "imageUrl": "/images/placeholder.jpg",
+      "specifications": [],
+      "stock": "request",
+      "refs": [],
+      "crossReferences": [],
+      "pairedParts": [
+        {
+          "partNo": "AA90138-R",
+          "relation": "paired",
+          "note": "เลือกขอราคาทั้งชุด AA90138-R ซึ่งประกอบด้วย AF26531 และ AF26532"
+        }
+      ]
+    },
+    {
       "id": "donaldson-p552050",
       "partNo": "P552050",
       "partNoNorm": "p552050",
@@ -28991,6 +29055,10 @@
       "other-kfw6698",
       "other-kf007"
     ],
+    "af": [
+      "fleetguard-af26531",
+      "fleetguard-af26532"
+    ],
     "cu": [
       "mannfilter-cu31001"
     ]
@@ -29892,6 +29960,10 @@
     ],
     "kh6": [
       "other-kh692ll"
+    ],
+    "af2": [
+      "fleetguard-af26531",
+      "fleetguard-af26532"
     ],
     "cu3": [
       "mannfilter-cu31001"
@@ -31012,6 +31084,10 @@
     "kh69": [
       "other-kh692ll"
     ],
+    "af26": [
+      "fleetguard-af26531",
+      "fleetguard-af26532"
+    ],
     "p784": [
       "donaldson-p784473"
     ],
@@ -31918,7 +31994,6 @@
       "donaldson-p812924",
       "donaldson-p829332",
       "mann-wd962-32",
-      "other-aa90138-r",
       "donaldson-p954895",
       "mannfilter-cu31001"
     ],
@@ -37405,6 +37480,8 @@
       "other-kh140a",
       "other-kh692ll",
       "other-khl1080",
+      "fleetguard-af26531",
+      "fleetguard-af26532",
       "donaldson-p552050",
       "donaldson-p550225",
       "donaldson-p551853",
@@ -43978,6 +44055,8 @@
       "other-kas282",
       "other-kas199",
       "other-kf007",
+      "fleetguard-af26531",
+      "fleetguard-af26532",
       "donaldson-p781466",
       "donaldson-p784473",
       "mannfilter-cu31001",
@@ -47676,7 +47755,10 @@
       "donaldson-p551006",
       "donaldson-p550903",
       "donaldson-p505982",
-      "donaldson-p502643"
+      "donaldson-p502643",
+      "other-aa90138-r",
+      "fleetguard-af26531",
+      "fleetguard-af26532"
     ],
     "af26399": [
       "donaldson-p782105",
@@ -54411,7 +54493,6 @@
       "other-kw2140c1",
       "other-4570092941",
       "other-df5112",
-      "other-aa90138-r",
       "other-4900053601",
       "other-cb3030",
       "donaldson-p166387",
@@ -56294,13 +56375,25 @@
       "other-df5112"
     ],
     "aa90138": [
-      "other-aa90138-r"
+      "other-aa90138-r",
+      "fleetguard-af26531",
+      "fleetguard-af26532"
     ],
     "af26531": [
+      "other-aa90138-r",
+      "fleetguard-af26531"
+    ],
+    "af26532": [
+      "other-aa90138-r",
+      "fleetguard-af26532"
+    ],
+    "mrt": [
       "other-aa90138-r"
     ],
     "aa90138r": [
-      "other-aa90138-r"
+      "other-aa90138-r",
+      "fleetguard-af26531",
+      "fleetguard-af26532"
     ],
     "aa": [
       "other-aa90138-r",
@@ -56313,9 +56406,6 @@
     "aa90": [
       "other-aa90138-r",
       "other-aa90145r"
-    ],
-    "af2653132": [
-      "other-aa90138-r"
     ],
     "p533930": [
       "donaldson-p533930"
@@ -57282,6 +57372,18 @@
     ],
     "khl1080": [
       "other-khl1080"
+    ],
+    "af": [
+      "fleetguard-af26531",
+      "fleetguard-af26532"
+    ],
+    "af2": [
+      "fleetguard-af26531",
+      "fleetguard-af26532"
+    ],
+    "af26": [
+      "fleetguard-af26531",
+      "fleetguard-af26532"
     ],
     "p552050": [
       "donaldson-p552050"
@@ -60479,12 +60581,6 @@
     "kas199": [
       "other-kw2140c1"
     ],
-    "af2653132": [
-      "other-aa90138-r"
-    ],
-    "af26531": [
-      "other-aa90138-r"
-    ],
     "le5001x": [
       "other-4900053601"
     ],
@@ -60794,6 +60890,20 @@
     ],
     "p777871": [
       "donaldson-p777875"
+    ],
+    "af26531": [
+      "other-aa90138-r"
+    ],
+    "af26532": [
+      "other-aa90138-r"
+    ],
+    "aa90138r": [
+      "fleetguard-af26531",
+      "fleetguard-af26532"
+    ],
+    "aa90138": [
+      "fleetguard-af26531",
+      "fleetguard-af26532"
     ]
   }
 }
