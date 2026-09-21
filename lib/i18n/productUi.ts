@@ -2,6 +2,14 @@ export function getProductUiText(locale: string) {
   const isThai = locale === "th";
 
   return {
+    catalogApplications: isThai ? "รุ่นเครื่องและ OEM ตามแค็ตตาล็อก" : "Equipment and OEM catalogue references",
+    catalogCaution: isThai
+      ? "รุ่นเครื่องเดียวกันอาจใช้เครื่องยนต์หรือกรองต่างกัน กรุณาเทียบเบอร์บนชิ้นงานเดิม รายการนี้ไม่ได้หมายถึงกรองทั้งชุด"
+      : "The same model may use different engines or filters. Check the number on the fitted part. These entries do not define a complete filter kit.",
+    catalogOem: isThai ? "OEM ตามเอกสาร" : "OEM as listed",
+    catalogReview: isThai ? "ข้อมูลเบอร์เทียบรอตรวจสอบ" : "Reference pending review",
+    catalogPage: isThai ? "หน้า" : "Page",
+    catalogMissing: isThai ? "ไม่ระบุ" : "Not specified",
     statusCheck: isThai ? "ตรวจสอบสินค้า" : "Check availability",
     statusAvailable: isThai ? "มีสินค้า" : "In stock",
     statusRequest: isThai ? "มีสินค้า" : "In stock",

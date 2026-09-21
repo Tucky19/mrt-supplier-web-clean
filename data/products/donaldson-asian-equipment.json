@@ -1,0 +1,7392 @@
+[
+  {
+    "page": 2,
+    "block": "2-1",
+    "equipment": "SANY SY240C",
+    "description": "LUBE FILTER, SPIN-ON FULL FLOW",
+    "donaldsonRaw": "P550596",
+    "parts": [
+      "P550596"
+    ],
+    "oemRaw": "B222100000494",
+    "oemPartNumbers": [
+      "B222100000494"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 2,
+    "block": "2-1",
+    "equipment": "SANY SY240C",
+    "description": "FUEL FILTER, WATER SEPARATOR CARTRIDGE",
+    "donaldsonRaw": "P502424",
+    "parts": [
+      "P502424"
+    ],
+    "oemRaw": "60201220",
+    "oemPartNumbers": [
+      "60201220"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 2,
+    "block": "2-1",
+    "equipment": "SANY SY240C",
+    "description": "FUEL FILTER, SPIN-ON",
+    "donaldsonRaw": "P552564",
+    "parts": [
+      "P552564"
+    ],
+    "oemRaw": "B222100000520",
+    "oemPartNumbers": [
+      "B222100000520"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 2,
+    "block": "2-1",
+    "equipment": "SANY SY240C",
+    "description": "AIR FILTER, PRIMARY RADIALSEAL",
+    "donaldsonRaw": "P537876",
+    "parts": [
+      "P537876"
+    ],
+    "oemRaw": "60207265",
+    "oemPartNumbers": [
+      "60207265"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 2,
+    "block": "2-1",
+    "equipment": "SANY SY240C",
+    "description": "AIR FILTER, SAFETY RADIALSEAL",
+    "donaldsonRaw": "P537877",
+    "parts": [
+      "P537877"
+    ],
+    "oemRaw": "60207264",
+    "oemPartNumbers": [
+      "60207264"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 2,
+    "block": "2-1",
+    "equipment": "SANY SY240C",
+    "description": "AIR FILTER, PANEL",
+    "donaldsonRaw": "P500138",
+    "parts": [
+      "P500138"
+    ],
+    "oemRaw": "B222100000660K",
+    "oemPartNumbers": [
+      "B222100000660K"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 2,
+    "block": "2-1",
+    "equipment": "SANY SY240C",
+    "description": "HYDRAULIC FILTER, CARTRIDGE",
+    "donaldsonRaw": "R010051*",
+    "parts": [
+      "R010051"
+    ],
+    "oemRaw": "A222100000119",
+    "oemPartNumbers": [
+      "A222100000119"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 2,
+    "block": "2-2",
+    "equipment": "SANY SY35U Yanmar Engine",
+    "description": "AIR FILTER, PRIMARY RADIALSEAL",
+    "donaldsonRaw": "P821575",
+    "parts": [
+      "P821575"
+    ],
+    "oemRaw": "60123506",
+    "oemPartNumbers": [
+      "60123506"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 2,
+    "block": "2-2",
+    "equipment": "SANY SY35U Yanmar Engine",
+    "description": "AIR FILTER, SAFETY RADIALSEAL",
+    "donaldsonRaw": "P822858",
+    "parts": [
+      "P822858"
+    ],
+    "oemRaw": "60123505",
+    "oemPartNumbers": [
+      "60123505"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 2,
+    "block": "2-2",
+    "equipment": "SANY SY35U Yanmar Engine",
+    "description": "FUEL FILTER, WATER SEPARATOR SPIN-ON",
+    "donaldsonRaw": "P505951 *",
+    "parts": [
+      "P505951"
+    ],
+    "oemRaw": "60058453",
+    "oemPartNumbers": [
+      "60058453"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 2,
+    "block": "2-2",
+    "equipment": "SANY SY35U Yanmar Engine",
+    "description": "LUBE FILTER, SPIN-ON FULL FLOW",
+    "donaldsonRaw": "R010001 *",
+    "parts": [
+      "R010001"
+    ],
+    "oemRaw": "60273112",
+    "oemPartNumbers": [
+      "60273112"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 2,
+    "block": "2-2",
+    "equipment": "SANY SY35U Yanmar Engine",
+    "description": "FUEL FILTER, SPIN-ON",
+    "donaldsonRaw": "R010002 *",
+    "parts": [
+      "R010002"
+    ],
+    "oemRaw": "B222100000685",
+    "oemPartNumbers": [
+      "B222100000685"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 2,
+    "block": "2-2",
+    "equipment": "SANY SY35U Yanmar Engine",
+    "description": "HYDRAULIC FILTER, CARTRIDGE",
+    "donaldsonRaw": "R010051 *",
+    "parts": [
+      "R010051"
+    ],
+    "oemRaw": "A222100000119",
+    "oemPartNumbers": [
+      "A222100000119"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 2,
+    "block": "2-3",
+    "equipment": "SANY SY35C Yanmar Engine",
+    "description": "AIR FILTER, PRIMARY RADIALSEAL",
+    "donaldsonRaw": "P821575",
+    "parts": [
+      "P821575"
+    ],
+    "oemRaw": "60123506",
+    "oemPartNumbers": [
+      "60123506"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 2,
+    "block": "2-3",
+    "equipment": "SANY SY35C Yanmar Engine",
+    "description": "AIR FILTER, SAFETY RADIALSEAL",
+    "donaldsonRaw": "P822858",
+    "parts": [
+      "P822858"
+    ],
+    "oemRaw": "60123505",
+    "oemPartNumbers": [
+      "60123505"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 2,
+    "block": "2-3",
+    "equipment": "SANY SY35C Yanmar Engine",
+    "description": "FUEL FILTER, WATER SEPARATOR SPIN-ON",
+    "donaldsonRaw": "P505951 *",
+    "parts": [
+      "P505951"
+    ],
+    "oemRaw": "60058453",
+    "oemPartNumbers": [
+      "60058453"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 2,
+    "block": "2-3",
+    "equipment": "SANY SY35C Yanmar Engine",
+    "description": "LUBE FILTER, SPIN-ON FULL FLOW",
+    "donaldsonRaw": "R010001 *",
+    "parts": [
+      "R010001"
+    ],
+    "oemRaw": "60273112",
+    "oemPartNumbers": [
+      "60273112"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 2,
+    "block": "2-3",
+    "equipment": "SANY SY35C Yanmar Engine",
+    "description": "FUEL FILTER, SPIN-ON",
+    "donaldsonRaw": "R010002 *",
+    "parts": [
+      "R010002"
+    ],
+    "oemRaw": "B222100000685",
+    "oemPartNumbers": [
+      "B222100000685"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 2,
+    "block": "2-3",
+    "equipment": "SANY SY35C Yanmar Engine",
+    "description": "HYDRAULIC FILTER, CARTRIDGE",
+    "donaldsonRaw": "R010051 *",
+    "parts": [
+      "R010051"
+    ],
+    "oemRaw": "A222100000119",
+    "oemPartNumbers": [
+      "A222100000119"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 3,
+    "block": "3-1",
+    "equipment": "SANY SY55 Isuzu Engine 4JG1",
+    "description": "AIR FILTER, PRIMARY RADIALSEAL",
+    "donaldsonRaw": "P827653",
+    "parts": [
+      "P827653"
+    ],
+    "oemRaw": "B222100000593",
+    "oemPartNumbers": [
+      "B222100000593"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 3,
+    "block": "3-1",
+    "equipment": "SANY SY55 Isuzu Engine 4JG1",
+    "description": "AIR FILTER, SAFETY RADIALSEAL",
+    "donaldsonRaw": "P829332",
+    "parts": [
+      "P829332"
+    ],
+    "oemRaw": "B222100000591",
+    "oemPartNumbers": [
+      "B222100000591"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 3,
+    "block": "3-1",
+    "equipment": "SANY SY55 Isuzu Engine 4JG1",
+    "description": "LUBE FILTER, SPIN-ON FULL FLOW",
+    "donaldsonRaw": "P502039",
+    "parts": [
+      "P502039"
+    ],
+    "oemRaw": "A222100000569",
+    "oemPartNumbers": [
+      "A222100000569"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 3,
+    "block": "3-1",
+    "equipment": "SANY SY55 Isuzu Engine 4JG1",
+    "description": "FUEL FILTER, WATER SEPARATOR SPIN-ON",
+    "donaldsonRaw": "P505951 *",
+    "parts": [
+      "P505951"
+    ],
+    "oemRaw": "60220063",
+    "oemPartNumbers": [
+      "60220063"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 3,
+    "block": "3-1",
+    "equipment": "SANY SY55 Isuzu Engine 4JG1",
+    "description": "FUEL FILTER, WATER SEPARATOR CARTRIDGE",
+    "donaldsonRaw": "P502424",
+    "parts": [
+      "P502424"
+    ],
+    "oemRaw": "60151839",
+    "oemPartNumbers": [
+      "60151839"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 3,
+    "block": "3-1",
+    "equipment": "SANY SY55 Isuzu Engine 4JG1",
+    "description": "HYDRAULIC FILTER, CARTRIDGE",
+    "donaldsonRaw": "R010051 *",
+    "parts": [
+      "R010051"
+    ],
+    "oemRaw": "A222100000119",
+    "oemPartNumbers": [
+      "A222100000119"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 3,
+    "block": "3-2",
+    "equipment": "SANY SY75C Isuzu Engine 4LE2X",
+    "description": "AIR FILTER, PRIMARY RADIALSEAL",
+    "donaldsonRaw": "P827653",
+    "parts": [
+      "P827653"
+    ],
+    "oemRaw": "B222100000593",
+    "oemPartNumbers": [
+      "B222100000593"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 3,
+    "block": "3-2",
+    "equipment": "SANY SY75C Isuzu Engine 4LE2X",
+    "description": "AIR FILTER, SAFETY RADIALSEAL",
+    "donaldsonRaw": "P829332",
+    "parts": [
+      "P829332"
+    ],
+    "oemRaw": "B222100000591",
+    "oemPartNumbers": [
+      "B222100000591"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 3,
+    "block": "3-2",
+    "equipment": "SANY SY75C Isuzu Engine 4LE2X",
+    "description": "LUBE FILTER, SPIN-ON FULL FLOW",
+    "donaldsonRaw": "P557780",
+    "parts": [
+      "P557780"
+    ],
+    "oemRaw": "60197083",
+    "oemPartNumbers": [
+      "60197083"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 3,
+    "block": "3-2",
+    "equipment": "SANY SY75C Isuzu Engine 4LE2X",
+    "description": "FUEL FILTER, WATER SEPARATOR SPIN-ON",
+    "donaldsonRaw": "P505951",
+    "parts": [
+      "P505951"
+    ],
+    "oemRaw": "B222100000730",
+    "oemPartNumbers": [
+      "B222100000730"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 3,
+    "block": "3-2",
+    "equipment": "SANY SY75C Isuzu Engine 4LE2X",
+    "description": "FUEL FILTER, WATER SEPARATOR CARTRIDGE",
+    "donaldsonRaw": "P502424",
+    "parts": [
+      "P502424"
+    ],
+    "oemRaw": "60151839",
+    "oemPartNumbers": [
+      "60151839"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 3,
+    "block": "3-2",
+    "equipment": "SANY SY75C Isuzu Engine 4LE2X",
+    "description": "FUEL FILTER, SPIN-ON",
+    "donaldsonRaw": "P502163",
+    "parts": [
+      "P502163"
+    ],
+    "oemRaw": "60212876",
+    "oemPartNumbers": [
+      "60212876"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 3,
+    "block": "3-2",
+    "equipment": "SANY SY75C Isuzu Engine 4LE2X",
+    "description": "HYDRAULIC FILTER, CARTRIDGE",
+    "donaldsonRaw": "R010051 *",
+    "parts": [
+      "R010051"
+    ],
+    "oemRaw": "A222100000119",
+    "oemPartNumbers": [
+      "A222100000119"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 3,
+    "block": "3-3",
+    "equipment": "SANY SY135 Isuzu Engine 4JJ1X",
+    "description": "AIR FILTER, PRIMARY RADIALSEAL",
+    "donaldsonRaw": "P828889",
+    "parts": [
+      "P828889"
+    ],
+    "oemRaw": "B222100000500",
+    "oemPartNumbers": [
+      "B222100000500"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 3,
+    "block": "3-3",
+    "equipment": "SANY SY135 Isuzu Engine 4JJ1X",
+    "description": "AIR FILTER, SAFETY RADIALSEAL",
+    "donaldsonRaw": "P829333",
+    "parts": [
+      "P829333"
+    ],
+    "oemRaw": "B222100000501",
+    "oemPartNumbers": [
+      "B222100000501"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 3,
+    "block": "3-3",
+    "equipment": "SANY SY135 Isuzu Engine 4JJ1X",
+    "description": "LUBE FILTER, SPIN-ON FULL FLOW",
+    "donaldsonRaw": "P550596",
+    "parts": [
+      "P550596"
+    ],
+    "oemRaw": "B222100000494",
+    "oemPartNumbers": [
+      "B222100000494"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 3,
+    "block": "3-3",
+    "equipment": "SANY SY135 Isuzu Engine 4JJ1X",
+    "description": "FUEL FILTER, SPIN-ON",
+    "donaldsonRaw": "R011739 *",
+    "parts": [
+      "R011739"
+    ],
+    "oemRaw": "60282117",
+    "oemPartNumbers": [
+      "60282117"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 3,
+    "block": "3-3",
+    "equipment": "SANY SY135 Isuzu Engine 4JJ1X",
+    "description": "FUEL FILTER, SPIN-ON",
+    "donaldsonRaw": "P550932",
+    "parts": [
+      "P550932"
+    ],
+    "oemRaw": "B222100000521",
+    "oemPartNumbers": [
+      "B222100000521"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 3,
+    "block": "3-3",
+    "equipment": "SANY SY135 Isuzu Engine 4JJ1X",
+    "description": "FUEL FILTER, WATER SEPARATOR CARTRIDGE",
+    "donaldsonRaw": "R011812 *",
+    "parts": [
+      "R011812"
+    ],
+    "oemRaw": "60307173",
+    "oemPartNumbers": [
+      "60307173"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 3,
+    "block": "3-3",
+    "equipment": "SANY SY135 Isuzu Engine 4JJ1X",
+    "description": "HYDRAULIC FILTER, CARTRIDGE",
+    "donaldsonRaw": "R010051 *",
+    "parts": [
+      "R010051"
+    ],
+    "oemRaw": "A222100000119",
+    "oemPartNumbers": [
+      "A222100000119"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 3,
+    "block": "3-4",
+    "equipment": "SANY SY200 Mitsubishi Engine 4M50",
+    "description": "AIR FILTER, PRIMARY RADIALSEAL",
+    "donaldsonRaw": "P828889",
+    "parts": [
+      "P828889"
+    ],
+    "oemRaw": "B222100000500",
+    "oemPartNumbers": [
+      "B222100000500"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 3,
+    "block": "3-4",
+    "equipment": "SANY SY200 Mitsubishi Engine 4M50",
+    "description": "AIR FILTER, SAFETY RADIALSEAL",
+    "donaldsonRaw": "P829333",
+    "parts": [
+      "P829333"
+    ],
+    "oemRaw": "B222100000501",
+    "oemPartNumbers": [
+      "B222100000501"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 3,
+    "block": "3-4",
+    "equipment": "SANY SY200 Mitsubishi Engine 4M50",
+    "description": "LUBE FILTER, SPIN-ON FULL FLOW",
+    "donaldsonRaw": "P550596",
+    "parts": [
+      "P550596"
+    ],
+    "oemRaw": "B222100000494",
+    "oemPartNumbers": [
+      "B222100000494"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 3,
+    "block": "3-4",
+    "equipment": "SANY SY200 Mitsubishi Engine 4M50",
+    "description": "FUEL FILTER, SPIN-ON",
+    "donaldsonRaw": "R011739 *",
+    "parts": [
+      "R011739"
+    ],
+    "oemRaw": "60282117",
+    "oemPartNumbers": [
+      "60282117"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 3,
+    "block": "3-4",
+    "equipment": "SANY SY200 Mitsubishi Engine 4M50",
+    "description": "FUEL FILTER, SPIN-ON",
+    "donaldsonRaw": "P550932",
+    "parts": [
+      "P550932"
+    ],
+    "oemRaw": "B222100000521",
+    "oemPartNumbers": [
+      "B222100000521"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 3,
+    "block": "3-4",
+    "equipment": "SANY SY200 Mitsubishi Engine 4M50",
+    "description": "FUEL FILTER, WATER SEPARATOR CARTRIDGE",
+    "donaldsonRaw": "R011812 *",
+    "parts": [
+      "R011812"
+    ],
+    "oemRaw": "60307173",
+    "oemPartNumbers": [
+      "60307173"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 3,
+    "block": "3-4",
+    "equipment": "SANY SY200 Mitsubishi Engine 4M50",
+    "description": "HYDRAULIC FILTER, CARTRIDGE",
+    "donaldsonRaw": "R010051",
+    "parts": [
+      "R010051"
+    ],
+    "oemRaw": "A222100000119",
+    "oemPartNumbers": [
+      "A222100000119"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 4,
+    "block": "4-1",
+    "equipment": "SANY SY200 Mitsubishi Engine 4M50",
+    "description": "AIR FILTER, PRIMARY RADIALSEAL",
+    "donaldsonRaw": "P536457",
+    "parts": [
+      "P536457"
+    ],
+    "oemRaw": "B222100000535",
+    "oemPartNumbers": [
+      "B222100000535"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 4,
+    "block": "4-1",
+    "equipment": "SANY SY200 Mitsubishi Engine 4M50",
+    "description": "AIR FILTER, SAFETY RADIALSEAL",
+    "donaldsonRaw": "P536492",
+    "parts": [
+      "P536492"
+    ],
+    "oemRaw": "B222100000532",
+    "oemPartNumbers": [
+      "B222100000532"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 4,
+    "block": "4-1",
+    "equipment": "SANY SY200 Mitsubishi Engine 4M50",
+    "description": "HYDRAULIC FILTER, CARTRIDGE",
+    "donaldsonRaw": "R010051 *",
+    "parts": [
+      "R010051"
+    ],
+    "oemRaw": "A222100000119",
+    "oemPartNumbers": [
+      "A222100000119"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 4,
+    "block": "4-1",
+    "equipment": "SANY SY200 Mitsubishi Engine 4M50",
+    "description": "FUEL FILTER, WATER SEPARATOR CARTRIDGE",
+    "donaldsonRaw": "P502652 *",
+    "parts": [
+      "P502652"
+    ],
+    "oemRaw": "B222100000729",
+    "oemPartNumbers": [
+      "B222100000729"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 4,
+    "block": "4-1",
+    "equipment": "SANY SY200 Mitsubishi Engine 4M50",
+    "description": "FUEL FILTER, SPIN-ON",
+    "donaldsonRaw": "P502466 *",
+    "parts": [
+      "P502466"
+    ],
+    "oemRaw": "60310823",
+    "oemPartNumbers": [
+      "60310823"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 4,
+    "block": "4-2",
+    "equipment": "SANY SY200C Mitsubishi Engine 4M50",
+    "description": "AIR FILTER, PRIMARY RADIALSEAL",
+    "donaldsonRaw": "P536457",
+    "parts": [
+      "P536457"
+    ],
+    "oemRaw": "B222100000535",
+    "oemPartNumbers": [
+      "B222100000535"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 4,
+    "block": "4-2",
+    "equipment": "SANY SY200C Mitsubishi Engine 4M50",
+    "description": "AIR FILTER, SAFETY RADIALSEAL",
+    "donaldsonRaw": "P536492",
+    "parts": [
+      "P536492"
+    ],
+    "oemRaw": "B222100000532",
+    "oemPartNumbers": [
+      "B222100000532"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 4,
+    "block": "4-2",
+    "equipment": "SANY SY200C Mitsubishi Engine 4M50",
+    "description": "FUEL FILTER, WATER SEPARATOR CARTRIDGE",
+    "donaldsonRaw": "P502652 *",
+    "parts": [
+      "P502652"
+    ],
+    "oemRaw": "B222100000729",
+    "oemPartNumbers": [
+      "B222100000729"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 4,
+    "block": "4-2",
+    "equipment": "SANY SY200C Mitsubishi Engine 4M50",
+    "description": "FUEL FILTER, SPIN-ON",
+    "donaldsonRaw": "P502466 *",
+    "parts": [
+      "P502466"
+    ],
+    "oemRaw": "60310823",
+    "oemPartNumbers": [
+      "60310823"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 4,
+    "block": "4-2",
+    "equipment": "SANY SY200C Mitsubishi Engine 4M50",
+    "description": "HYDRAULIC FILTER, CARTRIDGE",
+    "donaldsonRaw": "R010051 *",
+    "parts": [
+      "R010051"
+    ],
+    "oemRaw": "A222100000119",
+    "oemPartNumbers": [
+      "A222100000119"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 4,
+    "block": "4-3",
+    "equipment": "SANY SY205C SANY Engine D0652",
+    "description": "AIR FILTER, PRIMARY RADIALSEAL",
+    "donaldsonRaw": "P537876",
+    "parts": [
+      "P537876"
+    ],
+    "oemRaw": "60207265",
+    "oemPartNumbers": [
+      "60207265"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 4,
+    "block": "4-3",
+    "equipment": "SANY SY205C SANY Engine D0652",
+    "description": "AIR FILTER, SAFETY RADIALSEAL",
+    "donaldsonRaw": "P537877",
+    "parts": [
+      "P537877"
+    ],
+    "oemRaw": "60207264",
+    "oemPartNumbers": [
+      "60207264"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 4,
+    "block": "4-3",
+    "equipment": "SANY SY205C SANY Engine D0652",
+    "description": "FUEL FILTER, SPIN-ON",
+    "donaldsonRaw": "P552561",
+    "parts": [
+      "P552561"
+    ],
+    "oemRaw": "B222100000521",
+    "oemPartNumbers": [
+      "B222100000521"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 4,
+    "block": "4-3",
+    "equipment": "SANY SY205C SANY Engine D0652",
+    "description": "FUEL FILTER, SPIN-ON",
+    "donaldsonRaw": "P502466 *",
+    "parts": [
+      "P502466"
+    ],
+    "oemRaw": "60310823",
+    "oemPartNumbers": [
+      "60310823"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 4,
+    "block": "4-3",
+    "equipment": "SANY SY205C SANY Engine D0652",
+    "description": "FUEL FILTER, WATER SEPARATOR CARTRIDGE",
+    "donaldsonRaw": "P502424",
+    "parts": [
+      "P502424"
+    ],
+    "oemRaw": "60201220",
+    "oemPartNumbers": [
+      "60201220"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 4,
+    "block": "4-3",
+    "equipment": "SANY SY205C SANY Engine D0652",
+    "description": "LUBE FILTER, SPIN-ON COMBINATION",
+    "donaldsonRaw": "P552562",
+    "parts": [
+      "P552562"
+    ],
+    "oemRaw": "B222100000551",
+    "oemPartNumbers": [
+      "B222100000551"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 4,
+    "block": "4-3",
+    "equipment": "SANY SY205C SANY Engine D0652",
+    "description": "HYDRAULIC FILTER, CARTRIDGE",
+    "donaldsonRaw": "R010051 *",
+    "parts": [
+      "R010051"
+    ],
+    "oemRaw": "A222100000119",
+    "oemPartNumbers": [
+      "A222100000119"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 4,
+    "block": "4-4",
+    "equipment": "SANY SY205C-9 SANY Engine D06",
+    "description": "AIR FILTER, PRIMARY RADIALSEAL",
+    "donaldsonRaw": "P536457",
+    "parts": [
+      "P536457"
+    ],
+    "oemRaw": "B222100000535",
+    "oemPartNumbers": [
+      "B222100000535"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 4,
+    "block": "4-4",
+    "equipment": "SANY SY205C-9 SANY Engine D06",
+    "description": "AIR FILTER, SAFETY RADIALSEAL",
+    "donaldsonRaw": "P536492",
+    "parts": [
+      "P536492"
+    ],
+    "oemRaw": "B222100000532",
+    "oemPartNumbers": [
+      "B222100000532"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 4,
+    "block": "4-4",
+    "equipment": "SANY SY205C-9 SANY Engine D06",
+    "description": "FUEL FILTER, WATER SEPARATOR CARTRIDGE",
+    "donaldsonRaw": "P502652 *",
+    "parts": [
+      "P502652"
+    ],
+    "oemRaw": "B222100000729",
+    "oemPartNumbers": [
+      "B222100000729"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 4,
+    "block": "4-4",
+    "equipment": "SANY SY205C-9 SANY Engine D06",
+    "description": "HYDRAULIC FILTER, CARTRIDGE",
+    "donaldsonRaw": "R010051 *",
+    "parts": [
+      "R010051"
+    ],
+    "oemRaw": "A222100000119",
+    "oemPartNumbers": [
+      "A222100000119"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 4,
+    "block": "4-4",
+    "equipment": "SANY SY205C-9 SANY Engine D06",
+    "description": "FUEL FILTER, SPIN-ON",
+    "donaldsonRaw": "P502466 *",
+    "parts": [
+      "P502466"
+    ],
+    "oemRaw": "60310823",
+    "oemPartNumbers": [
+      "60310823"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 5,
+    "block": "5-1",
+    "equipment": "SANY SY215C Mitsubishi Engine 4M50",
+    "description": "AIR FILTER, PRIMARY RADIALSEAL",
+    "donaldsonRaw": "P536457",
+    "parts": [
+      "P536457"
+    ],
+    "oemRaw": "B222100000535",
+    "oemPartNumbers": [
+      "B222100000535"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 5,
+    "block": "5-1",
+    "equipment": "SANY SY215C Mitsubishi Engine 4M50",
+    "description": "AIR FILTER, SAFETY RADIALSEAL",
+    "donaldsonRaw": "P536492",
+    "parts": [
+      "P536492"
+    ],
+    "oemRaw": "B222100000532",
+    "oemPartNumbers": [
+      "B222100000532"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 5,
+    "block": "5-1",
+    "equipment": "SANY SY215C Mitsubishi Engine 4M50",
+    "description": "FUEL FILTER, SPIN-ON",
+    "donaldsonRaw": "P502466 *",
+    "parts": [
+      "P502466"
+    ],
+    "oemRaw": "60310823",
+    "oemPartNumbers": [
+      "60310823"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 5,
+    "block": "5-1",
+    "equipment": "SANY SY215C Mitsubishi Engine 4M50",
+    "description": "FUEL FILTER, WATER SEPARATOR CARTRIDGE",
+    "donaldsonRaw": "P502652 *",
+    "parts": [
+      "P502652"
+    ],
+    "oemRaw": "B222100000729",
+    "oemPartNumbers": [
+      "B222100000729"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 5,
+    "block": "5-1",
+    "equipment": "SANY SY215C Mitsubishi Engine 4M50",
+    "description": "HYDRAULIC FILTER, CARTRIDGE",
+    "donaldsonRaw": "R010051 *",
+    "parts": [
+      "R010051"
+    ],
+    "oemRaw": "A222100000119",
+    "oemPartNumbers": [
+      "A222100000119"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 5,
+    "block": "5-2",
+    "equipment": "SANY SY215C SANY Engine D06",
+    "description": "AIR FILTER, SAFETY RADIALSEAL",
+    "donaldsonRaw": "P537877",
+    "parts": [
+      "P537877"
+    ],
+    "oemRaw": "60207264",
+    "oemPartNumbers": [
+      "60207264"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 5,
+    "block": "5-2",
+    "equipment": "SANY SY215C SANY Engine D06",
+    "description": "AIR FILTER, PRIMARY RADIALSEAL",
+    "donaldsonRaw": "P537876",
+    "parts": [
+      "P537876"
+    ],
+    "oemRaw": "60207265",
+    "oemPartNumbers": [
+      "60207265"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 5,
+    "block": "5-2",
+    "equipment": "SANY SY215C SANY Engine D06",
+    "description": "LUBE FILTER, SPIN-ON COMBINATION",
+    "donaldsonRaw": "P552562",
+    "parts": [
+      "P552562"
+    ],
+    "oemRaw": "B222100000551",
+    "oemPartNumbers": [
+      "B222100000551"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 5,
+    "block": "5-2",
+    "equipment": "SANY SY215C SANY Engine D06",
+    "description": "FUEL FILTER, WATER SEPARATOR CARTRIDGE",
+    "donaldsonRaw": "P502424",
+    "parts": [
+      "P502424"
+    ],
+    "oemRaw": "60201220",
+    "oemPartNumbers": [
+      "60201220"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 5,
+    "block": "5-2",
+    "equipment": "SANY SY215C SANY Engine D06",
+    "description": "FUEL FILTER, SPIN-ON",
+    "donaldsonRaw": "P552561",
+    "parts": [
+      "P552561"
+    ],
+    "oemRaw": "B222100000521",
+    "oemPartNumbers": [
+      "B222100000521"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 5,
+    "block": "5-2",
+    "equipment": "SANY SY215C SANY Engine D06",
+    "description": "HYDRAULIC FILTER, CARTRIDGE",
+    "donaldsonRaw": "R010051 *",
+    "parts": [
+      "R010051"
+    ],
+    "oemRaw": "A222100000119",
+    "oemPartNumbers": [
+      "A222100000119"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 5,
+    "block": "5-3",
+    "equipment": "SANY SY225C-9 Mitsubishi Engine 6D34TL",
+    "description": "AIR FILTER, PRIMARY RADIALSEAL",
+    "donaldsonRaw": "P537876",
+    "parts": [
+      "P537876"
+    ],
+    "oemRaw": "60207265",
+    "oemPartNumbers": [
+      "60207265"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 5,
+    "block": "5-3",
+    "equipment": "SANY SY225C-9 Mitsubishi Engine 6D34TL",
+    "description": "AIR FILTER, SAFETY RADIALSEAL",
+    "donaldsonRaw": "P537877",
+    "parts": [
+      "P537877"
+    ],
+    "oemRaw": "60207264",
+    "oemPartNumbers": [
+      "60207264"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 5,
+    "block": "5-3",
+    "equipment": "SANY SY225C-9 Mitsubishi Engine 6D34TL",
+    "description": "FUEL FILTER, SPIN-ON",
+    "donaldsonRaw": "P552564",
+    "parts": [
+      "P552564"
+    ],
+    "oemRaw": "60201218",
+    "oemPartNumbers": [
+      "60201218"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 5,
+    "block": "5-3",
+    "equipment": "SANY SY225C-9 Mitsubishi Engine 6D34TL",
+    "description": "LUBE FILTER, SPIN-ON COMBINATION",
+    "donaldsonRaw": "P552562",
+    "parts": [
+      "P552562"
+    ],
+    "oemRaw": "B222100000551",
+    "oemPartNumbers": [
+      "B222100000551"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 5,
+    "block": "5-3",
+    "equipment": "SANY SY225C-9 Mitsubishi Engine 6D34TL",
+    "description": "FUEL FILTER, WATER SEPARATOR CARTRIDGE",
+    "donaldsonRaw": "P502424",
+    "parts": [
+      "P502424"
+    ],
+    "oemRaw": "60201220",
+    "oemPartNumbers": [
+      "60201220"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 5,
+    "block": "5-3",
+    "equipment": "SANY SY225C-9 Mitsubishi Engine 6D34TL",
+    "description": "HYDRAULIC FILTER, CARTRIDGE",
+    "donaldsonRaw": "R010051 *",
+    "parts": [
+      "R010051"
+    ],
+    "oemRaw": "A222100000119",
+    "oemPartNumbers": [
+      "A222100000119"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 5,
+    "block": "5-3",
+    "equipment": "SANY SY225C-9 Mitsubishi Engine 6D34TL",
+    "description": "FUEL FILTER, SPIN-ON",
+    "donaldsonRaw": "P552561",
+    "parts": [
+      "P552561"
+    ],
+    "oemRaw": "B222100000521",
+    "oemPartNumbers": [
+      "B222100000521"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 5,
+    "block": "5-3",
+    "equipment": "SANY SY225C-9 Mitsubishi Engine 6D34TL",
+    "description": "FUEL FILTER, WATER SEPARATOR SPIN-ON",
+    "donaldsonRaw": "P551858",
+    "parts": [
+      "P551858"
+    ],
+    "oemRaw": "60205961",
+    "oemPartNumbers": [
+      "60205961"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 5,
+    "block": "5-3",
+    "equipment": "SANY SY225C-9 Mitsubishi Engine 6D34TL",
+    "description": "FUEL FILTER, SPIN-ON",
+    "donaldsonRaw": "P502466 *",
+    "parts": [
+      "P502466"
+    ],
+    "oemRaw": "60310823",
+    "oemPartNumbers": [
+      "60310823"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 5,
+    "block": "5-4",
+    "equipment": "SANY SY240C-9 Isuzu Engine CC6BG1TRP",
+    "description": "LUBE FILTER, SPIN-ON FULL FLOW",
+    "donaldsonRaw": "P550596",
+    "parts": [
+      "P550596"
+    ],
+    "oemRaw": "B222100000494",
+    "oemPartNumbers": [
+      "B222100000494"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 5,
+    "block": "5-4",
+    "equipment": "SANY SY240C-9 Isuzu Engine CC6BG1TRP",
+    "description": "FUEL FILTER, WATER SEPARATOR CARTRIDGE",
+    "donaldsonRaw": "P502424",
+    "parts": [
+      "P502424"
+    ],
+    "oemRaw": "60201220",
+    "oemPartNumbers": [
+      "60201220"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 5,
+    "block": "5-4",
+    "equipment": "SANY SY240C-9 Isuzu Engine CC6BG1TRP",
+    "description": "FUEL FILTER, SPIN-ON",
+    "donaldsonRaw": "P552564",
+    "parts": [
+      "P552564"
+    ],
+    "oemRaw": "B222100000520",
+    "oemPartNumbers": [
+      "B222100000520"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 5,
+    "block": "5-4",
+    "equipment": "SANY SY240C-9 Isuzu Engine CC6BG1TRP",
+    "description": "AIR FILTER, PRIMARY RADIALSEAL",
+    "donaldsonRaw": "P537876",
+    "parts": [
+      "P537876"
+    ],
+    "oemRaw": "60207265",
+    "oemPartNumbers": [
+      "60207265"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 5,
+    "block": "5-4",
+    "equipment": "SANY SY240C-9 Isuzu Engine CC6BG1TRP",
+    "description": "AIR FILTER, SAFETY RADIALSEAL",
+    "donaldsonRaw": "P537877",
+    "parts": [
+      "P537877"
+    ],
+    "oemRaw": "60207264",
+    "oemPartNumbers": [
+      "60207264"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 5,
+    "block": "5-4",
+    "equipment": "SANY SY240C-9 Isuzu Engine CC6BG1TRP",
+    "description": "AIR FILTER, PANEL",
+    "donaldsonRaw": "P500138",
+    "parts": [
+      "P500138"
+    ],
+    "oemRaw": "B222100000660K",
+    "oemPartNumbers": [
+      "B222100000660K"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 5,
+    "block": "5-4",
+    "equipment": "SANY SY240C-9 Isuzu Engine CC6BG1TRP",
+    "description": "HYDRAULIC FILTER, CARTRIDGE",
+    "donaldsonRaw": "R010051 *",
+    "parts": [
+      "R010051"
+    ],
+    "oemRaw": "A222100000119",
+    "oemPartNumbers": [
+      "A222100000119"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 6,
+    "block": "6-1",
+    "equipment": "SANY SY245H Mitsubishi Engine 6D24TC",
+    "description": "AIR FILTER, SAFETY RADIALSEAL",
+    "donaldsonRaw": "P777869",
+    "parts": [
+      "P777869"
+    ],
+    "oemRaw": "B222100000640",
+    "oemPartNumbers": [
+      "B222100000640"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 6,
+    "block": "6-1",
+    "equipment": "SANY SY245H Mitsubishi Engine 6D24TC",
+    "description": "AIR FILTER, PRIMARY RADIALSEAL",
+    "donaldsonRaw": "P777868",
+    "parts": [
+      "P777868"
+    ],
+    "oemRaw": "B222100000641",
+    "oemPartNumbers": [
+      "B222100000641"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 6,
+    "block": "6-1",
+    "equipment": "SANY SY245H Mitsubishi Engine 6D24TC",
+    "description": "LIQUID FILTER KIT",
+    "donaldsonRaw": "P550065",
+    "parts": [
+      "P550065"
+    ],
+    "oemRaw": "B222100000482",
+    "oemPartNumbers": [
+      "B222100000482"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 6,
+    "block": "6-1",
+    "equipment": "SANY SY245H Mitsubishi Engine 6D24TC",
+    "description": "LIQUID FILTER KIT",
+    "donaldsonRaw": "P550065",
+    "parts": [
+      "P550065"
+    ],
+    "oemRaw": "ME180514",
+    "oemPartNumbers": [
+      "ME180514"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 6,
+    "block": "6-1",
+    "equipment": "SANY SY245H Mitsubishi Engine 6D24TC",
+    "description": "FUEL FILTER, WATER SEPARATOR SPIN-ON TWIST&DRAIN",
+    "donaldsonRaw": "P582086 *",
+    "parts": [
+      "P582086"
+    ],
+    "oemRaw": "60033346",
+    "oemPartNumbers": [
+      "60033346"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 6,
+    "block": "6-1",
+    "equipment": "SANY SY245H Mitsubishi Engine 6D24TC",
+    "description": "FUEL FILTER, SPIN-ON",
+    "donaldsonRaw": "P502233",
+    "parts": [
+      "P502233"
+    ],
+    "oemRaw": "B222100000483",
+    "oemPartNumbers": [
+      "B222100000483"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 6,
+    "block": "6-1",
+    "equipment": "SANY SY245H Mitsubishi Engine 6D24TC",
+    "description": "FUEL FILTER, WATER SEPARATOR SPIN-ON TWIST&DRAIN",
+    "donaldsonRaw": "P552216",
+    "parts": [
+      "P552216"
+    ],
+    "oemRaw": "60205949",
+    "oemPartNumbers": [
+      "60205949"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 6,
+    "block": "6-1",
+    "equipment": "SANY SY245H Mitsubishi Engine 6D24TC",
+    "description": "HYDRAULIC FILTER, CARTRIDGE",
+    "donaldsonRaw": "R010083 *",
+    "parts": [
+      "R010083"
+    ],
+    "oemRaw": "B222100000346",
+    "oemPartNumbers": [
+      "B222100000346"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 6,
+    "block": "6-2",
+    "equipment": "SANY SY265C Mitsubishi Engine D06FRC",
+    "description": "HYDRAULIC FILTER, CARTRIDGE",
+    "donaldsonRaw": "R010051 *",
+    "parts": [
+      "R010051"
+    ],
+    "oemRaw": "A222100000119",
+    "oemPartNumbers": [
+      "A222100000119"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 6,
+    "block": "6-2",
+    "equipment": "SANY SY265C Mitsubishi Engine D06FRC",
+    "description": "AIR FILTER, PRIMARY RADIALSEAL",
+    "donaldsonRaw": "R005743 *",
+    "parts": [
+      "R005743"
+    ],
+    "oemRaw": "60207265",
+    "oemPartNumbers": [
+      "60207265"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 6,
+    "block": "6-2",
+    "equipment": "SANY SY265C Mitsubishi Engine D06FRC",
+    "description": "AIR FILTER, SAFETY RADIALSEAL",
+    "donaldsonRaw": "R005748 *",
+    "parts": [
+      "R005748"
+    ],
+    "oemRaw": "60207264",
+    "oemPartNumbers": [
+      "60207264"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 6,
+    "block": "6-2",
+    "equipment": "SANY SY265C Mitsubishi Engine D06FRC",
+    "description": "FUEL FILTER, WATER SEPARATOR CARTRIDGE",
+    "donaldsonRaw": "P502424",
+    "parts": [
+      "P502424"
+    ],
+    "oemRaw": "60201220",
+    "oemPartNumbers": [
+      "60201220"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 6,
+    "block": "6-2",
+    "equipment": "SANY SY265C Mitsubishi Engine D06FRC",
+    "description": "LUBE FILTER, SPIN-ON FULL FLOW",
+    "donaldsonRaw": "P550086",
+    "parts": [
+      "P550086"
+    ],
+    "oemRaw": "60176476",
+    "oemPartNumbers": [
+      "60176476"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 6,
+    "block": "6-2",
+    "equipment": "SANY SY265C Mitsubishi Engine D06FRC",
+    "description": "FUEL FILTER, SPIN-ON SECONDARY",
+    "donaldsonRaw": "P557440",
+    "parts": [
+      "P557440"
+    ],
+    "oemRaw": "60176475",
+    "oemPartNumbers": [
+      "60176475"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 6,
+    "block": "6-2",
+    "equipment": "SANY SY265C Mitsubishi Engine D06FRC",
+    "description": "FUEL FILTER, WATER SEPARATOR CARTRIDGE",
+    "donaldsonRaw": "R011812 *",
+    "parts": [
+      "R011812"
+    ],
+    "oemRaw": "60307173",
+    "oemPartNumbers": [
+      "60307173"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 6,
+    "block": "6-3",
+    "equipment": "SANY SYL956H5 Cummins Engine QSL8.9-C220",
+    "description": "AIR FILTER, PRIMARY RADIALSEAL",
+    "donaldsonRaw": "R004212 *",
+    "parts": [
+      "R004212"
+    ],
+    "oemRaw": "60310784",
+    "oemPartNumbers": [
+      "60310784"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 6,
+    "block": "6-3",
+    "equipment": "SANY SYL956H5 Cummins Engine QSL8.9-C220",
+    "description": "AIR FILTER, SAFETY",
+    "donaldsonRaw": "R004213 *",
+    "parts": [
+      "R004213"
+    ],
+    "oemRaw": "60310783",
+    "oemPartNumbers": [
+      "60310783"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 6,
+    "block": "6-3",
+    "equipment": "SANY SYL956H5 Cummins Engine QSL8.9-C220",
+    "description": "FUEL FILTER, WATER SEPARATOR SPIN-ON",
+    "donaldsonRaw": "P502643 *",
+    "parts": [
+      "P502643"
+    ],
+    "oemRaw": "60242352",
+    "oemPartNumbers": [
+      "60242352"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 6,
+    "block": "6-3",
+    "equipment": "SANY SYL956H5 Cummins Engine QSL8.9-C220",
+    "description": "LUBE FILTER, SPIN-ON FULL FLOW",
+    "donaldsonRaw": "P553000",
+    "parts": [
+      "P553000"
+    ],
+    "oemRaw": "60034226",
+    "oemPartNumbers": [
+      "60034226"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 6,
+    "block": "6-4",
+    "equipment": "SANY SY365 Isuzu Engine 6HK1-XDHAG-01-C3",
+    "description": "AIR FILTER, PRIMARY RADIALSEAL",
+    "donaldsonRaw": "P777868",
+    "parts": [
+      "P777868"
+    ],
+    "oemRaw": "B222100000641",
+    "oemPartNumbers": [
+      "B222100000641"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 6,
+    "block": "6-4",
+    "equipment": "SANY SY365 Isuzu Engine 6HK1-XDHAG-01-C3",
+    "description": "AIR FILTER, SAFETY RADIALSEAL",
+    "donaldsonRaw": "P777869",
+    "parts": [
+      "P777869"
+    ],
+    "oemRaw": "B222100000640",
+    "oemPartNumbers": [
+      "B222100000640"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 6,
+    "block": "6-4",
+    "equipment": "SANY SY365 Isuzu Engine 6HK1-XDHAG-01-C3",
+    "description": "LUBE FILTER, SPIN-ON FULL FLOW",
+    "donaldsonRaw": "P550596",
+    "parts": [
+      "P550596"
+    ],
+    "oemRaw": "B222100000494",
+    "oemPartNumbers": [
+      "B222100000494"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 6,
+    "block": "6-4",
+    "equipment": "SANY SY365 Isuzu Engine 6HK1-XDHAG-01-C3",
+    "description": "FUEL FILTER, WATER SEPARATOR CARTRIDGE",
+    "donaldsonRaw": "P502424",
+    "parts": [
+      "P502424"
+    ],
+    "oemRaw": "60201220",
+    "oemPartNumbers": [
+      "60201220"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 6,
+    "block": "6-4",
+    "equipment": "SANY SY365 Isuzu Engine 6HK1-XDHAG-01-C3",
+    "description": "FUEL FILTER, SPIN-ON SECONDARY",
+    "donaldsonRaw": "P557440",
+    "parts": [
+      "P557440"
+    ],
+    "oemRaw": "60201219",
+    "oemPartNumbers": [
+      "60201219"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 6,
+    "block": "6-4",
+    "equipment": "SANY SY365 Isuzu Engine 6HK1-XDHAG-01-C3",
+    "description": "FUEL FILTER, SPIN-ON",
+    "donaldsonRaw": "R011739 *",
+    "parts": [
+      "R011739"
+    ],
+    "oemRaw": "60282117",
+    "oemPartNumbers": [
+      "60282117"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 6,
+    "block": "6-4",
+    "equipment": "SANY SY365 Isuzu Engine 6HK1-XDHAG-01-C3",
+    "description": "FUEL FILTER, WATER SEPARATOR CARTRIDGE",
+    "donaldsonRaw": "P502593 *",
+    "parts": [
+      "P502593"
+    ],
+    "oemRaw": "60249072",
+    "oemPartNumbers": [
+      "60249072"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 6,
+    "block": "6-4",
+    "equipment": "SANY SY365 Isuzu Engine 6HK1-XDHAG-01-C3",
+    "description": "HYDRAULIC FILTER, CARTRIDGE",
+    "donaldsonRaw": "R010051 *",
+    "parts": [
+      "R010051"
+    ],
+    "oemRaw": "A222100000119",
+    "oemPartNumbers": [
+      "A222100000119"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 7,
+    "block": "7-1",
+    "equipment": "SANY SY375 Isuzu Engine GH-6HK 1XKSC-01",
+    "description": "FUEL FILTER, SPIN-ON SECONDARY",
+    "donaldsonRaw": "P557440",
+    "parts": [
+      "P557440"
+    ],
+    "oemRaw": "B222100000492",
+    "oemPartNumbers": [
+      "B222100000492"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 7,
+    "block": "7-1",
+    "equipment": "SANY SY375 Isuzu Engine GH-6HK 1XKSC-01",
+    "description": "LUBE FILTER, SPIN-ON FULL FLOW",
+    "donaldsonRaw": "P550596",
+    "parts": [
+      "P550596"
+    ],
+    "oemRaw": "B222100000494",
+    "oemPartNumbers": [
+      "B222100000494"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 7,
+    "block": "7-1",
+    "equipment": "SANY SY375 Isuzu Engine GH-6HK 1XKSC-01",
+    "description": "AIR FILTER, PRIMARY ROUND",
+    "donaldsonRaw": "P777868",
+    "parts": [
+      "P777868"
+    ],
+    "oemRaw": "B222100000641",
+    "oemPartNumbers": [
+      "B222100000641"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 7,
+    "block": "7-1",
+    "equipment": "SANY SY375 Isuzu Engine GH-6HK 1XKSC-01",
+    "description": "AIR FILTER, SAFETY",
+    "donaldsonRaw": "P777869",
+    "parts": [
+      "P777869"
+    ],
+    "oemRaw": "B222100000640",
+    "oemPartNumbers": [
+      "B222100000640"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 7,
+    "block": "7-1",
+    "equipment": "SANY SY375 Isuzu Engine GH-6HK 1XKSC-01",
+    "description": "FUEL FILTER, WATER SEPARATOR CARTRIDGE",
+    "donaldsonRaw": "P502424",
+    "parts": [
+      "P502424"
+    ],
+    "oemRaw": "60201220",
+    "oemPartNumbers": [
+      "60201220"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 7,
+    "block": "7-1",
+    "equipment": "SANY SY375 Isuzu Engine GH-6HK 1XKSC-01",
+    "description": "HYDRAULIC FILTER, CARTRIDGE",
+    "donaldsonRaw": "R010051 *",
+    "parts": [
+      "R010051"
+    ],
+    "oemRaw": "A222100000119",
+    "oemPartNumbers": [
+      "A222100000119"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 7,
+    "block": "7-2",
+    "equipment": "SANY SY465H Mitsubishi Engine 6D24-TLC1B",
+    "description": "AIR FILTER, SAFETY RADIALSEAL",
+    "donaldsonRaw": "P777869",
+    "parts": [
+      "P777869"
+    ],
+    "oemRaw": "B222100000640",
+    "oemPartNumbers": [
+      "B222100000640"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 7,
+    "block": "7-2",
+    "equipment": "SANY SY465H Mitsubishi Engine 6D24-TLC1B",
+    "description": "AIR FILTER, PRIMARY RADIALSEAL",
+    "donaldsonRaw": "P777868",
+    "parts": [
+      "P777868"
+    ],
+    "oemRaw": "B222100000641",
+    "oemPartNumbers": [
+      "B222100000641"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 7,
+    "block": "7-2",
+    "equipment": "SANY SY465H Mitsubishi Engine 6D24-TLC1B",
+    "description": "FUEL FILTER, WATER SEPARATOR SPIN-ON TWIST&DRAIN",
+    "donaldsonRaw": "P582086 *",
+    "parts": [
+      "P582086"
+    ],
+    "oemRaw": "60033346",
+    "oemPartNumbers": [
+      "60033346"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 7,
+    "block": "7-2",
+    "equipment": "SANY SY465H Mitsubishi Engine 6D24-TLC1B",
+    "description": "FUEL FILTER, SPIN-ON",
+    "donaldsonRaw": "P502233",
+    "parts": [
+      "P502233"
+    ],
+    "oemRaw": "B222100000483",
+    "oemPartNumbers": [
+      "B222100000483"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 7,
+    "block": "7-2",
+    "equipment": "SANY SY465H Mitsubishi Engine 6D24-TLC1B",
+    "description": "HYDRAULIC FILTER, CARTRIDGE",
+    "donaldsonRaw": "R010083 *",
+    "parts": [
+      "R010083"
+    ],
+    "oemRaw": "B222100000346",
+    "oemPartNumbers": [
+      "B222100000346"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 7,
+    "block": "7-2",
+    "equipment": "SANY SY465H Mitsubishi Engine 6D24-TLC1B",
+    "description": "LIQUID FILTER KIT",
+    "donaldsonRaw": "P550065",
+    "parts": [
+      "P550065"
+    ],
+    "oemRaw": "ME180514",
+    "oemPartNumbers": [
+      "ME180514"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 7,
+    "block": "7-2",
+    "equipment": "SANY SY465H Mitsubishi Engine 6D24-TLC1B",
+    "description": "FUEL FILTER, WATER SEPARATOR SPIN-ON TWIST&DRAIN",
+    "donaldsonRaw": "P552216",
+    "parts": [
+      "P552216"
+    ],
+    "oemRaw": "60205949",
+    "oemPartNumbers": [
+      "60205949"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 7,
+    "block": "7-3",
+    "equipment": "SANY SY500H Isuzu Engine 6WG1",
+    "description": "AIR FILTER, PRIMARY RADIALSEAL",
+    "donaldsonRaw": "P777868",
+    "parts": [
+      "P777868"
+    ],
+    "oemRaw": "B222100000641",
+    "oemPartNumbers": [
+      "B222100000641"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 7,
+    "block": "7-3",
+    "equipment": "SANY SY500H Isuzu Engine 6WG1",
+    "description": "AIR FILTER, SAFETY RADIALSEAL",
+    "donaldsonRaw": "P777869",
+    "parts": [
+      "P777869"
+    ],
+    "oemRaw": "B222100000640",
+    "oemPartNumbers": [
+      "B222100000640"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 7,
+    "block": "7-3",
+    "equipment": "SANY SY500H Isuzu Engine 6WG1",
+    "description": "HYDRAULIC FILTER, CARTRIDGE",
+    "donaldsonRaw": "R010051 *",
+    "parts": [
+      "R010051"
+    ],
+    "oemRaw": "A222100000119",
+    "oemPartNumbers": [
+      "A222100000119"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 7,
+    "block": "7-3",
+    "equipment": "SANY SY500H Isuzu Engine 6WG1",
+    "description": "LUBE FILTER, SPIN-ON FULL FLOW",
+    "donaldsonRaw": "P550596",
+    "parts": [
+      "P550596"
+    ],
+    "oemRaw": "B222100000494",
+    "oemPartNumbers": [
+      "B222100000494"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 7,
+    "block": "7-3",
+    "equipment": "SANY SY500H Isuzu Engine 6WG1",
+    "description": "FUEL FILTER, WATER SEPARATOR CARTRIDGE",
+    "donaldsonRaw": "P502593 *",
+    "parts": [
+      "P502593"
+    ],
+    "oemRaw": "60249072",
+    "oemPartNumbers": [
+      "60249072"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 7,
+    "block": "7-3",
+    "equipment": "SANY SY500H Isuzu Engine 6WG1",
+    "description": "FUEL FILTER, WATER SEPARATOR CARTRIDGE",
+    "donaldsonRaw": "P502424",
+    "parts": [
+      "P502424"
+    ],
+    "oemRaw": "60017773",
+    "oemPartNumbers": [
+      "60017773"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 7,
+    "block": "7-3",
+    "equipment": "SANY SY500H Isuzu Engine 6WG1",
+    "description": "FUEL FILTER, WATER SEPARATOR SPIN-ON TWIST&DRAIN",
+    "donaldsonRaw": "P552216",
+    "parts": [
+      "P552216"
+    ],
+    "oemRaw": "60206017",
+    "oemPartNumbers": [
+      "60206017"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 7,
+    "block": "7-4",
+    "equipment": "SANY SY750H Isuzu Engine 6WG1",
+    "description": "HYDRAULIC FILTER, CARTRIDGE",
+    "donaldsonRaw": "R010051 *",
+    "parts": [
+      "R010051"
+    ],
+    "oemRaw": "A222100000119",
+    "oemPartNumbers": [
+      "A222100000119"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 7,
+    "block": "7-4",
+    "equipment": "SANY SY750H Isuzu Engine 6WG1",
+    "description": "LUBE FILTER, SPIN-ON FULL FLOW",
+    "donaldsonRaw": "P550596",
+    "parts": [
+      "P550596"
+    ],
+    "oemRaw": "B222100000494",
+    "oemPartNumbers": [
+      "B222100000494"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 7,
+    "block": "7-4",
+    "equipment": "SANY SY750H Isuzu Engine 6WG1",
+    "description": "FUEL FILTER, WATER SEPARATOR SPIN-ON",
+    "donaldsonRaw": "R011739 *",
+    "parts": [
+      "R011739"
+    ],
+    "oemRaw": "60282117",
+    "oemPartNumbers": [
+      "60282117"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 7,
+    "block": "7-4",
+    "equipment": "SANY SY750H Isuzu Engine 6WG1",
+    "description": "FUEL FILTER, WATER SEPARATOR CARTRIDGE",
+    "donaldsonRaw": "P502424",
+    "parts": [
+      "P502424"
+    ],
+    "oemRaw": "60151839",
+    "oemPartNumbers": [
+      "60151839"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 7,
+    "block": "7-4",
+    "equipment": "SANY SY750H Isuzu Engine 6WG1",
+    "description": "FUEL FILTER, WATER SEPARATOR CARTRIDGE",
+    "donaldsonRaw": "P502593 *",
+    "parts": [
+      "P502593"
+    ],
+    "oemRaw": "60249072",
+    "oemPartNumbers": [
+      "60249072"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 7,
+    "block": "7-4",
+    "equipment": "SANY SY750H Isuzu Engine 6WG1",
+    "description": "FUEL FILTER, WATER SEPARATOR SPIN-ON TWIST&DRAIN",
+    "donaldsonRaw": "P552216",
+    "parts": [
+      "P552216"
+    ],
+    "oemRaw": "60250800",
+    "oemPartNumbers": [
+      "60250800"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 7,
+    "block": "7-4",
+    "equipment": "SANY SY750H Isuzu Engine 6WG1",
+    "description": "AIR FILTER, SAFETY",
+    "donaldsonRaw": "P114931",
+    "parts": [
+      "P114931"
+    ],
+    "oemRaw": "60170568",
+    "oemPartNumbers": [
+      "60170568"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 7,
+    "block": "7-4",
+    "equipment": "SANY SY750H Isuzu Engine 6WG1",
+    "description": "AIR FILTER, PRIMARY ROUND",
+    "donaldsonRaw": "P181039",
+    "parts": [
+      "P181039"
+    ],
+    "oemRaw": "60170569",
+    "oemPartNumbers": [
+      "60170569"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 8,
+    "block": "8-1",
+    "equipment": "LIUGONG GLG922F",
+    "description": "FUEL FILTER, SPIN-ON SECONDARY",
+    "donaldsonRaw": "P553009",
+    "parts": [
+      "P553009"
+    ],
+    "oemRaw": "53C0841",
+    "oemPartNumbers": [
+      "53C0841"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 8,
+    "block": "8-1",
+    "equipment": "LIUGONG GLG922F",
+    "description": "AIR FILTER, SAFETY",
+    "donaldsonRaw": "P638095*",
+    "parts": [
+      "P638095"
+    ],
+    "oemRaw": "60C2200",
+    "oemPartNumbers": [
+      "60C2200"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 8,
+    "block": "8-1",
+    "equipment": "LIUGONG GLG922F",
+    "description": "AIR FILTER, PRIMARY",
+    "donaldsonRaw": "P643271*",
+    "parts": [
+      "P643271"
+    ],
+    "oemRaw": "60C2199",
+    "oemPartNumbers": [
+      "60C2199"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 8,
+    "block": "8-1",
+    "equipment": "LIUGONG GLG922F",
+    "description": "LUBE FILTER, SPIN-ON FULL FLOW",
+    "donaldsonRaw": "P550428",
+    "parts": [
+      "P550428"
+    ],
+    "oemRaw": "40C2182",
+    "oemPartNumbers": [
+      "40C2182"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 8,
+    "block": "8-1",
+    "equipment": "LIUGONG GLG922F",
+    "description": "FUEL FILTER, SPIN-ON SECONDARY",
+    "donaldsonRaw": "P553009",
+    "parts": [
+      "P553009"
+    ],
+    "oemRaw": "53C0841",
+    "oemPartNumbers": [
+      "53C0841"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 8,
+    "block": "8-1",
+    "equipment": "LIUGONG GLG922F",
+    "description": "AIR FILTER, SAFETY OBROUND",
+    "donaldsonRaw": "P638095*",
+    "parts": [
+      "P638095"
+    ],
+    "oemRaw": "60C2200",
+    "oemPartNumbers": [
+      "60C2200"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 8,
+    "block": "8-2",
+    "equipment": "LIUGONG GLG835",
+    "description": "AIR FILTER, PRIMARY ROUND",
+    "donaldsonRaw": "R000164*",
+    "parts": [
+      "R000164"
+    ],
+    "oemRaw": "40C0090",
+    "oemPartNumbers": [
+      "40C0090"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 8,
+    "block": "8-2",
+    "equipment": "LIUGONG GLG835",
+    "description": "AIR FILTER, SAFETY",
+    "donaldsonRaw": "R000165*",
+    "parts": [
+      "R000165"
+    ],
+    "oemRaw": "40C0232",
+    "oemPartNumbers": [
+      "40C0232"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 8,
+    "block": "8-2",
+    "equipment": "LIUGONG GLG835",
+    "description": "LUBE FILTER, SPIN-ON FULL FLOW",
+    "donaldsonRaw": "P550428",
+    "parts": [
+      "P550428"
+    ],
+    "oemRaw": "40C2182",
+    "oemPartNumbers": [
+      "40C2182"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 8,
+    "block": "8-2",
+    "equipment": "LIUGONG GLG835",
+    "description": "LUBE FILTER, SPIN-ON FULL FLOW",
+    "donaldsonRaw": "P558615",
+    "parts": [
+      "P558615"
+    ],
+    "oemRaw": "53C0054",
+    "oemPartNumbers": [
+      "53C0054"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 8,
+    "block": "8-2",
+    "equipment": "LIUGONG GLG835",
+    "description": "FUEL FILTER, WATER SEPARATOR SPIN-ON",
+    "donaldsonRaw": "P551864",
+    "parts": [
+      "P551864"
+    ],
+    "oemRaw": "53C0104",
+    "oemPartNumbers": [
+      "53C0104"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 8,
+    "block": "8-2",
+    "equipment": "LIUGONG GLG835",
+    "description": "FUEL FILTER, WATER SEPARATOR SPIN-ON TWIST&DRAIN",
+    "donaldsonRaw": "P551329",
+    "parts": [
+      "P551329"
+    ],
+    "oemRaw": "53C0051",
+    "oemPartNumbers": [
+      "53C0051"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 8,
+    "block": "8-2",
+    "equipment": "LIUGONG GLG835",
+    "description": "AIR FILTER, PRIMARY ROUND",
+    "donaldsonRaw": "P500186",
+    "parts": [
+      "P500186"
+    ],
+    "oemRaw": "40C0228",
+    "oemPartNumbers": [
+      "40C0228"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 8,
+    "block": "8-2",
+    "equipment": "LIUGONG GLG835",
+    "description": "AIR FILTER SAFETY",
+    "donaldsonRaw": "P500187",
+    "parts": [
+      "P500187"
+    ],
+    "oemRaw": "AF25269",
+    "oemPartNumbers": [
+      "AF25269"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 8,
+    "block": "8-2",
+    "equipment": "LIUGONG GLG835",
+    "description": "LUBE FILTER, SPIN-ON FULL FLOW",
+    "donaldsonRaw": "P558615",
+    "parts": [
+      "P558615"
+    ],
+    "oemRaw": "53C0214",
+    "oemPartNumbers": [
+      "53C0214"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 8,
+    "block": "8-2",
+    "equipment": "LIUGONG GLG835",
+    "description": "FUEL FILTER, WATER SEPARATOR SPIN-ON TWIST&DRAIN",
+    "donaldsonRaw": "P550929",
+    "parts": [
+      "P550929"
+    ],
+    "oemRaw": "FS19616",
+    "oemPartNumbers": [
+      "FS19616"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 8,
+    "block": "8-2",
+    "equipment": "LIUGONG GLG835",
+    "description": "FUEL FILTER, WATER SEPARATOR SPIN-ON",
+    "donaldsonRaw": "P551852",
+    "parts": [
+      "P551852"
+    ],
+    "oemRaw": "",
+    "oemPartNumbers": [],
+    "reviewReasons": [
+      "ไม่มีเบอร์ OEM"
+    ]
+  },
+  {
+    "page": 8,
+    "block": "8-2",
+    "equipment": "LIUGONG GLG835",
+    "description": "HYDRAULIC FILTER, CARTRIDGE",
+    "donaldsonRaw": "R010050*",
+    "parts": [
+      "R010050"
+    ],
+    "oemRaw": "53C0011",
+    "oemPartNumbers": [
+      "53C0011"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 8,
+    "block": "8-3",
+    "equipment": "LIUGONG GLG856H",
+    "description": "AIR CLEANER KIT",
+    "donaldsonRaw": "X012252*",
+    "parts": [
+      "X012252"
+    ],
+    "oemRaw": "60C2472",
+    "oemPartNumbers": [
+      "60C2472"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 8,
+    "block": "8-3",
+    "equipment": "LIUGONG GLG856H",
+    "description": "LUBE FILTER, SPIN-ON FULL FLOW",
+    "donaldsonRaw": "P550428",
+    "parts": [
+      "P550428"
+    ],
+    "oemRaw": "40C2182",
+    "oemPartNumbers": [
+      "40C2182"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 8,
+    "block": "8-3",
+    "equipment": "LIUGONG GLG856H",
+    "description": "LUBE FILTER, SPIN-ON FULL FLOW",
+    "donaldsonRaw": "P553000",
+    "parts": [
+      "P553000"
+    ],
+    "oemRaw": "53C0053",
+    "oemPartNumbers": [
+      "53C0053"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 8,
+    "block": "8-3",
+    "equipment": "LIUGONG GLG856H",
+    "description": "FUEL FILTER, SPIN-ON SECONDARY",
+    "donaldsonRaw": "P553009",
+    "parts": [
+      "P553009"
+    ],
+    "oemRaw": "53C0841",
+    "oemPartNumbers": [
+      "53C0841"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 8,
+    "block": "8-3",
+    "equipment": "LIUGONG GLG856H",
+    "description": "AIR FILTER, PRIMARY",
+    "donaldsonRaw": "DBA5292*",
+    "parts": [
+      "DBA5292"
+    ],
+    "oemRaw": "40C2178",
+    "oemPartNumbers": [
+      "40C2178"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 8,
+    "block": "8-3",
+    "equipment": "LIUGONG GLG856H",
+    "description": "AIR FILTER, SAFETY",
+    "donaldsonRaw": "P633483",
+    "parts": [
+      "P633483"
+    ],
+    "oemRaw": "40C2179",
+    "oemPartNumbers": [
+      "40C2179"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 9,
+    "block": "9-1",
+    "equipment": "LIUGONG Gzlg856III",
+    "description": "LUBE FILTER, SPIN-ON FULL FLOW",
+    "donaldsonRaw": "P550428",
+    "parts": [
+      "P550428"
+    ],
+    "oemRaw": "40C2182",
+    "oemPartNumbers": [
+      "40C2182"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 9,
+    "block": "9-1",
+    "equipment": "LIUGONG Gzlg856III",
+    "description": "FUEL FILTER, WATER SEPARATOR SPIN-ON TWIST&DRAIN",
+    "donaldsonRaw": "P550848",
+    "parts": [
+      "P550848"
+    ],
+    "oemRaw": "3973233",
+    "oemPartNumbers": [
+      "3973233"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 9,
+    "block": "9-1",
+    "equipment": "LIUGONG Gzlg856III",
+    "description": "FUEL FILTER, SPIN-ON",
+    "donaldsonRaw": "P550880",
+    "parts": [
+      "P550880"
+    ],
+    "oemRaw": "53C0497",
+    "oemPartNumbers": [
+      "53C0497"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 9,
+    "block": "9-1",
+    "equipment": "LIUGONG Gzlg856III",
+    "description": "AIR FILTER, PRIMARY ROUND",
+    "donaldsonRaw": "P500940*",
+    "parts": [
+      "P500940"
+    ],
+    "oemRaw": "AF25276",
+    "oemPartNumbers": [
+      "AF25276"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 9,
+    "block": "9-1",
+    "equipment": "LIUGONG Gzlg856III",
+    "description": "AIR FILTER, SAFETY",
+    "donaldsonRaw": "P500941",
+    "parts": [
+      "P500941"
+    ],
+    "oemRaw": "AF25277",
+    "oemPartNumbers": [
+      "AF25277"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 9,
+    "block": "9-1",
+    "equipment": "LIUGONG Gzlg856III",
+    "description": "HYDRAULIC FILTER, SPIN-ON",
+    "donaldsonRaw": "P550416",
+    "parts": [
+      "P550416"
+    ],
+    "oemRaw": "",
+    "oemPartNumbers": [],
+    "reviewReasons": [
+      "ไม่มีเบอร์ OEM"
+    ]
+  },
+  {
+    "page": 9,
+    "block": "9-2",
+    "equipment": "LIUGONG 913f",
+    "description": "LUBE FILTER, SPIN-ON FULL FLOW",
+    "donaldsonRaw": "P551100",
+    "parts": [
+      "P551100"
+    ],
+    "oemRaw": "53C0817",
+    "oemPartNumbers": [
+      "53C0817"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 9,
+    "block": "9-3",
+    "equipment": "LIUGONG 848H",
+    "description": "LUBE FILTER, SPIN-ON FULL FLOW",
+    "donaldsonRaw": "P550428",
+    "parts": [
+      "P550428"
+    ],
+    "oemRaw": "40C2182",
+    "oemPartNumbers": [
+      "40C2182"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 9,
+    "block": "9-4",
+    "equipment": "LIUGONG 877H",
+    "description": "AIR FILTER, PRIMARY RADIALSEAL",
+    "donaldsonRaw": "P777868",
+    "parts": [
+      "P777868"
+    ],
+    "oemRaw": "40C2952",
+    "oemPartNumbers": [
+      "40C2952"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 9,
+    "block": "9-4",
+    "equipment": "LIUGONG 877H",
+    "description": "AIR FILTER, SAFETY RADIALSEAL",
+    "donaldsonRaw": "P777869",
+    "parts": [
+      "P777869"
+    ],
+    "oemRaw": "40C0321",
+    "oemPartNumbers": [
+      "40C0321"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 9,
+    "block": "9-4",
+    "equipment": "LIUGONG 877H",
+    "description": "FUEL FILTER, WATER SEPARATOR SPIN-ON TWIST&DRAIN",
+    "donaldsonRaw": "P551000",
+    "parts": [
+      "P551000"
+    ],
+    "oemRaw": "53C0650",
+    "oemPartNumbers": [
+      "53C0650"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 9,
+    "block": "9-4",
+    "equipment": "LIUGONG 877H",
+    "description": "LUBE FILTER, SPIN-ON FULL FLOW",
+    "donaldsonRaw": "P553000",
+    "parts": [
+      "P553000"
+    ],
+    "oemRaw": "53C0053",
+    "oemPartNumbers": [
+      "53C0053"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 9,
+    "block": "9-5",
+    "equipment": "LIUGONG 933E",
+    "description": "AIR FILTER, PRIMARY RADIALSEAL",
+    "donaldsonRaw": "P537876",
+    "parts": [
+      "P537876"
+    ],
+    "oemRaw": "40C2953",
+    "oemPartNumbers": [
+      "40C2953"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 9,
+    "block": "9-5",
+    "equipment": "LIUGONG 933E",
+    "description": "LUBE FILTER, SPIN-ON FULL FLOW",
+    "donaldsonRaw": "P550428",
+    "parts": [
+      "P550428"
+    ],
+    "oemRaw": "40C2182",
+    "oemPartNumbers": [
+      "40C2182"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 9,
+    "block": "9-5",
+    "equipment": "LIUGONG 933E",
+    "description": "HYDRAULIC FILTER, CARTRIDGE",
+    "donaldsonRaw": "R010055*",
+    "parts": [
+      "R010055"
+    ],
+    "oemRaw": "53C0083",
+    "oemPartNumbers": [
+      "53C0083"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 9,
+    "block": "9-5",
+    "equipment": "LIUGONG 933E",
+    "description": "HYDRAULIC FILTER, CARTRIDGE DT",
+    "donaldsonRaw": "P566999",
+    "parts": [
+      "P566999"
+    ],
+    "oemRaw": "53C0210",
+    "oemPartNumbers": [
+      "53C0210"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 9,
+    "block": "9-5",
+    "equipment": "LIUGONG 933E",
+    "description": "AIR CLEANER KIT",
+    "donaldsonRaw": "X012252*",
+    "parts": [
+      "X012252"
+    ],
+    "oemRaw": "60C2472",
+    "oemPartNumbers": [
+      "60C2472"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 9,
+    "block": "9-6",
+    "equipment": "LIUGONG 909ECR",
+    "description": "AIR FILTER KIT",
+    "donaldsonRaw": "X802236*",
+    "parts": [
+      "X802236"
+    ],
+    "oemRaw": "40C0506",
+    "oemPartNumbers": [
+      "40C0506"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 9,
+    "block": "9-6",
+    "equipment": "LIUGONG 909ECR",
+    "description": "HYDRAULIC FILTER, CARTRIDGE",
+    "donaldsonRaw": "R010055*",
+    "parts": [
+      "R010055"
+    ],
+    "oemRaw": "53C0250",
+    "oemPartNumbers": [
+      "53C0250"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 9,
+    "block": "9-6",
+    "equipment": "LIUGONG 909ECR",
+    "description": "HYDRAULIC FILTER, CARTRIDGE DT",
+    "donaldsonRaw": "P566983",
+    "parts": [
+      "P566983"
+    ],
+    "oemRaw": "53C0038",
+    "oemPartNumbers": [
+      "53C0038"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 10,
+    "block": "10-1",
+    "equipment": "LIUGONG CLG850H Cummins Engine QSL9.3",
+    "description": "AIR CLEANER KIT",
+    "donaldsonRaw": "X012252 *",
+    "parts": [
+      "X012252"
+    ],
+    "oemRaw": "60C2472",
+    "oemPartNumbers": [
+      "60C2472"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 10,
+    "block": "10-1",
+    "equipment": "LIUGONG CLG850H Cummins Engine QSL9.3",
+    "description": "AIR FILTER, KIT",
+    "donaldsonRaw": "",
+    "parts": [],
+    "oemRaw": "40C5010",
+    "oemPartNumbers": [],
+    "reviewReasons": [
+      "ไม่มีเบอร์ Donaldson"
+    ]
+  },
+  {
+    "page": 10,
+    "block": "10-1",
+    "equipment": "LIUGONG CLG850H Cummins Engine QSL9.3",
+    "description": "LUBE FILTER, SPIN-ON FULL FLOW",
+    "donaldsonRaw": "P553000",
+    "parts": [
+      "P553000"
+    ],
+    "oemRaw": "53C0053",
+    "oemPartNumbers": [
+      "53C0053"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 10,
+    "block": "10-1",
+    "equipment": "LIUGONG CLG850H Cummins Engine QSL9.3",
+    "description": "FUEL FILTER",
+    "donaldsonRaw": "",
+    "parts": [],
+    "oemRaw": "SP133011",
+    "oemPartNumbers": [],
+    "reviewReasons": [
+      "ไม่มีเบอร์ Donaldson"
+    ]
+  },
+  {
+    "page": 10,
+    "block": "10-1",
+    "equipment": "LIUGONG CLG850H Cummins Engine QSL9.3",
+    "description": "HYDRAULIC FILTER, SPIN-ON",
+    "donaldsonRaw": "P550416",
+    "parts": [
+      "P550416"
+    ],
+    "oemRaw": "SP100275",
+    "oemPartNumbers": [
+      "SP100275"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 10,
+    "block": "10-2",
+    "equipment": "LIUGONG CLG908D Cummins Engine B3.3-85",
+    "description": "LUBE FILTER, SPIN-ON FULL FLOW",
+    "donaldsonRaw": "P551132 *",
+    "parts": [
+      "P551132"
+    ],
+    "oemRaw": "C6002112110",
+    "oemPartNumbers": [
+      "C6002112110"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 10,
+    "block": "10-2",
+    "equipment": "LIUGONG CLG908D Cummins Engine B3.3-85",
+    "description": "FUEL FILTER, SPIN-ON",
+    "donaldsonRaw": "P550057",
+    "parts": [
+      "P550057"
+    ],
+    "oemRaw": "C6003112110",
+    "oemPartNumbers": [
+      "C6003112110"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 10,
+    "block": "10-2",
+    "equipment": "LIUGONG CLG908D Cummins Engine B3.3-85",
+    "description": "FUEL FILTER, WATER SEPARATOR SPIN-ON",
+    "donaldsonRaw": "P550550",
+    "parts": [
+      "P550550"
+    ],
+    "oemRaw": "C6003117480",
+    "oemPartNumbers": [
+      "C6003117480"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 10,
+    "block": "10-2",
+    "equipment": "LIUGONG CLG908D Cummins Engine B3.3-85",
+    "description": "AIR FILTER KIT,RADIALSEAL",
+    "donaldsonRaw": "X012193 *",
+    "parts": [
+      "X012193"
+    ],
+    "oemRaw": "40C0496",
+    "oemPartNumbers": [
+      "40C0496"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 10,
+    "block": "10-2",
+    "equipment": "LIUGONG CLG908D Cummins Engine B3.3-85",
+    "description": "HYDRAULIC FILTER, CARTRIDGE",
+    "donaldsonRaw": "R010055 *",
+    "parts": [
+      "R010055"
+    ],
+    "oemRaw": "53C0250",
+    "oemPartNumbers": [
+      "53C0250"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 10,
+    "block": "10-2",
+    "equipment": "LIUGONG CLG908D Cummins Engine B3.3-85",
+    "description": "HYDRAULIC FILTER, CARTRIDGE DT",
+    "donaldsonRaw": "P566983",
+    "parts": [
+      "P566983"
+    ],
+    "oemRaw": "53C0038",
+    "oemPartNumbers": [
+      "53C0038"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 10,
+    "block": "10-3",
+    "equipment": "LIUGONG 920E Cummins Engine B5.9",
+    "description": "LUBE FILTER, SPIN-ON FULL FLOW",
+    "donaldsonRaw": "P558615",
+    "parts": [
+      "P558615"
+    ],
+    "oemRaw": "53C0054",
+    "oemPartNumbers": [
+      "53C0054"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 10,
+    "block": "10-3",
+    "equipment": "LIUGONG 920E Cummins Engine B5.9",
+    "description": "FUEL FILTER, SPIN-ON",
+    "donaldsonRaw": "P553004",
+    "parts": [
+      "P553004"
+    ],
+    "oemRaw": "53C0045",
+    "oemPartNumbers": [
+      "53C0045"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 10,
+    "block": "10-3",
+    "equipment": "LIUGONG 920E Cummins Engine B5.9",
+    "description": "FUEL FILTER, SPIN-ON SECONDARY",
+    "donaldsonRaw": "P550440",
+    "parts": [
+      "P550440"
+    ],
+    "oemRaw": "53C0052",
+    "oemPartNumbers": [
+      "53C0052"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 10,
+    "block": "10-3",
+    "equipment": "LIUGONG 920E Cummins Engine B5.9",
+    "description": "FUEL FILTER, WATER SEPARATOR SPIN-ON TWIST&DRAIN",
+    "donaldsonRaw": "P551329",
+    "parts": [
+      "P551329"
+    ],
+    "oemRaw": "53C0051",
+    "oemPartNumbers": [
+      "53C0051"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 10,
+    "block": "10-3",
+    "equipment": "LIUGONG 920E Cummins Engine B5.9",
+    "description": "HYDRAULIC FILTER, CARTRIDGE",
+    "donaldsonRaw": "R010055 *",
+    "parts": [
+      "R010055"
+    ],
+    "oemRaw": "53C0250",
+    "oemPartNumbers": [
+      "53C0250"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 10,
+    "block": "10-4",
+    "equipment": "LIUGONG 922E Cummins Engine B5.9",
+    "description": "AIR FILTER KIT, RADIALSEAL",
+    "donaldsonRaw": "X011409 *",
+    "parts": [
+      "X011409"
+    ],
+    "oemRaw": "40C2707",
+    "oemPartNumbers": [
+      "40C2707"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 10,
+    "block": "10-4",
+    "equipment": "LIUGONG 922E Cummins Engine B5.9",
+    "description": "AIR FILTER, PRIMARY RADIALSEAL",
+    "donaldsonRaw": "R000585 *",
+    "parts": [
+      "R000585"
+    ],
+    "oemRaw": "40C1033",
+    "oemPartNumbers": [
+      "40C1033"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 10,
+    "block": "10-4",
+    "equipment": "LIUGONG 922E Cummins Engine B5.9",
+    "description": "AIR FILTER, SAFETY",
+    "donaldsonRaw": "R000586 *",
+    "parts": [
+      "R000586"
+    ],
+    "oemRaw": "40C1032",
+    "oemPartNumbers": [
+      "40C1032"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 10,
+    "block": "10-4",
+    "equipment": "LIUGONG 922E Cummins Engine B5.9",
+    "description": "LUBE FILTER, SPIN-ON FULL FLOW",
+    "donaldsonRaw": "P558615",
+    "parts": [
+      "P558615"
+    ],
+    "oemRaw": "53C0054",
+    "oemPartNumbers": [
+      "53C0054"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 10,
+    "block": "10-4",
+    "equipment": "LIUGONG 922E Cummins Engine B5.9",
+    "description": "FUEL FILTER, SPIN-ON",
+    "donaldsonRaw": "P553004",
+    "parts": [
+      "P553004"
+    ],
+    "oemRaw": "53C0045",
+    "oemPartNumbers": [
+      "53C0045"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 10,
+    "block": "10-4",
+    "equipment": "LIUGONG 922E Cummins Engine B5.9",
+    "description": "FUEL FILTER, SPIN-ON SECONDARY",
+    "donaldsonRaw": "P550440",
+    "parts": [
+      "P550440"
+    ],
+    "oemRaw": "53C0052",
+    "oemPartNumbers": [
+      "53C0052"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 10,
+    "block": "10-4",
+    "equipment": "LIUGONG 922E Cummins Engine B5.9",
+    "description": "FUEL FILTER, WATER SEPARATOR SPIN-ON TWIST&DRAIN",
+    "donaldsonRaw": "P551329",
+    "parts": [
+      "P551329"
+    ],
+    "oemRaw": "53C0051",
+    "oemPartNumbers": [
+      "53C0051"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 10,
+    "block": "10-4",
+    "equipment": "LIUGONG 922E Cummins Engine B5.9",
+    "description": "HYDRAULIC FILTER, CARTRIDGE",
+    "donaldsonRaw": "R010055 *",
+    "parts": [
+      "R010055"
+    ],
+    "oemRaw": "53C0250",
+    "oemPartNumbers": [
+      "53C0250"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 11,
+    "block": "11-1",
+    "equipment": "LIUGONG CLG922E Cummins Engine QSB6.7",
+    "description": "AIR FILTER, PRIMARY RADIALSEAL",
+    "donaldsonRaw": "P532966",
+    "parts": [
+      "P532966"
+    ],
+    "oemRaw": "40C1033",
+    "oemPartNumbers": [
+      "40C1033"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 11,
+    "block": "11-1",
+    "equipment": "LIUGONG CLG922E Cummins Engine QSB6.7",
+    "description": "AIR FILTER, SAFETY RADIALSEAL",
+    "donaldsonRaw": "P533781",
+    "parts": [
+      "P533781"
+    ],
+    "oemRaw": "40C1032",
+    "oemPartNumbers": [
+      "40C1032"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 11,
+    "block": "11-1",
+    "equipment": "LIUGONG CLG922E Cummins Engine QSB6.7",
+    "description": "AIR FILTER KIT, RADIALSEAL",
+    "donaldsonRaw": "X011409 *",
+    "parts": [
+      "X011409"
+    ],
+    "oemRaw": "40C2707",
+    "oemPartNumbers": [
+      "40C2707"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 11,
+    "block": "11-1",
+    "equipment": "LIUGONG CLG922E Cummins Engine QSB6.7",
+    "description": "LUBE FILTER, SPIN-ON FULL FLOW",
+    "donaldsonRaw": "P550428",
+    "parts": [
+      "P550428"
+    ],
+    "oemRaw": "40C2182",
+    "oemPartNumbers": [
+      "40C2182"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 11,
+    "block": "11-1",
+    "equipment": "LIUGONG CLG922E Cummins Engine QSB6.7",
+    "description": "FUEL FILTER, SPIN-ON",
+    "donaldsonRaw": "P550880",
+    "parts": [
+      "P550880"
+    ],
+    "oemRaw": "53C0497",
+    "oemPartNumbers": [
+      "53C0497"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 11,
+    "block": "11-1",
+    "equipment": "LIUGONG CLG922E Cummins Engine QSB6.7",
+    "description": "HYDRAULIC FILTER, CARTRIDGE",
+    "donaldsonRaw": "R010055 *",
+    "parts": [
+      "R010055"
+    ],
+    "oemRaw": "53C0083",
+    "oemPartNumbers": [
+      "53C0083"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 11,
+    "block": "11-2",
+    "equipment": "LIUGONG CLG936E Cummins Engine QSL9.3",
+    "description": "AIR FILTER, PRIMARY RADIALSEAL",
+    "donaldsonRaw": "P777868",
+    "parts": [
+      "P777868"
+    ],
+    "oemRaw": "53C0253",
+    "oemPartNumbers": [
+      "53C0253"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 11,
+    "block": "11-2",
+    "equipment": "LIUGONG CLG936E Cummins Engine QSL9.3",
+    "description": "AIR FILTER, SAFETY RADIALSEAL",
+    "donaldsonRaw": "P777869",
+    "parts": [
+      "P777869"
+    ],
+    "oemRaw": "53C0254",
+    "oemPartNumbers": [
+      "53C0254"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 11,
+    "block": "11-2",
+    "equipment": "LIUGONG CLG936E Cummins Engine QSL9.3",
+    "description": "FUEL FILTER, SPIN-ON",
+    "donaldsonRaw": "P550774",
+    "parts": [
+      "P550774"
+    ],
+    "oemRaw": "53C0494",
+    "oemPartNumbers": [
+      "53C0494"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 11,
+    "block": "11-2",
+    "equipment": "LIUGONG CLG936E Cummins Engine QSL9.3",
+    "description": "LUBE FILTER, SPIN-ON FULL FLOW",
+    "donaldsonRaw": "P553000",
+    "parts": [
+      "P553000"
+    ],
+    "oemRaw": "53C0053",
+    "oemPartNumbers": [
+      "53C0053"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 11,
+    "block": "11-2",
+    "equipment": "LIUGONG CLG936E Cummins Engine QSL9.3",
+    "description": "HYDRAULIC FILTER, CARTRIDGE",
+    "donaldsonRaw": "R010055 *",
+    "parts": [
+      "R010055"
+    ],
+    "oemRaw": "53C0265",
+    "oemPartNumbers": [
+      "53C0265"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 11,
+    "block": "11-2",
+    "equipment": "LIUGONG CLG936E Cummins Engine QSL9.3",
+    "description": "HYDRAULIC FILTER, CARTRIDGE DT",
+    "donaldsonRaw": "P566999",
+    "parts": [
+      "P566999"
+    ],
+    "oemRaw": "53C0210",
+    "oemPartNumbers": [
+      "53C0210"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 11,
+    "block": "11-3",
+    "equipment": "LIUGONG ZL30E YUCHAI Engine YC6108Q",
+    "description": "FUEL FILTER, SPIN-ON",
+    "donaldsonRaw": "R010016 *",
+    "parts": [
+      "R010016"
+    ],
+    "oemRaw": "SP101846",
+    "oemPartNumbers": [
+      "SP101846"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 11,
+    "block": "11-3",
+    "equipment": "LIUGONG ZL30E YUCHAI Engine YC6108Q",
+    "description": "HYDRAULIC FILTER, CARTRIDGE",
+    "donaldsonRaw": "R010046 *",
+    "parts": [
+      "R010046"
+    ],
+    "oemRaw": "53C0035",
+    "oemPartNumbers": [
+      "53C0035"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 11,
+    "block": "11-3",
+    "equipment": "LIUGONG ZL30E YUCHAI Engine YC6108Q",
+    "description": "LUBE FILTER, SPIN-ON FULL FLOW",
+    "donaldsonRaw": "P550086",
+    "parts": [
+      "P550086"
+    ],
+    "oemRaw": "SP101847",
+    "oemPartNumbers": [
+      "SP101847"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 11,
+    "block": "11-3",
+    "equipment": "LIUGONG ZL30E YUCHAI Engine YC6108Q",
+    "description": "FUEL FILTER",
+    "donaldsonRaw": "",
+    "parts": [],
+    "oemRaw": "SP150033",
+    "oemPartNumbers": [],
+    "reviewReasons": [
+      "ไม่มีเบอร์ Donaldson"
+    ]
+  },
+  {
+    "page": 11,
+    "block": "11-3",
+    "equipment": "LIUGONG ZL30E YUCHAI Engine YC6108Q",
+    "description": "LUBE FILTER",
+    "donaldsonRaw": "",
+    "parts": [],
+    "oemRaw": "SP144359",
+    "oemPartNumbers": [],
+    "reviewReasons": [
+      "ไม่มีเบอร์ Donaldson"
+    ]
+  },
+  {
+    "page": 11,
+    "block": "11-4",
+    "equipment": "LIUGONG ZL50C Weichai Power Engine WD10G220E13",
+    "description": "AIR FILTER KIT",
+    "donaldsonRaw": "R000749 *",
+    "parts": [
+      "R000749"
+    ],
+    "oemRaw": "612600112285",
+    "oemPartNumbers": [
+      "612600112285"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 11,
+    "block": "11-4",
+    "equipment": "LIUGONG ZL50C Weichai Power Engine WD10G220E13",
+    "description": "AIR CLEANER KIT",
+    "donaldsonRaw": "X012252 *",
+    "parts": [
+      "X012252"
+    ],
+    "oemRaw": "60C2472",
+    "oemPartNumbers": [
+      "60C2472"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 11,
+    "block": "11-4",
+    "equipment": "LIUGONG ZL50C Weichai Power Engine WD10G220E13",
+    "description": "LUBE FILTER, SPIN-ON FULL FLOW",
+    "donaldsonRaw": "P553000",
+    "parts": [
+      "P553000"
+    ],
+    "oemRaw": "53C0053",
+    "oemPartNumbers": [
+      "53C0053"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 11,
+    "block": "11-4",
+    "equipment": "LIUGONG ZL50C Weichai Power Engine WD10G220E13",
+    "description": "FUEL FILTER, CARTRIDGE",
+    "donaldsonRaw": "P550861",
+    "parts": [
+      "P550861"
+    ],
+    "oemRaw": "614080295A",
+    "oemPartNumbers": [
+      "614080295A"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 11,
+    "block": "11-4",
+    "equipment": "LIUGONG ZL50C Weichai Power Engine WD10G220E13",
+    "description": "HYDRAULIC FILTER, CARTRIDGE",
+    "donaldsonRaw": "R010045 *",
+    "parts": [
+      "R010045"
+    ],
+    "oemRaw": "53C0006",
+    "oemPartNumbers": [
+      "53C0006"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 12,
+    "block": "12-1",
+    "equipment": "LIUGONG ZL50CN Weichai Power Engine WD10G220E13",
+    "description": "LUBE FILTER, SPIN-ON FULL FLOW",
+    "donaldsonRaw": "P553771",
+    "parts": [
+      "P553771"
+    ],
+    "oemRaw": "1000424655/61000070005",
+    "oemPartNumbers": [
+      "1000424655",
+      "61000070005"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 12,
+    "block": "12-1",
+    "equipment": "LIUGONG ZL50CN Weichai Power Engine WD10G220E13",
+    "description": "AIR FILTER KIT",
+    "donaldsonRaw": "R000749 *",
+    "parts": [
+      "R000749"
+    ],
+    "oemRaw": "612600112285",
+    "oemPartNumbers": [
+      "612600112285"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 12,
+    "block": "12-1",
+    "equipment": "LIUGONG ZL50CN Weichai Power Engine WD10G220E13",
+    "description": "AIR FILTER, KIT",
+    "donaldsonRaw": "",
+    "parts": [],
+    "oemRaw": "40C5010",
+    "oemPartNumbers": [],
+    "reviewReasons": [
+      "ไม่มีเบอร์ Donaldson"
+    ]
+  },
+  {
+    "page": 12,
+    "block": "12-1",
+    "equipment": "LIUGONG ZL50CN Weichai Power Engine WD10G220E13",
+    "description": "AIR CLEANER KIT",
+    "donaldsonRaw": "X012252 *",
+    "parts": [
+      "X012252"
+    ],
+    "oemRaw": "60C2472",
+    "oemPartNumbers": [
+      "60C2472"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 12,
+    "block": "12-1",
+    "equipment": "LIUGONG ZL50CN Weichai Power Engine WD10G220E13",
+    "description": "LUBE FILTER, SPIN-ON FULL FLOW",
+    "donaldsonRaw": "P553000",
+    "parts": [
+      "P553000"
+    ],
+    "oemRaw": "53C0053",
+    "oemPartNumbers": [
+      "53C0053"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 12,
+    "block": "12-1",
+    "equipment": "LIUGONG ZL50CN Weichai Power Engine WD10G220E13",
+    "description": "FUEL FILTER, CARTRIDGE",
+    "donaldsonRaw": "P550861",
+    "parts": [
+      "P550861"
+    ],
+    "oemRaw": "614080295A",
+    "oemPartNumbers": [
+      "614080295A"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 12,
+    "block": "12-2",
+    "equipment": "FAW JIEFANG - J5M Series FAWDE Engine 6DF",
+    "description": "FUEL FILTER, SPIN-ON",
+    "donaldsonRaw": "P502432*",
+    "parts": [
+      "P502432"
+    ],
+    "oemRaw": "1117050-73D",
+    "oemPartNumbers": [
+      "1117050-73D"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 12,
+    "block": "12-2",
+    "equipment": "FAW JIEFANG - J5M Series FAWDE Engine 6DF",
+    "description": "LUBE FILTER, SPIN-ON FULL FLOW",
+    "donaldsonRaw": "R010059*",
+    "parts": [
+      "R010059"
+    ],
+    "oemRaw": "1012010-81DM",
+    "oemPartNumbers": [
+      "1012010-81DM"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 12,
+    "block": "12-2",
+    "equipment": "FAW JIEFANG - J5M Series FAWDE Engine 6DF",
+    "description": "LUBE FILTER,SPIN-ON FULL FLOW",
+    "donaldsonRaw": "P550519",
+    "parts": [
+      "P550519"
+    ],
+    "oemRaw": "1012010-81DM",
+    "oemPartNumbers": [
+      "1012010-81DM"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 12,
+    "block": "12-3",
+    "equipment": "FAW JIEFANG - J5M Series FAWDE Engine 6DL",
+    "description": "FUEL FILTER, SPIN-ON",
+    "donaldsonRaw": "P502432*",
+    "parts": [
+      "P502432"
+    ],
+    "oemRaw": "1117050-73D",
+    "oemPartNumbers": [
+      "1117050-73D"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 12,
+    "block": "12-3",
+    "equipment": "FAW JIEFANG - J5M Series FAWDE Engine 6DL",
+    "description": "FUEL FILTER",
+    "donaldsonRaw": "",
+    "parts": [],
+    "oemRaw": "1117050-M00-2060AL1",
+    "oemPartNumbers": [],
+    "reviewReasons": [
+      "ไม่มีเบอร์ Donaldson"
+    ]
+  },
+  {
+    "page": 12,
+    "block": "12-3",
+    "equipment": "FAW JIEFANG - J5M Series FAWDE Engine 6DL",
+    "description": "LUBE FILTER , SPIN-ON FULL FLOW",
+    "donaldsonRaw": "R010012*",
+    "parts": [
+      "R010012"
+    ],
+    "oemRaw": "1012010-36D",
+    "oemPartNumbers": [
+      "1012010-36D"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 12,
+    "block": "12-3",
+    "equipment": "FAW JIEFANG - J5M Series FAWDE Engine 6DL",
+    "description": "LUBE FILTER , SPIN-ON FULL FLOW",
+    "donaldsonRaw": "",
+    "parts": [],
+    "oemRaw": "1012010-36DML1",
+    "oemPartNumbers": [],
+    "reviewReasons": [
+      "ไม่มีเบอร์ Donaldson"
+    ]
+  },
+  {
+    "page": 12,
+    "block": "12-3",
+    "equipment": "FAW JIEFANG - J5M Series FAWDE Engine 6DL",
+    "description": "",
+    "donaldsonRaw": "",
+    "parts": [],
+    "oemRaw": "1012010-640-177UA",
+    "oemPartNumbers": [],
+    "reviewReasons": [
+      "ไม่มีเบอร์ Donaldson",
+      "ไม่มีคำอธิบายประเภทกรอง"
+    ]
+  },
+  {
+    "page": 12,
+    "block": "12-4",
+    "equipment": "FAW JIEFANG - J5M Series FAWDE Engine 6DL",
+    "description": "FUEL FILTER, SPIN-ON",
+    "donaldsonRaw": "P502432*",
+    "parts": [
+      "P502432"
+    ],
+    "oemRaw": "1117050-73D",
+    "oemPartNumbers": [
+      "1117050-73D"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 12,
+    "block": "12-4",
+    "equipment": "FAW JIEFANG - J5M Series FAWDE Engine 6DL",
+    "description": "FUEL FILTER",
+    "donaldsonRaw": "",
+    "parts": [],
+    "oemRaw": "1117050-M00-2060AL1",
+    "oemPartNumbers": [],
+    "reviewReasons": [
+      "ไม่มีเบอร์ Donaldson"
+    ]
+  },
+  {
+    "page": 12,
+    "block": "12-4",
+    "equipment": "FAW JIEFANG - J5M Series FAWDE Engine 6DL",
+    "description": "LUBE FILTER , SPIN-ON FULL FLOW",
+    "donaldsonRaw": "R010012*",
+    "parts": [
+      "R010012"
+    ],
+    "oemRaw": "1012010-36D",
+    "oemPartNumbers": [
+      "1012010-36D"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 12,
+    "block": "12-4",
+    "equipment": "FAW JIEFANG - J5M Series FAWDE Engine 6DL",
+    "description": "LUBE FILTER , SPIN-ON FULL FLOW",
+    "donaldsonRaw": "",
+    "parts": [],
+    "oemRaw": "1012010-36DML1",
+    "oemPartNumbers": [],
+    "reviewReasons": [
+      "ไม่มีเบอร์ Donaldson"
+    ]
+  },
+  {
+    "page": 12,
+    "block": "12-4",
+    "equipment": "FAW JIEFANG - J5M Series FAWDE Engine 6DL",
+    "description": "LUBE FILTER , SPIN-ON FULL FLOW",
+    "donaldsonRaw": "",
+    "parts": [],
+    "oemRaw": "1012010-640-177UA",
+    "oemPartNumbers": [],
+    "reviewReasons": [
+      "ไม่มีเบอร์ Donaldson"
+    ]
+  },
+  {
+    "page": 12,
+    "block": "12-5",
+    "equipment": "FAW JIEFANG - J5M Series Wechai Engine WP10",
+    "description": "FUEL FILTER, SPIN-ON",
+    "donaldsonRaw": "R010018",
+    "parts": [
+      "R010018"
+    ],
+    "oemRaw": "1000422382",
+    "oemPartNumbers": [
+      "1000422382"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 12,
+    "block": "12-5",
+    "equipment": "FAW JIEFANG - J5M Series Wechai Engine WP10",
+    "description": "LUBE FILTER , SPIN-ON FULL FLOW",
+    "donaldsonRaw": "P550317",
+    "parts": [
+      "P550317"
+    ],
+    "oemRaw": "1000424655",
+    "oemPartNumbers": [
+      "1000424655"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 13,
+    "block": "13-1",
+    "equipment": "FAW JIEFANG - J5M Series Wechai Emgone WP12",
+    "description": "FUEL FILTER, SPIN-ON",
+    "donaldsonRaw": "R010018",
+    "parts": [
+      "R010018"
+    ],
+    "oemRaw": "1000422382",
+    "oemPartNumbers": [
+      "1000422382"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 13,
+    "block": "13-1",
+    "equipment": "FAW JIEFANG - J5M Series Wechai Emgone WP12",
+    "description": "LUBE FILTER, SPIN-ON",
+    "donaldsonRaw": "P550945",
+    "parts": [
+      "P550945"
+    ],
+    "oemRaw": "1000046698",
+    "oemPartNumbers": [
+      "1000046698"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 13,
+    "block": "13-1",
+    "equipment": "FAW JIEFANG - J5M Series Wechai Emgone WP12",
+    "description": "LUBE FILTER, SPIN-ON FULL",
+    "donaldsonRaw": "R010077",
+    "parts": [
+      "R010077"
+    ],
+    "oemRaw": "1000428205",
+    "oemPartNumbers": [
+      "1000428205"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 13,
+    "block": "13-2",
+    "equipment": "FAW JIEFANG - J5P Series FAWDE Engine 6DL1",
+    "description": "FUEL FILTER, SPIN-ON",
+    "donaldsonRaw": "P502432*",
+    "parts": [
+      "P502432"
+    ],
+    "oemRaw": "1117050-73D",
+    "oemPartNumbers": [
+      "1117050-73D"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 13,
+    "block": "13-2",
+    "equipment": "FAW JIEFANG - J5P Series FAWDE Engine 6DL1",
+    "description": "",
+    "donaldsonRaw": "",
+    "parts": [],
+    "oemRaw": "1117050-M00-2060AL1",
+    "oemPartNumbers": [],
+    "reviewReasons": [
+      "ไม่มีเบอร์ Donaldson",
+      "ไม่มีคำอธิบายประเภทกรอง"
+    ]
+  },
+  {
+    "page": 13,
+    "block": "13-2",
+    "equipment": "FAW JIEFANG - J5P Series FAWDE Engine 6DL1",
+    "description": "LUBE FILTER , SPIN-ON FULL FLOW",
+    "donaldsonRaw": "R010012*",
+    "parts": [
+      "R010012"
+    ],
+    "oemRaw": "1012010-36D",
+    "oemPartNumbers": [
+      "1012010-36D"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 13,
+    "block": "13-2",
+    "equipment": "FAW JIEFANG - J5P Series FAWDE Engine 6DL1",
+    "description": "",
+    "donaldsonRaw": "",
+    "parts": [],
+    "oemRaw": "1012010-36DML1",
+    "oemPartNumbers": [],
+    "reviewReasons": [
+      "ไม่มีเบอร์ Donaldson",
+      "ไม่มีคำอธิบายประเภทกรอง"
+    ]
+  },
+  {
+    "page": 13,
+    "block": "13-2",
+    "equipment": "FAW JIEFANG - J5P Series FAWDE Engine 6DL1",
+    "description": "",
+    "donaldsonRaw": "",
+    "parts": [],
+    "oemRaw": "1012010-640-177UA",
+    "oemPartNumbers": [],
+    "reviewReasons": [
+      "ไม่มีเบอร์ Donaldson",
+      "ไม่มีคำอธิบายประเภทกรอง"
+    ]
+  },
+  {
+    "page": 13,
+    "block": "13-3",
+    "equipment": "FAW JIEFANG - J5P Series FAWDE Engine 6DM",
+    "description": "FUEL FILTER, SPIN-ON",
+    "donaldsonRaw": "R010018",
+    "parts": [
+      "R010018"
+    ],
+    "oemRaw": "1117010-M60-0000M",
+    "oemPartNumbers": [
+      "1117010-M60-0000M"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 13,
+    "block": "13-3",
+    "equipment": "FAW JIEFANG - J5P Series FAWDE Engine 6DM",
+    "description": "",
+    "donaldsonRaw": "",
+    "parts": [],
+    "oemRaw": "1117010-M60-0000M",
+    "oemPartNumbers": [],
+    "reviewReasons": [
+      "ไม่มีเบอร์ Donaldson",
+      "ไม่มีคำอธิบายประเภทกรอง"
+    ]
+  },
+  {
+    "page": 13,
+    "block": "13-3",
+    "equipment": "FAW JIEFANG - J5P Series FAWDE Engine 6DM",
+    "description": "",
+    "donaldsonRaw": "",
+    "parts": [],
+    "oemRaw": "1117050-M36-055R",
+    "oemPartNumbers": [],
+    "reviewReasons": [
+      "ไม่มีเบอร์ Donaldson",
+      "ไม่มีคำอธิบายประเภทกรอง"
+    ]
+  },
+  {
+    "page": 13,
+    "block": "13-3",
+    "equipment": "FAW JIEFANG - J5P Series FAWDE Engine 6DM",
+    "description": "LUBE FILTER , SPIN-ON FULL FLOW",
+    "donaldsonRaw": "R010059*",
+    "parts": [
+      "R010059"
+    ],
+    "oemRaw": "1012010-81DM",
+    "oemPartNumbers": [
+      "1012010-81DM"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 13,
+    "block": "13-3",
+    "equipment": "FAW JIEFANG - J5P Series FAWDE Engine 6DM",
+    "description": "LUBE FILTER , SPIN-ON FULL FLOW",
+    "donaldsonRaw": "P550519",
+    "parts": [
+      "P550519"
+    ],
+    "oemRaw": "1012010-M18-054W",
+    "oemPartNumbers": [
+      "1012010-M18-054W"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 13,
+    "block": "13-4",
+    "equipment": "FAW JIEFANG - J6F Series FAWDE Engine 4DF",
+    "description": "FUEL FILTER, SPIN-ON",
+    "donaldsonRaw": "P954604",
+    "parts": [
+      "P954604"
+    ],
+    "oemRaw": "S1117050-A12",
+    "oemPartNumbers": [
+      "S1117050-A12"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 13,
+    "block": "13-4",
+    "equipment": "FAW JIEFANG - J6F Series FAWDE Engine 4DF",
+    "description": "LUBE FILTER , SPIN-ON FULL FLOW",
+    "donaldsonRaw": "P550820",
+    "parts": [
+      "P550820"
+    ],
+    "oemRaw": "1012010-A12*000",
+    "oemPartNumbers": [
+      "1012010-A12*000"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 13,
+    "block": "13-5",
+    "equipment": "SHANTUI SL30WN",
+    "description": "AIR FILTER, PRIMARY RADIALSEAL",
+    "donaldsonRaw": "P777638",
+    "parts": [
+      "P777638"
+    ],
+    "oemRaw": "",
+    "oemPartNumbers": [],
+    "reviewReasons": [
+      "ไม่มีเบอร์ OEM"
+    ]
+  },
+  {
+    "page": 13,
+    "block": "13-5",
+    "equipment": "SHANTUI SL30WN",
+    "description": "AIR FILTER, SAFETY RADIALSEAL",
+    "donaldsonRaw": "P777639",
+    "parts": [
+      "P777639"
+    ],
+    "oemRaw": "",
+    "oemPartNumbers": [],
+    "reviewReasons": [
+      "ไม่มีเบอร์ OEM"
+    ]
+  },
+  {
+    "page": 14,
+    "block": "14-1",
+    "equipment": "SHANTUI SD22 /SD16 Cummins Engine NT-855",
+    "description": "AIR FILTER, SAFETY",
+    "donaldsonRaw": "P145701 *",
+    "parts": [
+      "P145701"
+    ],
+    "oemRaw": "6128817320",
+    "oemPartNumbers": [
+      "6128817320"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 14,
+    "block": "14-1",
+    "equipment": "SHANTUI SD22 /SD16 Cummins Engine NT-855",
+    "description": "LUBE FILTER, SPIN-ON FULL FLOW",
+    "donaldsonRaw": "P553000",
+    "parts": [
+      "P553000"
+    ],
+    "oemRaw": "3401544",
+    "oemPartNumbers": [
+      "3401544"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 14,
+    "block": "14-1",
+    "equipment": "SHANTUI SD22 /SD16 Cummins Engine NT-855",
+    "description": "LUBE FILTER, SPIN-ON BYPASS",
+    "donaldsonRaw": "P550777",
+    "parts": [
+      "P550777"
+    ],
+    "oemRaw": "3313283",
+    "oemPartNumbers": [
+      "3313283"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 14,
+    "block": "14-1",
+    "equipment": "SHANTUI SD22 /SD16 Cummins Engine NT-855",
+    "description": "FUEL FILTER, SPIN-ON",
+    "donaldsonRaw": "R010018",
+    "parts": [
+      "R010018"
+    ],
+    "oemRaw": "1000422382",
+    "oemPartNumbers": [
+      "1000422382"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 14,
+    "block": "14-1",
+    "equipment": "SHANTUI SD22 /SD16 Cummins Engine NT-855",
+    "description": "FUEL FILTER, WATER SEPARATOR SPIN-ON TWIST&DRAIN",
+    "donaldsonRaw": "P558000",
+    "parts": [
+      "P558000"
+    ],
+    "oemRaw": "3315843",
+    "oemPartNumbers": [
+      "3315843"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 14,
+    "block": "14-1",
+    "equipment": "SHANTUI SD22 /SD16 Cummins Engine NT-855",
+    "description": "HYDRAULIC FILTER, CARTRIDGE",
+    "donaldsonRaw": "P557380",
+    "parts": [
+      "P557380"
+    ],
+    "oemRaw": "1756027380",
+    "oemPartNumbers": [
+      "1756027380"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 14,
+    "block": "14-1",
+    "equipment": "SHANTUI SD22 /SD16 Cummins Engine NT-855",
+    "description": "HYDRAULIC FILTER, CARTRIDGE",
+    "donaldsonRaw": "P551158",
+    "parts": [
+      "P551158"
+    ],
+    "oemRaw": "1754911580",
+    "oemPartNumbers": [
+      "1754911580"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 14,
+    "block": "14-2",
+    "equipment": "Lonking ZL50C Wechai Engine WD10G220E11",
+    "description": "FUEL FILTER, WATER SEPARATOR CARTRIDGE",
+    "donaldsonRaw": "R010043 *",
+    "parts": [
+      "R010043"
+    ],
+    "oemRaw": "300080079",
+    "oemPartNumbers": [
+      "300080079"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 14,
+    "block": "14-2",
+    "equipment": "Lonking ZL50C Wechai Engine WD10G220E11",
+    "description": "FUEL FILTER KIT",
+    "donaldsonRaw": "R010034 *",
+    "parts": [
+      "R010034"
+    ],
+    "oemRaw": "C0813A2A3",
+    "oemPartNumbers": [
+      "C0813A2A3"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 14,
+    "block": "14-2",
+    "equipment": "Lonking ZL50C Wechai Engine WD10G220E11",
+    "description": "HYDRAULIC FILTER, CARTRIDGE",
+    "donaldsonRaw": "R010067 *",
+    "parts": [
+      "R010067"
+    ],
+    "oemRaw": "LG853130904",
+    "oemPartNumbers": [
+      "LG853130904"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 14,
+    "block": "14-2",
+    "equipment": "Lonking ZL50C Wechai Engine WD10G220E11",
+    "description": "LUBE FILTER, SPIN-ON FULL FLOW",
+    "donaldsonRaw": "P553771",
+    "parts": [
+      "P553771"
+    ],
+    "oemRaw": "61000070005",
+    "oemPartNumbers": [
+      "61000070005"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 14,
+    "block": "14-2",
+    "equipment": "Lonking ZL50C Wechai Engine WD10G220E11",
+    "description": "FUEL FILTER, WATER SEPARATOR SPIN-ON",
+    "donaldsonRaw": "R010017 *",
+    "parts": [
+      "R010017"
+    ],
+    "oemRaw": "612600081335",
+    "oemPartNumbers": [
+      "612600081335"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 14,
+    "block": "14-2",
+    "equipment": "Lonking ZL50C Wechai Engine WD10G220E11",
+    "description": "FUEL FILTER, CARTRIDGE",
+    "donaldsonRaw": "P550861",
+    "parts": [
+      "P550861"
+    ],
+    "oemRaw": "614080295A",
+    "oemPartNumbers": [
+      "614080295A"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 14,
+    "block": "14-3",
+    "equipment": "Lonking LG833B Wechai Engine TBD226BV-611A",
+    "description": "FUEL FILTER, WATER SEPARATOR SPIN-ON TWIST&DRAIN",
+    "donaldsonRaw": "P550588",
+    "parts": [
+      "P550588"
+    ],
+    "oemRaw": "13020488",
+    "oemPartNumbers": [
+      "13020488"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 14,
+    "block": "14-4",
+    "equipment": "Lonking LG850 Wechai Engine WD10G220E11",
+    "description": "LUBE FILTER, SPIN-ON FULL FLOW",
+    "donaldsonRaw": "P553771",
+    "parts": [
+      "P553771"
+    ],
+    "oemRaw": "61000070005",
+    "oemPartNumbers": [
+      "61000070005"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 14,
+    "block": "14-4",
+    "equipment": "Lonking LG850 Wechai Engine WD10G220E11",
+    "description": "FUEL FILTER, CARTRIDGE",
+    "donaldsonRaw": "P550861",
+    "parts": [
+      "P550861"
+    ],
+    "oemRaw": "614080295A",
+    "oemPartNumbers": [
+      "614080295A"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 14,
+    "block": "14-5",
+    "equipment": "Lonking LG850D Wechai Engine WD10G220E11",
+    "description": "LUBE FILTER, SPIN-ON FULL FLOW",
+    "donaldsonRaw": "P553771",
+    "parts": [
+      "P553771"
+    ],
+    "oemRaw": "61000070005",
+    "oemPartNumbers": [
+      "61000070005"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 14,
+    "block": "14-5",
+    "equipment": "Lonking LG850D Wechai Engine WD10G220E11",
+    "description": "FUEL FILTER, CARTRIDGE",
+    "donaldsonRaw": "P550861",
+    "parts": [
+      "P550861"
+    ],
+    "oemRaw": "614080295A",
+    "oemPartNumbers": [
+      "614080295A"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 15,
+    "block": "15-1",
+    "equipment": "Lonking ZL50C Wechai Engine WD10G220E11",
+    "description": "LUBE FILTER, SPIN-ON FULL FLOW",
+    "donaldsonRaw": "P553771",
+    "parts": [
+      "P553771"
+    ],
+    "oemRaw": "61000070005",
+    "oemPartNumbers": [
+      "61000070005"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 15,
+    "block": "15-1",
+    "equipment": "Lonking ZL50C Wechai Engine WD10G220E11",
+    "description": "AIR FILTER, PRIMARY RADIALSEAL",
+    "donaldsonRaw": "",
+    "parts": [],
+    "oemRaw": "612600112285",
+    "oemPartNumbers": [],
+    "reviewReasons": [
+      "ไม่มีเบอร์ Donaldson"
+    ]
+  },
+  {
+    "page": 15,
+    "block": "15-1",
+    "equipment": "Lonking ZL50C Wechai Engine WD10G220E11",
+    "description": "AIR FILTER, SAFETY RADIALSEAL",
+    "donaldsonRaw": "",
+    "parts": [],
+    "oemRaw": "61560110242",
+    "oemPartNumbers": [],
+    "reviewReasons": [
+      "ไม่มีเบอร์ Donaldson"
+    ]
+  },
+  {
+    "page": 15,
+    "block": "15-1",
+    "equipment": "Lonking ZL50C Wechai Engine WD10G220E11",
+    "description": "FUEL FILTER, CARTRIDGE",
+    "donaldsonRaw": "P550861",
+    "parts": [
+      "P550861"
+    ],
+    "oemRaw": "614080295A",
+    "oemPartNumbers": [
+      "614080295A"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 15,
+    "block": "15-1",
+    "equipment": "Lonking ZL50C Wechai Engine WD10G220E11",
+    "description": "HYDRAULIC FILTER",
+    "donaldsonRaw": "",
+    "parts": [],
+    "oemRaw": "TLX402A",
+    "oemPartNumbers": [],
+    "reviewReasons": [
+      "ไม่มีเบอร์ Donaldson"
+    ]
+  },
+  {
+    "page": 15,
+    "block": "15-2",
+    "equipment": "XCMG XE135C Isuzu Engine 4BG1",
+    "description": "AIR FILTER, PRIMARY",
+    "donaldsonRaw": "P780522",
+    "parts": [
+      "P780522"
+    ],
+    "oemRaw": "XCMG-KWL-01301",
+    "oemPartNumbers": [
+      "XCMG-KWL-01301"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 15,
+    "block": "15-2",
+    "equipment": "XCMG XE135C Isuzu Engine 4BG1",
+    "description": "AIR FILTER, SAFETY",
+    "donaldsonRaw": "P780523",
+    "parts": [
+      "P780523"
+    ],
+    "oemRaw": "XCMG-KNL-01301",
+    "oemPartNumbers": [
+      "XCMG-KNL-01301"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 15,
+    "block": "15-2",
+    "equipment": "XCMG XE135C Isuzu Engine 4BG1",
+    "description": "FUEL FILTER, WATER SEPARATOR SPIN-ON",
+    "donaldsonRaw": "P505951 *",
+    "parts": [
+      "P505951"
+    ],
+    "oemRaw": "XCMG-RXL-01301",
+    "oemPartNumbers": [
+      "XCMG-RXL-01301"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 15,
+    "block": "15-2",
+    "equipment": "XCMG XE135C Isuzu Engine 4BG1",
+    "description": "LUBE FILTER, SPIN-ON FULL FLOW",
+    "donaldsonRaw": "P550596",
+    "parts": [
+      "P550596"
+    ],
+    "oemRaw": "XCMG-JL-02001",
+    "oemPartNumbers": [
+      "XCMG-JL-02001"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 15,
+    "block": "15-2",
+    "equipment": "XCMG XE135C Isuzu Engine 4BG1",
+    "description": "HYDRAULIC FILTER, CARTRIDGE",
+    "donaldsonRaw": "R010084 *",
+    "parts": [
+      "R010084"
+    ],
+    "oemRaw": "TLX235L",
+    "oemPartNumbers": [
+      "TLX235L"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 15,
+    "block": "15-3",
+    "equipment": "XCMG XE135D Cummins Engin QSF3.8",
+    "description": "AIR FILTER, PRIMARY",
+    "donaldsonRaw": "R005709 *",
+    "parts": [
+      "R005709"
+    ],
+    "oemRaw": "800104248",
+    "oemPartNumbers": [
+      "800104248"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 15,
+    "block": "15-3",
+    "equipment": "XCMG XE135D Cummins Engin QSF3.8",
+    "description": "AIR FILTER, SAFETY",
+    "donaldsonRaw": "R005714 *",
+    "parts": [
+      "R005714"
+    ],
+    "oemRaw": "800104249",
+    "oemPartNumbers": [
+      "800104249"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 15,
+    "block": "15-3",
+    "equipment": "XCMG XE135D Cummins Engin QSF3.8",
+    "description": "LUBE FILTER, SPIN-ON FULL FLOW",
+    "donaldsonRaw": "P556352 *",
+    "parts": [
+      "P556352"
+    ],
+    "oemRaw": "800154564",
+    "oemPartNumbers": [
+      "800154564"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 15,
+    "block": "15-3",
+    "equipment": "XCMG XE135D Cummins Engin QSF3.8",
+    "description": "FUEL FILTER, SPIN-ON",
+    "donaldsonRaw": "P555706 *",
+    "parts": [
+      "P555706"
+    ],
+    "oemRaw": "800154563",
+    "oemPartNumbers": [
+      "800154563"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 15,
+    "block": "15-3",
+    "equipment": "XCMG XE135D Cummins Engin QSF3.8",
+    "description": "HYDRAULIC FILTER, CARTRIDGE",
+    "donaldsonRaw": "P502540",
+    "parts": [
+      "P502540"
+    ],
+    "oemRaw": "860139495",
+    "oemPartNumbers": [
+      "860139495"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 15,
+    "block": "15-4",
+    "equipment": "XCMG XE200D Cummins Engine QSB7",
+    "description": "AIR FILTER, PRIMARY RADIALSEAL",
+    "donaldsonRaw": "P537876",
+    "parts": [
+      "P537876"
+    ],
+    "oemRaw": "800104345",
+    "oemPartNumbers": [
+      "800104345"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 15,
+    "block": "15-4",
+    "equipment": "XCMG XE200D Cummins Engine QSB7",
+    "description": "AIR FILTER, SAFETY RADIALSEAL",
+    "donaldsonRaw": "P537877",
+    "parts": [
+      "P537877"
+    ],
+    "oemRaw": "800104344",
+    "oemPartNumbers": [
+      "800104344"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 15,
+    "block": "15-4",
+    "equipment": "XCMG XE200D Cummins Engine QSB7",
+    "description": "LUBE FILTER, SPIN-ON FULL FLOW",
+    "donaldsonRaw": "P550428",
+    "parts": [
+      "P550428"
+    ],
+    "oemRaw": "803172682",
+    "oemPartNumbers": [
+      "803172682"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 15,
+    "block": "15-4",
+    "equipment": "XCMG XE200D Cummins Engine QSB7",
+    "description": "HYDRAULIC FILTER, CARTRIDGE",
+    "donaldsonRaw": "P502540",
+    "parts": [
+      "P502540"
+    ],
+    "oemRaw": "860139495",
+    "oemPartNumbers": [
+      "860139495"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 15,
+    "block": "15-5",
+    "equipment": "XCMG XE215D Guangxi Cummins Engine QSB7",
+    "description": "AIR FILTER, PRIMARY RADIALSEAL",
+    "donaldsonRaw": "P537876",
+    "parts": [
+      "P537876"
+    ],
+    "oemRaw": "800104345",
+    "oemPartNumbers": [
+      "800104345"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 15,
+    "block": "15-5",
+    "equipment": "XCMG XE215D Guangxi Cummins Engine QSB7",
+    "description": "AIR FILTER, SAFETY RADIALSEAL",
+    "donaldsonRaw": "P537877",
+    "parts": [
+      "P537877"
+    ],
+    "oemRaw": "800104344",
+    "oemPartNumbers": [
+      "800104344"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 15,
+    "block": "15-5",
+    "equipment": "XCMG XE215D Guangxi Cummins Engine QSB7",
+    "description": "LUBE FILTER, SPIN-ON FULL FLOW",
+    "donaldsonRaw": "P550428",
+    "parts": [
+      "P550428"
+    ],
+    "oemRaw": "803172682",
+    "oemPartNumbers": [
+      "803172682"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 15,
+    "block": "15-5",
+    "equipment": "XCMG XE215D Guangxi Cummins Engine QSB7",
+    "description": "HYDRAULIC FILTER, CARTRIDGE",
+    "donaldsonRaw": "P502540",
+    "parts": [
+      "P502540"
+    ],
+    "oemRaw": "860139495",
+    "oemPartNumbers": [
+      "860139495"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 16,
+    "block": "16-1",
+    "equipment": "XCMG XE215C Isuzu Engine 6BG1T",
+    "description": "AIR FILTER, PRIMARY RADIALSEAL",
+    "donaldsonRaw": "P537876",
+    "parts": [
+      "P537876"
+    ],
+    "oemRaw": "800104345",
+    "oemPartNumbers": [
+      "800104345"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 16,
+    "block": "16-1",
+    "equipment": "XCMG XE215C Isuzu Engine 6BG1T",
+    "description": "AIR FILTER, SAFETY RADIALSEAL",
+    "donaldsonRaw": "P537877",
+    "parts": [
+      "P537877"
+    ],
+    "oemRaw": "800104344",
+    "oemPartNumbers": [
+      "800104344"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 16,
+    "block": "16-1",
+    "equipment": "XCMG XE215C Isuzu Engine 6BG1T",
+    "description": "LUBE FILTER, SPIN-ON FULL FLOW",
+    "donaldsonRaw": "P550596",
+    "parts": [
+      "P550596"
+    ],
+    "oemRaw": "800107892",
+    "oemPartNumbers": [
+      "800107892"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 16,
+    "block": "16-1",
+    "equipment": "XCMG XE215C Isuzu Engine 6BG1T",
+    "description": "FUEL FILTER, WATER SEPARATOR SPIN-ON TWIST&DRAIN",
+    "donaldsonRaw": "P551026",
+    "parts": [
+      "P551026"
+    ],
+    "oemRaw": "800105552",
+    "oemPartNumbers": [
+      "800105552"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 16,
+    "block": "16-1",
+    "equipment": "XCMG XE215C Isuzu Engine 6BG1T",
+    "description": "FUEL FILTER, SPIN-ON",
+    "donaldsonRaw": "P552564",
+    "parts": [
+      "P552564"
+    ],
+    "oemRaw": "800104393",
+    "oemPartNumbers": [
+      "800104393"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 16,
+    "block": "16-1",
+    "equipment": "XCMG XE215C Isuzu Engine 6BG1T",
+    "description": "HYDRAULIC FILTER, CARTRIDGE",
+    "donaldsonRaw": "",
+    "parts": [],
+    "oemRaw": "803182167",
+    "oemPartNumbers": [],
+    "reviewReasons": [
+      "ไม่มีเบอร์ Donaldson"
+    ]
+  },
+  {
+    "page": 16,
+    "block": "16-2",
+    "equipment": "XCMG XE800D Perkins Engine 2506D-E15TA",
+    "description": "AIR FILTER, SAFETY RADIALSEAL",
+    "donaldsonRaw": "P781102",
+    "parts": [
+      "P781102"
+    ],
+    "oemRaw": "800105257",
+    "oemPartNumbers": [
+      "800105257"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 16,
+    "block": "16-2",
+    "equipment": "XCMG XE800D Perkins Engine 2506D-E15TA",
+    "description": "AIR FILTER, PRIMARY RADIALSEAL",
+    "donaldsonRaw": "P781098",
+    "parts": [
+      "P781098"
+    ],
+    "oemRaw": "800105256",
+    "oemPartNumbers": [
+      "800105256"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 16,
+    "block": "16-2",
+    "equipment": "XCMG XE800D Perkins Engine 2506D-E15TA",
+    "description": "HYDRAULIC FILTER, SPIN-ON",
+    "donaldsonRaw": "P573481",
+    "parts": [
+      "P573481"
+    ],
+    "oemRaw": "803436460",
+    "oemPartNumbers": [
+      "803436460"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 16,
+    "block": "16-2",
+    "equipment": "XCMG XE800D Perkins Engine 2506D-E15TA",
+    "description": "HYDRAULIC FILTER, SPIN-ON",
+    "donaldsonRaw": "P502382",
+    "parts": [
+      "P502382"
+    ],
+    "oemRaw": "860157814",
+    "oemPartNumbers": [
+      "860157814"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 16,
+    "block": "16-2",
+    "equipment": "XCMG XE800D Perkins Engine 2506D-E15TA",
+    "description": "LUBE FILTER, SPIN-ON FULL FLOW",
+    "donaldsonRaw": "P551808",
+    "parts": [
+      "P551808"
+    ],
+    "oemRaw": "803442626",
+    "oemPartNumbers": [
+      "803442626"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 16,
+    "block": "16-2",
+    "equipment": "XCMG XE800D Perkins Engine 2506D-E15TA",
+    "description": "FUEL FILTER, SPIN-ON SECONDARY",
+    "donaldsonRaw": "P551311",
+    "parts": [
+      "P551311"
+    ],
+    "oemRaw": "803442627",
+    "oemPartNumbers": [
+      "803442627"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 16,
+    "block": "16-2",
+    "equipment": "XCMG XE800D Perkins Engine 2506D-E15TA",
+    "description": "FUEL FILTER, WATER SEPARATOR SPIN-ON TWIST&DRAIN",
+    "donaldsonRaw": "P550900",
+    "parts": [
+      "P550900"
+    ],
+    "oemRaw": "803442628",
+    "oemPartNumbers": [
+      "803442628"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 16,
+    "block": "16-2",
+    "equipment": "XCMG XE800D Perkins Engine 2506D-E15TA",
+    "description": "FUEL FILTER, WATER SEPARATOR SPIN-ON",
+    "donaldsonRaw": "P502643 *",
+    "parts": [
+      "P502643"
+    ],
+    "oemRaw": "803445295",
+    "oemPartNumbers": [
+      "803445295"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 16,
+    "block": "16-3",
+    "equipment": "XCMG ZL50G WEICHAI Engine WD10G220E11",
+    "description": "LUBE FILTER, SPIN-ON FULL FLOW",
+    "donaldsonRaw": "P553771",
+    "parts": [
+      "P553771"
+    ],
+    "oemRaw": "1000424655/61000070005",
+    "oemPartNumbers": [
+      "1000424655",
+      "61000070005"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 16,
+    "block": "16-3",
+    "equipment": "XCMG ZL50G WEICHAI Engine WD10G220E11",
+    "description": "FUEL FILTER, CARTRIDGE",
+    "donaldsonRaw": "P550861",
+    "parts": [
+      "P550861"
+    ],
+    "oemRaw": "614080295A",
+    "oemPartNumbers": [
+      "614080295A"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 16,
+    "block": "16-3",
+    "equipment": "XCMG ZL50G WEICHAI Engine WD10G220E11",
+    "description": "FUEL WATER SEPARATOR",
+    "donaldsonRaw": "R011751 *",
+    "parts": [
+      "R011751"
+    ],
+    "oemRaw": "1000422381/612630080088",
+    "oemPartNumbers": [
+      "1000422381",
+      "612630080088"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 16,
+    "block": "16-3",
+    "equipment": "XCMG ZL50G WEICHAI Engine WD10G220E11",
+    "description": "FUEL FILTER, SPIN-ON",
+    "donaldsonRaw": "R010018",
+    "parts": [
+      "R010018"
+    ],
+    "oemRaw": "1000422382/612630080087",
+    "oemPartNumbers": [
+      "1000422382",
+      "612630080087"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 16,
+    "block": "16-4",
+    "equipment": "XCMG XE2000 Cummins Engine QSK38",
+    "description": "LUBE FILTER, SPIN-ON FULL FLOW",
+    "donaldsonRaw": "P554560",
+    "parts": [
+      "P554560"
+    ],
+    "oemRaw": "3101870",
+    "oemPartNumbers": [
+      "3101870"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 16,
+    "block": "16-4",
+    "equipment": "XCMG XE2000 Cummins Engine QSK38",
+    "description": "FUEL FILTER, SPIN-ON SECONDARY DONALDSON BLUE",
+    "donaldsonRaw": "P553505",
+    "parts": [
+      "P553505"
+    ],
+    "oemRaw": "4964234",
+    "oemPartNumbers": [
+      "4964234"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 16,
+    "block": "16-4",
+    "equipment": "XCMG XE2000 Cummins Engine QSK38",
+    "description": "AIR FILTER, PRIMARY",
+    "donaldsonRaw": "",
+    "parts": [],
+    "oemRaw": "800152656",
+    "oemPartNumbers": [],
+    "reviewReasons": [
+      "ไม่มีเบอร์ Donaldson"
+    ]
+  },
+  {
+    "page": 16,
+    "block": "16-5",
+    "equipment": "XCMG XE3000 Cummins Engine QSK50",
+    "description": "LUBE FILTER, SPIN-ON FULL FLOW",
+    "donaldsonRaw": "P554560",
+    "parts": [
+      "P554560"
+    ],
+    "oemRaw": "3101870",
+    "oemPartNumbers": [
+      "3101870"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 16,
+    "block": "16-5",
+    "equipment": "XCMG XE3000 Cummins Engine QSK50",
+    "description": "FUEL FILTER, SPIN-ON SECONDARY DONALDSON BLUE",
+    "donaldsonRaw": "P553505",
+    "parts": [
+      "P553505"
+    ],
+    "oemRaw": "4964234",
+    "oemPartNumbers": [
+      "4964234"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 16,
+    "block": "16-5",
+    "equipment": "XCMG XE3000 Cummins Engine QSK50",
+    "description": "AIR FILTER, PRIMARY",
+    "donaldsonRaw": "",
+    "parts": [],
+    "oemRaw": "800174411",
+    "oemPartNumbers": [],
+    "reviewReasons": [
+      "ไม่มีเบอร์ Donaldson"
+    ]
+  },
+  {
+    "page": 17,
+    "block": "17-1",
+    "equipment": "XCMG XE370C Isuzu Engine 6HK1",
+    "description": "AIR FILTER, PRIMARY RADIALSEAL",
+    "donaldsonRaw": "P537876",
+    "parts": [
+      "P537876"
+    ],
+    "oemRaw": "800104345",
+    "oemPartNumbers": [
+      "800104345"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 17,
+    "block": "17-1",
+    "equipment": "XCMG XE370C Isuzu Engine 6HK1",
+    "description": "AIR FILTER, SAFETY RADIALSEAL",
+    "donaldsonRaw": "P537877",
+    "parts": [
+      "P537877"
+    ],
+    "oemRaw": "800104344",
+    "oemPartNumbers": [
+      "800104344"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 17,
+    "block": "17-1",
+    "equipment": "XCMG XE370C Isuzu Engine 6HK1",
+    "description": "LUBE FILTER, SPIN-ON FULL FLOW",
+    "donaldsonRaw": "P550596",
+    "parts": [
+      "P550596"
+    ],
+    "oemRaw": "819909162",
+    "oemPartNumbers": [
+      "819909162"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 17,
+    "block": "17-1",
+    "equipment": "XCMG XE370C Isuzu Engine 6HK1",
+    "description": "FUEL FILTER, WATER SEPARATOR SPIN-ON",
+    "donaldsonRaw": "R011619 *",
+    "parts": [
+      "R011619"
+    ],
+    "oemRaw": "800155884",
+    "oemPartNumbers": [
+      "800155884"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 17,
+    "block": "17-1",
+    "equipment": "XCMG XE370C Isuzu Engine 6HK1",
+    "description": "FUEL FILTER, WATER SEPARATOR CARTRIDGE",
+    "donaldsonRaw": "P502424",
+    "parts": [
+      "P502424"
+    ],
+    "oemRaw": "800155885",
+    "oemPartNumbers": [
+      "800155885"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 17,
+    "block": "17-2",
+    "equipment": "XCMG XE490 Cummins Engine QSM11",
+    "description": "AIR FILTER, PRIMARY RADIALSEAL",
+    "donaldsonRaw": "P777868",
+    "parts": [
+      "P777868"
+    ],
+    "oemRaw": "803172683",
+    "oemPartNumbers": [
+      "803172683"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 17,
+    "block": "17-2",
+    "equipment": "XCMG XE490 Cummins Engine QSM11",
+    "description": "AIR FILTER, SAFETY RADIALSEAL",
+    "donaldsonRaw": "P777869",
+    "parts": [
+      "P777869"
+    ],
+    "oemRaw": "803172684",
+    "oemPartNumbers": [
+      "803172684"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 17,
+    "block": "17-2",
+    "equipment": "XCMG XE490 Cummins Engine QSM11",
+    "description": "LUBE FILTER, SPIN-ON FULL FLOW",
+    "donaldsonRaw": "P559000",
+    "parts": [
+      "P559000"
+    ],
+    "oemRaw": "803302602",
+    "oemPartNumbers": [
+      "803302602"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 17,
+    "block": "17-2",
+    "equipment": "XCMG XE490 Cummins Engine QSM11",
+    "description": "FUEL FILTER, WATER SEPARATOR SPIN-ON TWIST&DRAIN",
+    "donaldsonRaw": "P551000",
+    "parts": [
+      "P551000"
+    ],
+    "oemRaw": "800105027",
+    "oemPartNumbers": [
+      "800105027"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 17,
+    "block": "17-2",
+    "equipment": "XCMG XE490 Cummins Engine QSM11",
+    "description": "FUEL FILTER, WATER SEPARATOR CARTRIDGE",
+    "donaldsonRaw": "P550851",
+    "parts": [
+      "P550851"
+    ],
+    "oemRaw": "800138281",
+    "oemPartNumbers": [
+      "800138281"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 17,
+    "block": "17-2",
+    "equipment": "XCMG XE490 Cummins Engine QSM11",
+    "description": "COOLANT FILTER, SPIN-ON SCA PLUS",
+    "donaldsonRaw": "P552075",
+    "parts": [
+      "P552075"
+    ],
+    "oemRaw": "800107886",
+    "oemPartNumbers": [
+      "800107886"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 17,
+    "block": "17-2",
+    "equipment": "XCMG XE490 Cummins Engine QSM11",
+    "description": "HYDRAULIC FILTER, CARTRIDGE",
+    "donaldsonRaw": "P170587 *",
+    "parts": [
+      "P170587"
+    ],
+    "oemRaw": "803173136",
+    "oemPartNumbers": [
+      "803173136"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 17,
+    "block": "17-3",
+    "equipment": "XCMG XDR80T YUCHAI Engine YC6K480-GT30",
+    "description": "LUBE FILTER, SPIN-ON FULL FLOW",
+    "donaldsonRaw": "P551670",
+    "parts": [
+      "P551670"
+    ],
+    "oemRaw": "800162638",
+    "oemPartNumbers": [
+      "800162638"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 17,
+    "block": "17-3",
+    "equipment": "XCMG XDR80T YUCHAI Engine YC6K480-GT30",
+    "description": "FUEL FILTER, SPIN-ON",
+    "donaldsonRaw": "R010018",
+    "parts": [
+      "R010018"
+    ],
+    "oemRaw": "800162637",
+    "oemPartNumbers": [
+      "800162637"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 17,
+    "block": "17-3",
+    "equipment": "XCMG XDR80T YUCHAI Engine YC6K480-GT30",
+    "description": "FUEL FILTER, WATER SEPARATOR SPIN-ON",
+    "donaldsonRaw": "P505957 *",
+    "parts": [
+      "P505957"
+    ],
+    "oemRaw": "800162635",
+    "oemPartNumbers": [
+      "800162635"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 17,
+    "block": "17-3",
+    "equipment": "XCMG XDR80T YUCHAI Engine YC6K480-GT30",
+    "description": "FUEL FILTER, WATER SEPARATOR CARTRIDGE",
+    "donaldsonRaw": "P502651 *",
+    "parts": [
+      "P502651"
+    ],
+    "oemRaw": "800160016",
+    "oemPartNumbers": [
+      "800160016"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 17,
+    "block": "17-3",
+    "equipment": "XCMG XDR80T YUCHAI Engine YC6K480-GT30",
+    "description": "AIR FILTER, SAFETY RADIALSEAL",
+    "donaldsonRaw": "P781102",
+    "parts": [
+      "P781102"
+    ],
+    "oemRaw": "800105257",
+    "oemPartNumbers": [
+      "800105257"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 17,
+    "block": "17-3",
+    "equipment": "XCMG XDR80T YUCHAI Engine YC6K480-GT30",
+    "description": "AIR FILTER, PRIMARY RADIALSEAL",
+    "donaldsonRaw": "P781098",
+    "parts": [
+      "P781098"
+    ],
+    "oemRaw": "800105256",
+    "oemPartNumbers": [
+      "800105256"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 17,
+    "block": "17-3",
+    "equipment": "XCMG XDR80T YUCHAI Engine YC6K480-GT30",
+    "description": "BREATHER, HYDRAULIC CYLINDRICAL",
+    "donaldsonRaw": "P761045 *",
+    "parts": [
+      "P761045"
+    ],
+    "oemRaw": "803277637",
+    "oemPartNumbers": [
+      "803277637"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 17,
+    "block": "17-3",
+    "equipment": "XCMG XDR80T YUCHAI Engine YC6K480-GT30",
+    "description": "HHYDRAULIC FILTER",
+    "donaldsonRaw": "",
+    "parts": [],
+    "oemRaw": "803277418",
+    "oemPartNumbers": [],
+    "reviewReasons": [
+      "ไม่มีเบอร์ Donaldson"
+    ]
+  },
+  {
+    "page": 17,
+    "block": "17-4",
+    "equipment": "XCMG XDR100 Cummins Engine QST30",
+    "description": "AIR FILTER KIT",
+    "donaldsonRaw": "",
+    "parts": [],
+    "oemRaw": "K3760",
+    "oemPartNumbers": [],
+    "reviewReasons": [
+      "ไม่มีเบอร์ Donaldson"
+    ]
+  },
+  {
+    "page": 17,
+    "block": "17-4",
+    "equipment": "XCMG XDR100 Cummins Engine QST30",
+    "description": "LUBE FILTER, SPIN-ON FULL FLOW",
+    "donaldsonRaw": "P551670",
+    "parts": [
+      "P551670"
+    ],
+    "oemRaw": "LF670",
+    "oemPartNumbers": [
+      "LF670"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 17,
+    "block": "17-4",
+    "equipment": "XCMG XDR100 Cummins Engine QST30",
+    "description": "FUEL FILTER, SPIN-ON SECONDARY",
+    "donaldsonRaw": "P550202",
+    "parts": [
+      "P550202"
+    ],
+    "oemRaw": "FF202",
+    "oemPartNumbers": [
+      "FF202"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 17,
+    "block": "17-4",
+    "equipment": "XCMG XDR100 Cummins Engine QST30",
+    "description": "FUEL FILTER",
+    "donaldsonRaw": "",
+    "parts": [],
+    "oemRaw": "FF63042NN",
+    "oemPartNumbers": [],
+    "reviewReasons": [
+      "ไม่มีเบอร์ Donaldson"
+    ]
+  },
+  {
+    "page": 18,
+    "block": "18-1",
+    "equipment": "XCMG XDE130 MTU Engine 16V2000",
+    "description": "AIR FILTER, PRIMARY RADIALSEAL",
+    "donaldsonRaw": "P608306",
+    "parts": [
+      "P608306"
+    ],
+    "oemRaw": "800175537",
+    "oemPartNumbers": [
+      "800175537"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 18,
+    "block": "18-1",
+    "equipment": "XCMG XDE130 MTU Engine 16V2000",
+    "description": "AIR FILTER, SAFETY RADIALSEAL",
+    "donaldsonRaw": "P608305",
+    "parts": [
+      "P608305"
+    ],
+    "oemRaw": "800175538",
+    "oemPartNumbers": [
+      "800175538"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 18,
+    "block": "18-2",
+    "equipment": "SDLG LG670 Yanmar Engine 4TNV98",
+    "description": "AIR FILTER, PRIMARY RADIALSEAL",
+    "donaldsonRaw": "P828889",
+    "parts": [
+      "P828889"
+    ],
+    "oemRaw": "4110000697002",
+    "oemPartNumbers": [
+      "4110000697002"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 18,
+    "block": "18-2",
+    "equipment": "SDLG LG670 Yanmar Engine 4TNV98",
+    "description": "AIR FILTER, SAFETY RADIALSEAL",
+    "donaldsonRaw": "P829333",
+    "parts": [
+      "P829333"
+    ],
+    "oemRaw": "4110000697003",
+    "oemPartNumbers": [
+      "4110000697003"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 18,
+    "block": "18-2",
+    "equipment": "SDLG LG670 Yanmar Engine 4TNV98",
+    "description": "FUEL FILTER, WATER SEPARATOR SPIN-ON",
+    "donaldsonRaw": "P502516 *",
+    "parts": [
+      "P502516"
+    ],
+    "oemRaw": "4110000787007",
+    "oemPartNumbers": [
+      "4110000787007"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 18,
+    "block": "18-2",
+    "equipment": "SDLG LG670 Yanmar Engine 4TNV98",
+    "description": "FUEL FILTER, SPIN-ON",
+    "donaldsonRaw": "R010002 *",
+    "parts": [
+      "R010002"
+    ],
+    "oemRaw": "4110000677002Y",
+    "oemPartNumbers": [
+      "4110000677002Y"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 18,
+    "block": "18-2",
+    "equipment": "SDLG LG670 Yanmar Engine 4TNV98",
+    "description": "HYDRAULIC FILTER, CARTRIDGE",
+    "donaldsonRaw": "P175120",
+    "parts": [
+      "P175120"
+    ],
+    "oemRaw": "4190000173001",
+    "oemPartNumbers": [
+      "4190000173001"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 18,
+    "block": "18-2",
+    "equipment": "SDLG LG670 Yanmar Engine 4TNV98",
+    "description": "LUBE FILTER, SPIN-ON FULL FLOW",
+    "donaldsonRaw": "P502438 *",
+    "parts": [
+      "P502438"
+    ],
+    "oemRaw": "4110000677001Y",
+    "oemPartNumbers": [
+      "4110000677001Y"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 18,
+    "block": "18-2",
+    "equipment": "SDLG LG670 Yanmar Engine 4TNV98",
+    "description": "HYDRAULIC FILTER, CARTRIDGE",
+    "donaldsonRaw": "P561333 *",
+    "parts": [
+      "P561333"
+    ],
+    "oemRaw": "4120002103001",
+    "oemPartNumbers": [
+      "4120002103001"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 18,
+    "block": "18-3",
+    "equipment": "SDLG LG6210 Deutz AG Engine BF6M2012C",
+    "description": "AIR FILTER, PRIMARY RADIALSEAL",
+    "donaldsonRaw": "P778905",
+    "parts": [
+      "P778905"
+    ],
+    "oemRaw": "11211149",
+    "oemPartNumbers": [
+      "11211149"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 18,
+    "block": "18-3",
+    "equipment": "SDLG LG6210 Deutz AG Engine BF6M2012C",
+    "description": "AIR FILTER, SAFETY RADIALSEAL",
+    "donaldsonRaw": "P778906",
+    "parts": [
+      "P778906"
+    ],
+    "oemRaw": "11211150",
+    "oemPartNumbers": [
+      "11211150"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 18,
+    "block": "18-3",
+    "equipment": "SDLG LG6210 Deutz AG Engine BF6M2012C",
+    "description": "FUEL FILTER, SPIN-ON",
+    "donaldsonRaw": "P550372",
+    "parts": [
+      "P550372"
+    ],
+    "oemRaw": "14403813",
+    "oemPartNumbers": [
+      "14403813"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 18,
+    "block": "18-3",
+    "equipment": "SDLG LG6210 Deutz AG Engine BF6M2012C",
+    "description": "FUEL FILTER, WATER SEPARATOR SPIN-ON",
+    "donaldsonRaw": "P505957 *",
+    "parts": [
+      "P505957"
+    ],
+    "oemRaw": "11214252",
+    "oemPartNumbers": [
+      "11214252"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 18,
+    "block": "18-4",
+    "equipment": "SDLG LG952L WEICHAI Engine WD10G220E13",
+    "description": "FUEL FILTER, WATER SEPARATOR SPIN-ON",
+    "donaldsonRaw": "R011751 *",
+    "parts": [
+      "R011751"
+    ],
+    "oemRaw": "1000422381/612630080088",
+    "oemPartNumbers": [
+      "1000422381",
+      "612630080088"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 18,
+    "block": "18-4",
+    "equipment": "SDLG LG952L WEICHAI Engine WD10G220E13",
+    "description": "FUEL FILTER, SPIN-ON",
+    "donaldsonRaw": "R010018",
+    "parts": [
+      "R010018"
+    ],
+    "oemRaw": "1000422382/612630080087",
+    "oemPartNumbers": [
+      "1000422382",
+      "612630080087"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 18,
+    "block": "18-4",
+    "equipment": "SDLG LG952L WEICHAI Engine WD10G220E13",
+    "description": "LUBE FILTER, SPIN-ON FULL FLOW",
+    "donaldsonRaw": "P553771",
+    "parts": [
+      "P553771"
+    ],
+    "oemRaw": "1000424655/61000070005",
+    "oemPartNumbers": [
+      "1000424655",
+      "61000070005"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 18,
+    "block": "18-5",
+    "equipment": "SDLG MT86H Wechai Engine WD12.420",
+    "description": "AIR KIT",
+    "donaldsonRaw": "X011398 *",
+    "parts": [
+      "X011398"
+    ],
+    "oemRaw": "K3560",
+    "oemPartNumbers": [
+      "K3560"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 18,
+    "block": "18-5",
+    "equipment": "SDLG MT86H Wechai Engine WD12.420",
+    "description": "FUEL FILTER, WATER SEPARATOR SPIN-ON",
+    "donaldsonRaw": "R011751 *",
+    "parts": [
+      "R011751"
+    ],
+    "oemRaw": "612630080088",
+    "oemPartNumbers": [
+      "612630080088"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 18,
+    "block": "18-5",
+    "equipment": "SDLG MT86H Wechai Engine WD12.420",
+    "description": "FUEL FILTER, SPIN-ON",
+    "donaldsonRaw": "R010018",
+    "parts": [
+      "R010018"
+    ],
+    "oemRaw": "612630080087",
+    "oemPartNumbers": [
+      "612630080087"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 19,
+    "block": "19-1",
+    "equipment": "Tonly TL875D wechai EngineWP12.430",
+    "description": "FUEL FILTER, PRIMARY",
+    "donaldsonRaw": "R010036 *",
+    "parts": [
+      "R010036"
+    ],
+    "oemRaw": "612600081334",
+    "oemPartNumbers": [
+      "612600081334"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 19,
+    "block": "19-1",
+    "equipment": "Tonly TL875D wechai EngineWP12.430",
+    "description": "FUEL FILTER, WATER SEPARATOR SPIN-ON",
+    "donaldsonRaw": "R010017 *",
+    "parts": [
+      "R010017"
+    ],
+    "oemRaw": "612600081335",
+    "oemPartNumbers": [
+      "612600081335"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 19,
+    "block": "19-1",
+    "equipment": "Tonly TL875D wechai EngineWP12.430",
+    "description": "FUEL FILTER, SPIN-ON",
+    "donaldsonRaw": "R010018",
+    "parts": [
+      "R010018"
+    ],
+    "oemRaw": "612630080087",
+    "oemPartNumbers": [
+      "612630080087"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 19,
+    "block": "19-2",
+    "equipment": "Tonly TL883 wechai Engine WP13.530",
+    "description": "FUEL FILTER, PRIMARY",
+    "donaldsonRaw": "R010036 *",
+    "parts": [
+      "R010036"
+    ],
+    "oemRaw": "612600081334",
+    "oemPartNumbers": [
+      "612600081334"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 19,
+    "block": "19-2",
+    "equipment": "Tonly TL883 wechai Engine WP13.530",
+    "description": "FUEL FILTER, WATER SEPARATOR SPIN-ON",
+    "donaldsonRaw": "R010017 *",
+    "parts": [
+      "R010017"
+    ],
+    "oemRaw": "612600081335",
+    "oemPartNumbers": [
+      "612600081335"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 19,
+    "block": "19-2",
+    "equipment": "Tonly TL883 wechai Engine WP13.530",
+    "description": "FUEL FILTER, SPIN-ON",
+    "donaldsonRaw": "R010018",
+    "parts": [
+      "R010018"
+    ],
+    "oemRaw": "612630080087",
+    "oemPartNumbers": [
+      "612630080087"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 19,
+    "block": "19-3",
+    "equipment": "Ronderbult CM 86",
+    "description": "AIR FILTER, PRIMARY ROUND",
+    "donaldsonRaw": "R002323",
+    "parts": [
+      "R002323"
+    ],
+    "oemRaw": "4110002110",
+    "oemPartNumbers": [
+      "4110002110"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 19,
+    "block": "19-3",
+    "equipment": "Ronderbult CM 86",
+    "description": "AIR FILTER, SAFETY",
+    "donaldsonRaw": "R002324",
+    "parts": [
+      "R002324"
+    ],
+    "oemRaw": "4110002111",
+    "oemPartNumbers": [
+      "4110002111"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 19,
+    "block": "19-3",
+    "equipment": "Ronderbult CM 86",
+    "description": "LUBE FILTER, SPIN-ON FULL FLOW",
+    "donaldsonRaw": "R010077",
+    "parts": [
+      "R010077"
+    ],
+    "oemRaw": "4190001633",
+    "oemPartNumbers": [
+      "4190001633"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 19,
+    "block": "19-3",
+    "equipment": "Ronderbult CM 86",
+    "description": "FUEL FILTER, SPIN-ON",
+    "donaldsonRaw": "R010018",
+    "parts": [
+      "R010018"
+    ],
+    "oemRaw": "4190001637",
+    "oemPartNumbers": [
+      "4190001637"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 19,
+    "block": "19-3",
+    "equipment": "Ronderbult CM 86",
+    "description": "FUEL FILTER, WATER SEPARATOR ASSEMBLY",
+    "donaldsonRaw": "R010061",
+    "parts": [
+      "R010061"
+    ],
+    "oemRaw": "411000117322",
+    "oemPartNumbers": [
+      "411000117322"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 19,
+    "block": "19-3",
+    "equipment": "Ronderbult CM 86",
+    "description": "AIR DRYER , SPIN-ON",
+    "donaldsonRaw": "P781466",
+    "parts": [
+      "P781466"
+    ],
+    "oemRaw": "",
+    "oemPartNumbers": [],
+    "reviewReasons": [
+      "ไม่มีเบอร์ OEM"
+    ]
+  },
+  {
+    "page": 19,
+    "block": "19-3",
+    "equipment": "Ronderbult CM 86",
+    "description": "HYDRAULIC FILTER",
+    "donaldsonRaw": "",
+    "parts": [],
+    "oemRaw": "4120000304",
+    "oemPartNumbers": [],
+    "reviewReasons": [
+      "ไม่มีเบอร์ Donaldson"
+    ]
+  },
+  {
+    "page": 19,
+    "block": "19-3",
+    "equipment": "Ronderbult CM 86",
+    "description": "HYDRAULIC FILTER",
+    "donaldsonRaw": "",
+    "parts": [],
+    "oemRaw": "4120000634",
+    "oemPartNumbers": [],
+    "reviewReasons": [
+      "ไม่มีเบอร์ Donaldson"
+    ]
+  },
+  {
+    "page": 19,
+    "block": "19-4",
+    "equipment": "Rondebult CM 96",
+    "description": "AIR FILTER, PRIMARY ROUND",
+    "donaldsonRaw": "R002323",
+    "parts": [
+      "R002323"
+    ],
+    "oemRaw": "4110002110",
+    "oemPartNumbers": [
+      "4110002110"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 19,
+    "block": "19-4",
+    "equipment": "Rondebult CM 96",
+    "description": "AIR FILTER, SAFETY",
+    "donaldsonRaw": "R002324",
+    "parts": [
+      "R002324"
+    ],
+    "oemRaw": "4110002111",
+    "oemPartNumbers": [
+      "4110002111"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 19,
+    "block": "19-4",
+    "equipment": "Rondebult CM 96",
+    "description": "LUBE FILTER, SPIN-ON FULL FLOW",
+    "donaldsonRaw": "R010077",
+    "parts": [
+      "R010077"
+    ],
+    "oemRaw": "4190001633",
+    "oemPartNumbers": [
+      "4190001633"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 19,
+    "block": "19-4",
+    "equipment": "Rondebult CM 96",
+    "description": "FUEL FILTER, SPIN-ON",
+    "donaldsonRaw": "R010018",
+    "parts": [
+      "R010018"
+    ],
+    "oemRaw": "4190001637",
+    "oemPartNumbers": [
+      "4190001637"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 19,
+    "block": "19-4",
+    "equipment": "Rondebult CM 96",
+    "description": "FUEL FILTER, WATER SEPARATOR ASSEMBLY",
+    "donaldsonRaw": "R010061",
+    "parts": [
+      "R010061"
+    ],
+    "oemRaw": "411000117322",
+    "oemPartNumbers": [
+      "411000117322"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 19,
+    "block": "19-4",
+    "equipment": "Rondebult CM 96",
+    "description": "AIR DRYER , SPIN-ON",
+    "donaldsonRaw": "P781466",
+    "parts": [
+      "P781466"
+    ],
+    "oemRaw": "",
+    "oemPartNumbers": [],
+    "reviewReasons": [
+      "ไม่มีเบอร์ OEM"
+    ]
+  },
+  {
+    "page": 19,
+    "block": "19-4",
+    "equipment": "Rondebult CM 96",
+    "description": "HYDRAULIC FILTER",
+    "donaldsonRaw": "",
+    "parts": [],
+    "oemRaw": "4120000304",
+    "oemPartNumbers": [],
+    "reviewReasons": [
+      "ไม่มีเบอร์ Donaldson"
+    ]
+  },
+  {
+    "page": 19,
+    "block": "19-4",
+    "equipment": "Rondebult CM 96",
+    "description": "HYDRAULIC FILTER",
+    "donaldsonRaw": "",
+    "parts": [],
+    "oemRaw": "4120000634",
+    "oemPartNumbers": [],
+    "reviewReasons": [
+      "ไม่มีเบอร์ Donaldson"
+    ]
+  },
+  {
+    "page": 20,
+    "block": "20-1",
+    "equipment": "Rondebult RDT’S",
+    "description": "AIR FILTER, PRIMARY ROUND",
+    "donaldsonRaw": "R002323",
+    "parts": [
+      "R002323"
+    ],
+    "oemRaw": "4110002110",
+    "oemPartNumbers": [
+      "4110002110"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 20,
+    "block": "20-1",
+    "equipment": "Rondebult RDT’S",
+    "description": "AIR FILTER, SAFETY",
+    "donaldsonRaw": "R002324",
+    "parts": [
+      "R002324"
+    ],
+    "oemRaw": "4110002111",
+    "oemPartNumbers": [
+      "4110002111"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 20,
+    "block": "20-1",
+    "equipment": "Rondebult RDT’S",
+    "description": "LUBE FILTE, SPIN-ON FULL FLOW",
+    "donaldsonRaw": "R010077",
+    "parts": [
+      "R010077"
+    ],
+    "oemRaw": "4190001633",
+    "oemPartNumbers": [
+      "4190001633"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 20,
+    "block": "20-1",
+    "equipment": "Rondebult RDT’S",
+    "description": "FUEL FILTER,SPIN-ON",
+    "donaldsonRaw": "R010018",
+    "parts": [
+      "R010018"
+    ],
+    "oemRaw": "4190001637",
+    "oemPartNumbers": [
+      "4190001637"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 20,
+    "block": "20-1",
+    "equipment": "Rondebult RDT’S",
+    "description": "FUEL FILTER, WATER SEPARATOR SPIN-ON",
+    "donaldsonRaw": "P550778",
+    "parts": [
+      "P550778"
+    ],
+    "oemRaw": "4190001636",
+    "oemPartNumbers": [
+      "4190001636"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 20,
+    "block": "20-1",
+    "equipment": "Rondebult RDT’S",
+    "description": "",
+    "donaldsonRaw": "",
+    "parts": [],
+    "oemRaw": "AF278817",
+    "oemPartNumbers": [],
+    "reviewReasons": [
+      "ไม่มีเบอร์ Donaldson",
+      "ไม่มีคำอธิบายประเภทกรอง"
+    ]
+  },
+  {
+    "page": 20,
+    "block": "20-1",
+    "equipment": "Rondebult RDT’S",
+    "description": "",
+    "donaldsonRaw": "",
+    "parts": [],
+    "oemRaw": "4120000634",
+    "oemPartNumbers": [],
+    "reviewReasons": [
+      "ไม่มีเบอร์ Donaldson",
+      "ไม่มีคำอธิบายประเภทกรอง"
+    ]
+  },
+  {
+    "page": 20,
+    "block": "20-2",
+    "equipment": "Rondebult RB876",
+    "description": "",
+    "donaldsonRaw": "",
+    "parts": [],
+    "oemRaw": "612600114993",
+    "oemPartNumbers": [],
+    "reviewReasons": [
+      "ไม่มีเบอร์ Donaldson",
+      "ไม่มีคำอธิบายประเภทกรอง"
+    ]
+  },
+  {
+    "page": 20,
+    "block": "20-2",
+    "equipment": "Rondebult RB876",
+    "description": "LUBE FILTER, SPIN-ON FULL FLOW",
+    "donaldsonRaw": "P553771",
+    "parts": [
+      "P553771"
+    ],
+    "oemRaw": "61000070005",
+    "oemPartNumbers": [
+      "61000070005"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 20,
+    "block": "20-2",
+    "equipment": "Rondebult RB876",
+    "description": "FUEL FILTER, WATER SEPARATOR SPIN-ON TWIST& DRAIN",
+    "donaldsonRaw": "P551034",
+    "parts": [
+      "P551034"
+    ],
+    "oemRaw": "FS19932",
+    "oemPartNumbers": [
+      "FS19932"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 20,
+    "block": "20-2",
+    "equipment": "Rondebult RB876",
+    "description": "FUEL FILTER, WATER SEPARATOR SPIN-ON",
+    "donaldsonRaw": "P550778",
+    "parts": [
+      "P550778"
+    ],
+    "oemRaw": "4190001636",
+    "oemPartNumbers": [
+      "4190001636"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 20,
+    "block": "20-2",
+    "equipment": "Rondebult RB876",
+    "description": "FUEL FILTER, SPIN -ON",
+    "donaldsonRaw": "R010018/P550529",
+    "parts": [
+      "R010018",
+      "P550529"
+    ],
+    "oemRaw": "4190001637",
+    "oemPartNumbers": [],
+    "reviewReasons": [
+      "มี Donaldson หลายเบอร์ในช่องเดียว ต้องยืนยันตัวเลือก"
+    ]
+  },
+  {
+    "page": 20,
+    "block": "20-2",
+    "equipment": "Rondebult RB876",
+    "description": "",
+    "donaldsonRaw": "",
+    "parts": [],
+    "oemRaw": "501298690",
+    "oemPartNumbers": [],
+    "reviewReasons": [
+      "ไม่มีเบอร์ Donaldson",
+      "ไม่มีคำอธิบายประเภทกรอง"
+    ]
+  },
+  {
+    "page": 20,
+    "block": "20-3",
+    "equipment": "Rondebult CMT86",
+    "description": "AIR FILTER, PRIMARY ROUND",
+    "donaldsonRaw": "R002323",
+    "parts": [
+      "R002323"
+    ],
+    "oemRaw": "4110002110",
+    "oemPartNumbers": [
+      "4110002110"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 20,
+    "block": "20-3",
+    "equipment": "Rondebult CMT86",
+    "description": "AIR FILTER, SAFETY",
+    "donaldsonRaw": "R002324",
+    "parts": [
+      "R002324"
+    ],
+    "oemRaw": "4110002111",
+    "oemPartNumbers": [
+      "4110002111"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 20,
+    "block": "20-3",
+    "equipment": "Rondebult CMT86",
+    "description": "LUBE FILTER, SPIN-ON FULL FLOW",
+    "donaldsonRaw": "R010077",
+    "parts": [
+      "R010077"
+    ],
+    "oemRaw": "1000428205",
+    "oemPartNumbers": [
+      "1000428205"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 20,
+    "block": "20-3",
+    "equipment": "Rondebult CMT86",
+    "description": "FUEL FILTER, SPIN -ON",
+    "donaldsonRaw": "R010018/P550529",
+    "parts": [
+      "R010018",
+      "P550529"
+    ],
+    "oemRaw": "1000422382",
+    "oemPartNumbers": [],
+    "reviewReasons": [
+      "มี Donaldson หลายเบอร์ในช่องเดียว ต้องยืนยันตัวเลือก"
+    ]
+  },
+  {
+    "page": 20,
+    "block": "20-3",
+    "equipment": "Rondebult CMT86",
+    "description": "FUEL FILTER, WATER SEPARATOR SPIN-ON",
+    "donaldsonRaw": "P550778",
+    "parts": [
+      "P550778"
+    ],
+    "oemRaw": "1000422381",
+    "oemPartNumbers": [
+      "1000422381"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 20,
+    "block": "20-4",
+    "equipment": "Rondebult CMT66",
+    "description": "AIR FILTER, PRIMARY ROUND",
+    "donaldsonRaw": "R002323",
+    "parts": [
+      "R002323"
+    ],
+    "oemRaw": "4110002110",
+    "oemPartNumbers": [
+      "4110002110"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 20,
+    "block": "20-4",
+    "equipment": "Rondebult CMT66",
+    "description": "AIR FILTER, SAFETY",
+    "donaldsonRaw": "R002324",
+    "parts": [
+      "R002324"
+    ],
+    "oemRaw": "4110002111",
+    "oemPartNumbers": [
+      "4110002111"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 20,
+    "block": "20-4",
+    "equipment": "Rondebult CMT66",
+    "description": "LUBE FILTER, SPIN-ON FULL FLOW",
+    "donaldsonRaw": "R010077",
+    "parts": [
+      "R010077"
+    ],
+    "oemRaw": "1000428205",
+    "oemPartNumbers": [
+      "1000428205"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 20,
+    "block": "20-4",
+    "equipment": "Rondebult CMT66",
+    "description": "FUEL FILTER, SPIN -ON",
+    "donaldsonRaw": "R010018/P550529",
+    "parts": [
+      "R010018",
+      "P550529"
+    ],
+    "oemRaw": "1000422382",
+    "oemPartNumbers": [],
+    "reviewReasons": [
+      "มี Donaldson หลายเบอร์ในช่องเดียว ต้องยืนยันตัวเลือก"
+    ]
+  },
+  {
+    "page": 20,
+    "block": "20-4",
+    "equipment": "Rondebult CMT66",
+    "description": "FUEL FILTER, WATER SEPARATOR SPIN-ON",
+    "donaldsonRaw": "P550778",
+    "parts": [
+      "P550778"
+    ],
+    "oemRaw": "1000422381",
+    "oemPartNumbers": [
+      "1000422381"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 20,
+    "block": "20-4",
+    "equipment": "Rondebult CMT66",
+    "description": "",
+    "donaldsonRaw": "",
+    "parts": [],
+    "oemRaw": "389-1085",
+    "oemPartNumbers": [],
+    "reviewReasons": [
+      "ไม่มีเบอร์ Donaldson",
+      "ไม่มีคำอธิบายประเภทกรอง"
+    ]
+  },
+  {
+    "page": 21,
+    "block": "21-1",
+    "equipment": "Rondebult RB860",
+    "description": "",
+    "donaldsonRaw": "",
+    "parts": [],
+    "oemRaw": "612600114993",
+    "oemPartNumbers": [],
+    "reviewReasons": [
+      "ไม่มีเบอร์ Donaldson",
+      "ไม่มีคำอธิบายประเภทกรอง"
+    ]
+  },
+  {
+    "page": 21,
+    "block": "21-1",
+    "equipment": "Rondebult RB860",
+    "description": "LUBE FILTER, SPIN-ON FULL FLOW",
+    "donaldsonRaw": "P553771",
+    "parts": [
+      "P553771"
+    ],
+    "oemRaw": "61000070005",
+    "oemPartNumbers": [
+      "61000070005"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 21,
+    "block": "21-1",
+    "equipment": "Rondebult RB860",
+    "description": "FUEL FILTER, WATER SEPARATOR SPIN-ON TWIST& DRAIN",
+    "donaldsonRaw": "P551034",
+    "parts": [
+      "P551034"
+    ],
+    "oemRaw": "FS19932",
+    "oemPartNumbers": [
+      "FS19932"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 21,
+    "block": "21-1",
+    "equipment": "Rondebult RB860",
+    "description": "FUEL FILTER, SPIN-ON",
+    "donaldsonRaw": "P550881/P550880",
+    "parts": [
+      "P550881",
+      "P550880"
+    ],
+    "oemRaw": "612600081334",
+    "oemPartNumbers": [],
+    "reviewReasons": [
+      "มี Donaldson หลายเบอร์ในช่องเดียว ต้องยืนยันตัวเลือก"
+    ]
+  },
+  {
+    "page": 21,
+    "block": "21-1",
+    "equipment": "Rondebult RB860",
+    "description": "AIR DRYER, SPIN-ON",
+    "donaldsonRaw": "P781466",
+    "parts": [
+      "P781466"
+    ],
+    "oemRaw": "750131053",
+    "oemPartNumbers": [
+      "750131053"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 21,
+    "block": "21-2",
+    "equipment": "Rondebult RB856",
+    "description": "",
+    "donaldsonRaw": "",
+    "parts": [],
+    "oemRaw": "612600114993",
+    "oemPartNumbers": [],
+    "reviewReasons": [
+      "ไม่มีเบอร์ Donaldson",
+      "ไม่มีคำอธิบายประเภทกรอง"
+    ]
+  },
+  {
+    "page": 21,
+    "block": "21-2",
+    "equipment": "Rondebult RB856",
+    "description": "LUBE FILTER, SPIN-ON FULL FLOW",
+    "donaldsonRaw": "P553771",
+    "parts": [
+      "P553771"
+    ],
+    "oemRaw": "61000070005",
+    "oemPartNumbers": [
+      "61000070005"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 21,
+    "block": "21-2",
+    "equipment": "Rondebult RB856",
+    "description": "FUEL FILTER, WATER SEPARATOR SPIN-ON TWIST& DRAIN",
+    "donaldsonRaw": "P551034",
+    "parts": [
+      "P551034"
+    ],
+    "oemRaw": "FS19932",
+    "oemPartNumbers": [
+      "FS19932"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 21,
+    "block": "21-2",
+    "equipment": "Rondebult RB856",
+    "description": "FUEL FILTER, SPIN-ON",
+    "donaldsonRaw": "P550881/P550880",
+    "parts": [
+      "P550881",
+      "P550880"
+    ],
+    "oemRaw": "612600081334",
+    "oemPartNumbers": [],
+    "reviewReasons": [
+      "มี Donaldson หลายเบอร์ในช่องเดียว ต้องยืนยันตัวเลือก"
+    ]
+  },
+  {
+    "page": 21,
+    "block": "21-3",
+    "equipment": "Rondebult ZL60",
+    "description": "",
+    "donaldsonRaw": "",
+    "parts": [],
+    "oemRaw": "612600114993",
+    "oemPartNumbers": [],
+    "reviewReasons": [
+      "ไม่มีเบอร์ Donaldson",
+      "ไม่มีคำอธิบายประเภทกรอง"
+    ]
+  },
+  {
+    "page": 21,
+    "block": "21-3",
+    "equipment": "Rondebult ZL60",
+    "description": "LUBE FILTER, SPIN-ON FULL FLOW",
+    "donaldsonRaw": "P553771",
+    "parts": [
+      "P553771"
+    ],
+    "oemRaw": "61000070005",
+    "oemPartNumbers": [
+      "61000070005"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 21,
+    "block": "21-3",
+    "equipment": "Rondebult ZL60",
+    "description": "FUEL FILTER, WATER SEPARATOR SPIN-ON TWIST& DRAIN",
+    "donaldsonRaw": "P551034",
+    "parts": [
+      "P551034"
+    ],
+    "oemRaw": "FS19932/B120TSA",
+    "oemPartNumbers": [
+      "FS19932",
+      "B120TSA"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 21,
+    "block": "21-3",
+    "equipment": "Rondebult ZL60",
+    "description": "FUEL FILTER, SPIN-ON",
+    "donaldsonRaw": "P550881/P550880",
+    "parts": [
+      "P550881",
+      "P550880"
+    ],
+    "oemRaw": "612600081334",
+    "oemPartNumbers": [],
+    "reviewReasons": [
+      "มี Donaldson หลายเบอร์ในช่องเดียว ต้องยืนยันตัวเลือก"
+    ]
+  },
+  {
+    "page": 21,
+    "block": "21-3",
+    "equipment": "Rondebult ZL60",
+    "description": "AIR DRYER, SPIN-ON",
+    "donaldsonRaw": "P781466",
+    "parts": [
+      "P781466"
+    ],
+    "oemRaw": "",
+    "oemPartNumbers": [],
+    "reviewReasons": [
+      "ไม่มีเบอร์ OEM"
+    ]
+  },
+  {
+    "page": 21,
+    "block": "21-4",
+    "equipment": "Shacman-Wechai",
+    "description": "LUBE FILTER, SPIN-ON FULL FLOW",
+    "donaldsonRaw": "P550519",
+    "parts": [
+      "P550519"
+    ],
+    "oemRaw": "610800070015",
+    "oemPartNumbers": [
+      "610800070015"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 21,
+    "block": "21-4",
+    "equipment": "Shacman-Wechai",
+    "description": "FUEL FILTER, SPIN-ON",
+    "donaldsonRaw": "P502432*",
+    "parts": [
+      "P502432"
+    ],
+    "oemRaw": "610800080293",
+    "oemPartNumbers": [
+      "610800080293"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 21,
+    "block": "21-4",
+    "equipment": "Shacman-Wechai",
+    "description": "FUEL FILTER, WATER SEPARATOR SPIN-ON",
+    "donaldsonRaw": "P581789*",
+    "parts": [
+      "P581789"
+    ],
+    "oemRaw": "1000053558",
+    "oemPartNumbers": [
+      "1000053558"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 21,
+    "block": "21-4",
+    "equipment": "Shacman-Wechai",
+    "description": "AIR FILTER, PRIMARY RADIALSEAL",
+    "donaldsonRaw": "P635977*",
+    "parts": [
+      "P635977"
+    ],
+    "oemRaw": "WG9725190100",
+    "oemPartNumbers": [
+      "WG9725190100"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 21,
+    "block": "21-4",
+    "equipment": "Shacman-Wechai",
+    "description": "AIR FILTER, SAFETY RADIALSEAL",
+    "donaldsonRaw": "P641355*",
+    "parts": [
+      "P641355"
+    ],
+    "oemRaw": "WG9725190103",
+    "oemPartNumbers": [
+      "WG9725190103"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 22,
+    "block": "22-1",
+    "equipment": "Dongfeng KINLAND 3251 Cummins Engine ISL",
+    "description": "AIR FILTER KIT, RADIALSEAL",
+    "donaldsonRaw": "X011845 *",
+    "parts": [
+      "X011845"
+    ],
+    "oemRaw": "K3050PU",
+    "oemPartNumbers": [
+      "K3050PU"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 22,
+    "block": "22-1",
+    "equipment": "Dongfeng KINLAND 3251 Cummins Engine ISL",
+    "description": "LUBE FILTER, SPIN-ON FULL FLOW",
+    "donaldsonRaw": "P553000",
+    "parts": [
+      "P553000"
+    ],
+    "oemRaw": "3401544",
+    "oemPartNumbers": [
+      "3401544"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 22,
+    "block": "22-1",
+    "equipment": "Dongfeng KINLAND 3251 Cummins Engine ISL",
+    "description": "FUEL FILTER, SPIN-ON",
+    "donaldsonRaw": "P550774",
+    "parts": [
+      "P550774"
+    ],
+    "oemRaw": "5301448",
+    "oemPartNumbers": [
+      "5301448"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 22,
+    "block": "22-1",
+    "equipment": "Dongfeng KINLAND 3251 Cummins Engine ISL",
+    "description": "FUEL PRIMARY",
+    "donaldsonRaw": "P550848",
+    "parts": [
+      "P550848"
+    ],
+    "oemRaw": "5301449",
+    "oemPartNumbers": [
+      "5301449"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 22,
+    "block": "22-2",
+    "equipment": "Dongfeng KINLAND 3251 Cummins Engine ISL",
+    "description": "FUEL FILTER, SPIN-ON SECONDARY",
+    "donaldsonRaw": "P550440",
+    "parts": [
+      "P550440"
+    ],
+    "oemRaw": "3931063",
+    "oemPartNumbers": [
+      "3931063"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 22,
+    "block": "22-2",
+    "equipment": "Dongfeng KINLAND 3251 Cummins Engine ISL",
+    "description": "LUBE FILTER, SPIN-ON FULL FLOW",
+    "donaldsonRaw": "P553000",
+    "parts": [
+      "P553000"
+    ],
+    "oemRaw": "3401544",
+    "oemPartNumbers": [
+      "3401544"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 22,
+    "block": "22-2",
+    "equipment": "Dongfeng KINLAND 3251 Cummins Engine ISL",
+    "description": "FUEL FILTER, WATER SEPARATOR SPIN-ON TWIST&DRAIN",
+    "donaldsonRaw": "P551329",
+    "parts": [
+      "P551329"
+    ],
+    "oemRaw": "FS1280",
+    "oemPartNumbers": [
+      "FS1280"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 22,
+    "block": "22-3",
+    "equipment": "Dongfeng KINGRUN Cummins Engine ISD6.7",
+    "description": "FUEL FILTER, SPIN-ON SECONDARY",
+    "donaldsonRaw": "P550440",
+    "parts": [
+      "P550440"
+    ],
+    "oemRaw": "3931063",
+    "oemPartNumbers": [
+      "3931063"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 22,
+    "block": "22-3",
+    "equipment": "Dongfeng KINGRUN Cummins Engine ISD6.7",
+    "description": "LUBE FILTER, SPIN-ON FULL FLOW",
+    "donaldsonRaw": "P553000",
+    "parts": [
+      "P553000"
+    ],
+    "oemRaw": "3401544",
+    "oemPartNumbers": [
+      "3401544"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 22,
+    "block": "22-4",
+    "equipment": "Dongfeng KINLAND Cummins Engine dCi11",
+    "description": "LUBE FILTER, SPIN-ON FULL FLOW",
+    "donaldsonRaw": "P551102",
+    "parts": [
+      "P551102"
+    ],
+    "oemRaw": "JX1023",
+    "oemPartNumbers": [
+      "JX1023"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 22,
+    "block": "22-4",
+    "equipment": "Dongfeng KINLAND Cummins Engine dCi11",
+    "description": "AIR FILTER KIT, RADIALSEAL",
+    "donaldsonRaw": "X011845 *",
+    "parts": [
+      "X011845"
+    ],
+    "oemRaw": "K3050PU",
+    "oemPartNumbers": [
+      "K3050PU"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 22,
+    "block": "22-5",
+    "equipment": "HOW,HOHAN J7B D10 Engine",
+    "description": "LUBE FILTER, SPIN-ON FULL FLOW",
+    "donaldsonRaw": "P553771",
+    "parts": [
+      "P553771"
+    ],
+    "oemRaw": "VG61000070005",
+    "oemPartNumbers": [
+      "VG61000070005"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 22,
+    "block": "22-5",
+    "equipment": "HOW,HOHAN J7B D10 Engine",
+    "description": "FUEL FILTER, SPIN-ON",
+    "donaldsonRaw": "P502432*",
+    "parts": [
+      "P502432"
+    ],
+    "oemRaw": "VG1092080009",
+    "oemPartNumbers": [
+      "VG1092080009"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 22,
+    "block": "22-5",
+    "equipment": "HOW,HOHAN J7B D10 Engine",
+    "description": "FUEL FILTER, SPIN-ON",
+    "donaldsonRaw": "P550372",
+    "parts": [
+      "P550372"
+    ],
+    "oemRaw": "VG1560080011",
+    "oemPartNumbers": [
+      "VG1560080011"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 22,
+    "block": "22-6",
+    "equipment": "HOWO A7/T7H SITRAK C7H MC07 Engine",
+    "description": "LUBE FILTER, CARTRIDGE",
+    "donaldsonRaw": "P550820",
+    "parts": [
+      "P550820"
+    ],
+    "oemRaw": "200V05504-0107",
+    "oemPartNumbers": [
+      "200V05504-0107"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 22,
+    "block": "22-6",
+    "equipment": "HOWO A7/T7H SITRAK C7H MC07 Engine",
+    "description": "AIR FILTER, PRIMARY RADIALSEAL",
+    "donaldsonRaw": "P635977",
+    "parts": [
+      "P635977"
+    ],
+    "oemRaw": "WG9725190100",
+    "oemPartNumbers": [
+      "WG9725190100"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 22,
+    "block": "22-6",
+    "equipment": "HOWO A7/T7H SITRAK C7H MC07 Engine",
+    "description": "AIR FILTER, SAFETY RADIALSEAL",
+    "donaldsonRaw": "P641355*",
+    "parts": [
+      "P641355"
+    ],
+    "oemRaw": "WG9725190103",
+    "oemPartNumbers": [
+      "WG9725190103"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 23,
+    "block": "23-1",
+    "equipment": "HOWO-7 4X2 Wechai Engine WD615",
+    "description": "LUBE FILTER, SPIN-ON FULL FLOW",
+    "donaldsonRaw": "P551102",
+    "parts": [
+      "P551102"
+    ],
+    "oemRaw": "LF16107",
+    "oemPartNumbers": [
+      "LF16107"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 23,
+    "block": "23-1",
+    "equipment": "HOWO-7 4X2 Wechai Engine WD615",
+    "description": "AIR FILTER, SAFETY RADIALSEAL",
+    "donaldsonRaw": "P641355 *",
+    "parts": [
+      "P641355"
+    ],
+    "oemRaw": "AA90134",
+    "oemPartNumbers": [],
+    "reviewReasons": [
+      "OEM เป็นเบอร์ชุด แต่คำอธิบายเป็นกรองชั้นใน ต้องยืนยัน"
+    ]
+  },
+  {
+    "page": 23,
+    "block": "23-1",
+    "equipment": "HOWO-7 4X2 Wechai Engine WD615",
+    "description": "FUEL FILTER, WATER SEPARATOR SPIN-ON",
+    "donaldsonRaw": "R010017 *",
+    "parts": [
+      "R010017"
+    ],
+    "oemRaw": "VG1540080311",
+    "oemPartNumbers": [
+      "VG1540080311"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 23,
+    "block": "23-1",
+    "equipment": "HOWO-7 4X2 Wechai Engine WD615",
+    "description": "FUEL FILTER",
+    "donaldsonRaw": "DBF9143 *",
+    "parts": [
+      "DBF9143"
+    ],
+    "oemRaw": "1000053555",
+    "oemPartNumbers": [
+      "1000053555"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 23,
+    "block": "23-2",
+    "equipment": "HOWO-7 4X2 Sinotruk(CNHTC) Engine D2066",
+    "description": "AIR FILTER, SAFETY RADIALSEAL",
+    "donaldsonRaw": "P641355 *",
+    "parts": [
+      "P641355"
+    ],
+    "oemRaw": "AA90134",
+    "oemPartNumbers": [],
+    "reviewReasons": [
+      "OEM เป็นเบอร์ชุด แต่คำอธิบายเป็นกรองชั้นใน ต้องยืนยัน"
+    ]
+  },
+  {
+    "page": 23,
+    "block": "23-2",
+    "equipment": "HOWO-7 4X2 Sinotruk(CNHTC) Engine D2066",
+    "description": "LUBE FILTER, SPIN-ON FULL FLOW",
+    "donaldsonRaw": "P553771",
+    "parts": [
+      "P553771"
+    ],
+    "oemRaw": "VG61000070005",
+    "oemPartNumbers": [
+      "VG61000070005"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 23,
+    "block": "23-3",
+    "equipment": "HOWO-7 8X4 Sinotruk(CNHTC) Engine D2066",
+    "description": "AIR FILTER, SAFETY RADIALSEAL",
+    "donaldsonRaw": "P641355 *",
+    "parts": [
+      "P641355"
+    ],
+    "oemRaw": "AA90134",
+    "oemPartNumbers": [],
+    "reviewReasons": [
+      "OEM เป็นเบอร์ชุด แต่คำอธิบายเป็นกรองชั้นใน ต้องยืนยัน"
+    ]
+  },
+  {
+    "page": 23,
+    "block": "23-3",
+    "equipment": "HOWO-7 8X4 Sinotruk(CNHTC) Engine D2066",
+    "description": "LUBE FILTER, SPIN-ON FULL FLOW",
+    "donaldsonRaw": "P553771",
+    "parts": [
+      "P553771"
+    ],
+    "oemRaw": "VG61000070005",
+    "oemPartNumbers": [
+      "VG61000070005"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 23,
+    "block": "23-4",
+    "equipment": "Sinotruk C7H CNG Sinotruk(CNHTC) Engine MT13.48-50",
+    "description": "AIR FILTER KIT",
+    "donaldsonRaw": "R005086 *",
+    "parts": [
+      "R005086"
+    ],
+    "oemRaw": "710w08405-0021",
+    "oemPartNumbers": [
+      "710w08405-0021"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 23,
+    "block": "23-4",
+    "equipment": "Sinotruk C7H CNG Sinotruk(CNHTC) Engine MT13.48-50",
+    "description": "LUBE FILTER, CARTRIDGE",
+    "donaldsonRaw": "P550820",
+    "parts": [
+      "P550820"
+    ],
+    "oemRaw": "200V05504-0107/0122/0108",
+    "oemPartNumbers": [],
+    "reviewReasons": [
+      "OEM เขียนแบบย่อ ต้องยืนยันเบอร์เต็ม"
+    ]
+  },
+  {
+    "page": 23,
+    "block": "23-4",
+    "equipment": "Sinotruk C7H CNG Sinotruk(CNHTC) Engine MT13.48-50",
+    "description": "FUEL FILTER",
+    "donaldsonRaw": "",
+    "parts": [],
+    "oemRaw": "V9900-030503",
+    "oemPartNumbers": [],
+    "reviewReasons": [
+      "ไม่มีเบอร์ Donaldson"
+    ]
+  },
+  {
+    "page": 23,
+    "block": "23-4",
+    "equipment": "Sinotruk C7H CNG Sinotruk(CNHTC) Engine MT13.48-50",
+    "description": "FUEL FILTER",
+    "donaldsonRaw": "",
+    "parts": [],
+    "oemRaw": "202V13120-0020",
+    "oemPartNumbers": [],
+    "reviewReasons": [
+      "ไม่มีเบอร์ Donaldson"
+    ]
+  },
+  {
+    "page": 23,
+    "block": "23-4",
+    "equipment": "Sinotruk C7H CNG Sinotruk(CNHTC) Engine MT13.48-50",
+    "description": "CRANKCASE VENTILATION FILTER",
+    "donaldsonRaw": "X773027 *",
+    "parts": [
+      "X773027"
+    ],
+    "oemRaw": "201V01804-0044",
+    "oemPartNumbers": [
+      "201V01804-0044"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 23,
+    "block": "23-5",
+    "equipment": "Sinotruk C7H DIESEL Sinotruk(CNHTC) Engine MC13.54-50",
+    "description": "AIR FILTER KIT",
+    "donaldsonRaw": "R005086 *",
+    "parts": [
+      "R005086"
+    ],
+    "oemRaw": "710w08405-0021",
+    "oemPartNumbers": [
+      "710w08405-0021"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 23,
+    "block": "23-5",
+    "equipment": "Sinotruk C7H DIESEL Sinotruk(CNHTC) Engine MC13.54-50",
+    "description": "LUBE FILTER, CARTRIDGE",
+    "donaldsonRaw": "P550820",
+    "parts": [
+      "P550820"
+    ],
+    "oemRaw": "200V05504-0107/0122/0108",
+    "oemPartNumbers": [],
+    "reviewReasons": [
+      "OEM เขียนแบบย่อ ต้องยืนยันเบอร์เต็ม"
+    ]
+  },
+  {
+    "page": 23,
+    "block": "23-6",
+    "equipment": "Shaanxi Delong New M3000 Wechai Engine WP12.375E50",
+    "description": "AIR FILTER, PRIMARY",
+    "donaldsonRaw": "P637250 *",
+    "parts": [
+      "P637250"
+    ],
+    "oemRaw": "DZ97259191047",
+    "oemPartNumbers": [
+      "DZ97259191047"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 23,
+    "block": "23-6",
+    "equipment": "Shaanxi Delong New M3000 Wechai Engine WP12.375E50",
+    "description": "AIR FILTER, SAFETY",
+    "donaldsonRaw": "P621984",
+    "parts": [
+      "P621984"
+    ],
+    "oemRaw": "DZ97259191048",
+    "oemPartNumbers": [
+      "DZ97259191048"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 24,
+    "block": "24-1",
+    "equipment": "Shaanxi X3000 Wechai Engine WP12.430E50",
+    "description": "FUEL FILTER, SPIN-ON",
+    "donaldsonRaw": "R010018",
+    "parts": [
+      "R010018"
+    ],
+    "oemRaw": "612630080087",
+    "oemPartNumbers": [
+      "612630080087"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 24,
+    "block": "24-1",
+    "equipment": "Shaanxi X3000 Wechai Engine WP12.430E50",
+    "description": "AIR FILTER, PRIMARY RADIALSEAL",
+    "donaldsonRaw": "R003911 *",
+    "parts": [
+      "R003911"
+    ],
+    "oemRaw": "AF26433",
+    "oemPartNumbers": [
+      "AF26433"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 24,
+    "block": "24-1",
+    "equipment": "Shaanxi X3000 Wechai Engine WP12.430E50",
+    "description": "AIR FILTER, SAFETY RADIALSEAL",
+    "donaldsonRaw": "R003923 *",
+    "parts": [
+      "R003923"
+    ],
+    "oemRaw": "AF26434",
+    "oemPartNumbers": [
+      "AF26434"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 24,
+    "block": "24-1",
+    "equipment": "Shaanxi X3000 Wechai Engine WP12.430E50",
+    "description": "AIR FILTER, PRIMARY OBROUND POWERCORE",
+    "donaldsonRaw": "P637251 *",
+    "parts": [
+      "P637251"
+    ],
+    "oemRaw": "DZ97259191047",
+    "oemPartNumbers": [
+      "DZ97259191047"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 24,
+    "block": "24-1",
+    "equipment": "Shaanxi X3000 Wechai Engine WP12.430E50",
+    "description": "AIR FILTER, SAFETY OBROUND",
+    "donaldsonRaw": "P643762 *",
+    "parts": [
+      "P643762"
+    ],
+    "oemRaw": "DZ97259191048",
+    "oemPartNumbers": [
+      "DZ97259191048"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 24,
+    "block": "24-1",
+    "equipment": "Shaanxi X3000 Wechai Engine WP12.430E50",
+    "description": "FUEL FILTER, WATER SEPARATOR SPIN-ON",
+    "donaldsonRaw": "R010017 *",
+    "parts": [
+      "R010017"
+    ],
+    "oemRaw": "612600081294",
+    "oemPartNumbers": [
+      "612600081294"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 24,
+    "block": "24-2",
+    "equipment": "Shaanxi Delong New M3000 Wechai Engine WP10.350E53",
+    "description": "FUEL FILTER, WATER SEPARATOR SPIN-ON TWIST&DRAIN",
+    "donaldsonRaw": "R010042 *",
+    "parts": [
+      "R010042"
+    ],
+    "oemRaw": "612630080203",
+    "oemPartNumbers": [
+      "612630080203"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 24,
+    "block": "24-2",
+    "equipment": "Shaanxi Delong New M3000 Wechai Engine WP10.350E53",
+    "description": "AIR FILTER KIT",
+    "donaldsonRaw": "X011896 *",
+    "parts": [
+      "X011896"
+    ],
+    "oemRaw": "K3050PU",
+    "oemPartNumbers": [
+      "K3050PU"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 24,
+    "block": "24-3",
+    "equipment": "Shaanxi X5000 Cummins Engine ISZ13",
+    "description": "AIR FILTER, PRIMARY RADIALSEAL",
+    "donaldsonRaw": "R003911 *",
+    "parts": [
+      "R003911"
+    ],
+    "oemRaw": "AF26433",
+    "oemPartNumbers": [
+      "AF26433"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 24,
+    "block": "24-3",
+    "equipment": "Shaanxi X5000 Cummins Engine ISZ13",
+    "description": "AIR FILTER, SAFETY RADIALSEAL",
+    "donaldsonRaw": "R003923 *",
+    "parts": [
+      "R003923"
+    ],
+    "oemRaw": "AF26434",
+    "oemPartNumbers": [
+      "AF26434"
+    ],
+    "reviewReasons": []
+  },
+  {
+    "page": 24,
+    "block": "24-3",
+    "equipment": "Shaanxi X5000 Cummins Engine ISZ13",
+    "description": "LUBE FILTER, SPIN-ON",
+    "donaldsonRaw": "P559000",
+    "parts": [
+      "P559000"
+    ],
+    "oemRaw": "4331005",
+    "oemPartNumbers": [
+      "4331005"
+    ],
+    "reviewReasons": []
+  }
+]

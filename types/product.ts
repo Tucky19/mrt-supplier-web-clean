@@ -1,5 +1,16 @@
 import type { ProductRelationInput } from "@/lib/products/relations";
 
+export type CatalogApplication = {
+  equipment: string;
+  description: string;
+  oemRaw: string;
+  oemPartNumbers: string[];
+  source: string;
+  page: number;
+  sourceTable: string;
+  needsReview: boolean;
+};
+
 export type Product = {
   id: string;
   partNo: string;
@@ -44,6 +55,7 @@ export type Product = {
   applications?: string[];
   vehicleApplications?: string[];
   equipment?: string[];
+  catalogApplications?: CatalogApplication[];
   thread?: string;
 
   seo?: {
