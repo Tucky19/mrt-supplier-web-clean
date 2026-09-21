@@ -62,7 +62,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const path = `/${locale}/articles/industrial-filter-selection-guide`;
 
   return {
-    title: isThai ? "เลือกไส้กรองอุตสาหกรรมผิด เสี่ยงเครื่องจักรเสีย | MRT Supplier" : "Industrial Filter Selection Guide | MRT Supplier",
+    title: isThai ? "เลือกไส้กรองอุตสาหกรรมผิด เสี่ยงเครื่องจักรเสีย" : "Industrial Filter Selection Guide",
     description: isThai ? "การเลือกไส้กรองอุตสาหกรรมผิดรุ่นอาจทำให้ระบบทำงานผิดปกติ เครื่องจักรสึกหรอ และเกิด Downtime ตรวจสอบสิ่งสำคัญก่อนสั่งซื้อ" : "Learn what to verify before ordering an industrial filter to reduce wear, performance loss, and unplanned downtime.",
     alternates: {
       canonical: `${SITE_URL}${path}`,
