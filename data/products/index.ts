@@ -1,3 +1,4 @@
+import { applyDonaldsonPdfSpecs } from "./donaldson-pdf-specs-2026-09-21";
 import { asianEquipmentProducts, applyAsianEquipmentData } from "./donaldson-asian-equipment";
 import { applySupplierPresentation } from "./supplier-presentation";
 import { getProductImageUrl } from "@/lib/products/image";
@@ -151,4 +152,4 @@ export const products = Array.from(
   newAsianPartKeys.has(normalizePartNo(product.partNo))
     ? { ...product, checkAvailability: true, partNumberOnly: true, stockStatus: "request" }
     : product,
-));
+)).map(applyDonaldsonPdfSpecs);
