@@ -182,14 +182,14 @@ function buildTopProductInfo(product: Product, locale: string) {
     if (product.category === "oil_filter") {
       return {
         title: "เกี่ยวกับสินค้า",
-        paragraphs: ["Spin-on filter สำหรับระบบหล่อลื่น"],
+        paragraphs: [`${product.type === "cartridge" ? "Cartridge" : "Spin-on"} filter สำหรับระบบหล่อลื่น`],
       };
     }
 
     if (product.category === "fuel_filter") {
       return {
         title: "เกี่ยวกับสินค้า",
-        paragraphs: ["Spin-on filter สำหรับระบบเชื้อเพลิง"],
+        paragraphs: [`${product.type === "cartridge" ? "Cartridge" : "Spin-on"} filter สำหรับระบบเชื้อเพลิง`],
       };
     }
 
