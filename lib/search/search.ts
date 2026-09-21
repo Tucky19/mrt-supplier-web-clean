@@ -36,6 +36,8 @@ export type Product = {
     note?: string;
   }>;
   specifications?: ProductSpecification[];
+  checkAvailability?: boolean;
+  partNumberOnly?: boolean;
   stockStatus?: string;
   mrtStockEvidence?: {
     status: "in_stock";

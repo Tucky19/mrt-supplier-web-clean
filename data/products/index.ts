@@ -1,3 +1,4 @@
+import { applySupplierPresentation } from "./supplier-presentation";
 import { getProductImageUrl } from "@/lib/products/image";
 import { normalizeCanonicalProductRelations } from "@/lib/products/relations";
 import { normalizeProducts } from "./normalize";
@@ -137,4 +138,4 @@ export const products = Array.from(
         ];
       }),
   ).values(),
-);
+).map(applySupplierPresentation);

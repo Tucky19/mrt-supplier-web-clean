@@ -94,13 +94,14 @@ export const supplierSelectionProducts: Product[] = [
   {
     "id": "other-4570092941",
     "partNo": "4570092941",
-    "brand": "Other",
+    "brand": "MANN-FILTER",
     "category": "other",
-    "title": "เสื้อกรอง 4570092941",
-    "description": "เสื้อกรอง รหัส 4570092941 ติดต่อ MRT Supplier เพื่อยืนยันรายละเอียดและขอใบเสนอราคา",
+    "title": "อะไหล่ MANN+HUMMEL HD Europiclon 700",
+    "description": "อะไหล่สำหรับตัวเรือนและระบบกรอง MANN+HUMMEL รุ่น HD Europiclon 700",
     "stockStatus": "request",
-    "dataQuality": "needs_review",
-    "sourceType": "internal"
+    "dataQuality": "basic",
+    "sourceType": "internal",
+    "sourceNote": "Owner-provided MANN-FILTER catalog screenshot, 2026-09-21"
   },
   {
     "id": "donaldson-p785965",
@@ -116,12 +117,12 @@ export const supplierSelectionProducts: Product[] = [
   {
     "id": "other-df5112",
     "partNo": "DF5112",
-    "brand": "Other",
+    "brand": "SOTRAS",
     "category": "air_oil_separator",
     "title": "ไส้กรองแยกน้ำมัน DF5112",
     "description": "ไส้กรองแยกน้ำมัน รหัส DF5112 ติดต่อ MRT Supplier เพื่อยืนยันรายละเอียดและขอใบเสนอราคา",
     "stockStatus": "request",
-    "dataQuality": "needs_review",
+    "dataQuality": "basic",
     "sourceType": "internal"
   },
   {
@@ -197,13 +198,40 @@ export const supplierSelectionProducts: Product[] = [
   {
     "id": "other-4900053601",
     "partNo": "4900053601",
-    "brand": "Other",
+    "brand": "MANN-FILTER",
     "category": "air_oil_separator",
-    "title": "ไส้กรองแยกน้ำมัน 4900053601",
-    "description": "ไส้กรองแยกน้ำมัน รหัส 4900053601 ติดต่อ MRT Supplier เพื่อยืนยันรายละเอียดและขอใบเสนอราคา",
+    "title": "กรองแยกน้ำมันออกจากอากาศ 4900053601",
+    "description": "กรองแยกน้ำมันออกจากอากาศ MANN-FILTER ใช้แทนกันได้กับ LE5001X สเปคที่ระบุเป็นข้อมูลของเบอร์เทียบ LE5001X",
     "stockStatus": "request",
-    "dataQuality": "needs_review",
-    "sourceType": "internal"
+    "dataQuality": "basic",
+    "sourceType": "internal",
+    "spec": "LE5001X reference: OD 70 mm × ID 40 mm × H 200 mm",
+    "specifications": [
+      {
+        "label": "ข้อมูลสเปคอ้างอิง",
+        "value": "MANN-FILTER LE5001X (เบอร์ใช้แทนกันได้)"
+      },
+      {
+        "label": "Product Type",
+        "value": "Air-Oil Separator"
+      },
+      {
+        "label": "Outer Diameter",
+        "value": "70 mm"
+      },
+      {
+        "label": "Inner Diameter",
+        "value": "40 mm"
+      },
+      {
+        "label": "Height",
+        "value": "200 mm"
+      },
+      {
+        "label": "Gasket",
+        "value": "Included"
+      }
+    ]
   },
   {
     "id": "other-cb3030",
@@ -263,12 +291,12 @@ export const supplierSelectionProducts: Product[] = [
   {
     "id": "other-df5019",
     "partNo": "DF5019",
-    "brand": "Other",
+    "brand": "SOTRAS",
     "category": "air_oil_separator",
     "title": "ไส้กรองแยกน้ำมัน DF5019",
     "description": "ไส้กรองแยกน้ำมัน รหัส DF5019 ติดต่อ MRT Supplier เพื่อยืนยันรายละเอียดและขอใบเสนอราคา",
     "stockStatus": "request",
-    "dataQuality": "needs_review",
+    "dataQuality": "basic",
     "sourceType": "internal"
   },
   {
@@ -307,13 +335,44 @@ export const supplierSelectionProducts: Product[] = [
   {
     "id": "other-pl250",
     "partNo": "PL250",
-    "brand": "Other",
+    "brand": "MANN-FILTER",
     "category": "fuel_filter",
-    "title": "กรองเชื้อเพลิงดักน้ำ PL250",
-    "description": "กรองเชื้อเพลิงดักน้ำ รหัส PL250 ติดต่อ MRT Supplier เพื่อยืนยันรายละเอียดและขอใบเสนอราคา",
+    "title": "กรองน้ำมันเชื้อเพลิง MANN-FILTER PreLine PL250",
+    "description": "กรองน้ำมันเชื้อเพลิง PreLine PL250 สำหรับกรองสิ่งสกปรกและแยกน้ำออกจากเชื้อเพลิง",
     "stockStatus": "request",
-    "dataQuality": "needs_review",
-    "sourceType": "internal"
+    "dataQuality": "basic",
+    "sourceType": "internal",
+    "spec": "OD 93 mm × H 190 mm • M16×1.5",
+    "specifications": [
+      {
+        "label": "Outer Diameter A",
+        "value": "93 mm"
+      },
+      {
+        "label": "Gasket Inside Diameter B",
+        "value": "62 mm"
+      },
+      {
+        "label": "Gasket Outside Diameter C",
+        "value": "72 mm"
+      },
+      {
+        "label": "Thread G",
+        "value": "M16×1.5"
+      },
+      {
+        "label": "Height H",
+        "value": "190 mm"
+      }
+    ],
+    "gtin": "4011558601102",
+    "imageUrl": "/images/products/mann/pl250.jpg",
+    "applications": [
+      "CLAAS Scorpion",
+      "KRAMER ALLRAD (WACKER NEUSON) 400, KL, KT Series",
+      "LANDINI (ARGO) REX4",
+      "MANITOU MLT, MT Series"
+    ]
   },
   {
     "id": "donaldson-r010039",
@@ -373,13 +432,40 @@ export const supplierSelectionProducts: Product[] = [
   {
     "id": "other-aa90145r",
     "partNo": "AA90145R",
-    "brand": "Other",
+    "brand": "Fleetguard",
     "category": "air_filter",
-    "title": "กรองอากาศ AA90145R",
-    "description": "กรองอากาศ รหัส AA90145R ติดต่อ MRT Supplier เพื่อยืนยันรายละเอียดและขอใบเสนอราคา",
+    "title": "ชุดกรองอากาศ Fleetguard AA90145R",
+    "description": "ชุดกรองอากาศ Fleetguard AA90145 ผลิตจีนตามรหัส R ที่ MRT ยืนยัน ประกอบด้วยกรองนอก AF26614 และกรองใน AF26613 เทียบทั้งชุดกับ K-FLO KAS345 ผู้ผลิตระบุกรองในไม่จำหน่ายแยก ต้องตรวจสอบการจัดหา",
     "stockStatus": "request",
-    "dataQuality": "needs_review",
-    "sourceType": "internal"
+    "dataQuality": "basic",
+    "sourceType": "internal",
+    "spec": "AF26614 + AF26613",
+    "specifications": [
+      {
+        "label": "Manufacturer Kit",
+        "value": "AA90145"
+      },
+      {
+        "label": "Kit Contents",
+        "value": "AF26614-1 + AF26613-1"
+      },
+      {
+        "label": "Country of Origin MRT",
+        "value": "China"
+      }
+    ],
+    "pairedParts": [
+      {
+        "partNo": "AF26614",
+        "relation": "outer",
+        "note": "กรองนอกในชุด AA90145"
+      },
+      {
+        "partNo": "AF26613",
+        "relation": "inner",
+        "note": "กรองใน ผู้ผลิตระบุไม่จำหน่ายแยก ตรวจสอบการจัดหาก่อนสั่งซื้อ"
+      }
+    ]
   },
   {
     "id": "donaldson-p502269",
@@ -439,13 +525,78 @@ export const supplierSelectionProducts: Product[] = [
   {
     "id": "other-c085004",
     "partNo": "C085004",
-    "brand": "Other",
+    "brand": "Donaldson",
     "category": "air_filter",
-    "title": "กรองอากาศ C085004",
-    "description": "กรองอากาศ รหัส C085004 ติดต่อ MRT Supplier เพื่อยืนยันรายละเอียดและขอใบเสนอราคา",
+    "title": "กรองอากาศ Donaldson DuraLite C085004",
+    "description": "ชุดกรองอากาศหลักพร้อมตัวเรือน DuraLite น้ำหนักเบา ตัวเรือน ABS และวัสดุกรองเซลลูโลส เปลี่ยนทั้งชุดเมื่อครบอายุใช้งาน",
     "stockStatus": "request",
-    "dataQuality": "needs_review",
-    "sourceType": "internal"
+    "dataQuality": "basic",
+    "sourceType": "internal",
+    "spec": "OD 215.9 mm × L 241.3 mm • Outlet 76.2 mm",
+    "specifications": [
+      {
+        "label": "Outlet Diameter",
+        "value": "76.2 mm"
+      },
+      {
+        "label": "Body Diameter Maximum",
+        "value": "215.9 mm"
+      },
+      {
+        "label": "Body Length",
+        "value": "241.3 mm"
+      },
+      {
+        "label": "Efficiency Test Standard",
+        "value": "ISO 5011"
+      },
+      {
+        "label": "Rated Flow LR",
+        "value": "4.8 m³/min"
+      },
+      {
+        "label": "Rated Flow MR",
+        "value": "5.8 m³/min"
+      },
+      {
+        "label": "Rated Flow HR",
+        "value": "6.9 m³/min"
+      },
+      {
+        "label": "Restriction LR",
+        "value": "10 mbar"
+      },
+      {
+        "label": "Restriction MR",
+        "value": "14.91 mbar"
+      },
+      {
+        "label": "Restriction HR",
+        "value": "19.91 mbar"
+      },
+      {
+        "label": "Family",
+        "value": "ECC"
+      },
+      {
+        "label": "Type",
+        "value": "Primary"
+      },
+      {
+        "label": "Style",
+        "value": "Round"
+      },
+      {
+        "label": "Media Type",
+        "value": "Cellulose"
+      },
+      {
+        "label": "UPC",
+        "value": "742330000960"
+      }
+    ],
+    "imageUrl": "/images/products/donaldson/c085004.jpg",
+    "sourceNote": "Donaldson product specifications supplied by owner: c085004.pdf"
   },
   {
     "id": "donaldson-p763995",
@@ -593,12 +744,12 @@ export const supplierSelectionProducts: Product[] = [
   {
     "id": "other-sa6069",
     "partNo": "SA6069",
-    "brand": "Other",
+    "brand": "SOTRAS",
     "category": "air_filter",
     "title": "กรองอากาศ SA6069",
     "description": "กรองอากาศ รหัส SA6069 ติดต่อ MRT Supplier เพื่อยืนยันรายละเอียดและขอใบเสนอราคา",
     "stockStatus": "request",
-    "dataQuality": "needs_review",
+    "dataQuality": "basic",
     "sourceType": "internal"
   },
   {
@@ -1376,11 +1527,38 @@ export const supplierSelectionProducts: Product[] = [
     "partNo": "KAS282",
     "brand": "K-FLO",
     "category": "air_filter",
-    "title": "กรองอากาศ KAS282",
-    "description": "กรองอากาศ รหัส KAS282 ติดต่อ MRT Supplier เพื่อยืนยันรายละเอียดและขอใบเสนอราคา",
+    "title": "ชุดกรองอากาศ K-FLO KAS282",
+    "description": "ชุดกรองอากาศ K-FLO ใช้แทนทั้งชุด MANN-FILTER C30850/2 + CF1600 ตามข้อมูล MRT อ้างอิงขนาดจากหน้าสินค้า MANN-FILTER ที่เชื่อมไว้",
     "stockStatus": "request",
     "dataQuality": "basic",
-    "sourceType": "internal"
+    "sourceType": "internal",
+    "spec": "Equivalent kit: C30850/2 + CF1600",
+    "specifications": [
+      {
+        "label": "Equivalent Kit",
+        "value": "MANN-FILTER C30850/2 + CF1600"
+      },
+      {
+        "label": "Reference Outer Filter",
+        "value": "C30850/2: OD 303 mm × ID 191 mm × H 476 mm"
+      },
+      {
+        "label": "Reference Inner Filter",
+        "value": "CF1600: OD 161 mm × ID 145 mm × H 471 mm"
+      }
+    ],
+    "pairedParts": [
+      {
+        "partNo": "C 30 850/2",
+        "relation": "outer",
+        "note": "กรองนอก MANN-FILTER ของชุดเทียบ ดูสเปคที่หน้าสินค้า"
+      },
+      {
+        "partNo": "CF 1600",
+        "relation": "inner",
+        "note": "กรองใน MANN-FILTER ของชุดเทียบ ดูสเปคที่หน้าสินค้า"
+      }
+    ]
   },
   {
     "id": "other-khl1178",
@@ -1547,6 +1725,186 @@ export const supplierSelectionProducts: Product[] = [
         "partNo": "AA90138-R",
         "relation": "paired",
         "note": "เลือกขอราคาทั้งชุด AA90138-R ซึ่งประกอบด้วย AF26531 และ AF26532"
+      }
+    ]
+  },
+  {
+    "id": "mannfilter-le5001x",
+    "partNo": "LE5001X",
+    "brand": "MANN-FILTER",
+    "category": "oil_separator",
+    "stockStatus": "request",
+    "dataQuality": "basic",
+    "sourceType": "mixed",
+    "title": "กรองแยกน้ำมันออกจากอากาศ LE5001X",
+    "description": "กรองแยกน้ำมันออกจากอากาศสำหรับคอมเพรสเซอร์และปั๊มสุญญากาศ พร้อมปะเก็น ใช้แทนกันได้กับ 4900053601",
+    "spec": "OD 70 mm × ID 40 mm × H 200 mm",
+    "specifications": [
+      {
+        "label": "Product Type",
+        "value": "Air-Oil Separator"
+      },
+      {
+        "label": "Outer Diameter",
+        "value": "70 mm"
+      },
+      {
+        "label": "Inner Diameter",
+        "value": "40 mm"
+      },
+      {
+        "label": "Height",
+        "value": "200 mm"
+      },
+      {
+        "label": "Gasket",
+        "value": "Included"
+      }
+    ],
+    "gtin": "4011558391102",
+    "applications": [
+      "HYDROVANE 120–845, 5–50, HV Series",
+      "MATTEI AC, ERC, PU/PUA/PUT Series"
+    ],
+    "sourceNote": "Owner-provided MANN-FILTER LE5001X catalog screenshot, 2026-09-21",
+    "crossReferences": [
+      {
+        "partNumber": "4900053601",
+        "brand": "MANN-FILTER",
+        "relationType": "equivalent",
+        "verificationStatus": "verified",
+        "source": "Owner-confirmed product information",
+        "evidenceNote": "Owner-provided interchange screenshot.",
+        "approvedBy": "Boss",
+        "approvedAt": "2026-09-21"
+      }
+    ]
+  },
+  {
+    "id": "fleetguard-af26614",
+    "partNo": "AF26614",
+    "brand": "Fleetguard",
+    "category": "air_filter",
+    "stockStatus": "request",
+    "dataQuality": "basic",
+    "sourceType": "mixed",
+    "title": "กรองอากาศ Primary Fleetguard AF26614",
+    "description": "กรองอากาศนอก เป็นส่วนประกอบชุด AA90145",
+    "spec": "OD 198.1 mm × L 342 mm",
+    "specifications": [
+      {
+        "label": "Type",
+        "value": "Primary"
+      },
+      {
+        "label": "Outer Diameter",
+        "value": "198.1 mm"
+      },
+      {
+        "label": "Length",
+        "value": "342 mm"
+      },
+      {
+        "label": "Inner Diameter",
+        "value": "110 mm"
+      },
+      {
+        "label": "Media Type",
+        "value": "Cellulose"
+      },
+      {
+        "label": "Full Life Efficiency",
+        "value": "99.9%"
+      }
+    ],
+    "od_mm": 198.1,
+    "length_mm": 342,
+    "pairedParts": [
+      {
+        "partNo": "AF26613",
+        "relation": "inner",
+        "note": "ใช้ร่วมกันในชุด AA90145"
+      }
+    ]
+  },
+  {
+    "id": "fleetguard-af26613",
+    "partNo": "AF26613",
+    "brand": "Fleetguard",
+    "category": "air_filter",
+    "stockStatus": "request",
+    "dataQuality": "basic",
+    "sourceType": "mixed",
+    "title": "กรองอากาศ Secondary Fleetguard AF26613",
+    "description": "กรองอากาศใน (Safety filter) หน้าชุด AA90145 ระบุว่าไม่จำหน่ายแยก ต้องตรวจสอบการจัดหา เป็นส่วนประกอบชุด AA90145",
+    "spec": "OD 106.9 mm × L 321 mm",
+    "specifications": [
+      {
+        "label": "Type",
+        "value": "Secondary"
+      },
+      {
+        "label": "Outer Diameter",
+        "value": "106.9 mm"
+      },
+      {
+        "label": "Length",
+        "value": "321 mm"
+      }
+    ],
+    "od_mm": 106.9,
+    "length_mm": 321,
+    "pairedParts": [
+      {
+        "partNo": "AF26614",
+        "relation": "outer",
+        "note": "ใช้ร่วมกันในชุด AA90145"
+      }
+    ]
+  },
+  {
+    "id": "kflo-kas345",
+    "partNo": "KAS345",
+    "brand": "K-FLO",
+    "category": "air_filter",
+    "stockStatus": "request",
+    "dataQuality": "basic",
+    "sourceType": "mixed",
+    "title": "ชุดกรองอากาศ K-FLO KAS345",
+    "description": "ชุดกรองอากาศ K-FLO ใช้แทนทั้งชุด Fleetguard AA90145R (AF26614 + AF26613) ตามข้อมูล MRT",
+    "spec": "Equivalent kit: AA90145R (AF26614 + AF26613)",
+    "specifications": [
+      {
+        "label": "Equivalent Kit",
+        "value": "Fleetguard AA90145R"
+      },
+      {
+        "label": "Reference Kit Contents",
+        "value": "AF26614 + AF26613"
+      }
+    ],
+    "pairedParts": [
+      {
+        "partNo": "AF26614",
+        "relation": "outer",
+        "note": "กรองนอกของชุด Fleetguard ที่ใช้เทียบ ไม่ใช่รหัสชิ้นส่วน K-FLO"
+      },
+      {
+        "partNo": "AF26613",
+        "relation": "inner",
+        "note": "กรองในของชุด Fleetguard ที่ใช้เทียบ ไม่ใช่รหัสชิ้นส่วน K-FLO"
+      }
+    ],
+    "crossReferences": [
+      {
+        "partNumber": "AA90145R",
+        "brand": "Fleetguard",
+        "relationType": "equivalent",
+        "verificationStatus": "verified",
+        "source": "Owner-confirmed product information",
+        "evidenceNote": "Whole-kit equivalent; AF26614 and AF26613 are components, not individual equivalents to the kit.",
+        "approvedBy": "Boss",
+        "approvedAt": "2026-09-21"
       }
     ]
   }

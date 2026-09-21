@@ -2,6 +2,7 @@ export function getProductUiText(locale: string) {
   const isThai = locale === "th";
 
   return {
+    statusCheck: isThai ? "ตรวจสอบสินค้า" : "Check availability",
     statusAvailable: isThai ? "มีสินค้า" : "In stock",
     statusRequest: isThai ? "มีสินค้า" : "In stock",
     addedToQuote: isThai ? "เพิ่มใน RFQ แล้ว" : "Added to quote",

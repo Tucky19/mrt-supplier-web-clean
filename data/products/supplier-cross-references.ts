@@ -242,6 +242,8 @@ const partNumbersByProduct: Record<string, string[]> = {
 };
 
 function referenceBrand(partNumber: string): string {
+  if (partNumber === "KAS345") return "K-FLO";
+  if (partNumber === "LE5001X") return "MANN-FILTER";
   if (/^[PGRBX]\d{6}$/.test(partNumber)) return "Donaldson";
   if (/^(AF|FF|FS|LF|HF)\d/.test(partNumber)) return "Fleetguard";
   if (/^(W|WD|WK|WDK|HU|LB|CF)\d/.test(partNumber) || /^C\d{4,5}(\/\d+)?$/.test(partNumber)) return "MANN-FILTER";
