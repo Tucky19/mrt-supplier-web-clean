@@ -286,7 +286,7 @@ export default function ProductCardV2({
   }
 
   return (
-    <div className="group flex h-full flex-col overflow-hidden rounded-[var(--mrt-radius-lg)] border border-[var(--color-border)] bg-[var(--color-surface)] shadow-[var(--shadow-sm)] transition duration-200 hover:-translate-y-0.5 hover:border-[var(--color-border-strong)] hover:shadow-[var(--shadow-md)]">
+    <div className="group flex h-full flex-col overflow-hidden rounded-[var(--mrt-radius-lg)] border border-[var(--color-border-strong)] bg-[var(--color-surface)] shadow-[var(--shadow-sm)] transition duration-200 hover:-translate-y-0.5 hover:border-[var(--color-primary)] hover:shadow-[var(--shadow-md)]">
       <div className="border-b border-[var(--color-border)] bg-[var(--color-surface-muted)] p-3 sm:p-4">
         <div className="flex items-start justify-between gap-2">
           <div className="flex min-w-0 flex-wrap items-center gap-2">
@@ -321,20 +321,20 @@ export default function ProductCardV2({
 
             <Link
               href={`/${locale}/products/${encodeURIComponent(product.partNo)}`}
-              className="mt-2 block [overflow-wrap:anywhere] text-[1.4rem] font-semibold leading-tight tracking-[-0.035em] text-[var(--color-text)] transition-colors hover:text-[var(--color-primary-hover)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-surface-muted)] sm:text-[1.5rem]"
+              className="mt-2 block [overflow-wrap:anywhere] text-[1.65rem] font-bold leading-none tracking-[-0.045em] text-[var(--color-primary)] transition-colors hover:text-[var(--color-primary-hover)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-surface-muted)] sm:text-[1.8rem]"
             >
               {product.partNo}
             </Link>
 
             {product.title ? (
-              <div className="mt-1 line-clamp-2 text-sm leading-5 text-[var(--color-text-muted)]">
+              <div className="mt-1.5 line-clamp-2 text-sm font-medium leading-5 text-[var(--color-text)]">
                 {product.title}
               </div>
             ) : null}
 
-            <div className="mt-3 grid grid-cols-[5.5rem_minmax(0,1fr)] gap-3">
+            <div className="mt-3 grid grid-cols-[6.5rem_minmax(0,1fr)] gap-3">
               <div
-                className={`flex h-[5.5rem] items-center justify-center overflow-hidden rounded-[var(--mrt-radius-md)] border shadow-[inset_0_1px_0_rgba(255,255,255,0.8)] ${
+                className={`flex h-[6.5rem] items-center justify-center overflow-hidden rounded-[var(--mrt-radius-md)] border shadow-[inset_0_1px_0_rgba(255,255,255,0.8)] ${
                   hasProductImage
                     ? "border-[var(--color-border)] bg-white"
                     : "border-dashed border-[var(--color-border)] bg-[var(--color-surface-muted)]"
@@ -351,11 +351,11 @@ export default function ProductCardV2({
                 />
               </div>
 
-              <div className="min-w-0 rounded-[var(--mrt-radius-md)] border border-[var(--color-border)] bg-[var(--color-surface)] px-3 py-2.5">
+              <div className="min-w-0 rounded-[var(--mrt-radius-md)] border border-[var(--color-border)] bg-[var(--color-surface)] px-3 py-3">
                 <div className="text-[10px] font-semibold uppercase tracking-[0.14em] text-[var(--color-text-muted)]">
                   {isThai ? "สเปกโดยสรุป" : "Specification Summary"}
                 </div>
-                <div className="mt-1 line-clamp-2 text-xs leading-5 text-[var(--color-text-muted)] sm:text-sm">
+                <div className="mt-1.5 line-clamp-3 text-xs leading-5 text-[var(--color-text-muted)] sm:text-sm">
                   {specText}
                 </div>
               </div>
@@ -493,7 +493,7 @@ export default function ProductCardV2({
               type="button"
               onClick={handleAdd}
               disabled={justAdded}
-              className={`inline-flex min-h-11 flex-1 items-center justify-center gap-1.5 rounded-[var(--mrt-radius-md)] px-3 py-2.5 text-sm font-semibold text-[var(--color-text-inverse)] shadow-[var(--shadow-sm)] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-surface)] ${
+              className={`inline-flex min-h-12 flex-[1.35] items-center justify-center gap-2 rounded-[var(--mrt-radius-md)] px-4 py-3 text-sm font-bold text-[var(--color-text-inverse)] shadow-[var(--shadow-sm)] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-surface)] ${
                 justAdded
                   ? "bg-[var(--color-success)]"
                   : "bg-[var(--color-primary)] hover:bg-[var(--color-primary-hover)]"
@@ -505,7 +505,7 @@ export default function ProductCardV2({
 
             <Link
               href={`/${locale}/products/${encodeURIComponent(product.partNo)}`}
-              className={`inline-flex min-h-11 items-center justify-center rounded-[var(--mrt-radius-md)] border border-[var(--color-border-strong)] px-3 py-2.5 text-sm font-medium text-[var(--color-text)] transition-colors hover:border-[var(--color-primary)] hover:bg-[var(--color-primary-soft)] hover:text-[var(--color-primary-hover)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-surface)] ${
+              className={`inline-flex min-h-12 items-center justify-center rounded-[var(--mrt-radius-md)] border border-[var(--color-border-strong)] px-3 py-3 text-sm font-semibold text-[var(--color-text)] transition-colors hover:border-[var(--color-primary)] hover:bg-[var(--color-primary-soft)] hover:text-[var(--color-primary-hover)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-surface)] ${
                 isSearchVariant ? "shrink-0" : "flex-1"
               }`}
             >
