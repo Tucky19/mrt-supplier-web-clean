@@ -41,6 +41,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
         priority: 0.7,
       },
       {
+        url: `${SITE_URL}/${locale}/articles/when-to-replace-engine-air-filter`,
+        lastModified: new Date("2026-09-23"),
+        changeFrequency: "monthly",
+        priority: 0.7,
+      },
+      {
         url: `${SITE_URL}/${locale}/privacy`,
         changeFrequency: "yearly",
         priority: 0.3,
