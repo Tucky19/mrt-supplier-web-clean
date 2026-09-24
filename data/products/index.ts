@@ -21,6 +21,7 @@ import { stanadyneCrossReferencesByDonaldson } from "./stanadyne-cross-reference
 import { sureSakuraCrossReferencesByDonaldson } from "./sure-sakura-cross-references";
 import { getVerifiedAirFilterPairedParts } from "./air-filter-pairs";
 import { vehicleFilterProducts } from "./products.vehicle-filters";
+import { clutchReleaseBearingProducts } from "./products.clutch-release-bearings";
 
 import { supplierCrossReferences } from "./supplier-cross-references";
 import { supplierSelectionProducts } from "./products.supplier-selection";
@@ -59,6 +60,7 @@ const rawProducts = [
   ...donaldsonPriorityProducts,
   ...importedProducts,
   ...officialProducts20260903,
+  ...clutchReleaseBearingProducts,
 ];
 
 const existingPartKeys = new Set(
