@@ -113,52 +113,108 @@ function uniqueRelations(values: ProductRelationInput[]) {
   });
 }
 
-const rowsByMrk = new Map<string, ClutchReleaseBearingRow[]>();
-for (const row of rows) {
-  const group = rowsByMrk.get(row.mrk) ?? [];
-  group.push(row);
-  rowsByMrk.set(row.mrk, group);
+function typeLabel(types: string[]) {
+  const unique = Array.from(new Set(types));
+  if (unique.length !== 1) return "Mixed catalog type";
+  return unique[0] === "A" ? "Angular Contact" : "Self Centering";
 }
 
-export const clutchReleaseBearingProducts: Product[] = Array.from(rowsByMrk.entries()).map(([mrk, groupedRows]) => {
-  const makers = Array.from(new Set(groupedRows.map((row) => row.maker)));
-  const types = Array.from(new Set(groupedRows.map((row) => row.type)));
-  const crossReferences: ProductRelationInput[] = [];
-  const vehicleApplications: string[] = [];
-
-  for (const row of groupedRows) {
-    for (const part of row.parts) crossReferences.push(relation(part, row.maker, row.maker));
-    for (const part of row.nsk ?? []) crossReferences.push(relation(part, "NSK", row.maker));
-    for (const part of row.ntn ?? []) crossReferences.push(relation(part, "NTN", row.maker));
-    for (const part of row.koyo ?? []) crossReferences.push(relation(part, "KOYO", row.maker));
-    for (const part of row.nachi ?? []) crossReferences.push(relation(part, "NACHI", row.maker));
-    vehicleApplications.push(`${row.maker}: ${row.parts.join(", ")}`);
+function relationsForRow(row: ClutchReleaseBearingRow, currentNtn?: string) {
+  const values: ProductRelationInput[] = [relation(row.mrk, "MRK", row.maker)];
+  for (const part of row.parts) values.push(relation(part, row.maker, row.maker));
+  for (const part of row.nsk ?? []) values.push(relation(part, "NSK", row.maker));
+  for (const part of row.ntn ?? []) {
+    if (part !== currentNtn) values.push(relation(part, "NTN", row.maker));
   }
+  for (const part of row.koyo ?? []) values.push(relation(part, "KOYO", row.maker));
+  for (const part of row.nachi ?? []) values.push(relation(part, "NACHI", row.maker));
+  return values;
+}
 
-  const typeLabel = types.length === 1
-    ? types[0] === "A" ? "Angular Contact" : "Self Centering"
-    : "Mixed catalog type";
+const rowsByNtn = new Map<string, ClutchReleaseBearingRow[]>();
+for (const row of rows) {
+  for (const ntn of row.ntn ?? []) {
+    const group = rowsByNtn.get(ntn) ?? [];
+    group.push(row);
+    rowsByNtn.set(ntn, group);
+  }
+}
+
+const ntnProducts: Product[] = Array.from(rowsByNtn.entries()).map(([ntn, groupedRows]) => {
+  const makers = Array.from(new Set(groupedRows.map((row) => row.maker)));
+  const types = groupedRows.map((row) => row.type);
+  const crossReferences = uniqueRelations(
+    groupedRows.flatMap((row) => relationsForRow(row, ntn)),
+  );
 
   return {
-    id: `mrk-clutch-release-${mrk.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "")}`,
-    partNo: mrk,
-    brand: "MRK",
-    title: "Clutch Release Bearing Cross Reference",
+    id: `ntn-clutch-release-${ntn.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "")}`,
+    partNo: ntn,
+    brand: "NTN",
+    title: "NTN Clutch Release Bearing",
     category: "clutch_release_bearing",
-    spec: `${typeLabel} clutch release bearing reference | ${makers.join(", ")}`,
-    description: `Clutch release bearing reference for ${makers.join(", ")}. Searchable by OEM, NSK, NTN, KOYO and NACHI references where supplied.`,
-    vehicleApplications: Array.from(new Set(vehicleApplications)),
-    crossReferences: uniqueRelations(crossReferences),
+    spec: `${typeLabel(types)} clutch release bearing reference | ${makers.join(", ")}`,
+    description: `NTN clutch release bearing reference for ${makers.join(", ")}. Searchable by vehicle OEM, MRK, NSK, KOYO and NACHI references where supplied.`,
+    vehicleApplications: Array.from(
+      new Set(groupedRows.map((row) => `${row.maker}: ${row.parts.join(", ")}`)),
+    ),
+    crossReferences,
     specifications: [
-      { label: "Catalog Type", value: types.join(" / ") },
-      { label: "Type Meaning", value: typeLabel },
+      { label: "Catalog Type", value: Array.from(new Set(types)).join(" / ") },
+      { label: "Type Meaning", value: typeLabel(types) },
       { label: "Vehicle Makes", value: makers.join(", ") },
     ],
     checkAvailability: true,
-    partNumberOnly: true,
     stockStatus: "request",
     sourceType: "catalog",
     sourceNote: `${SOURCE}. Transcribed from screenshots supplied by the site owner on 2026-09-24; mappings remain pending verification.`,
     dataQuality: "needs_review",
   };
 });
+
+const fallbackRowsByMrk = new Map<string, ClutchReleaseBearingRow[]>();
+for (const row of rows.filter((item) => !(item.ntn?.length))) {
+  const group = fallbackRowsByMrk.get(row.mrk) ?? [];
+  group.push(row);
+  fallbackRowsByMrk.set(row.mrk, group);
+}
+
+const referenceOnlyProducts: Product[] = Array.from(fallbackRowsByMrk.entries()).map(
+  ([mrk, groupedRows]) => {
+    const makers = Array.from(new Set(groupedRows.map((row) => row.maker)));
+    const types = groupedRows.map((row) => row.type);
+    const crossReferences = uniqueRelations(
+      groupedRows.flatMap((row) => relationsForRow(row)),
+    );
+
+    return {
+      id: `mrk-clutch-release-${mrk.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "")}`,
+      partNo: mrk,
+      brand: "MRK",
+      title: "Clutch Release Bearing Cross Reference",
+      category: "clutch_release_bearing",
+      spec: `${typeLabel(types)} clutch release bearing reference | ${makers.join(", ")}`,
+      description: `Reference-only clutch release bearing mapping for ${makers.join(", ")}; NTN number was not shown in the supplied catalog row.`,
+      vehicleApplications: Array.from(
+        new Set(groupedRows.map((row) => `${row.maker}: ${row.parts.join(", ")}`)),
+      ),
+      crossReferences,
+      specifications: [
+        { label: "Catalog Type", value: Array.from(new Set(types)).join(" / ") },
+        { label: "Type Meaning", value: typeLabel(types) },
+        { label: "Vehicle Makes", value: makers.join(", ") },
+      ],
+      checkAvailability: true,
+      partNumberOnly: true,
+      stockStatus: "request",
+      sourceType: "catalog",
+      sourceNote: `${SOURCE}. Transcribed from screenshots supplied by the site owner on 2026-09-24; mappings remain pending verification.`,
+      dataQuality: "needs_review",
+    };
+  },
+);
+
+export const clutchReleaseBearingProducts: Product[] = [
+  ...ntnProducts,
+  ...referenceOnlyProducts,
+];
