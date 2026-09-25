@@ -33,7 +33,6 @@ const EXCLUDED_ACTIVE_PART_NOS = new Set([
   "6203-ZZ",
   "6305-ZZ",
   "6306-ZZ",
-  "R011866",
   "P502344",
   "P509129",
   "P556485",
