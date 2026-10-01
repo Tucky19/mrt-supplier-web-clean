@@ -85,4 +85,5 @@ export type Product = {
   od_mm?: number;
   id_mm?: number;
   length_mm?: number;
+  dimensionReviewRequired?: boolean;
 };

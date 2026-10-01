@@ -13,6 +13,7 @@ type PageProps = {
     od?: string;
     id?: string;
     length?: string;
+    width?: string;
     thread?: string;
     category?: string;
   }>;
@@ -23,6 +24,9 @@ const CATEGORY_OPTIONS: Array<{
   th: string;
   en: string;
 }> = [
+  { value: "all_products", th: "สินค้าทุกประเภท", en: "All products" },
+  { value: "bearing", th: "ตลับลูกปืน", en: "Bearings" },
+  { value: "air_oil_separator", th: "ไส้แยกน้ำมันอากาศ", en: "Air / oil separators" },
   { value: "air_filter", th: "ไส้กรองอากาศ", en: "Air filters" },
   { value: "oil_filter", th: "ไส้กรองน้ำมันเครื่อง", en: "Oil / lube filters" },
   { value: "fuel_filter", th: "ไส้กรองเชื้อเพลิง", en: "Fuel filters" },
@@ -53,8 +57,8 @@ export async function generateMetadata({
 
   return {
     title: isThai
-      ? "ค้นหาไส้กรองด้วยขนาด"
-      : "Search Filters by Dimensions",
+      ? "ค้นหาสินค้าด้วยขนาด"
+      : "Search Products by Dimensions",
     description: isThai
       ? "ค้นหาไส้กรองจาก OD, ID, Length/Height และ Thread Size โดยรองรับช่วงขนาด ±3 มม."
       : "Find filters by OD, ID, length or height, and thread size with a ±3 mm filter tolerance.",
@@ -81,18 +85,21 @@ export default async function FilterDimensionSearchPage({
     outerDiameterMm: parsePositiveNumber(resolved.od),
     innerDiameterMm: parsePositiveNumber(resolved.id),
     lengthMm: parsePositiveNumber(resolved.length),
+    widthMm: parsePositiveNumber(resolved.width),
     threadSize: String(resolved.thread ?? "").trim() || undefined,
   };
   const hasCriteria =
     criteria.outerDiameterMm !== undefined ||
     criteria.innerDiameterMm !== undefined ||
     criteria.lengthMm !== undefined ||
+    criteria.widthMm !== undefined ||
     Boolean(criteria.threadSize);
   const canSearch = hasCriteria && category !== undefined;
   const suppliedDimensionCount = [
     criteria.outerDiameterMm,
     criteria.innerDiameterMm,
     criteria.lengthMm,
+    criteria.widthMm,
     criteria.threadSize,
   ].filter((value) => value !== undefined && value !== "").length;
   const results = canSearch
@@ -103,14 +110,15 @@ export default async function FilterDimensionSearchPage({
     : [];
   const queryLabel = [
     criteria.outerDiameterMm !== undefined
-      ? `OD ${criteria.outerDiameterMm}`
+      ? `OD ${criteria.outerDiameterMm} mm`
       : "",
     criteria.innerDiameterMm !== undefined
-      ? `ID ${criteria.innerDiameterMm}`
+      ? `ID ${criteria.innerDiameterMm} mm`
       : "",
     criteria.lengthMm !== undefined
-      ? `Length ${criteria.lengthMm}`
+      ? `Length ${criteria.lengthMm} mm`
       : "",
+    criteria.widthMm !== undefined ? `Width ${criteria.widthMm} mm` : "",
     criteria.threadSize ? `Thread ${criteria.threadSize}` : "",
   ]
     .filter(Boolean)
@@ -132,13 +140,13 @@ export default async function FilterDimensionSearchPage({
 
             <h1 className="mt-4 text-2xl font-bold text-[var(--color-text)] sm:text-3xl">
               {isThai
-                ? "ค้นหาไส้กรองด้วยขนาด"
-                : "Search filters by dimensions"}
+                ? "ค้นหาสินค้าด้วยขนาด"
+                : "Search products by dimensions"}
             </h1>
             <p className="mt-2 max-w-3xl text-sm leading-6 text-[var(--color-text-muted)] sm:text-base">
               {isThai
-                ? "กรอกเฉพาะขนาดที่ทราบ ระบบจะค้นหาไส้กรองในช่วง ±3 มม. และเรียงจากขนาดที่ใกล้ที่สุด"
-                : "Enter the dimensions you know. Filter results use a ±3 mm range and are sorted by closest fit."}
+                ? "กรอกขนาดเป็นมิลลิเมตร (mm) ไส้กรองค้นหาในช่วง ±3 มม. ตลับลูกปืนใช้ขนาดตรง และเรียงจากขนาดที่ใกล้ที่สุด"
+                : "Enter dimensions in millimeters (mm). Filters use ±3 mm; bearings require exact dimensions. Results are sorted by closest dimensions."}
             </p>
 
             <form
@@ -146,10 +154,10 @@ export default async function FilterDimensionSearchPage({
               method="get"
               className="mt-6 rounded-[var(--mrt-radius-lg)] border border-[var(--color-border)] bg-[var(--color-surface-muted)] p-4 shadow-[var(--shadow-sm)] sm:p-6"
             >
-              <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+              <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
                 <label className="block">
                   <span className="mb-1.5 block text-sm font-semibold text-[var(--color-text)]">
-                    {isThai ? "ประเภทไส้กรอง" : "Filter type"}
+                    {isThai ? "ประเภทสินค้า" : "Product type"}
                   </span>
                   <select
                     name="category"
@@ -158,7 +166,7 @@ export default async function FilterDimensionSearchPage({
                     className="min-h-11 w-full rounded-[var(--mrt-radius-md)] border border-[var(--color-border-strong)] bg-[var(--color-surface)] px-3 text-sm text-[var(--color-text)]"
                   >
                     <option value="" disabled>
-                      {isThai ? "เลือกประเภทไส้กรอง" : "Select filter type"}
+                      {isThai ? "เลือกประเภทสินค้า" : "Select product type"}
                     </option>
                     {CATEGORY_OPTIONS.map((option) => (
                       <option key={option.value} value={option.value}>
@@ -181,6 +189,7 @@ export default async function FilterDimensionSearchPage({
                     value: resolved.id,
                     placeholder: "62",
                   },
+                  { name: "width", label: isThai ? "ความกว้าง (Width)" : "Width", value: resolved.width, placeholder: "15" },
                   {
                     name: "length",
                     label: isThai ? "Length / Height" : "Length / Height",
@@ -196,7 +205,7 @@ export default async function FilterDimensionSearchPage({
                       name={field.name}
                       type="number"
                       min="0"
-                      step="0.1"
+                      step="any"
                       defaultValue={field.value}
                       placeholder={field.placeholder}
                       className="min-h-11 w-full rounded-[var(--mrt-radius-md)] border border-[var(--color-border-strong)] bg-[var(--color-surface)] px-3 text-sm text-[var(--color-text)]"
@@ -236,8 +245,8 @@ export default async function FilterDimensionSearchPage({
                 </a>
                 <span className="text-xs leading-5 text-[var(--color-text-muted)]">
                   {isThai
-                    ? "OD, ID และ Length/Height เผื่อ ±3 มม. · Thread ต้องตรง"
-                    : "OD, ID, and Length/Height use ±3 mm · Thread must match"}
+                    ? "ไส้กรอง ±3 มม. · ตลับลูกปืนขนาดตรง · เกลียวตามมาตรฐานเดิม"
+                    : "Filters ±3 mm · Bearings exact · Original thread designation"}
                 </span>
               </div>
             </form>
@@ -254,8 +263,8 @@ export default async function FilterDimensionSearchPage({
           ) : !category ? (
             <div className="rounded-[var(--mrt-radius-lg)] border border-dashed border-[var(--color-border-strong)] bg-[var(--color-surface)] px-6 py-8 text-center text-sm text-[var(--color-text-muted)]">
               {isThai
-                ? "กรุณาเลือกประเภทไส้กรองก่อนค้นหาด้วยขนาด"
-                : "Select a filter type before searching by dimensions."}
+                ? "กรุณาเลือกประเภทสินค้าก่อนค้นหาด้วยขนาด"
+                : "Select a product type before searching by dimensions."}
             </div>
           ) : (
             <>
@@ -288,8 +297,8 @@ export default async function FilterDimensionSearchPage({
                 <div className="rounded-[var(--mrt-radius-lg)] border border-dashed border-[var(--color-border-strong)] bg-[var(--color-surface)] px-6 py-8 text-center">
                   <p className="font-medium text-[var(--color-text)]">
                     {isThai
-                      ? "ไม่พบไส้กรองในช่วงขนาดที่ระบุ"
-                      : "No filters found within the requested range."}
+                      ? "ไม่พบสินค้าในช่วงขนาดที่ระบุ"
+                      : "No products found within the requested range."}
                   </p>
                   <p className="mt-2 text-sm text-[var(--color-text-muted)]">
                     {isThai

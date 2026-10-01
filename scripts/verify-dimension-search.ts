@@ -130,3 +130,34 @@ const outsideP550388 = searchFilterProductsByDimensions({
 assert.ok(!outsideP550388.some((result) => result.partNo === "P550388"));
 
 console.log("Dimension search verification passed.");
+
+// Regression: locale decimal commas, invalid input, and mislabeled shape inference.
+assert.equal(parseMillimeters("13,3 mm"), 13.3);
+assert.equal(parseMillimeters("0.524 in"), 13.31);
+assert.equal(parseMillimeters("-3 mm"), undefined);
+assert.equal(parseMillimeters("10-20 mm"), undefined);
+assert.equal(parseMillimeters("1/2 inch"), undefined); // unsupported, never partially parsed
+assert.equal(matchesDimensions(filter, { outerDiameterMm: NaN }), false);
+const rectangular: Product = { id: "rect", partNo: "RECT", brand: "test", category: "air_filter", spec: "230 × 210 × 30 mm", specifications: [{label:"Length",value:"230 mm"},{label:"Width",value:"210 mm"},{label:"Height",value:"30 mm"}] };
+assert.equal(getNormalizedDimensions(rectangular).outerDiameterMm, undefined);
+assert.equal(getNormalizedDimensions(rectangular).innerDiameterMm, undefined);
+assert.equal(getNormalizedDimensions(rectangular).widthMm, 210);
+assert.equal(getNormalizedDimensions({...filter, specifications:[{label:"Outside Diameter",value:"93 mm"}]}).outerDiameterMm,93);
+const bfu = searchFilterProductsByDimensions({outerDiameterMm:85,innerDiameterMm:13.3,lengthMm:145},{category:"fuel_filter"});
+assert.ok(bfu.some(p=>p.partNo==="BFU 900 x"));
+assert.ok(!searchFilterProductsByDimensions({innerDiameterMm:133.096},{category:"fuel_filter"}).some(p=>p.partNo==="BFU 900 x"));
+assert.ok(!searchFilterProductsByDimensions({lengthMm:230},{category:"all"}).some(p=>["P537876","P537877"].includes(p.partNo)));
+
+const { products } = require("@/data/products/index") as {products: Product[]};
+// Every record with eligible dimensions must be findable from its own mm values.
+let tested = 0;
+for (const product of products) {
+  const dimensions = getNormalizedDimensions(product);
+  if (!Object.values(dimensions).some(v=>v!==undefined)) continue;
+  const results = searchFilterProductsByDimensions(dimensions,{category:"all_products",limit:products.length});
+  assert.ok(results.some(p=>p.id===product.id),`Not findable by mm dimensions: ${product.partNo}`);
+  tested++;
+}
+console.log(`Catalog-wide dimensional round trip passed for ${tested} products.`);
+
+assert.ok(searchFilterProductsByDimensions({outerDiameterMm:70,lengthMm:200},{category:"air_oil_separator"}).some(p=>p.partNo==="LE5001X"));

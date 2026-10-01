@@ -1,3 +1,5 @@
+import { applyCatalogCorrections } from "./catalog-corrections-2026-10-01";
+import { applyMetricDimensions } from "@/lib/products/metric";
 import { applyDonaldsonPdfSpecs } from "./donaldson-pdf-specs-2026-09-21";
 import { asianEquipmentProducts, applyAsianEquipmentData } from "./donaldson-asian-equipment";
 import { applySupplierPresentation } from "./supplier-presentation";
@@ -153,4 +155,4 @@ export const products = Array.from(
   newAsianPartKeys.has(normalizePartNo(product.partNo))
     ? { ...product, checkAvailability: true, partNumberOnly: true, stockStatus: "request" }
     : product,
-)).map(applyDonaldsonPdfSpecs);
+)).map(applyDonaldsonPdfSpecs).map(applyCatalogCorrections).map(applyMetricDimensions);

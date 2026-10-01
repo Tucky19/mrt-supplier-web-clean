@@ -174,7 +174,7 @@ export default function ProductCrossReferenceCards({
     });
 
   relations
-    .map((relation) => relationToReferenceItem(relation, brand))
+    .map((relation) => relationToReferenceItem(relation, isThai ? "รอยืนยันยี่ห้อ" : "Brand to be confirmed"))
     .filter((item): item is ReferenceItem => Boolean(item))
     .filter((item) => item.partNo !== normalizedCurrentPartNo)
     .forEach((item) => {

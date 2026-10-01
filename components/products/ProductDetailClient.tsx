@@ -182,33 +182,33 @@ function buildTopProductInfo(product: Product, locale: string) {
     if (product.category === "oil_filter") {
       return {
         title: "เกี่ยวกับสินค้า",
-        paragraphs: [`${product.type === "cartridge" ? "Cartridge" : "Spin-on"} filter สำหรับระบบหล่อลื่น`],
+        paragraphs: [`ไส้กรองน้ำมันเครื่อง${product.type === "cartridge" ? "แบบไส้เปลี่ยน" : product.type === "spin_on" ? "แบบหมุนเกลียว (Spin-on)" : ""}`],
       };
     }
 
     if (product.category === "fuel_filter") {
       return {
         title: "เกี่ยวกับสินค้า",
-        paragraphs: [`${product.type === "cartridge" ? "Cartridge" : "Spin-on"} filter สำหรับระบบเชื้อเพลิง`],
+        paragraphs: [`ไส้กรองเชื้อเพลิง${product.type === "cartridge" ? "แบบไส้เปลี่ยน" : product.type === "spin_on" ? "แบบหมุนเกลียว (Spin-on)" : ""}`],
       };
     }
 
     if (product.category === "hydraulic_filter") {
       return {
         title: "เกี่ยวกับสินค้า",
-        paragraphs: ["Spin-on filter สำหรับระบบไฮดรอลิก"],
+        paragraphs: [`ไส้กรองไฮดรอลิก${product.type === "cartridge" ? "แบบไส้เปลี่ยน" : product.type === "spin_on" ? "แบบหมุนเกลียว (Spin-on)" : ""}`],
       };
     }
 
     return {
       title: "เกี่ยวกับสินค้า",
-      paragraphs: ["อุปกรณ์กรองสำหรับงานอุตสาหกรรม"],
+      paragraphs: [getCategorySummary(product.category, locale) || "อะไหล่สำหรับงานอุตสาหกรรม"],
     };
   }
 
   return {
     title: "About This Product",
-    paragraphs: ["Industrial filtration component"],
+    paragraphs: [getCategorySummary(product.category, locale) || "Industrial component"],
   };
 }
 
@@ -221,12 +221,14 @@ function buildDescriptionBlock(product: Product, locale: string) {
     .filter(Boolean);
 
   const paragraphs = [
+    product.dimensionReviewRequired ? (isThai ? "ขนาดสินค้ารอตรวจสอบ กรุณาส่งเบอร์หรือรูปให้ทีมตรวจสอบก่อนสั่งซื้อ" : "Dimensions are under review. Please send the part number or a photo for verification before ordering.") : undefined,
     product.shortDescription,
     product.description,
     ...fallbackInfo.paragraphs,
   ]
     .map((value) => String(value ?? "").trim())
     .filter(Boolean)
+    .filter((paragraph) => !/^Industrial part .* with OEM reference support\.$/.test(paragraph))
     .filter((paragraph) => isThai || !containsThai(paragraph))
     .filter((paragraph, index, array) => {
       const normalized = normalizeComparableText(paragraph);
