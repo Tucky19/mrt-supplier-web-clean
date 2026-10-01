@@ -1,12 +1,12 @@
 {
   "version": 2,
-  "generatedAt": "2026-10-01T20:18:24.932Z",
+  "generatedAt": "2026-10-01T20:22:58.206Z",
   "counts": {
     "items": 800,
     "prefix2": 73,
     "prefix3": 153,
     "prefix4": 293,
-    "tokenKeys": 4464,
+    "tokenKeys": 4462,
     "refKeys": 46,
     "xrefKeys": 1321,
     "pairedPartKeys": 70
@@ -16945,12 +16945,7 @@
       "category": "air_filter",
       "spec": "",
       "imageUrl": "/images/products/donaldson/p537876.jpg",
-      "specifications": [
-        {
-          "label": "Media Type",
-          "value": "Synthetic"
-        }
-      ],
+      "specifications": [],
       "catalogApplications": [
         {
           "equipment": "SANY SY240C",
@@ -17093,12 +17088,7 @@
       "category": "air_filter",
       "spec": "",
       "imageUrl": "/images/products/donaldson/p537877.jpg",
-      "specifications": [
-        {
-          "label": "Media Type",
-          "value": "Activated Carbon"
-        }
-      ],
+      "specifications": [],
       "catalogApplications": [
         {
           "equipment": "SANY SY240C",
@@ -57891,8 +57881,6 @@
       "donaldson-p500196",
       "donaldson-p500202",
       "donaldson-p527596",
-      "donaldson-p537876",
-      "donaldson-p537877",
       "donaldson-p119374",
       "donaldson-p181080",
       "donaldson-p532966",
@@ -58228,8 +58216,6 @@
       "donaldson-p532504",
       "donaldson-p536492",
       "donaldson-p537405",
-      "donaldson-p537876",
-      "donaldson-p537877",
       "donaldson-p538259",
       "donaldson-p119374",
       "donaldson-p158661",
@@ -64077,7 +64063,6 @@
       "donaldson-p164166",
       "donaldson-p164384",
       "donaldson-p500202",
-      "donaldson-p537876",
       "donaldson-p823295",
       "donaldson-p164594",
       "donaldson-p164381",
@@ -69459,12 +69444,6 @@
       "donaldson-p537877"
     ],
     "sfa7414s": [
-      "donaldson-p537877"
-    ],
-    "activated": [
-      "donaldson-p537877"
-    ],
-    "carbon": [
       "donaldson-p537877"
     ],
     "p538259": [

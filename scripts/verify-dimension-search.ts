@@ -149,6 +149,9 @@ assert.ok(!searchFilterProductsByDimensions({innerDiameterMm:133.096},{category:
 assert.ok(!searchFilterProductsByDimensions({lengthMm:230},{category:"all"}).some(p=>["P537876","P537877"].includes(p.partNo)));
 
 const { products } = require("@/data/products/index") as {products: Product[]};
+for (const partNo of ["P537876", "P537877"]) {
+  assert.ok(!products.find(p=>p.partNo===partNo)?.specifications?.some(row=>/^media type$/i.test(row.label)));
+}
 // Every record with eligible dimensions must be findable from its own mm values.
 let tested = 0;
 for (const product of products) {

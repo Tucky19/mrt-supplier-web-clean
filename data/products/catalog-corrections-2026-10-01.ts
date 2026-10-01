@@ -53,7 +53,7 @@ export function applyCatalogCorrections(product: Product): Product {
   // Keep these parts available for RFQ, but do not use the unverified dimensions.
   if (["P537876", "P537877"].includes(product.partNo) && product.brand.toLowerCase() === "donaldson") {
     result = { ...result, dimensionReviewRequired: true, dataQuality: "needs_review", spec: undefined,
-      specifications: result.specifications?.filter(row => !isLinearDimensionLabel(row.label)),
+      specifications: result.specifications?.filter(row => !isLinearDimensionLabel(row.label) && !/^media type$/i.test(row.label.trim())),
       od_mm: undefined, id_mm: undefined, length_mm: undefined,
     };
   }

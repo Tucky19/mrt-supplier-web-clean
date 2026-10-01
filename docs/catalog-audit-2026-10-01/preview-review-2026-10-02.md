@@ -12,6 +12,8 @@ This follow-up supersedes the dimensional coverage counts in the 1 October repor
 - Separator search OD 70, height 200 returned LE5001X and the existing 4900053601 reference record. This is a search check, not a new certification of their interchange or brand identity.
 - Desktop dimension-search layout inspected visually. Mobile viewport not tested in this browser.
 - Bearing search OD 52, ID 25, width 15 initially returned no result: all 87 active bearing records lacked dimensions. The sample NTN file containing dimensions is not the active catalog; do not count it as production coverage.
+- C 14 200 displayed DONALDSON P778984 with a verification disclaimer.
+- P537877 correctly hid the invalid rectangular dimensions, but still showed unsupported Activated Carbon media. Removed unverified media fields for both quarantined parts (P537876 Synthetic and P537877 Activated Carbon); no replacement material guessed.
 
 ## Data correction after the browser checks
 
