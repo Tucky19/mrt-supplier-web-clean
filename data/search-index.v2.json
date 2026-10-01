@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generatedAt": "2026-10-01T16:29:49.782Z",
+  "generatedAt": "2026-10-01T20:18:24.932Z",
   "counts": {
     "items": 800,
     "prefix2": 73,
@@ -39669,13 +39669,26 @@
       "brand": "NTN",
       "title": "ตลับลูกปืน 6205C3",
       "category": "bearing",
-      "spec": "",
+      "spec": "Inner Diameter: 25 mm · Outer Diameter: 52 mm · Width: 15 mm",
       "imageUrl": "/images/placeholder.jpg",
-      "specifications": [],
+      "specifications": [
+        {
+          "label": "Inner Diameter",
+          "value": "25 mm"
+        },
+        {
+          "label": "Outer Diameter",
+          "value": "52 mm"
+        },
+        {
+          "label": "Width",
+          "value": "15 mm"
+        }
+      ],
       "catalogApplications": [],
       "vehicleApplications": [],
       "checkAvailability": true,
-      "partNumberOnly": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -39918,13 +39931,26 @@
       "brand": "NTN",
       "title": "ตลับลูกปืน 6205ZZCM/5K",
       "category": "bearing",
-      "spec": "",
+      "spec": "Inner Diameter: 25 mm · Outer Diameter: 52 mm · Width: 15 mm",
       "imageUrl": "/images/placeholder.jpg",
-      "specifications": [],
+      "specifications": [
+        {
+          "label": "Inner Diameter",
+          "value": "25 mm"
+        },
+        {
+          "label": "Outer Diameter",
+          "value": "52 mm"
+        },
+        {
+          "label": "Width",
+          "value": "15 mm"
+        }
+      ],
       "catalogApplications": [],
       "vehicleApplications": [],
       "checkAvailability": true,
-      "partNumberOnly": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -45557,6 +45583,8 @@
       "donaldson-p502643",
       "donaldson-r011836",
       "mrk-clutch-release-tks55-38k",
+      "ntn-6205c3",
+      "ntn-6205zzcm-5k",
       "donaldson-p502007"
     ],
     "16": [
@@ -45822,6 +45850,8 @@
       "donaldson-p550106",
       "donaldson-p166416",
       "donaldson-p505982",
+      "ntn-6205c3",
+      "ntn-6205zzcm-5k",
       "donaldson-p954895",
       "donaldson-p506115"
     ],
@@ -46085,6 +46115,8 @@
     "52": [
       "donaldson-p550596",
       "donaldson-p502479",
+      "ntn-6205c3",
+      "ntn-6205zzcm-5k",
       "donaldson-p550225"
     ],
     "53": [
@@ -54463,6 +54495,8 @@
       "mann-filter-c1368",
       "donaldson-p550861",
       "mann-filter-cf1280",
+      "ntn-6205c3",
+      "ntn-6205zzcm-5k",
       "other-kas282",
       "mannfilter-le5001x",
       "fleetguard-af26614",
@@ -54961,6 +54995,8 @@
       "mann-filter-c1368",
       "donaldson-p550861",
       "mann-filter-cf1280",
+      "ntn-6205c3",
+      "ntn-6205zzcm-5k",
       "other-kas282",
       "mannfilter-le5001x",
       "fleetguard-af26614",
@@ -55372,6 +55408,8 @@
       "mann-filter-c1368",
       "donaldson-p550861",
       "mann-filter-cf1280",
+      "ntn-6205c3",
+      "ntn-6205zzcm-5k",
       "mannfilter-le5001x",
       "fleetguard-af26614",
       "fleetguard-af26613",
@@ -63563,6 +63601,8 @@
       "mann-filter-w712",
       "mann-filter-c1368",
       "donaldson-p550861",
+      "ntn-6205c3",
+      "ntn-6205zzcm-5k",
       "other-kas282",
       "mannfilter-le5001x",
       "fleetguard-af26614",
@@ -65972,6 +66012,8 @@
       "donaldson-p637260",
       "donaldson-p608676",
       "donaldson-p556745",
+      "ntn-6205c3",
+      "ntn-6205zzcm-5k",
       "donaldson-p784473",
       "mannfilter-cu31001",
       "donaldson-p955737",

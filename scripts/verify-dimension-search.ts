@@ -160,4 +160,13 @@ for (const product of products) {
 }
 console.log(`Catalog-wide dimensional round trip passed for ${tested} products.`);
 
+// The production catalog, not an unused sample data file, must contain searchable bearings.
+for (const category of ["bearing", "all_products"] as const) {
+  const bearingMatches = searchFilterProductsByDimensions({outerDiameterMm:52,innerDiameterMm:25,widthMm:15},{category});
+  for (const partNo of ["6205C3", "6205ZZCM/5K"]) {
+    assert.ok(bearingMatches.some(p=>p.partNo===partNo), `Missing verified bearing: ${partNo}`);
+  }
+  assert.ok(!searchFilterProductsByDimensions({outerDiameterMm:52.1,innerDiameterMm:25,widthMm:15},{category}).some(p=>p.partNo==="6205C3"));
+}
+
 assert.ok(searchFilterProductsByDimensions({outerDiameterMm:70,lengthMm:200},{category:"air_oil_separator"}).some(p=>p.partNo==="LE5001X"));

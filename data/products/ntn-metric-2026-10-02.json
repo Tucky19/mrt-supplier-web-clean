@@ -1,0 +1,22 @@
+{
+  "6205C3": {
+    "source": "https://eshop.ntn-snr.com/en/product/6205C3-NTN/6205C3",
+    "checkedAt": "2026-10-02",
+    "verificationScope": "Exact NTN product heading and rendered Product information table: d Internal diameter, D External diameter, B Bearing/Inner ring width. Other fields and images not reverified.",
+    "dimensions": [
+      { "label": "Inner Diameter", "value": "25 mm" },
+      { "label": "Outer Diameter", "value": "52 mm" },
+      { "label": "Width", "value": "15 mm" }
+    ]
+  },
+  "6205ZZCM/5K": {
+    "source": "https://eshop.ntn-snr.com/en/product/6205ZZCM_5K-NTN/6205ZZCM-5K",
+    "checkedAt": "2026-10-02",
+    "verificationScope": "Exact NTN product heading and rendered Product information table: d Internal diameter, D External diameter, B Bearing/Inner ring width. Other fields and images not reverified.",
+    "dimensions": [
+      { "label": "Inner Diameter", "value": "25 mm" },
+      { "label": "Outer Diameter", "value": "52 mm" },
+      { "label": "Width", "value": "15 mm" }
+    ]
+  }
+}

@@ -1,5 +1,6 @@
 import type { Product } from "@/types/product";
 import metricEvidence from "./mann-metric-2026-10-01.json";
+import bearingEvidence from "./ntn-metric-2026-10-02.json";
 import { isLinearDimensionLabel } from "@/lib/products/metric";
 
 type MetricEvidence = { source: string; checkedAt: string; dimensions: Array<{label: string; value: string}> };
@@ -7,6 +8,22 @@ const evidence: Record<string, MetricEvidence> = metricEvidence;
 
 export function applyCatalogCorrections(product: Product): Product {
   let result = product;
+  const bearing = product.brand === "NTN"
+    ? (bearingEvidence as Record<string, { source: string; dimensions: Array<{ label: string; value: string }> }>)[product.partNo]
+    : undefined;
+  if (bearing) {
+    result = {
+      ...result,
+      officialUrl: bearing.source,
+      partNumberOnly: false,
+      specifications: [
+        ...(product.specifications ?? []).filter(row => !isLinearDimensionLabel(row.label)),
+        ...bearing.dimensions,
+      ],
+      spec: bearing.dimensions.map(row => `${row.label}: ${row.value}`).join(" · "),
+      od_mm: undefined, id_mm: undefined, length_mm: undefined,
+    };
+  }
   if (product.brand === "MANN-FILTER") {
     const key = product.partNo.toLowerCase().replace(/[\s/_-]+/g, "");
     const metric = evidence[key];
