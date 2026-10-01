@@ -35,5 +35,5 @@ Local checks: TypeScript, 800-item index verification and 422-product dimension 
 - Full visual image and cross-reference verification remains outstanding.
 - P537876/P537877 conflicting dimensions remain quarantined; incomplete manufacturer evidence must not be replaced with guessed dimensions.
 - Bearing follow-up deployment 893282a was browser-tested: OD 52 / ID 25 / width 15 returned both verified references. Found and corrected a shared result badge that incorrectly claimed ±3 mm for exact bearing matches; replaced with neutral dimension-criteria wording (form still explains category tolerances).
-- Final preview deployment and browser recheck of the media removal and badge correction are required.
+- Final application commit d4925fefc6f898c7bd8e405161b4e1396fd1ee29 deployed successfully on Vercel. Browser recheck confirmed: English bearing search returns both NTN parts with "Matches dimension criteria"; P537877 no longer displays Activated Carbon. A prior browser check with OD 52.1 / ID 25 / width 15 returned zero results, confirming exact bearing matching. Mobile visual verification remains outstanding.
 - No merge to main and no production deployment authorized or performed in this review.
