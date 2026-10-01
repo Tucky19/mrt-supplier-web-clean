@@ -173,3 +173,14 @@ for (const category of ["bearing", "all_products"] as const) {
 }
 
 assert.ok(searchFilterProductsByDimensions({outerDiameterMm:70,lengthMm:200},{category:"air_oil_separator"}).some(p=>p.partNo==="LE5001X"));
+
+// Exact manufacturer fixtures protect width semantics and category search for this batch.
+const ntnFixtures: Array<[string, number, number, number]> = [["7312BL1G", 60, 130, 31], ["7313BL1G", 65, 140, 33], ["7309BL1G", 45, 100, 25], ["7307BL1G", 35, 80, 21], ["6307LLU", 35, 80, 21], ["6210C3", 50, 90, 20], ["6206LLU", 30, 62, 16], ["6207LLB", 35, 72, 17], ["6210ZZ", 50, 90, 20], ["33213U", 65, 120, 41], ["6016CM", 80, 125, 22], ["6205CM", 25, 52, 15], ["6206ZZ", 30, 62, 16], ["6310ZZ", 50, 110, 27], ["6205ZC3", 25, 52, 15], ["7304BL1G", 20, 52, 15]];
+for (const [partNo, innerDiameterMm, outerDiameterMm, widthMm] of ntnFixtures) {
+  for (const category of ["bearing", "all_products"] as const) {
+    const query = {innerDiameterMm, outerDiameterMm, widthMm};
+    assert.ok(searchFilterProductsByDimensions(query, {category, limit:800}).some(p=>p.partNo===partNo), `Missing verified NTN ${partNo}`);
+    assert.ok(!searchFilterProductsByDimensions({...query, widthMm:widthMm+0.1}, {category, limit:800}).some(p=>p.partNo===partNo), `Inexact NTN width ${partNo}`);
+  }
+}
+assert.ok(!searchFilterProductsByDimensions({innerDiameterMm:65,outerDiameterMm:120,widthMm:32},{category:"bearing"}).some(p=>p.partNo==="33213U"));

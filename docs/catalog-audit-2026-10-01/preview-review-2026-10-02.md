@@ -28,7 +28,7 @@ Added exact-part evidence and runtime dimensions; regenerated search index. Pres
 
 Local checks: TypeScript, 800-item index verification and 422-product dimension round trip passed. Added regressions for both bearing references in bearing/all-products categories, and rejection of a 0.1 mm mismatch for bearings.
 
-## Remaining work
+## Remaining work after the initial two NTN references
 
 - 378 active records still lack searchable dimensions; 85 of these are bearings.
 - MANN dimensional evidence covers 86 products; NTN dimensional evidence covers 2 products. Structural checks do not certify all 800 products.
@@ -37,3 +37,13 @@ Local checks: TypeScript, 800-item index verification and 422-product dimension 
 - Bearing follow-up deployment 893282a was browser-tested: OD 52 / ID 25 / width 15 returned both verified references. Found and corrected a shared result badge that incorrectly claimed ±3 mm for exact bearing matches; replaced with neutral dimension-criteria wording (form still explains category tolerances).
 - Final application commit d4925fefc6f898c7bd8e405161b4e1396fd1ee29 deployed successfully on Vercel. Browser recheck confirmed: English bearing search returns both NTN parts with "Matches dimension criteria"; P537877 no longer displays Activated Carbon. A prior browser check with OD 52.1 / ID 25 / width 15 returned zero results, confirming exact bearing matching. Mobile visual verification remains outstanding.
 - No merge to main and no production deployment authorized or performed in this review.
+
+## NTN batch 2 — 16 additional exact references
+
+Added manufacturer-sourced millimetre dimensions for 7312BL1G, 7313BL1G, 7309BL1G, 7307BL1G, 6307LLU, 6210C3, 6206LLU, 6207LLB, 6210ZZ, 33213U, 6016CM, 6205CM, 6206ZZ, 6310ZZ, 6205ZC3 and 7304BL1G. Per-part official URLs and verification scope are recorded in `data/products/ntn-metric-2026-10-02.json`. No suffix or SNR-brand substitution was used.
+
+For tapered 33213U, searchable width is assembled T=41 mm; inner ring B=41 mm and outer ring C=32 mm are retained as separate fields. A regression rejects C=32 as the assembled width.
+
+Latest coverage supersedes earlier counts: 438/800 records have searchable dimensions or thread data; 362 remain without it, including 69 bearings. NTN exact dimensional evidence now covers 18 references; MANN evidence remains 86. This is not full certification of images, cross-references, or every specification.
+
+Checks: 800-item search index, 438-product dimension round trip, all 16 new exact-dimension fixtures in bearing/all-product categories and rejection of 0.1 mm width mismatches passed. TypeScript and production build passed. Preview publication and browser verification are tracked below.

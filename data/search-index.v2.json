@@ -1,12 +1,12 @@
 {
   "version": 2,
-  "generatedAt": "2026-10-01T20:22:58.206Z",
+  "generatedAt": "2026-10-01T20:34:23.823Z",
   "counts": {
     "items": 800,
     "prefix2": 73,
     "prefix3": 153,
     "prefix4": 293,
-    "tokenKeys": 4462,
+    "tokenKeys": 4463,
     "refKeys": 46,
     "xrefKeys": 1321,
     "pairedPartKeys": 70
@@ -39450,13 +39450,26 @@
       "brand": "NTN",
       "title": "ตลับลูกปืน 7312BL1G",
       "category": "bearing",
-      "spec": "",
+      "spec": "Inner Diameter: 60 mm · Outer Diameter: 130 mm · Width: 31 mm",
       "imageUrl": "/images/placeholder.jpg",
-      "specifications": [],
+      "specifications": [
+        {
+          "label": "Inner Diameter",
+          "value": "60 mm"
+        },
+        {
+          "label": "Outer Diameter",
+          "value": "130 mm"
+        },
+        {
+          "label": "Width",
+          "value": "31 mm"
+        }
+      ],
       "catalogApplications": [],
       "vehicleApplications": [],
       "checkAvailability": true,
-      "partNumberOnly": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -39488,13 +39501,34 @@
       "brand": "NTN",
       "title": "ตลับลูกปืน 33213U",
       "category": "bearing",
-      "spec": "",
+      "spec": "Inner Diameter: 65 mm · Outer Diameter: 120 mm · Width: 41 mm · Inner Ring Width (B): 41 mm · Outer Ring Width (C): 32 mm",
       "imageUrl": "/images/placeholder.jpg",
-      "specifications": [],
+      "specifications": [
+        {
+          "label": "Inner Diameter",
+          "value": "65 mm"
+        },
+        {
+          "label": "Outer Diameter",
+          "value": "120 mm"
+        },
+        {
+          "label": "Width",
+          "value": "41 mm"
+        },
+        {
+          "label": "Inner Ring Width (B)",
+          "value": "41 mm"
+        },
+        {
+          "label": "Outer Ring Width (C)",
+          "value": "32 mm"
+        }
+      ],
       "catalogApplications": [],
       "vehicleApplications": [],
       "checkAvailability": true,
-      "partNumberOnly": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -39545,13 +39579,26 @@
       "brand": "NTN",
       "title": "ตลับลูกปืน 7309BL1G",
       "category": "bearing",
-      "spec": "",
+      "spec": "Inner Diameter: 45 mm · Outer Diameter: 100 mm · Width: 25 mm",
       "imageUrl": "/images/placeholder.jpg",
-      "specifications": [],
+      "specifications": [
+        {
+          "label": "Inner Diameter",
+          "value": "45 mm"
+        },
+        {
+          "label": "Outer Diameter",
+          "value": "100 mm"
+        },
+        {
+          "label": "Width",
+          "value": "25 mm"
+        }
+      ],
       "catalogApplications": [],
       "vehicleApplications": [],
       "checkAvailability": true,
-      "partNumberOnly": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -39564,13 +39611,26 @@
       "brand": "NTN",
       "title": "ตลับลูกปืน 6307LLU",
       "category": "bearing",
-      "spec": "",
+      "spec": "Inner Diameter: 35 mm · Outer Diameter: 80 mm · Width: 21 mm",
       "imageUrl": "/images/placeholder.jpg",
-      "specifications": [],
+      "specifications": [
+        {
+          "label": "Inner Diameter",
+          "value": "35 mm"
+        },
+        {
+          "label": "Outer Diameter",
+          "value": "80 mm"
+        },
+        {
+          "label": "Width",
+          "value": "21 mm"
+        }
+      ],
       "catalogApplications": [],
       "vehicleApplications": [],
       "checkAvailability": true,
-      "partNumberOnly": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -39602,13 +39662,26 @@
       "brand": "NTN",
       "title": "ตลับลูกปืน 7313BL1G",
       "category": "bearing",
-      "spec": "",
+      "spec": "Inner Diameter: 65 mm · Outer Diameter: 140 mm · Width: 33 mm",
       "imageUrl": "/images/placeholder.jpg",
-      "specifications": [],
+      "specifications": [
+        {
+          "label": "Inner Diameter",
+          "value": "65 mm"
+        },
+        {
+          "label": "Outer Diameter",
+          "value": "140 mm"
+        },
+        {
+          "label": "Width",
+          "value": "33 mm"
+        }
+      ],
       "catalogApplications": [],
       "vehicleApplications": [],
       "checkAvailability": true,
-      "partNumberOnly": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -39621,13 +39694,26 @@
       "brand": "NTN",
       "title": "ตลับลูกปืน 6210C3",
       "category": "bearing",
-      "spec": "",
+      "spec": "Inner Diameter: 50 mm · Outer Diameter: 90 mm · Width: 20 mm",
       "imageUrl": "/images/placeholder.jpg",
-      "specifications": [],
+      "specifications": [
+        {
+          "label": "Inner Diameter",
+          "value": "50 mm"
+        },
+        {
+          "label": "Outer Diameter",
+          "value": "90 mm"
+        },
+        {
+          "label": "Width",
+          "value": "20 mm"
+        }
+      ],
       "catalogApplications": [],
       "vehicleApplications": [],
       "checkAvailability": true,
-      "partNumberOnly": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -39640,13 +39726,26 @@
       "brand": "NTN",
       "title": "ตลับลูกปืน 6205CM",
       "category": "bearing",
-      "spec": "",
+      "spec": "Inner Diameter: 25 mm · Outer Diameter: 52 mm · Width: 15 mm",
       "imageUrl": "/images/placeholder.jpg",
-      "specifications": [],
+      "specifications": [
+        {
+          "label": "Inner Diameter",
+          "value": "25 mm"
+        },
+        {
+          "label": "Outer Diameter",
+          "value": "52 mm"
+        },
+        {
+          "label": "Width",
+          "value": "15 mm"
+        }
+      ],
       "catalogApplications": [],
       "vehicleApplications": [],
       "checkAvailability": true,
-      "partNumberOnly": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -39691,13 +39790,26 @@
       "brand": "NTN",
       "title": "ตลับลูกปืน 6310ZZ",
       "category": "bearing",
-      "spec": "",
+      "spec": "Inner Diameter: 50 mm · Outer Diameter: 110 mm · Width: 27 mm",
       "imageUrl": "/images/placeholder.jpg",
-      "specifications": [],
+      "specifications": [
+        {
+          "label": "Inner Diameter",
+          "value": "50 mm"
+        },
+        {
+          "label": "Outer Diameter",
+          "value": "110 mm"
+        },
+        {
+          "label": "Width",
+          "value": "27 mm"
+        }
+      ],
       "catalogApplications": [],
       "vehicleApplications": [],
       "checkAvailability": true,
-      "partNumberOnly": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -39731,13 +39843,26 @@
       "brand": "NTN",
       "title": "ตลับลูกปืน 6206LLU",
       "category": "bearing",
-      "spec": "",
+      "spec": "Inner Diameter: 30 mm · Outer Diameter: 62 mm · Width: 16 mm",
       "imageUrl": "/images/placeholder.jpg",
-      "specifications": [],
+      "specifications": [
+        {
+          "label": "Inner Diameter",
+          "value": "30 mm"
+        },
+        {
+          "label": "Outer Diameter",
+          "value": "62 mm"
+        },
+        {
+          "label": "Width",
+          "value": "16 mm"
+        }
+      ],
       "catalogApplications": [],
       "vehicleApplications": [],
       "checkAvailability": true,
-      "partNumberOnly": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -39750,13 +39875,26 @@
       "brand": "NTN",
       "title": "ตลับลูกปืน 7307BL1G",
       "category": "bearing",
-      "spec": "",
+      "spec": "Inner Diameter: 35 mm · Outer Diameter: 80 mm · Width: 21 mm",
       "imageUrl": "/images/placeholder.jpg",
-      "specifications": [],
+      "specifications": [
+        {
+          "label": "Inner Diameter",
+          "value": "35 mm"
+        },
+        {
+          "label": "Outer Diameter",
+          "value": "80 mm"
+        },
+        {
+          "label": "Width",
+          "value": "21 mm"
+        }
+      ],
       "catalogApplications": [],
       "vehicleApplications": [],
       "checkAvailability": true,
-      "partNumberOnly": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -39864,13 +40002,26 @@
       "brand": "NTN",
       "title": "ตลับลูกปืน 6210ZZ",
       "category": "bearing",
-      "spec": "",
+      "spec": "Inner Diameter: 50 mm · Outer Diameter: 90 mm · Width: 20 mm",
       "imageUrl": "/images/placeholder.jpg",
-      "specifications": [],
+      "specifications": [
+        {
+          "label": "Inner Diameter",
+          "value": "50 mm"
+        },
+        {
+          "label": "Outer Diameter",
+          "value": "90 mm"
+        },
+        {
+          "label": "Width",
+          "value": "20 mm"
+        }
+      ],
       "catalogApplications": [],
       "vehicleApplications": [],
       "checkAvailability": true,
-      "partNumberOnly": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -39902,13 +40053,26 @@
       "brand": "NTN",
       "title": "ตลับลูกปืน 6207LLB",
       "category": "bearing",
-      "spec": "",
+      "spec": "Inner Diameter: 35 mm · Outer Diameter: 72 mm · Width: 17 mm",
       "imageUrl": "/images/placeholder.jpg",
-      "specifications": [],
+      "specifications": [
+        {
+          "label": "Inner Diameter",
+          "value": "35 mm"
+        },
+        {
+          "label": "Outer Diameter",
+          "value": "72 mm"
+        },
+        {
+          "label": "Width",
+          "value": "17 mm"
+        }
+      ],
       "catalogApplications": [],
       "vehicleApplications": [],
       "checkAvailability": true,
-      "partNumberOnly": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -39991,13 +40155,26 @@
       "brand": "NTN",
       "title": "ตลับลูกปืน 6016CM",
       "category": "bearing",
-      "spec": "",
+      "spec": "Inner Diameter: 80 mm · Outer Diameter: 125 mm · Width: 22 mm",
       "imageUrl": "/images/placeholder.jpg",
-      "specifications": [],
+      "specifications": [
+        {
+          "label": "Inner Diameter",
+          "value": "80 mm"
+        },
+        {
+          "label": "Outer Diameter",
+          "value": "125 mm"
+        },
+        {
+          "label": "Width",
+          "value": "22 mm"
+        }
+      ],
       "catalogApplications": [],
       "vehicleApplications": [],
       "checkAvailability": true,
-      "partNumberOnly": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -40010,13 +40187,26 @@
       "brand": "NTN",
       "title": "ตลับลูกปืน 7304BL1G",
       "category": "bearing",
-      "spec": "",
+      "spec": "Inner Diameter: 20 mm · Outer Diameter: 52 mm · Width: 15 mm",
       "imageUrl": "/images/placeholder.jpg",
-      "specifications": [],
+      "specifications": [
+        {
+          "label": "Inner Diameter",
+          "value": "20 mm"
+        },
+        {
+          "label": "Outer Diameter",
+          "value": "52 mm"
+        },
+        {
+          "label": "Width",
+          "value": "15 mm"
+        }
+      ],
       "catalogApplications": [],
       "vehicleApplications": [],
       "checkAvailability": true,
-      "partNumberOnly": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -40029,13 +40219,26 @@
       "brand": "NTN",
       "title": "ตลับลูกปืน 6206ZZ",
       "category": "bearing",
-      "spec": "",
+      "spec": "Inner Diameter: 30 mm · Outer Diameter: 62 mm · Width: 16 mm",
       "imageUrl": "/images/placeholder.jpg",
-      "specifications": [],
+      "specifications": [
+        {
+          "label": "Inner Diameter",
+          "value": "30 mm"
+        },
+        {
+          "label": "Outer Diameter",
+          "value": "62 mm"
+        },
+        {
+          "label": "Width",
+          "value": "16 mm"
+        }
+      ],
       "catalogApplications": [],
       "vehicleApplications": [],
       "checkAvailability": true,
-      "partNumberOnly": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -40048,13 +40251,26 @@
       "brand": "NTN",
       "title": "ตลับลูกปืน 6205ZC3",
       "category": "bearing",
-      "spec": "",
+      "spec": "Inner Diameter: 25 mm · Outer Diameter: 52 mm · Width: 15 mm",
       "imageUrl": "/images/placeholder.jpg",
-      "specifications": [],
+      "specifications": [
+        {
+          "label": "Inner Diameter",
+          "value": "25 mm"
+        },
+        {
+          "label": "Outer Diameter",
+          "value": "52 mm"
+        },
+        {
+          "label": "Width",
+          "value": "15 mm"
+        }
+      ],
       "catalogApplications": [],
       "vehicleApplications": [],
       "checkAvailability": true,
-      "partNumberOnly": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
@@ -45573,8 +45789,11 @@
       "donaldson-p502643",
       "donaldson-r011836",
       "mrk-clutch-release-tks55-38k",
+      "ntn-6205cm",
       "ntn-6205c3",
       "ntn-6205zzcm-5k",
+      "ntn-7304bl1g",
+      "ntn-6205zc3",
       "donaldson-p502007"
     ],
     "16": [
@@ -45651,6 +45870,8 @@
       "ntn-clutch-release-fcr54-33-1-2e",
       "ntn-clutch-release-fcr47-8-4-2e",
       "mrk-clutch-release-tks48-29k",
+      "ntn-6206llu",
+      "ntn-6206zz",
       "donaldson-p552050",
       "donaldson-p550225"
     ],
@@ -45675,7 +45896,8 @@
       "mann-cf1600",
       "ntn-clutch-release-fcr55-17-8-9-10-11-2e",
       "ntn-clutch-release-fcr50-17-8-2e",
-      "donaldson-p550861"
+      "donaldson-p550861",
+      "ntn-6207llb"
     ],
     "18": [
       "p550945",
@@ -45733,6 +45955,9 @@
       "donaldson-p551381",
       "donaldson-p502193",
       "donaldson-r010077",
+      "ntn-6210c3",
+      "ntn-6210zz",
+      "ntn-7304bl1g",
       "donaldson-p954895"
     ],
     "21": [
@@ -45751,7 +45976,9 @@
       "donaldson-p550939",
       "donaldson-p557380",
       "ntn-clutch-release-fcr44-21-2e",
-      "mann-filter-lb13145-21"
+      "mann-filter-lb13145-21",
+      "ntn-6307llu",
+      "ntn-7307bl1g"
     ],
     "22": [
       "donaldson-p550777",
@@ -45770,6 +45997,7 @@
       "donaldson-p556745",
       "donaldson-p550750",
       "donaldson-p171520",
+      "ntn-6016cm",
       "donaldson-p502007",
       "donaldson-p955737"
     ],
@@ -45840,8 +46068,11 @@
       "donaldson-p550106",
       "donaldson-p166416",
       "donaldson-p505982",
+      "ntn-7309bl1g",
+      "ntn-6205cm",
       "ntn-6205c3",
       "ntn-6205zzcm-5k",
+      "ntn-6205zc3",
       "donaldson-p954895",
       "donaldson-p506115"
     ],
@@ -45865,7 +46096,8 @@
     "27": [
       "donaldson-p502438",
       "fleetguard-lf14000nn",
-      "donaldson-p173055"
+      "donaldson-p173055",
+      "ntn-6310zz"
     ],
     "28": [
       "donaldson-p550708",
@@ -45902,16 +46134,20 @@
       "donaldson-p550026",
       "donaldson-r010077",
       "ntn-clutch-release-fcr50-30-2",
+      "ntn-6206llu",
+      "ntn-6206zz",
       "other-kas282",
       "donaldson-p551853",
       "donaldson-p954895"
     ],
     "31": [
+      "ntn-7312bl1g",
       "mannfilter-hu721x"
     ],
     "32": [
       "donaldson-p550148",
       "mann-wd962-32",
+      "ntn-33213u",
       "mannfilter-cu31001"
     ],
     "33": [
@@ -45920,6 +46156,7 @@
       "donaldson-p502193",
       "ntn-clutch-release-fcr54-33-1-2e",
       "ntn-33213u",
+      "ntn-7313bl1g",
       "donaldson-p502007"
     ],
     "34": [
@@ -45932,6 +46169,9 @@
       "donaldson-p550223",
       "donaldson-p559740",
       "donaldson-p556064",
+      "ntn-6307llu",
+      "ntn-7307bl1g",
+      "ntn-6207llb",
       "donaldson-p784473"
     ],
     "36": [
@@ -46003,7 +46243,8 @@
       "donaldson-p765075",
       "donaldson-p550484",
       "donaldson-p550026",
-      "donaldson-r800103"
+      "donaldson-r800103",
+      "ntn-33213u"
     ],
     "42": [
       "donaldson-b105012",
@@ -46040,6 +46281,7 @@
       "donaldson-p822858",
       "ntn-clutch-release-45tmk804x",
       "other-4570092941",
+      "ntn-7309bl1g",
       "donaldson-p550453"
     ],
     "46": [
@@ -46094,6 +46336,9 @@
       "donaldson-p505982",
       "donaldson-p502193",
       "donaldson-r010077",
+      "ntn-6210c3",
+      "ntn-6310zz",
+      "ntn-6210zz",
       "donaldson-p550225",
       "donaldson-p502007",
       "donaldson-p550453",
@@ -46105,8 +46350,11 @@
     "52": [
       "donaldson-p550596",
       "donaldson-p502479",
+      "ntn-6205cm",
       "ntn-6205c3",
       "ntn-6205zzcm-5k",
+      "ntn-7304bl1g",
+      "ntn-6205zc3",
       "donaldson-p550225"
     ],
     "53": [
@@ -46169,6 +46417,7 @@
       "donaldson-p554770",
       "ntn-clutch-release-fcr54-60-10-2e",
       "ntn-clutch-release-fcr54-60-13-2e",
+      "ntn-7312bl1g",
       "ntn-6016zz",
       "ntn-6016cm"
     ],
@@ -46296,7 +46545,9 @@
       "donaldson-p142810",
       "mann-batch1-c75-2",
       "mann-batch1-c713",
-      "donaldson-p171574"
+      "donaldson-p171574",
+      "ntn-33213u",
+      "ntn-7313bl1g"
     ],
     "67": [
       "mann-c1250",
@@ -46409,7 +46660,8 @@
       "donaldson-p502193",
       "donaldson-p550932",
       "mann-wd962-32",
-      "other-pl250"
+      "other-pl250",
+      "ntn-6207llb"
     ],
     "73": [
       "donaldson-p131394",
@@ -46539,6 +46791,9 @@
       "donaldson-p551422",
       "donaldson-p551433",
       "donaldson-p551428",
+      "ntn-6307llu",
+      "ntn-7307bl1g",
+      "ntn-6016cm",
       "donaldson-p551853"
     ],
     "81": [
@@ -46664,6 +46919,8 @@
       "donaldson-p165762",
       "donaldson-p165876",
       "donaldson-r010042",
+      "ntn-6210c3",
+      "ntn-6210zz",
       "donaldson-p551853",
       "donaldson-p502007",
       "donaldson-p551026",
@@ -47156,6 +47413,7 @@
       "mann-filter-w1374-6",
       "mann-filter-lb13145-21",
       "donaldson-p550861",
+      "ntn-7309bl1g",
       "donaldson-p550225",
       "donaldson-p502007"
     ],
@@ -47286,6 +47544,7 @@
       "donaldson-p551257",
       "donaldson-p551381",
       "donaldson-p554105",
+      "ntn-6310zz",
       "fleetguard-af26614",
       "donaldson-p552050",
       "donaldson-p781466",
@@ -47391,7 +47650,8 @@
       "donaldson-p165762",
       "donaldson-p165876",
       "donaldson-p553200",
-      "donaldson-p554770"
+      "donaldson-p554770",
+      "ntn-33213u"
     ],
     "121": [
       "donaldson-p550769",
@@ -47432,7 +47692,8 @@
       "mann-c1337",
       "donaldson-p164703",
       "donaldson-p552564",
-      "mann-filter-c1574"
+      "mann-filter-c1574",
+      "ntn-6016cm"
     ],
     "126": [
       "donaldson-p172463",
@@ -47473,7 +47734,8 @@
       "mann-batch1-c23632-1",
       "mann-c23115",
       "donaldson-p557380",
-      "mann-filter-c1368"
+      "mann-filter-c1368",
+      "ntn-7312bl1g"
     ],
     "131": [
       "donaldson-c085002",
@@ -47547,7 +47809,8 @@
       "donaldson-p171742",
       "donaldson-p550390",
       "donaldson-p551352",
-      "donaldson-p505982"
+      "donaldson-p505982",
+      "ntn-7313bl1g"
     ],
     "141": [
       "donaldson-p150135",
@@ -54485,8 +54748,24 @@
       "mann-filter-c1368",
       "donaldson-p550861",
       "mann-filter-cf1280",
+      "ntn-7312bl1g",
+      "ntn-33213u",
+      "ntn-7309bl1g",
+      "ntn-6307llu",
+      "ntn-7313bl1g",
+      "ntn-6210c3",
+      "ntn-6205cm",
       "ntn-6205c3",
+      "ntn-6310zz",
+      "ntn-6206llu",
+      "ntn-7307bl1g",
+      "ntn-6210zz",
+      "ntn-6207llb",
       "ntn-6205zzcm-5k",
+      "ntn-6016cm",
+      "ntn-7304bl1g",
+      "ntn-6206zz",
+      "ntn-6205zc3",
       "other-kas282",
       "mannfilter-le5001x",
       "fleetguard-af26614",
@@ -54985,8 +55264,24 @@
       "mann-filter-c1368",
       "donaldson-p550861",
       "mann-filter-cf1280",
+      "ntn-7312bl1g",
+      "ntn-33213u",
+      "ntn-7309bl1g",
+      "ntn-6307llu",
+      "ntn-7313bl1g",
+      "ntn-6210c3",
+      "ntn-6205cm",
       "ntn-6205c3",
+      "ntn-6310zz",
+      "ntn-6206llu",
+      "ntn-7307bl1g",
+      "ntn-6210zz",
+      "ntn-6207llb",
       "ntn-6205zzcm-5k",
+      "ntn-6016cm",
+      "ntn-7304bl1g",
+      "ntn-6206zz",
+      "ntn-6205zc3",
       "other-kas282",
       "mannfilter-le5001x",
       "fleetguard-af26614",
@@ -55398,8 +55693,24 @@
       "mann-filter-c1368",
       "donaldson-p550861",
       "mann-filter-cf1280",
+      "ntn-7312bl1g",
+      "ntn-33213u",
+      "ntn-7309bl1g",
+      "ntn-6307llu",
+      "ntn-7313bl1g",
+      "ntn-6210c3",
+      "ntn-6205cm",
       "ntn-6205c3",
+      "ntn-6310zz",
+      "ntn-6206llu",
+      "ntn-7307bl1g",
+      "ntn-6210zz",
+      "ntn-6207llb",
       "ntn-6205zzcm-5k",
+      "ntn-6016cm",
+      "ntn-7304bl1g",
+      "ntn-6206zz",
+      "ntn-6205zc3",
       "mannfilter-le5001x",
       "fleetguard-af26614",
       "fleetguard-af26613",
@@ -63587,8 +63898,24 @@
       "mann-filter-w712",
       "mann-filter-c1368",
       "donaldson-p550861",
+      "ntn-7312bl1g",
+      "ntn-33213u",
+      "ntn-7309bl1g",
+      "ntn-6307llu",
+      "ntn-7313bl1g",
+      "ntn-6210c3",
+      "ntn-6205cm",
       "ntn-6205c3",
+      "ntn-6310zz",
+      "ntn-6206llu",
+      "ntn-7307bl1g",
+      "ntn-6210zz",
+      "ntn-6207llb",
       "ntn-6205zzcm-5k",
+      "ntn-6016cm",
+      "ntn-7304bl1g",
+      "ntn-6206zz",
+      "ntn-6205zc3",
       "other-kas282",
       "mannfilter-le5001x",
       "fleetguard-af26614",
@@ -65997,8 +66324,24 @@
       "donaldson-p637260",
       "donaldson-p608676",
       "donaldson-p556745",
+      "ntn-7312bl1g",
+      "ntn-33213u",
+      "ntn-7309bl1g",
+      "ntn-6307llu",
+      "ntn-7313bl1g",
+      "ntn-6210c3",
+      "ntn-6205cm",
       "ntn-6205c3",
+      "ntn-6310zz",
+      "ntn-6206llu",
+      "ntn-7307bl1g",
+      "ntn-6210zz",
+      "ntn-6207llb",
       "ntn-6205zzcm-5k",
+      "ntn-6016cm",
+      "ntn-7304bl1g",
+      "ntn-6206zz",
+      "ntn-6205zc3",
       "donaldson-p784473",
       "mannfilter-cu31001",
       "donaldson-p955737",
@@ -76968,6 +77311,9 @@
       "ntn-ucf207d1"
     ],
     "33213u": [
+      "ntn-33213u"
+    ],
+    "ring": [
       "ntn-33213u"
     ],
     "nu212g1c3": [
