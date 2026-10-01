@@ -34,5 +34,6 @@ Local checks: TypeScript, 800-item index verification and 422-product dimension 
 - MANN dimensional evidence covers 86 products; NTN dimensional evidence covers 2 products. Structural checks do not certify all 800 products.
 - Full visual image and cross-reference verification remains outstanding.
 - P537876/P537877 conflicting dimensions remain quarantined; incomplete manufacturer evidence must not be replaced with guessed dimensions.
-- Follow-up deployment and browser recheck of the two new bearing records are required.
+- Bearing follow-up deployment 893282a was browser-tested: OD 52 / ID 25 / width 15 returned both verified references. Found and corrected a shared result badge that incorrectly claimed ±3 mm for exact bearing matches; replaced with neutral dimension-criteria wording (form still explains category tolerances).
+- Final preview deployment and browser recheck of the media removal and badge correction are required.
 - No merge to main and no production deployment authorized or performed in this review.
