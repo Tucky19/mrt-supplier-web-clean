@@ -47,3 +47,5 @@ For tapered 33213U, searchable width is assembled T=41 mm; inner ring B=41 mm an
 Latest coverage supersedes earlier counts: 438/800 records have searchable dimensions or thread data; 362 remain without it, including 69 bearings. NTN exact dimensional evidence now covers 18 references; MANN evidence remains 86. This is not full certification of images, cross-references, or every specification.
 
 Checks: 800-item search index, 438-product dimension round trip, all 16 new exact-dimension fixtures in bearing/all-product categories and rejection of 0.1 mm width mismatches passed. TypeScript and production build passed. Preview publication and browser verification are tracked below.
+
+Application commit `612800ba9ffd5ee23d42f3a60d2b8442b73f4cab` deployed successfully to Vercel preview. Live browser tests returned 7312BL1G for ID 60 / OD 130 / width 31 mm and 33213U for ID 65 / OD 120 / width 41 mm. Changing the latter width to 32 mm returned zero results. No merge or production deployment performed.
