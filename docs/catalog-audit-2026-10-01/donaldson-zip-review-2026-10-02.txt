@@ -1,0 +1,249 @@
+Donaldson — ผลตรวจ DATA_do_14-5-26.zip (2 ตุลาคม 2026)
+ยังไม่เผยแพร่ รอรวมกับชุดอื่นตามคำสั่ง Boss
+
+จากรายการที่ขาดขนาด 231 รายการ:
+พบ PDF ตรงเบอร์ 36 รายการ; เพิ่มขนาดค้นหา 32 รายการ
+P538259: เพิ่ม Diameter 347 mm ตาม PDF แต่ไม่ตีความเป็น OD จึงยังรวมในรายการรอตรวจ
+P502552, P550065, X770691: พบ PDF แต่ไม่มีขนาดที่ใช้ค้นหา
+อีก 195 รายการไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+รวมยังขาดขนาดสำหรับค้นหา 199 รายการ
+C085004 แยกพักตามคำสั่ง ไม่รวมใน 199 รายการ
+
+รายการที่เพิ่มขนาดค้นหาแล้ว (32 รายการ):
+P145701: Outer Diameter 185.5 mm | Inner Diameter 157.4 mm | Length 449.6 mm | Bolt Hole Diameter 16.76 mm
+P158669: Outer Diameter 159.5 mm | Inner Diameter 116.6 mm | Length 329.1 mm
+P162205: Outer Diameter 127 mm | Thread Size 3 NPT | Length 223.8 mm | Gasket OD 127 mm | Gasket ID 114 mm
+P165569: Outer Diameter 121 mm | Thread Size 1 3/4-12 UN | Length 295.4 mm | Gasket OD 86 mm | Gasket ID 79 mm
+P171734: Outer Diameter 54 mm | Inner Diameter 27.4 mm | Length 122 mm
+P181039: Overall Length 469.9 mm | Outer Diameter 351.6 mm | Inner Diameter 240.5 mm | Length 457.2 mm | Bolt Hole Diameter 22.73 mm
+P500138: Length 220 mm | Width 163 mm | Height 51 mm
+P500941: Outer Diameter 190.5 mm | Inner Diameter 158 mm | Length 434 mm
+P502016: Outer Diameter 74 mm | Thread Size 3/4-16 UN | Length 84.5 mm | Gasket OD 70 mm | Gasket ID 63 mm
+P502039: Outer Diameter 90 mm | Thread Size M20 x 1.5 | Length 100 mm | Gasket OD 86 mm | Gasket ID 76 mm
+P502083: Outer Diameter 113 mm | Thread Size 1 1/8-16 UN | Length 171 mm | Gasket OD 74 mm | Gasket ID 65 mm
+P502084: Outer Diameter 96 mm | Thread Size 1 1/8-16 UN | Length 168 mm | Gasket OD 72 mm | Gasket ID 56 mm
+P502088: Outer Diameter 110 mm | Thread Size 1 1/8-16 UN | Length 171 mm | Gasket OD 99 mm | Gasket ID 88 mm
+P502163: Outer Diameter 81.2 mm | Thread Size 3/4-16 UN | Length 90 mm | Gasket OD 63 mm | Gasket ID 56 mm
+P502170: Outer Diameter 89.92 mm | Inner Diameter 49 mm | Length 277.11 mm
+P502233: Outer Diameter 108 mm | Thread Size 1 1/8-16 UN | Length 201.7 mm | Gasket OD 101.8 mm | Gasket ID 90.5 mm
+P502382: Outer Diameter 133.4 mm | Inner Diameter 90 mm | Thread Size M48 x 2 | Length 174 mm | Gasket ID 112 mm
+P502432: Outer Diameter 93 mm | Thread Size M18 x 1.5 | Length 145.5 mm
+P502516: Outer Diameter 93 mm | Thread Size 1-14 UN | Length 79 mm | Gasket OD 71 mm | Gasket ID 62.5 mm
+P502540: Outer Diameter 42 mm | Inner Diameter 21 mm | Length 82 mm
+P505951: Outer Diameter 80 mm | Thread Size 3/4-16 UN | Length 75 mm | Gasket OD 77.5 mm | Gasket ID 62.2 mm
+P505957: Outer Diameter 109 mm | Thread Size 1-14 UN | Length 204 mm | Gasket OD 90.4 mm | Gasket ID 80.3 mm
+P536457: Outer Diameter 237 mm | Inner Diameter 130.9 mm | Length 330.2 mm
+P536492: Outer Diameter 134.6 mm | Inner Diameter 94 mm | Length 322.8 mm
+P551100: Outer Diameter 93 mm | Thread Size M27 x 2 | Length 168 mm | Gasket OD 72 mm | Gasket ID 62 mm
+P551132: Outer Diameter 76 mm | Thread Size 3/4-16 UN | Length 83 mm | Gasket OD 70 mm | Gasket ID 60 mm
+P551158: Outer Diameter 100.1 mm | Inner Diameter 41.9 mm | Length 231.7 mm
+P553500: Outer Diameter 118.3 mm | Thread Size 1 5/8-12 UN | Length 298 mm | Gasket OD 110 mm | Gasket ID 98 mm
+P554005: Outer Diameter 136 mm | Thread Size 1 1/2-16 UN | Length 308 mm | Gasket OD 110 mm | Gasket ID 100 mm
+P550903: Outer Diameter 87 mm | Thread Size M16 x 1.5 | Length 185 mm | Gasket OD 70 mm | Gasket ID 62 mm
+P550959: Outer Diameter 118 mm | Thread Size 1 1/16-16 UN | Length 227 mm | Gasket OD 110 mm | Gasket ID 98 mm
+P553880: Outer Diameter 93 mm | Thread Size M22 x 1.5 | Length 202 mm | Gasket OD 71.4 mm | Gasket ID 62.5 mm
+
+รายการที่ยังเหลือ 199 รายการ:
+1. R010051 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+2. R010001 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+3. R010002 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+4. R011739 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+5. P502652 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+6. P552561 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+7. P582086 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+8. R010083 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+9. R005743 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+10. R005748 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+11. R004212 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+12. R004213 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+13. P502593 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+14. P114931 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+15. P638095 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+16. P643271 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+17. R000164 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+18. R000165 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+19. R010050 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+20. X012252 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+21. DBA5292 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+22. P633483 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+23. R010055 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+24. P566999 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+25. X802236 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+26. P566983 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+27. P550550 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+28. X012193 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+29. X011409 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+30. R000585 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+31. R000586 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+32. R010016 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+33. R010046 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+34. R000749 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+35. R010045 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+36. R010059 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+37. R010012 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+38. R010018 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+39. P954604 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+40. P777638 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+41. R010043 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+42. R010034 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+43. R010067 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+44. R010017 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+45. R010084 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+46. R005709 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+47. R005714 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+48. P781102 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+49. P781098 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+50. P573481 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+51. P551808 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+52. R011751 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+53. P553505 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+54. R011619 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+55. P502651 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+56. P761045 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+57. P608306 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+58. P608305 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+59. P561333 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+60. P778905 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+61. P778906 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+62. X011398 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+63. R010036 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+64. R002323 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+65. R002324 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+66. R010061 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+67. P581789 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+68. P635977 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+69. P641355 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+70. X011845 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+71. DBF9143 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+72. R005086 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+73. X773027 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+74. P637250 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+75. P621984 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+76. R003911 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+77. R003923 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+78. P637251 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+79. P643762 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+80. X011896 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+81. P522452 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+82. P822768 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+83. P829333 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+84. P554403 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+85. P775749 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+86. P552341 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+87. P502465 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+88. P753388 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+89. P558329 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+90. P556916 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+91. P554407 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+92. P556915 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+93. P550020 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+94. P502072 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+95. P551551 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+96. P502476 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+97. P170306 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+98. P550065 — ชุดสินค้า PDF ไม่ระบุขนาด
+99. P550162 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+100. P550576 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+101. P558616 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+102. P559100 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+103. P559128 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+104. P181035 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+105. P181046 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+106. P181052 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+107. P502009 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+108. P502190 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+109. P502422 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+110. P502458 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+111. P502463 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+112. P502464 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+113. P502502 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+114. P502504 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+115. P502594 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+116. P502649 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+117. P526428 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+118. P526432 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+119. P526840 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+120. P532473 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+121. P532499 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+122. P532500 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+123. P532501 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+124. P532502 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+125. P537405 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+126. P538259 — Cover Assembly; Diameter 347 mm; ยังไม่ยืนยันการแมป OD
+127. P165705 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+128. P822769 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+129. P181054 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+130. P181064 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+131. P181082 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+132. P169478 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+133. P171735 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+134. P173689 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+135. P165659 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+136. P551006 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+137. P550779 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+138. P551130 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+139. P763415 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+140. P777639 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+141. P785589 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+142. P775687 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+143. P821938 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+144. P601560 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+145. P502552 — Bowl Assembly; PDF ไม่ระบุขนาด
+146. X770691 — ชุดสินค้า PDF ไม่ระบุขนาด
+147. B105002 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+148. P169078 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+149. P550912 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+150. P551039 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+151. P582263 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+152. P785590 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+153. X770689 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+154. P565149 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+155. R011812 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+156. P502363 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+157. P583856 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+158. P955606 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+159. P959083 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+160. P777871 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+161. P777875 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+162. P581958 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+163. P550460 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+164. P550904 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+165. P551424 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+166. P777551 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+167. X770688 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+168. G100319 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+169. P821883 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+170. P785965 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+171. P533930 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+172. P608766 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+173. G065424 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+174. P502667 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+175. P166387 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+176. P626096 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+177. P555776 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+178. R010039 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+179. P181073 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+180. P164352 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+181. P502441 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+182. P771555 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+183. P502269 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+184. P173489 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+185. P176324 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+186. P136255 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+187. P763995 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+188. X002251 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+189. P821963 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+190. P550849 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+191. P772579 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+192. P551421 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+193. P552603 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+194. P133138 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+195. P550087 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+196. P552040 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+197. P789077 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+198. P550625 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+199. P788912 — ไม่พบ PDF ตรงเบอร์ใน ZIP นี้
+
+หลักฐาน: data/products/donaldson-metric-2026-10-02.json เก็บพาธ PDF ใน ZIP, SHA-256 และข้อมูลมิติที่นำเข้า
+ตรวจข้อมูล 140 แถวด้วย pdftotext และ PyMuPDF แยกกัน พร้อมตรวจภาพหน้าตารางตัวอย่าง 6 เบอร์
+ไม่ได้แก้สต็อก รูป เบอร์เทียบ หรือรายการนอกชุดนี้

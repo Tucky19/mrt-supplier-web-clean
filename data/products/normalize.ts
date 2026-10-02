@@ -81,6 +81,7 @@ export function normalizeProduct(p: any): Product {
     od_mm: p.od_mm ?? undefined,
     id_mm: p.id_mm ?? undefined,
     length_mm: p.length_mm ?? undefined,
+    dimensionReviewRequired: p.dimensionReviewRequired ?? undefined,
   };
 }
 

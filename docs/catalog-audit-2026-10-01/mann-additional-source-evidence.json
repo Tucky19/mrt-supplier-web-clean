@@ -1,0 +1,461 @@
+[
+  {
+    "partNo": "4570092941",
+    "url": "https://www.mann-filter.com/en/catalog/search-results/product.html/4570092941_mann-filter.html",
+    "checkedAt": "2026-10-01",
+    "identityMatch": true,
+    "headings": "Product MANN+HUMMEL Spare Part 45 700 92 941",
+    "dimensions": [],
+    "dimensionDescriptions": []
+  },
+  {
+    "partNo": "C18902",
+    "url": "https://www.mann-filter.com/en/catalog/search-results/product.html/c18902_mann-filter.html",
+    "checkedAt": "2026-10-01",
+    "identityMatch": true,
+    "headings": "Product Air Filter C 18 902",
+    "gtin": "4011558046613",
+    "dimensions": [
+      {
+        "label": "A",
+        "value": "177 mm"
+      },
+      {
+        "label": "B",
+        "value": "88 mm"
+      },
+      {
+        "label": "H",
+        "value": "350 mm"
+      }
+    ],
+    "dimensionDescriptions": [
+      "Outer diameter (A) = 177 mm; Inner diameter (B) = 88 mm; Height (H) = 350 mm"
+    ]
+  },
+  {
+    "partNo": "C1140",
+    "url": "https://www.mann-filter.com/en/catalog/search-results/product.html/c1140_mann-filter.html",
+    "checkedAt": "2026-10-01",
+    "identityMatch": true,
+    "headings": "Product Air Filter C 1140",
+    "gtin": "4011558178208",
+    "dimensions": [
+      {
+        "label": "A",
+        "value": "100 mm"
+      },
+      {
+        "label": "B",
+        "value": "67 mm"
+      },
+      {
+        "label": "C",
+        "value": "67 mm"
+      },
+      {
+        "label": "H",
+        "value": "79 mm"
+      }
+    ],
+    "dimensionDescriptions": [
+      "Outer diameter (A) = 100 mm; Inner diameter (B) = 67 mm; Inner diameter 1 (C) = 67 mm; Height (H) = 79 mm"
+    ]
+  },
+  {
+    "partNo": "W1374/6",
+    "url": "https://www.mann-filter.com/en/catalog/search-results/product.html/w1374/6_mann-filter.html",
+    "checkedAt": "2026-10-01",
+    "identityMatch": true,
+    "headings": "Product Hydraulics W 1374/6",
+    "gtin": "4011558723309",
+    "dimensions": [
+      {
+        "label": "A",
+        "value": "136 mm"
+      },
+      {
+        "label": "B",
+        "value": "100 mm"
+      },
+      {
+        "label": "C",
+        "value": "111 mm"
+      },
+      {
+        "label": "G",
+        "value": "1 1/2-16 UN mm"
+      },
+      {
+        "label": "H",
+        "value": "177 mm"
+      },
+      {
+        "label": "Bypass Valve Opening Pressure",
+        "value": "0.2"
+      },
+      {
+        "label": "Bypass Valve Opening Pressure",
+        "value": "0.2"
+      }
+    ],
+    "dimensionDescriptions": [
+      "Outer diameter (A) = 136 mm; Inner diameter of gasket (B) = 100 mm; Outer diameter of gasket (C) = 111 mm; Thread Size (G) = 11/2-16UN; Height (H) = 177 mm"
+    ]
+  },
+  {
+    "partNo": "LB13145/21",
+    "url": "https://www.mann-filter.com/en/catalog/search-results/product.html/lb13145/21_mann-filter.html",
+    "checkedAt": "2026-10-01",
+    "identityMatch": true,
+    "headings": "Product Compressed Air-Oil Separation LB 13 145/21",
+    "gtin": "4011558391904",
+    "dimensions": [
+      {
+        "label": "A",
+        "value": "136 mm"
+      },
+      {
+        "label": "B",
+        "value": "100 mm"
+      },
+      {
+        "label": "C",
+        "value": "111 mm"
+      },
+      {
+        "label": "G",
+        "value": "1 1/2-16 UN-2B mm"
+      },
+      {
+        "label": "H",
+        "value": "302 mm"
+      }
+    ],
+    "dimensionDescriptions": [
+      "Outer diameter (A) = 136 mm; Inner diameter 1 (B) = 100 mm; Inner diameter 2 (C) = 111 mm; Thread Size (G) = 11/2-16UN-2B; Height (H) = 302 mm"
+    ]
+  },
+  {
+    "partNo": "C1574",
+    "url": "https://www.mann-filter.com/en/catalog/search-results/product.html/c1574_mann-filter.html",
+    "checkedAt": "2026-10-01",
+    "identityMatch": true,
+    "headings": "Product Air Filter C 1574",
+    "gtin": "4011558106300",
+    "dimensions": [
+      {
+        "label": "A",
+        "value": "150 mm"
+      },
+      {
+        "label": "B",
+        "value": "88 mm"
+      },
+      {
+        "label": "C",
+        "value": "88 mm"
+      },
+      {
+        "label": "H",
+        "value": "125 mm"
+      }
+    ],
+    "dimensionDescriptions": [
+      "Outer diameter (A) = 150 mm; Inner diameter (B) = 88 mm; Inner diameter 1 (C) = 88 mm; Height (H) = 125 mm"
+    ]
+  },
+  {
+    "partNo": "4900053601",
+    "url": "https://www.mann-filter.com/en/catalog/search-results/product.html/4900053601_mann-filter.html",
+    "checkedAt": "2026-10-01",
+    "identityMatch": false,
+    "headings": "Product Compressed Air-Oil Separation 49 000 53 601 Replacement LE 5001 x",
+    "dimensions": [
+      {
+        "label": "Height",
+        "value": "200 mm"
+      },
+      {
+        "label": "Inner diameter",
+        "value": "40 mm"
+      },
+      {
+        "label": "Outer diameter",
+        "value": "70 mm"
+      }
+    ],
+    "dimensionDescriptions": [
+      "Outer diameter (A) = 70 mm; Inner diameter (C) = 40 mm; Height (H) = 200 mm"
+    ]
+  },
+  {
+    "partNo": "PL250",
+    "url": "https://www.mann-filter.com/en/catalog/search-results/product.html/pl250_mann-filter.html",
+    "checkedAt": "2026-10-01",
+    "identityMatch": true,
+    "headings": "Product Fuel Filter | Water Separator PL 250",
+    "gtin": "4011558601102",
+    "dimensions": [
+      {
+        "label": "A",
+        "value": "93 mm"
+      },
+      {
+        "label": "B",
+        "value": "62 mm"
+      },
+      {
+        "label": "C",
+        "value": "72 mm"
+      },
+      {
+        "label": "G",
+        "value": "M16x1.5 mm"
+      },
+      {
+        "label": "H",
+        "value": "190 mm"
+      }
+    ],
+    "dimensionDescriptions": [
+      "Outer diameter (A) = 93 mm; Inner diameter of gasket (B) = 62 mm; Outer diameter of gasket (C) = 72 mm; Thread size exit (G) = M16x1.5; Height (H) = 190 mm"
+    ]
+  },
+  {
+    "partNo": "C1368",
+    "url": "https://www.mann-filter.com/en/catalog/search-results/product.html/c1368_mann-filter.html",
+    "checkedAt": "2026-10-01",
+    "identityMatch": true,
+    "headings": "Product Air Filter C 1368",
+    "gtin": "4011558227401",
+    "dimensions": [
+      {
+        "label": "A",
+        "value": "130 mm"
+      },
+      {
+        "label": "B",
+        "value": "76 mm"
+      },
+      {
+        "label": "H",
+        "value": "150 mm"
+      }
+    ],
+    "dimensionDescriptions": [
+      "Outer diameter (A) = 130 mm; Inner diameter (B) = 76 mm; Height (H) = 150 mm"
+    ]
+  },
+  {
+    "partNo": "WD724/6",
+    "url": "https://www.mann-filter.com/en/catalog/search-results/product.html/wd724/6_mann-filter.html",
+    "checkedAt": "2026-10-01",
+    "identityMatch": true,
+    "headings": "Product Hydraulics WD 724/6",
+    "gtin": "4011558920500",
+    "dimensions": [
+      {
+        "label": "A",
+        "value": "76 mm"
+      },
+      {
+        "label": "B",
+        "value": "62 mm"
+      },
+      {
+        "label": "C",
+        "value": "71 mm"
+      },
+      {
+        "label": "G",
+        "value": "3/4-16 UNF mm"
+      },
+      {
+        "label": "H",
+        "value": "138 mm"
+      },
+      {
+        "label": "Bypass Valve Opening Pressure",
+        "value": "3.5"
+      },
+      {
+        "label": "Bypass Valve Opening Pressure",
+        "value": "3.5"
+      }
+    ],
+    "dimensionDescriptions": [
+      "Outer diameter (A) = 76 mm; Inner diameter of gasket (B) = 62 mm; Outer diameter of gasket (C) = 71 mm; Thread Size (G) = 3/4-16UNF; Height (H) = 138 mm"
+    ]
+  },
+  {
+    "partNo": "W712",
+    "url": "https://www.mann-filter.com/en/catalog/search-results/product.html/w712_mann-filter.html",
+    "checkedAt": "2026-10-01",
+    "identityMatch": true,
+    "headings": "Product Oil Filter W 712",
+    "gtin": "4011558700508",
+    "dimensions": [
+      {
+        "label": "A",
+        "value": "76 mm"
+      },
+      {
+        "label": "B",
+        "value": "62 mm"
+      },
+      {
+        "label": "C",
+        "value": "71 mm"
+      },
+      {
+        "label": "G",
+        "value": "3/4-16 UNF mm"
+      },
+      {
+        "label": "H",
+        "value": "79 mm"
+      }
+    ],
+    "dimensionDescriptions": [
+      "Outer diameter (A) = 76 mm; Inner diameter of gasket (B) = 62 mm; Outer diameter of gasket (C) = 71 mm; Thread Size (G) = 3/4-16UNF; Height (H) = 79 mm"
+    ]
+  },
+  {
+    "partNo": "TB1394/1X",
+    "url": "https://www.mann-filter.com/en/catalog/search-results/product.html/tb1394/1x_mann-filter.html",
+    "checkedAt": "2026-10-01",
+    "identityMatch": false,
+    "headings": "Product Air dryer cartridge TB 1394/1 x Replacement TB 1394/16 x",
+    "gtin": "4011558653200",
+    "dimensions": [
+      {
+        "label": "A",
+        "value": "136 mm"
+      },
+      {
+        "label": "B",
+        "value": "100 mm"
+      },
+      {
+        "label": "C",
+        "value": "111 mm"
+      },
+      {
+        "label": "G",
+        "value": "M39x1.5 mm"
+      },
+      {
+        "label": "H",
+        "value": "165 mm"
+      }
+    ],
+    "dimensionDescriptions": [
+      "Outer diameter (A) = 136 mm; Inner diameter 1 (B) = 100 mm; Inner diameter 2 (C) = 111 mm; Thread Size (G) = M39x1.5; Height (H) = 165 mm"
+    ]
+  },
+  {
+    "partNo": "LE5001X",
+    "url": "https://www.mann-filter.com/en/catalog/search-results/product.html/le5001x_mann-filter.html",
+    "checkedAt": "2026-10-01",
+    "identityMatch": true,
+    "headings": "Product Compressed Air-Oil Separation LE 5001 x",
+    "gtin": "4011558391102",
+    "dimensions": [
+      {
+        "label": "Height",
+        "value": "200 mm"
+      },
+      {
+        "label": "Inner diameter",
+        "value": "40 mm"
+      },
+      {
+        "label": "Outer diameter",
+        "value": "70 mm"
+      }
+    ],
+    "dimensionDescriptions": [
+      "Outer diameter (A) = 70 mm; Inner diameter (C) = 40 mm; Height (H) = 200 mm"
+    ]
+  },
+  {
+    "partNo": "CU31001",
+    "url": "https://www.mann-filter.com/en/catalog/search-results/product.html/cu31001_mann-filter.html",
+    "checkedAt": "2026-10-01",
+    "identityMatch": true,
+    "headings": "Product Cabin Air Filter | Particulate CU 31 001",
+    "gtin": "4011558033071",
+    "dimensions": [
+      {
+        "label": "A",
+        "value": "302 mm"
+      },
+      {
+        "label": "B",
+        "value": "203 mm"
+      },
+      {
+        "label": "H",
+        "value": "32 mm"
+      }
+    ],
+    "dimensionDescriptions": [
+      "Length (A) = 302 mm; Width (B) = 203 mm; Height (H) = 32 mm"
+    ]
+  },
+  {
+    "partNo": "HU721XKIT",
+    "url": "https://www.mann-filter.com/en/catalog/search-results/product.html/hu721xkit_mann-filter.html",
+    "checkedAt": "2026-10-01",
+    "identityMatch": true,
+    "headings": "Product Hydraulic Transmission Filter HU 721 x KIT",
+    "gtin": "4011558298708",
+    "dimensions": [
+      {
+        "label": "A",
+        "value": "64 mm"
+      },
+      {
+        "label": "B",
+        "value": "31 mm"
+      },
+      {
+        "label": "C",
+        "value": "31 mm"
+      },
+      {
+        "label": "H",
+        "value": "150 mm"
+      }
+    ],
+    "dimensionDescriptions": [
+      "Outer diameter (A) = 64 mm; Inner diameter (B) = 31 mm; Inner diameter 1 (C) = 31 mm; Height (H) = 150 mm"
+    ]
+  },
+  {
+    "partNo": "CF1280",
+    "url": "https://www.mann-filter.com/en/catalog/search-results/product.html/cf1280_mann-filter.html",
+    "checkedAt": "2026-10-01",
+    "identityMatch": true,
+    "headings": "Product Secondary Element CF 1280",
+    "gtin": "4011558015411",
+    "dimensions": [
+      {
+        "label": "A",
+        "value": "97 mm"
+      },
+      {
+        "label": "D",
+        "value": "115 mm"
+      },
+      {
+        "label": "H",
+        "value": "391 mm"
+      }
+    ],
+    "dimensionDescriptions": [
+      "Outer diameter (A) = 97 mm; Outer diameter 1 (D) = 115 mm; Height (H) = 391 mm"
+    ]
+  }
+]

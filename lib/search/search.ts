@@ -820,6 +820,9 @@ export function searchFallback(q: string, limit = 5): Product[] {
 
 export type FilterDimensionCategory =
   | "all"
+  | "all_products"
+  | "bearing"
+  | "air_oil_separator"
   | "air_filter"
   | "oil_filter"
   | "fuel_filter"
@@ -829,12 +832,14 @@ function matchesFilterDimensionCategory(
   item: Product,
   category: FilterDimensionCategory,
 ) {
-  if (category === "all") return true;
+  if (category === "all" || category === "all_products") return true;
 
   const text = normalize(`${item.category ?? ""} ${item.title ?? ""}`);
-  if (category === "air_filter") return text.includes("air");
+  if (category === "bearing") return text.includes("bearing");
+  if (category === "air_oil_separator") return text.includes("separator") && !text.includes("fuel") && !text.includes("water");
+  if (category === "air_filter") return text.includes("air") && !text.includes("separator") && !text.includes("dryer") && !text.includes("cabin");
   if (category === "oil_filter") {
-    return text.includes("oil") || text.includes("lube");
+    return (text.includes("oil") || text.includes("lube")) && !text.includes("separator") && !text.includes("hydraulic");
   }
   if (category === "fuel_filter") {
     return text.includes("fuel") || text.includes("waterseparator");
@@ -862,7 +867,7 @@ export function searchFilterProductsByDimensions(
   return catalog
     .filter(
       (item) =>
-        isFilterProduct(item) &&
+        (category === "all_products" || category === "bearing" || isFilterProduct(item)) &&
         matchesFilterDimensionCategory(item, category) &&
         matchesDimensions(item, {
           ...criteria,
