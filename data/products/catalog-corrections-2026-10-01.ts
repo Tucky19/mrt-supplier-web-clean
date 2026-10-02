@@ -42,6 +42,22 @@ export function applyCatalogCorrections(product: Product): Product {
       spec: donaldson.dimensions.map(row => `${row.label}: ${row.value}`).join(" · "),
       od_mm: undefined, id_mm: undefined, length_mm: undefined, thread: undefined,
     };
+    // Owner accepts the PDF as printed, including its differing heading and Style.
+    if (product.partNo === "P551424") result = {
+      ...result,
+      title: "FUEL FILTER, WATER SEPARATOR SPIN-ON",
+      description: "ไส้กรองเชื้อเพลิงแยกน้ำ / Fuel filter, water separator",
+      specifications: [
+        ...(result.specifications ?? []).filter(row => !/^(?:product )?type$|^style$|^media type$|^efficiency|^emulsified|^notes$/i.test(row.label)),
+        { label: "Type", value: "Water Separator" },
+        { label: "Style", value: "Cartridge" },
+        { label: "Media Type", value: "Composite" },
+        { label: "Efficiency 99%", value: "4 micron" },
+        { label: "Efficiency Test Std", value: "SAE J1985" },
+        { label: "Emulsified H2O Efficiency", value: "95 Percent" },
+        { label: "Notes", value: "Not for Marine Applications" },
+      ],
+    };
     // p954604.pdf identifies a cartridge, not the older Spin-On placeholder.
     if (product.partNo === "P954604") result = {
       ...result, category: "fuel_filter", type: "cartridge",

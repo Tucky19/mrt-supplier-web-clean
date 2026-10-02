@@ -157,4 +157,4 @@ export const products = Array.from(
     : product,
 )).map(applyDonaldsonPdfSpecs).map(applyCatalogCorrections).map(applyMetricDimensions)
   // Boss removed this invalid part number on 2026-10-02; keep it out of all catalog consumers.
-  .filter(product => !(product.brand.toLowerCase() === "donaldson" && product.partNo.toUpperCase() === "P581789"));
+  .filter(product => !(product.brand.toLowerCase() === "donaldson" && ["P581789", "P553505", "P582086"].includes(product.partNo.toUpperCase())));

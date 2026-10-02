@@ -1,0 +1,9 @@
+Production publication — 2026-10-02
+Owner authorized completed batch at 10:02 Asia/Bangkok.
+PR #156 merged: https://github.com/Tucky19/mrt-supplier-web-clean/pull/156
+Published application commit: 615e54b63bf9ae046f46f9b83ff8923aab3758bc
+Merge/production commit: cf0a9b6a0f7fe686b3ebc3017ce0ca3933a05a25
+Uploaded tree b405ec8b22c1ebb17f876f4f68a4c02300797139 exactly matched tested local HEAD tree.
+Vercel preview and production statuses: success. Production deployment: https://vercel.com/tuckys-projects/mrt-supplier-web-clean-lfcm/GSXJn1DCKCBuh42bzAAXy4bBLY7e
+Live browser checks on www.mrtsupplier.com: dimension form shows Length / Overall Length (mm); OD 118.4 / Length 310.95 / Thread 1 1/4-12 UN returns P551006 and P552006; P170306 detail shows P170310, P170312, P170308 and confirmed dimensions; P581789 search returns 0 records; FULL 1AIS068 and BLACK CLUB BA343 render inquiry policy.
+P553505 and P582086 retained pending owner clarification. C085004 dimensional mapping still held. No database migration or RFQ submission.

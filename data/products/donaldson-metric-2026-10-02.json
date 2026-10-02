@@ -577,10 +577,11 @@
     "checkedAt": "2026-10-02",
     "dimensions": [
       {
-        "label": "Diameter",
+        "label": "Outer Diameter",
         "value": "347 mm"
       }
-    ]
+    ],
+    "evidenceNote": "Boss confirmed Diameter 347 mm for OD dimension search on 2026-10-02 14:57 Asia/Bangkok; original PDF label is Diameter."
   },
   "P551100": {
     "source": "DATA_do_14-5-26/p551100.pdf",
@@ -1134,8 +1135,8 @@
     ]
   },
   "P551424": {
-    "source": "01-p551424.pdf",
-    "sha256": "027f6ece48a9bfe6bda279ee3e04088a2301a792d80722d85b19d7ad5ecb1e12",
+    "source": "P551424.pdf",
+    "sha256": "cc9a653e042ce0f4dc93cb3eb726eba82ebe18de008d9966074db31f3b30d55f",
     "checkedAt": "2026-10-02",
     "dimensions": [
       {
@@ -1146,7 +1147,8 @@
         "label": "Length",
         "value": "154.3 mm"
       }
-    ]
+    ],
+    "evidenceNote": "Boss confirmed per PDF on 2026-10-02 14:57 Asia/Bangkok. Preserve title SPIN-ON and explicit Style Cartridge as printed; no Thread Size specified."
   },
   "P551039": {
     "source": "02-p551039.pdf",
