@@ -253,7 +253,10 @@ function buildDescriptionBlock(product: Product, locale: string) {
 export default function ProductDetailClient({ locale, product }: Props) {
   const router = useRouter();
   const { addItem } = useQuote();
-  const text = getProductUiText(locale);
+  const text = {
+    ...getProductUiText(locale),
+    ...(product.inquiryOnly ? { statusCheck: locale === "th" ? "สอบถาม" : "Inquire" } : {}),
+  };
   const isThai = locale === "th";
   const [justAdded, setJustAdded] = useState(false);
   const resetTimerRef = useRef<number | null>(null);

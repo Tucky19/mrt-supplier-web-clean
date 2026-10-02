@@ -1,0 +1,2020 @@
+{
+  "P145701": {
+    "source": "DATA_do_14-5-26/p145701.pdf",
+    "sha256": "d230cf7a006e7876cb3c389a1c68b1ab46c7b39fb2a37993d549496178d3acd5",
+    "checkedAt": "2026-10-02",
+    "dimensions": [
+      {
+        "label": "Outer Diameter",
+        "value": "185.5 mm"
+      },
+      {
+        "label": "Inner Diameter",
+        "value": "157.4 mm"
+      },
+      {
+        "label": "Length",
+        "value": "449.6 mm"
+      },
+      {
+        "label": "Bolt Hole Diameter",
+        "value": "16.76 mm"
+      }
+    ]
+  },
+  "P158669": {
+    "source": "DATA_do_14-5-26/p158559.pdf",
+    "sha256": "a9c9f32604a3023f2eb03480385e595f9c5bc9821d65f78d82e40c839fc31b5b",
+    "checkedAt": "2026-10-02",
+    "dimensions": [
+      {
+        "label": "Outer Diameter",
+        "value": "159.5 mm"
+      },
+      {
+        "label": "Inner Diameter",
+        "value": "116.6 mm"
+      },
+      {
+        "label": "Length",
+        "value": "329.1 mm"
+      }
+    ]
+  },
+  "P162205": {
+    "source": "DATA_do_14-5-26/p162205.pdf",
+    "sha256": "fd4f8d38ccb05881f054a7fa4d607e166fa32ab3bd4a3125a5cffd14e3d98968",
+    "checkedAt": "2026-10-02",
+    "dimensions": [
+      {
+        "label": "Outer Diameter",
+        "value": "127 mm"
+      },
+      {
+        "label": "Thread Size",
+        "value": "3 NPT"
+      },
+      {
+        "label": "Length",
+        "value": "223.8 mm"
+      },
+      {
+        "label": "Gasket OD",
+        "value": "127 mm"
+      },
+      {
+        "label": "Gasket ID",
+        "value": "114 mm"
+      }
+    ]
+  },
+  "P165569": {
+    "source": "DATA_do_14-5-26/p165569.pdf",
+    "sha256": "c95fff93aba608876b27d083d4973c84fbaffb9a57fb1e137a3bb73bc04e987b",
+    "checkedAt": "2026-10-02",
+    "dimensions": [
+      {
+        "label": "Outer Diameter",
+        "value": "121 mm"
+      },
+      {
+        "label": "Thread Size",
+        "value": "1 3/4-12 UN"
+      },
+      {
+        "label": "Length",
+        "value": "295.4 mm"
+      },
+      {
+        "label": "Gasket OD",
+        "value": "86 mm"
+      },
+      {
+        "label": "Gasket ID",
+        "value": "79 mm"
+      }
+    ]
+  },
+  "P171734": {
+    "source": "DATA_do_14-5-26/p171734.pdf",
+    "sha256": "2b97ef2bd24f78bc8e989a9a0cd5ebe5b22c259a78b585e5dadc5e9919344bcb",
+    "checkedAt": "2026-10-02",
+    "dimensions": [
+      {
+        "label": "Outer Diameter",
+        "value": "54 mm"
+      },
+      {
+        "label": "Inner Diameter",
+        "value": "27.4 mm"
+      },
+      {
+        "label": "Length",
+        "value": "122 mm"
+      }
+    ]
+  },
+  "P181039": {
+    "source": "DATA_do_14-5-26/p181039.pdf",
+    "sha256": "12d1576edfe719ad5bf655efbd7da71fbc45043bad7deac6d3d0c632865c3e34",
+    "checkedAt": "2026-10-02",
+    "dimensions": [
+      {
+        "label": "Overall Length",
+        "value": "469.9 mm"
+      },
+      {
+        "label": "Outer Diameter",
+        "value": "351.6 mm"
+      },
+      {
+        "label": "Inner Diameter",
+        "value": "240.5 mm"
+      },
+      {
+        "label": "Length",
+        "value": "457.2 mm"
+      },
+      {
+        "label": "Bolt Hole Diameter",
+        "value": "22.73 mm"
+      }
+    ]
+  },
+  "P500138": {
+    "source": "DATA_do_14-5-26/p500138.pdf",
+    "sha256": "050d2946d554c7fd4efb6378f4e27b6989a847070953ad8497d8c98e2734a175",
+    "checkedAt": "2026-10-02",
+    "dimensions": [
+      {
+        "label": "Length",
+        "value": "220 mm"
+      },
+      {
+        "label": "Width",
+        "value": "163 mm"
+      },
+      {
+        "label": "Height",
+        "value": "51 mm"
+      }
+    ]
+  },
+  "P500941": {
+    "source": "DATA_do_14-5-26/p500941.pdf",
+    "sha256": "dcec3223115d188ff3ac6a8c2e243bcbbab815035b1327d57c28a00b468eae21",
+    "checkedAt": "2026-10-02",
+    "dimensions": [
+      {
+        "label": "Outer Diameter",
+        "value": "190.5 mm"
+      },
+      {
+        "label": "Inner Diameter",
+        "value": "158 mm"
+      },
+      {
+        "label": "Length",
+        "value": "434 mm"
+      }
+    ]
+  },
+  "P502016": {
+    "source": "DATA_do_14-5-26/p502016.pdf",
+    "sha256": "5a058399d2c0f8100ae6079931fe4ab5e034fdbf0d6988f0da998027371dad5c",
+    "checkedAt": "2026-10-02",
+    "dimensions": [
+      {
+        "label": "Outer Diameter",
+        "value": "74 mm"
+      },
+      {
+        "label": "Thread Size",
+        "value": "3/4-16 UN"
+      },
+      {
+        "label": "Length",
+        "value": "84.5 mm"
+      },
+      {
+        "label": "Gasket OD",
+        "value": "70 mm"
+      },
+      {
+        "label": "Gasket ID",
+        "value": "63 mm"
+      }
+    ]
+  },
+  "P502039": {
+    "source": "DATA_do_14-5-26/p502039.pdf",
+    "sha256": "1c6dba0f1cb27b94a58d7b606543f2fbb5c4b35bbe6fc5e147151b3d0eb6efcd",
+    "checkedAt": "2026-10-02",
+    "dimensions": [
+      {
+        "label": "Outer Diameter",
+        "value": "90 mm"
+      },
+      {
+        "label": "Thread Size",
+        "value": "M20 x 1.5"
+      },
+      {
+        "label": "Length",
+        "value": "100 mm"
+      },
+      {
+        "label": "Gasket OD",
+        "value": "86 mm"
+      },
+      {
+        "label": "Gasket ID",
+        "value": "76 mm"
+      }
+    ]
+  },
+  "P502083": {
+    "source": "DATA_do_14-5-26/p502083.pdf",
+    "sha256": "e4d43050e8fad7b63806d8b8e084ca865af5d0ed03ccded13537dd4e299ece8e",
+    "checkedAt": "2026-10-02",
+    "dimensions": [
+      {
+        "label": "Outer Diameter",
+        "value": "113 mm"
+      },
+      {
+        "label": "Thread Size",
+        "value": "1 1/8-16 UN"
+      },
+      {
+        "label": "Length",
+        "value": "171 mm"
+      },
+      {
+        "label": "Gasket OD",
+        "value": "74 mm"
+      },
+      {
+        "label": "Gasket ID",
+        "value": "65 mm"
+      }
+    ]
+  },
+  "P502084": {
+    "source": "DATA_do_14-5-26/p502084.pdf",
+    "sha256": "59df15e77a83c0121e5e67ade1fe10f94b61af228596b3a98aa51bd3670da69b",
+    "checkedAt": "2026-10-02",
+    "dimensions": [
+      {
+        "label": "Outer Diameter",
+        "value": "96 mm"
+      },
+      {
+        "label": "Thread Size",
+        "value": "1 1/8-16 UN"
+      },
+      {
+        "label": "Length",
+        "value": "168 mm"
+      },
+      {
+        "label": "Gasket OD",
+        "value": "72 mm"
+      },
+      {
+        "label": "Gasket ID",
+        "value": "56 mm"
+      }
+    ]
+  },
+  "P502088": {
+    "source": "DATA_do_14-5-26/p502088.pdf",
+    "sha256": "04ee9f48c16b6a520d24aac4a99ab5f9dfdff4e1fcfcc3ed04c472c4fd59840b",
+    "checkedAt": "2026-10-02",
+    "dimensions": [
+      {
+        "label": "Outer Diameter",
+        "value": "110 mm"
+      },
+      {
+        "label": "Thread Size",
+        "value": "1 1/8-16 UN"
+      },
+      {
+        "label": "Length",
+        "value": "171 mm"
+      },
+      {
+        "label": "Gasket OD",
+        "value": "99 mm"
+      },
+      {
+        "label": "Gasket ID",
+        "value": "88 mm"
+      }
+    ]
+  },
+  "P502163": {
+    "source": "DATA_do_14-5-26/p502163.pdf",
+    "sha256": "a70c535ab796398c076c6e4c166765795f5b29e514ebc2338e5af1193c7d6ca9",
+    "checkedAt": "2026-10-02",
+    "dimensions": [
+      {
+        "label": "Outer Diameter",
+        "value": "81.2 mm"
+      },
+      {
+        "label": "Thread Size",
+        "value": "3/4-16 UN"
+      },
+      {
+        "label": "Length",
+        "value": "90 mm"
+      },
+      {
+        "label": "Gasket OD",
+        "value": "63 mm"
+      },
+      {
+        "label": "Gasket ID",
+        "value": "56 mm"
+      }
+    ]
+  },
+  "P502170": {
+    "source": "DATA_do_14-5-26/p502170.pdf",
+    "sha256": "54cc93b223678dbb5c7ca05b95dca80ccd4a4b430497d200580195833b367797",
+    "checkedAt": "2026-10-02",
+    "dimensions": [
+      {
+        "label": "Outer Diameter",
+        "value": "89.92 mm"
+      },
+      {
+        "label": "Inner Diameter",
+        "value": "49 mm"
+      },
+      {
+        "label": "Length",
+        "value": "277.11 mm"
+      }
+    ]
+  },
+  "P502233": {
+    "source": "DATA_do_14-5-26/p502233.pdf",
+    "sha256": "aa4dca7395b06a14c560bcefa64877581780a1e1bd1db1ca877caef3309d7562",
+    "checkedAt": "2026-10-02",
+    "dimensions": [
+      {
+        "label": "Outer Diameter",
+        "value": "108 mm"
+      },
+      {
+        "label": "Thread Size",
+        "value": "1 1/8-16 UN"
+      },
+      {
+        "label": "Length",
+        "value": "201.7 mm"
+      },
+      {
+        "label": "Gasket OD",
+        "value": "101.8 mm"
+      },
+      {
+        "label": "Gasket ID",
+        "value": "90.5 mm"
+      }
+    ]
+  },
+  "P502382": {
+    "source": "DATA_do_14-5-26/p502382.pdf",
+    "sha256": "88b9d2c3199f5d0f8ae432d0ce23bdf5c670eebbd74106379981e7da4b2511fa",
+    "checkedAt": "2026-10-02",
+    "dimensions": [
+      {
+        "label": "Outer Diameter",
+        "value": "133.4 mm"
+      },
+      {
+        "label": "Inner Diameter",
+        "value": "90 mm"
+      },
+      {
+        "label": "Thread Size",
+        "value": "M48 x 2"
+      },
+      {
+        "label": "Length",
+        "value": "174 mm"
+      },
+      {
+        "label": "Gasket ID",
+        "value": "112 mm"
+      }
+    ]
+  },
+  "P502432": {
+    "source": "DATA_do_14-5-26/p502432.pdf",
+    "sha256": "23a06054d4ef550b02369f44c2a373e6c1ea27fe51986594cbba0775bea266eb",
+    "checkedAt": "2026-10-02",
+    "dimensions": [
+      {
+        "label": "Outer Diameter",
+        "value": "93 mm"
+      },
+      {
+        "label": "Thread Size",
+        "value": "M18 x 1.5"
+      },
+      {
+        "label": "Length",
+        "value": "145.5 mm"
+      }
+    ]
+  },
+  "P502516": {
+    "source": "DATA_do_14-5-26/p502516.pdf",
+    "sha256": "2b90f1a8e5bfb24a6397ef32e0be642b489deee4e49ed2533eefc0acaa6b8612",
+    "checkedAt": "2026-10-02",
+    "dimensions": [
+      {
+        "label": "Outer Diameter",
+        "value": "93 mm"
+      },
+      {
+        "label": "Thread Size",
+        "value": "1-14 UN"
+      },
+      {
+        "label": "Length",
+        "value": "79 mm"
+      },
+      {
+        "label": "Gasket OD",
+        "value": "71 mm"
+      },
+      {
+        "label": "Gasket ID",
+        "value": "62.5 mm"
+      }
+    ]
+  },
+  "P502540": {
+    "source": "DATA_do_14-5-26/p502540.pdf",
+    "sha256": "ed491328a8e9f59ec288864f770446295a1e1f2f074f2b9025422a81397ddbd5",
+    "checkedAt": "2026-10-02",
+    "dimensions": [
+      {
+        "label": "Outer Diameter",
+        "value": "42 mm"
+      },
+      {
+        "label": "Inner Diameter",
+        "value": "21 mm"
+      },
+      {
+        "label": "Length",
+        "value": "82 mm"
+      }
+    ]
+  },
+  "P505951": {
+    "source": "DATA_do_14-5-26/p505951.pdf",
+    "sha256": "ebd2f2a0f56f09f05910877f6647994b245b8f20e4cb9eadf8a6aeae2a0b9e7c",
+    "checkedAt": "2026-10-02",
+    "dimensions": [
+      {
+        "label": "Outer Diameter",
+        "value": "80 mm"
+      },
+      {
+        "label": "Thread Size",
+        "value": "3/4-16 UN"
+      },
+      {
+        "label": "Length",
+        "value": "75 mm"
+      },
+      {
+        "label": "Gasket OD",
+        "value": "77.5 mm"
+      },
+      {
+        "label": "Gasket ID",
+        "value": "62.2 mm"
+      }
+    ]
+  },
+  "P505957": {
+    "source": "DATA_do_14-5-26/p505957.pdf",
+    "sha256": "9414a33831da4ada37a9c290253eda3d93e10f5bee5999167e1b0a66c1f89917",
+    "checkedAt": "2026-10-02",
+    "dimensions": [
+      {
+        "label": "Outer Diameter",
+        "value": "109 mm"
+      },
+      {
+        "label": "Thread Size",
+        "value": "1-14 UN"
+      },
+      {
+        "label": "Length",
+        "value": "204 mm"
+      },
+      {
+        "label": "Gasket OD",
+        "value": "90.4 mm"
+      },
+      {
+        "label": "Gasket ID",
+        "value": "80.3 mm"
+      }
+    ]
+  },
+  "P536457": {
+    "source": "DATA_do_14-5-26/p536457.pdf",
+    "sha256": "7638d901eb3f68d1626975f017b0bf14dec536248427361cb939dcaba75ba94f",
+    "checkedAt": "2026-10-02",
+    "dimensions": [
+      {
+        "label": "Outer Diameter",
+        "value": "237 mm"
+      },
+      {
+        "label": "Inner Diameter",
+        "value": "130.9 mm"
+      },
+      {
+        "label": "Length",
+        "value": "330.2 mm"
+      }
+    ]
+  },
+  "P536492": {
+    "source": "DATA_do_14-5-26/p536492.pdf",
+    "sha256": "4793fe4b28e6a27c361ed67050e7088726eef216175d3bb8579399bcb125b880",
+    "checkedAt": "2026-10-02",
+    "dimensions": [
+      {
+        "label": "Outer Diameter",
+        "value": "134.6 mm"
+      },
+      {
+        "label": "Inner Diameter",
+        "value": "94 mm"
+      },
+      {
+        "label": "Length",
+        "value": "322.8 mm"
+      }
+    ]
+  },
+  "P538259": {
+    "source": "DATA_do_14-5-26/p538259.pdf",
+    "sha256": "fb917c8ce0c6a885850596b7de458479eaef3e9dbd048fb6607f43388f3a8a6a",
+    "checkedAt": "2026-10-02",
+    "dimensions": [
+      {
+        "label": "Diameter",
+        "value": "347 mm"
+      }
+    ]
+  },
+  "P551100": {
+    "source": "DATA_do_14-5-26/p551100.pdf",
+    "sha256": "846396876a4ba8695595082c558365e1dc0a30dc7d7a57439aeae7d299c818ba",
+    "checkedAt": "2026-10-02",
+    "dimensions": [
+      {
+        "label": "Outer Diameter",
+        "value": "93 mm"
+      },
+      {
+        "label": "Thread Size",
+        "value": "M27 x 2"
+      },
+      {
+        "label": "Length",
+        "value": "168 mm"
+      },
+      {
+        "label": "Gasket OD",
+        "value": "72 mm"
+      },
+      {
+        "label": "Gasket ID",
+        "value": "62 mm"
+      }
+    ]
+  },
+  "P551132": {
+    "source": "DATA_do_14-5-26/p551132.pdf",
+    "sha256": "1adeda906b7ce70ec2ce53c2e0bb17a10354ae37c172c22ab199f5989c9af82a",
+    "checkedAt": "2026-10-02",
+    "dimensions": [
+      {
+        "label": "Outer Diameter",
+        "value": "76 mm"
+      },
+      {
+        "label": "Thread Size",
+        "value": "3/4-16 UN"
+      },
+      {
+        "label": "Length",
+        "value": "83 mm"
+      },
+      {
+        "label": "Gasket OD",
+        "value": "70 mm"
+      },
+      {
+        "label": "Gasket ID",
+        "value": "60 mm"
+      }
+    ]
+  },
+  "P551158": {
+    "source": "DATA_do_14-5-26/p551808.pdf",
+    "sha256": "e860ad48ff8383063b3195c15fa12e7014ffd2f0d2c96a724e8753ed0c9f360b",
+    "checkedAt": "2026-10-02",
+    "dimensions": [
+      {
+        "label": "Outer Diameter",
+        "value": "100.1 mm"
+      },
+      {
+        "label": "Inner Diameter",
+        "value": "41.9 mm"
+      },
+      {
+        "label": "Length",
+        "value": "231.7 mm"
+      }
+    ]
+  },
+  "P553500": {
+    "source": "DATA_do_14-5-26/p553500.pdf",
+    "sha256": "6b42149d309366421b652a460bb2ebfeec1c6ecfe1661940d0f3b9f3ea2355ef",
+    "checkedAt": "2026-10-02",
+    "dimensions": [
+      {
+        "label": "Outer Diameter",
+        "value": "118.3 mm"
+      },
+      {
+        "label": "Thread Size",
+        "value": "1 5/8-12 UN"
+      },
+      {
+        "label": "Length",
+        "value": "298 mm"
+      },
+      {
+        "label": "Gasket OD",
+        "value": "110 mm"
+      },
+      {
+        "label": "Gasket ID",
+        "value": "98 mm"
+      }
+    ]
+  },
+  "P554005": {
+    "source": "DATA_do_14-5-26/p554004.pdf",
+    "sha256": "0685b47e609686be136cc50f2663707c8142aeabd638fb2288dc4eb697c0bb28",
+    "checkedAt": "2026-10-02",
+    "dimensions": [
+      {
+        "label": "Outer Diameter",
+        "value": "136 mm"
+      },
+      {
+        "label": "Thread Size",
+        "value": "1 1/2-16 UN"
+      },
+      {
+        "label": "Length",
+        "value": "308 mm"
+      },
+      {
+        "label": "Gasket OD",
+        "value": "110 mm"
+      },
+      {
+        "label": "Gasket ID",
+        "value": "100 mm"
+      }
+    ]
+  },
+  "P550903": {
+    "source": "DATA_do_14-5-26/α╛╘Φ┴í├═º_01/p550903.pdf",
+    "sha256": "4ad5b18b7e01d151f366a07399c4a7756078be569b7adf278f276b9e7d3e83b5",
+    "checkedAt": "2026-10-02",
+    "dimensions": [
+      {
+        "label": "Outer Diameter",
+        "value": "87 mm"
+      },
+      {
+        "label": "Thread Size",
+        "value": "M16 x 1.5"
+      },
+      {
+        "label": "Length",
+        "value": "185 mm"
+      },
+      {
+        "label": "Gasket OD",
+        "value": "70 mm"
+      },
+      {
+        "label": "Gasket ID",
+        "value": "62 mm"
+      }
+    ]
+  },
+  "P550959": {
+    "source": "DATA_do_14-5-26/α╛╘Φ┴í├═º_01/p550959.pdf",
+    "sha256": "2f477af5313df55361681f3ec36c5ac579842ebb774869209910577fcf5f9ee6",
+    "checkedAt": "2026-10-02",
+    "dimensions": [
+      {
+        "label": "Outer Diameter",
+        "value": "118 mm"
+      },
+      {
+        "label": "Thread Size",
+        "value": "1 1/16-16 UN"
+      },
+      {
+        "label": "Length",
+        "value": "227 mm"
+      },
+      {
+        "label": "Gasket OD",
+        "value": "110 mm"
+      },
+      {
+        "label": "Gasket ID",
+        "value": "98 mm"
+      }
+    ]
+  },
+  "P553880": {
+    "source": "DATA_do_14-5-26/α╛╘Φ┴í├═º_01/p553880.pdf",
+    "sha256": "a21e1651734e4943ba54a1a756a195adab304af8251efc798bd9711407886a98",
+    "checkedAt": "2026-10-02",
+    "dimensions": [
+      {
+        "label": "Outer Diameter",
+        "value": "93 mm"
+      },
+      {
+        "label": "Thread Size",
+        "value": "M22 x 1.5"
+      },
+      {
+        "label": "Length",
+        "value": "202 mm"
+      },
+      {
+        "label": "Gasket OD",
+        "value": "71.4 mm"
+      },
+      {
+        "label": "Gasket ID",
+        "value": "62.5 mm"
+      }
+    ]
+  },
+  "P165659": {
+    "source": "01-p165659.pdf",
+    "sha256": "3a67956b43819892636390e23cebf02102bd74eba313b61bc117469dcc464656",
+    "checkedAt": "2026-10-02",
+    "dimensions": [
+      {
+        "label": "Outer Diameter",
+        "value": "121 mm"
+      },
+      {
+        "label": "Thread Size",
+        "value": "1 3/4-12 UN"
+      },
+      {
+        "label": "Length",
+        "value": "295.4 mm"
+      },
+      {
+        "label": "Gasket OD",
+        "value": "86 mm"
+      },
+      {
+        "label": "Gasket ID",
+        "value": "79 mm"
+      }
+    ]
+  },
+  "P165705": {
+    "source": "02-p165705.pdf",
+    "sha256": "b4fc0fd21d9b533e22143377f84f99c6e66a199f3e0e664aadd9c423fd54f399",
+    "checkedAt": "2026-10-02",
+    "dimensions": [
+      {
+        "label": "Outer Diameter",
+        "value": "121 mm"
+      },
+      {
+        "label": "Thread Size",
+        "value": "1 3/4-12 UN"
+      },
+      {
+        "label": "Length",
+        "value": "295.4 mm"
+      },
+      {
+        "label": "Gasket OD",
+        "value": "86 mm"
+      },
+      {
+        "label": "Gasket ID",
+        "value": "79 mm"
+      }
+    ]
+  },
+  "P169078": {
+    "source": "03-p169078.pdf",
+    "sha256": "f18e1650486d326066bd4f9c6bdf3fad85e90d6ea498c0bccd532d4b0296988c",
+    "checkedAt": "2026-10-02",
+    "dimensions": [
+      {
+        "label": "Outer Diameter",
+        "value": "97 mm"
+      },
+      {
+        "label": "Thread Size",
+        "value": "1 3/8-12 UN"
+      },
+      {
+        "label": "Length",
+        "value": "113.54 mm"
+      },
+      {
+        "label": "Gasket OD",
+        "value": "70 mm"
+      },
+      {
+        "label": "Gasket ID",
+        "value": "63 mm"
+      }
+    ]
+  },
+  "P173689": {
+    "source": "04-p173689.pdf",
+    "sha256": "c3a3ac72e38860e29a31a9b3c8c4e7056664501670aec570d6f433cbec67cb3c",
+    "checkedAt": "2026-10-02",
+    "dimensions": [
+      {
+        "label": "Outer Diameter",
+        "value": "121 mm"
+      },
+      {
+        "label": "Thread Size",
+        "value": "1 3/8-12 UN"
+      },
+      {
+        "label": "Length",
+        "value": "295.4 mm"
+      },
+      {
+        "label": "Gasket OD",
+        "value": "70.15 mm"
+      },
+      {
+        "label": "Gasket ID",
+        "value": "63 mm"
+      }
+    ]
+  },
+  "P502009": {
+    "source": "06-p502009.pdf",
+    "sha256": "b77c65d2a22670482a278c780337ef6ad3c69c303ba7e78ceed02b1a8d0a0622",
+    "checkedAt": "2026-10-02",
+    "dimensions": [
+      {
+        "label": "Outer Diameter",
+        "value": "80.01 mm"
+      },
+      {
+        "label": "Thread Size",
+        "value": "M20 x 1.5"
+      },
+      {
+        "label": "Length",
+        "value": "64.01 mm"
+      },
+      {
+        "label": "Gasket OD",
+        "value": "62.99 mm"
+      },
+      {
+        "label": "Gasket ID",
+        "value": "51.56 mm"
+      }
+    ]
+  },
+  "P502072": {
+    "source": "07-p502072.pdf",
+    "sha256": "6585d495fd4fc9c6166badd66aa08c47501cc9299787bfbf9cdab535ed382e33",
+    "checkedAt": "2026-10-02",
+    "dimensions": [
+      {
+        "label": "Outer Diameter",
+        "value": "92 mm"
+      },
+      {
+        "label": "Thread Size",
+        "value": "M22 x 1.5"
+      },
+      {
+        "label": "Length",
+        "value": "139 mm"
+      },
+      {
+        "label": "Gasket OD",
+        "value": "72 mm"
+      },
+      {
+        "label": "Gasket ID",
+        "value": "63 mm"
+      }
+    ]
+  },
+  "P502363": {
+    "source": "08-p502363.pdf",
+    "sha256": "24178cf1c5713f8599ab5e9600d2a0f478481ffcbf06febdf7691420712a6c9d",
+    "checkedAt": "2026-10-02",
+    "dimensions": [
+      {
+        "label": "Outer Diameter",
+        "value": "120 mm"
+      },
+      {
+        "label": "Thread Size",
+        "value": "1 1/2-12 UN"
+      },
+      {
+        "label": "Length",
+        "value": "210 mm"
+      },
+      {
+        "label": "Gasket OD",
+        "value": "112 mm"
+      },
+      {
+        "label": "Gasket ID",
+        "value": "98 mm"
+      }
+    ]
+  },
+  "P502458": {
+    "source": "09-p502458.pdf",
+    "sha256": "d0f151a1b082b9357d8fa6c899983ccb607104ffee4d149fa2d3ca0a536c179f",
+    "checkedAt": "2026-10-02",
+    "dimensions": [
+      {
+        "label": "Outer Diameter",
+        "value": "102 mm"
+      },
+      {
+        "label": "Thread Size",
+        "value": "1-12 UN"
+      },
+      {
+        "label": "Length",
+        "value": "101 mm"
+      },
+      {
+        "label": "Gasket OD",
+        "value": "99 mm"
+      },
+      {
+        "label": "Gasket ID",
+        "value": "88 mm"
+      }
+    ]
+  },
+  "P502464": {
+    "source": "10-p502464.pdf",
+    "sha256": "d01b27d16e95affbdc3b4cdb08ac7056e79a8c59c93bf534633f00b25a7aa562",
+    "checkedAt": "2026-10-02",
+    "dimensions": [
+      {
+        "label": "Outer Diameter",
+        "value": "115 mm"
+      },
+      {
+        "label": "Thread Size",
+        "value": "1 1/2-12 UN"
+      },
+      {
+        "label": "Length",
+        "value": "247 mm"
+      },
+      {
+        "label": "Gasket OD",
+        "value": "111 mm"
+      },
+      {
+        "label": "Gasket ID",
+        "value": "98 mm"
+      }
+    ]
+  },
+  "P502465": {
+    "source": "11-p502465.pdf",
+    "sha256": "866339a2b90ea4c1bc268a5e8afd5307087867da9bff06ab5b53090f9cde35c6",
+    "checkedAt": "2026-10-02",
+    "dimensions": [
+      {
+        "label": "Outer Diameter",
+        "value": "93 mm"
+      },
+      {
+        "label": "Thread Size",
+        "value": "M22 x 1.5"
+      },
+      {
+        "label": "Length",
+        "value": "165 mm"
+      },
+      {
+        "label": "Gasket OD",
+        "value": "89 mm"
+      },
+      {
+        "label": "Gasket ID",
+        "value": "81 mm"
+      }
+    ]
+  },
+  "P502476": {
+    "source": "12-p502476.pdf",
+    "sha256": "ef155145210f060401b973557054c234fe7fbe90ccb5ea1ddbb274e559cc7d1b",
+    "checkedAt": "2026-10-02",
+    "dimensions": [
+      {
+        "label": "Outer Diameter",
+        "value": "102 mm"
+      },
+      {
+        "label": "Thread Size",
+        "value": "1-12 UN"
+      },
+      {
+        "label": "Length",
+        "value": "150 mm"
+      },
+      {
+        "label": "Gasket OD",
+        "value": "99 mm"
+      },
+      {
+        "label": "Gasket ID",
+        "value": "88 mm"
+      }
+    ]
+  },
+  "P502504": {
+    "source": "13-p502504.pdf",
+    "sha256": "d04695387db2d70bb2012263f3d9a31c35dad5bc80b6f4b6795eae010aceefd0",
+    "checkedAt": "2026-10-02",
+    "dimensions": [
+      {
+        "label": "Outer Diameter",
+        "value": "86 mm"
+      },
+      {
+        "label": "Thread Size",
+        "value": "M12 x 1.5"
+      },
+      {
+        "label": "Length",
+        "value": "143 mm"
+      }
+    ]
+  },
+  "P502594": {
+    "source": "14-p502594.pdf",
+    "sha256": "f93f594f1a21a65342a9b7cb4adee8e90075c2b47a1f23f1c366778f210b25fc",
+    "checkedAt": "2026-10-02",
+    "dimensions": [
+      {
+        "label": "Outer Diameter",
+        "value": "108.5 mm"
+      },
+      {
+        "label": "Thread Size",
+        "value": "1-14 UN"
+      },
+      {
+        "label": "Length",
+        "value": "158 mm"
+      },
+      {
+        "label": "Gasket OD",
+        "value": "100.5 mm"
+      },
+      {
+        "label": "Gasket ID",
+        "value": "90.3 mm"
+      }
+    ]
+  },
+  "P551424": {
+    "source": "01-p551424.pdf",
+    "sha256": "027f6ece48a9bfe6bda279ee3e04088a2301a792d80722d85b19d7ad5ecb1e12",
+    "checkedAt": "2026-10-02",
+    "dimensions": [
+      {
+        "label": "Outer Diameter",
+        "value": "80 mm"
+      },
+      {
+        "label": "Length",
+        "value": "154.3 mm"
+      }
+    ]
+  },
+  "P551039": {
+    "source": "02-p551039.pdf",
+    "sha256": "100b0cc7447a452323605431abc331e90f10b7b218d4aa70cbcf5b786fb6bc04",
+    "checkedAt": "2026-10-02",
+    "dimensions": [
+      {
+        "label": "Outer Diameter",
+        "value": "76.9 mm"
+      },
+      {
+        "label": "Thread Size",
+        "value": "M16 x 1.5"
+      },
+      {
+        "label": "Length",
+        "value": "101.8 mm"
+      },
+      {
+        "label": "Gasket OD",
+        "value": "70.2 mm"
+      },
+      {
+        "label": "Gasket ID",
+        "value": "60.5 mm"
+      }
+    ]
+  },
+  "P550904": {
+    "source": "04-p550904.pdf",
+    "sha256": "17be83573ecfd134c2123c1a19a4bd003219f962cc32c3d539a19e6ac9cf3660",
+    "checkedAt": "2026-10-02",
+    "dimensions": [
+      {
+        "label": "Outer Diameter",
+        "value": "98 mm"
+      },
+      {
+        "label": "Thread Size",
+        "value": "M16 x 1.5"
+      },
+      {
+        "label": "Length",
+        "value": "195.5 mm"
+      },
+      {
+        "label": "Gasket OD",
+        "value": "72 mm"
+      },
+      {
+        "label": "Gasket ID",
+        "value": "62 mm"
+      }
+    ]
+  },
+  "P550779": {
+    "source": "05-p550779.pdf",
+    "sha256": "89c9e82f89cec36d8aff48807af5faab64d3348d2aab0b1de7c8b52a740183ae",
+    "checkedAt": "2026-10-02",
+    "dimensions": [
+      {
+        "label": "Outer Diameter",
+        "value": "93 mm"
+      },
+      {
+        "label": "Thread Size",
+        "value": "M92 x 2.5"
+      },
+      {
+        "label": "Length",
+        "value": "155 mm"
+      },
+      {
+        "label": "Gasket OD",
+        "value": "92.85 mm"
+      },
+      {
+        "label": "Gasket ID",
+        "value": "87.83 mm"
+      }
+    ]
+  },
+  "P550550": {
+    "source": "06-p550550.pdf",
+    "sha256": "2ba6dd9cce884329e47c064342dce2fa36450ec0131ae0f5d8ae49ae59c2dadb",
+    "checkedAt": "2026-10-02",
+    "dimensions": [
+      {
+        "label": "Outer Diameter",
+        "value": "78.7 mm"
+      },
+      {
+        "label": "Thread Size",
+        "value": "3/4-16 UN"
+      },
+      {
+        "label": "Length",
+        "value": "141.7 mm"
+      },
+      {
+        "label": "Gasket OD",
+        "value": "70 mm"
+      },
+      {
+        "label": "Gasket ID",
+        "value": "62.5 mm"
+      }
+    ]
+  },
+  "P550162": {
+    "source": "07-p550162.pdf",
+    "sha256": "0c2e533b41d514fdc8234ac945ee60c5d820c817319afa01e392c944dc661fb4",
+    "checkedAt": "2026-10-02",
+    "dimensions": [
+      {
+        "label": "Outer Diameter",
+        "value": "81 mm"
+      },
+      {
+        "label": "Thread Size",
+        "value": "M20 x 1.5"
+      },
+      {
+        "label": "Length",
+        "value": "86 mm"
+      },
+      {
+        "label": "Gasket OD",
+        "value": "64 mm"
+      },
+      {
+        "label": "Gasket ID",
+        "value": "54 mm"
+      }
+    ]
+  },
+  "P550020": {
+    "source": "08-p550020.pdf",
+    "sha256": "5ce54ca9de7399b1cd6f12a21c201b7a8df28b17a25bff3ee69727a5094fc92f",
+    "checkedAt": "2026-10-02",
+    "dimensions": [
+      {
+        "label": "Outer Diameter",
+        "value": "97 mm"
+      },
+      {
+        "label": "Thread Size",
+        "value": "13/16-16 UN"
+      },
+      {
+        "label": "Length",
+        "value": "140 mm"
+      },
+      {
+        "label": "Gasket OD",
+        "value": "71 mm"
+      },
+      {
+        "label": "Gasket ID",
+        "value": "61 mm"
+      }
+    ]
+  },
+  "P552561": {
+    "source": "09-p552561.pdf",
+    "sha256": "4b8b12c25be43261ab2c340c9e65eb5abdfb68475e94e6accfd92f2a48c223f3",
+    "checkedAt": "2026-10-02",
+    "dimensions": [
+      {
+        "label": "Outer Diameter",
+        "value": "94 mm"
+      },
+      {
+        "label": "Thread Size",
+        "value": "M20 x 1.5"
+      },
+      {
+        "label": "Length",
+        "value": "125 mm"
+      },
+      {
+        "label": "Gasket OD",
+        "value": "62 mm"
+      },
+      {
+        "label": "Gasket ID",
+        "value": "54 mm"
+      }
+    ]
+  },
+  "P551808": {
+    "source": "10-p551808.pdf",
+    "sha256": "0c78c6a0edb671f21c10ce14acee39344cac90923e11a254e3a77e5c11a4b9b6",
+    "checkedAt": "2026-10-02",
+    "dimensions": [
+      {
+        "label": "Outer Diameter",
+        "value": "136 mm"
+      },
+      {
+        "label": "Thread Size",
+        "value": "1 1/2-16 UN"
+      },
+      {
+        "label": "Length",
+        "value": "308 mm"
+      },
+      {
+        "label": "Gasket OD",
+        "value": "110 mm"
+      },
+      {
+        "label": "Gasket ID",
+        "value": "100 mm"
+      }
+    ]
+  },
+  "P551551": {
+    "source": "11-p551551.pdf",
+    "sha256": "f6e6b9e6cd4108dee5fa75ac1aa96b98ec60ef55ce96a29bc994f52c81499f52",
+    "checkedAt": "2026-10-02",
+    "dimensions": [
+      {
+        "label": "Outer Diameter",
+        "value": "93 mm"
+      },
+      {
+        "label": "Thread Size",
+        "value": "1-12 UN"
+      },
+      {
+        "label": "Length",
+        "value": "136 mm"
+      },
+      {
+        "label": "Gasket OD",
+        "value": "72 mm"
+      },
+      {
+        "label": "Gasket ID",
+        "value": "62 mm"
+      }
+    ]
+  },
+  "P955606": {
+    "source": "01-p955606.pdf",
+    "sha256": "f7515faa530c6fb30ca1b1e5b4b42529f760bd659c4708f2c175bd69d1d92faf",
+    "checkedAt": "2026-10-02",
+    "dimensions": [
+      {
+        "label": "Outer Diameter",
+        "value": "107.4 mm"
+      },
+      {
+        "label": "Thread Size",
+        "value": "1-14 UN"
+      },
+      {
+        "label": "Length",
+        "value": "216.4 mm"
+      },
+      {
+        "label": "Gasket OD",
+        "value": "103.5 mm"
+      },
+      {
+        "label": "Gasket ID",
+        "value": "96.07 mm"
+      }
+    ]
+  },
+  "P954604": {
+    "source": "02-p954604.pdf",
+    "sha256": "4b8c91fce778b8b480169e82c24464722204061c4378ab5b11e6cb27f63ecc9e",
+    "checkedAt": "2026-10-02",
+    "dimensions": [
+      {
+        "label": "Overall Length",
+        "value": "163 mm"
+      },
+      {
+        "label": "Outer Diameter",
+        "value": "95 mm"
+      },
+      {
+        "label": "Inner Diameter",
+        "value": "46.5 mm"
+      },
+      {
+        "label": "Length",
+        "value": "141 mm"
+      },
+      {
+        "label": "Gasket OD",
+        "value": "110 mm"
+      },
+      {
+        "label": "Gasket ID",
+        "value": "102 mm"
+      }
+    ]
+  },
+  "P573481": {
+    "source": "03-p573481.pdf",
+    "sha256": "9ce20f11a4e8ee669a7d01bceb8672657c985568cfb53117101d9aab05566977",
+    "checkedAt": "2026-10-02",
+    "dimensions": [
+      {
+        "label": "Outer Diameter",
+        "value": "87.4 mm"
+      },
+      {
+        "label": "Thread Size",
+        "value": "M45 x 2"
+      },
+      {
+        "label": "Length",
+        "value": "154.5 mm"
+      },
+      {
+        "label": "Gasket OD",
+        "value": "60.6 mm"
+      },
+      {
+        "label": "Gasket ID",
+        "value": "54.4 mm"
+      }
+    ]
+  },
+  "P565149": {
+    "source": "04-p565149.pdf",
+    "sha256": "5894e11c4465adfc0f7924ec35639404f6ef8a02b0879ffaf491a8730a957ad6",
+    "checkedAt": "2026-10-02",
+    "dimensions": [
+      {
+        "label": "Outer Diameter",
+        "value": "93 mm"
+      },
+      {
+        "label": "Thread Size",
+        "value": "31/32-20 UN"
+      },
+      {
+        "label": "Length",
+        "value": "136 mm"
+      },
+      {
+        "label": "Gasket OD",
+        "value": "71.5 mm"
+      },
+      {
+        "label": "Gasket ID",
+        "value": "61.5 mm"
+      }
+    ]
+  },
+  "P559128": {
+    "source": "05-p559128.pdf",
+    "sha256": "e81230bbdde894677892a61eff1a72e689876d5d33acaecb1c274bee871a2d64",
+    "checkedAt": "2026-10-02",
+    "dimensions": [
+      {
+        "label": "Outer Diameter",
+        "value": "107 mm"
+      },
+      {
+        "label": "Thread Size",
+        "value": "1 1/8-16 UN"
+      },
+      {
+        "label": "Length",
+        "value": "147 mm"
+      },
+      {
+        "label": "Gasket OD",
+        "value": "99 mm"
+      },
+      {
+        "label": "Gasket ID",
+        "value": "90 mm"
+      }
+    ]
+  },
+  "P559100": {
+    "source": "06-p559100.pdf",
+    "sha256": "24c1a44ca960f254d1ac4ba773ca2b4a2ce81fda11d6c9a01c565a3ec6d0301d",
+    "checkedAt": "2026-10-02",
+    "dimensions": [
+      {
+        "label": "Outer Diameter",
+        "value": "93.8 mm"
+      },
+      {
+        "label": "Thread Size",
+        "value": "15/16-16 UN"
+      },
+      {
+        "label": "Length",
+        "value": "132.3 mm"
+      },
+      {
+        "label": "Gasket OD",
+        "value": "69.3 mm"
+      },
+      {
+        "label": "Gasket ID",
+        "value": "61.3 mm"
+      }
+    ]
+  },
+  "P558616": {
+    "source": "07-p558616.pdf",
+    "sha256": "ea616e5c7e5c7ce830ddb36d2caeee00020a2f7e7909c78aad87f0f0c10a7a27",
+    "checkedAt": "2026-10-02",
+    "dimensions": [
+      {
+        "label": "Outer Diameter",
+        "value": "93 mm"
+      },
+      {
+        "label": "Thread Size",
+        "value": "1-16 UN"
+      },
+      {
+        "label": "Length",
+        "value": "136 mm"
+      },
+      {
+        "label": "Gasket OD",
+        "value": "72 mm"
+      },
+      {
+        "label": "Gasket ID",
+        "value": "62 mm"
+      }
+    ]
+  },
+  "P558329": {
+    "source": "08-p558329.pdf",
+    "sha256": "55a8210f98a5e34f15f85d871c91e9a6ba2489ab48cbfed5808caeb9beb75b9c",
+    "checkedAt": "2026-10-02",
+    "dimensions": [
+      {
+        "label": "Outer Diameter",
+        "value": "129 mm"
+      },
+      {
+        "label": "Thread Size",
+        "value": "1 1/2-12 UN"
+      },
+      {
+        "label": "Length",
+        "value": "171 mm"
+      },
+      {
+        "label": "Gasket OD",
+        "value": "128 mm"
+      },
+      {
+        "label": "Gasket ID",
+        "value": "119 mm"
+      }
+    ]
+  },
+  "P556916": {
+    "source": "09-p556916.pdf",
+    "sha256": "12db799574a39ede2b50c8ab57b5456c3b44b11084d94c3153b41bee586252da",
+    "checkedAt": "2026-10-02",
+    "dimensions": [
+      {
+        "label": "Outer Diameter",
+        "value": "93 mm"
+      },
+      {
+        "label": "Thread Size",
+        "value": "13/16-12 UN"
+      },
+      {
+        "label": "Length",
+        "value": "174 mm"
+      },
+      {
+        "label": "Gasket OD",
+        "value": "86.2 mm"
+      },
+      {
+        "label": "Gasket ID",
+        "value": "77.5 mm"
+      }
+    ]
+  },
+  "P556915": {
+    "source": "10-p556915.pdf",
+    "sha256": "cb9b3488525002d6a5adaad1a58bf4bd7f36418504e3109c1819e2f7a471c26c",
+    "checkedAt": "2026-10-02",
+    "dimensions": [
+      {
+        "label": "Outer Diameter",
+        "value": "93 mm"
+      },
+      {
+        "label": "Thread Size",
+        "value": "1-12 UN"
+      },
+      {
+        "label": "Length",
+        "value": "200 mm"
+      },
+      {
+        "label": "Gasket OD",
+        "value": "86.2 mm"
+      },
+      {
+        "label": "Gasket ID",
+        "value": "77.5 mm"
+      }
+    ]
+  },
+  "P555706": {
+    "source": "11-p555706.pdf",
+    "sha256": "a6c13b985fd3552c5e3c3d2aedb25ae79a590f73d6ec3ea22c257d708bca894f",
+    "checkedAt": "2026-10-02",
+    "dimensions": [
+      {
+        "label": "Outer Diameter",
+        "value": "101.5 mm"
+      },
+      {
+        "label": "Length",
+        "value": "212.84 mm"
+      },
+      {
+        "label": "Gasket OD",
+        "value": "65.99 mm"
+      },
+      {
+        "label": "Gasket ID",
+        "value": "57 mm"
+      }
+    ]
+  },
+  "P554407": {
+    "source": "12-p554407.pdf",
+    "sha256": "a864fb8176a92d235fd522f6ca1f249a95d33ed659902326ad0a1049412c8286",
+    "checkedAt": "2026-10-02",
+    "dimensions": [
+      {
+        "label": "Outer Diameter",
+        "value": "93 mm"
+      },
+      {
+        "label": "Thread Size",
+        "value": "3/4-16 UN"
+      },
+      {
+        "label": "Length",
+        "value": "174 mm"
+      },
+      {
+        "label": "Gasket OD",
+        "value": "72 mm"
+      },
+      {
+        "label": "Gasket ID",
+        "value": "63 mm"
+      }
+    ]
+  },
+  "P554403": {
+    "source": "13-p554403.pdf",
+    "sha256": "9b885c72d0bcd5b99d37d58e1b34ed8a29c3ca3a6ffdf927c474ecce89f57c81",
+    "checkedAt": "2026-10-02",
+    "dimensions": [
+      {
+        "label": "Outer Diameter",
+        "value": "93 mm"
+      },
+      {
+        "label": "Thread Size",
+        "value": "3/4-16 UN"
+      },
+      {
+        "label": "Length",
+        "value": "136 mm"
+      },
+      {
+        "label": "Gasket OD",
+        "value": "71 mm"
+      },
+      {
+        "label": "Gasket ID",
+        "value": "61 mm"
+      }
+    ]
+  },
+  "R010001": {
+    "source": "01-r010001.pdf",
+    "sha256": "bf151b57b53e79991dd68ff0b2b69219815a9b0d80230e66fc7bc6d914d14020",
+    "checkedAt": "2026-10-02",
+    "dimensions": [
+      {
+        "label": "Outer Diameter",
+        "value": "83.9 mm"
+      },
+      {
+        "label": "Thread Size",
+        "value": "M20 x 1.5"
+      },
+      {
+        "label": "Length",
+        "value": "102 mm"
+      },
+      {
+        "label": "Gasket OD",
+        "value": "62.2 mm"
+      }
+    ]
+  },
+  "R010002": {
+    "source": "02-r010002.pdf",
+    "sha256": "e5bd0a3a7957eb2bbacc9f99f776f8c5ad01a7f5d789cd419130738dc91f2944",
+    "checkedAt": "2026-10-02",
+    "dimensions": [
+      {
+        "label": "Outer Diameter",
+        "value": "90 mm"
+      },
+      {
+        "label": "Thread Size",
+        "value": "M20 x 1.5"
+      },
+      {
+        "label": "Length",
+        "value": "160 mm"
+      },
+      {
+        "label": "Gasket OD",
+        "value": "62.2 mm"
+      },
+      {
+        "label": "Gasket ID",
+        "value": "54 mm"
+      }
+    ]
+  },
+  "R010012": {
+    "source": "03-r010012.pdf",
+    "sha256": "63bacaf7adcf876ded0ea63cf89a82bb506b4c8e1dceeb4e96145c68ea9e458b",
+    "checkedAt": "2026-10-02",
+    "dimensions": [
+      {
+        "label": "Outer Diameter",
+        "value": "93 mm"
+      },
+      {
+        "label": "Thread Size",
+        "value": "1-12 UN"
+      },
+      {
+        "label": "Length",
+        "value": "169 mm"
+      },
+      {
+        "label": "Gasket ID",
+        "value": "63 mm"
+      }
+    ]
+  },
+  "R010016": {
+    "source": "04-r010016.pdf",
+    "sha256": "663146941bae6b6c5a2371e3f4257620a2b8efd5468a05240012256a4acea7b2",
+    "checkedAt": "2026-10-02",
+    "dimensions": [
+      {
+        "label": "Outer Diameter",
+        "value": "76 mm"
+      },
+      {
+        "label": "Thread Size",
+        "value": "M16 x 1.5"
+      },
+      {
+        "label": "Length",
+        "value": "122 mm"
+      },
+      {
+        "label": "Gasket OD",
+        "value": "72 mm"
+      },
+      {
+        "label": "Gasket ID",
+        "value": "62 mm"
+      }
+    ]
+  },
+  "R010017": {
+    "source": "05-r010017.pdf",
+    "sha256": "e1fdec66b75560d33e0cde42b62af7f2fea1921e858cb2fe7518bb0781913b41",
+    "checkedAt": "2026-10-02",
+    "dimensions": [
+      {
+        "label": "Outer Diameter",
+        "value": "108 mm"
+      },
+      {
+        "label": "Thread Size",
+        "value": "1-14 UN"
+      },
+      {
+        "label": "Length",
+        "value": "229 mm"
+      },
+      {
+        "label": "Gasket OD",
+        "value": "103 mm"
+      },
+      {
+        "label": "Gasket ID",
+        "value": "92.96 mm"
+      }
+    ]
+  },
+  "R010018": {
+    "source": "06-r010018.pdf",
+    "sha256": "ffc6d9f896a690c1fa70a9c61181f175f39c43baa70d4cb82c7b6f28071a5d30",
+    "checkedAt": "2026-10-02",
+    "dimensions": [
+      {
+        "label": "Outer Diameter",
+        "value": "108 mm"
+      },
+      {
+        "label": "Thread Size",
+        "value": "M32 x 1.5"
+      },
+      {
+        "label": "Length",
+        "value": "262 mm"
+      }
+    ]
+  },
+  "R010059": {
+    "source": "07-r010019.pdf",
+    "sha256": "7558a4674c90644302b84d82ec9b5bee5fd3bd6e84ec0dd9fc5f6477e32661ff",
+    "checkedAt": "2026-10-02",
+    "dimensions": [
+      {
+        "label": "Outer Diameter",
+        "value": "108 mm"
+      },
+      {
+        "label": "Thread Size",
+        "value": "1 1/8-16 UN"
+      },
+      {
+        "label": "Length",
+        "value": "259 mm"
+      }
+    ]
+  },
+  "R011619": {
+    "source": "08-r011619.pdf",
+    "sha256": "164c42b943a7b53e797fb2a110eccba272f3303e5ac2e8c39e55dd0f81c1904b",
+    "checkedAt": "2026-10-02",
+    "dimensions": [
+      {
+        "label": "Outer Diameter",
+        "value": "108 mm"
+      },
+      {
+        "label": "Thread Size",
+        "value": "M82 x 1.5"
+      },
+      {
+        "label": "Length",
+        "value": "200 mm"
+      }
+    ]
+  },
+  "R011739": {
+    "source": "09-r011739.pdf",
+    "sha256": "21b8ef7fcbe87275e8d2557ab628ccd70798381a6588c602c4075533937abfaf",
+    "checkedAt": "2026-10-02",
+    "dimensions": [
+      {
+        "label": "Outer Diameter",
+        "value": "107.6 mm"
+      },
+      {
+        "label": "Thread Size",
+        "value": "M82 x 1.5"
+      },
+      {
+        "label": "Length",
+        "value": "216 mm"
+      }
+    ]
+  },
+  "P170306": {
+    "source": "02-p170310_alternate_p170306.pdf",
+    "sha256": "03d30be412da431a7a07e09449802b8bf7d0f8cc83d727f1127577ed60caa86d",
+    "checkedAt": "2026-10-02",
+    "evidenceNote": "PDF specifies P170310; Boss explicitly confirmed dimensions equal for P170306 on 2026-10-02 09:13 Bangkok. Dimensional mapping only; no general interchange or performance claim.",
+    "dimensions": [
+      {
+        "label": "Outer Diameter",
+        "value": "79.5 mm"
+      },
+      {
+        "label": "Thread Size",
+        "value": "2-12 UN"
+      },
+      {
+        "label": "Length",
+        "value": "140.2 mm"
+      },
+      {
+        "label": "Gasket OD",
+        "value": "79.5 mm"
+      },
+      {
+        "label": "Gasket ID",
+        "value": "47 mm"
+      }
+    ]
+  },
+  "P551006": {
+    "source": "03-p551006.pdf",
+    "sha256": "aed0aa6468a2b81ea25b4bd3cad7009a009468d98f6d6f482da65555b1ef6dc9",
+    "checkedAt": "2026-10-02",
+    "evidenceNote": "PDF identifies P552006; Boss confirmed equal dimensions for P551006 on 2026-10-02 09:18 Bangkok.",
+    "dimensions": [
+      {
+        "label": "Outer Diameter",
+        "value": "118.4 mm"
+      },
+      {
+        "label": "Thread Size",
+        "value": "1 1/4-12 UN"
+      },
+      {
+        "label": "Length",
+        "value": "310.95 mm"
+      },
+      {
+        "label": "Gasket OD",
+        "value": "110 mm"
+      },
+      {
+        "label": "Gasket ID",
+        "value": "98 mm"
+      }
+    ]
+  },
+  "P583856": {
+    "source": "03-p583856.pdf",
+    "sha256": "b3859b19ef9bf5d9d41a9350c785aeb316c3c176b3da23dd4677569048355c4a",
+    "checkedAt": "2026-10-02",
+    "evidenceNote": "Boss confirmed PDF 2026-10-02 09:18 Bangkok. No Thread Size in PDF; review complete; leave blank.",
+    "dimensions": [
+      {
+        "label": "Outer Diameter",
+        "value": "88 mm"
+      },
+      {
+        "label": "Length",
+        "value": "169 mm"
+      }
+    ]
+  }
+}

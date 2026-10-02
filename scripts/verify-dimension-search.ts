@@ -150,7 +150,9 @@ assert.ok(!searchFilterProductsByDimensions({lengthMm:230},{category:"all"}).som
 
 const { products } = require("@/data/products/index") as {products: Product[]};
 for (const partNo of ["P537876", "P537877"]) {
-  assert.ok(!products.find(p=>p.partNo===partNo)?.specifications?.some(row=>/^media type$/i.test(row.label)));
+  const p = products.find(p=>p.partNo===partNo)!;
+  assert.equal(p.specifications?.find(row=>/^media type$/i.test(row.label))?.value,partNo==="P537876" ? "Cellulose" : "Safety");
+  assert.ok(searchFilterProductsByDimensions(partNo==="P537876" ? {outerDiameterMm:281.6,innerDiameterMm:147.9,lengthMm:510} : {outerDiameterMm:150.9,innerDiameterMm:109.6,lengthMm:496.4},{category:"air_filter"}).some(p=>p.partNo===partNo));
 }
 // Every record with eligible dimensions must be findable from its own mm values.
 let tested = 0;
@@ -184,3 +186,34 @@ for (const [partNo, innerDiameterMm, outerDiameterMm, widthMm] of ntnFixtures) {
   }
 }
 assert.ok(!searchFilterProductsByDimensions({innerDiameterMm:65,outerDiameterMm:120,widthMm:32},{category:"bearing"}).some(p=>p.partNo==="33213U"));
+
+// Ordinary length must win even if Overall Length or a legacy override comes first.
+const dualLength = {...filter, length_mm:178.6, specifications:[{label:"Overall Length",value:"178.6 mm"},{label:"Length",value:"171.6 mm"}]};
+assert.equal(getNormalizedDimensions(dualLength).lengthMm,171.6);
+assert.equal(getNormalizedDimensions({...dualLength,specifications:[{label:"Overall Length",value:"178.6 mm"}]}).lengthMm,undefined);
+for (const product of products) {
+  if (product.dimensionReviewRequired || product.partNo === "C085004") continue;
+  const ordinary = product.specifications?.find(row=>/^length(?: \(mm\))?$/i.test(row.label));
+  const overall = product.specifications?.find(row=>/^overall length/i.test(row.label));
+  if (!overall) continue;
+  const expected = ordinary ? parseMillimeters(ordinary.value) : undefined;
+  assert.equal(getNormalizedDimensions(product).lengthMm,expected,`Ordinary length policy: ${product.partNo}`);
+}
+
+// Both labelled lengths match independently; ranking uses the nearest one.
+assert.ok(matchesDimensions(dualLength,{lengthMm:171.6}));
+assert.ok(matchesDimensions(dualLength,{lengthMm:178.6}));
+assert.ok(!matchesDimensions(dualLength,{lengthMm:175}));
+assert.ok(!matchesDimensions({...dualLength,dimensionReviewRequired:true},{lengthMm:178.6}));
+const { getSearchableLengths, dimensionDistanceMm } = require("@/lib/search/dimensions");
+assert.equal(dimensionDistanceMm(dualLength,{lengthMm:178.6}),0);
+for (const product of products) {
+  for (const lengthMm of getSearchableLengths(product)) {
+    assert.ok(searchFilterProductsByDimensions({lengthMm},{category:"all_products",limit:800}).some(p=>p.id===product.id),`Missing length alternative: ${product.partNo} ${lengthMm}`);
+  }
+}
+
+const conflictingLength = {...filter,specifications:[{label:"Overall Length",value:"517.8 mm"},{label:"Length",value:"524 mm"}]};
+assert.deepEqual(getSearchableLengths(conflictingLength),[524]);
+assert.equal(matchesDimensions(conflictingLength,{lengthMm:517.8,toleranceMm:3}),false);
+assert.equal(matchesDimensions(conflictingLength,{lengthMm:524}),true);

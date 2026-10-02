@@ -155,4 +155,6 @@ export const products = Array.from(
   newAsianPartKeys.has(normalizePartNo(product.partNo))
     ? { ...product, checkAvailability: true, partNumberOnly: true, stockStatus: "request" }
     : product,
-)).map(applyDonaldsonPdfSpecs).map(applyCatalogCorrections).map(applyMetricDimensions);
+)).map(applyDonaldsonPdfSpecs).map(applyCatalogCorrections).map(applyMetricDimensions)
+  // Boss removed this invalid part number on 2026-10-02; keep it out of all catalog consumers.
+  .filter(product => !(product.brand.toLowerCase() === "donaldson" && product.partNo.toUpperCase() === "P581789"));

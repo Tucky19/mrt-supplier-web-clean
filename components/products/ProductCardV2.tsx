@@ -146,7 +146,10 @@ export default function ProductCardV2({
 }) {
   const { addItem } = useQuote();
   const { show } = useToast();
-  const text = getProductUiText(locale);
+  const text = {
+    ...getProductUiText(locale),
+    ...(product.inquiryOnly ? { statusCheck: locale === "th" ? "สอบถาม" : "Inquire" } : {}),
+  };
   const searchText = getSearchUiText(locale);
   const isThai = locale === "th";
   const isSearchVariant = variant === "search";

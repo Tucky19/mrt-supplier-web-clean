@@ -49,3 +49,25 @@ Latest coverage supersedes earlier counts: 438/800 records have searchable dimen
 Checks: 800-item search index, 438-product dimension round trip, all 16 new exact-dimension fixtures in bearing/all-product categories and rejection of 0.1 mm width mismatches passed. TypeScript and production build passed. Preview publication and browser verification are tracked below.
 
 Application commit `612800ba9ffd5ee23d42f3a60d2b8442b73f4cab` deployed successfully to Vercel preview. Live browser tests returned 7312BL1G for ID 60 / OD 130 / width 31 mm and 33213U for ID 65 / OD 120 / width 41 mm. Changing the latter width to 32 mm returned zero results. No merge or production deployment performed.
+
+## Owner decision — 4550092941 excluded (2 October, 04:00 Bangkok)
+
+Boss requested removal of 4550092941 from this work batch. The exact part is absent from the active catalog and search index; no replacement or new listing is to be created from the supplied 4550092941.jpg. Do not use that image for the distinct existing 4570092941 record. The existing 4570092941 remains request-only, with no newly asserted stock. TB1394/1X stock and screenshot cross-reference changes remain prepared locally and unpublished.
+
+## Ordinary-length policy — prepared, not published (2 October)
+
+Owner requested ordinary Length instead of Overall Length for every affected product. Search now prioritizes explicit Length irrespective of row order and legacy length overrides; Overall Length remains a separately labelled reference specification, never a fallback search length. 36 runtime records switch to their existing Length value; five overall-only records lose length search (R011866, P550478, P164178, P812924, P506115) while retaining other dimensions/part-number search. 438 catalog dimensional round trips, policy regressions, TypeScript and production build passed. Manual search-function smoke checks returned P145756 at 492.25 mm (not 501.9) and P550851 at 171.6 mm (not 178.6). This verifies field selection, not fresh manufacturer certification of all source values. P777868 has existing Length 524 versus Overall Length 517.8; source consistency still needs review.
+
+C085004 remains excluded from further dimension mapping changes at owner's request. TB1394/1X remains on hold. No branch publication, merge or deployment in this batch; hold for consolidated update.
+
+## Revised owner policy — Length / Overall Length (2 October, 04:26 Bangkok)
+
+Supersedes the ordinary-only search policy above. The dimension form now reads Length / Overall Length (mm). Search accepts either explicitly recorded value; sorting uses the smaller distance to either value, while normal Length remains the canonical value and the two source labels remain distinct. Overall-only products can again be searched using their recorded Overall Length. No new measurements inferred. C085004 mapping and held TB1394 changes remain untouched; no publication/deployment. P550851 search-function checks find the part at both 171.6 and 178.6 mm. Tests exercise every recorded searchable length, exact alternatives, distance ranking and quarantined products.
+
+Owner confirmed P777868 Length=524 mm on 2 October at 04:33 Bangkok. Prepared correction removes conflicting Overall Length=517.8 mm from runtime specifications and searchable alternatives. Supersedes the pending length-conflict note above. Held for consolidated publication.
+
+Owner general rule (2 October, 04:34): when Overall Length is shorter than ordinary Length, prefer ordinary Length and exclude the contradictory overall value from dimension search. Valid ordinary/overall pairs remain searchable by either value. No values are swapped or guessed. Prepared locally, not published.
+
+## FULL / BLACK CLUB owner policy — 2 October 05:16 Bangkok
+
+All FULL (11) and BLACK CLUB (17) products use brand images and the exact Thai inquiry label สอบถาม (English Inquire), including product cards and detail pages. No dimensional data is to be published for these two brands. Explicitly excluded from dimensional search and the missing-dimensions backlog: these 28 records are intentional exclusions, not incomplete dimension work. Part-number search/RFQ remain available. Reuses existing brand assets full-filter.webp and the BC emblem backcup.webp. Held locally for consolidated publication.

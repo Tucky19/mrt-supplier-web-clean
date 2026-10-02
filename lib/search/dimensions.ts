@@ -23,7 +23,7 @@ const FIELD_LABELS: Record<DimensionField, RegExp[]> = {
     /^bore(?: diameter)?$/i,
   ],
   lengthMm: [
-    /^(?:overall |body )?length(?: \([a-z]\)| [a-z])?$/i,
+    /^(?:body )?length(?: \([a-z]\)| [a-z])?$/i,
     /^height(?: \([a-z]\)| [a-z])?$/i,
   ],
   widthMm: [/^width(?: \([a-z]\))?$/i],
@@ -68,7 +68,13 @@ function dimensionFromSpecifications(
   product: Product,
   field: DimensionField,
 ): number | undefined {
-  for (const specification of product.specifications ?? []) {
+  // Prefer ordinary Length regardless of source row order.
+  const rows = [...(product.specifications ?? [])];
+  if (field === "lengthMm") rows.sort((a, b) =>
+    Number(!/^length(?: \([a-z]\)| [a-z])?$/i.test(normalizeLabel(a.label))) -
+    Number(!/^length(?: \([a-z]\)| [a-z])?$/i.test(normalizeLabel(b.label))),
+  );
+  for (const specification of rows) {
     const label = normalizeLabel(String(specification.label ?? ""));
     if (!FIELD_LABELS[field].some((pattern) => pattern.test(label))) continue;
 
@@ -97,7 +103,7 @@ function parseBearingTriple(spec: string) {
 }
 
 export function getNormalizedDimensions(product: Product): NormalizedDimensions {
-  if (product.dimensionReviewRequired) return {};
+  if (product.dimensionReviewRequired || product.excludeDimensionSearch) return {};
   const bearingDimensions = /bearing/i.test(`${product.category} ${product.title}`)
     ? parseBearingTriple(String(product.spec ?? "")) : {};
   const threadSpecification = (product.specifications ?? []).find((item) =>
@@ -116,7 +122,10 @@ export function getNormalizedDimensions(product: Product): NormalizedDimensions 
       dimensionFromSpecifications(product, "innerDiameterMm") ??
       bearingDimensions.innerDiameterMm,
     lengthMm:
-      product.length_mm ?? dimensionFromSpecifications(product, "lengthMm"),
+      dimensionFromSpecifications(product, "lengthMm") ??
+      // A legacy override must not turn Overall Length into ordinary Length.
+      (product.specifications?.some(row => /^overall length/i.test(normalizeLabel(row.label)))
+        ? undefined : product.length_mm),
     widthMm:
       dimensionFromSpecifications(product, "widthMm") ??
       bearingDimensions.widthMm,
@@ -130,6 +139,23 @@ export function getNormalizedDimensions(product: Product): NormalizedDimensions 
   }
   if (dimensions.outerDiameterMm !== undefined && dimensions.innerDiameterMm !== undefined && dimensions.innerDiameterMm >= dimensions.outerDiameterMm) return {};
   return dimensions;
+}
+
+// One search input accepts either explicitly labelled length, without conflating them.
+export function getSearchableLengths(product: Product): number[] {
+  if (product.dimensionReviewRequired || product.excludeDimensionSearch) return [];
+  const ordinaryLength = getNormalizedDimensions(product).lengthMm;
+  const values = [ordinaryLength];
+  for (const row of product.specifications ?? []) {
+    if (!/^overall length(?: \([a-z]\)| [a-z])?$/i.test(normalizeLabel(row.label))) continue;
+    if (typeof row.value !== "number" && !/\(mm\)/i.test(row.label) && !/\b(?:mm|in|inch|inches)\b|"/i.test(String(row.value))) continue;
+    const overallLength = parseMillimeters(row.value);
+    // Owner policy: when overall is shorter than ordinary length, use ordinary only.
+    if (overallLength !== undefined && (ordinaryLength === undefined || overallLength >= ordinaryLength)) {
+      values.push(overallLength);
+    }
+  }
+  return [...new Set(values.filter((value): value is number => value !== undefined && Number.isFinite(value) && value >= 0))];
 }
 
 export const FILTER_DIMENSION_TOLERANCE_MM = 3;
@@ -166,6 +192,9 @@ export function dimensionDistanceMm(
     const requested = criteria[field];
     if (requested === undefined) return distance;
 
+    if (field === "lengthMm") {
+      return distance + Math.min(...getSearchableLengths(product).map(value => Math.abs(value - requested)));
+    }
     const actual = normalized[field];
     return actual === undefined
       ? Number.POSITIVE_INFINITY
@@ -191,6 +220,10 @@ export function matchesDimensions(
     if (requested === undefined) continue;
     if (!Number.isFinite(requested) || requested < 0) return false;
 
+    if (field === "lengthMm") {
+      if (!getSearchableLengths(product).some(value => Math.abs(value - requested) <= toleranceMm)) return false;
+      continue;
+    }
     const actual = normalized[field];
     if (actual === undefined || Math.abs(actual - requested) > toleranceMm) {
       return false;

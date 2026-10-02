@@ -60,7 +60,7 @@ export async function generateMetadata({
       ? "ค้นหาสินค้าด้วยขนาด"
       : "Search Products by Dimensions",
     description: isThai
-      ? "ค้นหาไส้กรองจาก OD, ID, Length/Height และ Thread Size โดยรองรับช่วงขนาด ±3 มม."
+      ? "ค้นหาไส้กรองจาก OD, ID, Length / Overall Length และ Thread Size โดยรองรับช่วงขนาด ±3 มม."
       : "Find filters by OD, ID, length or height, and thread size with a ±3 mm filter tolerance.",
     alternates: {
       canonical: `/${locale}/products/dimensions`,
@@ -116,7 +116,7 @@ export default async function FilterDimensionSearchPage({
       ? `ID ${criteria.innerDiameterMm} mm`
       : "",
     criteria.lengthMm !== undefined
-      ? `Length ${criteria.lengthMm} mm`
+      ? `Length / Overall Length ${criteria.lengthMm} mm`
       : "",
     criteria.widthMm !== undefined ? `Width ${criteria.widthMm} mm` : "",
     criteria.threadSize ? `Thread ${criteria.threadSize}` : "",
@@ -192,7 +192,7 @@ export default async function FilterDimensionSearchPage({
                   { name: "width", label: isThai ? "ความกว้าง (Width)" : "Width", value: resolved.width, placeholder: "15" },
                   {
                     name: "length",
-                    label: isThai ? "Length / Height" : "Length / Height",
+                    label: isThai ? "Length / Overall Length" : "Length / Overall Length",
                     value: resolved.length,
                     placeholder: "173",
                   },
@@ -277,8 +277,8 @@ export default async function FilterDimensionSearchPage({
                 <p className="mt-1 text-sm text-[var(--color-text-muted)]">
                   {suppliedDimensionCount === 1
                     ? isThai
-                      ? "กรอก ID, Length/Height หรือ Thread Size เพิ่ม เพื่อให้ผลลัพธ์แม่นยำขึ้น"
-                      : "Add ID, Length/Height, or Thread Size for more precise results."
+                      ? "กรอก ID, Length / Overall Length หรือ Thread Size เพิ่ม เพื่อให้ผลลัพธ์แม่นยำขึ้น"
+                      : "Add ID, Length / Overall Length, or Thread Size for more precise results."
                     : isThai
                       ? "เรียงจากขนาดที่ใกล้ค่าที่กรอกที่สุด กรุณาตรวจสอบสเปกก่อนสั่งซื้อ"
                       : "Sorted by closest dimensions. Verify specifications before ordering."}

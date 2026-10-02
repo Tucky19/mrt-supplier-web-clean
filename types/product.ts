@@ -69,6 +69,8 @@ export type Product = {
 
   dataQuality?: "verified" | "draft" | "basic" | "needs_review";
   checkAvailability?: boolean;
+  inquiryOnly?: boolean;
+  excludeDimensionSearch?: boolean;
   partNumberOnly?: boolean;
   stockStatus?: "in_stock" | "low_stock" | "request" | string;
   mrtStockEvidence?: {
