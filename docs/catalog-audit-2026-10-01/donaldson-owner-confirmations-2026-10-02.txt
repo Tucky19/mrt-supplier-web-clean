@@ -9,3 +9,5 @@ P170306: Boss confirmed dimensions equal to P170310 at 09:13 Bangkok. Apply OD 7
 09:31 Bangkok: Boss explicitly confirmed mutual interchangeability of P170306, P170310, P170312, P170308; and P551006 with P552006. Added equivalent/verified Cross References to existing catalog records with owner_confirmation source. P170310/P170312/P170308 remain reference numbers, not new standalone product records. No publication.
 
 14:57 Bangkok: Boss explicitly removed P553505 and P582086 from the system. P538259 Diameter 347 mm confirmed for OD search. P551424 reconfirmed per newly supplied PDF: OD 80 / Length 154.3 mm; Type Water Separator; Style Cartridge; retain printed heading SPIN-ON; no Thread Size provided. These decisions supersede prior pending clarification.
+
+15:09 Bangkok: Boss confirmed C085004 per PDF. Body Diameter Maximum 215.9 / Body Length 241.3 mm mapped to OD/Length search; Outlet Diameter 76.2 mm remains separate and is not ID. Existing displayed PDF attributes verified; dimensional hold closed.
