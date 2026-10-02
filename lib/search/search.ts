@@ -859,6 +859,8 @@ export function searchFilterProductsByDimensions(
     criteria.innerDiameterMm !== undefined ||
     criteria.lengthMm !== undefined ||
     criteria.widthMm !== undefined ||
+    criteria.heightMm !== undefined ||
+    criteria.overallHeightMm !== undefined ||
     Boolean(criteria.threadSize?.trim());
 
   if (!hasCriteria) return [];
@@ -898,6 +900,8 @@ export function searchProductsByDimensions(
     criteria.innerDiameterMm !== undefined ||
     criteria.lengthMm !== undefined ||
     criteria.widthMm !== undefined ||
+    criteria.heightMm !== undefined ||
+    criteria.overallHeightMm !== undefined ||
     Boolean(criteria.threadSize?.trim());
 
   if (!hasCriteria) return [];

@@ -7,6 +7,9 @@ import {
   type FilterDimensionCategory,
 } from "@/lib/search/search";
 
+import { products } from "@/data/products";
+import { getNormalizedDimensions, normalizeThread } from "@/lib/search/dimensions";
+
 type PageProps = {
   params: Promise<{ locale: string }>;
   searchParams?: Promise<{
@@ -14,6 +17,8 @@ type PageProps = {
     id?: string;
     length?: string;
     width?: string;
+    height?: string;
+    overallHeight?: string;
     thread?: string;
     category?: string;
   }>;
@@ -60,7 +65,7 @@ export async function generateMetadata({
       ? "ค้นหาสินค้าด้วยขนาด"
       : "Search Products by Dimensions",
     description: isThai
-      ? "ค้นหาไส้กรองจาก OD, ID, Length / Overall Length และ Thread Size โดยรองรับช่วงขนาด ±3 มม."
+      ? "ค้นหาไส้กรองจาก OD, ID, Height / Overall Height และ Thread Size โดยรองรับช่วงขนาด ±3 มม."
       : "Find filters by OD, ID, length or height, and thread size with a ±3 mm filter tolerance.",
     alternates: {
       canonical: `/${locale}/products/dimensions`,
@@ -84,7 +89,9 @@ export default async function FilterDimensionSearchPage({
   const criteria = {
     outerDiameterMm: parsePositiveNumber(resolved.od),
     innerDiameterMm: parsePositiveNumber(resolved.id),
-    lengthMm: parsePositiveNumber(resolved.length),
+    lengthMm: resolved.height === undefined ? parsePositiveNumber(resolved.length) : undefined,
+    heightMm: parsePositiveNumber(resolved.height),
+    overallHeightMm: parsePositiveNumber(resolved.overallHeight),
     widthMm: parsePositiveNumber(resolved.width),
     threadSize: String(resolved.thread ?? "").trim() || undefined,
   };
@@ -93,6 +100,8 @@ export default async function FilterDimensionSearchPage({
     criteria.innerDiameterMm !== undefined ||
     criteria.lengthMm !== undefined ||
     criteria.widthMm !== undefined ||
+    criteria.heightMm !== undefined ||
+    criteria.overallHeightMm !== undefined ||
     Boolean(criteria.threadSize);
   const canSearch = hasCriteria && category !== undefined;
   const suppliedDimensionCount = [
@@ -100,6 +109,8 @@ export default async function FilterDimensionSearchPage({
     criteria.innerDiameterMm,
     criteria.lengthMm,
     criteria.widthMm,
+    criteria.heightMm,
+    criteria.overallHeightMm,
     criteria.threadSize,
   ].filter((value) => value !== undefined && value !== "").length;
   const results = canSearch
@@ -116,13 +127,20 @@ export default async function FilterDimensionSearchPage({
       ? `ID ${criteria.innerDiameterMm} mm`
       : "",
     criteria.lengthMm !== undefined
-      ? `Length / Overall Length ${criteria.lengthMm} mm`
+      ? `Height / Overall Height ${criteria.lengthMm} mm`
       : "",
     criteria.widthMm !== undefined ? `Width ${criteria.widthMm} mm` : "",
+    criteria.heightMm !== undefined ? `Height ${criteria.heightMm} mm` : "",
+    criteria.overallHeightMm !== undefined ? `Overall Height ${criteria.overallHeightMm} mm` : "",
     criteria.threadSize ? `Thread ${criteria.threadSize}` : "",
   ]
     .filter(Boolean)
     .join(" · ");
+
+  const threadOptions = [...new Map(products.map(product => getNormalizedDimensions(product).threadSize)
+    .filter((value): value is string => Boolean(value))
+    .map(value => [normalizeThread(value), value] as const)).values()]
+    .sort((a, b) => a.localeCompare(b, "en", { numeric: true }));
 
   return (
     <div className="mrt-blueprint-shell min-h-screen">
@@ -189,11 +207,11 @@ export default async function FilterDimensionSearchPage({
                     value: resolved.id,
                     placeholder: "62",
                   },
-                  { name: "width", label: isThai ? "ความกว้าง (Width)" : "Width", value: resolved.width, placeholder: "15" },
+                  { name: "height", label: isThai ? "ความสูง (Height)" : "Height", value: resolved.height, placeholder: "173" },
                   {
-                    name: "length",
-                    label: isThai ? "Length / Overall Length" : "Length / Overall Length",
-                    value: resolved.length,
+                    name: "overallHeight",
+                    label: isThai ? "ความสูงทั้งหมด (Overall Height)" : "Overall Height",
+                    value: resolved.overallHeight,
                     placeholder: "173",
                   },
                 ].map((field) => (
@@ -217,15 +235,16 @@ export default async function FilterDimensionSearchPage({
                   <span className="mb-1.5 block text-sm font-semibold text-[var(--color-text)]">
                     Thread Size
                   </span>
-                  <input
+                  <select
                     name="thread"
-                    type="text"
                     defaultValue={resolved.thread}
-                    placeholder="1-12 UN"
                     className="min-h-11 w-full rounded-[var(--mrt-radius-md)] border border-[var(--color-border-strong)] bg-[var(--color-surface)] px-3 text-sm text-[var(--color-text)]"
-                  />
+                  >
+                    <option value="">{isThai ? "เลือกขนาดเกลียว" : "Select thread size"}</option>
+                    {threadOptions.map(thread => <option key={thread} value={thread}>{thread}</option>)}
+                  </select>
                   <span className="mt-1 block text-xs text-[var(--color-text-muted)]">
-                    {isThai ? "ต้องตรงกับสินค้า" : "Exact match"}
+                    {isThai ? "ตัวเลือกจากสินค้าที่มีในเว็บไซต์" : "Options from website products"}
                   </span>
                 </label>
               </div>
@@ -277,8 +296,8 @@ export default async function FilterDimensionSearchPage({
                 <p className="mt-1 text-sm text-[var(--color-text-muted)]">
                   {suppliedDimensionCount === 1
                     ? isThai
-                      ? "กรอก ID, Length / Overall Length หรือ Thread Size เพิ่ม เพื่อให้ผลลัพธ์แม่นยำขึ้น"
-                      : "Add ID, Length / Overall Length, or Thread Size for more precise results."
+                      ? "กรอก ID, Height / Overall Height หรือ Thread Size เพิ่ม เพื่อให้ผลลัพธ์แม่นยำขึ้น"
+                      : "Add ID, Height / Overall Height, or Thread Size for more precise results."
                     : isThai
                       ? "เรียงจากขนาดที่ใกล้ค่าที่กรอกที่สุด กรุณาตรวจสอบสเปกก่อนสั่งซื้อ"
                       : "Sorted by closest dimensions. Verify specifications before ordering."}

@@ -217,3 +217,12 @@ const conflictingLength = {...filter,specifications:[{label:"Overall Length",val
 assert.deepEqual(getSearchableLengths(conflictingLength),[524]);
 assert.equal(matchesDimensions(conflictingLength,{lengthMm:517.8,toleranceMm:3}),false);
 assert.equal(matchesDimensions(conflictingLength,{lengthMm:524}),true);
+
+// Separate Height and Overall Height must not accept one another's values.
+assert.ok(matchesDimensions(dualLength, {heightMm:171.6, overallHeightMm:178.6}));
+assert.ok(!matchesDimensions(dualLength, {heightMm:178.6}));
+assert.ok(!matchesDimensions(dualLength, {overallHeightMm:171.6}));
+assert.ok(!matchesDimensions({...dualLength,specifications:[{label:"Length",value:"171.6 mm"}]}, {overallHeightMm:171.6}));
+assert.ok(searchFilterProductsByDimensions({heightMm:457.2,overallHeightMm:469.9},{category:"all_products",limit:800}).some(p=>p.partNo==="P181039"));
+assert.ok(searchFilterProductsByDimensions({heightMm:241.3,outerDiameterMm:215.9},{category:"all_products",limit:800}).some(p=>p.partNo==="C085004"));
+console.log("Separate height and overall height verification passed.");
