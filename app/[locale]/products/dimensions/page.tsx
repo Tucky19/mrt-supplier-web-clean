@@ -7,7 +7,7 @@ import {
   type FilterDimensionCategory,
 } from "@/lib/search/search";
 
-import { products } from "@/data/products";
+import { products } from "@/data/products/index";
 import { getNormalizedDimensions, normalizeThread } from "@/lib/search/dimensions";
 
 type PageProps = {
