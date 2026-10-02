@@ -157,6 +157,13 @@ export function applyCatalogCorrections(product: Product): Product {
       ],
     };
   }
+  // Boss confirmed C085004 per supplied PDF on 2026-10-02 15:09 Bangkok.
+  // Body dimensions drive OD/Length search; Outlet Diameter is not filter ID.
+  if (product.partNo === "C085004" && product.brand.toLowerCase() === "donaldson") result = {
+    ...result, dimensionReviewRequired: false, partNumberOnly: false,
+    od_mm: 215.9, length_mm: 241.3, id_mm: undefined,
+    sourceNote: "Boss confirmed c085004.pdf on 2026-10-02: Body Diameter Maximum 215.9 mm, Body Length 241.3 mm, Outlet Diameter 76.2 mm. Body dimensions used for OD/Length search; outlet is displayed separately.",
+  };
   const brandImage = product.brand === "FULL"
     ? "/images/brands/secondary/full-filter.webp"
     : product.brand === "BLACK CLUB" ? "/images/brands/secondary/backcup.webp" : undefined;
