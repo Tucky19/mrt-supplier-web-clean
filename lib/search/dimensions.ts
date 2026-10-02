@@ -13,6 +13,8 @@ export type NormalizedDimensions = Partial<Record<DimensionField, number>> & {
 export type DimensionSearchCriteria = Partial<Record<DimensionField, number>> & {
   threadSize?: string;
   toleranceMm?: number;
+  heightMm?: number;
+  overallHeightMm?: number;
 };
 
 const FIELD_LABELS: Record<DimensionField, RegExp[]> = {
@@ -60,7 +62,7 @@ function normalizeLabel(label: string) {
   return label.trim().replace(/\s*\(mm\)\s*$/i, "").replace(/\s+/g, " ");
 }
 
-function normalizeThread(value: string) {
+export function normalizeThread(value: string) {
   return value.toLowerCase().replace(/[\s_/-]+/g, "");
 }
 
@@ -158,6 +160,24 @@ export function getSearchableLengths(product: Product): number[] {
   return [...new Set(values.filter((value): value is number => value !== undefined && Number.isFinite(value) && value >= 0))];
 }
 
+// Height search uses the ordinary axial dimension; bearing width is its axial height.
+export function getSearchHeight(product: Product): number | undefined {
+  const dims = getNormalizedDimensions(product);
+  return /bearing/i.test(`${product.category} ${product.title}`) ? dims.widthMm : dims.lengthMm;
+}
+
+export function getOverallSearchHeight(product: Product): number | undefined {
+  if (product.dimensionReviewRequired || product.excludeDimensionSearch) return undefined;
+  const ordinary = getSearchHeight(product);
+  for (const row of product.specifications ?? []) {
+    if (!/^overall (?:length|height)(?: \([a-z]\)| [a-z])?$/i.test(normalizeLabel(row.label))) continue;
+    if (typeof row.value !== "number" && !/\(mm\)/i.test(row.label) && !/\b(?:mm|in|inch|inches)\b|"/i.test(String(row.value))) continue;
+    const value = parseMillimeters(row.value);
+    if (value !== undefined && (ordinary === undefined || value >= ordinary)) return value;
+  }
+  return undefined;
+}
+
 export const FILTER_DIMENSION_TOLERANCE_MM = 3;
 
 export function isFilterProduct(product: Product) {
@@ -188,6 +208,11 @@ export function dimensionDistanceMm(
     "widthMm",
   ];
 
+  const heightDistance = [
+    [criteria.heightMm, getSearchHeight(product)],
+    [criteria.overallHeightMm, getOverallSearchHeight(product)],
+  ].reduce((sum, [requested, actual]) => requested === undefined ? sum :
+    sum + (actual === undefined ? Number.POSITIVE_INFINITY : Math.abs(actual - requested)), 0);
   return fields.reduce((distance, field) => {
     const requested = criteria[field];
     if (requested === undefined) return distance;
@@ -199,7 +224,7 @@ export function dimensionDistanceMm(
     return actual === undefined
       ? Number.POSITIVE_INFINITY
       : distance + Math.abs(actual - requested);
-  }, 0);
+  }, heightDistance);
 }
 
 export function matchesDimensions(
@@ -228,6 +253,13 @@ export function matchesDimensions(
     if (actual === undefined || Math.abs(actual - requested) > toleranceMm) {
       return false;
     }
+  }
+
+  for (const [requested, actual] of [
+    [criteria.heightMm, getSearchHeight(product)],
+    [criteria.overallHeightMm, getOverallSearchHeight(product)],
+  ]) {
+    if (requested !== undefined && (!Number.isFinite(requested) || requested < 0 || actual === undefined || Math.abs(actual - requested) > toleranceMm)) return false;
   }
 
   if (criteria.threadSize) {
