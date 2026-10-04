@@ -2018,5 +2018,166 @@
         "value": "169 mm"
       }
     ]
+  },
+  "P822768": {
+    "source": "01-p822768.pdf",
+    "sha256": "cc21172e368180bcfac085235aa4049e81ff4e5fcbce7818b6629781ed577e54",
+    "checkedAt": "2026-10-04",
+    "dimensions": [
+      {
+        "label": "Outer Diameter",
+        "value": "128.5 mm"
+      },
+      {
+        "label": "Inner Diameter",
+        "value": "81.3 mm"
+      },
+      {
+        "label": "Length",
+        "value": "304 mm"
+      }
+    ]
+  },
+  "P114931": {
+    "source": "02-p114931.pdf",
+    "sha256": "ef4837274ea6bf20237e9554139ae65ae6da85faed2e68e7c6122df428e5b873",
+    "checkedAt": "2026-10-04",
+    "dimensions": [
+      {
+        "label": "Overall Length",
+        "value": "432.9 mm"
+      },
+      {
+        "label": "Outer Diameter",
+        "value": "219.96 mm"
+      },
+      {
+        "label": "Inner Diameter",
+        "value": "179.2 mm"
+      },
+      {
+        "label": "Length",
+        "value": "423.2 mm"
+      },
+      {
+        "label": "Gasket ID",
+        "value": "190.5 mm"
+      }
+    ]
+  },
+  "P181035": {
+    "source": "03-p181035.pdf",
+    "sha256": "ec0a1da1a9a0e52644042407fc0521a6727bd9c9aedb1d026009898bdb68b593",
+    "checkedAt": "2026-10-04",
+    "dimensions": [
+      {
+        "label": "Outer Diameter",
+        "value": "234.1 mm"
+      },
+      {
+        "label": "Inner Diameter",
+        "value": "123 mm"
+      },
+      {
+        "label": "Length",
+        "value": "254 mm"
+      },
+      {
+        "label": "Minor OD",
+        "value": "13.5 mm"
+      }
+    ]
+  },
+  "P181046": {
+    "source": "04-p181046.pdf",
+    "sha256": "bd4fd0d394478dddecafcd06307066b0aa1883fd45a39058a63fb2ba79149f39",
+    "checkedAt": "2026-10-04",
+    "dimensions": [
+      {
+        "label": "Overall Length",
+        "value": "419.1 mm"
+      },
+      {
+        "label": "Outer Diameter",
+        "value": "281.8 mm"
+      },
+      {
+        "label": "Inner Diameter",
+        "value": "170.8 mm"
+      },
+      {
+        "label": "Length",
+        "value": "406.4 mm"
+      },
+      {
+        "label": "Bolt Hole Diameter",
+        "value": "16.76 mm"
+      }
+    ]
+  },
+  "P181064": {
+    "source": "06-p181064.pdf",
+    "sha256": "4d2b394891db054360e65a7cdd54cf1e7630fbb9795a5d184271842391166df6",
+    "checkedAt": "2026-10-04",
+    "dimensions": [
+      {
+        "label": "Outer Diameter",
+        "value": "201.1 mm"
+      },
+      {
+        "label": "Inner Diameter",
+        "value": "134.9 mm"
+      },
+      {
+        "label": "Length",
+        "value": "406.4 mm"
+      },
+      {
+        "label": "Bolt Hole Diameter",
+        "value": "16.76 mm"
+      }
+    ]
+  },
+  "P181054": {
+    "source": "07-p181054.pdf",
+    "sha256": "1fbb65d324028ae64b9ee199c1ffada6b3690d4283c02655e3bf2e0aaacd304d",
+    "checkedAt": "2026-10-04",
+    "dimensions": [
+      {
+        "label": "Outer Diameter",
+        "value": "154.8 mm"
+      },
+      {
+        "label": "Inner Diameter",
+        "value": "88.3 mm"
+      },
+      {
+        "label": "Length",
+        "value": "304.8 mm"
+      },
+      {
+        "label": "Minor OD",
+        "value": "16.76 mm"
+      }
+    ]
+  },
+  "P829333": {
+    "source": "08-p829333.pdf",
+    "sha256": "10679fce9278b1832737dd06525090693de4d2c89021a4faf2980ddf70ae507e",
+    "checkedAt": "2026-10-04",
+    "dimensions": [
+      {
+        "label": "Outer Diameter",
+        "value": "94.6 mm"
+      },
+      {
+        "label": "Inner Diameter",
+        "value": "74.1 mm"
+      },
+      {
+        "label": "Length",
+        "value": "339.5 mm"
+      }
+    ]
   }
 }
