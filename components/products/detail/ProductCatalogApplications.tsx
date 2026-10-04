@@ -1,8 +1,8 @@
 import type { CatalogApplication } from "@/types/product";
 import { getProductUiText } from "@/lib/i18n/productUi";
 
-export default function ProductCatalogApplications({ entries, locale }: {
-  entries?: CatalogApplication[]; locale: string;
+export default function ProductCatalogApplications({ entries, locale, partNo }: {
+  entries?: CatalogApplication[]; locale: string; partNo: string;
 }) {
   if (!entries?.length) return null;
   const text = getProductUiText(locale);
@@ -15,8 +15,9 @@ export default function ProductCatalogApplications({ entries, locale }: {
         {entries.map((entry, index) => (
           <li key={`${entry.sourceTable}-${index}`} className="space-y-1 py-4 text-sm">
             <p className="font-semibold text-slate-900">{entry.equipment}</p>
+            <p className="text-slate-600">{locale === "th" ? "แบรนด์เครื่องจักร" : "Machine brand"}: {entry.machineBrand} · Model: {entry.machineModel || text.catalogMissing}</p>
             <p className="text-slate-600">{entry.description}</p>
-            <p className="break-words">{text.catalogOem}: {entry.oemRaw || text.catalogMissing}</p>
+            <p className="break-words">Donaldson Part: {partNo} {entry.needsReview || !entry.oemRaw ? "→" : "="} OEM Part: {entry.oemRaw || text.catalogMissing}</p>
             <p className="text-xs text-slate-500">{text.catalogPage} {entry.page}</p>
             {entry.needsReview && <p className="text-xs text-amber-800">{text.catalogReview}</p>}
           </li>

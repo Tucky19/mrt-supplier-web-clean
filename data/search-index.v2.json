@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generatedAt": "2026-10-04T16:01:11.428Z",
+  "generatedAt": "2026-10-04T16:12:34.941Z",
   "counts": {
     "items": 798,
     "prefix2": 73,
@@ -38,6 +38,8 @@
       "catalogApplications": [
         {
           "equipment": "SANY SY240C",
+          "machineBrand": "SANY",
+          "machineModel": "SY240C",
           "description": "AIR FILTER, PANEL",
           "oemRaw": "B222100000660K",
           "oemPartNumbers": [
@@ -50,6 +52,8 @@
         },
         {
           "equipment": "SANY SY240C-9 Isuzu Engine CC6BG1TRP",
+          "machineBrand": "SANY",
+          "machineModel": "SY240C-9",
           "description": "AIR FILTER, PANEL",
           "oemRaw": "B222100000660K",
           "oemPartNumbers": [
@@ -82,6 +86,8 @@
       "catalogApplications": [
         {
           "equipment": "SANY SY240C",
+          "machineBrand": "SANY",
+          "machineModel": "SY240C",
           "description": "HYDRAULIC FILTER, CARTRIDGE",
           "oemRaw": "A222100000119",
           "oemPartNumbers": [
@@ -94,6 +100,8 @@
         },
         {
           "equipment": "SANY SY35U Yanmar Engine",
+          "machineBrand": "SANY",
+          "machineModel": "SY35U",
           "description": "HYDRAULIC FILTER, CARTRIDGE",
           "oemRaw": "A222100000119",
           "oemPartNumbers": [
@@ -106,6 +114,8 @@
         },
         {
           "equipment": "SANY SY35C Yanmar Engine",
+          "machineBrand": "SANY",
+          "machineModel": "SY35C",
           "description": "HYDRAULIC FILTER, CARTRIDGE",
           "oemRaw": "A222100000119",
           "oemPartNumbers": [
@@ -118,6 +128,8 @@
         },
         {
           "equipment": "SANY SY55 Isuzu Engine 4JG1",
+          "machineBrand": "SANY",
+          "machineModel": "SY55",
           "description": "HYDRAULIC FILTER, CARTRIDGE",
           "oemRaw": "A222100000119",
           "oemPartNumbers": [
@@ -130,6 +142,8 @@
         },
         {
           "equipment": "SANY SY75C Isuzu Engine 4LE2X",
+          "machineBrand": "SANY",
+          "machineModel": "SY75C",
           "description": "HYDRAULIC FILTER, CARTRIDGE",
           "oemRaw": "A222100000119",
           "oemPartNumbers": [
@@ -142,6 +156,8 @@
         },
         {
           "equipment": "SANY SY135 Isuzu Engine 4JJ1X",
+          "machineBrand": "SANY",
+          "machineModel": "SY135",
           "description": "HYDRAULIC FILTER, CARTRIDGE",
           "oemRaw": "A222100000119",
           "oemPartNumbers": [
@@ -154,6 +170,8 @@
         },
         {
           "equipment": "SANY SY200 Mitsubishi Engine 4M50",
+          "machineBrand": "SANY",
+          "machineModel": "SY200",
           "description": "HYDRAULIC FILTER, CARTRIDGE",
           "oemRaw": "A222100000119",
           "oemPartNumbers": [
@@ -166,6 +184,8 @@
         },
         {
           "equipment": "SANY SY200 Mitsubishi Engine 4M50",
+          "machineBrand": "SANY",
+          "machineModel": "SY200",
           "description": "HYDRAULIC FILTER, CARTRIDGE",
           "oemRaw": "A222100000119",
           "oemPartNumbers": [
@@ -178,6 +198,8 @@
         },
         {
           "equipment": "SANY SY200C Mitsubishi Engine 4M50",
+          "machineBrand": "SANY",
+          "machineModel": "SY200C",
           "description": "HYDRAULIC FILTER, CARTRIDGE",
           "oemRaw": "A222100000119",
           "oemPartNumbers": [
@@ -190,6 +212,8 @@
         },
         {
           "equipment": "SANY SY205C SANY Engine D0652",
+          "machineBrand": "SANY",
+          "machineModel": "SY205C",
           "description": "HYDRAULIC FILTER, CARTRIDGE",
           "oemRaw": "A222100000119",
           "oemPartNumbers": [
@@ -202,6 +226,8 @@
         },
         {
           "equipment": "SANY SY205C-9 SANY Engine D06",
+          "machineBrand": "SANY",
+          "machineModel": "SY205C-9",
           "description": "HYDRAULIC FILTER, CARTRIDGE",
           "oemRaw": "A222100000119",
           "oemPartNumbers": [
@@ -214,6 +240,8 @@
         },
         {
           "equipment": "SANY SY215C Mitsubishi Engine 4M50",
+          "machineBrand": "SANY",
+          "machineModel": "SY215C",
           "description": "HYDRAULIC FILTER, CARTRIDGE",
           "oemRaw": "A222100000119",
           "oemPartNumbers": [
@@ -226,6 +254,8 @@
         },
         {
           "equipment": "SANY SY215C SANY Engine D06",
+          "machineBrand": "SANY",
+          "machineModel": "SY215C",
           "description": "HYDRAULIC FILTER, CARTRIDGE",
           "oemRaw": "A222100000119",
           "oemPartNumbers": [
@@ -238,6 +268,8 @@
         },
         {
           "equipment": "SANY SY225C-9 Mitsubishi Engine 6D34TL",
+          "machineBrand": "SANY",
+          "machineModel": "SY225C-9",
           "description": "HYDRAULIC FILTER, CARTRIDGE",
           "oemRaw": "A222100000119",
           "oemPartNumbers": [
@@ -250,6 +282,8 @@
         },
         {
           "equipment": "SANY SY240C-9 Isuzu Engine CC6BG1TRP",
+          "machineBrand": "SANY",
+          "machineModel": "SY240C-9",
           "description": "HYDRAULIC FILTER, CARTRIDGE",
           "oemRaw": "A222100000119",
           "oemPartNumbers": [
@@ -262,6 +296,8 @@
         },
         {
           "equipment": "SANY SY265C Mitsubishi Engine D06FRC",
+          "machineBrand": "SANY",
+          "machineModel": "SY265C",
           "description": "HYDRAULIC FILTER, CARTRIDGE",
           "oemRaw": "A222100000119",
           "oemPartNumbers": [
@@ -274,6 +310,8 @@
         },
         {
           "equipment": "SANY SY365 Isuzu Engine 6HK1-XDHAG-01-C3",
+          "machineBrand": "SANY",
+          "machineModel": "SY365",
           "description": "HYDRAULIC FILTER, CARTRIDGE",
           "oemRaw": "A222100000119",
           "oemPartNumbers": [
@@ -286,6 +324,8 @@
         },
         {
           "equipment": "SANY SY375 Isuzu Engine GH-6HK 1XKSC-01",
+          "machineBrand": "SANY",
+          "machineModel": "SY375",
           "description": "HYDRAULIC FILTER, CARTRIDGE",
           "oemRaw": "A222100000119",
           "oemPartNumbers": [
@@ -298,6 +338,8 @@
         },
         {
           "equipment": "SANY SY500H Isuzu Engine 6WG1",
+          "machineBrand": "SANY",
+          "machineModel": "SY500H",
           "description": "HYDRAULIC FILTER, CARTRIDGE",
           "oemRaw": "A222100000119",
           "oemPartNumbers": [
@@ -310,6 +352,8 @@
         },
         {
           "equipment": "SANY SY750H Isuzu Engine 6WG1",
+          "machineBrand": "SANY",
+          "machineModel": "SY750H",
           "description": "HYDRAULIC FILTER, CARTRIDGE",
           "oemRaw": "A222100000119",
           "oemPartNumbers": [
@@ -363,6 +407,8 @@
       "catalogApplications": [
         {
           "equipment": "SANY SY35U Yanmar Engine",
+          "machineBrand": "SANY",
+          "machineModel": "SY35U",
           "description": "FUEL FILTER, WATER SEPARATOR SPIN-ON",
           "oemRaw": "60058453",
           "oemPartNumbers": [
@@ -375,6 +421,8 @@
         },
         {
           "equipment": "SANY SY35C Yanmar Engine",
+          "machineBrand": "SANY",
+          "machineModel": "SY35C",
           "description": "FUEL FILTER, WATER SEPARATOR SPIN-ON",
           "oemRaw": "60058453",
           "oemPartNumbers": [
@@ -387,6 +435,8 @@
         },
         {
           "equipment": "SANY SY55 Isuzu Engine 4JG1",
+          "machineBrand": "SANY",
+          "machineModel": "SY55",
           "description": "FUEL FILTER, WATER SEPARATOR SPIN-ON",
           "oemRaw": "60220063",
           "oemPartNumbers": [
@@ -399,6 +449,8 @@
         },
         {
           "equipment": "SANY SY75C Isuzu Engine 4LE2X",
+          "machineBrand": "SANY",
+          "machineModel": "SY75C",
           "description": "FUEL FILTER, WATER SEPARATOR SPIN-ON",
           "oemRaw": "B222100000730",
           "oemPartNumbers": [
@@ -411,6 +463,8 @@
         },
         {
           "equipment": "XCMG XE135C Isuzu Engine 4BG1",
+          "machineBrand": "XCMG",
+          "machineModel": "XE135C",
           "description": "FUEL FILTER, WATER SEPARATOR SPIN-ON",
           "oemRaw": "XCMG-RXL-01301",
           "oemPartNumbers": [
@@ -460,6 +514,8 @@
       "catalogApplications": [
         {
           "equipment": "SANY SY35U Yanmar Engine",
+          "machineBrand": "SANY",
+          "machineModel": "SY35U",
           "description": "LUBE FILTER, SPIN-ON FULL FLOW",
           "oemRaw": "60273112",
           "oemPartNumbers": [
@@ -472,6 +528,8 @@
         },
         {
           "equipment": "SANY SY35C Yanmar Engine",
+          "machineBrand": "SANY",
+          "machineModel": "SY35C",
           "description": "LUBE FILTER, SPIN-ON FULL FLOW",
           "oemRaw": "60273112",
           "oemPartNumbers": [
@@ -525,6 +583,8 @@
       "catalogApplications": [
         {
           "equipment": "SANY SY35U Yanmar Engine",
+          "machineBrand": "SANY",
+          "machineModel": "SY35U",
           "description": "FUEL FILTER, SPIN-ON",
           "oemRaw": "B222100000685",
           "oemPartNumbers": [
@@ -537,6 +597,8 @@
         },
         {
           "equipment": "SANY SY35C Yanmar Engine",
+          "machineBrand": "SANY",
+          "machineModel": "SY35C",
           "description": "FUEL FILTER, SPIN-ON",
           "oemRaw": "B222100000685",
           "oemPartNumbers": [
@@ -549,6 +611,8 @@
         },
         {
           "equipment": "SDLG LG670 Yanmar Engine 4TNV98",
+          "machineBrand": "SDLG",
+          "machineModel": "LG670",
           "description": "FUEL FILTER, SPIN-ON",
           "oemRaw": "4110000677002Y",
           "oemPartNumbers": [
@@ -638,6 +702,8 @@
       "catalogApplications": [
         {
           "equipment": "SANY SY75C Isuzu Engine 4LE2X",
+          "machineBrand": "SANY",
+          "machineModel": "SY75C",
           "description": "LUBE FILTER, SPIN-ON FULL FLOW",
           "oemRaw": "60197083",
           "oemPartNumbers": [
@@ -683,6 +749,8 @@
       "catalogApplications": [
         {
           "equipment": "SANY SY135 Isuzu Engine 4JJ1X",
+          "machineBrand": "SANY",
+          "machineModel": "SY135",
           "description": "FUEL FILTER, SPIN-ON",
           "oemRaw": "60282117",
           "oemPartNumbers": [
@@ -695,6 +763,8 @@
         },
         {
           "equipment": "SANY SY200 Mitsubishi Engine 4M50",
+          "machineBrand": "SANY",
+          "machineModel": "SY200",
           "description": "FUEL FILTER, SPIN-ON",
           "oemRaw": "60282117",
           "oemPartNumbers": [
@@ -707,6 +777,8 @@
         },
         {
           "equipment": "SANY SY365 Isuzu Engine 6HK1-XDHAG-01-C3",
+          "machineBrand": "SANY",
+          "machineModel": "SY365",
           "description": "FUEL FILTER, SPIN-ON",
           "oemRaw": "60282117",
           "oemPartNumbers": [
@@ -719,6 +791,8 @@
         },
         {
           "equipment": "SANY SY750H Isuzu Engine 6WG1",
+          "machineBrand": "SANY",
+          "machineModel": "SY750H",
           "description": "FUEL FILTER, WATER SEPARATOR SPIN-ON",
           "oemRaw": "60282117",
           "oemPartNumbers": [
@@ -764,6 +838,8 @@
       "catalogApplications": [
         {
           "equipment": "SANY SY200 Mitsubishi Engine 4M50",
+          "machineBrand": "SANY",
+          "machineModel": "SY200",
           "description": "FUEL FILTER, WATER SEPARATOR CARTRIDGE",
           "oemRaw": "B222100000729",
           "oemPartNumbers": [
@@ -776,6 +852,8 @@
         },
         {
           "equipment": "SANY SY200C Mitsubishi Engine 4M50",
+          "machineBrand": "SANY",
+          "machineModel": "SY200C",
           "description": "FUEL FILTER, WATER SEPARATOR CARTRIDGE",
           "oemRaw": "B222100000729",
           "oemPartNumbers": [
@@ -788,6 +866,8 @@
         },
         {
           "equipment": "SANY SY205C-9 SANY Engine D06",
+          "machineBrand": "SANY",
+          "machineModel": "SY205C-9",
           "description": "FUEL FILTER, WATER SEPARATOR CARTRIDGE",
           "oemRaw": "B222100000729",
           "oemPartNumbers": [
@@ -800,6 +880,8 @@
         },
         {
           "equipment": "SANY SY215C Mitsubishi Engine 4M50",
+          "machineBrand": "SANY",
+          "machineModel": "SY215C",
           "description": "FUEL FILTER, WATER SEPARATOR CARTRIDGE",
           "oemRaw": "B222100000729",
           "oemPartNumbers": [
@@ -855,6 +937,8 @@
       "catalogApplications": [
         {
           "equipment": "SANY SY205C SANY Engine D0652",
+          "machineBrand": "SANY",
+          "machineModel": "SY205C",
           "description": "FUEL FILTER, SPIN-ON",
           "oemRaw": "B222100000521",
           "oemPartNumbers": [
@@ -867,6 +951,8 @@
         },
         {
           "equipment": "SANY SY215C SANY Engine D06",
+          "machineBrand": "SANY",
+          "machineModel": "SY215C",
           "description": "FUEL FILTER, SPIN-ON",
           "oemRaw": "B222100000521",
           "oemPartNumbers": [
@@ -879,6 +965,8 @@
         },
         {
           "equipment": "SANY SY225C-9 Mitsubishi Engine 6D34TL",
+          "machineBrand": "SANY",
+          "machineModel": "SY225C-9",
           "description": "FUEL FILTER, SPIN-ON",
           "oemRaw": "B222100000521",
           "oemPartNumbers": [
@@ -956,6 +1044,8 @@
       "catalogApplications": [
         {
           "equipment": "SANY SY205C SANY Engine D0652",
+          "machineBrand": "SANY",
+          "machineModel": "SY205C",
           "description": "LUBE FILTER, SPIN-ON COMBINATION",
           "oemRaw": "B222100000551",
           "oemPartNumbers": [
@@ -968,6 +1058,8 @@
         },
         {
           "equipment": "SANY SY215C SANY Engine D06",
+          "machineBrand": "SANY",
+          "machineModel": "SY215C",
           "description": "LUBE FILTER, SPIN-ON COMBINATION",
           "oemRaw": "B222100000551",
           "oemPartNumbers": [
@@ -980,6 +1072,8 @@
         },
         {
           "equipment": "SANY SY225C-9 Mitsubishi Engine 6D34TL",
+          "machineBrand": "SANY",
+          "machineModel": "SY225C-9",
           "description": "LUBE FILTER, SPIN-ON COMBINATION",
           "oemRaw": "B222100000551",
           "oemPartNumbers": [
@@ -1057,6 +1151,8 @@
       "catalogApplications": [
         {
           "equipment": "SANY SY225C-9 Mitsubishi Engine 6D34TL",
+          "machineBrand": "SANY",
+          "machineModel": "SY225C-9",
           "description": "FUEL FILTER, WATER SEPARATOR SPIN-ON",
           "oemRaw": "60205961",
           "oemPartNumbers": [
@@ -1146,6 +1242,8 @@
       "catalogApplications": [
         {
           "equipment": "SANY SY245H Mitsubishi Engine 6D24TC",
+          "machineBrand": "SANY",
+          "machineModel": "SY245H",
           "description": "FUEL FILTER, WATER SEPARATOR SPIN-ON TWIST&DRAIN",
           "oemRaw": "60205949",
           "oemPartNumbers": [
@@ -1158,6 +1256,8 @@
         },
         {
           "equipment": "SANY SY465H Mitsubishi Engine 6D24-TLC1B",
+          "machineBrand": "SANY",
+          "machineModel": "SY465H",
           "description": "FUEL FILTER, WATER SEPARATOR SPIN-ON TWIST&DRAIN",
           "oemRaw": "60205949",
           "oemPartNumbers": [
@@ -1170,6 +1270,8 @@
         },
         {
           "equipment": "SANY SY500H Isuzu Engine 6WG1",
+          "machineBrand": "SANY",
+          "machineModel": "SY500H",
           "description": "FUEL FILTER, WATER SEPARATOR SPIN-ON TWIST&DRAIN",
           "oemRaw": "60206017",
           "oemPartNumbers": [
@@ -1182,6 +1284,8 @@
         },
         {
           "equipment": "SANY SY750H Isuzu Engine 6WG1",
+          "machineBrand": "SANY",
+          "machineModel": "SY750H",
           "description": "FUEL FILTER, WATER SEPARATOR SPIN-ON TWIST&DRAIN",
           "oemRaw": "60250800",
           "oemPartNumbers": [
@@ -1214,6 +1318,8 @@
       "catalogApplications": [
         {
           "equipment": "SANY SY245H Mitsubishi Engine 6D24TC",
+          "machineBrand": "SANY",
+          "machineModel": "SY245H",
           "description": "HYDRAULIC FILTER, CARTRIDGE",
           "oemRaw": "B222100000346",
           "oemPartNumbers": [
@@ -1226,6 +1332,8 @@
         },
         {
           "equipment": "SANY SY465H Mitsubishi Engine 6D24-TLC1B",
+          "machineBrand": "SANY",
+          "machineModel": "SY465H",
           "description": "HYDRAULIC FILTER, CARTRIDGE",
           "oemRaw": "B222100000346",
           "oemPartNumbers": [
@@ -1258,6 +1366,8 @@
       "catalogApplications": [
         {
           "equipment": "SANY SY265C Mitsubishi Engine D06FRC",
+          "machineBrand": "SANY",
+          "machineModel": "SY265C",
           "description": "AIR FILTER, PRIMARY RADIALSEAL",
           "oemRaw": "60207265",
           "oemPartNumbers": [
@@ -1290,6 +1400,8 @@
       "catalogApplications": [
         {
           "equipment": "SANY SY265C Mitsubishi Engine D06FRC",
+          "machineBrand": "SANY",
+          "machineModel": "SY265C",
           "description": "AIR FILTER, SAFETY RADIALSEAL",
           "oemRaw": "60207264",
           "oemPartNumbers": [
@@ -1322,6 +1434,8 @@
       "catalogApplications": [
         {
           "equipment": "SANY SYL956H5 Cummins Engine QSL8.9-C220",
+          "machineBrand": "SANY",
+          "machineModel": "SYL956H5",
           "description": "AIR FILTER, PRIMARY RADIALSEAL",
           "oemRaw": "60310784",
           "oemPartNumbers": [
@@ -1354,6 +1468,8 @@
       "catalogApplications": [
         {
           "equipment": "SANY SYL956H5 Cummins Engine QSL8.9-C220",
+          "machineBrand": "SANY",
+          "machineModel": "SYL956H5",
           "description": "AIR FILTER, SAFETY",
           "oemRaw": "60310783",
           "oemPartNumbers": [
@@ -1399,6 +1515,8 @@
       "catalogApplications": [
         {
           "equipment": "SANY SY365 Isuzu Engine 6HK1-XDHAG-01-C3",
+          "machineBrand": "SANY",
+          "machineModel": "SY365",
           "description": "FUEL FILTER, WATER SEPARATOR CARTRIDGE",
           "oemRaw": "60249072",
           "oemPartNumbers": [
@@ -1411,6 +1529,8 @@
         },
         {
           "equipment": "SANY SY500H Isuzu Engine 6WG1",
+          "machineBrand": "SANY",
+          "machineModel": "SY500H",
           "description": "FUEL FILTER, WATER SEPARATOR CARTRIDGE",
           "oemRaw": "60249072",
           "oemPartNumbers": [
@@ -1423,6 +1543,8 @@
         },
         {
           "equipment": "SANY SY750H Isuzu Engine 6WG1",
+          "machineBrand": "SANY",
+          "machineModel": "SY750H",
           "description": "FUEL FILTER, WATER SEPARATOR CARTRIDGE",
           "oemRaw": "60249072",
           "oemPartNumbers": [
@@ -1478,6 +1600,8 @@
       "catalogApplications": [
         {
           "equipment": "SANY SY750H Isuzu Engine 6WG1",
+          "machineBrand": "SANY",
+          "machineModel": "SY750H",
           "description": "AIR FILTER, SAFETY",
           "oemRaw": "60170568",
           "oemPartNumbers": [
@@ -1531,6 +1655,8 @@
       "catalogApplications": [
         {
           "equipment": "SANY SY750H Isuzu Engine 6WG1",
+          "machineBrand": "SANY",
+          "machineModel": "SY750H",
           "description": "AIR FILTER, PRIMARY ROUND",
           "oemRaw": "60170569",
           "oemPartNumbers": [
@@ -1580,6 +1706,8 @@
       "catalogApplications": [
         {
           "equipment": "LIUGONG GLG922F",
+          "machineBrand": "LIUGONG",
+          "machineModel": "GLG922F",
           "description": "FUEL FILTER, SPIN-ON SECONDARY",
           "oemRaw": "53C0841",
           "oemPartNumbers": [
@@ -1592,6 +1720,8 @@
         },
         {
           "equipment": "LIUGONG GLG856H",
+          "machineBrand": "LIUGONG",
+          "machineModel": "GLG856H",
           "description": "FUEL FILTER, SPIN-ON SECONDARY",
           "oemRaw": "53C0841",
           "oemPartNumbers": [
@@ -1624,6 +1754,8 @@
       "catalogApplications": [
         {
           "equipment": "LIUGONG GLG922F",
+          "machineBrand": "LIUGONG",
+          "machineModel": "GLG922F",
           "description": "AIR FILTER, SAFETY",
           "oemRaw": "60C2200",
           "oemPartNumbers": [
@@ -1636,6 +1768,8 @@
         },
         {
           "equipment": "LIUGONG GLG922F",
+          "machineBrand": "LIUGONG",
+          "machineModel": "GLG922F",
           "description": "AIR FILTER, SAFETY OBROUND",
           "oemRaw": "60C2200",
           "oemPartNumbers": [
@@ -1668,6 +1802,8 @@
       "catalogApplications": [
         {
           "equipment": "LIUGONG GLG922F",
+          "machineBrand": "LIUGONG",
+          "machineModel": "GLG922F",
           "description": "AIR FILTER, PRIMARY",
           "oemRaw": "60C2199",
           "oemPartNumbers": [
@@ -1700,6 +1836,8 @@
       "catalogApplications": [
         {
           "equipment": "LIUGONG GLG835",
+          "machineBrand": "LIUGONG",
+          "machineModel": "GLG835",
           "description": "AIR FILTER, PRIMARY ROUND",
           "oemRaw": "40C0090",
           "oemPartNumbers": [
@@ -1732,6 +1870,8 @@
       "catalogApplications": [
         {
           "equipment": "LIUGONG GLG835",
+          "machineBrand": "LIUGONG",
+          "machineModel": "GLG835",
           "description": "AIR FILTER, SAFETY",
           "oemRaw": "40C0232",
           "oemPartNumbers": [
@@ -1821,6 +1961,8 @@
       "catalogApplications": [
         {
           "equipment": "LIUGONG GLG835",
+          "machineBrand": "LIUGONG",
+          "machineModel": "GLG835",
           "description": "FUEL FILTER, WATER SEPARATOR SPIN-ON TWIST&DRAIN",
           "oemRaw": "FS19616",
           "oemPartNumbers": [
@@ -1853,6 +1995,8 @@
       "catalogApplications": [
         {
           "equipment": "LIUGONG GLG835",
+          "machineBrand": "LIUGONG",
+          "machineModel": "GLG835",
           "description": "HYDRAULIC FILTER, CARTRIDGE",
           "oemRaw": "53C0011",
           "oemPartNumbers": [
@@ -1885,6 +2029,8 @@
       "catalogApplications": [
         {
           "equipment": "LIUGONG GLG856H",
+          "machineBrand": "LIUGONG",
+          "machineModel": "GLG856H",
           "description": "AIR CLEANER KIT",
           "oemRaw": "60C2472",
           "oemPartNumbers": [
@@ -1897,6 +2043,8 @@
         },
         {
           "equipment": "LIUGONG 933E",
+          "machineBrand": "LIUGONG",
+          "machineModel": "933E",
           "description": "AIR CLEANER KIT",
           "oemRaw": "60C2472",
           "oemPartNumbers": [
@@ -1909,6 +2057,8 @@
         },
         {
           "equipment": "LIUGONG CLG850H Cummins Engine QSL9.3",
+          "machineBrand": "LIUGONG",
+          "machineModel": "CLG850H",
           "description": "AIR CLEANER KIT",
           "oemRaw": "60C2472",
           "oemPartNumbers": [
@@ -1921,6 +2071,8 @@
         },
         {
           "equipment": "LIUGONG ZL50C Weichai Power Engine WD10G220E13",
+          "machineBrand": "LIUGONG",
+          "machineModel": "ZL50C",
           "description": "AIR CLEANER KIT",
           "oemRaw": "60C2472",
           "oemPartNumbers": [
@@ -1933,6 +2085,8 @@
         },
         {
           "equipment": "LIUGONG ZL50CN Weichai Power Engine WD10G220E13",
+          "machineBrand": "LIUGONG",
+          "machineModel": "ZL50CN",
           "description": "AIR CLEANER KIT",
           "oemRaw": "60C2472",
           "oemPartNumbers": [
@@ -1965,6 +2119,8 @@
       "catalogApplications": [
         {
           "equipment": "LIUGONG GLG856H",
+          "machineBrand": "LIUGONG",
+          "machineModel": "GLG856H",
           "description": "AIR FILTER, PRIMARY",
           "oemRaw": "40C2178",
           "oemPartNumbers": [
@@ -1997,6 +2153,8 @@
       "catalogApplications": [
         {
           "equipment": "LIUGONG GLG856H",
+          "machineBrand": "LIUGONG",
+          "machineModel": "GLG856H",
           "description": "AIR FILTER, SAFETY",
           "oemRaw": "40C2179",
           "oemPartNumbers": [
@@ -2042,6 +2200,8 @@
       "catalogApplications": [
         {
           "equipment": "LIUGONG Gzlg856III",
+          "machineBrand": "LIUGONG",
+          "machineModel": "Gzlg856III",
           "description": "AIR FILTER, SAFETY",
           "oemRaw": "AF25277",
           "oemPartNumbers": [
@@ -2095,6 +2255,8 @@
       "catalogApplications": [
         {
           "equipment": "LIUGONG 913f",
+          "machineBrand": "LIUGONG",
+          "machineModel": "913f",
           "description": "LUBE FILTER, SPIN-ON FULL FLOW",
           "oemRaw": "53C0817",
           "oemPartNumbers": [
@@ -2127,6 +2289,8 @@
       "catalogApplications": [
         {
           "equipment": "LIUGONG 933E",
+          "machineBrand": "LIUGONG",
+          "machineModel": "933E",
           "description": "HYDRAULIC FILTER, CARTRIDGE",
           "oemRaw": "53C0083",
           "oemPartNumbers": [
@@ -2139,6 +2303,8 @@
         },
         {
           "equipment": "LIUGONG 909ECR",
+          "machineBrand": "LIUGONG",
+          "machineModel": "909ECR",
           "description": "HYDRAULIC FILTER, CARTRIDGE",
           "oemRaw": "53C0250",
           "oemPartNumbers": [
@@ -2151,6 +2317,8 @@
         },
         {
           "equipment": "LIUGONG CLG908D Cummins Engine B3.3-85",
+          "machineBrand": "LIUGONG",
+          "machineModel": "CLG908D",
           "description": "HYDRAULIC FILTER, CARTRIDGE",
           "oemRaw": "53C0250",
           "oemPartNumbers": [
@@ -2163,6 +2331,8 @@
         },
         {
           "equipment": "LIUGONG 920E Cummins Engine B5.9",
+          "machineBrand": "LIUGONG",
+          "machineModel": "920E",
           "description": "HYDRAULIC FILTER, CARTRIDGE",
           "oemRaw": "53C0250",
           "oemPartNumbers": [
@@ -2175,6 +2345,8 @@
         },
         {
           "equipment": "LIUGONG 922E Cummins Engine B5.9",
+          "machineBrand": "LIUGONG",
+          "machineModel": "922E",
           "description": "HYDRAULIC FILTER, CARTRIDGE",
           "oemRaw": "53C0250",
           "oemPartNumbers": [
@@ -2187,6 +2359,8 @@
         },
         {
           "equipment": "LIUGONG CLG922E Cummins Engine QSB6.7",
+          "machineBrand": "LIUGONG",
+          "machineModel": "CLG922E",
           "description": "HYDRAULIC FILTER, CARTRIDGE",
           "oemRaw": "53C0083",
           "oemPartNumbers": [
@@ -2199,6 +2373,8 @@
         },
         {
           "equipment": "LIUGONG CLG936E Cummins Engine QSL9.3",
+          "machineBrand": "LIUGONG",
+          "machineModel": "CLG936E",
           "description": "HYDRAULIC FILTER, CARTRIDGE",
           "oemRaw": "53C0265",
           "oemPartNumbers": [
@@ -2231,6 +2407,8 @@
       "catalogApplications": [
         {
           "equipment": "LIUGONG 933E",
+          "machineBrand": "LIUGONG",
+          "machineModel": "933E",
           "description": "HYDRAULIC FILTER, CARTRIDGE DT",
           "oemRaw": "53C0210",
           "oemPartNumbers": [
@@ -2243,6 +2421,8 @@
         },
         {
           "equipment": "LIUGONG CLG936E Cummins Engine QSL9.3",
+          "machineBrand": "LIUGONG",
+          "machineModel": "CLG936E",
           "description": "HYDRAULIC FILTER, CARTRIDGE DT",
           "oemRaw": "53C0210",
           "oemPartNumbers": [
@@ -2275,6 +2455,8 @@
       "catalogApplications": [
         {
           "equipment": "LIUGONG 909ECR",
+          "machineBrand": "LIUGONG",
+          "machineModel": "909ECR",
           "description": "AIR FILTER KIT",
           "oemRaw": "40C0506",
           "oemPartNumbers": [
@@ -2307,6 +2489,8 @@
       "catalogApplications": [
         {
           "equipment": "LIUGONG 909ECR",
+          "machineBrand": "LIUGONG",
+          "machineModel": "909ECR",
           "description": "HYDRAULIC FILTER, CARTRIDGE DT",
           "oemRaw": "53C0038",
           "oemPartNumbers": [
@@ -2319,6 +2503,8 @@
         },
         {
           "equipment": "LIUGONG CLG908D Cummins Engine B3.3-85",
+          "machineBrand": "LIUGONG",
+          "machineModel": "CLG908D",
           "description": "HYDRAULIC FILTER, CARTRIDGE DT",
           "oemRaw": "53C0038",
           "oemPartNumbers": [
@@ -2372,6 +2558,8 @@
       "catalogApplications": [
         {
           "equipment": "LIUGONG CLG908D Cummins Engine B3.3-85",
+          "machineBrand": "LIUGONG",
+          "machineModel": "CLG908D",
           "description": "LUBE FILTER, SPIN-ON FULL FLOW",
           "oemRaw": "C6002112110",
           "oemPartNumbers": [
@@ -2425,6 +2613,8 @@
       "catalogApplications": [
         {
           "equipment": "LIUGONG CLG908D Cummins Engine B3.3-85",
+          "machineBrand": "LIUGONG",
+          "machineModel": "CLG908D",
           "description": "FUEL FILTER, WATER SEPARATOR SPIN-ON",
           "oemRaw": "C6003117480",
           "oemPartNumbers": [
@@ -2457,6 +2647,8 @@
       "catalogApplications": [
         {
           "equipment": "LIUGONG CLG908D Cummins Engine B3.3-85",
+          "machineBrand": "LIUGONG",
+          "machineModel": "CLG908D",
           "description": "AIR FILTER KIT,RADIALSEAL",
           "oemRaw": "40C0496",
           "oemPartNumbers": [
@@ -2489,6 +2681,8 @@
       "catalogApplications": [
         {
           "equipment": "LIUGONG 922E Cummins Engine B5.9",
+          "machineBrand": "LIUGONG",
+          "machineModel": "922E",
           "description": "AIR FILTER KIT, RADIALSEAL",
           "oemRaw": "40C2707",
           "oemPartNumbers": [
@@ -2501,6 +2695,8 @@
         },
         {
           "equipment": "LIUGONG CLG922E Cummins Engine QSB6.7",
+          "machineBrand": "LIUGONG",
+          "machineModel": "CLG922E",
           "description": "AIR FILTER KIT, RADIALSEAL",
           "oemRaw": "40C2707",
           "oemPartNumbers": [
@@ -2533,6 +2729,8 @@
       "catalogApplications": [
         {
           "equipment": "LIUGONG 922E Cummins Engine B5.9",
+          "machineBrand": "LIUGONG",
+          "machineModel": "922E",
           "description": "AIR FILTER, PRIMARY RADIALSEAL",
           "oemRaw": "40C1033",
           "oemPartNumbers": [
@@ -2565,6 +2763,8 @@
       "catalogApplications": [
         {
           "equipment": "LIUGONG 922E Cummins Engine B5.9",
+          "machineBrand": "LIUGONG",
+          "machineModel": "922E",
           "description": "AIR FILTER, SAFETY",
           "oemRaw": "40C1032",
           "oemPartNumbers": [
@@ -2618,6 +2818,8 @@
       "catalogApplications": [
         {
           "equipment": "LIUGONG ZL30E YUCHAI Engine YC6108Q",
+          "machineBrand": "LIUGONG",
+          "machineModel": "ZL30E",
           "description": "FUEL FILTER, SPIN-ON",
           "oemRaw": "SP101846",
           "oemPartNumbers": [
@@ -2650,6 +2852,8 @@
       "catalogApplications": [
         {
           "equipment": "LIUGONG ZL30E YUCHAI Engine YC6108Q",
+          "machineBrand": "LIUGONG",
+          "machineModel": "ZL30E",
           "description": "HYDRAULIC FILTER, CARTRIDGE",
           "oemRaw": "53C0035",
           "oemPartNumbers": [
@@ -2682,6 +2886,8 @@
       "catalogApplications": [
         {
           "equipment": "LIUGONG ZL50C Weichai Power Engine WD10G220E13",
+          "machineBrand": "LIUGONG",
+          "machineModel": "ZL50C",
           "description": "AIR FILTER KIT",
           "oemRaw": "612600112285",
           "oemPartNumbers": [
@@ -2694,6 +2900,8 @@
         },
         {
           "equipment": "LIUGONG ZL50CN Weichai Power Engine WD10G220E13",
+          "machineBrand": "LIUGONG",
+          "machineModel": "ZL50CN",
           "description": "AIR FILTER KIT",
           "oemRaw": "612600112285",
           "oemPartNumbers": [
@@ -2726,6 +2934,8 @@
       "catalogApplications": [
         {
           "equipment": "LIUGONG ZL50C Weichai Power Engine WD10G220E13",
+          "machineBrand": "LIUGONG",
+          "machineModel": "ZL50C",
           "description": "HYDRAULIC FILTER, CARTRIDGE",
           "oemRaw": "53C0006",
           "oemPartNumbers": [
@@ -2771,6 +2981,8 @@
       "catalogApplications": [
         {
           "equipment": "FAW JIEFANG - J5M Series FAWDE Engine 6DF",
+          "machineBrand": "FAW",
+          "machineModel": "JIEFANG - J5M Series",
           "description": "FUEL FILTER, SPIN-ON",
           "oemRaw": "1117050-73D",
           "oemPartNumbers": [
@@ -2783,6 +2995,8 @@
         },
         {
           "equipment": "FAW JIEFANG - J5M Series FAWDE Engine 6DL",
+          "machineBrand": "FAW",
+          "machineModel": "JIEFANG - J5M Series",
           "description": "FUEL FILTER, SPIN-ON",
           "oemRaw": "1117050-73D",
           "oemPartNumbers": [
@@ -2795,6 +3009,8 @@
         },
         {
           "equipment": "FAW JIEFANG - J5P Series FAWDE Engine 6DL1",
+          "machineBrand": "FAW",
+          "machineModel": "JIEFANG - J5P Series",
           "description": "FUEL FILTER, SPIN-ON",
           "oemRaw": "1117050-73D",
           "oemPartNumbers": [
@@ -2807,6 +3023,7 @@
         },
         {
           "equipment": "Shacman-Wechai",
+          "machineBrand": "Shacman-Wechai",
           "description": "FUEL FILTER, SPIN-ON",
           "oemRaw": "610800080293",
           "oemPartNumbers": [
@@ -2819,6 +3036,8 @@
         },
         {
           "equipment": "HOW,HOHAN J7B D10 Engine",
+          "machineBrand": "HOW,HOHAN",
+          "machineModel": "J7B",
           "description": "FUEL FILTER, SPIN-ON",
           "oemRaw": "VG1092080009",
           "oemPartNumbers": [
@@ -2864,6 +3083,8 @@
       "catalogApplications": [
         {
           "equipment": "FAW JIEFANG - J5M Series FAWDE Engine 6DF",
+          "machineBrand": "FAW",
+          "machineModel": "JIEFANG - J5M Series",
           "description": "LUBE FILTER, SPIN-ON FULL FLOW",
           "oemRaw": "1012010-81DM",
           "oemPartNumbers": [
@@ -2876,6 +3097,8 @@
         },
         {
           "equipment": "FAW JIEFANG - J5P Series FAWDE Engine 6DM",
+          "machineBrand": "FAW",
+          "machineModel": "JIEFANG - J5P Series",
           "description": "LUBE FILTER , SPIN-ON FULL FLOW",
           "oemRaw": "1012010-81DM",
           "oemPartNumbers": [
@@ -2925,6 +3148,8 @@
       "catalogApplications": [
         {
           "equipment": "FAW JIEFANG - J5M Series FAWDE Engine 6DL",
+          "machineBrand": "FAW",
+          "machineModel": "JIEFANG - J5M Series",
           "description": "LUBE FILTER , SPIN-ON FULL FLOW",
           "oemRaw": "1012010-36D",
           "oemPartNumbers": [
@@ -2937,6 +3162,8 @@
         },
         {
           "equipment": "FAW JIEFANG - J5P Series FAWDE Engine 6DL1",
+          "machineBrand": "FAW",
+          "machineModel": "JIEFANG - J5P Series",
           "description": "LUBE FILTER , SPIN-ON FULL FLOW",
           "oemRaw": "1012010-36D",
           "oemPartNumbers": [
@@ -2982,6 +3209,8 @@
       "catalogApplications": [
         {
           "equipment": "FAW JIEFANG - J5M Series Wechai Engine WP10",
+          "machineBrand": "FAW",
+          "machineModel": "JIEFANG - J5M Series",
           "description": "FUEL FILTER, SPIN-ON",
           "oemRaw": "1000422382",
           "oemPartNumbers": [
@@ -2994,6 +3223,8 @@
         },
         {
           "equipment": "FAW JIEFANG - J5M Series Wechai Emgone WP12",
+          "machineBrand": "FAW",
+          "machineModel": "JIEFANG - J5M Series",
           "description": "FUEL FILTER, SPIN-ON",
           "oemRaw": "1000422382",
           "oemPartNumbers": [
@@ -3006,6 +3237,8 @@
         },
         {
           "equipment": "FAW JIEFANG - J5P Series FAWDE Engine 6DM",
+          "machineBrand": "FAW",
+          "machineModel": "JIEFANG - J5P Series",
           "description": "FUEL FILTER, SPIN-ON",
           "oemRaw": "1117010-M60-0000M",
           "oemPartNumbers": [
@@ -3018,6 +3251,8 @@
         },
         {
           "equipment": "SHANTUI SD22 /SD16 Cummins Engine NT-855",
+          "machineBrand": "SHANTUI",
+          "machineModel": "SD22 /SD16",
           "description": "FUEL FILTER, SPIN-ON",
           "oemRaw": "1000422382",
           "oemPartNumbers": [
@@ -3030,6 +3265,8 @@
         },
         {
           "equipment": "XCMG ZL50G WEICHAI Engine WD10G220E11",
+          "machineBrand": "XCMG",
+          "machineModel": "ZL50G",
           "description": "FUEL FILTER, SPIN-ON",
           "oemRaw": "1000422382/612630080087",
           "oemPartNumbers": [
@@ -3043,6 +3280,8 @@
         },
         {
           "equipment": "XCMG XDR80T YUCHAI Engine YC6K480-GT30",
+          "machineBrand": "XCMG",
+          "machineModel": "XDR80T",
           "description": "FUEL FILTER, SPIN-ON",
           "oemRaw": "800162637",
           "oemPartNumbers": [
@@ -3055,6 +3294,8 @@
         },
         {
           "equipment": "SDLG LG952L WEICHAI Engine WD10G220E13",
+          "machineBrand": "SDLG",
+          "machineModel": "LG952L",
           "description": "FUEL FILTER, SPIN-ON",
           "oemRaw": "1000422382/612630080087",
           "oemPartNumbers": [
@@ -3068,6 +3309,8 @@
         },
         {
           "equipment": "SDLG MT86H Wechai Engine WD12.420",
+          "machineBrand": "SDLG",
+          "machineModel": "MT86H",
           "description": "FUEL FILTER, SPIN-ON",
           "oemRaw": "612630080087",
           "oemPartNumbers": [
@@ -3080,6 +3323,8 @@
         },
         {
           "equipment": "Tonly TL875D wechai EngineWP12.430",
+          "machineBrand": "Tonly",
+          "machineModel": "TL875D",
           "description": "FUEL FILTER, SPIN-ON",
           "oemRaw": "612630080087",
           "oemPartNumbers": [
@@ -3092,6 +3337,8 @@
         },
         {
           "equipment": "Tonly TL883 wechai Engine WP13.530",
+          "machineBrand": "Tonly",
+          "machineModel": "TL883",
           "description": "FUEL FILTER, SPIN-ON",
           "oemRaw": "612630080087",
           "oemPartNumbers": [
@@ -3104,6 +3351,8 @@
         },
         {
           "equipment": "Ronderbult CM 86",
+          "machineBrand": "Ronderbult",
+          "machineModel": "CM 86",
           "description": "FUEL FILTER, SPIN-ON",
           "oemRaw": "4190001637",
           "oemPartNumbers": [
@@ -3116,6 +3365,8 @@
         },
         {
           "equipment": "Rondebult CM 96",
+          "machineBrand": "Rondebult",
+          "machineModel": "CM 96",
           "description": "FUEL FILTER, SPIN-ON",
           "oemRaw": "4190001637",
           "oemPartNumbers": [
@@ -3128,6 +3379,8 @@
         },
         {
           "equipment": "Rondebult RDT’S",
+          "machineBrand": "Rondebult",
+          "machineModel": "RDT’S",
           "description": "FUEL FILTER,SPIN-ON",
           "oemRaw": "4190001637",
           "oemPartNumbers": [
@@ -3140,6 +3393,8 @@
         },
         {
           "equipment": "Rondebult RB876",
+          "machineBrand": "Rondebult",
+          "machineModel": "RB876",
           "description": "FUEL FILTER, SPIN -ON",
           "oemRaw": "4190001637",
           "oemPartNumbers": [],
@@ -3150,6 +3405,8 @@
         },
         {
           "equipment": "Rondebult CMT86",
+          "machineBrand": "Rondebult",
+          "machineModel": "CMT86",
           "description": "FUEL FILTER, SPIN -ON",
           "oemRaw": "1000422382",
           "oemPartNumbers": [],
@@ -3160,6 +3417,8 @@
         },
         {
           "equipment": "Rondebult CMT66",
+          "machineBrand": "Rondebult",
+          "machineModel": "CMT66",
           "description": "FUEL FILTER, SPIN -ON",
           "oemRaw": "1000422382",
           "oemPartNumbers": [],
@@ -3170,6 +3429,8 @@
         },
         {
           "equipment": "Shaanxi X3000 Wechai Engine WP12.430E50",
+          "machineBrand": "Shaanxi",
+          "machineModel": "X3000",
           "description": "FUEL FILTER, SPIN-ON",
           "oemRaw": "612630080087",
           "oemPartNumbers": [
@@ -3255,6 +3516,8 @@
       "catalogApplications": [
         {
           "equipment": "FAW JIEFANG - J5M Series Wechai Engine WP10",
+          "machineBrand": "FAW",
+          "machineModel": "JIEFANG - J5M Series",
           "description": "LUBE FILTER , SPIN-ON FULL FLOW",
           "oemRaw": "1000424655",
           "oemPartNumbers": [
@@ -3332,6 +3595,8 @@
       "catalogApplications": [
         {
           "equipment": "FAW JIEFANG - J5M Series Wechai Emgone WP12",
+          "machineBrand": "FAW",
+          "machineModel": "JIEFANG - J5M Series",
           "description": "LUBE FILTER, SPIN-ON",
           "oemRaw": "1000046698",
           "oemPartNumbers": [
@@ -3393,6 +3658,8 @@
       "catalogApplications": [
         {
           "equipment": "FAW JIEFANG - J6F Series FAWDE Engine 4DF",
+          "machineBrand": "FAW",
+          "machineModel": "JIEFANG - J6F Series",
           "description": "FUEL FILTER, SPIN-ON",
           "oemRaw": "S1117050-A12",
           "oemPartNumbers": [
@@ -3458,6 +3725,8 @@
       "catalogApplications": [
         {
           "equipment": "FAW JIEFANG - J6F Series FAWDE Engine 4DF",
+          "machineBrand": "FAW",
+          "machineModel": "JIEFANG - J6F Series",
           "description": "LUBE FILTER , SPIN-ON FULL FLOW",
           "oemRaw": "1012010-A12*000",
           "oemPartNumbers": [
@@ -3470,6 +3739,8 @@
         },
         {
           "equipment": "HOWO A7/T7H SITRAK C7H MC07 Engine",
+          "machineBrand": "HOWO",
+          "machineModel": "A7/T7H SITRAK C7H",
           "description": "LUBE FILTER, CARTRIDGE",
           "oemRaw": "200V05504-0107",
           "oemPartNumbers": [
@@ -3482,6 +3753,8 @@
         },
         {
           "equipment": "Sinotruk C7H CNG Sinotruk(CNHTC) Engine MT13.48-50",
+          "machineBrand": "Sinotruk",
+          "machineModel": "C7H CNG",
           "description": "LUBE FILTER, CARTRIDGE",
           "oemRaw": "200V05504-0107/0122/0108",
           "oemPartNumbers": [],
@@ -3492,6 +3765,8 @@
         },
         {
           "equipment": "Sinotruk C7H DIESEL Sinotruk(CNHTC) Engine MC13.54-50",
+          "machineBrand": "Sinotruk",
+          "machineModel": "C7H DIESEL",
           "description": "LUBE FILTER, CARTRIDGE",
           "oemRaw": "200V05504-0107/0122/0108",
           "oemPartNumbers": [],
@@ -3522,6 +3797,8 @@
       "catalogApplications": [
         {
           "equipment": "SHANTUI SL30WN",
+          "machineBrand": "SHANTUI",
+          "machineModel": "SL30WN",
           "description": "AIR FILTER, PRIMARY RADIALSEAL",
           "oemRaw": "",
           "oemPartNumbers": [],
@@ -3569,6 +3846,8 @@
       "catalogApplications": [
         {
           "equipment": "SHANTUI SD22 /SD16 Cummins Engine NT-855",
+          "machineBrand": "SHANTUI",
+          "machineModel": "SD22 /SD16",
           "description": "AIR FILTER, SAFETY",
           "oemRaw": "6128817320",
           "oemPartNumbers": [
@@ -3614,6 +3893,8 @@
       "catalogApplications": [
         {
           "equipment": "SHANTUI SD22 /SD16 Cummins Engine NT-855",
+          "machineBrand": "SHANTUI",
+          "machineModel": "SD22 /SD16",
           "description": "HYDRAULIC FILTER, CARTRIDGE",
           "oemRaw": "1754911580",
           "oemPartNumbers": [
@@ -3646,6 +3927,8 @@
       "catalogApplications": [
         {
           "equipment": "Lonking ZL50C Wechai Engine WD10G220E11",
+          "machineBrand": "Lonking",
+          "machineModel": "ZL50C",
           "description": "FUEL FILTER, WATER SEPARATOR CARTRIDGE",
           "oemRaw": "300080079",
           "oemPartNumbers": [
@@ -3678,6 +3961,8 @@
       "catalogApplications": [
         {
           "equipment": "Lonking ZL50C Wechai Engine WD10G220E11",
+          "machineBrand": "Lonking",
+          "machineModel": "ZL50C",
           "description": "FUEL FILTER KIT",
           "oemRaw": "C0813A2A3",
           "oemPartNumbers": [
@@ -3710,6 +3995,8 @@
       "catalogApplications": [
         {
           "equipment": "Lonking ZL50C Wechai Engine WD10G220E11",
+          "machineBrand": "Lonking",
+          "machineModel": "ZL50C",
           "description": "HYDRAULIC FILTER, CARTRIDGE",
           "oemRaw": "LG853130904",
           "oemPartNumbers": [
@@ -3763,6 +4050,8 @@
       "catalogApplications": [
         {
           "equipment": "Lonking ZL50C Wechai Engine WD10G220E11",
+          "machineBrand": "Lonking",
+          "machineModel": "ZL50C",
           "description": "FUEL FILTER, WATER SEPARATOR SPIN-ON",
           "oemRaw": "612600081335",
           "oemPartNumbers": [
@@ -3775,6 +4064,8 @@
         },
         {
           "equipment": "Tonly TL875D wechai EngineWP12.430",
+          "machineBrand": "Tonly",
+          "machineModel": "TL875D",
           "description": "FUEL FILTER, WATER SEPARATOR SPIN-ON",
           "oemRaw": "612600081335",
           "oemPartNumbers": [
@@ -3787,6 +4078,8 @@
         },
         {
           "equipment": "Tonly TL883 wechai Engine WP13.530",
+          "machineBrand": "Tonly",
+          "machineModel": "TL883",
           "description": "FUEL FILTER, WATER SEPARATOR SPIN-ON",
           "oemRaw": "612600081335",
           "oemPartNumbers": [
@@ -3799,6 +4092,8 @@
         },
         {
           "equipment": "HOWO-7 4X2 Wechai Engine WD615",
+          "machineBrand": "HOWO-7",
+          "machineModel": "4X2",
           "description": "FUEL FILTER, WATER SEPARATOR SPIN-ON",
           "oemRaw": "VG1540080311",
           "oemPartNumbers": [
@@ -3811,6 +4106,8 @@
         },
         {
           "equipment": "Shaanxi X3000 Wechai Engine WP12.430E50",
+          "machineBrand": "Shaanxi",
+          "machineModel": "X3000",
           "description": "FUEL FILTER, WATER SEPARATOR SPIN-ON",
           "oemRaw": "612600081294",
           "oemPartNumbers": [
@@ -3843,6 +4140,8 @@
       "catalogApplications": [
         {
           "equipment": "XCMG XE135C Isuzu Engine 4BG1",
+          "machineBrand": "XCMG",
+          "machineModel": "XE135C",
           "description": "HYDRAULIC FILTER, CARTRIDGE",
           "oemRaw": "TLX235L",
           "oemPartNumbers": [
@@ -3875,6 +4174,8 @@
       "catalogApplications": [
         {
           "equipment": "XCMG XE135D Cummins Engin QSF3.8",
+          "machineBrand": "XCMG",
+          "machineModel": "XE135D",
           "description": "AIR FILTER, PRIMARY",
           "oemRaw": "800104248",
           "oemPartNumbers": [
@@ -3907,6 +4208,8 @@
       "catalogApplications": [
         {
           "equipment": "XCMG XE135D Cummins Engin QSF3.8",
+          "machineBrand": "XCMG",
+          "machineModel": "XE135D",
           "description": "AIR FILTER, SAFETY",
           "oemRaw": "800104249",
           "oemPartNumbers": [
@@ -3976,6 +4279,8 @@
       "catalogApplications": [
         {
           "equipment": "XCMG XE135D Cummins Engin QSF3.8",
+          "machineBrand": "XCMG",
+          "machineModel": "XE135D",
           "description": "LUBE FILTER, SPIN-ON FULL FLOW",
           "oemRaw": "800154564",
           "oemPartNumbers": [
@@ -4045,6 +4350,8 @@
       "catalogApplications": [
         {
           "equipment": "XCMG XE135D Cummins Engin QSF3.8",
+          "machineBrand": "XCMG",
+          "machineModel": "XE135D",
           "description": "FUEL FILTER, SPIN-ON",
           "oemRaw": "800154563",
           "oemPartNumbers": [
@@ -4090,6 +4397,8 @@
       "catalogApplications": [
         {
           "equipment": "XCMG XE135D Cummins Engin QSF3.8",
+          "machineBrand": "XCMG",
+          "machineModel": "XE135D",
           "description": "HYDRAULIC FILTER, CARTRIDGE",
           "oemRaw": "860139495",
           "oemPartNumbers": [
@@ -4102,6 +4411,8 @@
         },
         {
           "equipment": "XCMG XE200D Cummins Engine QSB7",
+          "machineBrand": "XCMG",
+          "machineModel": "XE200D",
           "description": "HYDRAULIC FILTER, CARTRIDGE",
           "oemRaw": "860139495",
           "oemPartNumbers": [
@@ -4114,6 +4425,8 @@
         },
         {
           "equipment": "XCMG XE215D Guangxi Cummins Engine QSB7",
+          "machineBrand": "XCMG",
+          "machineModel": "XE215D",
           "description": "HYDRAULIC FILTER, CARTRIDGE",
           "oemRaw": "860139495",
           "oemPartNumbers": [
@@ -4146,6 +4459,8 @@
       "catalogApplications": [
         {
           "equipment": "XCMG XE800D Perkins Engine 2506D-E15TA",
+          "machineBrand": "XCMG",
+          "machineModel": "XE800D",
           "description": "AIR FILTER, SAFETY RADIALSEAL",
           "oemRaw": "800105257",
           "oemPartNumbers": [
@@ -4158,6 +4473,8 @@
         },
         {
           "equipment": "XCMG XDR80T YUCHAI Engine YC6K480-GT30",
+          "machineBrand": "XCMG",
+          "machineModel": "XDR80T",
           "description": "AIR FILTER, SAFETY RADIALSEAL",
           "oemRaw": "800105257",
           "oemPartNumbers": [
@@ -4190,6 +4507,8 @@
       "catalogApplications": [
         {
           "equipment": "XCMG XE800D Perkins Engine 2506D-E15TA",
+          "machineBrand": "XCMG",
+          "machineModel": "XE800D",
           "description": "AIR FILTER, PRIMARY RADIALSEAL",
           "oemRaw": "800105256",
           "oemPartNumbers": [
@@ -4202,6 +4521,8 @@
         },
         {
           "equipment": "XCMG XDR80T YUCHAI Engine YC6K480-GT30",
+          "machineBrand": "XCMG",
+          "machineModel": "XDR80T",
           "description": "AIR FILTER, PRIMARY RADIALSEAL",
           "oemRaw": "800105256",
           "oemPartNumbers": [
@@ -4255,6 +4576,8 @@
       "catalogApplications": [
         {
           "equipment": "XCMG XE800D Perkins Engine 2506D-E15TA",
+          "machineBrand": "XCMG",
+          "machineModel": "XE800D",
           "description": "HYDRAULIC FILTER, SPIN-ON",
           "oemRaw": "803436460",
           "oemPartNumbers": [
@@ -4308,6 +4631,8 @@
       "catalogApplications": [
         {
           "equipment": "XCMG XE800D Perkins Engine 2506D-E15TA",
+          "machineBrand": "XCMG",
+          "machineModel": "XE800D",
           "description": "LUBE FILTER, SPIN-ON FULL FLOW",
           "oemRaw": "803442626",
           "oemPartNumbers": [
@@ -4340,6 +4665,8 @@
       "catalogApplications": [
         {
           "equipment": "XCMG ZL50G WEICHAI Engine WD10G220E11",
+          "machineBrand": "XCMG",
+          "machineModel": "ZL50G",
           "description": "FUEL WATER SEPARATOR",
           "oemRaw": "1000422381/612630080088",
           "oemPartNumbers": [
@@ -4353,6 +4680,8 @@
         },
         {
           "equipment": "SDLG LG952L WEICHAI Engine WD10G220E13",
+          "machineBrand": "SDLG",
+          "machineModel": "LG952L",
           "description": "FUEL FILTER, WATER SEPARATOR SPIN-ON",
           "oemRaw": "1000422381/612630080088",
           "oemPartNumbers": [
@@ -4366,6 +4695,8 @@
         },
         {
           "equipment": "SDLG MT86H Wechai Engine WD12.420",
+          "machineBrand": "SDLG",
+          "machineModel": "MT86H",
           "description": "FUEL FILTER, WATER SEPARATOR SPIN-ON",
           "oemRaw": "612630080088",
           "oemPartNumbers": [
@@ -4447,6 +4778,8 @@
       "catalogApplications": [
         {
           "equipment": "XCMG XE2000 Cummins Engine QSK38",
+          "machineBrand": "XCMG",
+          "machineModel": "XE2000",
           "description": "LUBE FILTER, SPIN-ON FULL FLOW",
           "oemRaw": "3101870",
           "oemPartNumbers": [
@@ -4459,6 +4792,8 @@
         },
         {
           "equipment": "XCMG XE3000 Cummins Engine QSK50",
+          "machineBrand": "XCMG",
+          "machineModel": "XE3000",
           "description": "LUBE FILTER, SPIN-ON FULL FLOW",
           "oemRaw": "3101870",
           "oemPartNumbers": [
@@ -4504,6 +4839,8 @@
       "catalogApplications": [
         {
           "equipment": "XCMG XE370C Isuzu Engine 6HK1",
+          "machineBrand": "XCMG",
+          "machineModel": "XE370C",
           "description": "FUEL FILTER, WATER SEPARATOR SPIN-ON",
           "oemRaw": "800155884",
           "oemPartNumbers": [
@@ -4585,6 +4922,8 @@
       "catalogApplications": [
         {
           "equipment": "XCMG XE490 Cummins Engine QSM11",
+          "machineBrand": "XCMG",
+          "machineModel": "XE490",
           "description": "FUEL FILTER, WATER SEPARATOR CARTRIDGE",
           "oemRaw": "800138281",
           "oemPartNumbers": [
@@ -4662,6 +5001,8 @@
       "catalogApplications": [
         {
           "equipment": "XCMG XE490 Cummins Engine QSM11",
+          "machineBrand": "XCMG",
+          "machineModel": "XE490",
           "description": "COOLANT FILTER, SPIN-ON SCA PLUS",
           "oemRaw": "800107886",
           "oemPartNumbers": [
@@ -4694,6 +5035,8 @@
       "catalogApplications": [
         {
           "equipment": "XCMG XDR80T YUCHAI Engine YC6K480-GT30",
+          "machineBrand": "XCMG",
+          "machineModel": "XDR80T",
           "description": "FUEL FILTER, WATER SEPARATOR CARTRIDGE",
           "oemRaw": "800160016",
           "oemPartNumbers": [
@@ -4726,6 +5069,8 @@
       "catalogApplications": [
         {
           "equipment": "XCMG XDR80T YUCHAI Engine YC6K480-GT30",
+          "machineBrand": "XCMG",
+          "machineModel": "XDR80T",
           "description": "BREATHER, HYDRAULIC CYLINDRICAL",
           "oemRaw": "803277637",
           "oemPartNumbers": [
@@ -4803,6 +5148,8 @@
       "catalogApplications": [
         {
           "equipment": "XCMG XDR100 Cummins Engine QST30",
+          "machineBrand": "XCMG",
+          "machineModel": "XDR100",
           "description": "FUEL FILTER, SPIN-ON SECONDARY",
           "oemRaw": "FF202",
           "oemPartNumbers": [
@@ -4835,6 +5182,8 @@
       "catalogApplications": [
         {
           "equipment": "XCMG XDE130 MTU Engine 16V2000",
+          "machineBrand": "XCMG",
+          "machineModel": "XDE130",
           "description": "AIR FILTER, PRIMARY RADIALSEAL",
           "oemRaw": "800175537",
           "oemPartNumbers": [
@@ -4867,6 +5216,8 @@
       "catalogApplications": [
         {
           "equipment": "XCMG XDE130 MTU Engine 16V2000",
+          "machineBrand": "XCMG",
+          "machineModel": "XDE130",
           "description": "AIR FILTER, SAFETY RADIALSEAL",
           "oemRaw": "800175538",
           "oemPartNumbers": [
@@ -4899,6 +5250,8 @@
       "catalogApplications": [
         {
           "equipment": "SDLG LG670 Yanmar Engine 4TNV98",
+          "machineBrand": "SDLG",
+          "machineModel": "LG670",
           "description": "HYDRAULIC FILTER, CARTRIDGE",
           "oemRaw": "4120002103001",
           "oemPartNumbers": [
@@ -4931,6 +5284,8 @@
       "catalogApplications": [
         {
           "equipment": "SDLG LG6210 Deutz AG Engine BF6M2012C",
+          "machineBrand": "SDLG",
+          "machineModel": "LG6210",
           "description": "AIR FILTER, PRIMARY RADIALSEAL",
           "oemRaw": "11211149",
           "oemPartNumbers": [
@@ -4963,6 +5318,8 @@
       "catalogApplications": [
         {
           "equipment": "SDLG LG6210 Deutz AG Engine BF6M2012C",
+          "machineBrand": "SDLG",
+          "machineModel": "LG6210",
           "description": "AIR FILTER, SAFETY RADIALSEAL",
           "oemRaw": "11211150",
           "oemPartNumbers": [
@@ -4995,6 +5352,8 @@
       "catalogApplications": [
         {
           "equipment": "SDLG MT86H Wechai Engine WD12.420",
+          "machineBrand": "SDLG",
+          "machineModel": "MT86H",
           "description": "AIR KIT",
           "oemRaw": "K3560",
           "oemPartNumbers": [
@@ -5027,6 +5386,8 @@
       "catalogApplications": [
         {
           "equipment": "Tonly TL875D wechai EngineWP12.430",
+          "machineBrand": "Tonly",
+          "machineModel": "TL875D",
           "description": "FUEL FILTER, PRIMARY",
           "oemRaw": "612600081334",
           "oemPartNumbers": [
@@ -5039,6 +5400,8 @@
         },
         {
           "equipment": "Tonly TL883 wechai Engine WP13.530",
+          "machineBrand": "Tonly",
+          "machineModel": "TL883",
           "description": "FUEL FILTER, PRIMARY",
           "oemRaw": "612600081334",
           "oemPartNumbers": [
@@ -5071,6 +5434,8 @@
       "catalogApplications": [
         {
           "equipment": "Ronderbult CM 86",
+          "machineBrand": "Ronderbult",
+          "machineModel": "CM 86",
           "description": "AIR FILTER, PRIMARY ROUND",
           "oemRaw": "4110002110",
           "oemPartNumbers": [
@@ -5083,6 +5448,8 @@
         },
         {
           "equipment": "Rondebult CM 96",
+          "machineBrand": "Rondebult",
+          "machineModel": "CM 96",
           "description": "AIR FILTER, PRIMARY ROUND",
           "oemRaw": "4110002110",
           "oemPartNumbers": [
@@ -5095,6 +5462,8 @@
         },
         {
           "equipment": "Rondebult RDT’S",
+          "machineBrand": "Rondebult",
+          "machineModel": "RDT’S",
           "description": "AIR FILTER, PRIMARY ROUND",
           "oemRaw": "4110002110",
           "oemPartNumbers": [
@@ -5107,6 +5476,8 @@
         },
         {
           "equipment": "Rondebult CMT86",
+          "machineBrand": "Rondebult",
+          "machineModel": "CMT86",
           "description": "AIR FILTER, PRIMARY ROUND",
           "oemRaw": "4110002110",
           "oemPartNumbers": [
@@ -5119,6 +5490,8 @@
         },
         {
           "equipment": "Rondebult CMT66",
+          "machineBrand": "Rondebult",
+          "machineModel": "CMT66",
           "description": "AIR FILTER, PRIMARY ROUND",
           "oemRaw": "4110002110",
           "oemPartNumbers": [
@@ -5151,6 +5524,8 @@
       "catalogApplications": [
         {
           "equipment": "Ronderbult CM 86",
+          "machineBrand": "Ronderbult",
+          "machineModel": "CM 86",
           "description": "AIR FILTER, SAFETY",
           "oemRaw": "4110002111",
           "oemPartNumbers": [
@@ -5163,6 +5538,8 @@
         },
         {
           "equipment": "Rondebult CM 96",
+          "machineBrand": "Rondebult",
+          "machineModel": "CM 96",
           "description": "AIR FILTER, SAFETY",
           "oemRaw": "4110002111",
           "oemPartNumbers": [
@@ -5175,6 +5552,8 @@
         },
         {
           "equipment": "Rondebult RDT’S",
+          "machineBrand": "Rondebult",
+          "machineModel": "RDT’S",
           "description": "AIR FILTER, SAFETY",
           "oemRaw": "4110002111",
           "oemPartNumbers": [
@@ -5187,6 +5566,8 @@
         },
         {
           "equipment": "Rondebult CMT86",
+          "machineBrand": "Rondebult",
+          "machineModel": "CMT86",
           "description": "AIR FILTER, SAFETY",
           "oemRaw": "4110002111",
           "oemPartNumbers": [
@@ -5199,6 +5580,8 @@
         },
         {
           "equipment": "Rondebult CMT66",
+          "machineBrand": "Rondebult",
+          "machineModel": "CMT66",
           "description": "AIR FILTER, SAFETY",
           "oemRaw": "4110002111",
           "oemPartNumbers": [
@@ -5231,6 +5614,8 @@
       "catalogApplications": [
         {
           "equipment": "Ronderbult CM 86",
+          "machineBrand": "Ronderbult",
+          "machineModel": "CM 86",
           "description": "FUEL FILTER, WATER SEPARATOR ASSEMBLY",
           "oemRaw": "411000117322",
           "oemPartNumbers": [
@@ -5243,6 +5628,8 @@
         },
         {
           "equipment": "Rondebult CM 96",
+          "machineBrand": "Rondebult",
+          "machineModel": "CM 96",
           "description": "FUEL FILTER, WATER SEPARATOR ASSEMBLY",
           "oemRaw": "411000117322",
           "oemPartNumbers": [
@@ -5332,6 +5719,8 @@
       "catalogApplications": [
         {
           "equipment": "Rondebult RDT’S",
+          "machineBrand": "Rondebult",
+          "machineModel": "RDT’S",
           "description": "FUEL FILTER, WATER SEPARATOR SPIN-ON",
           "oemRaw": "4190001636",
           "oemPartNumbers": [
@@ -5344,6 +5733,8 @@
         },
         {
           "equipment": "Rondebult RB876",
+          "machineBrand": "Rondebult",
+          "machineModel": "RB876",
           "description": "FUEL FILTER, WATER SEPARATOR SPIN-ON",
           "oemRaw": "4190001636",
           "oemPartNumbers": [
@@ -5356,6 +5747,8 @@
         },
         {
           "equipment": "Rondebult CMT86",
+          "machineBrand": "Rondebult",
+          "machineModel": "CMT86",
           "description": "FUEL FILTER, WATER SEPARATOR SPIN-ON",
           "oemRaw": "1000422381",
           "oemPartNumbers": [
@@ -5368,6 +5761,8 @@
         },
         {
           "equipment": "Rondebult CMT66",
+          "machineBrand": "Rondebult",
+          "machineModel": "CMT66",
           "description": "FUEL FILTER, WATER SEPARATOR SPIN-ON",
           "oemRaw": "1000422381",
           "oemPartNumbers": [
@@ -5461,6 +5856,8 @@
       "catalogApplications": [
         {
           "equipment": "Rondebult RB876",
+          "machineBrand": "Rondebult",
+          "machineModel": "RB876",
           "description": "FUEL FILTER, WATER SEPARATOR SPIN-ON TWIST& DRAIN",
           "oemRaw": "FS19932",
           "oemPartNumbers": [
@@ -5473,6 +5870,8 @@
         },
         {
           "equipment": "Rondebult RB860",
+          "machineBrand": "Rondebult",
+          "machineModel": "RB860",
           "description": "FUEL FILTER, WATER SEPARATOR SPIN-ON TWIST& DRAIN",
           "oemRaw": "FS19932",
           "oemPartNumbers": [
@@ -5485,6 +5884,8 @@
         },
         {
           "equipment": "Rondebult RB856",
+          "machineBrand": "Rondebult",
+          "machineModel": "RB856",
           "description": "FUEL FILTER, WATER SEPARATOR SPIN-ON TWIST& DRAIN",
           "oemRaw": "FS19932",
           "oemPartNumbers": [
@@ -5497,6 +5898,8 @@
         },
         {
           "equipment": "Rondebult ZL60",
+          "machineBrand": "Rondebult",
+          "machineModel": "ZL60",
           "description": "FUEL FILTER, WATER SEPARATOR SPIN-ON TWIST& DRAIN",
           "oemRaw": "FS19932/B120TSA",
           "oemPartNumbers": [
@@ -5530,6 +5933,7 @@
       "catalogApplications": [
         {
           "equipment": "Shacman-Wechai",
+          "machineBrand": "Shacman-Wechai",
           "description": "AIR FILTER, PRIMARY RADIALSEAL",
           "oemRaw": "WG9725190100",
           "oemPartNumbers": [
@@ -5542,6 +5946,8 @@
         },
         {
           "equipment": "HOWO A7/T7H SITRAK C7H MC07 Engine",
+          "machineBrand": "HOWO",
+          "machineModel": "A7/T7H SITRAK C7H",
           "description": "AIR FILTER, PRIMARY RADIALSEAL",
           "oemRaw": "WG9725190100",
           "oemPartNumbers": [
@@ -5574,6 +5980,7 @@
       "catalogApplications": [
         {
           "equipment": "Shacman-Wechai",
+          "machineBrand": "Shacman-Wechai",
           "description": "AIR FILTER, SAFETY RADIALSEAL",
           "oemRaw": "WG9725190103",
           "oemPartNumbers": [
@@ -5586,6 +5993,8 @@
         },
         {
           "equipment": "HOWO A7/T7H SITRAK C7H MC07 Engine",
+          "machineBrand": "HOWO",
+          "machineModel": "A7/T7H SITRAK C7H",
           "description": "AIR FILTER, SAFETY RADIALSEAL",
           "oemRaw": "WG9725190103",
           "oemPartNumbers": [
@@ -5598,6 +6007,8 @@
         },
         {
           "equipment": "HOWO-7 4X2 Wechai Engine WD615",
+          "machineBrand": "HOWO-7",
+          "machineModel": "4X2",
           "description": "AIR FILTER, SAFETY RADIALSEAL",
           "oemRaw": "AA90134",
           "oemPartNumbers": [],
@@ -5608,6 +6019,8 @@
         },
         {
           "equipment": "HOWO-7 4X2 Sinotruk(CNHTC) Engine D2066",
+          "machineBrand": "HOWO-7",
+          "machineModel": "4X2",
           "description": "AIR FILTER, SAFETY RADIALSEAL",
           "oemRaw": "AA90134",
           "oemPartNumbers": [],
@@ -5618,6 +6031,8 @@
         },
         {
           "equipment": "HOWO-7 8X4 Sinotruk(CNHTC) Engine D2066",
+          "machineBrand": "HOWO-7",
+          "machineModel": "8X4",
           "description": "AIR FILTER, SAFETY RADIALSEAL",
           "oemRaw": "AA90134",
           "oemPartNumbers": [],
@@ -5648,6 +6063,8 @@
       "catalogApplications": [
         {
           "equipment": "Dongfeng KINLAND 3251 Cummins Engine ISL",
+          "machineBrand": "Dongfeng",
+          "machineModel": "KINLAND 3251",
           "description": "AIR FILTER KIT, RADIALSEAL",
           "oemRaw": "K3050PU",
           "oemPartNumbers": [
@@ -5660,6 +6077,8 @@
         },
         {
           "equipment": "Dongfeng KINLAND Cummins Engine dCi11",
+          "machineBrand": "Dongfeng",
+          "machineModel": "KINLAND",
           "description": "AIR FILTER KIT, RADIALSEAL",
           "oemRaw": "K3050PU",
           "oemPartNumbers": [
@@ -5692,6 +6111,8 @@
       "catalogApplications": [
         {
           "equipment": "HOWO-7 4X2 Wechai Engine WD615",
+          "machineBrand": "HOWO-7",
+          "machineModel": "4X2",
           "description": "FUEL FILTER",
           "oemRaw": "1000053555",
           "oemPartNumbers": [
@@ -5724,6 +6145,8 @@
       "catalogApplications": [
         {
           "equipment": "Sinotruk C7H CNG Sinotruk(CNHTC) Engine MT13.48-50",
+          "machineBrand": "Sinotruk",
+          "machineModel": "C7H CNG",
           "description": "AIR FILTER KIT",
           "oemRaw": "710w08405-0021",
           "oemPartNumbers": [
@@ -5736,6 +6159,8 @@
         },
         {
           "equipment": "Sinotruk C7H DIESEL Sinotruk(CNHTC) Engine MC13.54-50",
+          "machineBrand": "Sinotruk",
+          "machineModel": "C7H DIESEL",
           "description": "AIR FILTER KIT",
           "oemRaw": "710w08405-0021",
           "oemPartNumbers": [
@@ -5768,6 +6193,8 @@
       "catalogApplications": [
         {
           "equipment": "Sinotruk C7H CNG Sinotruk(CNHTC) Engine MT13.48-50",
+          "machineBrand": "Sinotruk",
+          "machineModel": "C7H CNG",
           "description": "CRANKCASE VENTILATION FILTER",
           "oemRaw": "201V01804-0044",
           "oemPartNumbers": [
@@ -5800,6 +6227,8 @@
       "catalogApplications": [
         {
           "equipment": "Shaanxi Delong New M3000 Wechai Engine WP12.375E50",
+          "machineBrand": "Shaanxi",
+          "machineModel": "Delong New M3000",
           "description": "AIR FILTER, PRIMARY",
           "oemRaw": "DZ97259191047",
           "oemPartNumbers": [
@@ -5832,6 +6261,8 @@
       "catalogApplications": [
         {
           "equipment": "Shaanxi Delong New M3000 Wechai Engine WP12.375E50",
+          "machineBrand": "Shaanxi",
+          "machineModel": "Delong New M3000",
           "description": "AIR FILTER, SAFETY",
           "oemRaw": "DZ97259191048",
           "oemPartNumbers": [
@@ -5864,6 +6295,8 @@
       "catalogApplications": [
         {
           "equipment": "Shaanxi X3000 Wechai Engine WP12.430E50",
+          "machineBrand": "Shaanxi",
+          "machineModel": "X3000",
           "description": "AIR FILTER, PRIMARY RADIALSEAL",
           "oemRaw": "AF26433",
           "oemPartNumbers": [
@@ -5876,6 +6309,8 @@
         },
         {
           "equipment": "Shaanxi X5000 Cummins Engine ISZ13",
+          "machineBrand": "Shaanxi",
+          "machineModel": "X5000",
           "description": "AIR FILTER, PRIMARY RADIALSEAL",
           "oemRaw": "AF26433",
           "oemPartNumbers": [
@@ -5908,6 +6343,8 @@
       "catalogApplications": [
         {
           "equipment": "Shaanxi X3000 Wechai Engine WP12.430E50",
+          "machineBrand": "Shaanxi",
+          "machineModel": "X3000",
           "description": "AIR FILTER, SAFETY RADIALSEAL",
           "oemRaw": "AF26434",
           "oemPartNumbers": [
@@ -5920,6 +6357,8 @@
         },
         {
           "equipment": "Shaanxi X5000 Cummins Engine ISZ13",
+          "machineBrand": "Shaanxi",
+          "machineModel": "X5000",
           "description": "AIR FILTER, SAFETY RADIALSEAL",
           "oemRaw": "AF26434",
           "oemPartNumbers": [
@@ -5952,6 +6391,8 @@
       "catalogApplications": [
         {
           "equipment": "Shaanxi X3000 Wechai Engine WP12.430E50",
+          "machineBrand": "Shaanxi",
+          "machineModel": "X3000",
           "description": "AIR FILTER, PRIMARY OBROUND POWERCORE",
           "oemRaw": "DZ97259191047",
           "oemPartNumbers": [
@@ -5984,6 +6425,8 @@
       "catalogApplications": [
         {
           "equipment": "Shaanxi X3000 Wechai Engine WP12.430E50",
+          "machineBrand": "Shaanxi",
+          "machineModel": "X3000",
           "description": "AIR FILTER, SAFETY OBROUND",
           "oemRaw": "DZ97259191048",
           "oemPartNumbers": [
@@ -6016,6 +6459,8 @@
       "catalogApplications": [
         {
           "equipment": "Shaanxi Delong New M3000 Wechai Engine WP10.350E53",
+          "machineBrand": "Shaanxi",
+          "machineModel": "Delong New M3000",
           "description": "AIR FILTER KIT",
           "oemRaw": "K3050PU",
           "oemPartNumbers": [
@@ -7605,6 +8050,8 @@
       "catalogApplications": [
         {
           "equipment": "LIUGONG GLG835",
+          "machineBrand": "LIUGONG",
+          "machineModel": "GLG835",
           "description": "AIR FILTER, PRIMARY ROUND",
           "oemRaw": "40C0228",
           "oemPartNumbers": [
@@ -7664,6 +8111,8 @@
       "catalogApplications": [
         {
           "equipment": "LIUGONG GLG835",
+          "machineBrand": "LIUGONG",
+          "machineModel": "GLG835",
           "description": "AIR FILTER SAFETY",
           "oemRaw": "AF25269",
           "oemPartNumbers": [
@@ -7871,6 +8320,8 @@
       "catalogApplications": [
         {
           "equipment": "LIUGONG Gzlg856III",
+          "machineBrand": "LIUGONG",
+          "machineModel": "Gzlg856III",
           "description": "AIR FILTER, PRIMARY ROUND",
           "oemRaw": "AF25276",
           "oemPartNumbers": [
@@ -7946,6 +8397,8 @@
       "catalogApplications": [
         {
           "equipment": "SANY SY135 Isuzu Engine 4JJ1X",
+          "machineBrand": "SANY",
+          "machineModel": "SY135",
           "description": "AIR FILTER, PRIMARY RADIALSEAL",
           "oemRaw": "B222100000500",
           "oemPartNumbers": [
@@ -7958,6 +8411,8 @@
         },
         {
           "equipment": "SANY SY200 Mitsubishi Engine 4M50",
+          "machineBrand": "SANY",
+          "machineModel": "SY200",
           "description": "AIR FILTER, PRIMARY RADIALSEAL",
           "oemRaw": "B222100000500",
           "oemPartNumbers": [
@@ -7970,6 +8425,8 @@
         },
         {
           "equipment": "SDLG LG670 Yanmar Engine 4TNV98",
+          "machineBrand": "SDLG",
+          "machineModel": "LG670",
           "description": "AIR FILTER, PRIMARY RADIALSEAL",
           "oemRaw": "4110000697002",
           "oemPartNumbers": [
@@ -8205,6 +8662,8 @@
       "catalogApplications": [
         {
           "equipment": "LIUGONG GLG835",
+          "machineBrand": "LIUGONG",
+          "machineModel": "GLG835",
           "description": "LUBE FILTER, SPIN-ON FULL FLOW",
           "oemRaw": "53C0054",
           "oemPartNumbers": [
@@ -8217,6 +8676,8 @@
         },
         {
           "equipment": "LIUGONG GLG835",
+          "machineBrand": "LIUGONG",
+          "machineModel": "GLG835",
           "description": "LUBE FILTER, SPIN-ON FULL FLOW",
           "oemRaw": "53C0214",
           "oemPartNumbers": [
@@ -8229,6 +8690,8 @@
         },
         {
           "equipment": "LIUGONG 920E Cummins Engine B5.9",
+          "machineBrand": "LIUGONG",
+          "machineModel": "920E",
           "description": "LUBE FILTER, SPIN-ON FULL FLOW",
           "oemRaw": "53C0054",
           "oemPartNumbers": [
@@ -8241,6 +8704,8 @@
         },
         {
           "equipment": "LIUGONG 922E Cummins Engine B5.9",
+          "machineBrand": "LIUGONG",
+          "machineModel": "922E",
           "description": "LUBE FILTER, SPIN-ON FULL FLOW",
           "oemRaw": "53C0054",
           "oemPartNumbers": [
@@ -8643,6 +9108,8 @@
       "catalogApplications": [
         {
           "equipment": "XCMG XE490 Cummins Engine QSM11",
+          "machineBrand": "XCMG",
+          "machineModel": "XE490",
           "description": "LUBE FILTER, SPIN-ON FULL FLOW",
           "oemRaw": "803302602",
           "oemPartNumbers": [
@@ -8655,6 +9122,8 @@
         },
         {
           "equipment": "Shaanxi X5000 Cummins Engine ISZ13",
+          "machineBrand": "Shaanxi",
+          "machineModel": "X5000",
           "description": "LUBE FILTER, SPIN-ON",
           "oemRaw": "4331005",
           "oemPartNumbers": [
@@ -8735,6 +9204,8 @@
       "catalogApplications": [
         {
           "equipment": "Rondebult RB860",
+          "machineBrand": "Rondebult",
+          "machineModel": "RB860",
           "description": "FUEL FILTER, SPIN-ON",
           "oemRaw": "612600081334",
           "oemPartNumbers": [],
@@ -8745,6 +9216,8 @@
         },
         {
           "equipment": "Rondebult RB856",
+          "machineBrand": "Rondebult",
+          "machineModel": "RB856",
           "description": "FUEL FILTER, SPIN-ON",
           "oemRaw": "612600081334",
           "oemPartNumbers": [],
@@ -8755,6 +9228,8 @@
         },
         {
           "equipment": "Rondebult ZL60",
+          "machineBrand": "Rondebult",
+          "machineModel": "ZL60",
           "description": "FUEL FILTER, SPIN-ON",
           "oemRaw": "612600081334",
           "oemPartNumbers": [],
@@ -9508,6 +9983,8 @@
       "catalogApplications": [
         {
           "equipment": "Dongfeng KINLAND Cummins Engine dCi11",
+          "machineBrand": "Dongfeng",
+          "machineModel": "KINLAND",
           "description": "LUBE FILTER, SPIN-ON FULL FLOW",
           "oemRaw": "JX1023",
           "oemPartNumbers": [
@@ -9520,6 +9997,8 @@
         },
         {
           "equipment": "HOWO-7 4X2 Wechai Engine WD615",
+          "machineBrand": "HOWO-7",
+          "machineModel": "4X2",
           "description": "LUBE FILTER, SPIN-ON FULL FLOW",
           "oemRaw": "LF16107",
           "oemPartNumbers": [
@@ -9679,6 +10158,8 @@
       "catalogApplications": [
         {
           "equipment": "XCMG XDR80T YUCHAI Engine YC6K480-GT30",
+          "machineBrand": "XCMG",
+          "machineModel": "XDR80T",
           "description": "LUBE FILTER, SPIN-ON FULL FLOW",
           "oemRaw": "800162638",
           "oemPartNumbers": [
@@ -9691,6 +10172,8 @@
         },
         {
           "equipment": "XCMG XDR100 Cummins Engine QST30",
+          "machineBrand": "XCMG",
+          "machineModel": "XDR100",
           "description": "LUBE FILTER, SPIN-ON FULL FLOW",
           "oemRaw": "LF670",
           "oemPartNumbers": [
@@ -9785,6 +10268,8 @@
       "catalogApplications": [
         {
           "equipment": "SHANTUI SD22 /SD16 Cummins Engine NT-855",
+          "machineBrand": "SHANTUI",
+          "machineModel": "SD22 /SD16",
           "description": "LUBE FILTER, SPIN-ON BYPASS",
           "oemRaw": "3313283",
           "oemPartNumbers": [
@@ -9945,6 +10430,8 @@
       "catalogApplications": [
         {
           "equipment": "SDLG LG670 Yanmar Engine 4TNV98",
+          "machineBrand": "SDLG",
+          "machineModel": "LG670",
           "description": "LUBE FILTER, SPIN-ON FULL FLOW",
           "oemRaw": "4110000677001Y",
           "oemPartNumbers": [
@@ -10099,6 +10586,8 @@
       "catalogApplications": [
         {
           "equipment": "XCMG XE800D Perkins Engine 2506D-E15TA",
+          "machineBrand": "XCMG",
+          "machineModel": "XE800D",
           "description": "FUEL FILTER, SPIN-ON SECONDARY",
           "oemRaw": "803442627",
           "oemPartNumbers": [
@@ -10341,6 +10830,8 @@
       "catalogApplications": [
         {
           "equipment": "LIUGONG Gzlg856III",
+          "machineBrand": "LIUGONG",
+          "machineModel": "Gzlg856III",
           "description": "FUEL FILTER, WATER SEPARATOR SPIN-ON TWIST&DRAIN",
           "oemRaw": "3973233",
           "oemPartNumbers": [
@@ -10353,6 +10844,8 @@
         },
         {
           "equipment": "Dongfeng KINLAND 3251 Cummins Engine ISL",
+          "machineBrand": "Dongfeng",
+          "machineModel": "KINLAND 3251",
           "description": "FUEL PRIMARY",
           "oemRaw": "5301449",
           "oemPartNumbers": [
@@ -10721,6 +11214,8 @@
       "catalogApplications": [
         {
           "equipment": "SANY SY135 Isuzu Engine 4JJ1X",
+          "machineBrand": "SANY",
+          "machineModel": "SY135",
           "description": "AIR FILTER, SAFETY RADIALSEAL",
           "oemRaw": "B222100000501",
           "oemPartNumbers": [
@@ -10733,6 +11228,8 @@
         },
         {
           "equipment": "SANY SY200 Mitsubishi Engine 4M50",
+          "machineBrand": "SANY",
+          "machineModel": "SY200",
           "description": "AIR FILTER, SAFETY RADIALSEAL",
           "oemRaw": "B222100000501",
           "oemPartNumbers": [
@@ -10745,6 +11242,8 @@
         },
         {
           "equipment": "SDLG LG670 Yanmar Engine 4TNV98",
+          "machineBrand": "SDLG",
+          "machineModel": "LG670",
           "description": "AIR FILTER, SAFETY RADIALSEAL",
           "oemRaw": "4110000697003",
           "oemPartNumbers": [
@@ -11120,6 +11619,8 @@
       "catalogApplications": [
         {
           "equipment": "SANY SY75C Isuzu Engine 4LE2X",
+          "machineBrand": "SANY",
+          "machineModel": "SY75C",
           "description": "FUEL FILTER, SPIN-ON",
           "oemRaw": "60212876",
           "oemPartNumbers": [
@@ -11487,6 +11988,8 @@
       "catalogApplications": [
         {
           "equipment": "Lonking LG833B Wechai Engine TBD226BV-611A",
+          "machineBrand": "Lonking",
+          "machineModel": "LG833B",
           "description": "FUEL FILTER, WATER SEPARATOR SPIN-ON TWIST&DRAIN",
           "oemRaw": "13020488",
           "oemPartNumbers": [
@@ -12324,6 +12827,8 @@
       "catalogApplications": [
         {
           "equipment": "SANY SY55 Isuzu Engine 4JG1",
+          "machineBrand": "SANY",
+          "machineModel": "SY55",
           "description": "LUBE FILTER, SPIN-ON FULL FLOW",
           "oemRaw": "A222100000569",
           "oemPartNumbers": [
@@ -12465,6 +12970,8 @@
       "catalogApplications": [
         {
           "equipment": "LIUGONG CLG908D Cummins Engine B3.3-85",
+          "machineBrand": "LIUGONG",
+          "machineModel": "CLG908D",
           "description": "FUEL FILTER, SPIN-ON",
           "oemRaw": "C6003112110",
           "oemPartNumbers": [
@@ -12528,6 +13035,8 @@
       "catalogApplications": [
         {
           "equipment": "SANY SY245H Mitsubishi Engine 6D24TC",
+          "machineBrand": "SANY",
+          "machineModel": "SY245H",
           "description": "LIQUID FILTER KIT",
           "oemRaw": "B222100000482",
           "oemPartNumbers": [
@@ -12540,6 +13049,8 @@
         },
         {
           "equipment": "SANY SY245H Mitsubishi Engine 6D24TC",
+          "machineBrand": "SANY",
+          "machineModel": "SY245H",
           "description": "LIQUID FILTER KIT",
           "oemRaw": "ME180514",
           "oemPartNumbers": [
@@ -12552,6 +13063,8 @@
         },
         {
           "equipment": "SANY SY465H Mitsubishi Engine 6D24-TLC1B",
+          "machineBrand": "SANY",
+          "machineModel": "SY465H",
           "description": "LIQUID FILTER KIT",
           "oemRaw": "ME180514",
           "oemPartNumbers": [
@@ -12653,6 +13166,8 @@
       "catalogApplications": [
         {
           "equipment": "SANY SY265C Mitsubishi Engine D06FRC",
+          "machineBrand": "SANY",
+          "machineModel": "SY265C",
           "description": "LUBE FILTER, SPIN-ON FULL FLOW",
           "oemRaw": "60176476",
           "oemPartNumbers": [
@@ -12665,6 +13180,8 @@
         },
         {
           "equipment": "LIUGONG ZL30E YUCHAI Engine YC6108Q",
+          "machineBrand": "LIUGONG",
+          "machineModel": "ZL30E",
           "description": "LUBE FILTER, SPIN-ON FULL FLOW",
           "oemRaw": "SP101847",
           "oemPartNumbers": [
@@ -13507,6 +14024,8 @@
       "catalogApplications": [
         {
           "equipment": "SDLG LG6210 Deutz AG Engine BF6M2012C",
+          "machineBrand": "SDLG",
+          "machineModel": "LG6210",
           "description": "FUEL FILTER, SPIN-ON",
           "oemRaw": "14403813",
           "oemPartNumbers": [
@@ -13519,6 +14038,8 @@
         },
         {
           "equipment": "HOW,HOHAN J7B D10 Engine",
+          "machineBrand": "HOW,HOHAN",
+          "machineModel": "J7B",
           "description": "FUEL FILTER, SPIN-ON",
           "oemRaw": "VG1560080011",
           "oemPartNumbers": [
@@ -13826,6 +14347,8 @@
       "catalogApplications": [
         {
           "equipment": "LIUGONG Gzlg856III",
+          "machineBrand": "LIUGONG",
+          "machineModel": "Gzlg856III",
           "description": "HYDRAULIC FILTER, SPIN-ON",
           "oemRaw": "",
           "oemPartNumbers": [],
@@ -13836,6 +14359,8 @@
         },
         {
           "equipment": "LIUGONG CLG850H Cummins Engine QSL9.3",
+          "machineBrand": "LIUGONG",
+          "machineModel": "CLG850H",
           "description": "HYDRAULIC FILTER, SPIN-ON",
           "oemRaw": "SP100275",
           "oemPartNumbers": [
@@ -13959,6 +14484,8 @@
       "catalogApplications": [
         {
           "equipment": "LIUGONG GLG922F",
+          "machineBrand": "LIUGONG",
+          "machineModel": "GLG922F",
           "description": "LUBE FILTER, SPIN-ON FULL FLOW",
           "oemRaw": "40C2182",
           "oemPartNumbers": [
@@ -13971,6 +14498,8 @@
         },
         {
           "equipment": "LIUGONG GLG835",
+          "machineBrand": "LIUGONG",
+          "machineModel": "GLG835",
           "description": "LUBE FILTER, SPIN-ON FULL FLOW",
           "oemRaw": "40C2182",
           "oemPartNumbers": [
@@ -13983,6 +14512,8 @@
         },
         {
           "equipment": "LIUGONG GLG856H",
+          "machineBrand": "LIUGONG",
+          "machineModel": "GLG856H",
           "description": "LUBE FILTER, SPIN-ON FULL FLOW",
           "oemRaw": "40C2182",
           "oemPartNumbers": [
@@ -13995,6 +14526,8 @@
         },
         {
           "equipment": "LIUGONG Gzlg856III",
+          "machineBrand": "LIUGONG",
+          "machineModel": "Gzlg856III",
           "description": "LUBE FILTER, SPIN-ON FULL FLOW",
           "oemRaw": "40C2182",
           "oemPartNumbers": [
@@ -14007,6 +14540,8 @@
         },
         {
           "equipment": "LIUGONG 848H",
+          "machineBrand": "LIUGONG",
+          "machineModel": "848H",
           "description": "LUBE FILTER, SPIN-ON FULL FLOW",
           "oemRaw": "40C2182",
           "oemPartNumbers": [
@@ -14019,6 +14554,8 @@
         },
         {
           "equipment": "LIUGONG 933E",
+          "machineBrand": "LIUGONG",
+          "machineModel": "933E",
           "description": "LUBE FILTER, SPIN-ON FULL FLOW",
           "oemRaw": "40C2182",
           "oemPartNumbers": [
@@ -14031,6 +14568,8 @@
         },
         {
           "equipment": "LIUGONG CLG922E Cummins Engine QSB6.7",
+          "machineBrand": "LIUGONG",
+          "machineModel": "CLG922E",
           "description": "LUBE FILTER, SPIN-ON FULL FLOW",
           "oemRaw": "40C2182",
           "oemPartNumbers": [
@@ -14043,6 +14582,8 @@
         },
         {
           "equipment": "XCMG XE200D Cummins Engine QSB7",
+          "machineBrand": "XCMG",
+          "machineModel": "XE200D",
           "description": "LUBE FILTER, SPIN-ON FULL FLOW",
           "oemRaw": "803172682",
           "oemPartNumbers": [
@@ -14055,6 +14596,8 @@
         },
         {
           "equipment": "XCMG XE215D Guangxi Cummins Engine QSB7",
+          "machineBrand": "XCMG",
+          "machineModel": "XE215D",
           "description": "LUBE FILTER, SPIN-ON FULL FLOW",
           "oemRaw": "803172682",
           "oemPartNumbers": [
@@ -14106,6 +14649,8 @@
       "catalogApplications": [
         {
           "equipment": "LIUGONG 920E Cummins Engine B5.9",
+          "machineBrand": "LIUGONG",
+          "machineModel": "920E",
           "description": "FUEL FILTER, SPIN-ON SECONDARY",
           "oemRaw": "53C0052",
           "oemPartNumbers": [
@@ -14118,6 +14663,8 @@
         },
         {
           "equipment": "LIUGONG 922E Cummins Engine B5.9",
+          "machineBrand": "LIUGONG",
+          "machineModel": "922E",
           "description": "FUEL FILTER, SPIN-ON SECONDARY",
           "oemRaw": "53C0052",
           "oemPartNumbers": [
@@ -14130,6 +14677,8 @@
         },
         {
           "equipment": "Dongfeng KINLAND 3251 Cummins Engine ISL",
+          "machineBrand": "Dongfeng",
+          "machineModel": "KINLAND 3251",
           "description": "FUEL FILTER, SPIN-ON SECONDARY",
           "oemRaw": "3931063",
           "oemPartNumbers": [
@@ -14142,6 +14691,8 @@
         },
         {
           "equipment": "Dongfeng KINGRUN Cummins Engine ISD6.7",
+          "machineBrand": "Dongfeng",
+          "machineModel": "KINGRUN",
           "description": "FUEL FILTER, SPIN-ON SECONDARY",
           "oemRaw": "3931063",
           "oemPartNumbers": [
@@ -14411,6 +14962,8 @@
       "catalogApplications": [
         {
           "equipment": "FAW JIEFANG - J5M Series FAWDE Engine 6DF",
+          "machineBrand": "FAW",
+          "machineModel": "JIEFANG - J5M Series",
           "description": "LUBE FILTER,SPIN-ON FULL FLOW",
           "oemRaw": "1012010-81DM",
           "oemPartNumbers": [
@@ -14423,6 +14976,8 @@
         },
         {
           "equipment": "FAW JIEFANG - J5P Series FAWDE Engine 6DM",
+          "machineBrand": "FAW",
+          "machineModel": "JIEFANG - J5P Series",
           "description": "LUBE FILTER , SPIN-ON FULL FLOW",
           "oemRaw": "1012010-M18-054W",
           "oemPartNumbers": [
@@ -14435,6 +14990,7 @@
         },
         {
           "equipment": "Shacman-Wechai",
+          "machineBrand": "Shacman-Wechai",
           "description": "LUBE FILTER, SPIN-ON FULL FLOW",
           "oemRaw": "610800070015",
           "oemPartNumbers": [
@@ -14522,6 +15078,8 @@
       "catalogApplications": [
         {
           "equipment": "Rondebult RB876",
+          "machineBrand": "Rondebult",
+          "machineModel": "RB876",
           "description": "FUEL FILTER, SPIN -ON",
           "oemRaw": "4190001637",
           "oemPartNumbers": [],
@@ -14532,6 +15090,8 @@
         },
         {
           "equipment": "Rondebult CMT86",
+          "machineBrand": "Rondebult",
+          "machineModel": "CMT86",
           "description": "FUEL FILTER, SPIN -ON",
           "oemRaw": "1000422382",
           "oemPartNumbers": [],
@@ -14542,6 +15102,8 @@
         },
         {
           "equipment": "Rondebult CMT66",
+          "machineBrand": "Rondebult",
+          "machineModel": "CMT66",
           "description": "FUEL FILTER, SPIN -ON",
           "oemRaw": "1000422382",
           "oemPartNumbers": [],
@@ -14735,6 +15297,8 @@
       "catalogApplications": [
         {
           "equipment": "SANY SY240C",
+          "machineBrand": "SANY",
+          "machineModel": "SY240C",
           "description": "LUBE FILTER, SPIN-ON FULL FLOW",
           "oemRaw": "B222100000494",
           "oemPartNumbers": [
@@ -14747,6 +15311,8 @@
         },
         {
           "equipment": "SANY SY135 Isuzu Engine 4JJ1X",
+          "machineBrand": "SANY",
+          "machineModel": "SY135",
           "description": "LUBE FILTER, SPIN-ON FULL FLOW",
           "oemRaw": "B222100000494",
           "oemPartNumbers": [
@@ -14759,6 +15325,8 @@
         },
         {
           "equipment": "SANY SY200 Mitsubishi Engine 4M50",
+          "machineBrand": "SANY",
+          "machineModel": "SY200",
           "description": "LUBE FILTER, SPIN-ON FULL FLOW",
           "oemRaw": "B222100000494",
           "oemPartNumbers": [
@@ -14771,6 +15339,8 @@
         },
         {
           "equipment": "SANY SY240C-9 Isuzu Engine CC6BG1TRP",
+          "machineBrand": "SANY",
+          "machineModel": "SY240C-9",
           "description": "LUBE FILTER, SPIN-ON FULL FLOW",
           "oemRaw": "B222100000494",
           "oemPartNumbers": [
@@ -14783,6 +15353,8 @@
         },
         {
           "equipment": "SANY SY365 Isuzu Engine 6HK1-XDHAG-01-C3",
+          "machineBrand": "SANY",
+          "machineModel": "SY365",
           "description": "LUBE FILTER, SPIN-ON FULL FLOW",
           "oemRaw": "B222100000494",
           "oemPartNumbers": [
@@ -14795,6 +15367,8 @@
         },
         {
           "equipment": "SANY SY375 Isuzu Engine GH-6HK 1XKSC-01",
+          "machineBrand": "SANY",
+          "machineModel": "SY375",
           "description": "LUBE FILTER, SPIN-ON FULL FLOW",
           "oemRaw": "B222100000494",
           "oemPartNumbers": [
@@ -14807,6 +15381,8 @@
         },
         {
           "equipment": "SANY SY500H Isuzu Engine 6WG1",
+          "machineBrand": "SANY",
+          "machineModel": "SY500H",
           "description": "LUBE FILTER, SPIN-ON FULL FLOW",
           "oemRaw": "B222100000494",
           "oemPartNumbers": [
@@ -14819,6 +15395,8 @@
         },
         {
           "equipment": "SANY SY750H Isuzu Engine 6WG1",
+          "machineBrand": "SANY",
+          "machineModel": "SY750H",
           "description": "LUBE FILTER, SPIN-ON FULL FLOW",
           "oemRaw": "B222100000494",
           "oemPartNumbers": [
@@ -14831,6 +15409,8 @@
         },
         {
           "equipment": "XCMG XE135C Isuzu Engine 4BG1",
+          "machineBrand": "XCMG",
+          "machineModel": "XE135C",
           "description": "LUBE FILTER, SPIN-ON FULL FLOW",
           "oemRaw": "XCMG-JL-02001",
           "oemPartNumbers": [
@@ -14843,6 +15423,8 @@
         },
         {
           "equipment": "XCMG XE215C Isuzu Engine 6BG1T",
+          "machineBrand": "XCMG",
+          "machineModel": "XE215C",
           "description": "LUBE FILTER, SPIN-ON FULL FLOW",
           "oemRaw": "800107892",
           "oemPartNumbers": [
@@ -14855,6 +15437,8 @@
         },
         {
           "equipment": "XCMG XE370C Isuzu Engine 6HK1",
+          "machineBrand": "XCMG",
+          "machineModel": "XE370C",
           "description": "LUBE FILTER, SPIN-ON FULL FLOW",
           "oemRaw": "819909162",
           "oemPartNumbers": [
@@ -15291,6 +15875,8 @@
       "catalogApplications": [
         {
           "equipment": "LIUGONG CLG936E Cummins Engine QSL9.3",
+          "machineBrand": "LIUGONG",
+          "machineModel": "CLG936E",
           "description": "FUEL FILTER, SPIN-ON",
           "oemRaw": "53C0494",
           "oemPartNumbers": [
@@ -15303,6 +15889,8 @@
         },
         {
           "equipment": "Dongfeng KINLAND 3251 Cummins Engine ISL",
+          "machineBrand": "Dongfeng",
+          "machineModel": "KINLAND 3251",
           "description": "FUEL FILTER, SPIN-ON",
           "oemRaw": "5301448",
           "oemPartNumbers": [
@@ -15396,6 +15984,8 @@
       "catalogApplications": [
         {
           "equipment": "SHANTUI SD22 /SD16 Cummins Engine NT-855",
+          "machineBrand": "SHANTUI",
+          "machineModel": "SD22 /SD16",
           "description": "FUEL FILTER, WATER SEPARATOR SPIN-ON TWIST&DRAIN",
           "oemRaw": "3315843",
           "oemPartNumbers": [
@@ -16930,6 +17520,8 @@
       "catalogApplications": [
         {
           "equipment": "XCMG XE800D Perkins Engine 2506D-E15TA",
+          "machineBrand": "XCMG",
+          "machineModel": "XE800D",
           "description": "HYDRAULIC FILTER, SPIN-ON",
           "oemRaw": "860157814",
           "oemPartNumbers": [
@@ -17227,6 +17819,8 @@
       "catalogApplications": [
         {
           "equipment": "SDLG LG670 Yanmar Engine 4TNV98",
+          "machineBrand": "SDLG",
+          "machineModel": "LG670",
           "description": "FUEL FILTER, WATER SEPARATOR SPIN-ON",
           "oemRaw": "4110000787007",
           "oemPartNumbers": [
@@ -17374,6 +17968,8 @@
       "catalogApplications": [
         {
           "equipment": "XCMG XDR80T YUCHAI Engine YC6K480-GT30",
+          "machineBrand": "XCMG",
+          "machineModel": "XDR80T",
           "description": "FUEL FILTER, WATER SEPARATOR SPIN-ON",
           "oemRaw": "800162635",
           "oemPartNumbers": [
@@ -17386,6 +17982,8 @@
         },
         {
           "equipment": "SDLG LG6210 Deutz AG Engine BF6M2012C",
+          "machineBrand": "SDLG",
+          "machineModel": "LG6210",
           "description": "FUEL FILTER, WATER SEPARATOR SPIN-ON",
           "oemRaw": "11214252",
           "oemPartNumbers": [
@@ -17898,6 +18496,8 @@
       "catalogApplications": [
         {
           "equipment": "SANY SY200 Mitsubishi Engine 4M50",
+          "machineBrand": "SANY",
+          "machineModel": "SY200",
           "description": "AIR FILTER, SAFETY RADIALSEAL",
           "oemRaw": "B222100000532",
           "oemPartNumbers": [
@@ -17910,6 +18510,8 @@
         },
         {
           "equipment": "SANY SY200C Mitsubishi Engine 4M50",
+          "machineBrand": "SANY",
+          "machineModel": "SY200C",
           "description": "AIR FILTER, SAFETY RADIALSEAL",
           "oemRaw": "B222100000532",
           "oemPartNumbers": [
@@ -17922,6 +18524,8 @@
         },
         {
           "equipment": "SANY SY205C-9 SANY Engine D06",
+          "machineBrand": "SANY",
+          "machineModel": "SY205C-9",
           "description": "AIR FILTER, SAFETY RADIALSEAL",
           "oemRaw": "B222100000532",
           "oemPartNumbers": [
@@ -17934,6 +18538,8 @@
         },
         {
           "equipment": "SANY SY215C Mitsubishi Engine 4M50",
+          "machineBrand": "SANY",
+          "machineModel": "SY215C",
           "description": "AIR FILTER, SAFETY RADIALSEAL",
           "oemRaw": "B222100000532",
           "oemPartNumbers": [
@@ -18042,6 +18648,8 @@
       "catalogApplications": [
         {
           "equipment": "SANY SY240C",
+          "machineBrand": "SANY",
+          "machineModel": "SY240C",
           "description": "AIR FILTER, PRIMARY RADIALSEAL",
           "oemRaw": "60207265",
           "oemPartNumbers": [
@@ -18054,6 +18662,8 @@
         },
         {
           "equipment": "SANY SY205C SANY Engine D0652",
+          "machineBrand": "SANY",
+          "machineModel": "SY205C",
           "description": "AIR FILTER, PRIMARY RADIALSEAL",
           "oemRaw": "60207265",
           "oemPartNumbers": [
@@ -18066,6 +18676,8 @@
         },
         {
           "equipment": "SANY SY215C SANY Engine D06",
+          "machineBrand": "SANY",
+          "machineModel": "SY215C",
           "description": "AIR FILTER, PRIMARY RADIALSEAL",
           "oemRaw": "60207265",
           "oemPartNumbers": [
@@ -18078,6 +18690,8 @@
         },
         {
           "equipment": "SANY SY225C-9 Mitsubishi Engine 6D34TL",
+          "machineBrand": "SANY",
+          "machineModel": "SY225C-9",
           "description": "AIR FILTER, PRIMARY RADIALSEAL",
           "oemRaw": "60207265",
           "oemPartNumbers": [
@@ -18090,6 +18704,8 @@
         },
         {
           "equipment": "SANY SY240C-9 Isuzu Engine CC6BG1TRP",
+          "machineBrand": "SANY",
+          "machineModel": "SY240C-9",
           "description": "AIR FILTER, PRIMARY RADIALSEAL",
           "oemRaw": "60207265",
           "oemPartNumbers": [
@@ -18102,6 +18718,8 @@
         },
         {
           "equipment": "LIUGONG 933E",
+          "machineBrand": "LIUGONG",
+          "machineModel": "933E",
           "description": "AIR FILTER, PRIMARY RADIALSEAL",
           "oemRaw": "40C2953",
           "oemPartNumbers": [
@@ -18114,6 +18732,8 @@
         },
         {
           "equipment": "XCMG XE200D Cummins Engine QSB7",
+          "machineBrand": "XCMG",
+          "machineModel": "XE200D",
           "description": "AIR FILTER, PRIMARY RADIALSEAL",
           "oemRaw": "800104345",
           "oemPartNumbers": [
@@ -18126,6 +18746,8 @@
         },
         {
           "equipment": "XCMG XE215D Guangxi Cummins Engine QSB7",
+          "machineBrand": "XCMG",
+          "machineModel": "XE215D",
           "description": "AIR FILTER, PRIMARY RADIALSEAL",
           "oemRaw": "800104345",
           "oemPartNumbers": [
@@ -18138,6 +18760,8 @@
         },
         {
           "equipment": "XCMG XE215C Isuzu Engine 6BG1T",
+          "machineBrand": "XCMG",
+          "machineModel": "XE215C",
           "description": "AIR FILTER, PRIMARY RADIALSEAL",
           "oemRaw": "800104345",
           "oemPartNumbers": [
@@ -18150,6 +18774,8 @@
         },
         {
           "equipment": "XCMG XE370C Isuzu Engine 6HK1",
+          "machineBrand": "XCMG",
+          "machineModel": "XE370C",
           "description": "AIR FILTER, PRIMARY RADIALSEAL",
           "oemRaw": "800104345",
           "oemPartNumbers": [
@@ -18222,6 +18848,8 @@
       "catalogApplications": [
         {
           "equipment": "SANY SY240C",
+          "machineBrand": "SANY",
+          "machineModel": "SY240C",
           "description": "AIR FILTER, SAFETY RADIALSEAL",
           "oemRaw": "60207264",
           "oemPartNumbers": [
@@ -18234,6 +18862,8 @@
         },
         {
           "equipment": "SANY SY205C SANY Engine D0652",
+          "machineBrand": "SANY",
+          "machineModel": "SY205C",
           "description": "AIR FILTER, SAFETY RADIALSEAL",
           "oemRaw": "60207264",
           "oemPartNumbers": [
@@ -18246,6 +18876,8 @@
         },
         {
           "equipment": "SANY SY215C SANY Engine D06",
+          "machineBrand": "SANY",
+          "machineModel": "SY215C",
           "description": "AIR FILTER, SAFETY RADIALSEAL",
           "oemRaw": "60207264",
           "oemPartNumbers": [
@@ -18258,6 +18890,8 @@
         },
         {
           "equipment": "SANY SY225C-9 Mitsubishi Engine 6D34TL",
+          "machineBrand": "SANY",
+          "machineModel": "SY225C-9",
           "description": "AIR FILTER, SAFETY RADIALSEAL",
           "oemRaw": "60207264",
           "oemPartNumbers": [
@@ -18270,6 +18904,8 @@
         },
         {
           "equipment": "SANY SY240C-9 Isuzu Engine CC6BG1TRP",
+          "machineBrand": "SANY",
+          "machineModel": "SY240C-9",
           "description": "AIR FILTER, SAFETY RADIALSEAL",
           "oemRaw": "60207264",
           "oemPartNumbers": [
@@ -18282,6 +18918,8 @@
         },
         {
           "equipment": "XCMG XE200D Cummins Engine QSB7",
+          "machineBrand": "XCMG",
+          "machineModel": "XE200D",
           "description": "AIR FILTER, SAFETY RADIALSEAL",
           "oemRaw": "800104344",
           "oemPartNumbers": [
@@ -18294,6 +18932,8 @@
         },
         {
           "equipment": "XCMG XE215D Guangxi Cummins Engine QSB7",
+          "machineBrand": "XCMG",
+          "machineModel": "XE215D",
           "description": "AIR FILTER, SAFETY RADIALSEAL",
           "oemRaw": "800104344",
           "oemPartNumbers": [
@@ -18306,6 +18946,8 @@
         },
         {
           "equipment": "XCMG XE215C Isuzu Engine 6BG1T",
+          "machineBrand": "XCMG",
+          "machineModel": "XE215C",
           "description": "AIR FILTER, SAFETY RADIALSEAL",
           "oemRaw": "800104344",
           "oemPartNumbers": [
@@ -18318,6 +18960,8 @@
         },
         {
           "equipment": "XCMG XE370C Isuzu Engine 6HK1",
+          "machineBrand": "XCMG",
+          "machineModel": "XE370C",
           "description": "AIR FILTER, SAFETY RADIALSEAL",
           "oemRaw": "800104344",
           "oemPartNumbers": [
@@ -18916,6 +19560,8 @@
       "catalogApplications": [
         {
           "equipment": "LIUGONG CLG922E Cummins Engine QSB6.7",
+          "machineBrand": "LIUGONG",
+          "machineModel": "CLG922E",
           "description": "AIR FILTER, PRIMARY RADIALSEAL",
           "oemRaw": "40C1033",
           "oemPartNumbers": [
@@ -18981,6 +19627,8 @@
       "catalogApplications": [
         {
           "equipment": "SANY SY200 Mitsubishi Engine 4M50",
+          "machineBrand": "SANY",
+          "machineModel": "SY200",
           "description": "AIR FILTER, PRIMARY RADIALSEAL",
           "oemRaw": "B222100000535",
           "oemPartNumbers": [
@@ -18993,6 +19641,8 @@
         },
         {
           "equipment": "SANY SY200C Mitsubishi Engine 4M50",
+          "machineBrand": "SANY",
+          "machineModel": "SY200C",
           "description": "AIR FILTER, PRIMARY RADIALSEAL",
           "oemRaw": "B222100000535",
           "oemPartNumbers": [
@@ -19005,6 +19655,8 @@
         },
         {
           "equipment": "SANY SY205C-9 SANY Engine D06",
+          "machineBrand": "SANY",
+          "machineModel": "SY205C-9",
           "description": "AIR FILTER, PRIMARY RADIALSEAL",
           "oemRaw": "B222100000535",
           "oemPartNumbers": [
@@ -19017,6 +19669,8 @@
         },
         {
           "equipment": "SANY SY215C Mitsubishi Engine 4M50",
+          "machineBrand": "SANY",
+          "machineModel": "SY215C",
           "description": "AIR FILTER, PRIMARY RADIALSEAL",
           "oemRaw": "B222100000535",
           "oemPartNumbers": [
@@ -19121,6 +19775,8 @@
       "catalogApplications": [
         {
           "equipment": "XCMG XE800D Perkins Engine 2506D-E15TA",
+          "machineBrand": "XCMG",
+          "machineModel": "XE800D",
           "description": "FUEL FILTER, WATER SEPARATOR SPIN-ON TWIST&DRAIN",
           "oemRaw": "803442628",
           "oemPartNumbers": [
@@ -19298,6 +19954,8 @@
       "catalogApplications": [
         {
           "equipment": "SANY SYL956H5 Cummins Engine QSL8.9-C220",
+          "machineBrand": "SANY",
+          "machineModel": "SYL956H5",
           "description": "LUBE FILTER, SPIN-ON FULL FLOW",
           "oemRaw": "60034226",
           "oemPartNumbers": [
@@ -19310,6 +19968,8 @@
         },
         {
           "equipment": "LIUGONG GLG856H",
+          "machineBrand": "LIUGONG",
+          "machineModel": "GLG856H",
           "description": "LUBE FILTER, SPIN-ON FULL FLOW",
           "oemRaw": "53C0053",
           "oemPartNumbers": [
@@ -19322,6 +19982,8 @@
         },
         {
           "equipment": "LIUGONG 877H",
+          "machineBrand": "LIUGONG",
+          "machineModel": "877H",
           "description": "LUBE FILTER, SPIN-ON FULL FLOW",
           "oemRaw": "53C0053",
           "oemPartNumbers": [
@@ -19334,6 +19996,8 @@
         },
         {
           "equipment": "LIUGONG CLG850H Cummins Engine QSL9.3",
+          "machineBrand": "LIUGONG",
+          "machineModel": "CLG850H",
           "description": "LUBE FILTER, SPIN-ON FULL FLOW",
           "oemRaw": "53C0053",
           "oemPartNumbers": [
@@ -19346,6 +20010,8 @@
         },
         {
           "equipment": "LIUGONG CLG936E Cummins Engine QSL9.3",
+          "machineBrand": "LIUGONG",
+          "machineModel": "CLG936E",
           "description": "LUBE FILTER, SPIN-ON FULL FLOW",
           "oemRaw": "53C0053",
           "oemPartNumbers": [
@@ -19358,6 +20024,8 @@
         },
         {
           "equipment": "LIUGONG ZL50C Weichai Power Engine WD10G220E13",
+          "machineBrand": "LIUGONG",
+          "machineModel": "ZL50C",
           "description": "LUBE FILTER, SPIN-ON FULL FLOW",
           "oemRaw": "53C0053",
           "oemPartNumbers": [
@@ -19370,6 +20038,8 @@
         },
         {
           "equipment": "LIUGONG ZL50CN Weichai Power Engine WD10G220E13",
+          "machineBrand": "LIUGONG",
+          "machineModel": "ZL50CN",
           "description": "LUBE FILTER, SPIN-ON FULL FLOW",
           "oemRaw": "53C0053",
           "oemPartNumbers": [
@@ -19382,6 +20052,8 @@
         },
         {
           "equipment": "SHANTUI SD22 /SD16 Cummins Engine NT-855",
+          "machineBrand": "SHANTUI",
+          "machineModel": "SD22 /SD16",
           "description": "LUBE FILTER, SPIN-ON FULL FLOW",
           "oemRaw": "3401544",
           "oemPartNumbers": [
@@ -19394,6 +20066,8 @@
         },
         {
           "equipment": "Dongfeng KINLAND 3251 Cummins Engine ISL",
+          "machineBrand": "Dongfeng",
+          "machineModel": "KINLAND 3251",
           "description": "LUBE FILTER, SPIN-ON FULL FLOW",
           "oemRaw": "3401544",
           "oemPartNumbers": [
@@ -19406,6 +20080,8 @@
         },
         {
           "equipment": "Dongfeng KINGRUN Cummins Engine ISD6.7",
+          "machineBrand": "Dongfeng",
+          "machineModel": "KINGRUN",
           "description": "LUBE FILTER, SPIN-ON FULL FLOW",
           "oemRaw": "3401544",
           "oemPartNumbers": [
@@ -19596,6 +20272,8 @@
       "catalogApplications": [
         {
           "equipment": "SANY SY265C Mitsubishi Engine D06FRC",
+          "machineBrand": "SANY",
+          "machineModel": "SY265C",
           "description": "FUEL FILTER, SPIN-ON SECONDARY",
           "oemRaw": "60176475",
           "oemPartNumbers": [
@@ -19608,6 +20286,8 @@
         },
         {
           "equipment": "SANY SY365 Isuzu Engine 6HK1-XDHAG-01-C3",
+          "machineBrand": "SANY",
+          "machineModel": "SY365",
           "description": "FUEL FILTER, SPIN-ON SECONDARY",
           "oemRaw": "60201219",
           "oemPartNumbers": [
@@ -19620,6 +20300,8 @@
         },
         {
           "equipment": "SANY SY375 Isuzu Engine GH-6HK 1XKSC-01",
+          "machineBrand": "SANY",
+          "machineModel": "SY375",
           "description": "FUEL FILTER, SPIN-ON SECONDARY",
           "oemRaw": "B222100000492",
           "oemPartNumbers": [
@@ -19710,6 +20392,8 @@
       "catalogApplications": [
         {
           "equipment": "SANY SY245H Mitsubishi Engine 6D24TC",
+          "machineBrand": "SANY",
+          "machineModel": "SY245H",
           "description": "AIR FILTER, PRIMARY RADIALSEAL",
           "oemRaw": "B222100000641",
           "oemPartNumbers": [
@@ -19722,6 +20406,8 @@
         },
         {
           "equipment": "SANY SY365 Isuzu Engine 6HK1-XDHAG-01-C3",
+          "machineBrand": "SANY",
+          "machineModel": "SY365",
           "description": "AIR FILTER, PRIMARY RADIALSEAL",
           "oemRaw": "B222100000641",
           "oemPartNumbers": [
@@ -19734,6 +20420,8 @@
         },
         {
           "equipment": "SANY SY375 Isuzu Engine GH-6HK 1XKSC-01",
+          "machineBrand": "SANY",
+          "machineModel": "SY375",
           "description": "AIR FILTER, PRIMARY ROUND",
           "oemRaw": "B222100000641",
           "oemPartNumbers": [
@@ -19746,6 +20434,8 @@
         },
         {
           "equipment": "SANY SY465H Mitsubishi Engine 6D24-TLC1B",
+          "machineBrand": "SANY",
+          "machineModel": "SY465H",
           "description": "AIR FILTER, PRIMARY RADIALSEAL",
           "oemRaw": "B222100000641",
           "oemPartNumbers": [
@@ -19758,6 +20448,8 @@
         },
         {
           "equipment": "SANY SY500H Isuzu Engine 6WG1",
+          "machineBrand": "SANY",
+          "machineModel": "SY500H",
           "description": "AIR FILTER, PRIMARY RADIALSEAL",
           "oemRaw": "B222100000641",
           "oemPartNumbers": [
@@ -19770,6 +20462,8 @@
         },
         {
           "equipment": "LIUGONG 877H",
+          "machineBrand": "LIUGONG",
+          "machineModel": "877H",
           "description": "AIR FILTER, PRIMARY RADIALSEAL",
           "oemRaw": "40C2952",
           "oemPartNumbers": [
@@ -19782,6 +20476,8 @@
         },
         {
           "equipment": "LIUGONG CLG936E Cummins Engine QSL9.3",
+          "machineBrand": "LIUGONG",
+          "machineModel": "CLG936E",
           "description": "AIR FILTER, PRIMARY RADIALSEAL",
           "oemRaw": "53C0253",
           "oemPartNumbers": [
@@ -19794,6 +20490,8 @@
         },
         {
           "equipment": "XCMG XE490 Cummins Engine QSM11",
+          "machineBrand": "XCMG",
+          "machineModel": "XE490",
           "description": "AIR FILTER, PRIMARY RADIALSEAL",
           "oemRaw": "803172683",
           "oemPartNumbers": [
@@ -19882,6 +20580,8 @@
       "catalogApplications": [
         {
           "equipment": "SANY SY245H Mitsubishi Engine 6D24TC",
+          "machineBrand": "SANY",
+          "machineModel": "SY245H",
           "description": "AIR FILTER, SAFETY RADIALSEAL",
           "oemRaw": "B222100000640",
           "oemPartNumbers": [
@@ -19894,6 +20594,8 @@
         },
         {
           "equipment": "SANY SY365 Isuzu Engine 6HK1-XDHAG-01-C3",
+          "machineBrand": "SANY",
+          "machineModel": "SY365",
           "description": "AIR FILTER, SAFETY RADIALSEAL",
           "oemRaw": "B222100000640",
           "oemPartNumbers": [
@@ -19906,6 +20608,8 @@
         },
         {
           "equipment": "SANY SY375 Isuzu Engine GH-6HK 1XKSC-01",
+          "machineBrand": "SANY",
+          "machineModel": "SY375",
           "description": "AIR FILTER, SAFETY",
           "oemRaw": "B222100000640",
           "oemPartNumbers": [
@@ -19918,6 +20622,8 @@
         },
         {
           "equipment": "SANY SY465H Mitsubishi Engine 6D24-TLC1B",
+          "machineBrand": "SANY",
+          "machineModel": "SY465H",
           "description": "AIR FILTER, SAFETY RADIALSEAL",
           "oemRaw": "B222100000640",
           "oemPartNumbers": [
@@ -19930,6 +20636,8 @@
         },
         {
           "equipment": "SANY SY500H Isuzu Engine 6WG1",
+          "machineBrand": "SANY",
+          "machineModel": "SY500H",
           "description": "AIR FILTER, SAFETY RADIALSEAL",
           "oemRaw": "B222100000640",
           "oemPartNumbers": [
@@ -19942,6 +20650,8 @@
         },
         {
           "equipment": "LIUGONG 877H",
+          "machineBrand": "LIUGONG",
+          "machineModel": "877H",
           "description": "AIR FILTER, SAFETY RADIALSEAL",
           "oemRaw": "40C0321",
           "oemPartNumbers": [
@@ -19954,6 +20664,8 @@
         },
         {
           "equipment": "LIUGONG CLG936E Cummins Engine QSL9.3",
+          "machineBrand": "LIUGONG",
+          "machineModel": "CLG936E",
           "description": "AIR FILTER, SAFETY RADIALSEAL",
           "oemRaw": "53C0254",
           "oemPartNumbers": [
@@ -19966,6 +20678,8 @@
         },
         {
           "equipment": "XCMG XE490 Cummins Engine QSM11",
+          "machineBrand": "XCMG",
+          "machineModel": "XE490",
           "description": "AIR FILTER, SAFETY RADIALSEAL",
           "oemRaw": "803172684",
           "oemPartNumbers": [
@@ -24442,6 +25156,8 @@
       "catalogApplications": [
         {
           "equipment": "LIUGONG 920E Cummins Engine B5.9",
+          "machineBrand": "LIUGONG",
+          "machineModel": "920E",
           "description": "FUEL FILTER, SPIN-ON",
           "oemRaw": "53C0045",
           "oemPartNumbers": [
@@ -24454,6 +25170,8 @@
         },
         {
           "equipment": "LIUGONG 922E Cummins Engine B5.9",
+          "machineBrand": "LIUGONG",
+          "machineModel": "922E",
           "description": "FUEL FILTER, SPIN-ON",
           "oemRaw": "53C0045",
           "oemPartNumbers": [
@@ -24771,6 +25489,8 @@
       "catalogApplications": [
         {
           "equipment": "LIUGONG GLG835",
+          "machineBrand": "LIUGONG",
+          "machineModel": "GLG835",
           "description": "FUEL FILTER, WATER SEPARATOR SPIN-ON",
           "oemRaw": "53C0104",
           "oemPartNumbers": [
@@ -24828,6 +25548,8 @@
       "catalogApplications": [
         {
           "equipment": "LIUGONG GLG835",
+          "machineBrand": "LIUGONG",
+          "machineModel": "GLG835",
           "description": "FUEL FILTER, WATER SEPARATOR SPIN-ON TWIST&DRAIN",
           "oemRaw": "53C0051",
           "oemPartNumbers": [
@@ -24840,6 +25562,8 @@
         },
         {
           "equipment": "LIUGONG 920E Cummins Engine B5.9",
+          "machineBrand": "LIUGONG",
+          "machineModel": "920E",
           "description": "FUEL FILTER, WATER SEPARATOR SPIN-ON TWIST&DRAIN",
           "oemRaw": "53C0051",
           "oemPartNumbers": [
@@ -24852,6 +25576,8 @@
         },
         {
           "equipment": "LIUGONG 922E Cummins Engine B5.9",
+          "machineBrand": "LIUGONG",
+          "machineModel": "922E",
           "description": "FUEL FILTER, WATER SEPARATOR SPIN-ON TWIST&DRAIN",
           "oemRaw": "53C0051",
           "oemPartNumbers": [
@@ -24864,6 +25590,8 @@
         },
         {
           "equipment": "Dongfeng KINLAND 3251 Cummins Engine ISL",
+          "machineBrand": "Dongfeng",
+          "machineModel": "KINLAND 3251",
           "description": "FUEL FILTER, WATER SEPARATOR SPIN-ON TWIST&DRAIN",
           "oemRaw": "FS1280",
           "oemPartNumbers": [
@@ -25423,6 +26151,8 @@
       "catalogApplications": [
         {
           "equipment": "LIUGONG Gzlg856III",
+          "machineBrand": "LIUGONG",
+          "machineModel": "Gzlg856III",
           "description": "FUEL FILTER, SPIN-ON",
           "oemRaw": "53C0497",
           "oemPartNumbers": [
@@ -25435,6 +26165,8 @@
         },
         {
           "equipment": "LIUGONG CLG922E Cummins Engine QSB6.7",
+          "machineBrand": "LIUGONG",
+          "machineModel": "CLG922E",
           "description": "FUEL FILTER, SPIN-ON",
           "oemRaw": "53C0497",
           "oemPartNumbers": [
@@ -25447,6 +26179,8 @@
         },
         {
           "equipment": "Rondebult RB860",
+          "machineBrand": "Rondebult",
+          "machineModel": "RB860",
           "description": "FUEL FILTER, SPIN-ON",
           "oemRaw": "612600081334",
           "oemPartNumbers": [],
@@ -25457,6 +26191,8 @@
         },
         {
           "equipment": "Rondebult RB856",
+          "machineBrand": "Rondebult",
+          "machineModel": "RB856",
           "description": "FUEL FILTER, SPIN-ON",
           "oemRaw": "612600081334",
           "oemPartNumbers": [],
@@ -25467,6 +26203,8 @@
         },
         {
           "equipment": "Rondebult ZL60",
+          "machineBrand": "Rondebult",
+          "machineModel": "ZL60",
           "description": "FUEL FILTER, SPIN-ON",
           "oemRaw": "612600081334",
           "oemPartNumbers": [],
@@ -26356,6 +27094,8 @@
       "catalogApplications": [
         {
           "equipment": "XCMG XE490 Cummins Engine QSM11",
+          "machineBrand": "XCMG",
+          "machineModel": "XE490",
           "description": "HYDRAULIC FILTER, CARTRIDGE",
           "oemRaw": "803173136",
           "oemPartNumbers": [
@@ -27496,6 +28236,8 @@
       "catalogApplications": [
         {
           "equipment": "SDLG LG670 Yanmar Engine 4TNV98",
+          "machineBrand": "SDLG",
+          "machineModel": "LG670",
           "description": "HYDRAULIC FILTER, CARTRIDGE",
           "oemRaw": "4190000173001",
           "oemPartNumbers": [
@@ -28039,6 +28781,8 @@
       "catalogApplications": [
         {
           "equipment": "SANY SY240C",
+          "machineBrand": "SANY",
+          "machineModel": "SY240C",
           "description": "FUEL FILTER, SPIN-ON",
           "oemRaw": "B222100000520",
           "oemPartNumbers": [
@@ -28051,6 +28795,8 @@
         },
         {
           "equipment": "SANY SY225C-9 Mitsubishi Engine 6D34TL",
+          "machineBrand": "SANY",
+          "machineModel": "SY225C-9",
           "description": "FUEL FILTER, SPIN-ON",
           "oemRaw": "60201218",
           "oemPartNumbers": [
@@ -28063,6 +28809,8 @@
         },
         {
           "equipment": "SANY SY240C-9 Isuzu Engine CC6BG1TRP",
+          "machineBrand": "SANY",
+          "machineModel": "SY240C-9",
           "description": "FUEL FILTER, SPIN-ON",
           "oemRaw": "B222100000520",
           "oemPartNumbers": [
@@ -28075,6 +28823,8 @@
         },
         {
           "equipment": "XCMG XE215C Isuzu Engine 6BG1T",
+          "machineBrand": "XCMG",
+          "machineModel": "XE215C",
           "description": "FUEL FILTER, SPIN-ON",
           "oemRaw": "800104393",
           "oemPartNumbers": [
@@ -28361,6 +29111,8 @@
       "catalogApplications": [
         {
           "equipment": "SANY SY240C",
+          "machineBrand": "SANY",
+          "machineModel": "SY240C",
           "description": "FUEL FILTER, WATER SEPARATOR CARTRIDGE",
           "oemRaw": "60201220",
           "oemPartNumbers": [
@@ -28373,6 +29125,8 @@
         },
         {
           "equipment": "SANY SY55 Isuzu Engine 4JG1",
+          "machineBrand": "SANY",
+          "machineModel": "SY55",
           "description": "FUEL FILTER, WATER SEPARATOR CARTRIDGE",
           "oemRaw": "60151839",
           "oemPartNumbers": [
@@ -28385,6 +29139,8 @@
         },
         {
           "equipment": "SANY SY75C Isuzu Engine 4LE2X",
+          "machineBrand": "SANY",
+          "machineModel": "SY75C",
           "description": "FUEL FILTER, WATER SEPARATOR CARTRIDGE",
           "oemRaw": "60151839",
           "oemPartNumbers": [
@@ -28397,6 +29153,8 @@
         },
         {
           "equipment": "SANY SY205C SANY Engine D0652",
+          "machineBrand": "SANY",
+          "machineModel": "SY205C",
           "description": "FUEL FILTER, WATER SEPARATOR CARTRIDGE",
           "oemRaw": "60201220",
           "oemPartNumbers": [
@@ -28409,6 +29167,8 @@
         },
         {
           "equipment": "SANY SY215C SANY Engine D06",
+          "machineBrand": "SANY",
+          "machineModel": "SY215C",
           "description": "FUEL FILTER, WATER SEPARATOR CARTRIDGE",
           "oemRaw": "60201220",
           "oemPartNumbers": [
@@ -28421,6 +29181,8 @@
         },
         {
           "equipment": "SANY SY225C-9 Mitsubishi Engine 6D34TL",
+          "machineBrand": "SANY",
+          "machineModel": "SY225C-9",
           "description": "FUEL FILTER, WATER SEPARATOR CARTRIDGE",
           "oemRaw": "60201220",
           "oemPartNumbers": [
@@ -28433,6 +29195,8 @@
         },
         {
           "equipment": "SANY SY240C-9 Isuzu Engine CC6BG1TRP",
+          "machineBrand": "SANY",
+          "machineModel": "SY240C-9",
           "description": "FUEL FILTER, WATER SEPARATOR CARTRIDGE",
           "oemRaw": "60201220",
           "oemPartNumbers": [
@@ -28445,6 +29209,8 @@
         },
         {
           "equipment": "SANY SY265C Mitsubishi Engine D06FRC",
+          "machineBrand": "SANY",
+          "machineModel": "SY265C",
           "description": "FUEL FILTER, WATER SEPARATOR CARTRIDGE",
           "oemRaw": "60201220",
           "oemPartNumbers": [
@@ -28457,6 +29223,8 @@
         },
         {
           "equipment": "SANY SY365 Isuzu Engine 6HK1-XDHAG-01-C3",
+          "machineBrand": "SANY",
+          "machineModel": "SY365",
           "description": "FUEL FILTER, WATER SEPARATOR CARTRIDGE",
           "oemRaw": "60201220",
           "oemPartNumbers": [
@@ -28469,6 +29237,8 @@
         },
         {
           "equipment": "SANY SY375 Isuzu Engine GH-6HK 1XKSC-01",
+          "machineBrand": "SANY",
+          "machineModel": "SY375",
           "description": "FUEL FILTER, WATER SEPARATOR CARTRIDGE",
           "oemRaw": "60201220",
           "oemPartNumbers": [
@@ -28481,6 +29251,8 @@
         },
         {
           "equipment": "SANY SY500H Isuzu Engine 6WG1",
+          "machineBrand": "SANY",
+          "machineModel": "SY500H",
           "description": "FUEL FILTER, WATER SEPARATOR CARTRIDGE",
           "oemRaw": "60017773",
           "oemPartNumbers": [
@@ -28493,6 +29265,8 @@
         },
         {
           "equipment": "SANY SY750H Isuzu Engine 6WG1",
+          "machineBrand": "SANY",
+          "machineModel": "SY750H",
           "description": "FUEL FILTER, WATER SEPARATOR CARTRIDGE",
           "oemRaw": "60151839",
           "oemPartNumbers": [
@@ -28505,6 +29279,8 @@
         },
         {
           "equipment": "XCMG XE370C Isuzu Engine 6HK1",
+          "machineBrand": "XCMG",
+          "machineModel": "XE370C",
           "description": "FUEL FILTER, WATER SEPARATOR CARTRIDGE",
           "oemRaw": "800155885",
           "oemPartNumbers": [
@@ -28803,6 +29579,8 @@
       "catalogApplications": [
         {
           "equipment": "SANY SY35U Yanmar Engine",
+          "machineBrand": "SANY",
+          "machineModel": "SY35U",
           "description": "AIR FILTER, PRIMARY RADIALSEAL",
           "oemRaw": "60123506",
           "oemPartNumbers": [
@@ -28815,6 +29593,8 @@
         },
         {
           "equipment": "SANY SY35C Yanmar Engine",
+          "machineBrand": "SANY",
+          "machineModel": "SY35C",
           "description": "AIR FILTER, PRIMARY RADIALSEAL",
           "oemRaw": "60123506",
           "oemPartNumbers": [
@@ -28916,6 +29696,8 @@
       "catalogApplications": [
         {
           "equipment": "LIUGONG ZL50CN Weichai Power Engine WD10G220E13",
+          "machineBrand": "LIUGONG",
+          "machineModel": "ZL50CN",
           "description": "LUBE FILTER, SPIN-ON FULL FLOW",
           "oemRaw": "1000424655/61000070005",
           "oemPartNumbers": [
@@ -28929,6 +29711,8 @@
         },
         {
           "equipment": "Lonking ZL50C Wechai Engine WD10G220E11",
+          "machineBrand": "Lonking",
+          "machineModel": "ZL50C",
           "description": "LUBE FILTER, SPIN-ON FULL FLOW",
           "oemRaw": "61000070005",
           "oemPartNumbers": [
@@ -28941,6 +29725,8 @@
         },
         {
           "equipment": "Lonking LG850 Wechai Engine WD10G220E11",
+          "machineBrand": "Lonking",
+          "machineModel": "LG850",
           "description": "LUBE FILTER, SPIN-ON FULL FLOW",
           "oemRaw": "61000070005",
           "oemPartNumbers": [
@@ -28953,6 +29739,8 @@
         },
         {
           "equipment": "Lonking LG850D Wechai Engine WD10G220E11",
+          "machineBrand": "Lonking",
+          "machineModel": "LG850D",
           "description": "LUBE FILTER, SPIN-ON FULL FLOW",
           "oemRaw": "61000070005",
           "oemPartNumbers": [
@@ -28965,6 +29753,8 @@
         },
         {
           "equipment": "Lonking ZL50C Wechai Engine WD10G220E11",
+          "machineBrand": "Lonking",
+          "machineModel": "ZL50C",
           "description": "LUBE FILTER, SPIN-ON FULL FLOW",
           "oemRaw": "61000070005",
           "oemPartNumbers": [
@@ -28977,6 +29767,8 @@
         },
         {
           "equipment": "XCMG ZL50G WEICHAI Engine WD10G220E11",
+          "machineBrand": "XCMG",
+          "machineModel": "ZL50G",
           "description": "LUBE FILTER, SPIN-ON FULL FLOW",
           "oemRaw": "1000424655/61000070005",
           "oemPartNumbers": [
@@ -28990,6 +29782,8 @@
         },
         {
           "equipment": "SDLG LG952L WEICHAI Engine WD10G220E13",
+          "machineBrand": "SDLG",
+          "machineModel": "LG952L",
           "description": "LUBE FILTER, SPIN-ON FULL FLOW",
           "oemRaw": "1000424655/61000070005",
           "oemPartNumbers": [
@@ -29003,6 +29797,8 @@
         },
         {
           "equipment": "Rondebult RB876",
+          "machineBrand": "Rondebult",
+          "machineModel": "RB876",
           "description": "LUBE FILTER, SPIN-ON FULL FLOW",
           "oemRaw": "61000070005",
           "oemPartNumbers": [
@@ -29015,6 +29811,8 @@
         },
         {
           "equipment": "Rondebult RB860",
+          "machineBrand": "Rondebult",
+          "machineModel": "RB860",
           "description": "LUBE FILTER, SPIN-ON FULL FLOW",
           "oemRaw": "61000070005",
           "oemPartNumbers": [
@@ -29027,6 +29825,8 @@
         },
         {
           "equipment": "Rondebult RB856",
+          "machineBrand": "Rondebult",
+          "machineModel": "RB856",
           "description": "LUBE FILTER, SPIN-ON FULL FLOW",
           "oemRaw": "61000070005",
           "oemPartNumbers": [
@@ -29039,6 +29839,8 @@
         },
         {
           "equipment": "Rondebult ZL60",
+          "machineBrand": "Rondebult",
+          "machineModel": "ZL60",
           "description": "LUBE FILTER, SPIN-ON FULL FLOW",
           "oemRaw": "61000070005",
           "oemPartNumbers": [
@@ -29051,6 +29853,8 @@
         },
         {
           "equipment": "HOW,HOHAN J7B D10 Engine",
+          "machineBrand": "HOW,HOHAN",
+          "machineModel": "J7B",
           "description": "LUBE FILTER, SPIN-ON FULL FLOW",
           "oemRaw": "VG61000070005",
           "oemPartNumbers": [
@@ -29063,6 +29867,8 @@
         },
         {
           "equipment": "HOWO-7 4X2 Sinotruk(CNHTC) Engine D2066",
+          "machineBrand": "HOWO-7",
+          "machineModel": "4X2",
           "description": "LUBE FILTER, SPIN-ON FULL FLOW",
           "oemRaw": "VG61000070005",
           "oemPartNumbers": [
@@ -29075,6 +29881,8 @@
         },
         {
           "equipment": "HOWO-7 8X4 Sinotruk(CNHTC) Engine D2066",
+          "machineBrand": "HOWO-7",
+          "machineModel": "8X4",
           "description": "LUBE FILTER, SPIN-ON FULL FLOW",
           "oemRaw": "VG61000070005",
           "oemPartNumbers": [
@@ -29160,6 +29968,8 @@
       "catalogApplications": [
         {
           "equipment": "SANY SY200 Mitsubishi Engine 4M50",
+          "machineBrand": "SANY",
+          "machineModel": "SY200",
           "description": "FUEL FILTER, SPIN-ON",
           "oemRaw": "60310823",
           "oemPartNumbers": [
@@ -29172,6 +29982,8 @@
         },
         {
           "equipment": "SANY SY200C Mitsubishi Engine 4M50",
+          "machineBrand": "SANY",
+          "machineModel": "SY200C",
           "description": "FUEL FILTER, SPIN-ON",
           "oemRaw": "60310823",
           "oemPartNumbers": [
@@ -29184,6 +29996,8 @@
         },
         {
           "equipment": "SANY SY205C SANY Engine D0652",
+          "machineBrand": "SANY",
+          "machineModel": "SY205C",
           "description": "FUEL FILTER, SPIN-ON",
           "oemRaw": "60310823",
           "oemPartNumbers": [
@@ -29196,6 +30010,8 @@
         },
         {
           "equipment": "SANY SY205C-9 SANY Engine D06",
+          "machineBrand": "SANY",
+          "machineModel": "SY205C-9",
           "description": "FUEL FILTER, SPIN-ON",
           "oemRaw": "60310823",
           "oemPartNumbers": [
@@ -29208,6 +30024,8 @@
         },
         {
           "equipment": "SANY SY215C Mitsubishi Engine 4M50",
+          "machineBrand": "SANY",
+          "machineModel": "SY215C",
           "description": "FUEL FILTER, SPIN-ON",
           "oemRaw": "60310823",
           "oemPartNumbers": [
@@ -29220,6 +30038,8 @@
         },
         {
           "equipment": "SANY SY225C-9 Mitsubishi Engine 6D34TL",
+          "machineBrand": "SANY",
+          "machineModel": "SY225C-9",
           "description": "FUEL FILTER, SPIN-ON",
           "oemRaw": "60310823",
           "oemPartNumbers": [
@@ -31535,6 +32355,8 @@
       "catalogApplications": [
         {
           "equipment": "SANY SY245H Mitsubishi Engine 6D24TC",
+          "machineBrand": "SANY",
+          "machineModel": "SY245H",
           "description": "FUEL FILTER, SPIN-ON",
           "oemRaw": "B222100000483",
           "oemPartNumbers": [
@@ -31547,6 +32369,8 @@
         },
         {
           "equipment": "SANY SY465H Mitsubishi Engine 6D24-TLC1B",
+          "machineBrand": "SANY",
+          "machineModel": "SY465H",
           "description": "FUEL FILTER, SPIN-ON",
           "oemRaw": "B222100000483",
           "oemPartNumbers": [
@@ -31712,6 +32536,8 @@
       "catalogApplications": [
         {
           "equipment": "SHANTUI SL30WN",
+          "machineBrand": "SHANTUI",
+          "machineModel": "SL30WN",
           "description": "AIR FILTER, SAFETY RADIALSEAL",
           "oemRaw": "",
           "oemPartNumbers": [],
@@ -31995,6 +32821,8 @@
       "catalogApplications": [
         {
           "equipment": "SANY SY55 Isuzu Engine 4JG1",
+          "machineBrand": "SANY",
+          "machineModel": "SY55",
           "description": "AIR FILTER, PRIMARY RADIALSEAL",
           "oemRaw": "B222100000593",
           "oemPartNumbers": [
@@ -32007,6 +32835,8 @@
         },
         {
           "equipment": "SANY SY75C Isuzu Engine 4LE2X",
+          "machineBrand": "SANY",
+          "machineModel": "SY75C",
           "description": "AIR FILTER, PRIMARY RADIALSEAL",
           "oemRaw": "B222100000593",
           "oemPartNumbers": [
@@ -32171,6 +33001,8 @@
       "catalogApplications": [
         {
           "equipment": "Shaanxi Delong New M3000 Wechai Engine WP10.350E53",
+          "machineBrand": "Shaanxi",
+          "machineModel": "Delong New M3000",
           "description": "FUEL FILTER, WATER SEPARATOR SPIN-ON TWIST&DRAIN",
           "oemRaw": "612630080203",
           "oemPartNumbers": [
@@ -32491,6 +33323,8 @@
       "catalogApplications": [
         {
           "equipment": "SANY SY55 Isuzu Engine 4JG1",
+          "machineBrand": "SANY",
+          "machineModel": "SY55",
           "description": "AIR FILTER, SAFETY RADIALSEAL",
           "oemRaw": "B222100000591",
           "oemPartNumbers": [
@@ -32503,6 +33337,8 @@
         },
         {
           "equipment": "SANY SY75C Isuzu Engine 4LE2X",
+          "machineBrand": "SANY",
+          "machineModel": "SY75C",
           "description": "AIR FILTER, SAFETY RADIALSEAL",
           "oemRaw": "B222100000591",
           "oemPartNumbers": [
@@ -32889,6 +33725,8 @@
       "catalogApplications": [
         {
           "equipment": "XCMG XE135C Isuzu Engine 4BG1",
+          "machineBrand": "XCMG",
+          "machineModel": "XE135C",
           "description": "AIR FILTER, PRIMARY",
           "oemRaw": "XCMG-KWL-01301",
           "oemPartNumbers": [
@@ -32966,6 +33804,8 @@
       "catalogApplications": [
         {
           "equipment": "XCMG XE135C Isuzu Engine 4BG1",
+          "machineBrand": "XCMG",
+          "machineModel": "XE135C",
           "description": "AIR FILTER, SAFETY",
           "oemRaw": "XCMG-KNL-01301",
           "oemPartNumbers": [
@@ -33131,6 +33971,8 @@
       "catalogApplications": [
         {
           "equipment": "LIUGONG 877H",
+          "machineBrand": "LIUGONG",
+          "machineModel": "877H",
           "description": "FUEL FILTER, WATER SEPARATOR SPIN-ON TWIST&DRAIN",
           "oemRaw": "53C0650",
           "oemPartNumbers": [
@@ -33143,6 +33985,8 @@
         },
         {
           "equipment": "XCMG XE490 Cummins Engine QSM11",
+          "machineBrand": "XCMG",
+          "machineModel": "XE490",
           "description": "FUEL FILTER, WATER SEPARATOR SPIN-ON TWIST&DRAIN",
           "oemRaw": "800105027",
           "oemPartNumbers": [
@@ -33291,6 +34135,8 @@
       "catalogApplications": [
         {
           "equipment": "SANY SY35U Yanmar Engine",
+          "machineBrand": "SANY",
+          "machineModel": "SY35U",
           "description": "AIR FILTER, SAFETY RADIALSEAL",
           "oemRaw": "60123505",
           "oemPartNumbers": [
@@ -33303,6 +34149,8 @@
         },
         {
           "equipment": "SANY SY35C Yanmar Engine",
+          "machineBrand": "SANY",
+          "machineModel": "SY35C",
           "description": "AIR FILTER, SAFETY RADIALSEAL",
           "oemRaw": "60123505",
           "oemPartNumbers": [
@@ -33610,6 +34458,8 @@
       "catalogApplications": [
         {
           "equipment": "LIUGONG CLG922E Cummins Engine QSB6.7",
+          "machineBrand": "LIUGONG",
+          "machineModel": "CLG922E",
           "description": "AIR FILTER, SAFETY RADIALSEAL",
           "oemRaw": "40C1032",
           "oemPartNumbers": [
@@ -34321,6 +35171,8 @@
       "catalogApplications": [
         {
           "equipment": "SHANTUI SD22 /SD16 Cummins Engine NT-855",
+          "machineBrand": "SHANTUI",
+          "machineModel": "SD22 /SD16",
           "description": "HYDRAULIC FILTER, CARTRIDGE",
           "oemRaw": "1756027380",
           "oemPartNumbers": [
@@ -35379,6 +36231,8 @@
       "catalogApplications": [
         {
           "equipment": "SANY SYL956H5 Cummins Engine QSL8.9-C220",
+          "machineBrand": "SANY",
+          "machineModel": "SYL956H5",
           "description": "FUEL FILTER, WATER SEPARATOR SPIN-ON",
           "oemRaw": "60242352",
           "oemPartNumbers": [
@@ -35391,6 +36245,8 @@
         },
         {
           "equipment": "XCMG XE800D Perkins Engine 2506D-E15TA",
+          "machineBrand": "XCMG",
+          "machineModel": "XE800D",
           "description": "FUEL FILTER, WATER SEPARATOR SPIN-ON",
           "oemRaw": "803445295",
           "oemPartNumbers": [
@@ -35754,6 +36610,8 @@
       "catalogApplications": [
         {
           "equipment": "FAW JIEFANG - J5M Series Wechai Emgone WP12",
+          "machineBrand": "FAW",
+          "machineModel": "JIEFANG - J5M Series",
           "description": "LUBE FILTER, SPIN-ON FULL",
           "oemRaw": "1000428205",
           "oemPartNumbers": [
@@ -35766,6 +36624,8 @@
         },
         {
           "equipment": "Ronderbult CM 86",
+          "machineBrand": "Ronderbult",
+          "machineModel": "CM 86",
           "description": "LUBE FILTER, SPIN-ON FULL FLOW",
           "oemRaw": "4190001633",
           "oemPartNumbers": [
@@ -35778,6 +36638,8 @@
         },
         {
           "equipment": "Rondebult CM 96",
+          "machineBrand": "Rondebult",
+          "machineModel": "CM 96",
           "description": "LUBE FILTER, SPIN-ON FULL FLOW",
           "oemRaw": "4190001633",
           "oemPartNumbers": [
@@ -35790,6 +36652,8 @@
         },
         {
           "equipment": "Rondebult RDT’S",
+          "machineBrand": "Rondebult",
+          "machineModel": "RDT’S",
           "description": "LUBE FILTE, SPIN-ON FULL FLOW",
           "oemRaw": "4190001633",
           "oemPartNumbers": [
@@ -35802,6 +36666,8 @@
         },
         {
           "equipment": "Rondebult CMT86",
+          "machineBrand": "Rondebult",
+          "machineModel": "CMT86",
           "description": "LUBE FILTER, SPIN-ON FULL FLOW",
           "oemRaw": "1000428205",
           "oemPartNumbers": [
@@ -35814,6 +36680,8 @@
         },
         {
           "equipment": "Rondebult CMT66",
+          "machineBrand": "Rondebult",
+          "machineModel": "CMT66",
           "description": "LUBE FILTER, SPIN-ON FULL FLOW",
           "oemRaw": "1000428205",
           "oemPartNumbers": [
@@ -36418,6 +37286,8 @@
       "catalogApplications": [
         {
           "equipment": "SANY SY135 Isuzu Engine 4JJ1X",
+          "machineBrand": "SANY",
+          "machineModel": "SY135",
           "description": "FUEL FILTER, SPIN-ON",
           "oemRaw": "B222100000521",
           "oemPartNumbers": [
@@ -36430,6 +37300,8 @@
         },
         {
           "equipment": "SANY SY200 Mitsubishi Engine 4M50",
+          "machineBrand": "SANY",
+          "machineModel": "SY200",
           "description": "FUEL FILTER, SPIN-ON",
           "oemRaw": "B222100000521",
           "oemPartNumbers": [
@@ -36593,6 +37465,8 @@
       "catalogApplications": [
         {
           "equipment": "SANY SY135 Isuzu Engine 4JJ1X",
+          "machineBrand": "SANY",
+          "machineModel": "SY135",
           "description": "FUEL FILTER, WATER SEPARATOR CARTRIDGE",
           "oemRaw": "60307173",
           "oemPartNumbers": [
@@ -36605,6 +37479,8 @@
         },
         {
           "equipment": "SANY SY200 Mitsubishi Engine 4M50",
+          "machineBrand": "SANY",
+          "machineModel": "SY200",
           "description": "FUEL FILTER, WATER SEPARATOR CARTRIDGE",
           "oemRaw": "60307173",
           "oemPartNumbers": [
@@ -36617,6 +37493,8 @@
         },
         {
           "equipment": "SANY SY265C Mitsubishi Engine D06FRC",
+          "machineBrand": "SANY",
+          "machineModel": "SY265C",
           "description": "FUEL FILTER, WATER SEPARATOR CARTRIDGE",
           "oemRaw": "60307173",
           "oemPartNumbers": [
@@ -40089,6 +40967,8 @@
       "catalogApplications": [
         {
           "equipment": "LIUGONG GLG835",
+          "machineBrand": "LIUGONG",
+          "machineModel": "GLG835",
           "description": "FUEL FILTER, WATER SEPARATOR SPIN-ON",
           "oemRaw": "",
           "oemPartNumbers": [],
@@ -40644,6 +41524,8 @@
       "catalogApplications": [
         {
           "equipment": "LIUGONG ZL50C Weichai Power Engine WD10G220E13",
+          "machineBrand": "LIUGONG",
+          "machineModel": "ZL50C",
           "description": "FUEL FILTER, CARTRIDGE",
           "oemRaw": "614080295A",
           "oemPartNumbers": [
@@ -40656,6 +41538,8 @@
         },
         {
           "equipment": "LIUGONG ZL50CN Weichai Power Engine WD10G220E13",
+          "machineBrand": "LIUGONG",
+          "machineModel": "ZL50CN",
           "description": "FUEL FILTER, CARTRIDGE",
           "oemRaw": "614080295A",
           "oemPartNumbers": [
@@ -40668,6 +41552,8 @@
         },
         {
           "equipment": "Lonking ZL50C Wechai Engine WD10G220E11",
+          "machineBrand": "Lonking",
+          "machineModel": "ZL50C",
           "description": "FUEL FILTER, CARTRIDGE",
           "oemRaw": "614080295A",
           "oemPartNumbers": [
@@ -40680,6 +41566,8 @@
         },
         {
           "equipment": "Lonking LG850 Wechai Engine WD10G220E11",
+          "machineBrand": "Lonking",
+          "machineModel": "LG850",
           "description": "FUEL FILTER, CARTRIDGE",
           "oemRaw": "614080295A",
           "oemPartNumbers": [
@@ -40692,6 +41580,8 @@
         },
         {
           "equipment": "Lonking LG850D Wechai Engine WD10G220E11",
+          "machineBrand": "Lonking",
+          "machineModel": "LG850D",
           "description": "FUEL FILTER, CARTRIDGE",
           "oemRaw": "614080295A",
           "oemPartNumbers": [
@@ -40704,6 +41594,8 @@
         },
         {
           "equipment": "Lonking ZL50C Wechai Engine WD10G220E11",
+          "machineBrand": "Lonking",
+          "machineModel": "ZL50C",
           "description": "FUEL FILTER, CARTRIDGE",
           "oemRaw": "614080295A",
           "oemPartNumbers": [
@@ -40716,6 +41608,8 @@
         },
         {
           "equipment": "XCMG ZL50G WEICHAI Engine WD10G220E11",
+          "machineBrand": "XCMG",
+          "machineModel": "ZL50G",
           "description": "FUEL FILTER, CARTRIDGE",
           "oemRaw": "614080295A",
           "oemPartNumbers": [
@@ -43261,6 +44155,8 @@
       "catalogApplications": [
         {
           "equipment": "XCMG XE215C Isuzu Engine 6BG1T",
+          "machineBrand": "XCMG",
+          "machineModel": "XE215C",
           "description": "FUEL FILTER, WATER SEPARATOR SPIN-ON TWIST&DRAIN",
           "oemRaw": "800105552",
           "oemPartNumbers": [
@@ -43324,6 +44220,8 @@
       "catalogApplications": [
         {
           "equipment": "Ronderbult CM 86",
+          "machineBrand": "Ronderbult",
+          "machineModel": "CM 86",
           "description": "AIR DRYER , SPIN-ON",
           "oemRaw": "",
           "oemPartNumbers": [],
@@ -43334,6 +44232,8 @@
         },
         {
           "equipment": "Rondebult CM 96",
+          "machineBrand": "Rondebult",
+          "machineModel": "CM 96",
           "description": "AIR DRYER , SPIN-ON",
           "oemRaw": "",
           "oemPartNumbers": [],
@@ -43344,6 +44244,8 @@
         },
         {
           "equipment": "Rondebult RB860",
+          "machineBrand": "Rondebult",
+          "machineModel": "RB860",
           "description": "AIR DRYER, SPIN-ON",
           "oemRaw": "750131053",
           "oemPartNumbers": [
@@ -43356,6 +44258,8 @@
         },
         {
           "equipment": "Rondebult ZL60",
+          "machineBrand": "Rondebult",
+          "machineModel": "ZL60",
           "description": "AIR DRYER, SPIN-ON",
           "oemRaw": "",
           "oemPartNumbers": [],
