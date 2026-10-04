@@ -9,6 +9,25 @@ const evidence: Record<string, MetricEvidence> = metricEvidence;
 
 export function applyCatalogCorrections(product: Product): Product {
   let result = product;
+  const replacement = product.brand.toLowerCase() === "donaldson"
+    ? ({ P502593: "P552020", P502652: "P552044" } as Record<string, string>)[product.partNo] : undefined;
+  if (replacement) result = {
+    ...result, category: "fuel_filter", type: "cartridge",
+    title: `Fuel Filter, Water Separator Cartridge — ${product.partNo}`,
+    description: `ไส้กรองเชื้อเพลิงแยกน้ำแบบ Cartridge เบอร์ใหม่ ${replacement} แทน ${product.partNo} / Replaced by Donaldson ${replacement}.`,
+    shortDescription: `Replaced by Donaldson ${replacement}`,
+    specifications: [
+      ...(result.specifications ?? []).filter(row => !/^(?:product )?type$|^style$|^replaced by$/i.test(row.label)),
+      {label:"Type",value:"Water Separator"}, {label:"Style",value:"Cartridge"}, {label:"Replaced by",value:replacement},
+    ],
+    crossReferences: [
+      ...(result.crossReferences ?? []).filter(row => typeof row === "string" || String(row.partNumber ?? "") !== replacement),
+      { brand:"Donaldson", partNumber:replacement, relationType:"replaced_by", verificationStatus:"verified",
+        source:"owner_supplied_manufacturer_screenshot", evidence:"Donaldson search result: Replaces Part",
+        evidenceNote:`Boss supplied manufacturer screenshot on 2026-10-04 showing ${replacement} Replaces Part ${product.partNo}. Directional replacement; reverse interchange not established.`,
+        approvedBy:"Boss",approvedAt:"2026-10-04" },
+    ],
+  };
   const ownerInterchangeGroups = [
     ["P170306", "P170310", "P170312", "P170308"],
     ["P551006", "P552006"],

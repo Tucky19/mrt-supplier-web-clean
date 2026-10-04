@@ -4,3 +4,5 @@ PDF identifiers match filenames. Poppler and PyMuPDF dimension extraction agree.
 P114931: normal height423.2 / overall432.9 mm. P181046: normal406.4 / overall419.1 mm. Other five have no stated overall dimension.
 P181072 PDF identifies P181072 correctly, OD104 / ID62.9 / Length355.6 / MinorOD16.76 mm; no existing catalog record. Held separately; do not overwrite P181073 or invent stock/cross references.
 Remaining missing searchable Donaldson dimensions should fall from148 to141 once published.
+PR160 merged: app f88f81c35c398016e39c75a648f598827ec98629; production b91307e3adfca1732d0c16693dd3a689e7556632. Preview browser verified P114931 OD219.96/height423.2/overall432.9 and P181046 displayed all PDF dimensions.
+Production Vercel success. Live browser verified P114931 dual-height dimension search and P822768 OD128.5/ID81.3/Length304. Missing searchable Donaldson dimensions:141.
