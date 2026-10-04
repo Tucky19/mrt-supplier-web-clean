@@ -1,0 +1,12 @@
+Donaldson replacement details — owner screenshots 2026-10-04
+
+P502593: P552020 replaces this part.
+P502652: P552044 replaces this part.
+Both: Fuel Filter, Water Separator Cartridge; Type Water Separator, Style Cartridge.
+Evidence: owner-supplied Donaldson search result screenshots 01-image.png / 02-image.png.
+Directional replaced_by only; reverse interchange not established.
+Existing product IDs, dimensions and stock retained. P552044 remains reference only (not a standalone catalog product).
+Verified replacements now display even on part-number-only detail pages.
+Validation: production build and TypeScript passed; preview browser confirmed both descriptions and replacement numbers.
+PR 161 merged: 030a56eace31f3de489b57aae1c49512f0b74130.
+Production Vercel status success. Live browser verified P502593 -> P552020 and P502652 -> P552044 with Cartridge water separator descriptions.

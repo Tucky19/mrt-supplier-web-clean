@@ -1,12 +1,12 @@
 {
   "version": 2,
-  "generatedAt": "2026-10-04T12:26:51.331Z",
+  "generatedAt": "2026-10-04T15:53:27.434Z",
   "counts": {
-    "items": 797,
+    "items": 798,
     "prefix2": 73,
     "prefix3": 153,
     "prefix4": 293,
-    "tokenKeys": 4490,
+    "tokenKeys": 4492,
     "refKeys": 46,
     "xrefKeys": 1335,
     "pairedPartKeys": 70
@@ -25706,6 +25706,64 @@
       "pairedParts": []
     },
     {
+      "id": "donaldson-p552044",
+      "partNo": "P552044",
+      "partNoNorm": "p552044",
+      "brand": "Donaldson",
+      "title": "Fuel Filter, Water Separator Cartridge",
+      "category": "fuel_filter",
+      "spec": "OD 111 mm x ID 21 mm x L 120 mm",
+      "imageUrl": "/images/placeholder.jpg",
+      "specifications": [
+        {
+          "label": "Outer Diameter",
+          "value": "111 mm"
+        },
+        {
+          "label": "Inner Diameter",
+          "value": "21 mm"
+        },
+        {
+          "label": "Length",
+          "value": "120 mm"
+        },
+        {
+          "label": "Efficiency 95%",
+          "value": "30 micron"
+        },
+        {
+          "label": "Emulsified H2O Efficiency",
+          "value": "95 Percent"
+        },
+        {
+          "label": "Type",
+          "value": "Water Separator"
+        },
+        {
+          "label": "Style",
+          "value": "Cartridge"
+        },
+        {
+          "label": "Media Type",
+          "value": "Cellulose"
+        },
+        {
+          "label": "Primary Application",
+          "value": "RACOR 2040N30"
+        },
+        {
+          "label": "UPC Code",
+          "value": "742330973066"
+        }
+      ],
+      "catalogApplications": [],
+      "vehicleApplications": [],
+      "stock": "request",
+      "refs": [],
+      "crossReferences": [],
+      "pairedParts": []
+    },
+    {
       "id": "donaldson-p500914",
       "partNo": "P500914",
       "partNoNorm": "p500914",
@@ -43925,6 +43983,7 @@
       "donaldson-p551807",
       "donaldson-p553191",
       "donaldson-p550880",
+      "donaldson-p552044",
       "donaldson-p500914",
       "donaldson-p502270",
       "donaldson-p552006",
@@ -44903,6 +44962,7 @@
       "donaldson-p551807",
       "donaldson-p553191",
       "donaldson-p550880",
+      "donaldson-p552044",
       "donaldson-p552006",
       "donaldson-p550687",
       "donaldson-p551065",
@@ -45922,6 +45982,7 @@
       "p552075",
       "donaldson-p552819",
       "donaldson-p552341",
+      "donaldson-p552044",
       "donaldson-p552006",
       "donaldson-p552564",
       "donaldson-p552024",
@@ -47645,6 +47706,7 @@
       "mann-batch4-lb962-21",
       "donaldson-p551807",
       "donaldson-p553191",
+      "donaldson-p552044",
       "donaldson-p552024",
       "donaldson-p552020",
       "donaldson-p550939",
@@ -47802,6 +47864,7 @@
       "mann-batch1-c30850-2",
       "mann-batch3-c30810-3",
       "mann-batch3-c30703",
+      "donaldson-p552044",
       "donaldson-p550422",
       "donaldson-p551257",
       "donaldson-p550949",
@@ -48903,6 +48966,7 @@
       "donaldson-p537877",
       "mann-w920-21",
       "donaldson-p551329",
+      "donaldson-p552044",
       "donaldson-p173038",
       "donaldson-p552006",
       "donaldson-p551065",
@@ -49444,6 +49508,7 @@
       "mann-batch8-w13145-3",
       "mann-batch9-tb1396-5x",
       "fleetguard-fs36210",
+      "donaldson-p552044",
       "donaldson-p550687",
       "donaldson-p552024",
       "donaldson-p552020",
@@ -49543,6 +49608,7 @@
       "mann-c1633-1",
       "mann-batch2-c20105",
       "donaldson-p553004",
+      "donaldson-p552044",
       "donaldson-p500914",
       "donaldson-p165762",
       "donaldson-p165876",
@@ -53036,6 +53102,7 @@
       "donaldson-p164594",
       "donaldson-p163542",
       "donaldson-p164381",
+      "donaldson-p552044",
       "donaldson-p500914",
       "donaldson-p150135",
       "donaldson-p158671",
@@ -53951,6 +54018,7 @@
       "donaldson-p164594",
       "donaldson-p163542",
       "donaldson-p164381",
+      "donaldson-p552044",
       "donaldson-p500914",
       "donaldson-p150135",
       "donaldson-p158671",
@@ -54487,6 +54555,7 @@
       "donaldson-p164594",
       "donaldson-p163542",
       "donaldson-p164381",
+      "donaldson-p552044",
       "donaldson-p500914",
       "donaldson-p150135",
       "donaldson-p158671",
@@ -54982,6 +55051,7 @@
       "donaldson-p164594",
       "donaldson-p163542",
       "donaldson-p164381",
+      "donaldson-p552044",
       "donaldson-p500914",
       "donaldson-p150135",
       "donaldson-p158671",
@@ -55784,6 +55854,7 @@
       "donaldson-p551807",
       "donaldson-p553191",
       "donaldson-p550880",
+      "donaldson-p552044",
       "donaldson-p500914",
       "donaldson-p502270",
       "donaldson-p552006",
@@ -56665,6 +56736,7 @@
       "donaldson-p551329",
       "donaldson-p551425",
       "donaldson-p550880",
+      "donaldson-p552044",
       "donaldson-p552006",
       "donaldson-p550687",
       "donaldson-p551065",
@@ -57053,6 +57125,7 @@
       "donaldson-p164594",
       "donaldson-p163542",
       "donaldson-p164381",
+      "donaldson-p552044",
       "donaldson-p500914",
       "donaldson-p158671",
       "donaldson-p181119",
@@ -57566,6 +57639,7 @@
       "donaldson-p164594",
       "donaldson-p163542",
       "donaldson-p164381",
+      "donaldson-p552044",
       "donaldson-p500914",
       "donaldson-p158671",
       "donaldson-p181119",
@@ -58826,6 +58900,7 @@
       "donaldson-p164594",
       "donaldson-p163542",
       "donaldson-p164381",
+      "donaldson-p552044",
       "donaldson-p500914",
       "donaldson-p158671",
       "donaldson-p181119",
@@ -59175,6 +59250,7 @@
       "donaldson-p164594",
       "donaldson-p163542",
       "donaldson-p164381",
+      "donaldson-p552044",
       "donaldson-p500914",
       "donaldson-p158671",
       "donaldson-p181119",
@@ -59919,6 +59995,7 @@
       "donaldson-p164594",
       "donaldson-p163542",
       "donaldson-p164381",
+      "donaldson-p552044",
       "donaldson-p500914",
       "donaldson-p150135",
       "donaldson-p158671",
@@ -60167,6 +60244,7 @@
       "donaldson-p164594",
       "donaldson-p163542",
       "donaldson-p164381",
+      "donaldson-p552044",
       "donaldson-p164168",
       "donaldson-p164178",
       "donaldson-p164703",
@@ -61116,6 +61194,7 @@
       "donaldson-p164594",
       "donaldson-p163542",
       "donaldson-p164381",
+      "donaldson-p552044",
       "donaldson-p500914",
       "donaldson-p150135",
       "donaldson-p181119",
@@ -61547,6 +61626,7 @@
       "donaldson-p164594",
       "donaldson-p163542",
       "donaldson-p164381",
+      "donaldson-p552044",
       "donaldson-p500914",
       "donaldson-p150135",
       "donaldson-p158671",
@@ -61870,6 +61950,7 @@
       "fleetguard-fs36210",
       "donaldson-p553191",
       "donaldson-p182049",
+      "donaldson-p552044",
       "donaldson-p150135",
       "donaldson-p181119",
       "donaldson-p167410",
@@ -62397,6 +62478,7 @@
       "donaldson-p164594",
       "donaldson-p163542",
       "donaldson-p164381",
+      "donaldson-p552044",
       "donaldson-p500914",
       "donaldson-p150135",
       "donaldson-p158671",
@@ -63053,6 +63135,7 @@
       "donaldson-p551807",
       "donaldson-p553191",
       "donaldson-p550880",
+      "donaldson-p552044",
       "donaldson-p552006",
       "donaldson-p550687",
       "donaldson-p551065",
@@ -63183,6 +63266,7 @@
       "donaldson-p551864",
       "donaldson-p551329",
       "donaldson-p551425",
+      "donaldson-p552044",
       "donaldson-p552006",
       "donaldson-p550687",
       "donaldson-p551065",
@@ -63260,6 +63344,7 @@
       "donaldson-p551864",
       "donaldson-p551329",
       "donaldson-p551425",
+      "donaldson-p552044",
       "donaldson-p552006",
       "donaldson-p550687",
       "donaldson-p551065",
@@ -63339,6 +63424,7 @@
       "mann-batch9-tb1396-5x",
       "mann-batch9-tb1374x",
       "donaldson-p164594",
+      "donaldson-p552044",
       "donaldson-p164168",
       "donaldson-p164178",
       "donaldson-p164703",
@@ -63405,7 +63491,8 @@
       "donaldson-p506115"
     ],
     "p552044": [
-      "p502652"
+      "p502652",
+      "donaldson-p552044"
     ],
     "b222100000729": [
       "p502652"
@@ -63481,6 +63568,7 @@
       "p552075",
       "donaldson-p552819",
       "donaldson-p552341",
+      "donaldson-p552044",
       "donaldson-p552006",
       "donaldson-p552564",
       "donaldson-p552024",
@@ -63634,6 +63722,7 @@
       "donaldson-p164594",
       "donaldson-p163542",
       "donaldson-p164381",
+      "donaldson-p552044",
       "donaldson-p158671",
       "donaldson-p181119",
       "donaldson-p164168",
@@ -63824,6 +63913,7 @@
       "donaldson-p164594",
       "donaldson-p163542",
       "donaldson-p164381",
+      "donaldson-p552044",
       "donaldson-p158671",
       "donaldson-p181119",
       "donaldson-p164168",
@@ -64490,6 +64580,7 @@
     "racor": [
       "p551858",
       "p551034",
+      "donaldson-p552044",
       "donaldson-p551065",
       "donaldson-p552024",
       "donaldson-p552020"
@@ -64665,6 +64756,7 @@
       "donaldson-p550467",
       "donaldson-p558000",
       "donaldson-p550900",
+      "donaldson-p552044",
       "donaldson-p552006",
       "donaldson-p550687",
       "donaldson-p551065",
@@ -64704,6 +64796,7 @@
       "donaldson-p550467",
       "donaldson-p558000",
       "donaldson-p550900",
+      "donaldson-p552044",
       "donaldson-p552006",
       "donaldson-p550687",
       "donaldson-p551065",
@@ -64738,6 +64831,7 @@
       "donaldson-p550467",
       "donaldson-p558000",
       "donaldson-p550900",
+      "donaldson-p552044",
       "donaldson-p552006",
       "donaldson-p550687",
       "donaldson-p551065",
@@ -65171,6 +65265,7 @@
       "donaldson-p116446",
       "donaldson-p128408",
       "donaldson-p164594",
+      "donaldson-p552044",
       "donaldson-p500914",
       "donaldson-p158671",
       "donaldson-p181119",
@@ -68217,6 +68312,7 @@
       "donaldson-p164594",
       "donaldson-p163542",
       "donaldson-p164381",
+      "donaldson-p552044",
       "donaldson-p500914",
       "donaldson-p150135",
       "donaldson-p158671",
@@ -68499,6 +68595,7 @@
       "donaldson-p164594",
       "donaldson-p163542",
       "donaldson-p164381",
+      "donaldson-p552044",
       "donaldson-p500914",
       "donaldson-p150135",
       "donaldson-p158671",
@@ -75127,6 +75224,12 @@
     ],
     "casecaseihx724693": [
       "donaldson-p164381"
+    ],
+    "2040n30": [
+      "donaldson-p552044"
+    ],
+    "742330973066": [
+      "donaldson-p552044"
     ],
     "p500914": [
       "donaldson-p500914"
