@@ -13,7 +13,7 @@ for (const [pn, record] of Object.entries(evidence)) {
   assert.ok(searchFilterProductsByDimensions(dims, { category: 'all_products', limit: 800 }).some(item => item.partNo === pn), `${pn}: dimension search`);
   searchable++;
 }
-assert.equal(searchable, 81);
+assert.equal(searchable, 88);
 const round = products.find(p => p.partNo === 'P181039')!;
 assert.equal(getNormalizedDimensions(round).lengthMm, 457.2);
 assert.deepEqual(getSearchableLengths(round), [457.2, 469.9]);
@@ -22,4 +22,4 @@ assert.equal(getNormalizedDimensions(panel).lengthMm, 220);
 assert.equal(getNormalizedDimensions(panel).widthMm, 163);
 assert.equal(getNormalizedDimensions(panel).outerDiameterMm, undefined);
 assert.equal(getNormalizedDimensions(panel).innerDiameterMm, undefined);
-console.log('Donaldson evidence: 81 dimension records verified; 81 products found by dimensions; special shapes preserved.');
+console.log('Donaldson evidence: 88 dimension records verified; 88 products found by dimensions; special shapes preserved.');
