@@ -444,7 +444,7 @@ export default function ProductDetailClient({ locale, product }: Props) {
             ))}
           </div>
         )}
-        <ProductCatalogApplications entries={product.catalogApplications} locale={locale} />
+        <ProductCatalogApplications entries={product.catalogApplications} locale={locale} partNo={product.partNo} />
         <div className="mt-8 flex flex-wrap gap-3">
           <button onClick={handleAdd} disabled={justAdded} className="rounded-xl bg-slate-900 px-5 py-3 font-semibold text-white">{addToQuoteLabel}</button>
           <button onClick={handleRequestQuote} className="rounded-xl border border-slate-300 px-5 py-3 font-medium">{text.requestQuote}</button>
@@ -663,7 +663,7 @@ export default function ProductDetailClient({ locale, product }: Props) {
             </div>
           </SurfaceCard>
 
-          <ProductCatalogApplications entries={product.catalogApplications} locale={locale} />
+          <ProductCatalogApplications entries={product.catalogApplications} locale={locale} partNo={product.partNo} />
 
           {applications.length > 0 && (
             <SurfaceCard className="px-5 py-5 sm:px-6">

@@ -2,6 +2,8 @@ import type { ProductRelationInput } from "@/lib/products/relations";
 
 export type CatalogApplication = {
   equipment: string;
+  machineBrand?: string;
+  machineModel?: string;
   description: string;
   oemRaw: string;
   oemPartNumbers: string[];

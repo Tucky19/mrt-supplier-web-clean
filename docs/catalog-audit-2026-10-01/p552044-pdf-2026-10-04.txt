@@ -1,0 +1,10 @@
+P552044 owner PDF update 2026-10-04
+Source: upload/p552044.pdf, Donaldson Product Specifications, both pages read; page 1 visually rendered and verified.
+OD 111 mm, ID 21 mm, Length 120 mm; no Overall Length or Thread Size specified.
+Fuel Filter Water Separator Cartridge; cellulose; efficiency 95% at 30 micron; emulsified H2O efficiency 95%; Primary Application RACOR 2040N30; UPC 742330973066.
+Added standalone product and rebuilt 798-product search index. Existing directional P502652 replaced_by P552044 preserved.
+No stock confirmation or reverse equivalence inferred.
+PR 162 merge 892cf9f7b6043cfc5e517fd881e90dc50723fca8.
+PR 163 fixes lost raw checkAvailability via existing supplier presentation overlay; merge e2653d0f83e5e2b1bfc6cb24100edf691dc5929c.
+Build and TypeScript passed. Preview was sign-in protected; local server smoke unavailable (connection refused).
+Production deploys successful. Live browser verified all specs and fuel-filter dimensional search OD111/ID21/Height120 returns exactly P552044, final label ตรวจสอบสินค้า.
