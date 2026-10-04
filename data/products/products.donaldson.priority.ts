@@ -2,6 +2,29 @@ import type { Product } from "@/types/product";
 
 export const donaldsonPriorityProducts: Product[] = [
   {
+    id: "donaldson-p552044", partNo: "P552044", brand: "Donaldson",
+    category: "fuel_filter", type: "cartridge",
+    title: "Fuel Filter, Water Separator Cartridge",
+    description: "ไส้กรองเชื้อเพลิงแยกน้ำแบบ Cartridge",
+    spec: "OD 111 mm x ID 21 mm x L 120 mm",
+    od_mm: 111, id_mm: 21, length_mm: 120,
+    specifications: [
+      { label: "Outer Diameter", value: "111 mm" },
+      { label: "Inner Diameter", value: "21 mm" },
+      { label: "Length", value: "120 mm" },
+      { label: "Efficiency 95%", value: "30 micron" },
+      { label: "Emulsified H2O Efficiency", value: "95 Percent" },
+      { label: "Type", value: "Water Separator" },
+      { label: "Style", value: "Cartridge" },
+      { label: "Media Type", value: "Cellulose" },
+      { label: "Primary Application", value: "RACOR 2040N30" },
+      { label: "UPC Code", value: "742330973066" },
+    ],
+    refs: [], crossReferences: [], stockStatus: "request", checkAvailability: true,
+    sourceType: "official", dataQuality: "verified",
+    sourceNote: "Owner supplied Donaldson p552044.pdf, checked 2026-10-04. No Thread Size or Overall Length specified. Replaces P502652 per manufacturer screenshot; no reverse interchange inferred.",
+  },
+  {
     id: "donaldson-p500914",
     partNo: "P500914",
     brand: "Donaldson",
