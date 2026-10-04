@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generatedAt": "2026-10-04T15:53:27.434Z",
+  "generatedAt": "2026-10-04T16:01:11.428Z",
   "counts": {
     "items": 798,
     "prefix2": 73,
@@ -25758,6 +25758,8 @@
       ],
       "catalogApplications": [],
       "vehicleApplications": [],
+      "checkAvailability": true,
+      "partNumberOnly": false,
       "stock": "request",
       "refs": [],
       "crossReferences": [],
