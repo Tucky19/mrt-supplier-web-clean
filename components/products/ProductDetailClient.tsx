@@ -434,6 +434,16 @@ export default function ProductDetailClient({ locale, product }: Props) {
       <section className="mx-auto max-w-3xl rounded-3xl border border-slate-300 bg-white p-6 sm:p-10">
         <h1 className="break-all text-3xl font-semibold text-slate-950">{product.partNo}</h1>
         <span className="mt-4 inline-flex rounded-full bg-amber-50 px-3 py-1 text-sm font-medium text-amber-800">{text.statusCheck}</span>
+        {relationItems.some((item) => item.relationType === "replaced_by" && item.verificationStatus === "verified") && (
+          <div className="mt-4 space-y-2 text-slate-700">
+            <p>{product.description}</p>
+            {relationItems.filter((item) => item.relationType === "replaced_by" && item.verificationStatus === "verified").map((item) => (
+              <p key={`${item.brand}-${item.partNumber}`}>
+                {locale === "th" ? "เบอร์ใหม่ที่มาแทน" : "Replaced by"}: {item.brand} {item.partNumber}
+              </p>
+            ))}
+          </div>
+        )}
         <ProductCatalogApplications entries={product.catalogApplications} locale={locale} />
         <div className="mt-8 flex flex-wrap gap-3">
           <button onClick={handleAdd} disabled={justAdded} className="rounded-xl bg-slate-900 px-5 py-3 font-semibold text-white">{addToQuoteLabel}</button>
