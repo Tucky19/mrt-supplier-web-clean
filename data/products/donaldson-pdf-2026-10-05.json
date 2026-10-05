@@ -1,0 +1,530 @@
+{
+  "P552020": {
+    "title": "Fuel Filter, Water Separator Cartridge",
+    "category": "fuel_filter",
+    "type": "cartridge",
+    "specifications": [
+      {
+        "label": "Outer Diameter",
+        "value": "111 mm"
+      },
+      {
+        "label": "Inner Diameter",
+        "value": "21 mm"
+      },
+      {
+        "label": "Length",
+        "value": "245 mm"
+      },
+      {
+        "label": "Efficiency Beta 75",
+        "value": "10 micron"
+      },
+      {
+        "label": "Efficiency Beta 1000",
+        "value": "14 micron"
+      },
+      {
+        "label": "Type",
+        "value": "Water Separator"
+      },
+      {
+        "label": "Style",
+        "value": "Cartridge"
+      },
+      {
+        "label": "Media Type",
+        "value": "Cellulose"
+      },
+      {
+        "label": "Primary Application",
+        "value": "RACOR 2020N10"
+      },
+      {
+        "label": "UPC Code",
+        "value": "742330043943"
+      }
+    ],
+    "source": "p552020.pdf",
+    "sha256": "3625336577d83c69583becc6539cb1d02449545a2f00f8851adfb4621b54a52b",
+    "checkedAt": "2026-10-05"
+  },
+  "P502424": {
+    "title": "Fuel Filter, Water Separator Cartridge",
+    "category": "fuel_filter",
+    "type": "cartridge",
+    "specifications": [
+      {
+        "label": "Outer Diameter",
+        "value": "94.5 mm"
+      },
+      {
+        "label": "Inner Diameter",
+        "value": "26 mm"
+      },
+      {
+        "label": "Length",
+        "value": "193 mm"
+      },
+      {
+        "label": "Efficiency 99%",
+        "value": "5 micron"
+      },
+      {
+        "label": "Efficiency Beta 75",
+        "value": "4 micron"
+      },
+      {
+        "label": "Efficiency Test Std",
+        "value": "ISO 4548-12, JIS D 1617"
+      },
+      {
+        "label": "Collapse Burst",
+        "value": "6.9 bar (100 psi)"
+      },
+      {
+        "label": "Type",
+        "value": "Water Separator"
+      },
+      {
+        "label": "Style",
+        "value": "Cartridge"
+      },
+      {
+        "label": "Media Type",
+        "value": "Cellulose"
+      },
+      {
+        "label": "Primary Application",
+        "value": "HITACHI 4679981"
+      },
+      {
+        "label": "UPC Code",
+        "value": "742330197899"
+      }
+    ],
+    "source": "p502424.pdf",
+    "sha256": "0f54455766468e54df4ed7147011b431f5f2400cf161d5e7e22da4eba9e27aa8",
+    "checkedAt": "2026-10-05"
+  },
+  "P175120": {
+    "title": "Hydraulic Filter, Cartridge",
+    "category": "hydraulic_filter",
+    "type": "cartridge",
+    "specifications": [
+      {
+        "label": "Seal Material",
+        "value": "Nitrile"
+      },
+      {
+        "label": "Outer Diameter",
+        "value": "117 mm"
+      },
+      {
+        "label": "Inner Diameter",
+        "value": "59 mm"
+      },
+      {
+        "label": "Length",
+        "value": "163 mm"
+      },
+      {
+        "label": "Gasket OD",
+        "value": "85 mm"
+      },
+      {
+        "label": "Gasket ID",
+        "value": "60 mm"
+      },
+      {
+        "label": "Overall Length",
+        "value": "166 mm"
+      },
+      {
+        "label": "Efficiency Beta 1000",
+        "value": "23 micron"
+      },
+      {
+        "label": "Collapse Burst",
+        "value": "10.3 bar (149 psi)"
+      },
+      {
+        "label": "Style",
+        "value": "Cartridge"
+      },
+      {
+        "label": "Media Type",
+        "value": "Synthetic"
+      },
+      {
+        "label": "Primary Application",
+        "value": "ARGO V2121708"
+      },
+      {
+        "label": "UPC Code",
+        "value": "742330149409"
+      }
+    ],
+    "source": "p175120.pdf",
+    "sha256": "ebc2a1c45f8ee053b1656d8a5d475d1581feffb7ff356487cabe249611435c68",
+    "checkedAt": "2026-10-05"
+  },
+  "P502540": {
+    "title": "Hydraulic Filter, Cartridge",
+    "category": "hydraulic_filter",
+    "type": "cartridge",
+    "specifications": [
+      {
+        "label": "Outer Diameter",
+        "value": "42 mm"
+      },
+      {
+        "label": "Inner Diameter",
+        "value": "21 mm"
+      },
+      {
+        "label": "Length",
+        "value": "82 mm"
+      },
+      {
+        "label": "Efficiency Beta 2",
+        "value": "6 micron"
+      },
+      {
+        "label": "Efficiency Beta 75",
+        "value": "20 micron"
+      },
+      {
+        "label": "Efficiency Test Std",
+        "value": "ISO 4548-12"
+      },
+      {
+        "label": "Collapse Burst",
+        "value": "6.9 bar (100 psi)"
+      },
+      {
+        "label": "Style",
+        "value": "Cartridge"
+      },
+      {
+        "label": "Media Type",
+        "value": "Synthetic"
+      },
+      {
+        "label": "Primary Application",
+        "value": "KOMATSU 20Y6251691"
+      },
+      {
+        "label": "UPC Code",
+        "value": "742330970225"
+      }
+    ],
+    "source": "p502540.pdf",
+    "sha256": "75105e2e8d1031408f482d04f7acc83e4ef77244d7d878c6744de14f18b2a25a",
+    "checkedAt": "2026-10-05"
+  },
+  "P170587": {
+    "title": "Hydraulic Filter, Cartridge",
+    "category": "hydraulic_filter",
+    "type": "cartridge",
+    "specifications": [
+      {
+        "label": "Outer Diameter",
+        "value": "47.8 mm"
+      },
+      {
+        "label": "Inner Diameter",
+        "value": "22.4 mm"
+      },
+      {
+        "label": "Length",
+        "value": "83.3 mm"
+      },
+      {
+        "label": "Efficiency Beta 1000",
+        "value": "10 micron"
+      },
+      {
+        "label": "Collapse Burst",
+        "value": "210.1 bar (3047 psi)"
+      },
+      {
+        "label": "Style",
+        "value": "Cartridge"
+      },
+      {
+        "label": "Media Type",
+        "value": "Synthetic"
+      },
+      {
+        "label": "UPC Code",
+        "value": "742330020142"
+      }
+    ],
+    "source": "p170587.pdf",
+    "sha256": "5c4dbad6c29ed366d74e2d57a2fbd2967ef35ed40aa857c73479c649c143f692",
+    "checkedAt": "2026-10-05"
+  },
+  "R011751": {
+    "title": "Fuel Filter, Water Separator Spin-On",
+    "category": "fuel_filter",
+    "type": "spin_on",
+    "specifications": [
+      {
+        "label": "Outer Diameter",
+        "value": "108 mm"
+      },
+      {
+        "label": "Thread Size",
+        "value": "1-14 UN"
+      },
+      {
+        "label": "Length",
+        "value": "229 mm"
+      },
+      {
+        "label": "Gasket ID",
+        "value": "93.6 mm"
+      },
+      {
+        "label": "Bowl Thread",
+        "value": "S80x3"
+      },
+      {
+        "label": "Efficiency 50%",
+        "value": "10 micron"
+      },
+      {
+        "label": "Efficiency 95%",
+        "value": "30 micron"
+      },
+      {
+        "label": "Efficiency Test Std",
+        "value": "ISO 4548-12"
+      },
+      {
+        "label": "Emulsified H2O Efficiency",
+        "value": "97 Percent"
+      },
+      {
+        "label": "Collapse Burst",
+        "value": "14.7 bar (213 psi)"
+      },
+      {
+        "label": "Type",
+        "value": "Water Separator"
+      },
+      {
+        "label": "Style",
+        "value": "Spin-On with Bowl Thread"
+      },
+      {
+        "label": "Media Type",
+        "value": "Cellulose"
+      },
+      {
+        "label": "UPC Code",
+        "value": "742330243107"
+      }
+    ],
+    "source": "r011751.pdf",
+    "sha256": "1bed6e82e7d4d3bebac57d1e6c3d6c6aba98e4796fbc630051932faeb87fa8e6",
+    "checkedAt": "2026-10-05"
+  },
+  "P954604": {
+    "title": "Fuel Filter, Cartridge",
+    "category": "fuel_filter",
+    "type": "cartridge",
+    "specifications": [
+      {
+        "label": "Overall Length",
+        "value": "163 mm"
+      },
+      {
+        "label": "Outer Diameter",
+        "value": "95 mm"
+      },
+      {
+        "label": "Inner Diameter",
+        "value": "46.5 mm"
+      },
+      {
+        "label": "Length",
+        "value": "141 mm"
+      },
+      {
+        "label": "Gasket OD",
+        "value": "110 mm"
+      },
+      {
+        "label": "Gasket ID",
+        "value": "102 mm"
+      },
+      {
+        "label": "Efficiency 99%",
+        "value": "5 micron"
+      },
+      {
+        "label": "Efficiency Beta 75",
+        "value": "4 micron"
+      },
+      {
+        "label": "Efficiency Beta 1000",
+        "value": "7 micron"
+      },
+      {
+        "label": "Efficiency Test Std",
+        "value": "ISO 19438"
+      },
+      {
+        "label": "Emulsified H2O Efficiency",
+        "value": "90 Percent"
+      },
+      {
+        "label": "Style",
+        "value": "Cartridge"
+      },
+      {
+        "label": "Media Type",
+        "value": "Cellulose, Meltblown"
+      },
+      {
+        "label": "Primary Application",
+        "value": "VOLVO 20998805"
+      },
+      {
+        "label": "UPC Code",
+        "value": "742330990759"
+      }
+    ],
+    "source": "p954604.pdf",
+    "sha256": "7ba6d13063a8ca442be978e27e91cfc91ac5ca4259475f82bbdcd13117ad8f24",
+    "checkedAt": "2026-10-05"
+  },
+  "P555706": {
+    "title": "Fuel Filter, Spin-On",
+    "category": "fuel_filter",
+    "type": "spin_on",
+    "specifications": [
+      {
+        "label": "Outer Diameter",
+        "value": "101.5 mm"
+      },
+      {
+        "label": "Length",
+        "value": "212.84 mm"
+      },
+      {
+        "label": "Gasket OD",
+        "value": "65.99 mm"
+      },
+      {
+        "label": "Gasket ID",
+        "value": "57 mm"
+      },
+      {
+        "label": "Efficiency 95%",
+        "value": "5 micron"
+      },
+      {
+        "label": "Efficiency Test Std",
+        "value": "SAE J 1985"
+      },
+      {
+        "label": "Style",
+        "value": "Spin-On"
+      },
+      {
+        "label": "Primary Application",
+        "value": "CUMMINS 5262311"
+      },
+      {
+        "label": "Notes",
+        "value": "Not for Marine Applications"
+      },
+      {
+        "label": "UPC Code",
+        "value": "742330224298"
+      }
+    ],
+    "source": "p555706.pdf",
+    "sha256": "afb11bb3550ccafc7a1da720128d19d7d979ea598a01112b8b587727b4b55c22",
+    "checkedAt": "2026-10-05"
+  },
+  "P553009": {
+    "title": "Fuel Filter, Spin-On Secondary",
+    "category": "fuel_filter",
+    "type": "spin_on",
+    "specifications": [
+      {
+        "label": "Outer Diameter",
+        "value": "101.5 mm"
+      },
+      {
+        "label": "Length",
+        "value": "197 mm"
+      },
+      {
+        "label": "Efficiency 99%",
+        "value": "4 micron"
+      },
+      {
+        "label": "Efficiency Test Std",
+        "value": "SAE J1985"
+      },
+      {
+        "label": "UPC Code",
+        "value": "742330232071"
+      }
+    ],
+    "source": "p553009.pdf",
+    "sha256": "a4e3e4030a7872a9fd82a213261fb2a8903c7674edf2de6c47d19f72ae937b5e",
+    "checkedAt": "2026-10-05"
+  },
+  "P550820": {
+    "title": "Lube Filter, Cartridge",
+    "category": "oil_filter",
+    "type": "cartridge",
+    "specifications": [
+      {
+        "label": "Outer Diameter",
+        "value": "120.5 mm"
+      },
+      {
+        "label": "Inner Diameter",
+        "value": "45.5 mm"
+      },
+      {
+        "label": "Length",
+        "value": "204.5 mm"
+      },
+      {
+        "label": "Gasket OD",
+        "value": "136.4 mm"
+      },
+      {
+        "label": "Gasket ID",
+        "value": "128 mm"
+      },
+      {
+        "label": "Efficiency 50%",
+        "value": "17 micron"
+      },
+      {
+        "label": "Media Type",
+        "value": "Cellulose"
+      },
+      {
+        "label": "Style",
+        "value": "Cartridge"
+      },
+      {
+        "label": "UPC Code",
+        "value": "742330192795"
+      }
+    ],
+    "source": "p550820.pdf",
+    "sha256": "b942f016d9ad2a8d181e99ba45103a2b5fb023d32b498c19cab306db9400de93",
+    "checkedAt": "2026-10-05"
+  }
+}

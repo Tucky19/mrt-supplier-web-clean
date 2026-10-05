@@ -2,6 +2,7 @@ import type { Product } from "@/types/product";
 import metricEvidence from "./mann-metric-2026-10-01.json";
 import bearingEvidence from "./ntn-metric-2026-10-02.json";
 import donaldsonEvidence from "./donaldson-metric-2026-10-02.json";
+import latestDonaldsonPdfs from "./donaldson-pdf-2026-10-05.json";
 import { isLinearDimensionLabel } from "@/lib/products/metric";
 
 type MetricEvidence = { source: string; checkedAt: string; dimensions: Array<{label: string; value: string}> };
@@ -191,5 +192,24 @@ export function applyCatalogCorrections(product: Product): Product {
     stockStatus: "request", mrtStockEvidence: undefined,
     imageUrl: brandImage, detailImageUrl: brandImage, images: [brandImage], media: [brandImage], officialImageUrl: null,
   };
+  const latestPdf = product.brand.toLowerCase() === "donaldson"
+    ? latestDonaldsonPdfs[product.partNo as keyof typeof latestDonaldsonPdfs] : undefined;
+  if (latestPdf) {
+    const value = (label: string) => latestPdf.specifications.find(row => row.label === label)?.value;
+    const mm = (label: string) => value(label) === undefined ? undefined : parseFloat(value(label)!);
+    const dimensions = [["OD", "Outer Diameter"], ["ID", "Inner Diameter"], ["Length", "Length"]]
+      .filter(([, label]) => value(label) !== undefined).map(([label, sourceLabel]) => `${label} ${value(sourceLabel)}`);
+    result = {
+      ...result, title: latestPdf.title, description: latestPdf.title, shortDescription: latestPdf.title,
+      category: latestPdf.category, type: latestPdf.type as Product["type"],
+      specifications: latestPdf.specifications,
+      od_mm: mm("Outer Diameter"), id_mm: mm("Inner Diameter"), length_mm: mm("Length"),
+      thread: value("Thread Size"),
+      spec: [...dimensions, value("Thread Size")].filter(Boolean).join(" · "),
+      gtin: value("UPC Code"), dimensionReviewRequired: false, partNumberOnly: false,
+      dataQuality: "verified", sourceType: "official",
+      sourceNote: [result.sourceNote, `Boss confirmed ${latestPdf.source} on ${latestPdf.checkedAt}; SHA256 ${latestPdf.sha256}. Only explicit PDF attributes used; missing Thread Size and Overall Length left blank.`].filter(Boolean).join("; "),
+    };
+  }
   return result;
 }
