@@ -1,0 +1,12 @@
+Owner task: Donaldson Part = OEM Part, machine brand/model and searchable model.
+PDF: Filtration-Solutions-Asian-Equipment-South-Africa(1).pdf, F210074, 24 pages.
+Existing extraction: 496 rows, 179 distinct Donaldson parts, 97 equipment headings (engine variants included).
+All equipment headings, raw part cells and OEM cells found on their cited PDF pages after whitespace/zero-width/star normalization.
+450 rows with populated Donaldson and OEM cells match the same line in PDF layout extraction. 439 unflagged populated pair rows; 57 flagged rows overall, including 39 without Donaldson PN. No invented pair for blank cells.
+Rendered page 2 reviewed against source columns and headings.
+Added machineBrand/machineModel metadata, preserves source spelling and full equipment/engine heading. Engine-only heading leaves model absent.
+Product detail shows explicit Donaldson Part = OEM Part for unflagged entries; flagged entries use arrow plus existing review notice. Source page and engine context retained.
+Search already supported equipment substring and exact OEM. Tested 1056 equipment/model/OEM cases for active catalog membership; no misses. Search input/help now advertise OEM and machine model.
+No added dimensions, thread sizes, stock, inferred cross references or new product records.
+Build/TypeScript passed. Preview sign-in protected. PR164 merged 3a41aacb8bbce90b41a6783ef9859f13a8af142d; production Vercel success.
+Live browser verified P550596 pairs for SANY/XCMG with brand/model; SANY SY240C search returns 7 parts; OEM60201220 returns P502424; P821575 shows SY35U/SY35C Yanmar context and OEM60123506.
