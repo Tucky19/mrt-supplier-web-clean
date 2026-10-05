@@ -1,0 +1,86 @@
+{
+  "P502562": {
+    "title": "Hydraulic Filter, Cartridge",
+    "category": "hydraulic_filter",
+    "type": "cartridge",
+    "specifications": [
+      {
+        "label": "Outer Diameter",
+        "value": "90 mm"
+      },
+      {
+        "label": "Thread Size",
+        "value": "1 BSP/G"
+      },
+      {
+        "label": "Length",
+        "value": "130 mm"
+      },
+      {
+        "label": "Style",
+        "value": "Cartridge"
+      },
+      {
+        "label": "Media Type",
+        "value": "Wire Mesh"
+      },
+      {
+        "label": "UPC Code",
+        "value": "742330977484"
+      }
+    ],
+    "source": "p502562.pdf",
+    "sha256": "737eb1e21efb571bb51b5941020e8f561e72f512c1b35fc901aab2a7169510c8",
+    "checkedAt": "2026-10-05"
+  },
+  "P502561": {
+    "title": "Hydraulic Filter, Cartridge",
+    "category": "hydraulic_filter",
+    "type": "cartridge",
+    "specifications": [
+      {
+        "label": "Outer Diameter",
+        "value": "144 mm"
+      },
+      {
+        "label": "Inner Diameter",
+        "value": "96 mm"
+      },
+      {
+        "label": "Length",
+        "value": "251 mm"
+      },
+      {
+        "label": "Efficiency Beta 2",
+        "value": "6 micron"
+      },
+      {
+        "label": "Efficiency Beta 20",
+        "value": "11 micron"
+      },
+      {
+        "label": "Efficiency Beta 75",
+        "value": "20 micron"
+      },
+      {
+        "label": "Efficiency Test Std",
+        "value": "ISO 4548-12"
+      },
+      {
+        "label": "Style",
+        "value": "Cartridge"
+      },
+      {
+        "label": "Media Type",
+        "value": "Synthetic"
+      },
+      {
+        "label": "UPC Code",
+        "value": "742330976968"
+      }
+    ],
+    "source": "p502561.pdf",
+    "sha256": "37b05d7263dda68719c7fe428b4b22e6280dac806169ff970e3f780742d9f904",
+    "checkedAt": "2026-10-05"
+  }
+}
