@@ -526,5 +526,417 @@
     "source": "p550820.pdf",
     "sha256": "b942f016d9ad2a8d181e99ba45103a2b5fb023d32b498c19cab306db9400de93",
     "checkedAt": "2026-10-05"
+  },
+  "P566983": {
+    "title": "Hydraulic Filter, Cartridge DT",
+    "category": "hydraulic_filter",
+    "type": "cartridge",
+    "specifications": [
+      {
+        "label": "Outer Diameter",
+        "value": "94.5 mm"
+      },
+      {
+        "label": "Inner Diameter",
+        "value": "48.3 mm"
+      },
+      {
+        "label": "Length",
+        "value": "194.7 mm"
+      },
+      {
+        "label": "Gasket ID",
+        "value": "47.22 mm"
+      },
+      {
+        "label": "Efficiency Beta 1000",
+        "value": "12 micron"
+      },
+      {
+        "label": "Bypass Valve",
+        "value": "Yes"
+      },
+      {
+        "label": "Bypass Valve Setting LR",
+        "value": "3.45 bar (50 psi)"
+      },
+      {
+        "label": "Collapse Burst",
+        "value": "10.3 bar (149 psi)"
+      },
+      {
+        "label": "Media Brand",
+        "value": "DT High-Performance"
+      },
+      {
+        "label": "Media Type",
+        "value": "Synthetic"
+      },
+      {
+        "label": "UPC Code",
+        "value": "742330190333"
+      }
+    ],
+    "source": "p566983.pdf",
+    "sha256": "111fd860183156d774bd996073e9dee48e06fd6aae99e48e18d77cb8c07946db",
+    "checkedAt": "2026-10-05"
+  },
+  "P557380": {
+    "title": "Hydraulic Filter, Cartridge",
+    "category": "hydraulic_filter",
+    "type": "cartridge",
+    "specifications": [
+      {
+        "label": "Outer Diameter",
+        "value": "130 mm"
+      },
+      {
+        "label": "Inner Diameter",
+        "value": "86.4 mm"
+      },
+      {
+        "label": "Length",
+        "value": "292.1 mm"
+      },
+      {
+        "label": "Efficiency Beta 2",
+        "value": "9 micron"
+      },
+      {
+        "label": "Efficiency Beta 75",
+        "value": "21 micron"
+      },
+      {
+        "label": "Efficiency Beta 200",
+        "value": "23 micron"
+      },
+      {
+        "label": "Efficiency Beta 1000",
+        "value": "26 micron"
+      },
+      {
+        "label": "Efficiency Test Std",
+        "value": "ISO 4548-12"
+      },
+      {
+        "label": "Style",
+        "value": "Cartridge"
+      },
+      {
+        "label": "Media Type",
+        "value": "Cellulose"
+      },
+      {
+        "label": "Primary Application",
+        "value": "KOMATSU 1756027380"
+      },
+      {
+        "label": "UPC Code",
+        "value": "742330045411"
+      }
+    ],
+    "source": "p557380.pdf",
+    "sha256": "1770733458b6d69031482d98295472f8d89e3ae636e3a53644ffdfe7066906e5",
+    "checkedAt": "2026-10-05"
+  },
+  "P551158": {
+    "title": "Hydraulic Filter, Cartridge",
+    "category": "hydraulic_filter",
+    "type": "cartridge",
+    "specifications": [
+      {
+        "label": "Outer Diameter",
+        "value": "100.1 mm"
+      },
+      {
+        "label": "Inner Diameter",
+        "value": "41.9 mm"
+      },
+      {
+        "label": "Length",
+        "value": "231.7 mm"
+      },
+      {
+        "label": "Efficiency Beta 2",
+        "value": "14 micron"
+      },
+      {
+        "label": "Efficiency Beta 20",
+        "value": "25 micron"
+      },
+      {
+        "label": "Collapse Burst",
+        "value": "6.9 bar (100 psi)"
+      },
+      {
+        "label": "Style",
+        "value": "Cartridge"
+      },
+      {
+        "label": "Media Type",
+        "value": "Cellulose"
+      },
+      {
+        "label": "Primary Application",
+        "value": "KOMATSU 1754911580"
+      },
+      {
+        "label": "UPC Code",
+        "value": "742330043691"
+      }
+    ],
+    "source": "p551158.pdf",
+    "sha256": "83421b640356483e43c0abf216ac5c9b443f4100f49548649e8a6dd8659cd24f",
+    "checkedAt": "2026-10-05"
+  },
+  "P550861": {
+    "title": "Fuel Filter, Cartridge",
+    "category": "fuel_filter",
+    "type": "cartridge",
+    "specifications": [
+      {
+        "label": "Outer Diameter",
+        "value": "83 mm"
+      },
+      {
+        "label": "Inner Diameter",
+        "value": "14 mm"
+      },
+      {
+        "label": "Length",
+        "value": "141 mm"
+      },
+      {
+        "label": "Efficiency 99%",
+        "value": "17 micron"
+      },
+      {
+        "label": "Efficiency Test Std",
+        "value": "SAE J1985"
+      },
+      {
+        "label": "Collapse Burst",
+        "value": "6.9 bar (100 psi)"
+      },
+      {
+        "label": "Style",
+        "value": "Cartridge"
+      },
+      {
+        "label": "Media Type",
+        "value": "Cellulose"
+      },
+      {
+        "label": "UPC Code",
+        "value": "742330043349"
+      }
+    ],
+    "source": "p550861.pdf",
+    "sha256": "1629554fe63b084ce9a937182369ed3f737c4826163fe8a686ef9f1a5978b786",
+    "checkedAt": "2026-10-05"
+  },
+  "P550851": {
+    "title": "Fuel Filter, Water Separator Cartridge",
+    "category": "fuel_filter",
+    "type": "cartridge",
+    "specifications": [
+      {
+        "label": "Overall Length",
+        "value": "178.6 mm"
+      },
+      {
+        "label": "Outer Diameter",
+        "value": "107 mm"
+      },
+      {
+        "label": "Inner Diameter",
+        "value": "16.8 mm"
+      },
+      {
+        "label": "Length",
+        "value": "171.6 mm"
+      },
+      {
+        "label": "Efficiency 99%",
+        "value": "25 micron"
+      },
+      {
+        "label": "Efficiency Test Std",
+        "value": "SAE J1985, J905"
+      },
+      {
+        "label": "Emulsified H2O Efficiency",
+        "value": "95 Percent"
+      },
+      {
+        "label": "Collapse Burst",
+        "value": "6.9 bar (100 psi)"
+      },
+      {
+        "label": "Type",
+        "value": "Water Separator"
+      },
+      {
+        "label": "Style",
+        "value": "Cartridge"
+      },
+      {
+        "label": "Media Type",
+        "value": "Synthetic"
+      },
+      {
+        "label": "Primary Application",
+        "value": "DAVCO \u00ae Fuel Pro\u00ae 380/382"
+      },
+      {
+        "label": "UPC Code",
+        "value": "742330195406"
+      }
+    ],
+    "source": "p550851(2).pdf",
+    "sha256": "162c374b8ed5b423898011d88f174e7e2445ffe2470a938999d5d0fdef2565e4",
+    "checkedAt": "2026-10-05"
+  },
+  "R010045": {
+    "title": "Hydraulic Filter, Cartridge",
+    "category": "hydraulic_filter",
+    "type": "cartridge",
+    "specifications": [
+      {
+        "label": "Outer Diameter",
+        "value": "120 mm"
+      },
+      {
+        "label": "Inner Diameter",
+        "value": "80 mm"
+      },
+      {
+        "label": "Length",
+        "value": "534 mm"
+      },
+      {
+        "label": "Collapse Burst",
+        "value": "6.9 bar (100 psi)"
+      },
+      {
+        "label": "Style",
+        "value": "Cartridge"
+      },
+      {
+        "label": "Media Type",
+        "value": "Wire Mesh"
+      }
+    ],
+    "source": "r010045.pdf",
+    "sha256": "7ed20f6f8efe0e8f7ac1edc6d4a72908616bb1a1f3618b63bd8f089a75c02b29",
+    "checkedAt": "2026-10-05"
+  },
+  "R010043": {
+    "title": "Fuel Filter, Water Separator Cartridge",
+    "category": "fuel_filter",
+    "type": "cartridge",
+    "specifications": [
+      {
+        "label": "Overall Length",
+        "value": "114.6 mm"
+      },
+      {
+        "label": "Outer Diameter",
+        "value": "64 mm"
+      },
+      {
+        "label": "Inner Diameter",
+        "value": "13 mm"
+      },
+      {
+        "label": "Length",
+        "value": "101 mm"
+      },
+      {
+        "label": "Efficiency Test Std",
+        "value": "JIS D 1617"
+      },
+      {
+        "label": "Collapse Burst",
+        "value": "6.9 bar (100 psi)"
+      },
+      {
+        "label": "Type",
+        "value": "Water Separator"
+      },
+      {
+        "label": "Style",
+        "value": "Cartridge"
+      },
+      {
+        "label": "Media Type",
+        "value": "Felt"
+      },
+      {
+        "label": "UPC Code",
+        "value": "742330220887"
+      }
+    ],
+    "source": "r010043.pdf",
+    "sha256": "c87290f7e3c70a20ab2bd9ef7640d76296af34053853a17b795143b6a498cf16",
+    "checkedAt": "2026-10-05"
+  },
+  "P566999": {
+    "title": "Hydraulic Filter, Cartridge DT",
+    "category": "hydraulic_filter",
+    "type": "cartridge",
+    "specifications": [
+      {
+        "label": "Outer Diameter 2",
+        "value": "144.4 mm"
+      },
+      {
+        "label": "Outer Diameter",
+        "value": "145.22 mm"
+      },
+      {
+        "label": "Inner Diameter",
+        "value": "96 mm"
+      },
+      {
+        "label": "Gasket ID",
+        "value": "94.8 mm"
+      },
+      {
+        "label": "Overall Length",
+        "value": "481.6 mm"
+      },
+      {
+        "label": "Efficiency Beta 1000",
+        "value": "12 micron"
+      },
+      {
+        "label": "Bypass Valve",
+        "value": "Yes"
+      },
+      {
+        "label": "Bypass Valve Setting LR",
+        "value": "3 bar (44 psi)"
+      },
+      {
+        "label": "Collapse Burst",
+        "value": "10.3 bar (149 psi)"
+      },
+      {
+        "label": "Media Brand",
+        "value": "DT High-Performance"
+      },
+      {
+        "label": "Media Type",
+        "value": "Synthetic"
+      },
+      {
+        "label": "UPC Code",
+        "value": "742330190494"
+      }
+    ],
+    "source": "p566999.pdf",
+    "sha256": "9072819db62eb95ba12a3f9372e1a0bd96068cac17e881c1a262fa01b9dd6e5e",
+    "checkedAt": "2026-10-05"
   }
 }

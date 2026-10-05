@@ -1,0 +1,16 @@
+Owner confirmed October 5 PDFs as authoritative (10 records).
+P552020 OD111 ID21 Length245 Cartridge no Thread Size.
+P502424 OD94.5 ID26 Length193 Cartridge no Thread Size.
+P175120 OD117 ID59 Length163 Overall166 Cartridge no Thread Size.
+P502540 OD42 ID21 Length82 Cartridge no Thread Size.
+P170587 OD47.8 ID22.4 Length83.3 Cartridge no Thread Size.
+R011751 OD108 Length229 main Thread Size1-14 UN, Bowl Thread S80x3; Gasket ID93.6 separate, not ID.
+P954604 OD95 ID46.5 Length141 Overall163 Cartridge no Thread Size.
+P555706 OD101.5 Length212.84 Spin-On no Thread Size; Gasket ID57 separate, not ID.
+P553009 OD101.5 Length197 Spin-On Secondary per PDF title; no Thread Size.
+P550820 OD120.5 ID45.5 Length204.5 Cartridge no Thread Size.
+All PDF attributes extracted, PN headings confirmed, SHA256 recorded in data/products/donaldson-pdf-2026-10-05.json.
+R011751 and P550820 page 1 visually reviewed. Normalized dimensions and exact attribute round-trip checked for all ten.
+Existing references/OEM/model/stock/image data retained. Primary Applications displayed as source attributes, no extra interchange inferred.
+Build/TypeScript passed. Search index rebuilt 798 products. PR165 merge c20975ebbc06485e7951a51f43b2f1ff7b8f88da; production Vercel success.
+Live browser confirmed R011751 main/bowl threads and specs, P175120 normal/overall163/166, P954604141/163. Fuel OD108 Height229 Thread1-14 UN search includes R011751.
