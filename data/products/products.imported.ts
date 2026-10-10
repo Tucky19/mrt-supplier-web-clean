@@ -176,14 +176,14 @@ export const importedProducts = [
     "title": "FILTER, SPIN-ON SECONDARY",
     "shortDescription": "P557440 กรองเชื้อเพลิง Donaldson สำหรับระบบน้ำมันดีเซล",
     "description": "P557440 เป็นกรองเชื้อเพลิง Donaldson ออกแบบมาเพื่อช่วยดักจับสิ่งปนเปื้อนในน้ำมัน ปกป้องหัวฉีดและปั๊มเชื้อเพลิง",
-    "spec": "OD 93 mm × ID 62 mm × L 174 mm × 1-14 UN × 9 micron",
+    "spec": "OD 93 mm × Gasket OD 72 mm × Gasket ID 62 mm × L 174 mm × 1-14 UN × 9 micron",
     "specifications": [
       {
         "label": "Outer Diameter",
         "value": "93 mm"
       },
       {
-        "label": "Inner Diameter",
+        "label": "Gasket ID",
         "value": "62 mm"
       },
       {
@@ -197,7 +197,10 @@ export const importedProducts = [
       {
         "label": "Efficiency 99%",
         "value": "9 micron"
-      }
+      },
+      { "label": "Gasket OD", "value": "72 mm" },
+      { "label": "Efficiency Test Std", "value": "SAE J1985" },
+      { "label": "Media Type", "value": "Cellulose" }
     ],
     "applications": [
       "KOMATSU 6003118290"

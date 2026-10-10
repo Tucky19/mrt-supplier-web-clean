@@ -232,7 +232,7 @@ export const uploadedProducts = [
       { label: "Outer Diameter", value: "93 mm" },
       { label: "Thread Size", value: "M27 x 2" },
       { label: "Length", value: "175 mm" },
-      { label: "Efficiency", value: "24 micron" },
+      { label: "Efficiency 99%", value: "24 micron" },
       { label: "Efficiency Test Std", value: "SAE J806" },
       { label: "Type", value: "Full-Flow" },
       { label: "Style", value: "Spin-On" },
