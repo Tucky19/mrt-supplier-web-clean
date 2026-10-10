@@ -2573,6 +2573,12 @@ const donaldsonPhase3Batch03: RawDonaldson[] = [
       { label: "Type", value: "Lube Filter" },
       { label: "Style", value: "Spin-On" },
       { label: "Flow", value: "Full Flow" },
+      { label: "Efficiency 50%", value: "15 micron" },
+      { label: "Efficiency 95%", value: "30 micron" },
+      { label: "Efficiency 99%", value: "40 micron" },
+      { label: "Efficiency Beta 75", value: "35 micron" },
+      { label: "Efficiency Test Std", value: "JIS D 1611" },
+      { label: "Media Type", value: "Cellulose" },
     ],
   },
   {

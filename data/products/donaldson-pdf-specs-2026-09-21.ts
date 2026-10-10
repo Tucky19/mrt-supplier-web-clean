@@ -1,6 +1,98 @@
 import type { Product } from "@/types/product";
 
 const verifiedPdfSpecs: Record<string, Partial<Product>> = {
+  "r010050": {
+    "specifications": [
+      {
+        "label": "Outer Diameter",
+        "value": "120 mm"
+      },
+      {
+        "label": "Length",
+        "value": "293 mm"
+      },
+      {
+        "label": "Inner Diameter",
+        "value": "68.7 mm"
+      },
+      {
+        "label": "Efficiency Beta 2",
+        "value": "4 micron"
+      },
+      {
+        "label": "Efficiency Beta 20",
+        "value": "15 micron"
+      },
+      {
+        "label": "Media Type",
+        "value": "Synthetic"
+      },
+      {
+        "label": "Style",
+        "value": "Cartridge"
+      }
+    ]
+  },
+  "r010051": {
+    "specifications": [
+      {
+        "label": "Outer Diameter",
+        "value": "46.5 mm"
+      },
+      {
+        "label": "Length",
+        "value": "76 mm"
+      },
+      {
+        "label": "Inner Diameter",
+        "value": "15.5 mm"
+      },
+      {
+        "label": "Efficiency Beta 75",
+        "value": "20 micron"
+      },
+      {
+        "label": "Media Type",
+        "value": "Synthetic"
+      },
+      {
+        "label": "Style",
+        "value": "Cartridge"
+      }
+    ]
+  },
+  "r010055": {
+    "specifications": [
+      {
+        "label": "Outer Diameter",
+        "value": "47 mm"
+      },
+      {
+        "label": "Overall Length",
+        "value": "83.5 mm"
+      },
+      {
+        "label": "Inner Diameter",
+        "value": "21.5 mm"
+      },
+      {
+        "label": "Efficiency Beta 75",
+        "value": "11 micron"
+      },
+      {
+        "label": "Efficiency Beta 1000",
+        "value": "11 micron"
+      },
+      {
+        "label": "Media Type",
+        "value": "Cellulose"
+      },
+      {
+        "label": "Style",
+        "value": "Cartridge"
+      }
+    ]
+  },
   "p551852": {
     "title": "Donaldson P551852 — กรองน้ำมันเชื้อเพลิงแบบหมุนเกลียว พร้อมแยกน้ำ",
     "description": "กรองน้ำมันเชื้อเพลิงแบบหมุนเกลียว พร้อมแยกน้ำ",

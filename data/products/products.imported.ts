@@ -49,14 +49,14 @@ export const importedProducts = [
     "title": "FILTER, SPIN-ON FULL FLOW",
     "shortDescription": "P553000 กรองน้ำมันเครื่อง Donaldson สำหรับระบบหล่อลื่น",
     "description": "P553000 เป็นกรองน้ำมันเครื่อง Donaldson ช่วยรักษาความสะอาดของน้ำมัน ลดการสึกหรอ และยืดอายุการใช้งานของเครื่องยนต์",
-    "spec": "OD 118 mm × ID 102 mm × L 296 mm × 2 1/4-12 UN × 17 micron",
+    "spec": "OD 118 mm × Gasket ID 102 mm × L 296 mm × 2 1/4-12 UN × 17 micron",
     "specifications": [
       {
         "label": "Outer Diameter",
         "value": "118 mm"
       },
       {
-        "label": "Inner Diameter",
+        "label": "Gasket ID",
         "value": "102 mm"
       },
       {
@@ -70,6 +70,26 @@ export const importedProducts = [
       {
         "label": "Efficiency 99%",
         "value": "17 micron"
+      },
+      {
+        "label": "Gasket OD",
+        "value": "119 mm"
+      },
+      {
+        "label": "Efficiency Test Std",
+        "value": "ISO 4548-12"
+      },
+      {
+        "label": "Media Type",
+        "value": "Synthetic"
+      },
+      {
+        "label": "Style",
+        "value": "Spin-On"
+      },
+      {
+        "label": "Type",
+        "value": "Full-Flow"
       }
     ],
     "applications": [],
@@ -198,9 +218,22 @@ export const importedProducts = [
         "label": "Efficiency 99%",
         "value": "9 micron"
       },
-      { "label": "Gasket OD", "value": "72 mm" },
-      { "label": "Efficiency Test Std", "value": "SAE J1985" },
-      { "label": "Media Type", "value": "Cellulose" }
+      {
+        "label": "Gasket OD",
+        "value": "72 mm"
+      },
+      {
+        "label": "Efficiency Test Std",
+        "value": "SAE J1985"
+      },
+      {
+        "label": "Media Type",
+        "value": "Cellulose"
+      },
+      {
+        "label": "Style",
+        "value": "Spin-On"
+      }
     ],
     "applications": [
       "KOMATSU 6003118290"
