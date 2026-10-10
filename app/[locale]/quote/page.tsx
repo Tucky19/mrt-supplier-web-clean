@@ -622,6 +622,7 @@ export default function QuotePage() {
                   {text.additionalNoteLabel} <span className="font-normal text-[var(--color-text-muted)]">({text.optional})</span>
                 </label>
                 <textarea
+                  aria-describedby="rfq-application-prompt"
                   id="rfq-note"
                   name="note"
                   className="mt-2 w-full scroll-mt-24 rounded-[var(--mrt-radius-md)] border border-[var(--color-border-strong)] px-4 py-3 text-sm text-[var(--color-text)] outline-none transition focus-visible:border-[var(--color-focus-ring)] focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-surface)]"
@@ -629,6 +630,11 @@ export default function QuotePage() {
                   value={form.note}
                   onChange={(event) => updateFormField('note', event.target.value)}
                 />
+                <p id="rfq-application-prompt" className="mt-2 text-xs leading-5 text-[var(--color-text-muted)]">
+                  {locale === 'th'
+                    ? 'หากขอเทียบตามรุ่นเครื่อง กรุณาระบุ Engine / Serial / Part No. เดิม'
+                    : 'For application-based requests, include engine, serial number, and original part number.'}
+                </p>
               </div>
 
               <div className="rounded-[var(--mrt-radius-lg)] border border-[var(--color-border)] bg-[var(--color-surface-muted)] px-4 py-4">

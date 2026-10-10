@@ -3,7 +3,9 @@
 import { useQuote } from "@/providers/QuoteProvider";
 import { useToast } from "@/components/ui/ToastProvider";
 import { ShoppingCart, ExternalLink } from "lucide-react";
-import { relationPartNumbers } from "@/lib/products/relations";
+import { relationPartNumbers, normalizeProductRelations, isPreliminaryRelation } from "@/lib/products/relations";
+import { getProductUiText } from "@/lib/i18n/productUi";
+import ApplicationReferenceNote from "./detail/ApplicationReferenceNote";
 import type { Product } from "@/types/product";
 
 function containsThai(value: string) {
@@ -20,6 +22,12 @@ export default function ProductHero({
   const { addItem } = useQuote();
   const { show } = useToast();
   const isThai = locale === "th";
+  const text = getProductUiText(locale);
+  const hasCustomerApplication = Boolean(product.vehicleApplications?.length);
+  const hasPreliminaryReference = [
+    ...normalizeProductRelations(product.refs ?? [], "unknown"),
+    ...normalizeProductRelations(product.crossReferences ?? [], "unknown"),
+  ].some(isPreliminaryRelation);
   const description = String(product.description ?? "").trim();
   const visibleDescription =
     !isThai && containsThai(description) ? "" : description;
@@ -91,9 +99,17 @@ export default function ProductHero({
 
         {/* DESCRIPTION */}
         {visibleDescription && (
-          <p className="text-sm text-gray-600">
-            {visibleDescription}
-          </p>
+          <div className="space-y-2">
+            {hasCustomerApplication && <ApplicationReferenceNote locale={locale} customer compact />}
+            <p className="text-sm text-gray-600">{visibleDescription}</p>
+          </div>
+        )}
+
+        {(refs.length > 0 || crossReferences.length > 0) && (
+          <div className="space-y-1 text-xs leading-5 text-gray-600">
+            {hasPreliminaryReference && <p className="font-medium">{text.referenceNumbersForReview}</p>}
+            <p>{text.referenceCaution}</p>
+          </div>
         )}
 
         {/* 🔥 OEM REF */}

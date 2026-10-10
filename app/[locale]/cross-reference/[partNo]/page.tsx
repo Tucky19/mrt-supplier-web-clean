@@ -53,8 +53,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     ? `${product.partNo} รหัสเทียบ`
     : `${product.partNo} Cross Reference`;
   const description = isThai
-    ? `ดูรหัสเทียบและสินค้าอ้างอิงสำหรับ ${product.partNo} พร้อมลิงก์ไปยังหน้าสินค้า`
-    : `View compatible parts and cross reference information for ${product.partNo}.`;
+    ? `ดูเบอร์อ้างอิงและข้อมูล Cross Reference สำหรับ ${product.partNo} กรุณาตรวจสอบสเปกและการใช้งานก่อนสั่งซื้อ`
+    : `View reference part numbers and cross-reference information for ${product.partNo}. Verify specifications and application before ordering.`;
 
   return {
     title,
