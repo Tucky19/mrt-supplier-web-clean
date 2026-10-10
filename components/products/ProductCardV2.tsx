@@ -6,6 +6,7 @@ import { ShoppingCart } from "lucide-react";
 import { useToast } from "@/components/ui/ToastProvider";
 import { gaAddToQuote } from "@/lib/analytics/ga";
 import { getProductUiText } from "@/lib/i18n/productUi";
+import ApplicationReferenceNote from "./detail/ApplicationReferenceNote";
 import { getSearchUiText } from "@/lib/i18n/searchUi";
 import { getProductImageUrl } from "@/lib/products/image";
 import { buildRfqReferenceContext } from "@/lib/rfq/referenceContext";
@@ -418,6 +419,7 @@ export default function ProductCardV2({
 
         {Boolean(product.vehicleApplications?.length) && (
           <div className="mt-3 space-y-2 text-sm leading-6 text-[var(--color-text)] [overflow-wrap:anywhere]">
+            <ApplicationReferenceNote locale={locale} customer compact />
             {product.vehicleApplications?.map((application) => (
               <p key={application}>{application}</p>
             ))}

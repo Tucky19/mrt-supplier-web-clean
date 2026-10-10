@@ -238,8 +238,8 @@ export default function ProductCrossReferenceCards({
           <h2 className={`${!isThai ? "mt-1.5" : ""} text-lg font-semibold tracking-[-0.02em] text-slate-950`}>
             {hasPreliminaryReference
               ? isThai
-                ? "Cross Reference"
-                : "Reference Part Numbers"
+                ? "เบอร์อ้างอิง / Cross Reference สำหรับตรวจสอบ"
+                : "Reference Part Numbers — Verification Required"
               : "Interchange"}
           </h2>
           <p className="mt-1 text-sm leading-6 text-slate-600">

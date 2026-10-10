@@ -19,6 +19,7 @@ import type { Product } from "@/types/product";
 import ProductCrossReferenceCards from "./detail/ProductCrossReferenceCards";
 import ProductOfficialReference from "./detail/ProductOfficialReference";
 import ProductCatalogApplications from "./detail/ProductCatalogApplications";
+import ApplicationReferenceNote from "./detail/ApplicationReferenceNote";
 import ProductSpecTable from "./detail/ProductSpecTable";
 
 type Props = {
@@ -230,6 +231,8 @@ function buildDescriptionBlock(product: Product, locale: string) {
     .filter(Boolean)
     .filter((paragraph) => !/^Industrial part .* with OEM reference support\.$/.test(paragraph))
     .filter((paragraph) => isThai || !containsThai(paragraph))
+    // Keep customer application text in the labelled reference block, not as an unqualified description.
+    .filter((paragraph) => !(product.vehicleApplications ?? []).some((reference) => reference.trim() === paragraph))
     .filter((paragraph, index, array) => {
       const normalized = normalizeComparableText(paragraph);
 
@@ -667,7 +670,7 @@ export default function ProductDetailClient({ locale, product }: Props) {
 
           {applications.length > 0 && (
             <SurfaceCard className="px-5 py-5 sm:px-6">
-              <SectionLabel>{text.applications}</SectionLabel>
+              <ApplicationReferenceNote locale={locale} customer={Boolean(product.vehicleApplications?.length)} />
 
               <div className="mt-4 flex flex-wrap gap-2.5">
                 {applications.map((application) => (
