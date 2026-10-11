@@ -1,4 +1,5 @@
 import Link from "next/link";
+import RfqQualificationForm from "@/components/admin/RfqQualificationForm";
 import { notFound } from "next/navigation";
 import { prisma } from "@/lib/prisma";
 import MissingProductRequestFollowUpHelper from "@/components/admin/MissingProductRequestFollowUpHelper";
@@ -92,7 +93,7 @@ function getTimelineTitle(type: string, payload: unknown) {
       return "Status Changed";
     }
     case "note":
-      return "Internal Note Added";
+      return data?.kind === "qualification_changed" ? "Qualification Changed" : "Internal Note Added";
     case "follow_up": {
       const action = typeof data?.action === "string" ? data.action : null;
       if (action === "done") return "Follow-up Marked Done";
@@ -115,6 +116,7 @@ function getTimelineDescription(type: string, payload: unknown) {
       ? (payload as Record<string, unknown>)
       : null;
 
+  if (type === "note" && data?.kind === "qualification_changed") return `${String(data?.from ?? "UNREVIEWED")} → ${String(data?.to ?? "UNREVIEWED")}`;
   if (type === "note") {
     return typeof data?.body === "string" ? data.body : null;
   }
@@ -296,7 +298,7 @@ export default async function AdminRfqDetailPage({ params }: PageProps) {
 
       <section className="mx-auto grid max-w-7xl gap-8 px-6 py-8 lg:grid-cols-[1.1fr_0.9fr] lg:px-8">
         <div className="space-y-8">
-          <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+           <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
             <h2 className="text-xl font-semibold text-slate-950">
               Customer Information
             </h2>
@@ -651,6 +653,7 @@ export default async function AdminRfqDetailPage({ params }: PageProps) {
         </div>
 
         <div className="space-y-8">
+          <RfqQualificationForm rfqId={rfq.id} initial={rfq.qualification} version={rfq.qualificationVersion} />
           {isMissingProductRequestSource(rfq.source) && primaryMissingProductItem ? (
             <MissingProductRequestFollowUpHelper
               requestTypeLabel={getMissingProductRequestLabel()}

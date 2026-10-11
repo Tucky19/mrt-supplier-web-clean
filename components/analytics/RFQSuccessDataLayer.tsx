@@ -7,6 +7,7 @@ import { gaSubmitRFQ, type GAItem } from "@/lib/analytics/ga";
 const RFQ_SUCCESS_STORAGE_KEY = "mrt_rfq_success_data";
 
 type StoredRFQSuccess = {
+  eligible_for_lead?: boolean;
   request_id?: string;
   item_count?: number;
   total_quantity?: number;
@@ -42,19 +43,17 @@ export default function RFQSuccessDataLayer({ locale }: Props) {
   useEffect(() => {
     const stored = readStoredSuccess();
 
-    if (!stored) return;
+    if (!stored || stored.eligible_for_lead !== true) return;
 
-    const requestId =
-      safeString(searchParams.get("rid")) ||
-      safeString(searchParams.get("id")) ||
-      safeString(searchParams.get("requestId")) ||
-      safeString(stored?.request_id);
+    const requestId = safeString(stored.request_id);
+    const routeId = safeString(searchParams.get("rid"));
+    if (!requestId || requestId === "OK" || (routeId && routeId !== requestId)) return;
 
     const items = Array.isArray(stored?.ecommerce?.items)
       ? stored.ecommerce.items
       : [];
 
-    gaSubmitRFQ(items, {
+    const queued = gaSubmitRFQ(items, {
       request_id: requestId || undefined,
       item_count: Number(stored?.item_count ?? items.length),
       total_quantity: Number(
@@ -71,7 +70,7 @@ export default function RFQSuccessDataLayer({ locale }: Props) {
     });
 
     try {
-      sessionStorage.removeItem(RFQ_SUCCESS_STORAGE_KEY);
+      if (queued) sessionStorage.removeItem(RFQ_SUCCESS_STORAGE_KEY);
     } catch {
       // ignore storage failures
     }

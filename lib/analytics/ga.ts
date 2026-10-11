@@ -1,4 +1,7 @@
-export type GAItem = {
+import { safeEventParams, safeId, type GrowthContext } from "./contract";
+import { anonymousSessionId, growthEventId } from "./growth";
+
+export type GAItem = GrowthContext & {
   item_id: string;
   item_name?: string;
   item_brand?: string;
@@ -32,54 +35,65 @@ function normalizeEventParams(params?: GAParams): GAParams {
 }
 
 export function pushDataLayer(payload: GAParams) {
-  if (typeof window === "undefined") return;
+  if (typeof window === "undefined") return false;
 
   try {
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push(payload);
+    return true;
   } catch {
-    // ignore
+    return false;
   }
 }
 
-function pushEcommerceEvent(eventName: string, params?: GAParams) {
-  const normalizedParams = normalizeEventParams(params);
-
-  pushDataLayer({ ecommerce: null });
-
-  const GA_ID = process.env.NEXT_PUBLIC_GA4_ID;
-  if (GA_ID && hasGtag()) {
-    window.gtag!("event", eventName, normalizedParams);
-    return;
-  }
-
-  pushDataLayer({
-    event: eventName,
-    ...normalizedParams,
-  });
-}
-
-export function gaEvent(eventName: string, params?: GAParams) {
+// Drop query/hash and dynamic path identifiers from automatic GA page context.
+export function analyticsPageUrl(value: string) {
   try {
-    const normalizedParams = normalizeEventParams(params);
-    const GA_ID = process.env.NEXT_PUBLIC_GA4_ID;
-    if (GA_ID && hasGtag()) {
-      window.gtag!("event", eventName, normalizedParams);
-      return;
-    }
-
-    pushDataLayer({ event: eventName, ...normalizedParams });
-  } catch {
-    // ignore
-  }
+    const u=new URL(value, window.location.origin);
+    const segments=u.pathname.split("/").filter(Boolean);
+    const locale=segments[0]==="en" ? "en" : "th";
+    const section=["products","quote","cross-reference","applications","brands","search"].includes(segments[1] ?? "") ? segments[1] : "";
+    return `${u.origin}/${locale}${section ? `/${section}` : ""}`;
+  } catch { return ""; }
 }
+const sentEvents = new Set<string>();
+function dispatchEvent(eventName: string, params?: GAParams) {
+  if (typeof window === "undefined") return false;
+  const normalized = normalizeEventParams(params);
+  const id = safeId(normalized.event_id) ?? growthEventId(eventName);
+  const cleaned = safeEventParams({ ...normalized, event_id: id,
+    timestamp: new Date().toISOString(), session_id: anonymousSessionId() });
+  if (sentEvents.has(id)) return false;
+  const receiptKey = `mrt_growth_sent:${id}`;
+  if (eventName === "generate_lead") {
+    try { if (sessionStorage.getItem(receiptKey)) return false; } catch { /* memory fallback */ }
+  }
+  try {
+    if (cleaned.ecommerce) pushDataLayer({ ecommerce: null });
+    const pageContext={page_location:analyticsPageUrl(window.location.href),page_referrer:analyticsPageUrl(document.referrer)};
+    if (process.env.NEXT_PUBLIC_GA4_ID) {
+      // Queue standard gtag arguments even before the async tag has initialized.
+      window.dataLayer ??= [];
+      window.gtag ??= function (...args: unknown[]) { window.dataLayer!.push(args); };
+      const {ecommerce,...eventParams}=cleaned;
+      window.gtag("event",eventName,{...eventParams,...(ecommerce as Record<string,unknown> ?? {}),...pageContext});
+    } else if (!pushDataLayer({ event:eventName, ...cleaned, ...pageContext })) return false;
+    sentEvents.add(id);
+    if (eventName === "generate_lead") { try { sessionStorage.setItem(receiptKey,"1"); } catch { /* server event remains authoritative */ } }
+    return true; // queued locally; this is NOT proof of GA4 receipt
+  } catch { return false; }
+}
+function pushEcommerceEvent(eventName: string, params?: GAParams) { return dispatchEvent(eventName,params); }
+export function gaEvent(eventName: string, params?: GAParams) { return dispatchEvent(eventName,params); }
 
 export function gaPageView(url: string) {
   try {
     const GA_ID = process.env.NEXT_PUBLIC_GA4_ID;
     if (GA_ID && hasGtag()) {
       window.gtag!("config", GA_ID, {
-        page_path: url,
+        page_path: new URL(analyticsPageUrl(url)).pathname,
+        page_location: analyticsPageUrl(url),
+        page_referrer: analyticsPageUrl(document.referrer),
       });
     }
   } catch {
@@ -137,7 +151,8 @@ export function gaViewSearchResults(
 export function gaViewItem(item: GAItem, extra?: GAParams) {
   if (!item?.item_id) return;
 
-  gaEvent("view_item", {
+  return pushEcommerceEvent("view_item", {
+    ecommerce: { items: [item] },
     item_id: item.item_id,
     item_name: item.item_name,
     item_brand: item.item_brand,
@@ -207,7 +222,10 @@ export function gaSubmitRFQ(items: GAItem[], extra?: GAParams) {
     return sum + (Number.isFinite(nextQty) ? nextQty : 0);
   }, 0);
 
-  pushEcommerceEvent("generate_lead", {
+  const requestId = safeId(extra?.request_id);
+  if (!requestId || !requestId.startsWith("RFQ-")) return false;
+  return pushEcommerceEvent("generate_lead", {
+    event_id: `rfq_submitted:${requestId}`,
     item_count: itemCount,
     total_quantity: totalQuantity,
     ecommerce: {

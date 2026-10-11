@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useRef } from "react";
+import { searchAttribution, growthEventId } from "@/lib/analytics/growth";
 import { gaViewSearchResults, type GAItem } from "@/lib/analytics/ga";
 
 type SearchResultDataLayerProduct = {
@@ -48,8 +49,9 @@ export default function SearchResultsDataLayer({
     if (lastTrackedKeyRef.current === key) return;
 
     gaViewSearchResults(trimmedQuery, items, {
-      locale,
-      page_location: window.location.href,
+      ...searchAttribution(trimmedQuery,"",undefined,locale),
+      event_id:growthEventId("view_search_results",key),
+      event_source:"products_page", locale,
     });
 
     lastTrackedKeyRef.current = key;

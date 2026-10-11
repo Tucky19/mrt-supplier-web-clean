@@ -21,6 +21,13 @@ model Rfq {
   lineId           String?
   source           String    @default("web")
   status           RfqStatus @default(new)
+  qualification    RfqQualification @default(UNREVIEWED)
+  qualifiedAt      DateTime?
+  qualificationUpdatedAt DateTime?
+  qualificationReason String?
+  qualificationVersion Int @default(0)
+  submittedEventId String? @unique
+  growthContext    Json?
   updatedAt        DateTime  @updatedAt
   userAgent        String?
   leadId           String?
@@ -245,6 +252,12 @@ model SupplierPrice {
   @@index([stockStatus])
 }
 
+enum RfqQualification {
+  UNREVIEWED
+  QUALIFIED
+  UNQUALIFIED
+}
+
 enum RfqStatus {
   new
   in_progress
@@ -303,6 +316,11 @@ model AnalyticsEvent {
   @@index([createdAt])
 }
 model SearchEvent {
+  eventId     String? @unique
+  locale      String?
+  eventSource String?
+  sessionId   String?
+  searchEventId String?
   id          String   @id @default(cuid())
   type        String   // 'search' | 'click_result' | 'add_to_quote'
   query       String?

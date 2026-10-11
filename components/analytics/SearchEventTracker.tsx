@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { gaSearch } from "@/lib/analytics/ga";
+import { searchAttribution } from "@/lib/analytics/growth";
 import { track } from "@/lib/analytics";
 
 type Props = {
@@ -35,7 +37,10 @@ export default function SearchEventTracker({
       return;
     }
 
+    const context = searchAttribution(trimmed,"",normalizedMatchType,locale);
+    gaSearch(trimmed,{...context,event_id:context.search_event_id,event_source:"products_page",result_count:resultCount});
     track({
+      eventId:context.search_event_id,sessionId:context.session_id,searchEventId:context.search_event_id,locale,eventSource:"products_page",
       type: "search",
       query: trimmed,
       resultCount,

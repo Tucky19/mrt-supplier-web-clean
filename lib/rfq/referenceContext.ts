@@ -12,12 +12,15 @@ export type RfqReferenceContext = {
   };
 };
 
-export type RfqReferenceMetadata =
+import type { GrowthContext } from "@/lib/analytics/contract";
+import { safeGrowthContext } from "@/lib/analytics/contract";
+
+export type RfqReferenceMetadata = (
   | RfqReferenceContext
   | {
       source: "product_search_references";
       references: RfqReferenceContext[];
-    };
+    } | { source:"growth_attribution" }) & { growth?: GrowthContext };
 
 function safeText(value: unknown, maxLength = 120) {
   return String(value ?? "").trim().slice(0, maxLength);
@@ -121,9 +124,11 @@ export function mergeRfqReferenceContext(
     ],
   });
 
-  if (contexts.length === 0) return undefined;
-  if (contexts.length === 1) return contexts[0];
-  return { source: "product_search_references", references: contexts };
+  const rawGrowth = incoming?.growth ?? existing?.growth;
+  const growth = rawGrowth ? safeGrowthContext(rawGrowth) : undefined;
+  if (contexts.length === 0) return growth ? { source:"growth_attribution",growth } : undefined;
+  if (contexts.length === 1) return { ...contexts[0], growth };
+  return { source: "product_search_references", references: contexts, growth };
 }
 
 export function getRfqReferenceContextKey(meta: unknown): string {
