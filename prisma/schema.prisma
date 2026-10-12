@@ -150,17 +150,12 @@ model Product {
   titleTh          String?
   titleEn          String?
   spec             String?
-  shortDescription String
   description      String?       @db.Text
   unit             String?
-  imageUrl        String?
-  officialUrl     String?
-  stockStatus     String   @default("request")
   status           ProductStatus @default(active)
   isFeatured       Boolean       @default(false)
   createdAt        DateTime      @default(now())
   updatedAt        DateTime      @updatedAt
-  refs            ProductRef[]
 
   supplierPrices SupplierPrice[]
   crossRefsFrom  CrossReference[] @relation("CrossRefFrom")
@@ -172,16 +167,6 @@ model Product {
   @@index([brand, category])
   @@index([createdAt])
 }
-model ProductRef {
-  id        String  @id @default(cuid())
-  productId String
-  value     String
-
-  product   Product @relation(fields: [productId], references: [id])
-
-  @@index([productId])
-}
-
 model CrossReference {
   id              String             @id @default(cuid())
   fromProductId   String
@@ -333,4 +318,7 @@ model SearchEvent {
 
   @@index([type, createdAt])
   @@index([query])
+  @@index([createdAt])
+  @@index([resultCount])
+  @@index([type])
 }
