@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState, useTransition } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { searchAttribution } from "@/lib/analytics/growth";
 import { gaSearch } from "@/lib/analytics/ga";
 import { useSearchSuggestions } from "@/hooks/useSearchSuggestions";
 import { getSearchUiText } from "@/lib/i18n/searchUi";
@@ -211,7 +212,8 @@ export default function SearchBar({
 
     if (trimmed.length >= 2) {
       params.set("q", trimmed);
-      gaSearch(trimmed, { search_source: "products_searchbar" });
+      const context = searchAttribution(trimmed,"",undefined,locale);
+      gaSearch(trimmed, {...context,event_id:context.search_event_id,event_source:"products_searchbar",search_source:"products_searchbar"});
       saveRecentSearch(trimmed);
     } else {
       params.delete("q");

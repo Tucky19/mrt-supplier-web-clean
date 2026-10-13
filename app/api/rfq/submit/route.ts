@@ -1,4 +1,6 @@
 import crypto from "crypto";
+import { safeEventParams } from "@/lib/analytics/contract";
+import type { Prisma } from "@prisma/client";
 import { prisma } from "@/lib/db";
 import { genRequestId } from "@/lib/rfq/id";
 import { validateRfqPayload } from "@/lib/rfq/validate";
@@ -272,6 +274,8 @@ if (!RFQ_DEV_MOCK_ENABLED) {
       data: {
         requestId,
         status: "new",
+        submittedEventId: `rfq_submitted:${requestId}`,
+        growthContext: JSON.parse(JSON.stringify(safeEventParams(body.measurement ?? {}))) as Prisma.InputJsonValue,
         source: "web",
         company: v.data.customer.company,
         name: v.data.customer.name,
@@ -461,6 +465,7 @@ if (!RFQ_DEV_MOCK_ENABLED) {
         partialFailure,
         sideEffectFailures,
         remainingInWindow: rl.remaining,
+        measurement: {eligible_for_lead:true,event_id:rfq.submittedEventId,request_id:rfq.requestId},
       },
       undefined,
       traceId

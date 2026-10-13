@@ -8,7 +8,9 @@ import SiteFooter from '@/components/layout/SiteFooter';
 import SiteHeader from '@/components/layout/SiteHeader';
 import BulkAddToQuote from '@/components/quote/BulkAddToQuote';
 import CopyButton from '@/components/ui/CopyButton';
-import { gaBeginCheckout, gaViewCart, type GAItem } from '@/lib/analytics/ga';
+import { safeEventParams } from "@/lib/analytics/contract";
+import { growthFromMeta, anonymousSessionId } from "@/lib/analytics/growth";
+import { gaBeginCheckout, gaSubmitRFQ, gaViewCart, type GAItem } from '@/lib/analytics/ga';
 import { getRfqUiText } from '@/lib/i18n/rfqUi';
 import { getRfqReferenceContexts } from '@/lib/rfq/referenceContext';
 import { useQuote } from '@/providers/QuoteProvider';
@@ -46,10 +48,11 @@ function getQuoteDataLayerItems(
     partNo: string;
     brand?: string;
     title?: string;
-    qty: number;
+    qty: number; meta?: unknown;
   }>,
 ): GAItem[] {
   return items.map((item) => ({
+    ...growthFromMeta(item.meta),
     item_id: item.partNo || item.productId,
     item_name: item.title || item.partNo,
     item_brand: item.brand,
@@ -237,6 +240,7 @@ export default function QuotePage() {
         body: JSON.stringify({
           customer: form,
           items,
+          measurement: safeEventParams({locale,event_source:"quote_page",session_id:anonymousSessionId(),ecommerce:{items:dataLayerItems}}),
         }),
       });
 
@@ -246,10 +250,16 @@ export default function QuotePage() {
         throw new Error(data?.message || 'RFQ failed');
       }
 
+      if (data.measurement?.eligible_for_lead === true) {
+        gaSubmitRFQ(dataLayerItems, {request_id:data.requestId,item_count:items.length,
+          total_quantity:totalQuantity,locale,event_source:"quote_page"});
+      }
+
       try {
         sessionStorage.setItem(
           RFQ_SUCCESS_STORAGE_KEY,
           JSON.stringify({
+            eligible_for_lead: data.measurement?.eligible_for_lead === true,
             request_id: data.requestId ? String(data.requestId) : '',
             item_count: items.length,
             total_quantity: totalQuantity,

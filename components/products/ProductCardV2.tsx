@@ -4,6 +4,9 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { ShoppingCart } from "lucide-react";
 import { useToast } from "@/components/ui/ToastProvider";
+import { gaEvent } from "@/lib/analytics/ga";
+import { track } from "@/lib/analytics";
+import { searchAttribution, rememberProductAttribution, growthEventId } from "@/lib/analytics/growth";
 import { gaAddToQuote } from "@/lib/analytics/ga";
 import { getProductUiText } from "@/lib/i18n/productUi";
 import ApplicationReferenceNote from "./detail/ApplicationReferenceNote";
@@ -230,8 +233,18 @@ export default function ProductCardV2({
     setQuantityInput(String(Math.max(1, quantity + delta)));
   };
 
+  const growth = () => searchAttribution(referenceQuery,product.partNo,product._matchType,locale);
+  const handleDetail = () => {
+    if (!referenceQuery) return;
+    const context = growth(); rememberProductAttribution(context);
+    const eventId = growthEventId("select_item",`${context.search_event_id}:${product.partNo}`);
+    gaEvent("select_item",{...context,event_id:eventId,ecommerce:{items:[{item_id:product.partNo,quantity:1,...context}]}});
+    track({type:"click_result",query:context.search_term,partNo:product.partNo,matchType:context.match_type,
+      locale,eventSource:"products_page",sessionId:context.session_id,searchEventId:context.search_event_id,eventId});
+  };
   const handleAdd = () => {
-    const meta = buildRfqReferenceContext({
+    const context = growth(); const eventId = growthEventId("add_to_cart");
+    const referenceMeta = buildRfqReferenceContext({
       searchQuery: referenceQuery,
       offeredPartNo: product.partNo,
       matchType: product._matchType,
@@ -244,7 +257,7 @@ export default function ProductCardV2({
       brand: product.brand,
       title: product.title,
       qty: quantity,
-      meta,
+      meta: { ...(referenceMeta ?? { source:"growth_attribution" as const }), growth: context },
     });
 
     gaAddToQuote(
@@ -256,11 +269,13 @@ export default function ProductCardV2({
         quantity,
       },
       {
-        locale,
-        source: "products_page",
+        ...context, event_id:eventId, locale,
+        event_source: "products_page",
       },
     );
 
+    track({type:"add_to_quote",query:context.search_term,partNo:product.partNo,matchType:context.match_type,
+      locale,eventSource:"products_page",sessionId:context.session_id,searchEventId:context.search_event_id,eventId});
     show(`${text.addedToQuote}: ${product.partNo}`);
     setJustAdded(true);
 
@@ -277,13 +292,13 @@ export default function ProductCardV2({
   if (product.partNumberOnly) {
     return (
       <div className="flex h-full flex-col gap-4 rounded-2xl border border-slate-200 bg-white p-5">
-        <Link href={`/${locale}/products/${encodeURIComponent(product.partNo)}`} className="break-all text-2xl font-semibold text-slate-900">
+        <Link href={`/${locale}/products/${encodeURIComponent(product.partNo)}`} onClick={handleDetail} className="break-all text-2xl font-semibold text-slate-900">
           {product.partNo}
         </Link>
         <span className="self-start rounded-full bg-amber-50 px-3 py-1 text-sm font-medium text-amber-800">{text.statusCheck}</span>
         <div className="mt-auto flex flex-wrap gap-3 pt-3">
           <button type="button" onClick={handleAdd} disabled={justAdded} className="rounded-xl bg-slate-900 px-4 py-3 text-sm font-semibold text-white">{addButtonLabel}</button>
-          <Link href={`/${locale}/products/${encodeURIComponent(product.partNo)}`} className="rounded-xl border border-slate-300 px-4 py-3 text-sm">{text.details}</Link>
+          <Link href={`/${locale}/products/${encodeURIComponent(product.partNo)}`} onClick={handleDetail} className="rounded-xl border border-slate-300 px-4 py-3 text-sm">{text.details}</Link>
         </div>
       </div>
     );
@@ -324,7 +339,7 @@ export default function ProductCardV2({
             ) : null}
 
             <Link
-              href={`/${locale}/products/${encodeURIComponent(product.partNo)}`}
+              href={`/${locale}/products/${encodeURIComponent(product.partNo)}`} onClick={handleDetail}
               className="mt-2 block [overflow-wrap:anywhere] text-[1.4rem] font-semibold leading-tight tracking-[-0.035em] text-[var(--color-text)] transition-colors hover:text-[var(--color-primary-hover)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-surface-muted)] sm:text-[1.5rem]"
             >
               {product.partNo}
@@ -394,7 +409,7 @@ export default function ProductCardV2({
             </div>
 
             <Link
-              href={`/${locale}/products/${encodeURIComponent(product.partNo)}`}
+              href={`/${locale}/products/${encodeURIComponent(product.partNo)}`} onClick={handleDetail}
               className="mt-1 [overflow-wrap:anywhere] text-[1.45rem] font-semibold leading-tight tracking-[-0.04em] text-[var(--color-text)] transition-colors hover:text-[var(--color-primary-hover)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-surface)] sm:text-[1.55rem]"
             >
               {product.partNo}
@@ -509,7 +524,7 @@ export default function ProductCardV2({
             </button>
 
             <Link
-              href={`/${locale}/products/${encodeURIComponent(product.partNo)}`}
+              href={`/${locale}/products/${encodeURIComponent(product.partNo)}`} onClick={handleDetail}
               className={`inline-flex min-h-11 items-center justify-center rounded-[var(--mrt-radius-md)] border border-[var(--color-border-strong)] px-3 py-2.5 text-sm font-medium text-[var(--color-text)] transition-colors hover:border-[var(--color-primary)] hover:bg-[var(--color-primary-soft)] hover:text-[var(--color-primary-hover)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-surface)] ${
                 isSearchVariant ? "shrink-0" : "flex-1"
               }`}

@@ -7,7 +7,8 @@ import { useRouter } from "next/navigation";
 import TrackedLineLink from "@/components/analytics/TrackedLineLink";
 import CopyButton from "@/components/ui/CopyButton";
 import { gaAddToQuote, gaViewItem } from "@/lib/analytics/ga";
-import { trackEvent } from "@/lib/analytics/track";
+import { track } from "@/lib/analytics";
+import { productAttribution, growthEventId } from "@/lib/analytics/growth";
 import { getProductUiText } from "@/lib/i18n/productUi";
 import { getProductImageUrl } from "@/lib/products/image";
 import {
@@ -377,10 +378,11 @@ export default function ProductDetailClient({ locale, product }: Props) {
         item_category: product.category,
       },
       {
-        source: "product_detail",
+        ...productAttribution(product.partNo,locale), locale,
+        event_id:growthEventId("view_item",`${locale}:${product.partNo}`), event_source: "product_detail",
       },
     );
-  }, [product.brand, product.category, product.id, product.partNo]);
+  }, [product.brand, product.category, product.id, product.partNo, locale]);
 
   useEffect(() => {
     return () => {
@@ -391,10 +393,10 @@ export default function ProductDetailClient({ locale, product }: Props) {
   }, []);
 
   const handleAdd = () => {
-    trackEvent("add_to_quote", {
-      partNo: product.partNo,
-      brand: product.brand,
-    });
+    const context = productAttribution(product.partNo,locale);
+    const eventId = growthEventId("add_to_cart");
+    track({ type:"add_to_quote",query:context.search_term,partNo:product.partNo,matchType:context.match_type,
+      locale,eventSource:"product_detail",sessionId:context.session_id,searchEventId:context.search_event_id,eventId });
     gaAddToQuote(
       {
         item_id: product.partNo || product.id,
@@ -403,7 +405,8 @@ export default function ProductDetailClient({ locale, product }: Props) {
         quantity: 1,
       },
       {
-        source: "product_detail",
+        ...productAttribution(product.partNo,locale), locale,
+        event_id:eventId, event_source: "product_detail",
       },
     );
 
@@ -412,7 +415,7 @@ export default function ProductDetailClient({ locale, product }: Props) {
       partNo: product.partNo,
       brand: product.brand,
       title: product.title ?? "",
-      qty: 1,
+      qty: 1, meta: {source:"growth_attribution",growth:context},
     });
 
     setJustAdded(true);
