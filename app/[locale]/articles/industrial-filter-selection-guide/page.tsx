@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowRight, CheckCircle2, FileText, ShieldAlert } from "lucide-react";
 import SiteFooter from "@/components/layout/SiteFooter";
 import SiteHeader from "@/components/layout/SiteHeader";
+import PriorityPartLinks from "@/components/products/PriorityPartLinks";
 import JsonLd from "@/components/seo/JsonLd";
 
 const SITE_URL = "https://www.mrtsupplier.com";
@@ -140,6 +141,8 @@ export default async function IndustrialFilterSelectionGuidePage({ params }: Pag
           <div><h2 className="text-2xl font-semibold">{text.crossTitle}</h2><p className="mt-3 text-sm leading-7 text-[var(--color-text-muted)] sm:text-base">{text.crossBody}</p></div>
           <div><h2 className="text-2xl font-semibold">{text.decisionTitle}</h2><p className="mt-3 text-sm leading-7 text-[var(--color-text-muted)] sm:text-base">{text.decisionBody}</p></div>
         </section>
+
+        <div className="mb-8"><PriorityPartLinks locale={locale} /></div>
 
         <section className="rounded-[var(--mrt-radius-lg)] bg-[var(--color-primary)] p-6 text-[var(--color-text-inverse)] sm:p-8">
           <h2 className="text-2xl font-semibold">{text.ctaTitle}</h2>

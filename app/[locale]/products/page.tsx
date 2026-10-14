@@ -7,6 +7,7 @@ import { getTranslations } from "next-intl/server";
 import SearchNoResultsTracker from "@/components/analytics/SearchNoResultsTracker";
 import MissingProductRequestForm from "@/components/products/MissingProductRequestForm";
 import ProductListClient from "@/components/products/ProductListClient";
+import PriorityPartLinks from "@/components/products/PriorityPartLinks";
 import ProductDiscoveryLinks from "@/components/products/ProductDiscoveryLinks";
 import { productDiscovery } from "@/lib/products/discovery";
 import SiteFooter from "@/components/layout/SiteFooter";
@@ -274,6 +275,12 @@ export default async function ProductsPage({
           ) : null}
         </div>
       </section>
+
+      {!hasQuery && !requestMissingProduct && (
+        <div className="mx-auto max-w-[1440px] px-4 pt-6 sm:px-6 xl:px-8">
+          <PriorityPartLinks locale={locale} />
+        </div>
+      )}
 
       {!hasQuery && !requestMissingProduct && (
         <ProductDiscoveryLinks
