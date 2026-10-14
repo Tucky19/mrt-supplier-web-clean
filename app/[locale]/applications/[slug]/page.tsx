@@ -195,10 +195,6 @@ function getApplicationCopy(slug: ApplicationSlug, locale: string): ApplicationC
   return copy[slug];
 }
 
-export function generateStaticParams() {
-  return APPLICATION_SLUGS.map((slug) => ({ slug }));
-}
-
 export async function generateMetadata({
   params,
 }: {

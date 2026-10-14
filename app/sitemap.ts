@@ -1,11 +1,24 @@
 import type { MetadataRoute } from "next";
 import { products } from "@/data/products/index";
+import { relationPartNumbers } from "@/lib/products/relations";
 
 const SITE_URL = "https://www.mrtsupplier.com";
 const LOCALES = ["th", "en"] as const;
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const entries: MetadataRoute.Sitemap = [];
+  // Match the existing product-page robots policy without changing product data.
+  const indexableProducts = products.filter((product) => {
+    const hasSpec = Boolean(product.spec?.trim());
+    const hasRefs = Boolean(
+      [
+        ...relationPartNumbers(product.refs ?? [], "unknown"),
+        ...relationPartNumbers(product.crossReferences ?? [], "unknown"),
+      ].some((value) => value.trim()),
+    );
+
+    return !product.partNumberOnly && (hasSpec || hasRefs);
+  });
 
   for (const locale of LOCALES) {
     entries.push(
@@ -22,6 +35,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       {
         url: `${SITE_URL}/${locale}/brands`,
         changeFrequency: "weekly",
+        priority: 0.7,
+      },
+      {
+        url: `${SITE_URL}/${locale}/applications/air-compressor-generator`,
+        changeFrequency: "monthly",
         priority: 0.7,
       },
       {
@@ -53,7 +71,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       },
     );
 
-    for (const product of products) {
+    for (const product of indexableProducts) {
       entries.push({
         url: `${SITE_URL}/${locale}/products/${encodeURIComponent(
           product.partNo,
