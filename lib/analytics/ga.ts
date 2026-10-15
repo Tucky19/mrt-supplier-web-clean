@@ -18,10 +18,6 @@ declare global {
   }
 }
 
-function hasGtag() {
-  return typeof window !== "undefined" && typeof window.gtag === "function";
-}
-
 function normalizeEventParams(params?: GAParams): GAParams {
   if (!params || !("source" in params) || "event_source" in params) {
     return params ?? {};
@@ -87,17 +83,27 @@ function pushEcommerceEvent(eventName: string, params?: GAParams) { return dispa
 export function gaEvent(eventName: string, params?: GAParams) { return dispatchEvent(eventName,params); }
 
 export function gaPageView(url: string) {
+  const GA_ID = process.env.NEXT_PUBLIC_GA4_ID;
+  if (!GA_ID || typeof window === "undefined") return false;
+
   try {
-    const GA_ID = process.env.NEXT_PUBLIC_GA4_ID;
-    if (GA_ID && hasGtag()) {
-      window.gtag!("config", GA_ID, {
-        page_path: new URL(analyticsPageUrl(url)).pathname,
-        page_location: analyticsPageUrl(url),
-        page_referrer: analyticsPageUrl(document.referrer),
-      });
-    }
+    const pageLocation = analyticsPageUrl(url);
+    if (!pageLocation) return false;
+    const pagePath = new URL(pageLocation).pathname;
+    // Queue explicitly even if the async Google tag has not initialized yet.
+    // Consent defaults/updates remain owned by GTM.tsx and CookieConsent.
+    window.dataLayer ??= [];
+    window.gtag ??= function (...args: unknown[]) { window.dataLayer!.push(args); };
+    window.gtag("event", "page_view", {
+      send_to: GA_ID,
+      page_path: pagePath,
+      page_title: pagePath,
+      page_location: pageLocation,
+      page_referrer: analyticsPageUrl(document.referrer),
+    });
+    return true; // queued locally, not proof of Google receipt
   } catch {
-    // ignore
+    return false;
   }
 }
 

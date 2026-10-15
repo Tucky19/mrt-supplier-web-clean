@@ -124,6 +124,9 @@ export function proxy(req: NextRequest) {
 export const config = {
   matcher: [
     "/((?!api|_next|.*\\..*).*)",
+    // Catalog part numbers can contain dots; they still need locale resolution.
+    "/th/products/:path*",
+    "/en/products/:path*",
     "/api/admin/:path*",
     "/index.html",
     "/en/index.html",
