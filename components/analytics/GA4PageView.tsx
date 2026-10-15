@@ -2,12 +2,13 @@
 "use client";
 
 import { usePathname, useSearchParams } from "next/navigation";
-import { useEffect, useMemo } from "react";
+import { useEffect, useMemo, useRef } from "react";
 import { gaPageView } from "@/lib/analytics/ga";
 
 export default function GA4PageView() {
   const pathname = usePathname();
   const sp = useSearchParams();
+  const lastNavigation = useRef<string | null>(null);
 
   const url = useMemo(() => {
     const qs = sp?.toString();
@@ -15,8 +16,8 @@ export default function GA4PageView() {
   }, [pathname, sp]);
 
   useEffect(() => {
-    if (!pathname) return;
-    gaPageView(url);
+    if (!pathname || lastNavigation.current === url) return;
+    if (gaPageView(url)) lastNavigation.current = url;
   }, [pathname, url]);
 
   return null;
