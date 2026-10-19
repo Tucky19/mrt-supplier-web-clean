@@ -1,3 +1,4 @@
+import { dispatchMetaBusinessEvent } from "./meta";
 import { safeEventParams, safeId, type GrowthContext } from "./contract";
 import { anonymousSessionId, growthEventId } from "./growth";
 
@@ -53,7 +54,7 @@ export function analyticsPageUrl(value: string) {
   } catch { return ""; }
 }
 const sentEvents = new Set<string>();
-function dispatchEvent(eventName: string, params?: GAParams) {
+function dispatchEvent(eventName: string, params?: GAParams, confirmedRfq = false) {
   if (typeof window === "undefined") return false;
   const normalized = normalizeEventParams(params);
   const id = safeId(normalized.event_id) ?? growthEventId(eventName);
@@ -74,12 +75,13 @@ function dispatchEvent(eventName: string, params?: GAParams) {
       const {ecommerce,...eventParams}=cleaned;
       window.gtag("event",eventName,{...eventParams,...(ecommerce as Record<string,unknown> ?? {}),...pageContext});
     } else if (!pushDataLayer({ event:eventName, ...cleaned, ...pageContext })) return false;
+    try { dispatchMetaBusinessEvent(eventName, cleaned, confirmedRfq); } catch { /* Meta must never affect GA/RFQ */ }
     sentEvents.add(id);
     if (eventName === "generate_lead") { try { sessionStorage.setItem(receiptKey,"1"); } catch { /* server event remains authoritative */ } }
     return true; // queued locally; this is NOT proof of GA4 receipt
   } catch { return false; }
 }
-function pushEcommerceEvent(eventName: string, params?: GAParams) { return dispatchEvent(eventName,params); }
+function pushEcommerceEvent(eventName: string, params?: GAParams, confirmedRfq = false) { return dispatchEvent(eventName,params,confirmedRfq); }
 export function gaEvent(eventName: string, params?: GAParams) { return dispatchEvent(eventName,params); }
 
 export function gaPageView(url: string) {
@@ -238,7 +240,7 @@ export function gaSubmitRFQ(items: GAItem[], extra?: GAParams) {
       items: safeItems,
     },
     ...(extra ?? {}),
-  });
+  }, true);
 }
 
 export function gaMissingProductRequestSubmit(params: {

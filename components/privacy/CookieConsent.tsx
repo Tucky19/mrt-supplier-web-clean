@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { META_CONSENT_EVENT } from "@/lib/analytics/meta";
 import { useEffect, useState } from "react";
 
 const STORAGE_KEY = "mrt_cookie_consent";
@@ -46,6 +47,7 @@ export default function CookieConsent({ locale }: { locale: string }) {
   function save(nextChoice: ConsentChoice) {
     localStorage.setItem(STORAGE_KEY, nextChoice);
     updateGoogleConsent(nextChoice);
+    window.dispatchEvent(new Event(META_CONSENT_EVENT));
     setChoice(nextChoice);
   }
 
