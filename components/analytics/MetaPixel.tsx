@@ -8,7 +8,7 @@ export default function MetaPixel() {
   const pathname = usePathname();
   const query = useSearchParams()?.toString();
   useEffect(() => {
-    if (process.env.NEXT_PUBLIC_META_PIXEL_ID && pathname) metaPageView(query ? `${pathname}?${query}` : pathname);
+    if (pathname) metaPageView(query ? `${pathname}?${query}` : pathname);
   }, [pathname, query]);
   useEffect(() => {
     window.addEventListener(META_CONSENT_EVENT, syncMetaConsent);

@@ -252,7 +252,7 @@ export default function QuotePage() {
 
       if (data.measurement?.eligible_for_lead === true) {
         gaSubmitRFQ(dataLayerItems, {request_id:data.requestId,item_count:items.length,
-          total_quantity:totalQuantity,locale,event_source:"quote_page"});
+          total_quantity:totalQuantity,locale,event_source:"quote_page"}, data.measurement?.meta_receipt);
       }
 
       try {
@@ -260,6 +260,7 @@ export default function QuotePage() {
           RFQ_SUCCESS_STORAGE_KEY,
           JSON.stringify({
             eligible_for_lead: data.measurement?.eligible_for_lead === true,
+            meta_receipt: data.measurement?.meta_receipt,
             request_id: data.requestId ? String(data.requestId) : '',
             item_count: items.length,
             total_quantity: totalQuantity,

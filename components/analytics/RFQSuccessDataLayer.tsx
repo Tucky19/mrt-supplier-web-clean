@@ -8,6 +8,7 @@ const RFQ_SUCCESS_STORAGE_KEY = "mrt_rfq_success_data";
 
 type StoredRFQSuccess = {
   eligible_for_lead?: boolean;
+  meta_receipt?: string;
   request_id?: string;
   item_count?: number;
   total_quantity?: number;
@@ -67,7 +68,7 @@ export default function RFQSuccessDataLayer({ locale }: Props) {
           requestId || safeString(stored?.ecommerce?.transaction_id),
         items,
       },
-    });
+    }, typeof stored.meta_receipt === "string" ? stored.meta_receipt : undefined);
 
     try {
       if (queued) sessionStorage.removeItem(RFQ_SUCCESS_STORAGE_KEY);
