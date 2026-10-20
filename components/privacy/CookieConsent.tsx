@@ -82,6 +82,9 @@ export default function CookieConsent({ locale }: { locale: string }) {
             {isThai ? "อ่านนโยบายความเป็นส่วนตัว" : "Read the Privacy Policy"}
           </Link>
         </p>
+        <p className="mt-2 text-xs leading-5 text-slate-600">
+          {isThai ? "เมื่อยอมรับ เราอาจใช้ Meta (Facebook) Conversions API เพื่อวัดผลโฆษณา โดยใช้ข้อมูลอุปกรณ์และรหัสโฆษณาแบบแฝง คุณถอนความยินยอมได้ที่ตั้งค่าคุกกี้" : "With your permission, we may use Meta (Facebook) Conversions API for advertising measurement using device data and pseudonymous advertising identifiers. You can withdraw consent in cookie settings."}
+        </p>
       </div>
       <div className="mt-3 flex flex-col-reverse gap-2 sm:flex-row sm:justify-end md:mt-0">
         <button
