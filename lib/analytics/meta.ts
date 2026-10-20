@@ -4,6 +4,7 @@ import { META_CONSENT_EVENT, publicMetaProduct, sanitizeMetaUrl, validMetaClickI
 
 export { META_CONSENT_EVENT };
 type Params = Record<string, unknown>;
+let memoryFbp: string | undefined;
 let currentRoute = "";
 let lastPage = "";
 let clickIdentity: { clickId: string; fbc: string } | undefined;
@@ -12,7 +13,7 @@ function accepted() {
   try { return typeof window !== "undefined" && localStorage.getItem("mrt_cookie_consent") === "accepted"; }
   catch { return false; }
 }
-// Do not read UA/cookies/fbclid before marketing consent. No cookies are created here.
+// Advertising identity is random first-party state, created/read only after marketing consent.
 function advertisingIdentifiers() {
   const result: { fbp?: string; fbc?: string } = {};
   if (!accepted()) return result;
@@ -22,6 +23,15 @@ function advertisingIdentifiers() {
       const value = rest.join("=");
       if (name === "_fbp" && validMetaIdentifier(value, "fbp")) result.fbp = value;
       if (name === "_fbc" && validMetaIdentifier(value, "fbc")) result.fbc = value;
+    }
+    if (!result.fbp) {
+      if (!memoryFbp || !validMetaIdentifier(memoryFbp, "fbp")) {
+        const random = crypto.getRandomValues(new Uint32Array(2));
+        const number = (BigInt(random[0]) << 32n) | BigInt(random[1]);
+        memoryFbp = `fb.1.${Date.now()}.${number}`;
+      }
+      result.fbp = memoryFbp;
+      document.cookie = `_fbp=${memoryFbp}; Path=/; Max-Age=7776000; SameSite=Lax${window.location.protocol === "https:" ? "; Secure" : ""}`;
     }
     const clickId = new URL(window.location.href).searchParams.get("fbclid");
     if (validMetaClickId(clickId)) {
@@ -62,7 +72,14 @@ export function metaPageView(route: string) {
   if (send("PageView")) lastPage = url;
 }
 export function syncMetaConsent() {
-  if (!accepted()) { clickIdentity = undefined; return; }
+  if (!accepted()) {
+    clickIdentity = undefined; memoryFbp = undefined;
+    try {
+      document.cookie = "_fbp=; Path=/; Max-Age=0; SameSite=Lax";
+      if (/(^|\.)mrtsupplier\.com$/.test(window.location.hostname)) document.cookie = "_fbp=; Domain=mrtsupplier.com; Path=/; Max-Age=0; SameSite=Lax";
+    } catch { /* Cookie access unavailable. Consent still prevents identity use/transport. */ }
+    return;
+  }
   // Only the current page; never replay pre-consent business events or navigation history.
   if (currentRoute) metaPageView(currentRoute);
 }

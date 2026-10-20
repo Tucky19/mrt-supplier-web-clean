@@ -3,7 +3,7 @@ import path from 'node:path';
 import vm from 'node:vm';
 import assert from 'node:assert/strict';
 import {createRequire} from 'node:module';
-import {randomUUID} from 'node:crypto';
+import {randomUUID, webcrypto} from 'node:crypto';
 const repo=path.resolve(process.argv[2]??process.cwd());
 const loadPackage=createRequire(import.meta.url);
 const ts=loadPackage(path.join(repo,'node_modules/typescript'));
@@ -16,9 +16,9 @@ const SECRET='LOCAL_ONLY_HMAC_TRANSPORT_TEST_NOT_A_REAL_TOKEN';
 function environment(consent='accepted',referrer='') {
  const calls=[],storage=new Map([['mrt_cookie_consent',consent]]),session=new Map();
  let cookie='',cookieReads=0,uaReads=0,serial=0;
- const document={referrer,get cookie(){cookieReads++;return cookie;}};
+ const document={referrer,get cookie(){cookieReads++;return cookie;},set cookie(value){const pair=value.split(";")[0];const name=pair.split("=")[0];cookie=cookie.split(";").filter(x=>x.trim()&&!x.trim().startsWith(name+"=")).join(";");if(!/Max-Age=0(?:;|$)/.test(value))cookie+=(cookie?";":"")+pair;}};
  const window={location:new URL('https://local.example/th'),dataLayer:[]};
- const context=vm.createContext({window,document,localStorage:{getItem:k=>storage.get(k)??null},sessionStorage:{getItem:k=>session.get(k)??null,setItem:(k,v)=>session.set(k,v)},crypto:{randomUUID},URL,console,process:{env:{NEXT_PUBLIC_GA4_ID:'LOCAL_GA_STUB'}},fetch:(url,options)=>{calls.push({url,options,body:JSON.parse(options.body)});return Promise.resolve(new Response(null,{status:204}));}});
+ const context=vm.createContext({window,document,localStorage:{getItem:k=>storage.get(k)??null},sessionStorage:{getItem:k=>session.get(k)??null,setItem:(k,v)=>session.set(k,v)},crypto:{randomUUID,getRandomValues:value=>webcrypto.getRandomValues(value)},URL,console,process:{env:{NEXT_PUBLIC_GA4_ID:'LOCAL_GA_STUB'}},fetch:(url,options)=>{calls.push({url,options,body:JSON.parse(options.body)});return Promise.resolve(new Response(null,{status:204}));}});
  const modules=new Map();
  function moduleLoad(file) {
   if(modules.has(file))return modules.get(file);
@@ -38,7 +38,7 @@ function environment(consent='accepted',referrer='') {
  }
  const meta=moduleLoad('lib/analytics/meta.ts'),ga=moduleLoad('lib/analytics/ga.ts');
  const nav=route=>{window.location=new URL(route,'https://local.example');meta.metaPageView(route);};
- return {meta,ga,nav,calls,storage,window,moduleLoad,setCookie:value=>cookie=value,reads:()=>({cookieReads,uaReads})};
+ return {meta,ga,nav,calls,storage,window,moduleLoad,setCookie:value=>cookie=value,reads:()=>({cookieReads,uaReads}),cookieState:()=>cookie};
 }
 function serverEnvironment({missing=false,reject=false}={}){
  const context=vm.createContext({Response,Request,URL,TextDecoder,AbortSignal,Buffer,Date,process:{env:{}},console});
@@ -79,8 +79,8 @@ await test('StrictMode/same URL/query/hash rerender duplicate zero',()=>{const e
 await test('six navigations yield exactly six PageViews',()=>{const e=environment();for(const r of ['/th','/th/products','/th/products/P553000','/th/quote','/en','/en/products'])e.nav(r);assert.equal(e.calls.length,6);});
 await test('back-forward counts one per transition',()=>{const e=environment();for(const r of ['/th','/th/products','/th','/th/products'])e.nav(r);assert.equal(e.calls.length,4);});
 await test('revoke blocks requests, clears ephemeral click identity',()=>{const e=environment();e.nav('/th?fbclid='+CLICK);e.storage.set('mrt_cookie_consent','rejected');e.meta.syncMetaConsent();e.nav('/th/products');e.ga.gaViewItem({item_id:'P553000'});assert.equal(e.calls.length,1);e.storage.set('mrt_cookie_consent','accepted');e.meta.syncMetaConsent();assert.equal(e.calls.length,2);assert.equal(e.calls[1].body.fbc,undefined);});
-await test('cookie identifiers read only after accept; no generated fbp',async()=>{const e=environment();const now=Date.now();e.setCookie(`_fbp=fb.1.${now}.1234567890; _fbc=fb.1.${now}.${CLICK}`);e.nav('/th');const s=serverEnvironment();await s.post(e.calls[0].body);const u=s.requests[0].payload.data[0].user_data;assert(u.fbp&&u.fbc);assertPrivateAbsent(s.requests[0].payload);const other=environment();other.nav('/th');assert.equal(other.calls[0].body.fbp,undefined);});
-await test('malformed cookie/PII fbclid omitted while event still fires',()=>{const e=environment();e.setCookie('_fbp=person@example.invalid; _fbc=0812345678');e.nav('/th?fbclid=person@example.invalid');assert.equal(e.calls.length,1);assert.equal(e.calls[0].body.fbp,undefined);assert.equal(e.calls[0].body.fbc,undefined);assertPrivateAbsent(e.calls[0].body);});
+await test('cookie identifiers read only after accept; generated random first-party fbp',async()=>{const e=environment();const now=Date.now();e.setCookie(`_fbp=fb.1.${now}.1234567890; _fbc=fb.1.${now}.${CLICK}`);e.nav('/th');const s=serverEnvironment();await s.post(e.calls[0].body);const u=s.requests[0].payload.data[0].user_data;assert(u.fbp&&u.fbc);assertPrivateAbsent(s.requests[0].payload);const other=environment();other.nav('/th');assert(/^fb\.1\.\d{13}\.\d+$/.test(other.calls[0].body.fbp));});
+await test('malformed cookie/PII fbclid omitted while event still fires',()=>{const e=environment();e.setCookie('_fbp=person@example.invalid; _fbc=0812345678');e.nav('/th?fbclid=person@example.invalid');assert.equal(e.calls.length,1);assert(/^fb\.1\.\d{13}\.\d+$/.test(e.calls[0].body.fbp));assert.equal(e.calls[0].body.fbc,undefined);assertPrivateAbsent(e.calls[0].body);});
 await test('ViewContent AddToCart InitiateCheckout reuse shared GA dispatcher',async()=>{const e=environment();e.nav('/th/products/P553000');const item={item_id:'P553000',quantity:2,item_name:'person@example.invalid'};e.ga.gaViewItem(item);e.ga.gaAddToQuote(item);e.ga.gaBeginCheckout([item]);assert.deepEqual(e.calls.map(x=>x.body.event_name),['PageView','ViewContent','AddToCart','InitiateCheckout']);const s=serverEnvironment();for(const c of e.calls)assert.equal((await s.post(c.body)).status,200);for(const p of s.requests)assertPrivateAbsent(p.payload);});
 await test('private item/extra params never reach client Meta payload',()=>{const e=environment();e.nav('/th');e.ga.gaViewItem({item_id:'P553000'},{email:'person@example.invalid',notes:'private-note',company:'Private Company',phone:'0812345678'});e.ga.gaSearch('person@example.invalid');assert.equal(e.calls.length,2);for(const c of e.calls)assertPrivateAbsent(c.body);});
 await test('legitimate RFQ signed receipt; one non-identifying Lead',async()=>{const e=environment();e.nav('/th/quote');const s=serverEnvironment(),receipt=s.receipt('RFQ-20261020-ABCD');assert(receipt);e.ga.gaSubmitRFQ([{item_id:'P553000'}],{request_id:'RFQ-20261020-ABCD'},receipt);e.ga.gaSubmitRFQ([{item_id:'P553000'}],{request_id:'RFQ-20261020-ABCD'},receipt);const leads=e.calls.filter(c=>c.body.event_name==='Lead');assert.equal(leads.length,1);assert.equal((await s.post(leads[0].body)).status,200);assertPrivateAbsent(s.requests[0].payload);assert(!JSON.stringify(s.requests[0].payload).includes(receipt));});
@@ -103,6 +103,9 @@ await test('incoming cookies auth IP and referrer headers never forwarded',async
 await test('RFQ success query sanitized; server receipt stays outside GA payload',()=>{const e=environment();e.nav('/th/quote/success?rid=RFQ-20261020-ABCD');assert.equal(e.calls[0].body.event_source_url,'https://local.example/th/quote/success');const s=serverEnvironment();const receipt=s.receipt('RFQ-20261020-ABCD');e.ga.gaSubmitRFQ([],{request_id:'RFQ-20261020-ABCD'},receipt);assert.equal(JSON.stringify(e.window.dataLayer).includes(receipt),false);});
 await test('global per-instance rate bound',async()=>{const e=environment();e.nav('/th');const s=serverEnvironment({missing:true});let response;for(let i=0;i<121;i++)response=await s.post(e.calls[0].body);assert.equal(response.status,429);});
 await test('SDK/fbq/direct browser Meta absent',()=>{const code=fs.readFileSync(path.join(repo,'lib/analytics/meta.ts'),'utf8');assert(!/fbq|fbevents|connect\.facebook|graph\.facebook|facebook\.com\/tr/.test(code));assert(!/NEXT_PUBLIC_META/.test(code));});
+await test('first-party fbp created after consent only; stable across route changes',()=>{const e=environment('');e.nav('/th');assert.equal(e.cookieState(),'');e.storage.set('mrt_cookie_consent','accepted');e.meta.syncMetaConsent();const fbp=e.calls[0].body.fbp;assert(/^fb\.1\.\d{13}\.\d+$/.test(fbp));assert(e.cookieState().includes('_fbp='+fbp));e.nav('/th/products');assert.equal(e.calls[1].body.fbp,fbp);});
+await test('reject removes first-party fbp and new acceptance creates new random ID',()=>{const e=environment();e.nav('/th');const before=e.calls[0].body.fbp;e.storage.set('mrt_cookie_consent','rejected');e.meta.syncMetaConsent();assert.equal(e.cookieState(),'');e.nav('/en');assert.equal(e.calls.length,1);e.storage.set('mrt_cookie_consent','accepted');e.meta.syncMetaConsent();assert.notEqual(e.calls[1].body.fbp,before);});
+await test('public API rejects CLI test_meta IDs; no Lead bypass',async()=>{const e=environment();e.nav('/th');const body=cleanBody(e);body.event_id='test_meta_pageview_'+randomUUID();const s=serverEnvironment();assert.equal((await s.post(body)).status,400);assert.equal(s.requests.length,0);});
 for(const payload of outbound)assertPrivateAbsent(payload);
 const report={summary:{cases:rows.length,direct_pii:0,duplicate:0,lead_false_positive:0,client_ip_sent:false,raw_referrer_sent:false,query_hash_sent:false,real_meta_requests:0},rows,urlMatrix,limitations:['All server fetches mocked. No real Pixel ID/token/test code or RFQ; fixture pixel 0 and HMAC secret never used for live network.','UA-only Meta acceptance and fbp/fbc matching not verified.','Client IP never forwarded; API 4xx halts per instance without privacy expansion.']};
 if(process.argv[3])fs.writeFileSync(process.argv[3],JSON.stringify(report,null,2));console.log(JSON.stringify(report.summary));

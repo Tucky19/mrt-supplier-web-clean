@@ -1,4 +1,5 @@
-import { META_MAX_BYTES, publicMetaProduct, validateMetaEnvelope } from "./meta-policy";
+import { sendMetaCapi } from "./meta-capi";
+import { META_MAX_BYTES, validateMetaEnvelope } from "./meta-policy";
 import { verifyMetaLeadReceipt } from "./meta-lead";
 
 type Config = { pixelId?: string; token?: string; testCode?: string };
@@ -56,28 +57,16 @@ export function createMetaHandler(deps: Dependencies) {
     const key = `${event.event_name}:${event.event_id}`;
     if (seen.has(key) || inFlight.has(key)) return json(200, "duplicate_ignored");
     if (seen.size + inFlight.size >= 5000) return json(429, "capacity_reached");
-    const userData: { client_user_agent: string; fbp?: string; fbc?: string } = { client_user_agent: userAgent };
-    if (event.fbp) userData.fbp = event.fbp;
-    if (event.fbc) userData.fbc = event.fbc;
-    const contents = event.items.map(item => ({ id: item.product_id, quantity: item.quantity }));
-    const customData: { locale: string; content_ids: string[]; contents: { id: string; quantity: number }[]; content_type: string; item_count: number } = {
-      locale: event.locale, content_ids: event.items.map(item => publicMetaProduct(item.product_id)!.partNo),
-      contents, content_type: "product", item_count: event.items.length };
-    const payload = { data: [{ event_name: event.event_name, event_id: event.event_id, event_time: event.event_time,
-      action_source: "website", event_source_url: `${canonicalOrigin}${new URL(event.event_source_url).pathname}`,
-      user_data: userData, custom_data: customData }], test_event_code: config.testCode };
     inFlight.add(key);
     try {
-      const response = await deps.fetch(`https://graph.facebook.com/v25.0/${config.pixelId}/events`, {
-        method: "POST", headers: { "Content-Type": "application/json", Authorization: `Bearer ${config.token}` },
-        body: JSON.stringify(payload), redirect: "error", cache: "no-store", signal: AbortSignal.timeout(3000) });
-      if (!response.ok) {
-        // Never retry by adding IP, customer identifiers, raw URL/referrer, or extra user_data.
-        if (response.status >= 400 && response.status < 500) halted = true;
+      const result = await sendMetaCapi({ event_name: event.event_name, event_id: event.event_id,
+        event_time: event.event_time, event_source_url: `${canonicalOrigin}${new URL(event.event_source_url).pathname}`,
+        locale: event.locale, items: event.items, client_user_agent: userAgent, fbp: event.fbp, fbc: event.fbc }, config, deps.fetch);
+      if (result.http_status < 200 || result.http_status >= 300) {
+        if (result.http_status >= 400 && result.http_status < 500) halted = true;
         return json(502, "meta_rejected_review_required");
       }
-      const result: unknown = await response.json();
-      if (!result || typeof result !== "object" || (result as { events_received?: unknown }).events_received !== 1) return json(502, "meta_unconfirmed");
+      if (result.events_received !== 1) return json(502, "meta_unconfirmed");
       seen.set(key, now + 600_000);
       return json(200, "test_event_accepted");
     } catch { return json(502, "meta_unavailable"); }
