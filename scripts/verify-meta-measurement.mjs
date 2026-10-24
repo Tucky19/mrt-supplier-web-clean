@@ -40,7 +40,7 @@ function environment(consent='accepted',referrer='') {
  const nav=route=>{window.location=new URL(route,'https://local.example');meta.metaPageView(route);};
  return {meta,ga,nav,calls,storage,window,moduleLoad,setCookie:value=>cookie=value,reads:()=>({cookieReads,uaReads}),cookieState:()=>cookie};
 }
-function serverEnvironment({missing=false,reject=false}={}){
+function serverEnvironment({missing=false,reject=false,config}={}){
  const context=vm.createContext({Response,Request,URL,TextDecoder,AbortSignal,Buffer,Date,process:{env:{}},console});
  const modules=new Map();
  function moduleLoad(file){
@@ -51,7 +51,7 @@ function serverEnvironment({missing=false,reject=false}={}){
   new vm.Script('(function(exports,require){'+js+'})(exports,require);',{filename:file}).runInContext(context);return exports;
  }
  const requests=[];
- const handler=moduleLoad('lib/analytics/meta-server.ts').createMetaHandler({config:()=>missing?{}:{pixelId:'0',token:SECRET,testCode:'LOCAL_ONLY_TEST_EVENTS'},fetch:async(url,options)=>{
+ const handler=moduleLoad('lib/analytics/meta-server.ts').createMetaHandler({config:()=>missing?{}:config??{pixelId:'0',token:SECRET,testCode:'LOCAL_ONLY_TEST_EVENTS'},fetch:async(url,options)=>{
   const payload=JSON.parse(options.body);requests.push({url,options,payload});outbound.push(payload);
   return Response.json(reject?{error:{code:100,message:'client_ip_address required'}}:{events_received:1},{status:reject?400:200});
  }});
@@ -87,7 +87,7 @@ await test('legitimate RFQ signed receipt; one non-identifying Lead',async()=>{c
 await test('invalid/synthetic/generic/LINE/no receipt cannot create Lead',()=>{const e=environment();e.nav('/th/quote');for(const id of [undefined,'OK','MPR-20261020-ABCD','RFQ-20261020-TEST','RFQ-20261020-ABCD'])e.ga.gaSubmitRFQ([],{request_id:id});e.ga.gaEvent('generate_lead',{request_id:'RFQ-20261020-ABCD'});e.ga.gaLineClick({source:'quote_page'});assert.equal(e.calls.filter(c=>c.body.event_name==='Lead').length,0);});
 await test('forged expired wrong-event receipt rejected server-side',async()=>{const e=environment();e.nav('/th/quote');const s=serverEnvironment(),receipt=s.receipt('RFQ-20261020-ABCD');e.ga.gaSubmitRFQ([],{request_id:'RFQ-20261020-ABCD'},receipt);const body=e.calls.find(c=>c.body.event_name==='Lead').body;body.lead_receipt=body.lead_receipt.slice(0,-1)+(body.lead_receipt.endsWith('a')?'b':'a');assert.equal((await s.post(body)).status,403);assert.equal(s.requests.length,0);const mod=s.moduleLoad('lib/analytics/meta-lead.ts');assert.equal(mod.issueMetaLeadReceipt('RFQ-20261020-TEST',SECRET),undefined);assert.equal(mod.verifyMetaLeadReceipt(receipt,body.event_id,SECRET,Date.now()+600000),false);assert.equal(mod.verifyMetaLeadReceipt(receipt,'meta_lead:'+'0'.repeat(64),SECRET),false);});
 await test('server deduplicates same event ID',async()=>{const e=environment();e.nav('/th');const s=serverEnvironment();await s.post(e.calls[0].body);await s.post(e.calls[0].body);assert.equal(s.requests.length,1);});
-await test('missing credentials or Test Events code yields no outbound',async()=>{const e=environment();e.nav('/th');const s=serverEnvironment({missing:true});assert.equal((await s.post(e.calls[0].body)).status,204);assert.equal(s.requests.length,0);});
+await test('missing credentials yields no outbound',async()=>{const e=environment();e.nav('/th');const s=serverEnvironment({missing:true});assert.equal((await s.post(e.calls[0].body)).status,204);assert.equal(s.requests.length,0);});
 await test('API rejects IP requirement: halt, never add IP/retry',async()=>{const e=environment();e.nav('/th');const s=serverEnvironment({reject:true});assert.equal((await s.post(e.calls[0].body)).status,502);assert.equal((await s.post(e.calls[0].body)).status,503);assert.equal(s.requests.length,1);assertPrivateAbsent(s.requests[0].payload);});
 for(const [scenario,mutate]of [
  ['unknown event',b=>b.event_name='Search'],['extra email',b=>b.email='person@example.invalid'],['nested injection',b=>b.user_data={client_ip_address:'127.0.0.1'}],
@@ -106,6 +106,21 @@ await test('SDK/fbq/direct browser Meta absent',()=>{const code=fs.readFileSync(
 await test('first-party fbp created after consent only; stable across route changes',()=>{const e=environment('');e.nav('/th');assert.equal(e.cookieState(),'');e.storage.set('mrt_cookie_consent','accepted');e.meta.syncMetaConsent();const fbp=e.calls[0].body.fbp;assert(/^fb\.1\.\d{13}\.\d+$/.test(fbp));assert(e.cookieState().includes('_fbp='+fbp));e.nav('/th/products');assert.equal(e.calls[1].body.fbp,fbp);});
 await test('reject removes first-party fbp and new acceptance creates new random ID',()=>{const e=environment();e.nav('/th');const before=e.calls[0].body.fbp;e.storage.set('mrt_cookie_consent','rejected');e.meta.syncMetaConsent();assert.equal(e.cookieState(),'');e.nav('/en');assert.equal(e.calls.length,1);e.storage.set('mrt_cookie_consent','accepted');e.meta.syncMetaConsent();assert.notEqual(e.calls[1].body.fbp,before);});
 await test('public API rejects CLI test_meta IDs; no Lead bypass',async()=>{const e=environment();e.nav('/th');const body=cleanBody(e);body.event_id='test_meta_pageview_'+randomUUID();const s=serverEnvironment();assert.equal((await s.post(body)).status,400);assert.equal(s.requests.length,0);});
+for (const [mode,config] of [['test',{pixelId:' 0\n',token:' '+SECRET+'\n',testCode:' LOCAL_TEST\n'}],['live',{pixelId:'0',token:SECRET}],['blank optional code',{pixelId:'0',token:SECRET,testCode:' \n'}]]) {
+ await test(mode+' mode dispatch and privacy',async()=>{
+  const e=environment();e.nav('/th');const s=serverEnvironment({config});
+  const response=await s.post(e.calls[0].body);assert.equal(response.status,200);assert.equal((await response.json()).code,'event_accepted');
+  assert.equal(s.requests.length,1);const payload=s.requests[0].payload;
+  assert.equal(Object.hasOwn(payload,'test_event_code'),mode==='test');
+  if(mode==='test')assert.equal(payload.test_event_code,'LOCAL_TEST');
+  assert.equal(s.requests[0].options.headers.Authorization,'Bearer '+SECRET);assertPrivateAbsent(payload);
+  await s.post(e.calls[0].body);assert.equal(s.requests.length,1);
+ });
+}
+for(const config of [{token:SECRET},{pixelId:'0'},{pixelId:'invalid',token:SECRET},{pixelId:'0',token:' '},{pixelId:'0',token:SECRET,testCode:'bad code'},{pixelId:'0',token:SECRET+'\ninside'}])await test('invalid config disabled safely',async()=>{
+ const e=environment();e.nav('/th');const s=serverEnvironment({config});assert.equal((await s.post(e.calls[0].body)).status,204);assert.equal(s.requests.length,0);
+});
+await test('CLI remains Test Events only',()=>{const code=fs.readFileSync(path.join(repo,'scripts/meta-capi-test-events.mjs'),'utf8');assert(code.includes("config.testCode!=='TEST18610'"));assert(code.includes('--execute-test-events'));});
 for(const payload of outbound)assertPrivateAbsent(payload);
 const report={summary:{cases:rows.length,direct_pii:0,duplicate:0,lead_false_positive:0,client_ip_sent:false,raw_referrer_sent:false,query_hash_sent:false,real_meta_requests:0},rows,urlMatrix,limitations:['All server fetches mocked. No real Pixel ID/token/test code or RFQ; fixture pixel 0 and HMAC secret never used for live network.','UA-only Meta acceptance and fbp/fbc matching not verified.','Client IP never forwarded; API 4xx halts per instance without privacy expansion.']};
 if(process.argv[3])fs.writeFileSync(process.argv[3],JSON.stringify(report,null,2));console.log(JSON.stringify(report.summary));
