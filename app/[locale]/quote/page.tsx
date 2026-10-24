@@ -13,7 +13,7 @@ import { growthFromMeta, anonymousSessionId } from "@/lib/analytics/growth";
 import { gaBeginCheckout, gaSubmitRFQ, gaViewCart, type GAItem } from '@/lib/analytics/ga';
 import { getRfqUiText } from '@/lib/i18n/rfqUi';
 import { getRfqReferenceContexts } from '@/lib/rfq/referenceContext';
-import { useQuote } from '@/providers/QuoteProvider';
+import { BEGIN_CHECKOUT_SESSION_KEY, useQuote } from '@/providers/QuoteProvider';
 
 const RFQ_SUCCESS_STORAGE_KEY = 'mrt_rfq_success_data';
 const LINE_URL = 'https://lin.ee/S676yYH';
@@ -61,7 +61,8 @@ function getQuoteDataLayerItems(
 }
 
 export default function QuotePage() {
-  const { items, addItem, removeItem, updateQty, clear } = useQuote();
+  const { items, ready, addItem, removeItem, updateQty, clear } = useQuote();
+  const hasTrackedBeginCheckoutRef = useRef(false);
   const hasTrackedViewCartRef = useRef(false);
   const nameInputRef = useRef<HTMLInputElement | null>(null);
   const phoneInputRef = useRef<HTMLInputElement | null>(null);
@@ -203,6 +204,34 @@ export default function QuotePage() {
     setFormErrors((current) => ({ ...current, items: undefined }));
   };
 
+  const handleFormEngagement = (
+    event: React.PointerEvent<HTMLFormElement> | React.KeyboardEvent<HTMLFormElement>,
+  ) => {
+    // A real pointer/keyboard gesture avoids counting render, autofill or validation focus.
+    if (!event.nativeEvent.isTrusted || !ready || items.length === 0) return;
+    const target = event.target;
+    if (!(target instanceof HTMLInputElement || target instanceof HTMLTextAreaElement)) return;
+    if (!['name', 'company', 'phone', 'email', 'lineId', 'note'].includes(target.name)) return;
+    if (hasTrackedBeginCheckoutRef.current) return;
+    try {
+      if (sessionStorage.getItem(BEGIN_CHECKOUT_SESSION_KEY) === '1') return;
+      sessionStorage.setItem(BEGIN_CHECKOUT_SESSION_KEY, '1');
+    } catch {
+      // The ref still prevents repeated events while mounted when storage is unavailable.
+    }
+    hasTrackedBeginCheckoutRef.current = true;
+    gaBeginCheckout(dataLayerItems, {
+      item_count: items.length,
+      total_quantity: totalQuantity,
+      locale,
+      source: 'quote_page',
+    });
+  };
+
+  useEffect(() => {
+    if (ready && items.length === 0) hasTrackedBeginCheckoutRef.current = false;
+  }, [ready, items.length]);
+
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setFormErrors({});
@@ -227,13 +256,6 @@ export default function QuotePage() {
     setLoading(true);
 
     try {
-      gaBeginCheckout(dataLayerItems, {
-        item_count: items.length,
-        total_quantity: totalQuantity,
-        locale,
-        source: 'quote_page',
-      });
-
       const res = await fetch('/api/rfq', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -502,6 +524,8 @@ export default function QuotePage() {
 
           <form
             onSubmit={handleSubmit}
+            onPointerDownCapture={handleFormEngagement}
+            onKeyDownCapture={handleFormEngagement}
             noValidate
             className="scroll-mt-24 self-start rounded-[var(--mrt-radius-lg)] border border-[var(--color-border)] bg-[var(--color-surface)] p-5 shadow-[var(--shadow-sm)] sm:p-6"
           >
