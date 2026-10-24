@@ -4,6 +4,7 @@ import type { ReactNode } from "react";
 import { Suspense } from "react";
 import { getLocale } from "next-intl/server";
 import GA4 from "@/components/analytics/GA4";
+import MetaPixel from "@/components/analytics/MetaPixel";
 import GA4PageView from "@/components/analytics/GA4PageView";
 import {
   GoogleConsentDefaults,
@@ -41,6 +42,7 @@ export default async function RootLayout({
         <GA4 />
         <Suspense fallback={null}>
           <GA4PageView />
+          <MetaPixel />
         </Suspense>
         {children}
         <CookieConsent locale={lang} />

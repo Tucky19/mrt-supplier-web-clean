@@ -1,4 +1,5 @@
 import crypto from "crypto";
+import { issueMetaLeadReceipt } from "@/lib/analytics/meta-lead";
 import { safeEventParams } from "@/lib/analytics/contract";
 import type { Prisma } from "@prisma/client";
 import { prisma } from "@/lib/db";
@@ -465,7 +466,8 @@ if (!RFQ_DEV_MOCK_ENABLED) {
         partialFailure,
         sideEffectFailures,
         remainingInWindow: rl.remaining,
-        measurement: {eligible_for_lead:true,event_id:rfq.submittedEventId,request_id:rfq.requestId},
+        measurement: {eligible_for_lead:true,event_id:rfq.submittedEventId,request_id:rfq.requestId,
+          meta_receipt: issueMetaLeadReceipt(rfq.requestId)},
       },
       undefined,
       traceId

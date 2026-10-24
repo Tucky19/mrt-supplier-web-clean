@@ -86,10 +86,15 @@ export default async function PrivacyPage({ params }: PageProps) {
           {isThai ? "นโยบายความเป็นส่วนตัว" : "Privacy Policy"}
         </h1>
         <p className="mt-3 text-sm text-[var(--color-text-muted)]">
-          {isThai ? "ปรับปรุงล่าสุด: 1 กันยายน 2026" : "Last updated: September 1, 2026"}
+          {isThai ? "ปรับปรุงล่าสุด: 20 ตุลาคม 2026" : "Last updated: October 20, 2026"}
         </p>
 
         <div className="mt-8 space-y-4">
+          <section className="rounded-lg border p-5">
+            <h2 className="text-lg font-semibold">{isThai ? "การวัดผลโฆษณา Meta" : "Meta advertising measurement"}</h2>
+            <p className="mt-2 text-sm leading-7">{isThai ? "เมื่อคุณยอมรับคุกกี้วิเคราะห์และการตลาด เราอาจส่งเหตุการณ์การใช้งานที่กำหนดไว้ เช่น การดูสินค้า การเพิ่มรายการขอราคา และ RFQ ที่สำเร็จ ผ่านเซิร์ฟเวอร์ของ MRT ไปยัง Meta (Facebook) Conversions API ข้อมูลประกอบด้วยประเภทอุปกรณ์/เบราว์เซอร์ (User Agent) รหัสสุ่ม _fbp และ _fbc เมื่อมีรหัสคลิกจากลิงก์ Meta จริง รวมถึง URL ที่ตัด query และ hash แล้ว กับรหัสสินค้าสาธารณะ การใช้งานช่องทางวัดผลนี้ออกแบบไม่ให้ส่งชื่อ อีเมล โทรศัพท์ บริษัท ที่อยู่ LINE ID ข้อความที่คุณกรอก หรือ client IP รหัส _fbp เป็นคุกกี้ first-party อายุไม่เกิน 90 วัน ส่วนรหัสคลิกที่ derive ขึ้นใหม่ใช้ในหน่วยความจำของหน้าเท่านั้น MRT ไม่บันทึกรหัสเหล่านี้หรือ User Agent ลงฐานข้อมูล RFQ เมื่อปฏิเสธ ระบบจะหยุดส่งและพยายามลบ _fbp ที่เว็บไซต์ควบคุมได้ Meta ประมวลผลข้อมูลตามนโยบายของ Meta โปรดอ่านรายละเอียดและใช้ cookie settings เพื่อเปลี่ยนความยินยอม" : "After you accept analytics and advertising cookies, MRT may send defined activity events, such as product views, additions to a quote list and successful RFQs, through its server to Meta (Facebook) Conversions API for measurement, attribution and advertising effectiveness. Data includes device/browser User Agent, the random _fbp identifier, _fbc when a genuine Meta click identifier is available, query/hash-free page URLs and public product identifiers. This implementation is designed not to send your name, email, phone, company, address, LINE ID, entered text or client IP. The first-party _fbp cookie lasts up to 90 days; a newly derived click identifier is kept in page memory only. MRT does not store these identifiers or User Agent in its RFQ database. Rejecting consent stops transmission and attempts to remove the _fbp cookie controlled by this site. Meta processes received data under its own privacy policy. Use cookie settings to change your consent."}</p>
+            <a href="https://www.facebook.com/privacy/policy/" className="underline">Meta Privacy Policy</a>
+          </section>
           {sections.map((section) => (
             <section
               key={section.title}
