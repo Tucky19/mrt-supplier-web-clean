@@ -29,6 +29,8 @@ type QuoteContextValue = {
 const QuoteContext = createContext<QuoteContextValue | null>(null);
 
 const LS_KEY = 'mrt_quote_v1';
+// One measurement per nonempty quote journey in this browser tab.
+export const BEGIN_CHECKOUT_SESSION_KEY = 'mrt_quote_engagement_v1';
 
 export function QuoteProvider({ children }: { children: React.ReactNode }) {
   const [items, setItems] = useState<QuoteItem[]>([]);
@@ -68,6 +70,9 @@ export function QuoteProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     if (!ready) return;
     localStorage.setItem(LS_KEY, JSON.stringify(items));
+    if (items.length === 0) {
+      try { sessionStorage.removeItem(BEGIN_CHECKOUT_SESSION_KEY); } catch {}
+    }
   }, [items, ready]);
 
   /* =========================
