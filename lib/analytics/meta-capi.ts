@@ -7,21 +7,34 @@ export type MetaCapiConfig = { pixelId?: string; token?: string; testCode?: stri
 export type MetaCapiResult = { http_status: number; events_received: number | null; messages: string[];
   fbtrace_id: string; error_code: number | null; error_subcode: number | null; error_message: string };
 
+// Normalize server-only configuration once; malformed optional test codes disable transport.
+export function normalizeMetaConfig(config: MetaCapiConfig): { pixelId: string; token: string; testCode?: string } | undefined {
+  const pixelId = config.pixelId?.trim();
+  const token = config.token?.trim();
+  const testCode = config.testCode?.trim();
+  if (!pixelId || !/^\d+$/.test(pixelId) || !token || /[\r\n]/.test(token)) return undefined;
+  if (testCode && !/^[A-Za-z0-9_-]{1,80}$/.test(testCode)) return undefined;
+  return testCode ? { pixelId, token, testCode } : { pixelId, token };
+}
+
 // Shared server transport only. The public route still owns production schema/Lead receipts.
 // The CLI may test transport with test_meta_ IDs, but never enters RFQ/business eligibility.
 export async function sendMetaCapi(input: MetaCapiInput, config: MetaCapiConfig, fetcher: typeof fetch): Promise<MetaCapiResult> {
-  if (!config.pixelId || !/^\d+$/.test(config.pixelId) || !config.token || !config.testCode || !/^[A-Za-z0-9_-]{1,80}$/.test(config.testCode)) throw Error("Meta Test Events configuration required");
+  const normalized = normalizeMetaConfig(config);
+  if (!normalized) throw Error("Meta transport configuration unavailable");
+  config = normalized;
   if (!["PageView", "ViewContent", "AddToCart", "InitiateCheckout", "Lead"].includes(input.event_name)) throw Error("Unsupported Meta event");
   const source = new URL(input.event_source_url);
   if (source.origin !== "https://www.mrtsupplier.com" || source.search || source.hash || source.username || source.password) throw Error("Unsafe Meta source URL");
   const userData: { client_user_agent: string; fbp?: string; fbc?: string } = { client_user_agent: input.client_user_agent };
   if (input.fbp) userData.fbp = input.fbp;
   if (input.fbc) userData.fbc = input.fbc;
-  const payload = { data: [{ event_name: input.event_name, event_id: input.event_id, event_time: input.event_time,
+  const payload: { data: unknown[]; test_event_code?: string } = { data: [{ event_name: input.event_name, event_id: input.event_id, event_time: input.event_time,
     action_source: "website", event_source_url: source.origin + source.pathname, user_data: userData,
     custom_data: { locale: input.locale, content_ids: input.items.map(item => item.product_id),
       contents: input.items.map(item => ({ id: item.product_id, quantity: item.quantity })),
-      content_type: "product", item_count: input.items.length } }], test_event_code: config.testCode };
+      content_type: "product", item_count: input.items.length } }] };
+  if (config.testCode) payload.test_event_code = config.testCode;
   const response = await fetcher(`https://graph.facebook.com/v25.0/${config.pixelId}/events`, {
     method: "POST", headers: { "Content-Type": "application/json", Authorization: `Bearer ${config.token}` },
     body: JSON.stringify(payload), redirect: "error", cache: "no-store", signal: AbortSignal.timeout(5000) });

@@ -1,4 +1,4 @@
-import { sendMetaCapi } from "./meta-capi";
+import { normalizeMetaConfig, sendMetaCapi } from "./meta-capi";
 import { META_MAX_BYTES, validateMetaEnvelope } from "./meta-policy";
 import { verifyMetaLeadReceipt } from "./meta-lead";
 
@@ -45,9 +45,8 @@ export function createMetaHandler(deps: Dependencies) {
     } catch { return json(400, "invalid_event"); }
     const event = validateMetaEnvelope(raw, origin, now);
     if (!event) return json(400, "invalid_event");
-    const config = deps.config();
-    // LOCAL/PREVIEW TEST EVENTS ONLY. No live-mode fallback even if credentials are later added.
-    if (!config.pixelId || !/^\d+$/.test(config.pixelId) || !config.token || !config.testCode || !/^[A-Za-z0-9_-]{1,80}$/.test(config.testCode)) return new Response(null, { status: 204 });
+    const config = normalizeMetaConfig(deps.config());
+    if (!config) return new Response(null, { status: 204 });
     if (halted) return json(503, "meta_privacy_review_required");
     if (event.event_name === "Lead" && !verifyMetaLeadReceipt(event.lead_receipt ?? "", event.event_id, config.token, now)) return json(403, "invalid_lead_receipt");
     // Read device data only after the consented event passed strict validation.
@@ -68,7 +67,7 @@ export function createMetaHandler(deps: Dependencies) {
       }
       if (result.events_received !== 1) return json(502, "meta_unconfirmed");
       seen.set(key, now + 600_000);
-      return json(200, "test_event_accepted");
+      return json(200, "event_accepted");
     } catch { return json(502, "meta_unavailable"); }
     finally { inFlight.delete(key); }
   };
