@@ -1,3 +1,4 @@
+import { safeGooglePageUrl, updateGooglePageContext } from "./ga-context";
 import { dispatchMetaBusinessEvent } from "./meta";
 import { safeEventParams, safeId, type GrowthContext } from "./contract";
 import { anonymousSessionId, growthEventId } from "./growth";
@@ -45,14 +46,9 @@ export function pushDataLayer(payload: GAParams) {
 
 // Drop query/hash and dynamic path identifiers from automatic GA page context.
 export function analyticsPageUrl(value: string) {
-  try {
-    const u=new URL(value, window.location.origin);
-    const segments=u.pathname.split("/").filter(Boolean);
-    const locale=segments[0]==="en" ? "en" : "th";
-    const section=["products","quote","cross-reference","applications","brands","search"].includes(segments[1] ?? "") ? segments[1] : "";
-    return `${u.origin}/${locale}${section ? `/${section}` : ""}`;
-  } catch { return ""; }
+  return safeGooglePageUrl(value, window.location.origin);
 }
+
 const sentEvents = new Set<string>();
 function dispatchEvent(eventName: string, params?: GAParams, confirmedRfq = false, metaReceipt?: string) {
   if (typeof window === "undefined") return false;
@@ -67,7 +63,7 @@ function dispatchEvent(eventName: string, params?: GAParams, confirmedRfq = fals
   }
   try {
     if (cleaned.ecommerce) pushDataLayer({ ecommerce: null });
-    const pageContext={page_location:analyticsPageUrl(window.location.href),page_referrer:analyticsPageUrl(document.referrer)};
+    const pageContext = updateGooglePageContext(window.location.href, document.referrer);
     if (process.env.NEXT_PUBLIC_GA4_ID) {
       // Queue standard gtag arguments even before the async tag has initialized.
       window.dataLayer ??= [];
@@ -89,19 +85,21 @@ export function gaPageView(url: string) {
   if (!GA_ID || typeof window === "undefined") return false;
 
   try {
-    const pageLocation = analyticsPageUrl(url);
+    const context = updateGooglePageContext(url, document.referrer);
+    const pageLocation = context.page_location;
     if (!pageLocation) return false;
     const pagePath = new URL(pageLocation).pathname;
     // Queue explicitly even if the async Google tag has not initialized yet.
     // Consent defaults/updates remain owned by GTM.tsx and CookieConsent.
     window.dataLayer ??= [];
     window.gtag ??= function (...args: unknown[]) { window.dataLayer!.push(args); };
+    window.gtag("config", GA_ID, { ...context, send_page_view: false, update: true });
     window.gtag("event", "page_view", {
       send_to: GA_ID,
       page_path: pagePath,
       page_title: pagePath,
       page_location: pageLocation,
-      page_referrer: analyticsPageUrl(document.referrer),
+      page_referrer: context.page_referrer,
     });
     return true; // queued locally, not proof of Google receipt
   } catch {

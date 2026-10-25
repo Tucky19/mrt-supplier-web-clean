@@ -1,6 +1,7 @@
 "use client";
 
 import Script from "next/script";
+import { googleContextBootstrapScript } from "@/lib/analytics/ga-context";
 
 export default function GA4() {
   const GA_ID = process.env.NEXT_PUBLIC_GA4_ID;
@@ -18,8 +19,13 @@ export default function GA4() {
           function gtag(){window.dataLayer.push(arguments);}
           window.gtag = gtag;
 
+          ${googleContextBootstrapScript()}
           gtag('js', new Date());
-          gtag('config', '${GA_ID}', { send_page_view: false });
+          gtag('config', '${GA_ID}', {
+            send_page_view: false,
+            ...window.__mrtGAContext.page,
+            ...window.__mrtGAContext.campaign
+          });
         `}
       </Script>
     </>
