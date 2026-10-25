@@ -1,3 +1,4 @@
+import { googleContextBootstrapScript } from "@/lib/analytics/ga-context";
 import Script from "next/script";
 
 const GTM_ID = "GTM-5FB498FW";
@@ -22,6 +23,7 @@ export function GoogleConsentDefaults() {
           wait_for_update: 500
         });
         gtag('set', 'ads_data_redaction', true);
+        ${googleContextBootstrapScript()}
       `,
       }}
     />
