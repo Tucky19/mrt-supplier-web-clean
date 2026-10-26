@@ -1,13 +1,14 @@
 import Link from "next/link";
 import { MessageCircle } from "lucide-react";
+import TrackedLineLink from "@/components/analytics/TrackedLineLink";
 import { getHomeQuoteCtaText } from "@/lib/i18n/homeUi";
 
+const LINE_URL = "https://lin.ee/PsQGAuu";
 const darkFocusClass =
   "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-text)]";
 
 export default function QuoteCTASection({ locale }: { locale: string }) {
   const text = getHomeQuoteCtaText(locale);
-  const lineUrl = "https://lin.ee/S676yYH";
 
   return (
     <section id="contact" className="mrt-blueprint-section border-t border-[var(--color-border)]">
@@ -40,15 +41,15 @@ export default function QuoteCTASection({ locale }: { locale: string }) {
               {text.secondaryCta}
             </Link>
 
-            <a
-              href={lineUrl}
-              target="_blank"
-              rel="noopener noreferrer"
+            <TrackedLineLink
+              href={LINE_URL}
+              source="home_final_cta"
+              locale={locale}
               className={`inline-flex min-h-11 items-center gap-2 rounded-[var(--mrt-radius-md)] border border-[var(--color-success-soft)] bg-[var(--color-success-soft)] px-6 py-3 text-sm font-medium text-[var(--color-success-text)] transition hover:bg-[var(--color-surface)] ${darkFocusClass}`}
             >
-              <MessageCircle className="h-4 w-4" />
+              <MessageCircle className="h-4 w-4" aria-hidden="true" />
               {text.lineCta}
-            </a>
+            </TrackedLineLink>
           </div>
         </div>
       </div>
