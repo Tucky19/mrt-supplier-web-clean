@@ -30,11 +30,11 @@ export async function generateMetadata({
   const { locale } = await params;
   const isThai = locale === "th";
   const title = isThai
-    ? "MRT Supplier | จัดหาไส้กรอง ลูกปืน และอะไหล่อุตสาหกรรม"
-    : "MRT Supplier | Filters, Bearings & Industrial Spare Parts RFQ";
+    ? "MRT Supplier | หาอะไหล่อุตสาหกรรม ไส้กรอง ลูกปืน และ RFQ"
+    : "MRT Supplier | Industrial Parts, Filters, Bearings & RFQ";
   const description = isThai
-    ? "MRT Supplier Co., Ltd. ช่วยจัดหาไส้กรอง ลูกปืน และอะไหล่อุตสาหกรรมสำหรับงาน B2B ค้นหาด้วย Part No., Cross Reference และส่ง RFQ ให้ทีมตรวจสอบ"
-    : "MRT Supplier Co., Ltd. sources filters, bearings, and industrial spare parts for B2B teams. Search by Part No. or Cross Reference and submit an RFQ for review.";
+    ? "MRT Supplier ช่วยโรงงาน ผู้ใช้ปลายทาง ช่างซ่อมบำรุง และร้านค้าค้นหาไส้กรอง ลูกปืน และอะไหล่อุตสาหกรรมด้วย Part No. / Cross Reference พร้อมส่ง RFQ ให้ทีมตรวจสอบ"
+    : "MRT Supplier helps factories, end users, maintenance teams, and resellers source filters, bearings, and industrial spare parts by Part No. / Cross Reference and submit RFQs for review.";
   const canonical = `${SITE_URL}/${locale}`;
 
   return {
@@ -78,6 +78,7 @@ export default async function Page({
       },
     ],
   };
+
   const featuredBrands = [
     {
       key: "donaldson",
@@ -170,32 +171,31 @@ export default async function Page({
   const workflowSteps = [
     {
       step: "01",
-      title: isThai ? "ค้นหาด้วย Part No. / Cross Reference" : "Search by Part No. / Cross Reference",
+      title: isThai
+        ? "ค้นหา หรือส่งข้อมูลที่มี"
+        : "Search or send the details you have",
       description: isThai
-        ? "ค้นหาไส้กรอง ลูกปืน หรืออะไหล่อุตสาหกรรมจาก Part No., Cross Reference, แบรนด์ หรือรายละเอียดที่มี"
-        : "Search filters, bearings, or industrial spare parts by Part No., cross reference, brand, or the details you have.",
+        ? "เริ่มจาก Part No., Cross Reference, รูปสินค้า, รุ่นเครื่อง หรือ Nameplate ก็ได้"
+        : "Start with a Part No., cross reference, product photo, machine model, or nameplate.",
     },
     {
       step: "02",
-      title: isThai ? "เพิ่มรายการเข้า RFQ" : "Add items to RFQ",
+      title: isThai
+        ? "MRT ตรวจสอบข้อมูลและรายการที่เกี่ยวข้อง"
+        : "MRT reviews specs and related references",
       description: isThai
-        ? "เลือกรายการและจำนวนที่ต้องการ หรือส่งรายละเอียดสินค้าที่ยังไม่พบให้ทีมช่วยจัดหา"
-        : "Select items and quantities, or send missing-product details for sourcing support.",
+        ? "ทีมงานช่วยตรวจสอบข้อมูลสินค้าและทางเลือกที่เกี่ยวข้องก่อนเข้าสู่ขั้นเสนอราคา"
+        : "Our team reviews product details and related options before quotation.",
     },
     {
       step: "03",
-      title: isThai ? "ส่ง RFQ และรอทีมติดต่อกลับ" : "Submit RFQ and receive follow-up",
+      title: isThai
+        ? "ส่ง RFQ และรับการติดตามจากทีม"
+        : "Submit the RFQ and receive follow-up",
       description: isThai
-        ? "ส่งข้อมูลติดต่อและรายการ RFQ เพื่อให้ MRT Supplier Co., Ltd. ตรวจสอบราคา สต็อก และทางเลือกที่เหมาะสม"
-        : "Submit contact details and RFQ items so MRT Supplier Co., Ltd. can review price, stock, and suitable alternatives.",
+        ? "รวมรายการที่ต้องการแล้วส่ง RFQ เพื่อให้ทีมติดตามรายละเอียด ราคา และขั้นตอนถัดไป"
+        : "Collect the required items and submit an RFQ for pricing and next-step follow-up.",
     },
-  ];
-
-  const customerSegments = [
-    isThai ? "ฝ่ายจัดซื้อโรงงาน" : "Factory purchasing",
-    isThai ? "ทีมซ่อมบำรุง" : "Maintenance teams",
-    isThai ? "จัดหาอะไหล่อุตสาหกรรม" : "Industrial spare parts sourcing",
-    isThai ? "ไส้กรองและลูกปืน" : "Filters and bearings",
   ];
 
   return (
@@ -206,23 +206,18 @@ export default async function Page({
       <SearchFirstHero locale={locale} />
 
       <section className="mrt-blueprint-section border-b border-[var(--color-border)]">
-        <div className="mx-auto grid max-w-7xl gap-8 px-6 py-14 lg:grid-cols-[0.85fr_1.15fr] lg:px-8">
+        <div className="mx-auto grid max-w-7xl gap-8 px-6 py-12 lg:grid-cols-[0.8fr_1.2fr] lg:px-8 lg:py-14">
           <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.14em] text-[var(--color-text-muted)]">
+            <p className="text-sm font-semibold uppercase tracking-[0.14em] text-orange-500">
               {isThai ? "HOW IT WORKS" : "How It Works"}
             </p>
             <h2 className="mt-3 text-2xl font-semibold tracking-tight text-[var(--color-text)] sm:text-3xl">
-              {isThai ? "RFQ 3 ขั้นตอนที่ชัดเจน" : "A clear 3-step RFQ workflow"}
+              {isThai ? "จากข้อมูลที่มี ไปถึง RFQ ใน 3 ขั้นตอน" : "From the details you have to an RFQ in 3 steps"}
             </h2>
             <p className="mt-3 text-sm leading-6 text-[var(--color-text-muted)]">
               {isThai
-                ? "จากเบอร์อะไหล่ไปถึงการติดตามราคา โดยไม่ต้องเปลี่ยนขั้นตอนจัดซื้อเดิมของทีมคุณ"
-                : "From part numbers to quote follow-up without changing your team’s purchasing process."}
-            </p>
-            <p className="mt-3 text-sm leading-6 text-[var(--color-text-muted)]">
-              {isThai
-                ? "ติดต่อผ่าน LINE Official @mrtsupplier เพื่อส่งรูปสินค้า Part No. หรือรายละเอียดเพิ่มเติม"
-                : "Contact LINE Official @mrtsupplier to share photos, Part No., or additional details."}
+                ? "ออกแบบให้ทั้งฝ่ายจัดซื้อ ช่าง และร้านค้าสามารถเริ่มจากข้อมูลที่ตัวเองมี โดยไม่ต้องรู้ Part No. ครบตั้งแต่แรก"
+                : "Built so purchasing teams, technicians, and resellers can start with whatever information they already have."}
             </p>
             <Link
               href={`/${locale}/quote`}
@@ -234,7 +229,10 @@ export default async function Page({
 
           <div className="grid gap-4 md:grid-cols-3">
             {workflowSteps.map((item) => (
-              <article key={item.step} className="rounded-[var(--mrt-radius-lg)] border border-[var(--color-border)] bg-[var(--color-surface)] p-5 shadow-[var(--shadow-sm)]">
+              <article
+                key={item.step}
+                className="rounded-[var(--mrt-radius-lg)] border border-[var(--color-border)] bg-[var(--color-surface)] p-5 shadow-[var(--shadow-sm)]"
+              >
                 <div className="text-xs font-semibold tracking-[0.14em] text-[var(--color-primary)]">
                   STEP {item.step}
                 </div>
@@ -250,33 +248,9 @@ export default async function Page({
         </div>
       </section>
 
-      <section className="mrt-blueprint-section-strong border-b border-[var(--color-border)]">
-        <div className="mx-auto flex max-w-7xl flex-col gap-6 px-6 py-12 lg:flex-row lg:items-center lg:justify-between lg:px-8">
-          <div className="max-w-2xl">
-            <p className="text-sm font-semibold uppercase tracking-[0.14em] text-[var(--color-text-muted)]">
-              {isThai ? "CUSTOMERS & APPLICATIONS" : "Customers & Applications"}
-            </p>
-            <h2 className="mt-3 text-2xl font-semibold tracking-tight text-[var(--color-text)]">
-              {isThai ? "สำหรับงาน Purchasing และ Maintenance ในโรงงาน" : "Built for industrial purchasing and maintenance"}
-            </h2>
-          </div>
-
-          <div className="flex flex-wrap gap-2.5">
-            {customerSegments.map((item) => (
-              <span
-                key={item}
-                className="rounded-full border border-[var(--color-border-strong)] bg-[var(--color-surface-muted)] px-4 py-2 text-sm font-medium text-[var(--color-text-muted)]"
-              >
-                {item}
-              </span>
-            ))}
-          </div>
-        </div>
-      </section>
-
+      <ProductGrid products={productCategories} locale={locale} />
       <BrandShowcase brands={featuredBrands} locale={locale} />
       <WhyChooseUsSection locale={locale} />
-      <ProductGrid products={productCategories} locale={locale} />
       <QuoteCTASection locale={locale} />
       <SiteFooter locale={locale} />
     </main>
