@@ -67,7 +67,7 @@ export default function SearchFirstHero({ locale }: { locale: string }) {
 
   return (
     <section className="border-b border-[var(--color-border)] bg-[var(--color-surface)]">
-      <div className="relative isolate overflow-hidden bg-slate-950">
+      <div className="relative isolate bg-slate-950">
         <Image
           src="/images/hero-warehouse.jpg"
           alt=""
