@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import {
   Boxes,
   Building2,
@@ -77,7 +78,7 @@ export default function SearchFirstHero({
           className="absolute inset-0 bg-[radial-gradient(circle_at_75%_35%,rgba(37,99,235,0.2),transparent_42%)]"
         />
 
-        <div className="relative mx-auto grid max-w-7xl gap-8 px-4 py-6 sm:px-6 sm:py-10 lg:grid-cols-[1.08fr_0.92fr] lg:items-center lg:px-8 lg:py-14">
+        <div className="relative mx-auto grid max-w-7xl gap-5 px-4 py-7 sm:gap-8 sm:px-6 sm:py-12 lg:grid-cols-[minmax(0,1.08fr)_minmax(0,0.92fr)] lg:items-center lg:gap-12 lg:px-8 lg:py-16">
           <div className="max-w-3xl">
             <p className="text-xs font-bold uppercase tracking-[0.18em] text-orange-400 sm:text-sm">
               {isThai
@@ -159,12 +160,24 @@ export default function SearchFirstHero({
             </div>
           </div>
 
-          <div className="hidden lg:block">
-            <div className="relative mx-auto flex aspect-[4/3] max-w-md flex-col justify-end rounded-[2rem] border border-white/15 bg-[radial-gradient(circle_at_65%_30%,rgba(249,115,22,.3),transparent_40%)] p-7">
-              <Wrench className="absolute right-8 top-8 h-28 w-28 text-white/15" strokeWidth={1} aria-hidden="true" />
-              <p className="text-xs font-bold uppercase tracking-[0.16em] text-orange-400">{isThai ? "ภาพชั่วคราวสำหรับ Preview" : "Provisional preview visual"}</p>
-              <p className="mt-2 text-xl font-bold text-white">{isThai ? "รอภาพช่างเทคนิคที่เจ้าของอนุมัติ" : "Approved technician image pending"}</p>
-              <p className="mt-2 text-sm leading-6 text-slate-300">{isThai ? "กราฟิกนี้ไม่ใช่ภาพพนักงานหรือสถานที่ของ MRT" : "This graphic does not depict an MRT employee or facility."}</p>
+          <div className="relative mx-auto w-full max-w-[520px] lg:max-w-none">
+            <div className="relative h-[174px] overflow-hidden rounded-[1.4rem] border border-white/15 bg-[radial-gradient(ellipse_at_52%_32%,rgba(39,103,169,0.56),transparent_62%)] shadow-2xl shadow-black/20 sm:h-[250px] lg:h-[405px] lg:rounded-[2rem]">
+              <div aria-hidden="true" className="absolute inset-x-[7%] top-1/2 h-px bg-gradient-to-r from-transparent via-sky-200/25 to-transparent" />
+              <div aria-hidden="true" className="absolute left-[13%] top-[13%] h-32 w-32 rounded-full border border-white/10 sm:h-56 sm:w-56" />
+              <div aria-hidden="true" className="absolute right-[7%] top-[6%] h-44 w-44 rounded-full border border-orange-400/15 sm:h-64 sm:w-64" />
+
+              <div className="absolute left-[7%] top-[12%] h-[76%] w-[38%] -rotate-6 overflow-hidden rounded-xl border border-white/80 bg-white shadow-xl shadow-black/40 sm:rounded-2xl">
+                <Image src="/images/products/donaldson/p181080.jpg" alt="" fill sizes="(max-width: 640px) 40vw, 240px" className="object-contain p-2 sm:p-4" />
+              </div>
+              <div className="absolute right-[10%] top-[8%] h-[71%] w-[37%] rotate-6 overflow-hidden rounded-xl border border-white/80 bg-white shadow-xl shadow-black/40 sm:rounded-2xl">
+                <Image src="/images/products/donaldson/p551864.jpg" alt="" fill sizes="(max-width: 640px) 40vw, 240px" className="object-contain p-2 sm:p-4" />
+              </div>
+              <div className="absolute bottom-[6%] left-[40%] h-[54%] w-[30%] rotate-2 overflow-hidden rounded-xl border border-white/80 bg-white shadow-2xl shadow-black/40 sm:rounded-2xl">
+                <Image src="/bearing-01.jpg" alt="" fill sizes="(max-width: 640px) 32vw, 185px" className="object-contain p-2 sm:p-4" />
+              </div>
+              <span className="absolute bottom-2 left-3 rounded-full border border-white/15 bg-slate-950/85 px-3 py-1 text-[10px] font-medium text-slate-100 backdrop-blur sm:bottom-4 sm:left-5 sm:text-xs">
+                {isThai ? "ตัวอย่างสินค้าจากแค็ตตาล็อก MRT" : "Examples from the MRT catalog"}
+              </span>
             </div>
           </div>
         </div>
