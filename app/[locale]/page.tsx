@@ -257,6 +257,63 @@ export default async function Page({
 
       <BrandShowcase brands={featuredBrands} locale={locale} />
       <WhyChooseUsSection locale={locale} />
+
+      <section className="border-y border-[var(--color-border)] bg-slate-50/70">
+        <div className="mx-auto grid max-w-7xl gap-7 px-4 py-12 sm:px-6 sm:py-16 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:items-center lg:gap-12 lg:px-8">
+          <div className="max-w-lg">
+            <p className="text-xs font-bold uppercase tracking-[0.18em] text-orange-600">
+              {isThai ? "MRT KNOWLEDGE" : "MRT KNOWLEDGE"}
+            </p>
+            <h2 className="mt-3 text-2xl font-bold tracking-tight text-[var(--color-text)] sm:text-3xl">
+              {isThai ? "รู้จักอะไหล่ก่อนตัดสินใจ" : "Practical knowledge before you choose"}
+            </h2>
+            <p className="mt-3 text-sm leading-7 text-[var(--color-text-muted)]">
+              {isThai
+                ? "อ่านแนวทางตรวจสอบสเปกและดูแลไส้กรองจากบทความที่เผยแพร่แล้ว เพื่อช่วยเตรียมข้อมูลก่อนค้นหาหรือขอใบเสนอราคา"
+                : "Read existing guides on filter specifications and maintenance to help prepare the right information before searching or requesting a quote."}
+            </p>
+          </div>
+
+          <div className="grid gap-3 sm:grid-cols-2 sm:gap-4">
+            <Link
+              href={`/${locale}/articles/industrial-filter-selection-guide`}
+              className={`group flex h-full min-h-[188px] flex-col rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-blue-300 hover:shadow-md ${lightFocusClass}`}
+            >
+              <span className="text-xs font-semibold tracking-[0.1em] text-blue-700">
+                {isThai ? "การเลือกสินค้า" : "PRODUCT SELECTION"}
+              </span>
+              <h3 className="mt-3 text-base font-bold leading-6 text-slate-900">
+                {isThai ? "เลือกไส้กรองอุตสาหกรรมอย่างไรให้ตรงสเปก" : "How to verify an industrial filter"}
+              </h3>
+              <p className="mt-2 text-sm leading-6 text-slate-600">
+                {isThai ? "สิ่งสำคัญที่ควรตรวจสอบก่อนเลือกเบอร์และสั่งซื้อ" : "Key checks before matching a part number or ordering."}
+              </p>
+              <span className="mt-auto pt-4 text-sm font-semibold text-blue-700 group-hover:text-blue-900">
+                {isThai ? "อ่านบทความ →" : "Read article →"}
+              </span>
+            </Link>
+
+            <Link
+              href={`/${locale}/articles/when-to-replace-engine-air-filter`}
+              className={`group flex h-full min-h-[188px] flex-col rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-blue-300 hover:shadow-md ${lightFocusClass}`}
+            >
+              <span className="text-xs font-semibold tracking-[0.1em] text-orange-600">
+                {isThai ? "การซ่อมบำรุง" : "MAINTENANCE"}
+              </span>
+              <h3 className="mt-3 text-base font-bold leading-6 text-slate-900">
+                {isThai ? "ควรเปลี่ยนไส้กรองอากาศเมื่อไร?" : "When should an engine air filter be replaced?"}
+              </h3>
+              <p className="mt-2 text-sm leading-6 text-slate-600">
+                {isThai ? "ทำไมความสกปรกที่มองเห็นจึงไม่ใช่เกณฑ์เดียว" : "Why visual appearance alone is not enough."}
+              </p>
+              <span className="mt-auto pt-4 text-sm font-semibold text-blue-700 group-hover:text-blue-900">
+                {isThai ? "อ่านบทความ →" : "Read article →"}
+              </span>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       <QuoteCTASection locale={locale} />
       <SiteFooter locale={locale} />
     </main>
