@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import TrackedLineLink from "@/components/analytics/TrackedLineLink";
 
-const LINE_URL = "https://lin.ee/S676yYH";
+const LINE_URL = "https://lin.ee/PsQGAuu";
 const darkFocusClass =
   "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)] focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950";
 

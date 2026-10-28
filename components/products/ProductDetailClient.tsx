@@ -28,7 +28,7 @@ type Props = {
   product: Product;
 };
 
-const LINE_URL = "https://lin.ee/S676yYH";
+const LINE_URL = "https://lin.ee/PsQGAuu";
 
 function normalizePath(src?: string) {
   if (!src) return "/images/placeholder.jpg";

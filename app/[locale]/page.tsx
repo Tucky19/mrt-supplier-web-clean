@@ -99,25 +99,8 @@ export default async function Page({
 
   const productCategories = [
     {
-      id: "hydraulic-filters",
-      image: "/filter-oil-01.jpg",
-      href: `/${locale}/products?q=hydraulic%20filter`,
-      title: {
-        th: "Hydraulic Filters",
-        en: "Hydraulic Filters",
-      },
-      subtitle: {
-        th: "ไส้กรองไฮดรอลิก",
-        en: "",
-      },
-      description: {
-        th: "รองรับไส้กรองแบบ Spin-On, Cartridge, Return Line และระบบไฮดรอลิกอุตสาหกรรม",
-        en: "Support for spin-on, cartridge, return line, and industrial hydraulic filtration applications.",
-      },
-    },
-    {
       id: "air-filters",
-      image: "/filter-air-01.jpg",
+      image: "/images/products/donaldson/p181080.jpg",
       href: `/${locale}/products?q=air%20filter`,
       title: {
         th: "Air Filters",
@@ -130,6 +113,45 @@ export default async function Page({
       description: {
         th: "รองรับกรองอากาศลูกนอก ลูกใน และชุดกรองที่ใช้คู่กันสำหรับเครื่องจักรและงานอุตสาหกรรม",
         en: "Primary, safety, and paired air filters for machinery and industrial applications.",
+      },
+    },
+    {
+      id: "oil-filters",
+      image: "/images/products/donaldson/p558615.jpg",
+      href: `/${locale}/products?q=lube%20filter`,
+      title: { th: "Oil Filters", en: "Oil Filters" },
+      subtitle: { th: "ไส้กรองน้ำมันเครื่อง", en: "" },
+      description: {
+        th: "ไส้กรองน้ำมันเครื่องสำหรับเครื่องยนต์และงานซ่อมบำรุง",
+        en: "Engine oil filters for maintenance and industrial applications.",
+      },
+    },
+    {
+      id: "fuel-filters",
+      image: "/images/products/donaldson/p551864.jpg",
+      href: `/${locale}/products?q=fuel%20filter`,
+      title: { th: "Fuel Filters", en: "Fuel Filters" },
+      subtitle: { th: "ไส้กรองเชื้อเพลิง", en: "" },
+      description: {
+        th: "ค้นหาไส้กรองเชื้อเพลิงและกรองแยกน้ำด้วย Part No.",
+        en: "Find fuel filters and fuel/water separators by part number.",
+      },
+    },
+    {
+      id: "hydraulic-filters",
+      image: "/images/products/donaldson/p550148.jpg",
+      href: `/${locale}/products?q=hydraulic%20filter`,
+      title: {
+        th: "Hydraulic Filters",
+        en: "Hydraulic Filters",
+      },
+      subtitle: {
+        th: "ไส้กรองไฮดรอลิก",
+        en: "",
+      },
+      description: {
+        th: "รองรับไส้กรองแบบ Spin-On, Cartridge, Return Line และระบบไฮดรอลิกอุตสาหกรรม",
+        en: "Support for spin-on, cartridge, return line, and industrial hydraulic filtration applications.",
       },
     },
     {
@@ -147,23 +169,6 @@ export default async function Page({
       description: {
         th: "รองรับตลับลูกปืนสำหรับงานซ่อมบำรุง เครื่องจักร และระบบส่งกำลังในโรงงาน",
         en: "Industrial bearings for maintenance, machinery, and power transmission applications.",
-      },
-    },
-    {
-      id: "oil-fuel-oil-separator",
-      image: "/filter-oil-01.jpg",
-      href: `/${locale}/products?q=oil%20separator`,
-      title: {
-        th: "Oil / Fuel / Oil Separator",
-        en: "Oil, Fuel & Oil Separator",
-      },
-      subtitle: {
-        th: "ไส้กรองน้ำมัน เชื้อเพลิง และ Oil Separator",
-        en: "",
-      },
-      description: {
-        th: "รองรับไส้กรองน้ำมัน ไส้กรองเชื้อเพลิง และ Oil Separator สำหรับเครื่องยนต์ เครื่องอัดลม และระบบอุตสาหกรรม",
-        en: "Oil filters, fuel filters, and oil separator elements for engines, compressors, and industrial systems.",
       },
     },
   ];
@@ -203,7 +208,9 @@ export default async function Page({
       <JsonLd data={breadcrumbJsonLd} />
       <SiteHeader locale={locale} />
 
-      <SearchFirstHero locale={locale} />
+      <SearchFirstHero locale={locale}>
+        <ProductGrid products={productCategories} locale={locale} />
+      </SearchFirstHero>
 
       <section className="mrt-blueprint-section border-b border-[var(--color-border)]">
         <div className="mx-auto grid max-w-7xl gap-8 px-6 py-12 lg:grid-cols-[0.8fr_1.2fr] lg:px-8 lg:py-14">
@@ -248,7 +255,6 @@ export default async function Page({
         </div>
       </section>
 
-      <ProductGrid products={productCategories} locale={locale} />
       <BrandShowcase brands={featuredBrands} locale={locale} />
       <WhyChooseUsSection locale={locale} />
       <QuoteCTASection locale={locale} />

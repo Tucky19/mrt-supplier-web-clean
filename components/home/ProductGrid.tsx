@@ -62,7 +62,7 @@ export default function ProductGrid({
           </p>
         </div>
 
-        <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-4">
+        <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
           {products.map((product) => (
             <article
               key={product.id}
@@ -73,7 +73,7 @@ export default function ProductGrid({
                   src={product.image}
                   alt={isThai ? product.subtitle?.th || product.title.th : product.title.en}
                   fill
-                  sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 25vw"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 20vw"
                   className="object-contain p-6"
                 />
               </div>

@@ -34,7 +34,7 @@ const SEARCH_RESULT_LIMIT = 48;
 const INITIAL_RENDER_COUNT = 12;
 const LOCALES = ["th", "en"] as const;
 const SITE_URL = "https://www.mrtsupplier.com";
-const LINE_URL = "https://lin.ee/S676yYH";
+const LINE_URL = "https://lin.ee/PsQGAuu";
 
 function getLocalizedAlternates(path: string) {
   return Object.fromEntries(

@@ -8,7 +8,7 @@ import { MessageCircle } from 'lucide-react';
 import TrackedLineLink from '@/components/analytics/TrackedLineLink';
 import { useQuote } from '@/providers/QuoteProvider';
 
-const LINE_URL = 'https://lin.ee/S676yYH';
+const LINE_URL = 'https://lin.ee/PsQGAuu';
 const lightFocusClass =
   'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-surface)]';
 

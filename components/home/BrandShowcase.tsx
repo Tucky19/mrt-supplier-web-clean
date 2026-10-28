@@ -2,7 +2,7 @@ import Image from "next/image";
 import TrackedLineLink from "@/components/analytics/TrackedLineLink";
 import { getHomeBrandShowcaseText } from "@/lib/i18n/homeUi";
 
-const LINE_URL = "https://lin.ee/S676yYH";
+const LINE_URL = "https://lin.ee/PsQGAuu";
 
 type Brand = {
   key: string;

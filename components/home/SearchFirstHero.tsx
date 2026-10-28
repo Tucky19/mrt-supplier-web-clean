@@ -1,4 +1,4 @@
-import Image from "next/image";
+import type { ReactNode } from "react";
 import Link from "next/link";
 import {
   Boxes,
@@ -19,15 +19,15 @@ const LINE_URL = "https://lin.ee/PsQGAuu";
 const lightFocusClass =
   "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-surface)]";
 
-const EXAMPLE_QUERIES = [
-  "FUEL FILTER",
-  "LUBE FILTER",
-  "HYDRAULIC FILTER",
-  "AIR FILTER",
-  "OIL SEPARATOR",
-];
+const EXAMPLE_QUERIES = ["P181080", "P551864", "FS1242"];
 
-export default function SearchFirstHero({ locale }: { locale: string }) {
+export default function SearchFirstHero({
+  locale,
+  children,
+}: {
+  locale: string;
+  children?: ReactNode;
+}) {
   const isThai = locale === "th";
 
   const trustItems = [
@@ -68,24 +68,16 @@ export default function SearchFirstHero({ locale }: { locale: string }) {
   return (
     <section className="border-b border-[var(--color-border)] bg-[var(--color-surface)]">
       <div className="relative isolate bg-slate-950">
-        <Image
-          src="/images/hero-warehouse.jpg"
-          alt=""
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover object-center opacity-55"
-        />
         <div
           aria-hidden="true"
-          className="absolute inset-0 bg-[linear-gradient(90deg,rgba(2,18,39,0.97)_0%,rgba(3,28,58,0.9)_48%,rgba(3,28,58,0.42)_100%)]"
+          className="absolute inset-0 bg-[linear-gradient(120deg,#020c1b_0%,#05274a_58%,#07182d_100%)]"
         />
         <div
           aria-hidden="true"
           className="absolute inset-0 bg-[radial-gradient(circle_at_75%_35%,rgba(37,99,235,0.2),transparent_42%)]"
         />
 
-        <div className="relative mx-auto grid max-w-7xl gap-8 px-5 py-10 sm:px-6 sm:py-14 lg:grid-cols-[1.08fr_0.92fr] lg:items-center lg:px-8 lg:py-16">
+        <div className="relative mx-auto grid max-w-7xl gap-8 px-4 py-6 sm:px-6 sm:py-10 lg:grid-cols-[1.08fr_0.92fr] lg:items-center lg:px-8 lg:py-14">
           <div className="max-w-3xl">
             <p className="text-xs font-bold uppercase tracking-[0.18em] text-orange-400 sm:text-sm">
               {isThai
@@ -93,7 +85,7 @@ export default function SearchFirstHero({ locale }: { locale: string }) {
                 : "Industrial Parts • Filters • Cross Reference • RFQ"}
             </p>
 
-            <h1 className="mt-4 text-4xl font-bold leading-[1.05] tracking-tight text-white sm:text-5xl lg:text-[4rem]">
+            <h1 className="mt-3 text-[2rem] font-bold leading-[1.12] tracking-tight text-white sm:text-5xl lg:text-[3.6rem]">
               {isThai ? (
                 <>
                   หาอะไหล่อุตสาหกรรม
@@ -107,13 +99,13 @@ export default function SearchFirstHero({ locale }: { locale: string }) {
               )}
             </h1>
 
-            <p className="mt-5 max-w-2xl text-base leading-7 text-slate-200 sm:text-lg">
+            <p className="mt-3 max-w-2xl text-sm leading-6 text-slate-200 sm:mt-5 sm:text-base sm:leading-7">
               {isThai
-                ? "สำหรับโรงงาน ผู้ใช้ปลายทาง ช่างซ่อมบำรุง และร้านค้าต่างจังหวัด ค้นหาด้วย Part No. / Cross Reference หรือส่งรูปและข้อมูลเครื่องให้ทีมช่วยตรวจสอบก่อนเสนอราคา"
-                : "For factories, end users, maintenance teams, and provincial resellers. Search by Part No. / Cross Reference or send product and machine details for review before quotation."}
+                ? "ค้นหาด้วย Part No. / Cross Reference หรือส่งรูปให้ทีมช่วยตรวจสอบก่อนเสนอราคา"
+                : "Search by Part No. / Cross Reference, or send a photo for review before quotation."}
             </p>
 
-            <div className="mt-5 grid gap-2 text-sm text-slate-100 sm:grid-cols-3">
+            <div className="mt-5 hidden gap-2 text-sm text-slate-100 sm:grid sm:grid-cols-3">
               <div className="flex items-center gap-2">
                 <PackageSearch className="h-4 w-4 shrink-0 text-orange-400" aria-hidden="true" />
                 <span>{isThai ? "ค้นหา/เทียบเบอร์" : "Part-number search"}</span>
@@ -128,27 +120,27 @@ export default function SearchFirstHero({ locale }: { locale: string }) {
               </div>
             </div>
 
-            <div className="mt-7 rounded-2xl border border-white/15 bg-white/95 p-3 shadow-2xl shadow-black/20 backdrop-blur sm:p-4">
+            <div className="relative z-30 mt-5 rounded-2xl border border-white/15 bg-white/95 p-2.5 sm:mt-7 shadow-2xl shadow-black/20 backdrop-blur sm:p-4">
               <div className="grid gap-3 lg:grid-cols-[minmax(0,1fr)_auto]">
                 <SearchBar
                   locale={locale}
-                  className="max-w-none"
+                  className="max-w-none [&_button[type=submit]]:bg-orange-500 [&_button[type=submit]]:hover:bg-orange-600"
                   autoFocus={false}
                   exampleQueries={EXAMPLE_QUERIES}
                   compactMobileExamples
                 />
                 <Link
                   href={`/${locale}/quote`}
-                  className={`inline-flex min-h-12 items-center justify-center rounded-[var(--mrt-radius-md)] bg-orange-500 px-6 text-sm font-semibold text-white transition hover:bg-orange-600 lg:min-h-[60px] ${lightFocusClass}`}
+                  className={`inline-flex min-h-11 items-center justify-center rounded-[var(--mrt-radius-md)] border border-[var(--color-border)] px-4 text-sm font-semibold text-[var(--color-primary)] transition hover:bg-[var(--color-primary-soft)] lg:min-h-[60px] ${lightFocusClass}`}
                 >
                   {isThai ? "ขอใบเสนอราคา" : "Request Quote"}
                 </Link>
               </div>
 
-              <div className="mt-3 flex flex-col gap-2 border-t border-slate-200 pt-3 text-xs text-slate-600 sm:flex-row sm:items-center sm:justify-between">
+              <div className="mt-2 flex flex-col gap-2 border-t border-slate-200 pt-2 sm:mt-3 sm:pt-3 text-xs text-slate-600 sm:flex-row sm:items-center sm:justify-between">
                 <Link
                   href={`/${locale}/products?request=1#missing-product-request`}
-                  className={`font-semibold text-[var(--color-primary)] hover:text-[var(--color-primary-hover)] ${lightFocusClass}`}
+                  className={`hidden font-semibold text-[var(--color-primary)] sm:block hover:text-[var(--color-primary-hover)] ${lightFocusClass}`}
                 >
                   {isThai
                     ? "ไม่มี Part No.? ส่งรุ่นเครื่อง / Nameplate / รายละเอียดสินค้า →"
@@ -168,36 +160,17 @@ export default function SearchFirstHero({ locale }: { locale: string }) {
           </div>
 
           <div className="hidden lg:block">
-            <div className="relative mx-auto max-w-md overflow-hidden rounded-[2rem] border border-white/15 bg-white/10 p-5 shadow-2xl shadow-black/30 backdrop-blur-sm">
-              <div className="relative aspect-[4/3] overflow-hidden rounded-[1.4rem] bg-white/95">
-                <Image
-                  src="/images/hero-products.png"
-                  alt={
-                    isThai
-                      ? "กลุ่มสินค้าไส้กรอง ลูกปืน และอะไหล่อุตสาหกรรมของ MRT Supplier"
-                      : "MRT Supplier filters, bearings, and industrial spare parts"
-                  }
-                  fill
-                  sizes="430px"
-                  className="object-contain p-5"
-                />
-              </div>
-              <div className="mt-4">
-                <p className="text-sm font-semibold text-white">
-                  {isThai
-                    ? "จากข้อมูลที่มี → ไปถึงรายการ RFQ ที่ตรวจสอบได้"
-                    : "From the details you have → to an RFQ ready for review"}
-                </p>
-                <p className="mt-1 text-xs leading-5 text-slate-300">
-                  {isThai
-                    ? "ส่ง Part No., รูปสินค้า, รุ่นเครื่อง หรือรายการ PM เพื่อให้ทีมช่วยตรวจสอบข้อมูลก่อนเสนอราคา"
-                    : "Send a Part No., product photo, machine model, or PM list for review before quotation."}
-                </p>
-              </div>
+            <div className="relative mx-auto flex aspect-[4/3] max-w-md flex-col justify-end rounded-[2rem] border border-white/15 bg-[radial-gradient(circle_at_65%_30%,rgba(249,115,22,.3),transparent_40%)] p-7">
+              <Wrench className="absolute right-8 top-8 h-28 w-28 text-white/15" strokeWidth={1} aria-hidden="true" />
+              <p className="text-xs font-bold uppercase tracking-[0.16em] text-orange-400">{isThai ? "ภาพชั่วคราวสำหรับ Preview" : "Provisional preview visual"}</p>
+              <p className="mt-2 text-xl font-bold text-white">{isThai ? "รอภาพช่างเทคนิคที่เจ้าของอนุมัติ" : "Approved technician image pending"}</p>
+              <p className="mt-2 text-sm leading-6 text-slate-300">{isThai ? "กราฟิกนี้ไม่ใช่ภาพพนักงานหรือสถานที่ของ MRT" : "This graphic does not depict an MRT employee or facility."}</p>
             </div>
           </div>
         </div>
       </div>
+
+      {children}
 
       <div className="mx-auto grid max-w-7xl border-x border-[var(--color-border)] bg-[var(--color-surface)] sm:grid-cols-2 lg:grid-cols-4">
         {trustItems.map((item) => {

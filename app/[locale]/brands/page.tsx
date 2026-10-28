@@ -17,7 +17,7 @@ type PageProps = {
 };
 
 const SITE_URL = "https://www.mrtsupplier.com";
-const LINE_URL = "https://lin.ee/S676yYH";
+const LINE_URL = "https://lin.ee/PsQGAuu";
 const LOCALES = ["th", "en"] as const;
 const lightFocusClass =
   "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-surface)]";
