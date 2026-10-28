@@ -67,7 +67,7 @@ export default function SearchFirstHero({
 
   return (
     <section className="border-b border-[var(--color-border)] bg-[var(--color-surface)]">
-      <div className="relative isolate bg-slate-950">
+      <div className="relative isolate z-10 bg-slate-950">
         <div
           aria-hidden="true"
           className="absolute inset-0 bg-[linear-gradient(120deg,#020c1b_0%,#05274a_58%,#07182d_100%)]"
