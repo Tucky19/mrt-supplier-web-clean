@@ -131,7 +131,7 @@ export default function SearchFirstHero({
                 />
                 <Link
                   href={`/${locale}/quote`}
-                  className={`inline-flex min-h-11 items-center justify-center rounded-[var(--mrt-radius-md)] border border-[var(--color-border)] px-4 text-sm font-semibold text-[var(--color-primary)] transition hover:bg-[var(--color-primary-soft)] lg:min-h-[60px] ${lightFocusClass}`}
+                  className={`hidden min-h-11 items-center justify-center rounded-[var(--mrt-radius-md)] border border-[var(--color-border)] px-4 text-sm font-semibold text-[var(--color-primary)] transition hover:bg-[var(--color-primary-soft)] sm:inline-flex lg:min-h-[60px] ${lightFocusClass}`}
                 >
                   {isThai ? "ขอใบเสนอราคา" : "Request Quote"}
                 </Link>
@@ -150,7 +150,7 @@ export default function SearchFirstHero({
                   href={LINE_URL}
                   source="hero_search"
                   locale={locale}
-                  className={`inline-flex items-center gap-1.5 font-semibold text-[var(--color-success-text)] hover:text-[var(--color-success-hover)] ${lightFocusClass}`}
+                  className={`inline-flex min-h-11 items-center gap-1.5 font-semibold text-[var(--color-success-text)] hover:text-[var(--color-success-hover)] ${lightFocusClass}`}
                 >
                   <MessageCircle className="h-4 w-4" aria-hidden="true" />
                   {isThai ? "ส่งรูปหรือ Part No. ทาง LINE" : "Send a photo or Part No. on LINE"}
