@@ -1,5 +1,21 @@
 # PR #179 QA — 28 October 2026
 
+## 29 October 2026 — owner-approved layout polish (preview-only)
+
+**Current application commit:** `d2319e3` (following `31d9666` and `5798349`). These three changes refine layout on top of `c41a2e4` while preserving the existing search, cross-reference, RFQ, LINE OA and tracking implementations.
+
+- `31d9666`: Reduce excess blank space before mobile categories; place five category cards in a balanced 2-column composition by rendering the final odd card horizontally on small screens.
+- `5798349`: Add a real, keyboard-focusable "ดูหมวดสินค้า / Explore" anchor in the responsive industrial-catalog Hero so visitors can discover categories without a second competing search box.
+- `d2319e3`: Offset the category anchor for the sticky header, and use an explicit responsive card minimum height.
+- No new customer reviews/ratings, supply or delivery-time guarantees, fabricated cross references, or fictitious employee/factory images were introduced.
+- The Hero still uses **existing catalog product imagery**, NOT the desired rights-cleared technician photo. Visual fidelity to the owner's chosen industrial reference remains **unaccepted**.
+
+**QA gate:** The 10 screenshots linked later in this report were captured from older `f710db4` and MUST NOT be presented as screenshots of `d2319e3`. Before any production release, capture and inspect fresh TH/EN desktop (1440px, 1024px) and mobile (360px, 390px, 430px) views, with and without cookie consent, and run real interactions for search suggestions/keyboard, sample part chips, LINE link, and RFQ without customer submission. Check mobile section rhythm, last card height, touch target clearance and no horizontal overflow. Record the Vercel build status separately; CI success is necessary but not proof of visual acceptance.
+
+**Release gate:** Keep PR #179 draft; owner must see and approve the rendered Preview before any merge or production deployment. Rights to the existing catalog product photos and a future approved industrial-hero asset remain outstanding.
+
+---
+
 **Overall: NOT accepted for production.** Functional preview is ready. The approved Design 1 comparison image and licensed technician asset are missing, and repository-wide ESLint still fails its existing baseline. No merge or production deployment was performed.
 
 ## Preview and source
