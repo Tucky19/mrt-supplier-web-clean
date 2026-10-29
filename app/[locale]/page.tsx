@@ -174,33 +174,9 @@ export default async function Page({
   ];
 
   const workflowSteps = [
-    {
-      step: "01",
-      title: isThai
-        ? "ค้นหา หรือส่งข้อมูลที่มี"
-        : "Search or send the details you have",
-      description: isThai
-        ? "เริ่มจาก Part No., Cross Reference, รูปสินค้า, รุ่นเครื่อง หรือ Nameplate ก็ได้"
-        : "Start with a Part No., cross reference, product photo, machine model, or nameplate.",
-    },
-    {
-      step: "02",
-      title: isThai
-        ? "MRT ตรวจสอบข้อมูลและรายการที่เกี่ยวข้อง"
-        : "MRT reviews specs and related references",
-      description: isThai
-        ? "ทีมงานช่วยตรวจสอบข้อมูลสินค้าและทางเลือกที่เกี่ยวข้องก่อนเข้าสู่ขั้นเสนอราคา"
-        : "Our team reviews product details and related options before quotation.",
-    },
-    {
-      step: "03",
-      title: isThai
-        ? "ส่ง RFQ และรับการติดตามจากทีม"
-        : "Submit the RFQ and receive follow-up",
-      description: isThai
-        ? "รวมรายการที่ต้องการแล้วส่ง RFQ เพื่อให้ทีมติดตามรายละเอียด ราคา และขั้นตอนถัดไป"
-        : "Collect the required items and submit an RFQ for pricing and next-step follow-up.",
-    },
+    { step: "01", title: isThai ? "ค้นหาสินค้า" : "Search products", description: isThai ? "ค้นด้วย Part Number หรือรายละเอียดสินค้า" : "Search by part number or product details." },
+    { step: "02", title: isThai ? "เพิ่มรายการขอใบเสนอราคา" : "Add items to your RFQ", description: isThai ? "รวบรวมสินค้าที่ต้องการไว้ในรายการเดียว" : "Collect the products you need in one list." },
+    { step: "03", title: isThai ? "ส่งคำขอใบเสนอราคา (RFQ)" : "Submit a Request for Quotation", description: isThai ? "ส่งรายการให้ทีม MRT ตรวจสอบและติดตาม" : "Send your list to MRT for review and follow-up." },
   ];
 
   return (

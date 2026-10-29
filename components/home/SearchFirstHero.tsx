@@ -1,6 +1,5 @@
 import type { ReactNode } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import {
   ArrowDown,
   Boxes,
@@ -70,24 +69,21 @@ export default function SearchFirstHero({
   return (
     <section className="border-b border-[var(--color-border)] bg-[var(--color-surface)]">
       <div className="relative isolate z-10 bg-slate-950">
-        <div
-          aria-hidden="true"
-          className="absolute inset-0 bg-[linear-gradient(120deg,#020c1b_0%,#05274a_58%,#07182d_100%)]"
-        />
-        <div
-          aria-hidden="true"
-          className="absolute inset-0 bg-[radial-gradient(circle_at_75%_35%,rgba(37,99,235,0.2),transparent_42%)]"
-        />
+        <picture className="absolute inset-0 block">
+          <source media="(min-width: 1024px)" srcSet="/images/hero/mrt-industrial-desktop.webp" />
+          <img src="/images/hero/mrt-industrial-mobile.webp" alt="" width={1122} height={1402} fetchPriority="high" className="h-full w-full object-cover object-[center_20%] lg:object-center" />
+        </picture>
+        <div aria-hidden="true" className="absolute inset-0 bg-[linear-gradient(180deg,rgba(2,12,27,0.05)_0%,rgba(2,12,27,0.7)_25%,#020c1b_63%)] lg:bg-[linear-gradient(90deg,rgba(2,12,27,0.96)_0%,rgba(2,12,27,0.85)_38%,rgba(2,12,27,0.15)_75%)]" />
+        <div className="relative mx-auto max-w-7xl px-4 pb-6 pt-40 sm:px-6 sm:pt-48 lg:px-8 lg:py-16">
+          <div className="max-w-3xl lg:max-w-[65%]">
 
-        <div className="relative mx-auto grid max-w-7xl gap-5 px-4 py-7 sm:gap-8 sm:px-6 sm:py-12 lg:grid-cols-[minmax(0,1.08fr)_minmax(0,0.92fr)] lg:items-center lg:gap-12 lg:px-8 lg:py-16">
-          <div className="max-w-3xl">
             <p className="text-xs font-bold uppercase tracking-[0.18em] text-orange-400 sm:text-sm">
               {isThai
                 ? "อะไหล่อุตสาหกรรม • ไส้กรอง • Cross Reference • RFQ"
                 : "Industrial Parts • Filters • Cross Reference • RFQ"}
             </p>
 
-            <h1 className="mt-3 text-[2rem] font-bold leading-[1.12] tracking-tight text-white sm:text-5xl lg:text-[3.6rem]">
+            <h1 className="mt-3 text-[1.8rem] font-bold leading-[1.12] tracking-tight text-white sm:text-5xl lg:text-[3.2rem]">
               {isThai ? (
                 <>
                   หาอะไหล่อุตสาหกรรม
@@ -123,7 +119,7 @@ export default function SearchFirstHero({
             </div>
 
             <div className="relative z-30 mt-5 rounded-2xl border border-white/15 bg-white/95 p-2.5 sm:mt-7 shadow-2xl shadow-black/20 backdrop-blur sm:p-4">
-              <div className="grid gap-3 lg:grid-cols-[minmax(0,1fr)_auto]">
+              <div className="grid gap-3 sm:grid-cols-[minmax(0,1fr)_auto]">
                 <SearchBar
                   locale={locale}
                   className="max-w-none [&_button[type=submit]]:bg-orange-500 [&_button[type=submit]]:hover:bg-orange-600"
@@ -133,7 +129,7 @@ export default function SearchFirstHero({
                 />
                 <Link
                   href={`/${locale}/quote`}
-                  className={`hidden min-h-11 items-center justify-center rounded-[var(--mrt-radius-md)] border border-[var(--color-border)] px-4 text-sm font-semibold text-[var(--color-primary)] transition hover:bg-[var(--color-primary-soft)] sm:inline-flex lg:min-h-[60px] ${lightFocusClass}`}
+                  className={`inline-flex min-h-11 items-center justify-center rounded-[var(--mrt-radius-md)] border border-[var(--color-border)] px-4 text-sm font-semibold text-[var(--color-primary)] transition hover:bg-[var(--color-primary-soft)] lg:min-h-[60px] ${lightFocusClass}`}
                 >
                   {isThai ? "ขอใบเสนอราคา" : "Request Quote"}
                 </Link>
@@ -161,35 +157,10 @@ export default function SearchFirstHero({
             </div>
           </div>
 
-          <div className="relative mx-auto w-full max-w-[520px] lg:max-w-none">
-            <div className="relative h-[188px] overflow-hidden rounded-[1.4rem] border border-white/15 bg-[radial-gradient(ellipse_at_52%_32%,rgba(39,103,169,0.56),transparent_62%)] shadow-2xl shadow-black/20 sm:h-[250px] lg:h-[405px] lg:rounded-[2rem]">
-              <div aria-hidden="true" className="absolute inset-x-[7%] top-1/2 h-px bg-gradient-to-r from-transparent via-sky-200/25 to-transparent" />
-              <div aria-hidden="true" className="absolute left-[13%] top-[13%] h-32 w-32 rounded-full border border-white/10 sm:h-56 sm:w-56" />
-              <div aria-hidden="true" className="absolute right-[7%] top-[6%] h-44 w-44 rounded-full border border-orange-400/15 sm:h-64 sm:w-64" />
-
-              <div className="absolute left-[7%] top-[12%] h-[76%] w-[38%] -rotate-6 overflow-hidden rounded-xl border border-white/80 bg-white shadow-xl shadow-black/40 sm:rounded-2xl">
-                <Image src="/images/products/donaldson/p181080.jpg" alt="" fill sizes="(max-width: 640px) 40vw, 240px" className="object-contain p-2 sm:p-4" />
-              </div>
-              <div className="absolute right-[10%] top-[8%] h-[71%] w-[37%] rotate-6 overflow-hidden rounded-xl border border-white/80 bg-white shadow-xl shadow-black/40 sm:rounded-2xl">
-                <Image src="/images/products/donaldson/p551864.jpg" alt="" fill sizes="(max-width: 640px) 40vw, 240px" className="object-contain p-2 sm:p-4" />
-              </div>
-              <div className="absolute bottom-[6%] left-[40%] h-[54%] w-[30%] rotate-2 overflow-hidden rounded-xl border border-white/80 bg-white shadow-2xl shadow-black/40 sm:rounded-2xl">
-                <Image src="/bearing-01.jpg" alt="" fill sizes="(max-width: 640px) 32vw, 185px" className="object-contain p-2 sm:p-4" />
-              </div>
-              <div className="absolute inset-x-2 bottom-2 flex items-end justify-between gap-2 sm:inset-x-4 sm:bottom-4">
-                <span className="max-w-[56%] truncate rounded-full border border-white/15 bg-slate-950/85 px-3 py-1 text-[10px] font-medium text-slate-100 backdrop-blur sm:text-xs">
-                  {isThai ? "ภาพตัวอย่างสินค้าในแค็ตตาล็อก" : "Catalog product examples"}
-                </span>
-                <Link
-                  href="#products"
-                  className={`inline-flex min-h-11 shrink-0 items-center justify-center gap-1.5 rounded-full border border-orange-400/40 bg-orange-500 px-3 text-xs font-bold text-white shadow-lg transition hover:bg-orange-600 ${lightFocusClass}`}
-                >
-                  {isThai ? "ดูหมวดสินค้า" : "Explore"}
-                  <ArrowDown className="h-4 w-4" aria-hidden="true" />
-                </Link>
-              </div>
-            </div>
-          </div>
+          <Link href="#products" className={`mt-5 inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-white ${lightFocusClass}`}>
+            {isThai ? "สำรวจหมวดสินค้า" : "Explore product categories"}
+            <ArrowDown className="h-4 w-4" aria-hidden="true" />
+          </Link>
         </div>
       </div>
 
@@ -231,7 +202,7 @@ export default function SearchFirstHero({
           <p className="max-w-xl text-sm leading-6 text-[var(--color-text-muted)]">
             {isThai
               ? "หน้าแรกออกแบบให้คนที่รู้ Part No. และคนที่ยังมีแค่รูป รุ่นเครื่อง หรือรายการ PM ไปต่อได้โดยไม่ต้องเดาว่าควรเริ่มตรงไหน"
-              : "The homepage supports both buyers with a known Part No. and users who only have a photo, machine model, or PM list."}
+              : "Start with a Part No., product photo, machine model, or PM list. Our team can help review the details."}
           </p>
         </div>
 
@@ -250,7 +221,7 @@ export default function SearchFirstHero({
             </p>
             <Link
               href={`/${locale}/products`}
-              className={`mt-4 inline-flex min-h-10 items-center font-semibold text-[var(--color-primary)] hover:text-[var(--color-primary-hover)] ${lightFocusClass}`}
+              className={`mt-4 inline-flex min-h-11 items-center font-semibold text-[var(--color-primary)] hover:text-[var(--color-primary-hover)] ${lightFocusClass}`}
             >
               {isThai ? "ค้นหาสินค้า →" : "Search products →"}
             </Link>
@@ -272,7 +243,7 @@ export default function SearchFirstHero({
               href={LINE_URL}
               source="home_audience_technician"
               locale={locale}
-              className={`mt-4 inline-flex min-h-10 items-center gap-2 font-semibold text-[var(--color-success-text)] hover:text-[var(--color-success-hover)] ${lightFocusClass}`}
+              className={`mt-4 inline-flex min-h-11 items-center gap-2 font-semibold text-[var(--color-success-text)] hover:text-[var(--color-success-hover)] ${lightFocusClass}`}
             >
               <MessageCircle className="h-4 w-4" aria-hidden="true" />
               {isThai ? "ส่งข้อมูลทาง LINE →" : "Send details via LINE →"}
@@ -293,7 +264,7 @@ export default function SearchFirstHero({
             </p>
             <Link
               href={`/${locale}/quote`}
-              className={`mt-4 inline-flex min-h-10 items-center font-semibold text-[var(--color-primary)] hover:text-[var(--color-primary-hover)] ${lightFocusClass}`}
+              className={`mt-4 inline-flex min-h-11 items-center font-semibold text-[var(--color-primary)] hover:text-[var(--color-primary-hover)] ${lightFocusClass}`}
             >
               {isThai ? "ส่งรายการ RFQ →" : "Send an RFQ list →"}
             </Link>
