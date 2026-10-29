@@ -71,10 +71,10 @@ export default function SearchFirstHero({
       <div className="relative isolate z-10 bg-slate-950">
         <picture className="absolute inset-0 block">
           <source media="(min-width: 1024px)" srcSet="/images/hero/mrt-industrial-desktop.webp" />
-          <img src="/images/hero/mrt-industrial-mobile.webp" alt="" width={1122} height={1402} fetchPriority="high" className="h-full w-full object-cover object-[center_20%] lg:object-center" />
+          <img src="/images/hero/mrt-industrial-mobile.webp" alt="" width={1122} height={1402} fetchPriority="high" className="h-full w-full object-cover object-right lg:object-center" />
         </picture>
         <div aria-hidden="true" className="absolute inset-0 bg-[linear-gradient(180deg,rgba(2,12,27,0.05)_0%,rgba(2,12,27,0.7)_25%,#020c1b_63%)] lg:bg-[linear-gradient(90deg,rgba(2,12,27,0.96)_0%,rgba(2,12,27,0.85)_38%,rgba(2,12,27,0.15)_75%)]" />
-        <div className="relative mx-auto max-w-7xl px-4 pb-6 pt-40 sm:px-6 sm:pt-48 lg:px-8 lg:py-16">
+        <div className="relative mx-auto max-w-7xl px-4 pb-6 pt-28 sm:px-6 sm:pt-48 lg:px-8 lg:py-16">
           <div className="max-w-3xl lg:max-w-[65%]">
 
             <p className="text-xs font-bold uppercase tracking-[0.18em] text-orange-400 sm:text-sm">
