@@ -4,7 +4,9 @@ import BrandShowcase from "@/components/home/BrandShowcase";
 import ProductGrid from "@/components/home/ProductGrid";
 import QuoteCTASection from "@/components/home/QuoteCTASection";
 import SearchFirstHero from "@/components/home/SearchFirstHero";
-import WhyChooseUsSection from "@/components/home/WhyChooseUsSection";
+import { ClipboardList, Search, Send } from "lucide-react";
+import TrackedLineLink from "@/components/analytics/TrackedLineLink";
+import styles from "@/components/home/Homepage.module.css";
 import SiteFooter from "@/components/layout/SiteFooter";
 import SiteHeader from "@/components/layout/SiteHeader";
 import JsonLd from "@/components/seo/JsonLd";
@@ -180,7 +182,7 @@ export default async function Page({
   ];
 
   return (
-    <main className="mrt-blueprint-shell min-h-screen">
+    <main className={styles.page}>
       <JsonLd data={breadcrumbJsonLd} />
       <SiteHeader locale={locale} />
 
@@ -188,53 +190,31 @@ export default async function Page({
         <ProductGrid products={productCategories} locale={locale} />
       </SearchFirstHero>
 
-      <section className="mrt-blueprint-section border-b border-[var(--color-border)]">
-        <div className="mx-auto grid max-w-7xl gap-8 px-6 py-12 lg:grid-cols-[0.8fr_1.2fr] lg:px-8 lg:py-14">
-          <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.14em] text-orange-500">
-              {isThai ? "HOW IT WORKS" : "How It Works"}
-            </p>
-            <h2 className="mt-3 text-2xl font-semibold tracking-tight text-[var(--color-text)] sm:text-3xl">
-              {isThai ? "จากข้อมูลที่มี ไปถึง RFQ ใน 3 ขั้นตอน" : "From the details you have to an RFQ in 3 steps"}
-            </h2>
-            <p className="mt-3 text-sm leading-6 text-[var(--color-text-muted)]">
-              {isThai
-                ? "ออกแบบให้ทั้งฝ่ายจัดซื้อ ช่าง และร้านค้าสามารถเริ่มจากข้อมูลที่ตัวเองมี โดยไม่ต้องรู้ Part No. ครบตั้งแต่แรก"
-                : "Built so purchasing teams, technicians, and resellers can start with whatever information they already have."}
-            </p>
-            <Link
-              href={`/${locale}/quote`}
-              className={`mt-6 inline-flex min-h-11 items-center justify-center rounded-[var(--mrt-radius-md)] bg-[var(--color-primary)] px-5 py-2.5 text-sm font-semibold text-[var(--color-text-inverse)] transition hover:bg-[var(--color-primary-hover)] ${lightFocusClass}`}
-            >
-              {isThai ? "เริ่ม RFQ" : "Start RFQ"}
-            </Link>
-          </div>
-
-          <div className="grid gap-4 md:grid-cols-3">
-            {workflowSteps.map((item) => (
-              <article
-                key={item.step}
-                className="rounded-[var(--mrt-radius-lg)] border border-[var(--color-border)] bg-[var(--color-surface)] p-5 shadow-[var(--shadow-sm)]"
-              >
-                <div className="text-xs font-semibold tracking-[0.14em] text-[var(--color-primary)]">
-                  STEP {item.step}
-                </div>
-                <h3 className="mt-3 text-sm font-semibold leading-6 text-[var(--color-text)]">
-                  {item.title}
-                </h3>
-                <p className="mt-2 text-sm leading-6 text-[var(--color-text-muted)]">
-                  {item.description}
-                </p>
-              </article>
-            ))}
+      <section className={styles.workflow}>
+        <div className={styles.container}>
+          <h2>{isThai ? <>ขั้นตอนการจัดหา<br />ง่ายใน 3 ขั้นตอน</> : <>Simple sourcing<br />in 3 steps</>}</h2>
+          <div className={styles.steps}>
+            {workflowSteps.map((item, index) => {
+              const Icon = [Search, ClipboardList, Send][index];
+              return <article key={item.step}>
+                <div className={styles.stepIcon}><span>{index + 1}</span><Icon size={23} aria-hidden="true" /></div>
+                <div><h3>{item.title}</h3><p>{item.description}</p></div>
+              </article>;
+            })}
           </div>
         </div>
       </section>
 
       <BrandShowcase brands={featuredBrands} locale={locale} />
-      <WhyChooseUsSection locale={locale} />
+      <section className={styles.assistance}>
+        <div className={styles.container}>
+          <article><h3>{isThai ? "โรงงาน / ทีมซ่อมบำรุง" : "Factories & maintenance"}</h3><p>{isThai ? "ค้นหาอะไหล่ตาม Part No. และรวบรวมรายการ PM ใน RFQ เดียว" : "Search by part number and collect a maintenance list in one RFQ."}</p><Link href={`/${locale}/products`}>{isThai ? "ค้นหาสินค้า →" : "Explore products →"}</Link></article>
+          <article><h3>{isThai ? "มีแค่รูปหรือ Nameplate?" : "Only have a photo or nameplate?"}</h3><p>{isThai ? "ส่งรูป รุ่นเครื่อง หรือเบอร์เดิมให้ทีมช่วยตรวจสอบก่อนเสนอราคา" : "Send a photo, machine model or original number for review before quotation."}</p><TrackedLineLink href="https://lin.ee/PsQGAuu" source="home_audience_technician" locale={locale}>{isThai ? "ส่งข้อมูลทาง LINE →" : "Send details via LINE →"}</TrackedLineLink></article>
+          <article><h3>{isThai ? "ร้านค้า / ทีมจัดซื้อ" : "Resellers & purchasing teams"}</h3><p>{isThai ? "ส่งรายการหลายเบอร์ให้ทีมตรวจสอบสินค้าและ Cross Reference" : "Send multiple part numbers for product and cross-reference review."}</p><Link href={`/${locale}/quote`}>{isThai ? "ส่งรายการ RFQ →" : "Send an RFQ list →"}</Link></article>
+        </div>
+      </section>
 
-      <section className="border-y border-[var(--color-border)] bg-slate-50/70">
+      <section className={styles.knowledge}>
         <div className="mx-auto grid max-w-7xl gap-7 px-4 py-12 sm:px-6 sm:py-16 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:items-center lg:gap-12 lg:px-8">
           <div className="max-w-lg">
             <p className="text-xs font-bold uppercase tracking-[0.18em] text-orange-600">
