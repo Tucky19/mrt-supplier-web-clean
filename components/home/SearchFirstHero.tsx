@@ -129,7 +129,7 @@ export default function SearchFirstHero({
                 />
                 <Link
                   href={`/${locale}/quote`}
-                  className={`inline-flex min-h-11 items-center justify-center rounded-[var(--mrt-radius-md)] border border-[var(--color-border)] px-4 text-sm font-semibold text-[var(--color-primary)] transition hover:bg-[var(--color-primary-soft)] lg:min-h-[60px] ${lightFocusClass}`}
+                  className={`hidden min-h-11 items-center justify-center rounded-[var(--mrt-radius-md)] border border-[var(--color-border)] px-4 text-sm font-semibold text-[var(--color-primary)] transition hover:bg-[var(--color-primary-soft)] sm:inline-flex lg:min-h-[60px] ${lightFocusClass}`}
                 >
                   {isThai ? "ขอใบเสนอราคา" : "Request Quote"}
                 </Link>
