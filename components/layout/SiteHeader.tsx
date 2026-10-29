@@ -14,9 +14,10 @@ const lightFocusClass =
 
 type Props = {
   locale: string;
+  homepage?: boolean;
 };
 
-export default function SiteHeader({ locale }: Props) {
+export default function SiteHeader({ locale, homepage = false }: Props) {
   const [scrolled, setScrolled] = useState(false);
   const { ready, totalItems } = useQuote();
   const pathname = usePathname();
@@ -111,12 +112,12 @@ export default function SiteHeader({ locale }: Props) {
         </Link>
 
         <nav className="hidden items-center gap-6 text-sm font-medium md:flex">
-          <Link
+          {!homepage && <Link
             href={`/${locale}`}
             className={`rounded-[var(--mrt-radius-md)] text-[var(--color-text)] hover:text-[var(--color-primary-hover)] ${lightFocusClass}`}
           >
             {text.home}
-          </Link>
+          </Link>}
           <Link
             href={`/${locale}/products`}
             className={`rounded-[var(--mrt-radius-md)] text-[var(--color-text)] hover:text-[var(--color-primary-hover)] ${lightFocusClass}`}
@@ -130,10 +131,10 @@ export default function SiteHeader({ locale }: Props) {
             {text.brands}
           </Link>
           <Link
-            href={`/${locale}/feedback`}
+            href={homepage ? `/${locale}/articles/industrial-filter-selection-guide` : `/${locale}/feedback`}
             className={`rounded-[var(--mrt-radius-md)] text-[var(--color-text)] hover:text-[var(--color-primary-hover)] ${lightFocusClass}`}
           >
-            {text.feedback}
+            {homepage ? (isThai ? 'บทความ' : 'Articles') : text.feedback}
           </Link>
           <Link
             href={`/${locale}/contact`}

@@ -184,7 +184,7 @@ export default async function Page({
   return (
     <main className={styles.page}>
       <JsonLd data={breadcrumbJsonLd} />
-      <SiteHeader locale={locale} />
+      <SiteHeader locale={locale} homepage />
 
       <SearchFirstHero locale={locale}>
         <ProductGrid products={productCategories} locale={locale} />
