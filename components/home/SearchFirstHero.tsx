@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import {
+  ArrowDown,
   Boxes,
   Building2,
   ClipboardList,
@@ -161,7 +162,7 @@ export default function SearchFirstHero({
           </div>
 
           <div className="relative mx-auto w-full max-w-[520px] lg:max-w-none">
-            <div className="relative h-[174px] overflow-hidden rounded-[1.4rem] border border-white/15 bg-[radial-gradient(ellipse_at_52%_32%,rgba(39,103,169,0.56),transparent_62%)] shadow-2xl shadow-black/20 sm:h-[250px] lg:h-[405px] lg:rounded-[2rem]">
+            <div className="relative h-[188px] overflow-hidden rounded-[1.4rem] border border-white/15 bg-[radial-gradient(ellipse_at_52%_32%,rgba(39,103,169,0.56),transparent_62%)] shadow-2xl shadow-black/20 sm:h-[250px] lg:h-[405px] lg:rounded-[2rem]">
               <div aria-hidden="true" className="absolute inset-x-[7%] top-1/2 h-px bg-gradient-to-r from-transparent via-sky-200/25 to-transparent" />
               <div aria-hidden="true" className="absolute left-[13%] top-[13%] h-32 w-32 rounded-full border border-white/10 sm:h-56 sm:w-56" />
               <div aria-hidden="true" className="absolute right-[7%] top-[6%] h-44 w-44 rounded-full border border-orange-400/15 sm:h-64 sm:w-64" />
@@ -175,9 +176,18 @@ export default function SearchFirstHero({
               <div className="absolute bottom-[6%] left-[40%] h-[54%] w-[30%] rotate-2 overflow-hidden rounded-xl border border-white/80 bg-white shadow-2xl shadow-black/40 sm:rounded-2xl">
                 <Image src="/bearing-01.jpg" alt="" fill sizes="(max-width: 640px) 32vw, 185px" className="object-contain p-2 sm:p-4" />
               </div>
-              <span className="absolute bottom-2 left-3 rounded-full border border-white/15 bg-slate-950/85 px-3 py-1 text-[10px] font-medium text-slate-100 backdrop-blur sm:bottom-4 sm:left-5 sm:text-xs">
-                {isThai ? "ตัวอย่างสินค้าจากแค็ตตาล็อก MRT" : "Examples from the MRT catalog"}
-              </span>
+              <div className="absolute inset-x-2 bottom-2 flex items-end justify-between gap-2 sm:inset-x-4 sm:bottom-4">
+                <span className="max-w-[56%] truncate rounded-full border border-white/15 bg-slate-950/85 px-3 py-1 text-[10px] font-medium text-slate-100 backdrop-blur sm:text-xs">
+                  {isThai ? "ภาพตัวอย่างสินค้าในแค็ตตาล็อก" : "Catalog product examples"}
+                </span>
+                <Link
+                  href="#products"
+                  className={`inline-flex min-h-11 shrink-0 items-center justify-center gap-1.5 rounded-full border border-orange-400/40 bg-orange-500 px-3 text-xs font-bold text-white shadow-lg transition hover:bg-orange-600 ${lightFocusClass}`}
+                >
+                  {isThai ? "ดูหมวดสินค้า" : "Explore"}
+                  <ArrowDown className="h-4 w-4" aria-hidden="true" />
+                </Link>
+              </div>
             </div>
           </div>
         </div>
