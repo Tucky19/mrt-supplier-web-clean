@@ -36,7 +36,7 @@ export default function ProductGrid({
 
   if (!products.length) {
     return (
-      <section id="products" className="mrt-blueprint-section-strong border-t border-[var(--color-border)]">
+      <section id="products" className="mrt-blueprint-section-strong scroll-mt-20 border-t border-[var(--color-border)]">
         <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 sm:py-14 lg:px-8">
           <h2 className="text-2xl font-semibold tracking-tight text-[var(--color-text)]">
             {text.title}
@@ -48,7 +48,7 @@ export default function ProductGrid({
   }
 
   return (
-    <section id="products" className="mrt-blueprint-section-strong border-t border-[var(--color-border)]">
+    <section id="products" className="mrt-blueprint-section-strong scroll-mt-20 border-t border-[var(--color-border)]">
       <div className="mx-auto max-w-7xl px-4 py-9 sm:px-6 sm:py-14 lg:px-8">
         <div className="max-w-2xl">
           <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[var(--color-text-muted)] sm:text-sm">
@@ -68,7 +68,7 @@ export default function ProductGrid({
               key={product.id}
               className={`flex h-full min-w-0 flex-col overflow-hidden rounded-[var(--mrt-radius-lg)] border border-[var(--color-border)] bg-[var(--color-surface)] shadow-[var(--shadow-sm)] transition hover:-translate-y-0.5 hover:border-[var(--color-border-strong)] hover:shadow-[var(--shadow-md)] ${products.length % 2 === 1 && index === products.length - 1 ? "col-span-2 max-sm:flex-row sm:col-span-1" : ""}`}
             >
-              <div className={`relative h-32 border-b border-[var(--color-border)] bg-[var(--color-surface)] sm:h-44 xl:h-40 ${products.length % 2 === 1 && index === products.length - 1 ? "max-sm:h-auto max-sm:min-h-36 max-sm:w-[42%] max-sm:flex-none max-sm:border-r max-sm:border-b-0" : ""}`}>
+              <div className={`relative h-32 border-b border-[var(--color-border)] bg-[var(--color-surface)] sm:h-44 xl:h-40 ${products.length % 2 === 1 && index === products.length - 1 ? "max-sm:h-auto max-sm:min-h-[144px] max-sm:w-[42%] max-sm:flex-none max-sm:border-r max-sm:border-b-0" : ""}`}>
                 <Image
                   src={product.image}
                   alt={isThai ? product.subtitle?.th || product.title.th : product.title.en}
