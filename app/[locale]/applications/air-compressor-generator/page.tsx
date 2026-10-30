@@ -1,3 +1,4 @@
+import customerTheme from "@/components/layout/CustomerTheme.module.css";
 import type { Metadata } from "next";
 import Link from "next/link";
 import {
@@ -150,7 +151,7 @@ export default async function AirCompressorGeneratorPage({
   const text = getCopy(locale);
 
   return (
-    <main className="mrt-blueprint-shell min-h-screen bg-[var(--color-canvas)] text-[var(--color-text)]">
+    <main className={`${customerTheme.customer} ${customerTheme.inner} mrt-blueprint-shell min-h-screen bg-[var(--color-canvas)] text-[var(--color-text)]`}>
       <SiteHeader locale={locale} />
 
       <section className="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-14">

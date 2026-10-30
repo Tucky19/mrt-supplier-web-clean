@@ -17,7 +17,7 @@ type Props = {
   homepage?: boolean;
 };
 
-export default function SiteHeader({ locale, homepage = false }: Props) {
+export default function SiteHeader({ locale }: Props) {
   const [scrolled, setScrolled] = useState(false);
   const { ready, totalItems } = useQuote();
   const pathname = usePathname();
@@ -72,7 +72,7 @@ export default function SiteHeader({ locale, homepage = false }: Props) {
     { href: `/${locale}`, label: text.home },
     { href: `/${locale}/products`, label: text.products },
     { href: `/${locale}/brands`, label: text.brands },
-    ...(homepage ? [{ href: `/${locale}#knowledge`, label: text.articles }] : []),
+    { href: `/${locale}#knowledge`, label: text.articles },
     { href: `/${locale}/feedback`, label: text.feedback },
     { href: `/${locale}/contact`, label: text.contact },
     { href: `/${locale}/quote`, label: text.requestQuote },
@@ -114,32 +114,30 @@ export default function SiteHeader({ locale, homepage = false }: Props) {
         </Link>
 
         <nav className="hidden items-center gap-6 text-sm font-medium md:flex">
-          {!homepage && <Link
-            href={`/${locale}`}
-            className={`rounded-[var(--mrt-radius-md)] text-[var(--color-text)] hover:text-[var(--color-primary-hover)] ${lightFocusClass}`}
-          >
-            {text.home}
-          </Link>}
           <Link
             href={`/${locale}/products`}
+            aria-current={pathname?.startsWith(`/${locale}/products`) ? 'page' : undefined}
             className={`rounded-[var(--mrt-radius-md)] text-[var(--color-text)] hover:text-[var(--color-primary-hover)] ${lightFocusClass}`}
           >
             {text.products}
           </Link>
           <Link
             href={`/${locale}/brands`}
+            aria-current={pathname === `/${locale}/brands` ? 'page' : undefined}
             className={`rounded-[var(--mrt-radius-md)] text-[var(--color-text)] hover:text-[var(--color-primary-hover)] ${lightFocusClass}`}
           >
             {text.brands}
           </Link>
           <Link
-            href={homepage ? `/${locale}#knowledge` : `/${locale}/feedback`}
+            href={`/${locale}#knowledge`}
+            aria-current={pathname?.startsWith(`/${locale}/articles`) ? 'page' : undefined}
             className={`rounded-[var(--mrt-radius-md)] text-[var(--color-text)] hover:text-[var(--color-primary-hover)] ${lightFocusClass}`}
           >
-            {homepage ? text.articles : text.feedback}
+            {text.articles}
           </Link>
           <Link
             href={`/${locale}/contact`}
+            aria-current={pathname === `/${locale}/contact` ? 'page' : undefined}
             className={`rounded-[var(--mrt-radius-md)] text-[var(--color-text)] hover:text-[var(--color-primary-hover)] ${lightFocusClass}`}
           >
             {text.contact}

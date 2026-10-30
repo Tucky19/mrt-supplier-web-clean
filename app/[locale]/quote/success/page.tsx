@@ -1,3 +1,4 @@
+import customerTheme from "@/components/layout/CustomerTheme.module.css";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Suspense } from "react";
@@ -38,7 +39,7 @@ export default async function QuoteSuccessPage({
   const lineFailed = line === "0" || failures.includes("line_notify");
 
   return (
-    <main className="mrt-blueprint-shell min-h-screen bg-[var(--color-canvas)] text-[var(--color-text)]">
+    <main className={`${customerTheme.customer} ${customerTheme.inner} mrt-blueprint-shell min-h-screen bg-[var(--color-canvas)] text-[var(--color-text)]`}>
       <Suspense fallback={null}>
         <RFQSuccessDataLayer locale={locale} />
       </Suspense>

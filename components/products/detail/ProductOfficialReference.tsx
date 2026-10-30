@@ -16,7 +16,7 @@ export default function ProductOfficialReference({
   if (!officialUrl) return null;
 
   return (
-    <div className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm">
+    <div className="rounded-[var(--mrt-radius-lg)] border border-slate-200 bg-white p-5 shadow-sm">
       <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-500">
         {locale === "th" ? "ข้อมูลสินค้าทางการ" : "Official Product Information"}
       </p>
