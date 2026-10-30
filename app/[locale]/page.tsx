@@ -177,7 +177,7 @@ export default async function Page({
 
   const workflowSteps = [
     { step: "01", title: isThai ? "ค้นหาสินค้า" : "Search products", description: isThai ? "ค้นด้วย Part Number หรือรายละเอียดสินค้า" : "Search by part number or product details." },
-    { step: "02", title: isThai ? "เพิ่มรายการขอใบเสนอราคา" : "Add items to your RFQ", description: isThai ? "รวบรวมสินค้าที่ต้องการไว้ในรายการเดียว" : "Collect the products you need in one list." },
+    { step: "02", title: isThai ? "เพิ่มสินค้าลงในรายการ RFQ" : "Add items to your RFQ", description: isThai ? "รวบรวมสินค้าที่ต้องการไว้ในรายการเดียว" : "Collect the products you need in one list." },
     { step: "03", title: isThai ? "ส่งคำขอใบเสนอราคา (RFQ)" : "Submit a Request for Quotation", description: isThai ? "ส่งรายการให้ทีม MRT ตรวจสอบและติดตาม" : "Send your list to MRT for review and follow-up." },
   ];
 
