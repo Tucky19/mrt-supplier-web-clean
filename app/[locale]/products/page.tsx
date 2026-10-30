@@ -223,8 +223,8 @@ export default async function ProductsPage({
 
           <p className="mt-2 max-w-2xl text-sm leading-6 text-[var(--color-text-muted)] sm:text-base">
             {isThai
-              ? "ค้นหาด้วย Part No., Cross Reference, OEM หรือแบรนด์และ Model เครื่องจักร"
-              : "Search by part number, cross-reference, OEM, or machine brand and model."}
+              ? "ค้นหาด้วย Part No., OEM หรือ Cross Reference หากมีเพียงรุ่นเครื่องจักร ให้ส่งข้อมูลให้ทีมช่วยตรวจสอบ"
+              : "Search by part number, OEM, or cross reference. Have only a machine model? Send the details to our team for review."}
           </p>
 
           <div className="-mx-4 sticky top-[64px] z-40 mt-5 border-y border-[var(--color-border)] bg-[var(--color-surface)] px-4 py-2.5 backdrop-blur md:static md:z-auto md:mx-0 md:border-y-0 md:bg-transparent md:px-0 md:py-0 md:backdrop-blur-0">
