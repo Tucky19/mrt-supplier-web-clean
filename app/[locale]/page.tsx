@@ -214,7 +214,7 @@ export default async function Page({
         </div>
       </section>
 
-      <section className={styles.knowledge}>
+      <section id="knowledge" className={`${styles.knowledge} scroll-mt-20`}>
         <div className="mx-auto grid max-w-7xl gap-7 px-4 py-12 sm:px-6 sm:py-16 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:items-center lg:gap-12 lg:px-8">
           <div className="max-w-lg">
             <p className="text-xs font-bold uppercase tracking-[0.18em] text-orange-600">
