@@ -121,8 +121,8 @@ export default function SearchBar({
   const text = getSearchUiText(locale);
   const searchPlaceholder =
     locale === "th"
-      ? "ใส่ Part No., OEM หรือ Model เครื่องจักร"
-      : "Enter a part number, OEM, or machine model";
+      ? "ใส่ Part No., OEM หรือ Cross Reference"
+      : "Enter part number, OEM, or cross reference";
 
   const [draftQuery, setDraftQuery] = useState(defaultValue);
   const [isFocused, setIsFocused] = useState(false);
