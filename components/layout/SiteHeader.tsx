@@ -188,6 +188,10 @@ export default function SiteHeader({ locale, homepage = false }: Props) {
                   <Link
                     key={item.href}
                     href={item.href}
+                    onClick={(event) => {
+                      const menu = event.currentTarget.closest('details');
+                      if (menu) menu.open = false;
+                    }}
                     className={`flex min-h-11 items-center whitespace-nowrap rounded-[var(--mrt-radius-md)] px-3 py-2 text-sm font-medium text-[var(--color-text-muted)] transition hover:bg-[var(--color-surface-muted)] hover:text-[var(--color-primary-hover)] ${lightFocusClass}`}
                   >
                     {item.label}
