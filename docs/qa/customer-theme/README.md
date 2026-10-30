@@ -51,6 +51,8 @@ Run `capture.cjs before|after`, `smoke.cjs`, and `compare.cjs` from the checkout
 
 ## Recommendations
 
+Local environment finding: the repository's `prisma/schema.prisma` has `SearchEvent.eventId`, but the generated Prisma client resolved from the parent workspace does not. This explains the observed local `Unknown argument eventId` logging error. It is evidence of a local generated-client mismatch, not evidence of a production database failure or a regression from these style changes. No client regeneration, migration, database operation or tracking change was made; investigate that environment separately before proposing any data-layer correction.
+
 1. Review and approve the shared foundation first, then require new public UI to use its tokens instead of adding page-specific colors/radii. Keep red/amber/green status colors semantic.
 2. In a separately scoped Search UX task (#180), review duplicated search guidance and advanced/multi-part controls on mobile. Do not mix search behavior changes into this styling patch.
 3. Before any production release, review a protected Preview with representative long product names and larger RFQ lists, and verify that commercial availability/response-time wording matches actual business policy. Such copy/data or behavioral changes need a concrete impact explanation before implementation.
