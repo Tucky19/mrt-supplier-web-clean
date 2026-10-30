@@ -1,0 +1,428 @@
+[
+  {
+    "name": "home",
+    "status": 200,
+    "url": "http://localhost:3100/th/",
+    "width": 1440,
+    "overflow": false,
+    "font": "\"MRT Noto Thai\", \"Segoe UI\", sans-serif",
+    "headerHeight": 70,
+    "nav": [
+      {
+        "text": "สินค้า",
+        "current": null
+      },
+      {
+        "text": "แบรนด์สินค้า",
+        "current": null
+      },
+      {
+        "text": "บทความ",
+        "current": null
+      },
+      {
+        "text": "ติดต่อเรา",
+        "current": null
+      }
+    ]
+  },
+  {
+    "name": "products",
+    "status": 200,
+    "url": "http://localhost:3100/th/products?q=P551864",
+    "width": 1440,
+    "overflow": false,
+    "font": "\"Noto Sans Thai\", Inter, \"Segoe UI\", Tahoma, Geneva, Verdana, sans-serif",
+    "headerHeight": 74.203125,
+    "nav": [
+      {
+        "text": "หน้าแรก",
+        "current": null
+      },
+      {
+        "text": "สินค้า",
+        "current": null
+      },
+      {
+        "text": "แบรนด์สินค้า",
+        "current": null
+      },
+      {
+        "text": "ติชมการใช้งาน",
+        "current": null
+      },
+      {
+        "text": "ติดต่อเรา",
+        "current": null
+      }
+    ]
+  },
+  {
+    "name": "brands",
+    "status": 200,
+    "url": "http://localhost:3100/th/brands",
+    "width": 1440,
+    "overflow": false,
+    "font": "\"Noto Sans Thai\", Inter, \"Segoe UI\", Tahoma, Geneva, Verdana, sans-serif",
+    "headerHeight": 74.203125,
+    "nav": [
+      {
+        "text": "หน้าแรก",
+        "current": null
+      },
+      {
+        "text": "สินค้า",
+        "current": null
+      },
+      {
+        "text": "แบรนด์สินค้า",
+        "current": null
+      },
+      {
+        "text": "ติชมการใช้งาน",
+        "current": null
+      },
+      {
+        "text": "ติดต่อเรา",
+        "current": null
+      }
+    ]
+  },
+  {
+    "name": "detail",
+    "status": 200,
+    "url": "http://localhost:3100/th/products/P551864",
+    "width": 1440,
+    "overflow": false,
+    "font": "\"Noto Sans Thai\", Inter, \"Segoe UI\", Tahoma, Geneva, Verdana, sans-serif",
+    "headerHeight": 74.203125,
+    "nav": [
+      {
+        "text": "หน้าแรก",
+        "current": null
+      },
+      {
+        "text": "สินค้า",
+        "current": null
+      },
+      {
+        "text": "แบรนด์สินค้า",
+        "current": null
+      },
+      {
+        "text": "ติชมการใช้งาน",
+        "current": null
+      },
+      {
+        "text": "ติดต่อเรา",
+        "current": null
+      }
+    ]
+  },
+  {
+    "name": "rfq",
+    "status": 200,
+    "url": "http://localhost:3100/th/quote",
+    "width": 1440,
+    "overflow": false,
+    "font": "\"Noto Sans Thai\", Inter, \"Segoe UI\", Tahoma, Geneva, Verdana, sans-serif",
+    "headerHeight": 74.203125,
+    "nav": [
+      {
+        "text": "หน้าแรก",
+        "current": null
+      },
+      {
+        "text": "สินค้า",
+        "current": null
+      },
+      {
+        "text": "แบรนด์สินค้า",
+        "current": null
+      },
+      {
+        "text": "ติชมการใช้งาน",
+        "current": null
+      },
+      {
+        "text": "ติดต่อเรา",
+        "current": null
+      }
+    ]
+  },
+  {
+    "name": "contact",
+    "status": 200,
+    "url": "http://localhost:3100/th/contact",
+    "width": 1440,
+    "overflow": false,
+    "font": "\"Noto Sans Thai\", Inter, \"Segoe UI\", Tahoma, Geneva, Verdana, sans-serif",
+    "headerHeight": 74.203125,
+    "nav": [
+      {
+        "text": "หน้าแรก",
+        "current": null
+      },
+      {
+        "text": "สินค้า",
+        "current": null
+      },
+      {
+        "text": "แบรนด์สินค้า",
+        "current": null
+      },
+      {
+        "text": "ติชมการใช้งาน",
+        "current": null
+      },
+      {
+        "text": "ติดต่อเรา",
+        "current": null
+      }
+    ]
+  },
+  {
+    "name": "article",
+    "status": 200,
+    "url": "http://localhost:3100/th/articles/industrial-filter-selection-guide",
+    "width": 1440,
+    "overflow": false,
+    "font": "\"Noto Sans Thai\", Inter, \"Segoe UI\", Tahoma, Geneva, Verdana, sans-serif",
+    "headerHeight": 74.203125,
+    "nav": [
+      {
+        "text": "หน้าแรก",
+        "current": null
+      },
+      {
+        "text": "สินค้า",
+        "current": null
+      },
+      {
+        "text": "แบรนด์สินค้า",
+        "current": null
+      },
+      {
+        "text": "ติชมการใช้งาน",
+        "current": null
+      },
+      {
+        "text": "ติดต่อเรา",
+        "current": null
+      }
+    ]
+  },
+  {
+    "name": "home",
+    "status": 200,
+    "url": "http://localhost:3100/th/",
+    "width": 390,
+    "overflow": false,
+    "font": "\"MRT Noto Thai\", \"Segoe UI\", sans-serif",
+    "headerHeight": 62,
+    "nav": [
+      {
+        "text": "สินค้า",
+        "current": null
+      },
+      {
+        "text": "แบรนด์สินค้า",
+        "current": null
+      },
+      {
+        "text": "บทความ",
+        "current": null
+      },
+      {
+        "text": "ติดต่อเรา",
+        "current": null
+      }
+    ]
+  },
+  {
+    "name": "products",
+    "status": 200,
+    "url": "http://localhost:3100/th/products?q=P551864",
+    "width": 390,
+    "overflow": false,
+    "font": "\"Noto Sans Thai\", Inter, \"Segoe UI\", Tahoma, Geneva, Verdana, sans-serif",
+    "headerHeight": 78,
+    "nav": [
+      {
+        "text": "หน้าแรก",
+        "current": null
+      },
+      {
+        "text": "สินค้า",
+        "current": null
+      },
+      {
+        "text": "แบรนด์สินค้า",
+        "current": null
+      },
+      {
+        "text": "ติชมการใช้งาน",
+        "current": null
+      },
+      {
+        "text": "ติดต่อเรา",
+        "current": null
+      }
+    ]
+  },
+  {
+    "name": "brands",
+    "status": 200,
+    "url": "http://localhost:3100/th/brands",
+    "width": 390,
+    "overflow": false,
+    "font": "\"Noto Sans Thai\", Inter, \"Segoe UI\", Tahoma, Geneva, Verdana, sans-serif",
+    "headerHeight": 78,
+    "nav": [
+      {
+        "text": "หน้าแรก",
+        "current": null
+      },
+      {
+        "text": "สินค้า",
+        "current": null
+      },
+      {
+        "text": "แบรนด์สินค้า",
+        "current": null
+      },
+      {
+        "text": "ติชมการใช้งาน",
+        "current": null
+      },
+      {
+        "text": "ติดต่อเรา",
+        "current": null
+      }
+    ]
+  },
+  {
+    "name": "detail",
+    "status": 200,
+    "url": "http://localhost:3100/th/products/P551864",
+    "width": 390,
+    "overflow": false,
+    "font": "\"Noto Sans Thai\", Inter, \"Segoe UI\", Tahoma, Geneva, Verdana, sans-serif",
+    "headerHeight": 78,
+    "nav": [
+      {
+        "text": "หน้าแรก",
+        "current": null
+      },
+      {
+        "text": "สินค้า",
+        "current": null
+      },
+      {
+        "text": "แบรนด์สินค้า",
+        "current": null
+      },
+      {
+        "text": "ติชมการใช้งาน",
+        "current": null
+      },
+      {
+        "text": "ติดต่อเรา",
+        "current": null
+      }
+    ]
+  },
+  {
+    "name": "rfq",
+    "status": 200,
+    "url": "http://localhost:3100/th/quote",
+    "width": 390,
+    "overflow": false,
+    "font": "\"Noto Sans Thai\", Inter, \"Segoe UI\", Tahoma, Geneva, Verdana, sans-serif",
+    "headerHeight": 78,
+    "nav": [
+      {
+        "text": "หน้าแรก",
+        "current": null
+      },
+      {
+        "text": "สินค้า",
+        "current": null
+      },
+      {
+        "text": "แบรนด์สินค้า",
+        "current": null
+      },
+      {
+        "text": "ติชมการใช้งาน",
+        "current": null
+      },
+      {
+        "text": "ติดต่อเรา",
+        "current": null
+      }
+    ]
+  },
+  {
+    "name": "contact",
+    "status": 200,
+    "url": "http://localhost:3100/th/contact",
+    "width": 390,
+    "overflow": false,
+    "font": "\"Noto Sans Thai\", Inter, \"Segoe UI\", Tahoma, Geneva, Verdana, sans-serif",
+    "headerHeight": 78,
+    "nav": [
+      {
+        "text": "หน้าแรก",
+        "current": null
+      },
+      {
+        "text": "สินค้า",
+        "current": null
+      },
+      {
+        "text": "แบรนด์สินค้า",
+        "current": null
+      },
+      {
+        "text": "ติชมการใช้งาน",
+        "current": null
+      },
+      {
+        "text": "ติดต่อเรา",
+        "current": null
+      }
+    ]
+  },
+  {
+    "name": "article",
+    "status": 200,
+    "url": "http://localhost:3100/th/articles/industrial-filter-selection-guide",
+    "width": 390,
+    "overflow": false,
+    "font": "\"Noto Sans Thai\", Inter, \"Segoe UI\", Tahoma, Geneva, Verdana, sans-serif",
+    "headerHeight": 78,
+    "nav": [
+      {
+        "text": "หน้าแรก",
+        "current": null
+      },
+      {
+        "text": "สินค้า",
+        "current": null
+      },
+      {
+        "text": "แบรนด์สินค้า",
+        "current": null
+      },
+      {
+        "text": "ติชมการใช้งาน",
+        "current": null
+      },
+      {
+        "text": "ติดต่อเรา",
+        "current": null
+      }
+    ]
+  }
+]
