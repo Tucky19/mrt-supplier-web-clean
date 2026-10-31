@@ -1,0 +1,82 @@
+[
+  {
+    "route": "products?q=P551864",
+    "width": 360,
+    "overflow": false
+  },
+  {
+    "route": "brands",
+    "width": 360,
+    "overflow": false
+  },
+  {
+    "route": "products/P551864",
+    "width": 360,
+    "overflow": false
+  },
+  {
+    "route": "quote",
+    "width": 360,
+    "overflow": false
+  },
+  {
+    "route": "products?q=P551864",
+    "width": 430,
+    "overflow": false
+  },
+  {
+    "route": "brands",
+    "width": 430,
+    "overflow": false
+  },
+  {
+    "route": "products/P551864",
+    "width": 430,
+    "overflow": false
+  },
+  {
+    "route": "quote",
+    "width": 430,
+    "overflow": false
+  },
+  {
+    "route": "products?q=P551864",
+    "width": 768,
+    "overflow": false
+  },
+  {
+    "route": "brands",
+    "width": 768,
+    "overflow": false
+  },
+  {
+    "route": "products/P551864",
+    "width": 768,
+    "overflow": false
+  },
+  {
+    "route": "quote",
+    "width": 768,
+    "overflow": false
+  },
+  {
+    "route": "products?q=P551864",
+    "width": 1024,
+    "overflow": false
+  },
+  {
+    "route": "brands",
+    "width": 1024,
+    "overflow": false
+  },
+  {
+    "route": "products/P551864",
+    "width": 1024,
+    "overflow": false
+  },
+  {
+    "route": "quote",
+    "width": 1024,
+    "overflow": false
+  }
+]

@@ -8,7 +8,7 @@ export default function ProductCatalogApplications({ entries, locale, partNo }: 
   if (!entries?.length) return null;
   const text = getProductUiText(locale);
   return (
-    <section className="mt-6 rounded-2xl border border-slate-300 bg-white p-5">
+    <section className="mt-6 rounded-[var(--mrt-radius-lg)] border border-slate-300 bg-white p-5">
       <h2 className="text-lg font-semibold text-slate-950">{text.catalogApplications}</h2>
       <ApplicationReferenceNote locale={locale} />
       <p className="mt-2 text-xs text-slate-500">{entries[0].source}</p>

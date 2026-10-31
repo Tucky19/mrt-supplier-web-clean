@@ -1,3 +1,4 @@
+import customerTheme from "@/components/layout/CustomerTheme.module.css";
 import type { Metadata } from "next";
 import SiteFooter from "@/components/layout/SiteFooter";
 import SiteHeader from "@/components/layout/SiteHeader";
@@ -76,7 +77,7 @@ export default async function PrivacyPage({ params }: PageProps) {
       ];
 
   return (
-    <main className="mrt-blueprint-shell min-h-screen bg-[var(--color-canvas)] text-[var(--color-text)]">
+    <main className={`${customerTheme.customer} ${customerTheme.inner} mrt-blueprint-shell min-h-screen bg-[var(--color-canvas)] text-[var(--color-text)]`}>
       <SiteHeader locale={locale} />
       <section className="mx-auto max-w-4xl px-4 py-10 sm:px-6 sm:py-14">
         <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[var(--color-primary)]">

@@ -1,5 +1,7 @@
 'use client';
 
+import customerTheme from "@/components/layout/CustomerTheme.module.css";
+
 import Link from 'next/link';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { useParams, useSearchParams } from 'next/navigation';
@@ -328,7 +330,7 @@ export default function QuotePage() {
   };
 
   return (
-    <div className="mrt-blueprint-shell flex min-h-screen flex-col bg-[var(--color-canvas)] text-[var(--color-text)]">
+    <div className={`${customerTheme.customer} ${customerTheme.inner} mrt-blueprint-shell flex min-h-screen flex-col bg-[var(--color-canvas)] text-[var(--color-text)]`}>
       <SiteHeader locale={locale} />
       <main className="flex-1 pb-[calc(6rem+env(safe-area-inset-bottom))] md:pb-0">
         <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8">

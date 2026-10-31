@@ -1,3 +1,4 @@
+import customerTheme from "@/components/layout/CustomerTheme.module.css";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowLeft, FileText, Search } from "lucide-react";
@@ -251,7 +252,7 @@ export default async function ApplicationDetailPage({
   const copy = getApplicationCopy(slug, locale);
 
   return (
-    <main className="mrt-blueprint-shell min-h-screen bg-[var(--color-canvas)] text-[var(--color-text)]">
+    <main className={`${customerTheme.customer} ${customerTheme.inner} mrt-blueprint-shell min-h-screen bg-[var(--color-canvas)] text-[var(--color-text)]`}>
       <SiteHeader locale={locale} />
 
       <section className="mx-auto max-w-5xl px-4 py-10 sm:px-6 sm:py-14">

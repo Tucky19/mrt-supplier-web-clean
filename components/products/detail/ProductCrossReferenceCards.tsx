@@ -201,7 +201,7 @@ export default function ProductCrossReferenceCards({
 
   if (rows.length === 0) {
     return (
-      <div className="rounded-[20px] border border-dashed border-slate-300 bg-white px-4 py-4 shadow-[0_8px_22px_rgba(15,23,42,0.04)] sm:px-5">
+      <div className="rounded-[var(--mrt-radius-lg)] border border-dashed border-slate-300 bg-white px-4 py-4 shadow-[0_8px_22px_rgba(15,23,42,0.04)] sm:px-5">
         <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
           <div>
             <h2 className="text-base font-semibold text-slate-950">
@@ -227,7 +227,7 @@ export default function ProductCrossReferenceCards({
 
   return (
     <div className="space-y-3">
-      <div className="overflow-hidden rounded-[28px] border border-slate-300 bg-white shadow-[0_12px_30px_rgba(15,23,42,0.05)]">
+      <div className="overflow-hidden rounded-[var(--mrt-radius-lg)] border border-slate-300 bg-white shadow-[0_12px_30px_rgba(15,23,42,0.05)]">
         <div className="h-1 w-full bg-[linear-gradient(90deg,#cbdff7_0%,#dceafc_55%,#eef5ff_100%)]" />
         <div className="border-b border-slate-200 bg-[linear-gradient(180deg,#f8fbff_0%,#ffffff_100%)] px-5 py-4 sm:px-6">
           {!isThai ? (
@@ -252,7 +252,7 @@ export default function ProductCrossReferenceCards({
         </div>
 
         <div className="px-5 py-4 sm:px-6">
-          <div className="overflow-hidden rounded-[22px] border border-slate-200 bg-slate-50/40">
+          <div className="overflow-hidden rounded-[var(--mrt-radius-lg)] border border-slate-200 bg-slate-50/40">
             <div className="min-w-0">
               <div
                 className="grid grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] border-b border-slate-200 bg-slate-100/90 sm:grid-cols-[minmax(200px,0.95fr)_minmax(220px,1.05fr)]"
@@ -294,7 +294,7 @@ export default function ProductCrossReferenceCards({
         </div>
       </div>
 
-      <div className="rounded-[20px] border border-slate-200 bg-slate-50/85 px-4 py-3 text-sm leading-6 text-slate-600">
+      <div className="rounded-[var(--mrt-radius-lg)] border border-slate-200 bg-slate-50/85 px-4 py-3 text-sm leading-6 text-slate-600">
         {isThai
           ? "ข้อมูล Cross Reference ใช้เพื่อประกอบการตรวจสอบ กรุณาตรวจสอบรุ่น สเปก ขนาด เกลียว และการใช้งานก่อนสั่งซื้อ"
           : "Reference information is provided for review. Verify the model, specifications, dimensions, thread, and application before ordering."}
