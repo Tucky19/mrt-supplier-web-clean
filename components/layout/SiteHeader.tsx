@@ -8,15 +8,16 @@ import { MessageCircle } from 'lucide-react';
 import TrackedLineLink from '@/components/analytics/TrackedLineLink';
 import { useQuote } from '@/providers/QuoteProvider';
 
-const LINE_URL = 'https://lin.ee/S676yYH';
+const LINE_URL = 'https://lin.ee/PsQGAuu';
 const lightFocusClass =
   'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-surface)]';
 
 type Props = {
   locale: string;
+  homepage?: boolean;
 };
 
-export default function SiteHeader({ locale }: Props) {
+export default function SiteHeader({ locale, homepage = false }: Props) {
   const [scrolled, setScrolled] = useState(false);
   const { ready, totalItems } = useQuote();
   const pathname = usePathname();
@@ -32,6 +33,7 @@ export default function SiteHeader({ locale }: Props) {
     products: isThai ? '\u0e2a\u0e34\u0e19\u0e04\u0e49\u0e32' : 'Products',
     brands: isThai ? '\u0e41\u0e1a\u0e23\u0e19\u0e14\u0e4c\u0e2a\u0e34\u0e19\u0e04\u0e49\u0e32' : 'Brands',
     feedback: isThai ? 'ติชมการใช้งาน' : 'Feedback',
+    articles: isThai ? 'บทความ' : 'Articles',
     contact: isThai ? '\u0e15\u0e34\u0e14\u0e15\u0e48\u0e2d\u0e40\u0e23\u0e32' : 'Contact',
     requestQuote: isThai
       ? '\u0e02\u0e2d\u0e43\u0e1a\u0e40\u0e2a\u0e19\u0e2d\u0e23\u0e32\u0e04\u0e32'
@@ -70,6 +72,7 @@ export default function SiteHeader({ locale }: Props) {
     { href: `/${locale}`, label: text.home },
     { href: `/${locale}/products`, label: text.products },
     { href: `/${locale}/brands`, label: text.brands },
+    ...(homepage ? [{ href: `/${locale}#knowledge`, label: text.articles }] : []),
     { href: `/${locale}/feedback`, label: text.feedback },
     { href: `/${locale}/contact`, label: text.contact },
     { href: `/${locale}/quote`, label: text.requestQuote },
@@ -111,12 +114,12 @@ export default function SiteHeader({ locale }: Props) {
         </Link>
 
         <nav className="hidden items-center gap-6 text-sm font-medium md:flex">
-          <Link
+          {!homepage && <Link
             href={`/${locale}`}
             className={`rounded-[var(--mrt-radius-md)] text-[var(--color-text)] hover:text-[var(--color-primary-hover)] ${lightFocusClass}`}
           >
             {text.home}
-          </Link>
+          </Link>}
           <Link
             href={`/${locale}/products`}
             className={`rounded-[var(--mrt-radius-md)] text-[var(--color-text)] hover:text-[var(--color-primary-hover)] ${lightFocusClass}`}
@@ -130,10 +133,10 @@ export default function SiteHeader({ locale }: Props) {
             {text.brands}
           </Link>
           <Link
-            href={`/${locale}/feedback`}
+            href={homepage ? `/${locale}#knowledge` : `/${locale}/feedback`}
             className={`rounded-[var(--mrt-radius-md)] text-[var(--color-text)] hover:text-[var(--color-primary-hover)] ${lightFocusClass}`}
           >
-            {text.feedback}
+            {homepage ? text.articles : text.feedback}
           </Link>
           <Link
             href={`/${locale}/contact`}
@@ -185,6 +188,10 @@ export default function SiteHeader({ locale }: Props) {
                   <Link
                     key={item.href}
                     href={item.href}
+                    onClick={(event) => {
+                      const menu = event.currentTarget.closest('details');
+                      if (menu) menu.open = false;
+                    }}
                     className={`flex min-h-11 items-center whitespace-nowrap rounded-[var(--mrt-radius-md)] px-3 py-2 text-sm font-medium text-[var(--color-text-muted)] transition hover:bg-[var(--color-surface-muted)] hover:text-[var(--color-primary-hover)] ${lightFocusClass}`}
                   >
                     {item.label}

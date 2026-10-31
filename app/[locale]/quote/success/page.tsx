@@ -133,7 +133,7 @@ export default async function QuoteSuccessPage({
             </Link>
 
             <a
-              href="https://lin.ee/S676yYH"
+              href="https://lin.ee/PsQGAuu"
               target="_blank"
               rel="noopener noreferrer"
               className="rounded-full border border-[var(--color-success-text)] bg-[var(--color-success-soft)] px-5 py-3 text-sm font-medium text-[var(--color-success-text)] transition hover:bg-[var(--color-surface)] focus-visible:[outline:2px_solid_var(--color-focus-ring)] focus-visible:[outline-offset:2px] focus-visible:ring-2 focus-visible:ring-[color:var(--color-focus-ring)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-surface)]"

@@ -4,7 +4,7 @@ import TrackedLineLink from "@/components/analytics/TrackedLineLink";
 import SiteFooter from "@/components/layout/SiteFooter";
 import SiteHeader from "@/components/layout/SiteHeader";
 
-const LINE_URL = "https://lin.ee/S676yYH";
+const LINE_URL = "https://lin.ee/PsQGAuu";
 
 type PageProps = {
   params: Promise<{ locale: string }>;

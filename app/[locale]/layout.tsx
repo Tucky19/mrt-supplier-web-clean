@@ -25,7 +25,7 @@ const organizationJsonLd = {
       availableLanguage: ["Thai", "English"],
     },
   ],
-  sameAs: ["https://lin.ee/S676yYH"],
+  sameAs: ["https://lin.ee/PsQGAuu"],
 };
 
 export default async function LocaleLayout({ children, params }: Props) {

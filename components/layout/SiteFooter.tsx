@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import TrackedLineLink from "@/components/analytics/TrackedLineLink";
 
-const LINE_URL = "https://lin.ee/S676yYH";
+const LINE_URL = "https://lin.ee/PsQGAuu";
 const darkFocusClass =
   "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)] focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950";
 
@@ -53,7 +53,7 @@ export default function SiteFooter({ locale = "th", className = "" }: Props) {
             <Link href={`/${locale}/brands`} className={`block rounded-sm hover:text-white ${darkFocusClass}`}>
               {isThai ? "แบรนด์" : "Brands"}
             </Link>
-            <Link href={`/${locale}#products`} className={`block rounded-sm hover:text-white ${darkFocusClass}`}>
+            <Link href={`/${locale}/products`} className={`block rounded-sm hover:text-white ${darkFocusClass}`}>
               {isThai ? "สินค้า" : "Products"}
             </Link>
             <Link

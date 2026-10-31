@@ -16,7 +16,7 @@ import { getRfqReferenceContexts } from '@/lib/rfq/referenceContext';
 import { BEGIN_CHECKOUT_SESSION_KEY, useQuote } from '@/providers/QuoteProvider';
 
 const RFQ_SUCCESS_STORAGE_KEY = 'mrt_rfq_success_data';
-const LINE_URL = 'https://lin.ee/S676yYH';
+const LINE_URL = 'https://lin.ee/PsQGAuu';
 
 type ContactForm = {
   name: string;

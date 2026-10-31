@@ -4,7 +4,9 @@ import BrandShowcase from "@/components/home/BrandShowcase";
 import ProductGrid from "@/components/home/ProductGrid";
 import QuoteCTASection from "@/components/home/QuoteCTASection";
 import SearchFirstHero from "@/components/home/SearchFirstHero";
-import WhyChooseUsSection from "@/components/home/WhyChooseUsSection";
+import { ClipboardList, Search, Send } from "lucide-react";
+import TrackedLineLink from "@/components/analytics/TrackedLineLink";
+import styles from "@/components/home/Homepage.module.css";
 import SiteFooter from "@/components/layout/SiteFooter";
 import SiteHeader from "@/components/layout/SiteHeader";
 import JsonLd from "@/components/seo/JsonLd";
@@ -30,11 +32,11 @@ export async function generateMetadata({
   const { locale } = await params;
   const isThai = locale === "th";
   const title = isThai
-    ? "MRT Supplier | จัดหาไส้กรอง ลูกปืน และอะไหล่อุตสาหกรรม"
-    : "MRT Supplier | Filters, Bearings & Industrial Spare Parts RFQ";
+    ? "MRT Supplier | หาอะไหล่อุตสาหกรรม ไส้กรอง ลูกปืน และ RFQ"
+    : "MRT Supplier | Industrial Parts, Filters, Bearings & RFQ";
   const description = isThai
-    ? "MRT Supplier Co., Ltd. ช่วยจัดหาไส้กรอง ลูกปืน และอะไหล่อุตสาหกรรมสำหรับงาน B2B ค้นหาด้วย Part No., Cross Reference และส่ง RFQ ให้ทีมตรวจสอบ"
-    : "MRT Supplier Co., Ltd. sources filters, bearings, and industrial spare parts for B2B teams. Search by Part No. or Cross Reference and submit an RFQ for review.";
+    ? "MRT Supplier ช่วยโรงงาน ผู้ใช้ปลายทาง ช่างซ่อมบำรุง และร้านค้าค้นหาไส้กรอง ลูกปืน และอะไหล่อุตสาหกรรมด้วย Part No. / Cross Reference พร้อมส่ง RFQ ให้ทีมตรวจสอบ"
+    : "MRT Supplier helps factories, end users, maintenance teams, and resellers source filters, bearings, and industrial spare parts by Part No. / Cross Reference and submit RFQs for review.";
   const canonical = `${SITE_URL}/${locale}`;
 
   return {
@@ -78,6 +80,7 @@ export default async function Page({
       },
     ],
   };
+
   const featuredBrands = [
     {
       key: "donaldson",
@@ -98,25 +101,8 @@ export default async function Page({
 
   const productCategories = [
     {
-      id: "hydraulic-filters",
-      image: "/filter-oil-01.jpg",
-      href: `/${locale}/products?q=hydraulic%20filter`,
-      title: {
-        th: "Hydraulic Filters",
-        en: "Hydraulic Filters",
-      },
-      subtitle: {
-        th: "ไส้กรองไฮดรอลิก",
-        en: "",
-      },
-      description: {
-        th: "รองรับไส้กรองแบบ Spin-On, Cartridge, Return Line และระบบไฮดรอลิกอุตสาหกรรม",
-        en: "Support for spin-on, cartridge, return line, and industrial hydraulic filtration applications.",
-      },
-    },
-    {
       id: "air-filters",
-      image: "/filter-air-01.jpg",
+      image: "/images/products/donaldson/p181080.jpg",
       href: `/${locale}/products?q=air%20filter`,
       title: {
         th: "Air Filters",
@@ -129,6 +115,45 @@ export default async function Page({
       description: {
         th: "รองรับกรองอากาศลูกนอก ลูกใน และชุดกรองที่ใช้คู่กันสำหรับเครื่องจักรและงานอุตสาหกรรม",
         en: "Primary, safety, and paired air filters for machinery and industrial applications.",
+      },
+    },
+    {
+      id: "oil-filters",
+      image: "/images/products/donaldson/p558615.jpg",
+      href: `/${locale}/products?q=lube%20filter`,
+      title: { th: "Oil Filters", en: "Oil Filters" },
+      subtitle: { th: "ไส้กรองน้ำมันเครื่อง", en: "" },
+      description: {
+        th: "ไส้กรองน้ำมันเครื่องสำหรับเครื่องยนต์และงานซ่อมบำรุง",
+        en: "Engine oil filters for maintenance and industrial applications.",
+      },
+    },
+    {
+      id: "fuel-filters",
+      image: "/images/products/donaldson/p551864.jpg",
+      href: `/${locale}/products?q=fuel%20filter`,
+      title: { th: "Fuel Filters", en: "Fuel Filters" },
+      subtitle: { th: "ไส้กรองเชื้อเพลิง", en: "" },
+      description: {
+        th: "ค้นหาไส้กรองเชื้อเพลิงและกรองแยกน้ำด้วย Part No.",
+        en: "Find fuel filters and fuel/water separators by part number.",
+      },
+    },
+    {
+      id: "hydraulic-filters",
+      image: "/images/products/donaldson/p550148.jpg",
+      href: `/${locale}/products?q=hydraulic%20filter`,
+      title: {
+        th: "Hydraulic Filters",
+        en: "Hydraulic Filters",
+      },
+      subtitle: {
+        th: "ไส้กรองไฮดรอลิก",
+        en: "",
+      },
+      description: {
+        th: "รองรับไส้กรองแบบ Spin-On, Cartridge, Return Line และระบบไฮดรอลิกอุตสาหกรรม",
+        en: "Support for spin-on, cartridge, return line, and industrial hydraulic filtration applications.",
       },
     },
     {
@@ -148,135 +173,103 @@ export default async function Page({
         en: "Industrial bearings for maintenance, machinery, and power transmission applications.",
       },
     },
-    {
-      id: "oil-fuel-oil-separator",
-      image: "/filter-oil-01.jpg",
-      href: `/${locale}/products?q=oil%20separator`,
-      title: {
-        th: "Oil / Fuel / Oil Separator",
-        en: "Oil, Fuel & Oil Separator",
-      },
-      subtitle: {
-        th: "ไส้กรองน้ำมัน เชื้อเพลิง และ Oil Separator",
-        en: "",
-      },
-      description: {
-        th: "รองรับไส้กรองน้ำมัน ไส้กรองเชื้อเพลิง และ Oil Separator สำหรับเครื่องยนต์ เครื่องอัดลม และระบบอุตสาหกรรม",
-        en: "Oil filters, fuel filters, and oil separator elements for engines, compressors, and industrial systems.",
-      },
-    },
   ];
 
   const workflowSteps = [
-    {
-      step: "01",
-      title: isThai ? "ค้นหาด้วย Part No. / Cross Reference" : "Search by Part No. / Cross Reference",
-      description: isThai
-        ? "ค้นหาไส้กรอง ลูกปืน หรืออะไหล่อุตสาหกรรมจาก Part No., Cross Reference, แบรนด์ หรือรายละเอียดที่มี"
-        : "Search filters, bearings, or industrial spare parts by Part No., cross reference, brand, or the details you have.",
-    },
-    {
-      step: "02",
-      title: isThai ? "เพิ่มรายการเข้า RFQ" : "Add items to RFQ",
-      description: isThai
-        ? "เลือกรายการและจำนวนที่ต้องการ หรือส่งรายละเอียดสินค้าที่ยังไม่พบให้ทีมช่วยจัดหา"
-        : "Select items and quantities, or send missing-product details for sourcing support.",
-    },
-    {
-      step: "03",
-      title: isThai ? "ส่ง RFQ และรอทีมติดต่อกลับ" : "Submit RFQ and receive follow-up",
-      description: isThai
-        ? "ส่งข้อมูลติดต่อและรายการ RFQ เพื่อให้ MRT Supplier Co., Ltd. ตรวจสอบราคา สต็อก และทางเลือกที่เหมาะสม"
-        : "Submit contact details and RFQ items so MRT Supplier Co., Ltd. can review price, stock, and suitable alternatives.",
-    },
-  ];
-
-  const customerSegments = [
-    isThai ? "ฝ่ายจัดซื้อโรงงาน" : "Factory purchasing",
-    isThai ? "ทีมซ่อมบำรุง" : "Maintenance teams",
-    isThai ? "จัดหาอะไหล่อุตสาหกรรม" : "Industrial spare parts sourcing",
-    isThai ? "ไส้กรองและลูกปืน" : "Filters and bearings",
+    { step: "01", title: isThai ? "ค้นหาสินค้า" : "Search products", description: isThai ? "ค้นด้วย Part Number หรือรายละเอียดสินค้า" : "Search by part number or product details." },
+    { step: "02", title: isThai ? "เพิ่มสินค้าลงในรายการ RFQ" : "Add items to your RFQ", description: isThai ? "รวบรวมสินค้าที่ต้องการไว้ในรายการเดียว" : "Collect the products you need in one list." },
+    { step: "03", title: isThai ? "ส่งคำขอใบเสนอราคา (RFQ)" : "Submit a Request for Quotation", description: isThai ? "ส่งรายการให้ทีม MRT ตรวจสอบและติดตาม" : "Send your list to MRT for review and follow-up." },
   ];
 
   return (
-    <main className="mrt-blueprint-shell min-h-screen">
+    <main className={styles.page}>
       <JsonLd data={breadcrumbJsonLd} />
-      <SiteHeader locale={locale} />
+      <SiteHeader locale={locale} homepage />
 
-      <SearchFirstHero locale={locale} />
+      <SearchFirstHero locale={locale}>
+        <ProductGrid products={productCategories} locale={locale} />
+      </SearchFirstHero>
 
-      <section className="mrt-blueprint-section border-b border-[var(--color-border)]">
-        <div className="mx-auto grid max-w-7xl gap-8 px-6 py-14 lg:grid-cols-[0.85fr_1.15fr] lg:px-8">
-          <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.14em] text-[var(--color-text-muted)]">
-              {isThai ? "HOW IT WORKS" : "How It Works"}
-            </p>
-            <h2 className="mt-3 text-2xl font-semibold tracking-tight text-[var(--color-text)] sm:text-3xl">
-              {isThai ? "RFQ 3 ขั้นตอนที่ชัดเจน" : "A clear 3-step RFQ workflow"}
-            </h2>
-            <p className="mt-3 text-sm leading-6 text-[var(--color-text-muted)]">
-              {isThai
-                ? "จากเบอร์อะไหล่ไปถึงการติดตามราคา โดยไม่ต้องเปลี่ยนขั้นตอนจัดซื้อเดิมของทีมคุณ"
-                : "From part numbers to quote follow-up without changing your team’s purchasing process."}
-            </p>
-            <p className="mt-3 text-sm leading-6 text-[var(--color-text-muted)]">
-              {isThai
-                ? "ติดต่อผ่าน LINE Official @mrtsupplier เพื่อส่งรูปสินค้า Part No. หรือรายละเอียดเพิ่มเติม"
-                : "Contact LINE Official @mrtsupplier to share photos, Part No., or additional details."}
-            </p>
-            <Link
-              href={`/${locale}/quote`}
-              className={`mt-6 inline-flex min-h-11 items-center justify-center rounded-[var(--mrt-radius-md)] bg-[var(--color-primary)] px-5 py-2.5 text-sm font-semibold text-[var(--color-text-inverse)] transition hover:bg-[var(--color-primary-hover)] ${lightFocusClass}`}
-            >
-              {isThai ? "เริ่ม RFQ" : "Start RFQ"}
-            </Link>
-          </div>
-
-          <div className="grid gap-4 md:grid-cols-3">
-            {workflowSteps.map((item) => (
-              <article key={item.step} className="rounded-[var(--mrt-radius-lg)] border border-[var(--color-border)] bg-[var(--color-surface)] p-5 shadow-[var(--shadow-sm)]">
-                <div className="text-xs font-semibold tracking-[0.14em] text-[var(--color-primary)]">
-                  STEP {item.step}
-                </div>
-                <h3 className="mt-3 text-sm font-semibold leading-6 text-[var(--color-text)]">
-                  {item.title}
-                </h3>
-                <p className="mt-2 text-sm leading-6 text-[var(--color-text-muted)]">
-                  {item.description}
-                </p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="mrt-blueprint-section-strong border-b border-[var(--color-border)]">
-        <div className="mx-auto flex max-w-7xl flex-col gap-6 px-6 py-12 lg:flex-row lg:items-center lg:justify-between lg:px-8">
-          <div className="max-w-2xl">
-            <p className="text-sm font-semibold uppercase tracking-[0.14em] text-[var(--color-text-muted)]">
-              {isThai ? "CUSTOMERS & APPLICATIONS" : "Customers & Applications"}
-            </p>
-            <h2 className="mt-3 text-2xl font-semibold tracking-tight text-[var(--color-text)]">
-              {isThai ? "สำหรับงาน Purchasing และ Maintenance ในโรงงาน" : "Built for industrial purchasing and maintenance"}
-            </h2>
-          </div>
-
-          <div className="flex flex-wrap gap-2.5">
-            {customerSegments.map((item) => (
-              <span
-                key={item}
-                className="rounded-full border border-[var(--color-border-strong)] bg-[var(--color-surface-muted)] px-4 py-2 text-sm font-medium text-[var(--color-text-muted)]"
-              >
-                {item}
-              </span>
-            ))}
+      <section className={styles.workflow}>
+        <div className={styles.container}>
+          <h2>{isThai ? <>ขั้นตอนการจัดหา<br />ง่ายใน 3 ขั้นตอน</> : <>Simple sourcing<br />in 3 steps</>}</h2>
+          <div className={styles.steps}>
+            {workflowSteps.map((item, index) => {
+              const Icon = [Search, ClipboardList, Send][index];
+              return <article key={item.step}>
+                <div className={styles.stepIcon}><span>{index + 1}</span><Icon size={23} aria-hidden="true" /></div>
+                <div><h3>{item.title}</h3><p>{item.description}</p></div>
+              </article>;
+            })}
           </div>
         </div>
       </section>
 
       <BrandShowcase brands={featuredBrands} locale={locale} />
-      <WhyChooseUsSection locale={locale} />
-      <ProductGrid products={productCategories} locale={locale} />
+      <section className={styles.assistance}>
+        <div className={styles.container}>
+          <article><h3>{isThai ? "โรงงาน / ทีมซ่อมบำรุง" : "Factories & maintenance"}</h3><p>{isThai ? "ค้นหาอะไหล่ตาม Part No. และรวบรวมรายการ PM ใน RFQ เดียว" : "Search by part number and collect a maintenance list in one RFQ."}</p><Link href={`/${locale}/products`}>{isThai ? "ค้นหาสินค้า →" : "Explore products →"}</Link></article>
+          <article><h3>{isThai ? "มีแค่รูปหรือ Nameplate?" : "Only have a photo or nameplate?"}</h3><p>{isThai ? "ส่งรูป รุ่นเครื่อง หรือเบอร์เดิมให้ทีมช่วยตรวจสอบก่อนเสนอราคา" : "Send a photo, machine model or original number for review before quotation."}</p><TrackedLineLink href="https://lin.ee/PsQGAuu" source="home_audience_technician" locale={locale}>{isThai ? "ส่งข้อมูลทาง LINE →" : "Send details via LINE →"}</TrackedLineLink></article>
+          <article><h3>{isThai ? "ร้านค้า / ทีมจัดซื้อ" : "Resellers & purchasing teams"}</h3><p>{isThai ? "ส่งรายการหลายเบอร์ให้ทีมตรวจสอบสินค้าและ Cross Reference" : "Send multiple part numbers for product and cross-reference review."}</p><Link href={`/${locale}/quote`}>{isThai ? "ส่งรายการ RFQ →" : "Send an RFQ list →"}</Link></article>
+        </div>
+      </section>
+
+      <section id="knowledge" className={`${styles.knowledge} scroll-mt-20`}>
+        <div className="mx-auto grid max-w-7xl gap-7 px-4 py-12 sm:px-6 sm:py-16 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:items-center lg:gap-12 lg:px-8">
+          <div className="max-w-lg">
+            <p className="text-xs font-bold uppercase tracking-[0.18em] text-orange-600">
+              {isThai ? "MRT KNOWLEDGE" : "MRT KNOWLEDGE"}
+            </p>
+            <h2 className="mt-3 text-2xl font-bold tracking-tight text-[var(--color-text)] sm:text-3xl">
+              {isThai ? "รู้จักอะไหล่ก่อนตัดสินใจ" : "Practical knowledge before you choose"}
+            </h2>
+            <p className="mt-3 text-sm leading-7 text-[var(--color-text-muted)]">
+              {isThai
+                ? "อ่านแนวทางตรวจสอบสเปกและดูแลไส้กรองจากบทความที่เผยแพร่แล้ว เพื่อช่วยเตรียมข้อมูลก่อนค้นหาหรือขอใบเสนอราคา"
+                : "Read existing guides on filter specifications and maintenance to help prepare the right information before searching or requesting a quote."}
+            </p>
+          </div>
+
+          <div className="grid gap-3 sm:grid-cols-2 sm:gap-4">
+            <Link
+              href={`/${locale}/articles/industrial-filter-selection-guide`}
+              className={`group flex h-full min-h-[188px] flex-col rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-blue-300 hover:shadow-md ${lightFocusClass}`}
+            >
+              <span className="text-xs font-semibold tracking-[0.1em] text-blue-700">
+                {isThai ? "การเลือกสินค้า" : "PRODUCT SELECTION"}
+              </span>
+              <h3 className="mt-3 text-base font-bold leading-6 text-slate-900">
+                {isThai ? "เลือกไส้กรองอุตสาหกรรมอย่างไรให้ตรงสเปก" : "How to verify an industrial filter"}
+              </h3>
+              <p className="mt-2 text-sm leading-6 text-slate-600">
+                {isThai ? "สิ่งสำคัญที่ควรตรวจสอบก่อนเลือกเบอร์และสั่งซื้อ" : "Key checks before matching a part number or ordering."}
+              </p>
+              <span className="mt-auto pt-4 text-sm font-semibold text-blue-700 group-hover:text-blue-900">
+                {isThai ? "อ่านบทความ →" : "Read article →"}
+              </span>
+            </Link>
+
+            <Link
+              href={`/${locale}/articles/when-to-replace-engine-air-filter`}
+              className={`group flex h-full min-h-[188px] flex-col rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-blue-300 hover:shadow-md ${lightFocusClass}`}
+            >
+              <span className="text-xs font-semibold tracking-[0.1em] text-orange-600">
+                {isThai ? "การซ่อมบำรุง" : "MAINTENANCE"}
+              </span>
+              <h3 className="mt-3 text-base font-bold leading-6 text-slate-900">
+                {isThai ? "ควรเปลี่ยนไส้กรองอากาศเมื่อไร?" : "When should an engine air filter be replaced?"}
+              </h3>
+              <p className="mt-2 text-sm leading-6 text-slate-600">
+                {isThai ? "ทำไมความสกปรกที่มองเห็นจึงไม่ใช่เกณฑ์เดียว" : "Why visual appearance alone is not enough."}
+              </p>
+              <span className="mt-auto pt-4 text-sm font-semibold text-blue-700 group-hover:text-blue-900">
+                {isThai ? "อ่านบทความ →" : "Read article →"}
+              </span>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       <QuoteCTASection locale={locale} />
       <SiteFooter locale={locale} />
     </main>

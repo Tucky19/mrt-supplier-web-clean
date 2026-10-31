@@ -68,7 +68,7 @@ export default function CookieConsent({ locale }: { locale: string }) {
   return (
     <section
       aria-label={isThai ? "การตั้งค่าคุกกี้" : "Cookie preferences"}
-      className="fixed inset-x-3 bottom-[calc(5rem+env(safe-area-inset-bottom))] z-50 mx-auto max-w-5xl rounded-xl border border-slate-300 bg-white px-4 py-3 shadow-xl md:bottom-3 md:grid md:grid-cols-[minmax(0,1fr)_auto] md:items-center md:gap-5"
+      className="fixed inset-x-3 bottom-[calc(0.75rem+env(safe-area-inset-bottom))] z-50 mx-auto max-w-5xl rounded-xl border border-slate-300 bg-white px-4 py-3 shadow-xl md:bottom-3 md:grid md:grid-cols-[minmax(0,1fr)_auto] md:items-center md:gap-5"
     >
       <div>
         <h2 className="text-sm font-semibold text-slate-950">
@@ -86,19 +86,19 @@ export default function CookieConsent({ locale }: { locale: string }) {
           {isThai ? "เมื่อยอมรับ เราอาจใช้ Meta (Facebook) Conversions API เพื่อวัดผลโฆษณา โดยใช้ข้อมูลอุปกรณ์และรหัสโฆษณาแบบแฝง คุณถอนความยินยอมได้ที่ตั้งค่าคุกกี้" : "With your permission, we may use Meta (Facebook) Conversions API for advertising measurement using device data and pseudonymous advertising identifiers. You can withdraw consent in cookie settings."}
         </p>
       </div>
-      <div className="mt-3 flex flex-col-reverse gap-2 sm:flex-row sm:justify-end md:mt-0">
+      <div className="mt-3 flex justify-end gap-2 md:mt-0">
         <button
           type="button"
           onClick={() => save("rejected")}
           aria-label={isThai ? "ปฏิเสธคุกกี้วิเคราะห์และการตลาด" : "Reject analytics and advertising cookies"}
-          className="min-h-10 whitespace-nowrap rounded-lg border border-slate-300 px-4 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50"
+          className="min-h-11 whitespace-nowrap rounded-lg border border-slate-300 px-4 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50"
         >
           {isThai ? "ปฏิเสธ" : "Reject"}
         </button>
         <button
           type="button"
           onClick={() => save("accepted")}
-          className="min-h-10 whitespace-nowrap rounded-lg bg-slate-900 px-4 py-2 text-sm font-semibold text-white hover:bg-slate-800"
+          className="min-h-11 whitespace-nowrap rounded-lg bg-slate-900 px-4 py-2 text-sm font-semibold text-white hover:bg-slate-800"
         >
           {isThai ? "ยอมรับ" : "Accept"}
         </button>

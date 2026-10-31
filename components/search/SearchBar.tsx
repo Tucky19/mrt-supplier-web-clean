@@ -121,11 +121,12 @@ export default function SearchBar({
   const text = getSearchUiText(locale);
   const searchPlaceholder =
     locale === "th"
-      ? "ใส่ Part No., OEM หรือ Model เครื่องจักร"
-      : "Enter a part number, OEM, or machine model";
+      ? "ใส่ Part No., OEM หรือ Cross Reference"
+      : "Enter part number, OEM, or cross reference";
 
   const [draftQuery, setDraftQuery] = useState(defaultValue);
   const [isFocused, setIsFocused] = useState(false);
+  const [dropdownDismissed, setDropdownDismissed] = useState(false);
   const [highlightedIndex, setHighlightedIndex] = useState(-1);
   const [recentSearches, setRecentSearches] = useState<string[]>([]);
   const [isPending, startTransition] = useTransition();
@@ -163,15 +164,14 @@ export default function SearchBar({
     } catch {}
   }, []);
 
+  const urlQuery = searchParams.get("q") ?? "";
   useEffect(() => {
-    const urlQuery = searchParams.get("q") ?? "";
-    lastSyncedQueryRef.current = urlQuery.trim();
-
-    if (isFocused) return;
-    if (urlQuery !== draftQuery) {
-      setDraftQuery(urlQuery);
-    }
-  }, [draftQuery, isFocused, searchParams]);
+    // Focus changes must not restore an older URL query over the user's draft.
+    if (urlQuery === lastSyncedQueryRef.current) return;
+    lastSyncedQueryRef.current = urlQuery;
+    setDraftQuery(urlQuery);
+    setDropdownDismissed(false);
+  }, [urlQuery]);
 
   useEffect(() => {
     setHighlightedIndex(-1);
@@ -318,7 +318,13 @@ export default function SearchBar({
         ]
       : []),
   ];
-  const showDropdown = isFocused && dropdownItems.length > 0;
+  const showDropdown = isFocused && !dropdownDismissed && dropdownItems.length > 0;
+
+  const dismissDropdown = () => {
+    setDropdownDismissed(true);
+    setHighlightedIndex(-1);
+    inputRef.current?.focus();
+  };
 
   const selectDropdownItem = (value: string) => {
     setDraftQuery(value);
@@ -352,6 +358,13 @@ export default function SearchBar({
   };
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (!showDropdown && dropdownItems.length > 0 &&
+      (e.key === "ArrowDown" || e.key === "ArrowUp")) {
+      e.preventDefault();
+      setDropdownDismissed(false);
+      setHighlightedIndex(e.key === "ArrowDown" ? 0 : dropdownItems.length - 1);
+      return;
+    }
     if (!showDropdown) return;
 
     if (e.key === "ArrowDown") {
@@ -372,8 +385,7 @@ export default function SearchBar({
 
     if (e.key === "Escape") {
       e.preventDefault();
-      setHighlightedIndex(-1);
-      setIsFocused(false);
+      dismissDropdown();
     }
   };
 
@@ -396,9 +408,7 @@ export default function SearchBar({
 
     if (e.key === "Escape") {
       e.preventDefault();
-      setIsFocused(false);
-      setHighlightedIndex(-1);
-      inputRef.current?.focus();
+      dismissDropdown();
     }
   };
 
@@ -420,6 +430,7 @@ export default function SearchBar({
         }
 
         setIsFocused(false);
+        setDropdownDismissed(false);
         setHighlightedIndex(-1);
       }}
     >
@@ -455,7 +466,10 @@ export default function SearchBar({
             value={draftQuery}
             autoFocus={autoFocus}
             autoComplete="off"
-            onChange={(e) => setDraftQuery(e.target.value)}
+            onChange={(e) => {
+              setDraftQuery(e.target.value);
+              setDropdownDismissed(false);
+            }}
             onFocus={() => setIsFocused(true)}
             onKeyDown={handleKeyDown}
             placeholder={searchPlaceholder}

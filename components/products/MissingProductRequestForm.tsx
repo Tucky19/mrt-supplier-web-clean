@@ -10,7 +10,7 @@ import {
   getThreadSizeOptions,
 } from "@/lib/rfq/threadSizeOptions";
 
-const LINE_URL = "https://lin.ee/S676yYH";
+const LINE_URL = "https://lin.ee/PsQGAuu";
 
 type Props = {
   locale: string;
