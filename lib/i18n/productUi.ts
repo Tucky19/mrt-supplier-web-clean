@@ -38,8 +38,8 @@ export function getProductUiText(locale: string) {
       ? "เพิ่มสินค้ารายการนี้ใน RFQ หรือขอใบเสนอราคาได้ทันที พร้อมบริการช่วยเทียบรหัส"
       : "Add this part to your RFQ list or request a quote immediately for cross-reference support.",
     rfqSupportNote: isThai
-      ? "รองรับการตรวจสอบ OEM Part No. และติดตาม RFQ ภายใน 24 ชั่วโมง"
-      : "OEM reference support and RFQ follow-up within 24 hours",
+      ? "ส่ง OEM Part No. หรือรูปสินค้าให้ทีมงานช่วยตรวจสอบและเสนอราคา"
+      : "Send an OEM part number or product photo so our team can help check the item and provide a quotation.",
     crossReference: isThai ? "Cross Reference" : "Cross Reference",
     references: isThai ? "Cross Reference" : "References",
     applications: isThai ? "การใช้งาน" : "Applications",
