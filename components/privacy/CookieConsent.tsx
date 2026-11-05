@@ -4,6 +4,20 @@ import Link from "next/link";
 import { META_CONSENT_EVENT } from "@/lib/analytics/meta";
 import { useEffect, useState } from "react";
 
+const OPEN_SETTINGS_EVENT = "mrt:open-cookie-settings";
+
+export function CookieSettingsLink({ locale }: { locale: string }) {
+  return (
+    <button
+      type="button"
+      onClick={() => window.dispatchEvent(new Event(OPEN_SETTINGS_EVENT))}
+      className="block rounded-sm text-left text-sm text-slate-400 underline underline-offset-4 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)]"
+    >
+      {locale === "th" ? "ตั้งค่าคุกกี้" : "Cookie settings"}
+    </button>
+  );
+}
+
 const STORAGE_KEY = "mrt_cookie_consent";
 type ConsentChoice = "accepted" | "rejected";
 
@@ -41,7 +55,12 @@ export default function CookieConsent({ locale }: { locale: string }) {
       setChoice(stored === "accepted" || stored === "rejected" ? stored : null);
     }, 0);
 
-    return () => window.clearTimeout(timer);
+    const openSettings = () => setChoice(null);
+    window.addEventListener(OPEN_SETTINGS_EVENT, openSettings);
+    return () => {
+      window.clearTimeout(timer);
+      window.removeEventListener(OPEN_SETTINGS_EVENT, openSettings);
+    };
   }, []);
 
   function save(nextChoice: ConsentChoice) {
@@ -53,17 +72,7 @@ export default function CookieConsent({ locale }: { locale: string }) {
 
   if (choice === undefined) return null;
 
-  if (choice !== null) {
-    return (
-      <button
-        type="button"
-        onClick={() => setChoice(null)}
-        className="fixed bottom-[calc(5rem+env(safe-area-inset-bottom))] left-3 z-10 rounded-full border border-slate-300 bg-white/95 px-3 py-2 text-xs font-medium text-slate-700 shadow-md backdrop-blur hover:bg-slate-50 md:bottom-3"
-      >
-        {isThai ? "ตั้งค่าคุกกี้" : "Cookie settings"}
-      </button>
-    );
-  }
+  if (choice !== null) return null;
 
   return (
     <section

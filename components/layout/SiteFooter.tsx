@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import { CookieSettingsLink } from "@/components/privacy/CookieConsent";
 import TrackedLineLink from "@/components/analytics/TrackedLineLink";
 
 const LINE_URL = "https://lin.ee/PsQGAuu";
@@ -71,6 +72,7 @@ export default function SiteFooter({ locale = "th", className = "" }: Props) {
             <Link href={`/${locale}/quote`} className={`block rounded-sm hover:text-white ${darkFocusClass}`}>
               {isThai ? "ขอใบเสนอราคา" : "Request Quote"}
             </Link>
+            <CookieSettingsLink locale={locale} />
           </div>
         </div>
 
