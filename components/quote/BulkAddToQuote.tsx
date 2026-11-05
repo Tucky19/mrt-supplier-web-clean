@@ -111,9 +111,9 @@ export default function BulkAddToQuote({ locale }: Props) {
     ? {
         title: "ค้นหาหลาย Part Number ในครั้งเดียว",
         description:
-          "วาง Part Number ทีละบรรทัด หรือคัดลอกจาก Excel เพื่อเพิ่มหลายรายการเข้า RFQ ได้ทันที",
-        placeholder: "กรอก Part Number และจำนวน บรรทัดละ 1 รายการ",
-        example: "ตัวอย่าง: P551315 x 2",
+          "ใส่เฉพาะ Part Number บรรทัดละ 1 เบอร์ จำนวนเริ่มต้น 1 และแก้ไขจำนวนได้หลังเพิ่มเข้า RFQ",
+        placeholder: "กรอกเฉพาะ Part Number บรรทัดละ 1 เบอร์",
+        example: "ตัวอย่าง: P551315",
         button: "เพิ่มทั้งหมดเข้า RFQ",
         success: (count: number) => `เพิ่ม ${count} รายการเข้า RFQ แล้ว`,
         manual: (count: number) =>
@@ -125,9 +125,9 @@ export default function BulkAddToQuote({ locale }: Props) {
     : {
         title: "Add multiple Part Numbers at once",
         description:
-          "Paste part numbers line by line or copy from Excel to add multiple items to your RFQ.",
-        placeholder: "Enter one Part Number and quantity per line",
-        example: "Example: P551315 x 2",
+          "Enter part numbers only, one per line. Quantity starts at 1 and can be changed after adding to your RFQ.",
+        placeholder: "Enter one Part Number per line",
+        example: "Example: P551315",
         button: "Add all to RFQ",
         success: (count: number) => `Added ${count} items to RFQ`,
         manual: (count: number) =>

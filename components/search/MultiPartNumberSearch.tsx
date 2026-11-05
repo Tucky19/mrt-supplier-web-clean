@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useMemo, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import {
   MAX_MULTI_PART_ROWS,
   parseMultiPartText,
@@ -69,6 +69,8 @@ export default function MultiPartNumberSearch({ locale }: Props) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [added, setAdded] = useState(false);
+  const requestVersion = useRef(0);
+  const resultsVersion = useRef<number | null>(null);
 
   const parsedRows = useMemo(() => parseMultiPartText(value), [value]);
   const foundCount = results.filter(
@@ -80,7 +82,7 @@ export default function MultiPartNumberSearch({ locale }: Props) {
   const ambiguousCount = results.filter(
     (result) => result.status === "ambiguous",
   ).length;
-  const canAddResults = results.length > 0 && ambiguousCount === 0;
+  const canAddResults = !loading && results.length > 0 && ambiguousCount === 0;
 
   const text = isThai
     ? {
@@ -141,6 +143,9 @@ export default function MultiPartNumberSearch({ locale }: Props) {
       };
 
   const handleLookup = async () => {
+    const version = ++requestVersion.current;
+    resultsVersion.current = null;
+    setResults([]);
     setError("");
     setAdded(false);
 
@@ -171,6 +176,7 @@ export default function MultiPartNumberSearch({ locale }: Props) {
       });
 
       const data = (await response.json()) as LookupResponse;
+      if (version !== requestVersion.current) return;
 
       if (data.error === "too_many_items") {
         throw new Error(text.tooMany);
@@ -180,18 +186,21 @@ export default function MultiPartNumberSearch({ locale }: Props) {
         throw new Error(text.failed);
       }
 
+      resultsVersion.current = version;
       setResults(data.results);
     } catch (requestError) {
+      if (version !== requestVersion.current) return;
       setError(
         requestError instanceof Error ? requestError.message : text.failed,
       );
       setResults([]);
     } finally {
-      setLoading(false);
+      if (version === requestVersion.current) setLoading(false);
     }
   };
 
   const handleAddAll = () => {
+    if (!canAddResults || resultsVersion.current !== requestVersion.current) return;
     for (const result of results) {
       if (result.status === "found") {
         const meta = buildRfqReferenceContext({
@@ -226,6 +235,9 @@ export default function MultiPartNumberSearch({ locale }: Props) {
   };
 
   const handleReset = () => {
+    requestVersion.current += 1;
+    resultsVersion.current = null;
+    setLoading(false);
     setValue("");
     setResults([]);
     setError("");
@@ -266,7 +278,12 @@ export default function MultiPartNumberSearch({ locale }: Props) {
           <textarea
             value={value}
             onChange={(event) => {
+              requestVersion.current += 1;
+              resultsVersion.current = null;
               setValue(event.target.value);
+              setResults([]);
+              setError("");
+              setLoading(false);
               setAdded(false);
             }}
             placeholder={text.placeholder}

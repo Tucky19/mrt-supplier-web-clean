@@ -1,3 +1,4 @@
+import customerTheme from "@/components/layout/CustomerTheme.module.css";
 import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
@@ -17,7 +18,7 @@ type PageProps = {
 };
 
 const SITE_URL = "https://www.mrtsupplier.com";
-const LINE_URL = "https://lin.ee/S676yYH";
+const LINE_URL = "https://lin.ee/PsQGAuu";
 const LOCALES = ["th", "en"] as const;
 const lightFocusClass =
   "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-surface)]";
@@ -88,7 +89,7 @@ export default async function BrandsPage({ params }: PageProps) {
   };
 
   return (
-    <main className="mrt-blueprint-shell min-h-screen">
+    <main className={`${customerTheme.customer} ${customerTheme.inner} mrt-blueprint-shell min-h-screen`}>
       <JsonLd data={breadcrumbJsonLd} />
       <SiteHeader locale={locale} />
 
@@ -143,6 +144,7 @@ export default async function BrandsPage({ params }: PageProps) {
 
                   <div className="mt-6 flex flex-col gap-3 sm:flex-row lg:flex-col">
                     <Link
+                      data-primary-action
                       href={getBrandCtaHref(brand, locale)}
                       className={`inline-flex min-h-11 items-center justify-center rounded-[var(--mrt-radius-md)] bg-[var(--color-primary)] px-4 py-2.5 text-sm font-semibold text-[var(--color-text-inverse)] transition hover:bg-[var(--color-primary-hover)] ${lightFocusClass}`}
                     >

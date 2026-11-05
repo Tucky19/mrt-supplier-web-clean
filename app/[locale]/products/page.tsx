@@ -1,3 +1,4 @@
+import customerTheme from "@/components/layout/CustomerTheme.module.css";
 import type { Metadata } from "next";
 import { MessageCircle } from "lucide-react";
 import SearchEventTracker from "@/components/analytics/SearchEventTracker";
@@ -34,7 +35,7 @@ const SEARCH_RESULT_LIMIT = 48;
 const INITIAL_RENDER_COUNT = 12;
 const LOCALES = ["th", "en"] as const;
 const SITE_URL = "https://www.mrtsupplier.com";
-const LINE_URL = "https://lin.ee/S676yYH";
+const LINE_URL = "https://lin.ee/PsQGAuu";
 
 function getLocalizedAlternates(path: string) {
   return Object.fromEntries(
@@ -211,24 +212,24 @@ export default async function ProductsPage({
       : `${visibleProducts.length} recommended items, with the first ${initialVisibleCount} below.`;
 
   return (
-    <div className="mrt-blueprint-shell min-h-screen">
+    <div className={`${customerTheme.customer} ${customerTheme.inner} mrt-blueprint-shell min-h-screen`}>
       <JsonLd data={breadcrumbJsonLd} />
       <SiteHeader locale={locale} />
 
       <section className="border-b border-[var(--color-border)] bg-[var(--color-surface)]">
-        <div className="mx-auto max-w-[1440px] px-4 py-7 sm:px-6 sm:py-10 xl:px-8">
+        <div className="mx-auto max-w-7xl px-4 py-7 sm:px-6 sm:py-10 xl:px-8">
           <h1 className="text-2xl font-bold text-[var(--color-text)] sm:text-3xl">
             {isThai ? "ค้นหาสินค้า" : "Find Parts Fast"}
           </h1>
 
           <p className="mt-2 max-w-2xl text-sm leading-6 text-[var(--color-text-muted)] sm:text-base">
             {isThai
-              ? "ค้นหาด้วย Part No., Cross Reference, OEM หรือแบรนด์และ Model เครื่องจักร"
-              : "Search by part number, cross-reference, OEM, or machine brand and model."}
+              ? "ค้นหาด้วย Part No., OEM หรือ Cross Reference หากมีเพียงรุ่นเครื่องจักร ให้ส่งข้อมูลให้ทีมช่วยตรวจสอบ"
+              : "Search by part number, OEM, or cross reference. Have only a machine model? Send the details to our team for review."}
           </p>
 
           <div className="-mx-4 sticky top-[64px] z-40 mt-5 border-y border-[var(--color-border)] bg-[var(--color-surface)] px-4 py-2.5 backdrop-blur md:static md:z-auto md:mx-0 md:border-y-0 md:bg-transparent md:px-0 md:py-0 md:backdrop-blur-0">
-            <SearchBar locale={locale} defaultValue={query} autoFocus={false} />
+            <SearchBar locale={locale} defaultValue={query} autoFocus={false} className={customerTheme.search} />
           </div>
 
           <MultiPartNumberSearch locale={locale} />
@@ -277,7 +278,7 @@ export default async function ProductsPage({
       </section>
 
       {!hasQuery && !requestMissingProduct && (
-        <div className="mx-auto max-w-[1440px] px-4 pt-6 sm:px-6 xl:px-8">
+        <div className="mx-auto max-w-7xl px-4 pt-6 sm:px-6 xl:px-8">
           <PriorityPartLinks locale={locale} />
         </div>
       )}
@@ -294,7 +295,7 @@ export default async function ProductsPage({
 
       <section
         id="results"
-        className="mx-auto max-w-[1440px] scroll-mt-24 px-4 py-6 sm:px-6 sm:py-8 xl:px-8"
+        className="mx-auto max-w-7xl scroll-mt-24 px-4 py-6 sm:px-6 sm:py-8 xl:px-8"
       >
         <div className="mb-5 rounded-[var(--mrt-radius-lg)] border border-[var(--color-border)] bg-[var(--color-surface)] px-4 py-3.5 shadow-[var(--shadow-sm)] sm:mb-6 sm:px-5 sm:py-4">
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">

@@ -1,0 +1,195 @@
+{
+  "base": "http://localhost:3100",
+  "captures": [
+    {
+      "url": "http://localhost:3100/th",
+      "width": 1440,
+      "pageHeight": 2151,
+      "overflow": false,
+      "heading": "ค้นหาอะไหล่อุตสาหกรรม",
+      "image": "http://localhost:3100/images/hero/mrt-industrial-desktop.webp",
+      "line": [
+        "https://lin.ee/PsQGAuu",
+        "https://lin.ee/PsQGAuu",
+        "https://lin.ee/PsQGAuu",
+        "https://lin.ee/PsQGAuu",
+        "https://lin.ee/PsQGAuu",
+        "https://lin.ee/PsQGAuu"
+      ],
+      "searchTop": 302,
+      "lineTop": 417.5,
+      "font": "\"MRT Noto Thai\", \"Segoe UI\", sans-serif"
+    },
+    {
+      "url": "http://localhost:3100/en",
+      "width": 1440,
+      "pageHeight": 2258,
+      "overflow": false,
+      "heading": "Find your industrial parts",
+      "image": "http://localhost:3100/images/hero/mrt-industrial-desktop.webp",
+      "line": [
+        "https://lin.ee/PsQGAuu",
+        "https://lin.ee/PsQGAuu",
+        "https://lin.ee/PsQGAuu",
+        "https://lin.ee/PsQGAuu",
+        "https://lin.ee/PsQGAuu",
+        "https://lin.ee/PsQGAuu"
+      ],
+      "searchTop": 302,
+      "lineTop": 417.5,
+      "font": "\"MRT Noto Thai\", \"Segoe UI\", sans-serif"
+    },
+    {
+      "url": "http://localhost:3100/th",
+      "width": 1024,
+      "pageHeight": 2278,
+      "overflow": false,
+      "heading": "ค้นหาอะไหล่อุตสาหกรรม",
+      "image": "http://localhost:3100/images/hero/mrt-industrial-desktop.webp",
+      "line": [
+        "https://lin.ee/PsQGAuu",
+        "https://lin.ee/PsQGAuu",
+        "https://lin.ee/PsQGAuu",
+        "https://lin.ee/PsQGAuu",
+        "https://lin.ee/PsQGAuu",
+        "https://lin.ee/PsQGAuu"
+      ],
+      "searchTop": 275.890625,
+      "lineTop": 391.390625,
+      "font": "\"MRT Noto Thai\", \"Segoe UI\", sans-serif"
+    },
+    {
+      "url": "http://localhost:3100/th",
+      "width": 390,
+      "pageHeight": 3587,
+      "overflow": false,
+      "heading": "ค้นหาอะไหล่อุตสาหกรรม",
+      "image": "http://localhost:3100/images/hero/mrt-industrial-mobile.webp",
+      "line": [
+        "https://lin.ee/PsQGAuu",
+        "https://lin.ee/PsQGAuu",
+        "https://lin.ee/PsQGAuu",
+        "https://lin.ee/PsQGAuu",
+        "https://lin.ee/PsQGAuu",
+        "https://lin.ee/PsQGAuu"
+      ],
+      "searchTop": 398.75,
+      "lineTop": 501.75,
+      "font": "\"MRT Noto Thai\", \"Segoe UI\", sans-serif"
+    },
+    {
+      "url": "http://localhost:3100/en",
+      "width": 390,
+      "pageHeight": 3909,
+      "overflow": false,
+      "heading": "Find your industrial parts",
+      "image": "http://localhost:3100/images/hero/mrt-industrial-mobile.webp",
+      "line": [
+        "https://lin.ee/PsQGAuu",
+        "https://lin.ee/PsQGAuu",
+        "https://lin.ee/PsQGAuu",
+        "https://lin.ee/PsQGAuu",
+        "https://lin.ee/PsQGAuu",
+        "https://lin.ee/PsQGAuu"
+      ],
+      "searchTop": 398.75,
+      "lineTop": 501.75,
+      "font": "\"MRT Noto Thai\", \"Segoe UI\", sans-serif"
+    },
+    {
+      "url": "http://localhost:3100/th",
+      "width": 360,
+      "pageHeight": 3743,
+      "overflow": false,
+      "heading": "ค้นหาอะไหล่อุตสาหกรรม",
+      "image": "http://localhost:3100/images/hero/mrt-industrial-mobile.webp",
+      "line": [
+        "https://lin.ee/PsQGAuu",
+        "https://lin.ee/PsQGAuu",
+        "https://lin.ee/PsQGAuu",
+        "https://lin.ee/PsQGAuu",
+        "https://lin.ee/PsQGAuu",
+        "https://lin.ee/PsQGAuu"
+      ],
+      "searchTop": 398.75,
+      "lineTop": 501.75,
+      "font": "\"MRT Noto Thai\", \"Segoe UI\", sans-serif"
+    },
+    {
+      "url": "http://localhost:3100/th",
+      "width": 430,
+      "pageHeight": 3539,
+      "overflow": false,
+      "heading": "ค้นหาอะไหล่อุตสาหกรรม",
+      "image": "http://localhost:3100/images/hero/mrt-industrial-mobile.webp",
+      "line": [
+        "https://lin.ee/PsQGAuu",
+        "https://lin.ee/PsQGAuu",
+        "https://lin.ee/PsQGAuu",
+        "https://lin.ee/PsQGAuu",
+        "https://lin.ee/PsQGAuu",
+        "https://lin.ee/PsQGAuu"
+      ],
+      "searchTop": 398.75,
+      "lineTop": 501.75,
+      "font": "\"MRT Noto Thai\", \"Segoe UI\", sans-serif"
+    }
+  ],
+  "checks": [
+    {
+      "width": 1440,
+      "viewAllClickable": true,
+      "escapeFocus": true
+    },
+    {
+      "width": 1440,
+      "searchUrl": "http://localhost:3100/th/products?q=P181"
+    },
+    {
+      "width": 1440,
+      "exampleUrl": "http://localhost:3100/th/products?q=P551864"
+    },
+    {
+      "width": 1440,
+      "rfqLoads": true,
+      "submitted": false
+    },
+    {
+      "width": 390,
+      "viewAllClickable": true,
+      "escapeFocus": true
+    },
+    {
+      "width": 390,
+      "searchUrl": "http://localhost:3100/th/products?q=P181"
+    },
+    {
+      "width": 390,
+      "exampleUrl": "http://localhost:3100/th/products?q=P551864"
+    },
+    {
+      "width": 390,
+      "rfqLoads": true,
+      "submitted": false
+    },
+    {
+      "width": 390,
+      "mobileMenuOpen": true
+    },
+    {
+      "languageSwitch": "http://localhost:3100/en"
+    },
+    {
+      "path": "/th/articles/industrial-filter-selection-guide",
+      "status": 200
+    },
+    {
+      "path": "/th/articles/when-to-replace-engine-air-filter",
+      "status": 200
+    },
+    {
+      "path": "/th/cross-reference/P828889",
+      "status": 200
+    }
+  ]
+}

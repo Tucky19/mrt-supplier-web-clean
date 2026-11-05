@@ -1,3 +1,4 @@
+import customerTheme from "@/components/layout/CustomerTheme.module.css";
 import { Suspense } from "react";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
@@ -77,7 +78,7 @@ export default async function ProductPage({ params }: PageProps) {
   if (!product) notFound();
 
   return (
-    <main className="mrt-blueprint-shell min-h-screen">
+    <main className={`${customerTheme.customer} ${customerTheme.inner} mrt-blueprint-shell min-h-screen`}>
       <Suspense fallback={<div className="h-[72px] bg-white" />}>
         <SiteHeader locale={locale} />
       </Suspense>

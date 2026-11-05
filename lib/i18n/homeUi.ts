@@ -7,16 +7,16 @@ export function getHomeBrandShowcaseText(locale: string) {
       ? "แบรนด์อุตสาหกรรมที่รองรับ"
       : "Industrial Brands We Support",
     description: isThai
-      ? "คัดเลือกแบรนด์หลักที่ใช้งานจริงในโรงงานและงานซ่อมบำรุง พร้อมรองรับการจัดหาแบรนด์อุตสาหกรรมอื่น ๆ ตาม Part Number และ Cross Reference"
-      : "We support trusted core brands and additional industrial brands for maintenance, procurement, and cross-reference sourcing needs.",
+      ? "รองรับการค้นหาและจัดหาตาม Part Number, Cross Reference และข้อมูลการใช้งาน สำหรับโรงงาน ช่างซ่อมบำรุง และร้านค้า"
+      : "Support for sourcing by Part Number, Cross Reference, and application details for factories, maintenance teams, and resellers.",
     coreHeading: "Core Brands",
     coreHelper: isThai
       ? "แบรนด์หลักที่ใช้งานบ่อยในกลุ่มไส้กรอง ตลับลูกปืน และอะไหล่อุตสาหกรรม"
       : "Frequently requested brands across filtration, bearings, and industrial spare parts.",
     supportingHeading: "Supporting Brands",
     supportingHelper: isThai
-      ? "รองรับการค้นหาและจัดหาตามเบอร์สินค้า หรือข้อมูล Cross Reference"
-      : "Available for part-number checks, sourcing requests, and cross-reference review.",
+      ? "มีเบอร์สินค้าเดิมหรือแบรนด์อื่น สามารถส่งให้ทีมช่วยตรวจสอบรายการที่เกี่ยวข้อง"
+      : "Send an existing part number or another brand for related-reference review.",
     items: {
       donaldson: isThai
         ? "โซลูชันงานกรองสำหรับเครื่องยนต์ เครื่องจักรหนัก และระบบอุตสาหกรรม"
@@ -37,39 +37,39 @@ export function getHomeWhyChooseUsText(locale: string) {
   return {
     eyebrow: "MRT SUPPLIER",
     title: isThai
-      ? "ทำไมลูกค้าอุตสาหกรรมเลือก MRT Supplier"
-      : "Why Choose MRT Supplier",
+      ? "ทำไม MRT Supplier เหมาะกับงานจัดหาอะไหล่"
+      : "Why MRT Supplier fits industrial sourcing work",
     description: isThai
-      ? "เราให้ทั้งการสื่อสารที่ชัดเจน ข้อมูลสินค้าที่อ่านง่าย และการตอบกลับ RFQ ที่เหมาะกับงานจัดซื้อและซ่อมบำรุง"
-      : "We focus on clear communication, trusted products, and responsive service for industrial customers.",
+      ? "โฟกัสที่การค้นหาให้ตรง การสื่อสารให้ชัด และการส่งต่อ RFQ ให้ทีมงานติดตามได้ง่าย ไม่ว่าคุณจะเป็นโรงงาน ช่าง หรือร้านค้า"
+      : "Focused on accurate searching, clear communication, and an RFQ flow that works for factories, technicians, and resellers.",
     items: {
       trusted: {
         title: isThai
-          ? "แบรนด์อุตสาหกรรมที่เชื่อถือได้"
-          : "Trusted Industrial Brands",
+          ? "แบรนด์อุตสาหกรรมที่ใช้งานจริง"
+          : "Industrial brands used in real applications",
         description: isThai
-          ? "คัดเลือกแบรนด์ที่ใช้งานจริงในโรงงานและงานซ่อมบำรุง เพื่อช่วยให้ทีมงานตัดสินใจได้มั่นใจขึ้น"
-          : "We prioritize recognized brands that are widely used in industrial environments.",
+          ? "รองรับแบรนด์ที่พบได้บ่อยในงานโรงงาน เครื่องจักร และงานซ่อมบำรุง พร้อมตรวจสอบตามข้อมูลที่ลูกค้าส่งมา"
+          : "Support for brands commonly found in factories, machinery, and maintenance work, reviewed against customer-supplied details.",
       },
       response: {
-        title: isThai ? "ตอบกลับ RFQ รวดเร็ว" : "Responsive Quotation Support",
+        title: isThai ? "RFQ ที่ติดตามงานต่อได้" : "RFQs built for follow-up",
         description: isThai
-          ? "ช่วยให้ทีมจัดซื้อและทีมซ่อมบำรุงเดินงานต่อได้เร็วขึ้นด้วยการติดตาม RFQ และประสานงานที่ชัดเจน"
-          : "We help customers move faster with clear RFQ handling and follow-up.",
+          ? "รวมหลายรายการไว้ในคำขอเดียว เพื่อให้ทีมจัดซื้อ ช่าง และร้านค้าส่งข้อมูลและติดตามต่อได้ง่าย"
+          : "Collect multiple items in one request so purchasing teams, technicians, and resellers can follow up efficiently.",
       },
       clean: {
-        title: isThai ? "ข้อมูลสินค้าอ่านง่าย" : "Clear Product Presentation",
+        title: isThai ? "ข้อมูลสินค้าอ่านง่าย" : "Clear product presentation",
         description: isThai
-          ? "จัดวางข้อมูลให้ตรวจสอบแบรนด์ ประเภทสินค้า และสเปกสำคัญได้เร็ว เหมาะกับการค้นหาแบบงานจริง"
-          : "Products are presented in a clean format so buyers can scan information quickly.",
+          ? "จัดวางข้อมูลให้ตรวจสอบแบรนด์ ประเภทสินค้า Part No. และสเปกสำคัญได้เร็ว"
+          : "Product information is structured for quick checks of brand, category, Part No., and key specifications.",
       },
       b2b: {
         title: isThai
-          ? "รองรับงานจัดซื้อและซ่อมบำรุง"
-          : "Built for B2B Workflows",
+          ? "รองรับทั้ง End User ช่าง และร้านค้า"
+          : "Built for end users, technicians, and resellers",
         description: isThai
-          ? "เหมาะสำหรับโรงงาน ฝ่ายจัดซื้อ และทีมซ่อมบำรุงที่ต้องการ workflow ตรงไปตรงมาและติดตามงานได้ง่าย"
-          : "Suitable for factory buyers, maintenance teams, and procurement departments.",
+          ? "เริ่มได้ทั้งจากการค้นหา Part No., ส่งรูป/Nameplate หรือส่งรายการหลายเบอร์เพื่อขอ RFQ"
+          : "Start from a Part No. search, a photo/nameplate, or a multi-item RFQ list.",
       },
     },
   };
@@ -80,10 +80,10 @@ export function getHomeProductGridText(locale: string) {
 
   return {
     eyebrow: "PRODUCT CATEGORIES",
-    title: isThai ? "กลุ่มสินค้าที่รองรับ" : "Product Categories We Support",
+    title: isThai ? "เริ่มค้นหาจากกลุ่มสินค้า" : "Start with a product category",
     description: isThai
-      ? "ค้นหาหรือส่ง RFQ สำหรับไส้กรอง ตลับลูกปืน และอะไหล่อุตสาหกรรมที่ใช้ในงานซ่อมบำรุงและจัดซื้อ"
-      : "Search or request quotations for filtration, bearings, and industrial spare parts used in maintenance and procurement workflows.",
+      ? "เลือกกลุ่มสินค้าเพื่อค้นหา Part No. หรือใช้เป็นจุดเริ่มต้นก่อนส่งรายละเอียดให้ทีมช่วยตรวจสอบ"
+      : "Choose a category to search by Part No. or use it as a starting point before sending details for review.",
     empty: isThai
       ? "ยังไม่มีกลุ่มสินค้าที่แสดงในขณะนี้"
       : "No product categories available at the moment.",
@@ -95,15 +95,15 @@ export function getHomeQuoteCtaText(locale: string) {
   const isThai = locale === "th";
 
   return {
-    eyebrow: "MRT SUPPLIER",
+    eyebrow: "READY TO START",
     title: isThai
-      ? "พร้อมช่วยค้นหาอะไหล่ที่ตรงความต้องการ"
-      : "Ready to support your industrial sourcing needs",
+      ? "มี Part No., รูปสินค้า หรือรายการ PM? ส่งมาให้ทีมตรวจสอบได้เลย"
+      : "Have a Part No., product photo, or PM list? Send it for review.",
     description: isThai
-      ? "ส่ง Part Number, รายการอะไหล่ หรือ Cross Reference ให้ทีมงานตรวจสอบ แล้วเราจะช่วยเสนอข้อมูลและราคาที่เหมาะกับงานของคุณ"
-      : "Send us your part number, current brand, machine model, or product requirement. Our team will review the details and respond with suitable options.",
-    primaryCta: isThai ? "ไปหน้า RFQ" : "Go to Quote Page",
-    secondaryCta: isThai ? "ค้นหาสินค้า" : "Contact Our Team",
-    lineCta: isThai ? "เพิ่มเพื่อน LINE" : "Add LINE",
+      ? "เริ่ม RFQ ได้จากข้อมูลที่คุณมี ไม่ว่าจะเป็นเบอร์เดิม รุ่นเครื่อง Nameplate หรือหลายรายการในครั้งเดียว"
+      : "Start an RFQ with the information you have: an existing part number, machine model, nameplate, or a multi-item list.",
+    primaryCta: isThai ? "ส่ง RFQ" : "Send RFQ",
+    secondaryCta: isThai ? "ค้นหาสินค้า" : "Search Products",
+    lineCta: isThai ? "ส่งข้อมูลทาง LINE" : "Send via LINE",
   };
 }

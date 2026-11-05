@@ -6,12 +6,12 @@ export function getRfqUiText(locale: string) {
     backToProducts: isThai ? "กลับไปค้นหาสินค้า" : "Back to Products",
     quoteTitle: isThai ? "ขอใบเสนอราคา" : "Request for Quotation",
     quoteIntro: isThai
-      ? "ส่งรายการสินค้าให้ทีม MRT Supplier ตรวจสอบ Part Number, Cross Reference และเสนอราคากลับได้ทันที"
-      : "Send your item list to MRT Supplier for part number review, cross-reference support, and fast quotation follow-up.",
-    responseTime: isThai ? "เวลาตอบกลับ" : "Response Time",
+      ? "ส่งรายการสินค้าให้ทีม MRT Supplier ตรวจสอบ Part Number และข้อมูลที่เกี่ยวข้องก่อนจัดทำใบเสนอราคา"
+      : "Send your parts list to MRT Supplier for part-number review and quotation preparation.",
+    responseTime: isThai ? "การตรวจสอบคำขอ" : "RFQ Review",
     responseTimeBody: isThai
-      ? "ทีมงานตอบกลับภายใน 24 ชั่วโมง"
-      : "Our team responds within 24 hours.",
+      ? "ทีมงานจะตรวจสอบคำขอและติดต่อกลับตามข้อมูลที่ได้รับ"
+      : "Our team will review your request and follow up using the contact details provided.",
     crossReference: isThai ? "Cross Reference" : "Cross Reference",
     crossReferenceBody: isThai
       ? "รองรับการตรวจสอบ OEM Part No. และ Aftermarket Cross Reference"
@@ -105,8 +105,8 @@ export function getRfqUiText(locale: string) {
       ? "เราได้รับคำขอของคุณเรียบร้อยแล้ว"
       : "Your quote request has been received",
     successBody: isThai
-      ? "ทีมงานจะตรวจสอบรายการสินค้าและติดต่อกลับโดยเร็ว โดยปกติจะตอบกลับภายใน 24 ชั่วโมงทำการ"
-      : "Our team will review your items and respond as soon as possible, typically within 24 business hours.",
+      ? "ทีมงานจะตรวจสอบรายการและติดต่อกลับตามช่องทางที่คุณระบุ"
+      : "Our team will review your request and follow up using your provided contact details.",
     rfqReference: isThai ? "เลขอ้างอิง RFQ" : "RFQ Reference",
     partialFailureTitle: isThai
       ? "ระบบบันทึก RFQ เรียบร้อยแล้ว แต่การแจ้งเตือนบางช่องทางอาจส่งไม่สำเร็จ"

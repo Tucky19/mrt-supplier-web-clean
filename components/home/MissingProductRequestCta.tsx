@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { getMissingProductUiText } from "@/lib/i18n/missingProductUi";
 
-const LINE_URL = "https://lin.ee/S676yYH";
+const LINE_URL = "https://lin.ee/PsQGAuu";
 
 export default function MissingProductRequestCta({
   locale,

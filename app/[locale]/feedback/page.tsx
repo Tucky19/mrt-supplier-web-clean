@@ -1,10 +1,11 @@
+import customerTheme from "@/components/layout/CustomerTheme.module.css";
 import type { Metadata } from "next";
 import { CircleAlert, Lightbulb, MessageCircle, SearchX } from "lucide-react";
 import TrackedLineLink from "@/components/analytics/TrackedLineLink";
 import SiteFooter from "@/components/layout/SiteFooter";
 import SiteHeader from "@/components/layout/SiteHeader";
 
-const LINE_URL = "https://lin.ee/S676yYH";
+const LINE_URL = "https://lin.ee/PsQGAuu";
 
 type PageProps = {
   params: Promise<{ locale: string }>;
@@ -72,7 +73,7 @@ export default async function FeedbackPage({ params }: PageProps) {
       ];
 
   return (
-    <main className="mrt-blueprint-shell min-h-screen bg-[var(--color-canvas)] text-[var(--color-text)]">
+    <main className={`${customerTheme.customer} ${customerTheme.inner} mrt-blueprint-shell min-h-screen bg-[var(--color-canvas)] text-[var(--color-text)]`}>
       <SiteHeader locale={locale} />
 
       <section className="mx-auto max-w-5xl px-4 py-10 sm:px-6 sm:py-14">
