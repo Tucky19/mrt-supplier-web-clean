@@ -1,3 +1,4 @@
+import customerTheme from "@/components/layout/CustomerTheme.module.css";
 import type { Metadata } from "next";
 import Link from "next/link";
 import {
@@ -210,7 +211,7 @@ export default async function WhenToReplaceEngineAirFilterPage({ params }: PageP
   };
 
   return (
-    <main className="mrt-blueprint-shell min-h-screen bg-[var(--color-canvas)] text-[var(--color-text)]">
+    <main className={`${customerTheme.customer} ${customerTheme.inner} mrt-blueprint-shell min-h-screen bg-[var(--color-canvas)] text-[var(--color-text)]`}>
       <JsonLd data={articleJsonLd} />
       <SiteHeader locale={locale} />
 

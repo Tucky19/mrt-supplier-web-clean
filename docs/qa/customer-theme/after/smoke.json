@@ -1,0 +1,56 @@
+[
+  {
+    "width": 1440,
+    "addToRfq": true,
+    "rfqItems": 2,
+    "quantityPersisted": 3,
+    "successStatePreserved": true,
+    "activeColor": "rgb(199, 71, 0)",
+    "successColor": "rgb(5, 150, 105)",
+    "crossReference": true,
+    "search": true,
+    "languageSwitch": true,
+    "rfqSubmitted": false
+  },
+  {
+    "width": 390,
+    "addToRfq": true,
+    "rfqItems": 2,
+    "quantityPersisted": 3,
+    "successStatePreserved": true,
+    "activeColor": "rgb(199, 71, 0)",
+    "successColor": "rgb(5, 150, 105)",
+    "crossReference": true,
+    "search": true,
+    "languageSwitch": true,
+    "rfqSubmitted": false
+  },
+  {
+    "route": "products/dimensions",
+    "status": 200
+  },
+  {
+    "route": "quote/success",
+    "status": 200
+  },
+  {
+    "route": "privacy",
+    "status": 200
+  },
+  {
+    "route": "feedback",
+    "status": 200
+  },
+  {
+    "route": "cross-reference/P828889",
+    "status": 200
+  },
+  {
+    "route": "articles/when-to-replace-engine-air-filter",
+    "status": 200
+  },
+  {
+    "route": "applications/air-compressor-generator",
+    "status": 200
+  }
+]

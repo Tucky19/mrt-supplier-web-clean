@@ -26,7 +26,7 @@ export default function ProductSpecTable({
   if (rows.length === 0 && summary.length === 0) return null;
 
   return (
-    <section className="rounded-3xl border border-slate-300 bg-white p-6 shadow-[0_14px_34px_rgba(15,23,42,0.06)] lg:p-8">
+    <section className="rounded-[var(--mrt-radius-lg)] border border-slate-300 bg-white p-6 shadow-[0_14px_34px_rgba(15,23,42,0.06)] lg:p-8">
       <div className="flex flex-col gap-2 border-b border-slate-300 pb-4">
         <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-500">
           Technical Specifications
@@ -47,7 +47,7 @@ export default function ProductSpecTable({
           {rows.map((item) => (
             <div
               key={`${item.label}-${item.value}`}
-              className="rounded-2xl border border-slate-300 bg-slate-50/80 px-4 py-3.5"
+              className="rounded-[var(--mrt-radius-lg)] border border-slate-300 bg-slate-50/80 px-4 py-3.5"
             >
               <p className="text-xs font-semibold text-slate-500">
                 {item.label}

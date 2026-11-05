@@ -1,3 +1,4 @@
+import customerTheme from "@/components/layout/CustomerTheme.module.css";
 import type { Metadata } from "next";
 import ProductListClient from "@/components/products/ProductListClient";
 import SiteFooter from "@/components/layout/SiteFooter";
@@ -143,7 +144,7 @@ export default async function FilterDimensionSearchPage({
     .sort((a, b) => a.localeCompare(b, "en", { numeric: true }));
 
   return (
-    <div className="mrt-blueprint-shell min-h-screen">
+    <div className={`${customerTheme.customer} ${customerTheme.inner} mrt-blueprint-shell min-h-screen`}>
       <SiteHeader locale={locale} />
 
       <main>
