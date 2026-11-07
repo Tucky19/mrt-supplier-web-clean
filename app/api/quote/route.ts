@@ -12,7 +12,7 @@ export const dynamic = "force-dynamic";
 export async function POST(req: Request) {
   const traceId = getTraceId(req);
 
-  let body: any;
+  let body: unknown;
 
   try {
     // ✅ safe JSON parse
@@ -24,6 +24,16 @@ export async function POST(req: Request) {
         status: 400,
         error: "Invalid JSON body.",
       });
+    }
+
+    // Preview must use its own database, never an inherited production site URL.
+    if (process.env.VERCEL_ENV === "preview") {
+      const { POST: submitRfq } = await import("../rfq/submit/route");
+      return submitRfq(new Request(req.url, {
+        method: "POST",
+        headers: req.headers,
+        body: JSON.stringify(body),
+      }));
     }
 
     // ✅ log wrapper entry

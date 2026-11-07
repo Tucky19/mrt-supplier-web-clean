@@ -30,20 +30,29 @@ export default async function RootLayout({
 }) {
   const locale = await getLocale();
   const lang = locale === "th" ? "th" : "en";
+  const trackingEnabled = process.env.VERCEL_ENV !== "preview";
 
   return (
     <html lang={lang} data-scroll-behavior="smooth">
       <head>
-        <GoogleConsentDefaults />
-        <GTMHead />
+        {trackingEnabled && (
+          <>
+            <GoogleConsentDefaults />
+            <GTMHead />
+          </>
+        )}
       </head>
       <body className="bg-slate-50 text-slate-950">
-        <GTMBody />
-        <GA4 />
-        <Suspense fallback={null}>
-          <GA4PageView />
-          <MetaPixel />
-        </Suspense>
+        {trackingEnabled && (
+          <>
+            <GTMBody />
+            <GA4 />
+            <Suspense fallback={null}>
+              <GA4PageView />
+              <MetaPixel />
+            </Suspense>
+          </>
+        )}
         {children}
         <CookieConsent locale={lang} />
       </body>
