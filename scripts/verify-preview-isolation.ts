@@ -20,12 +20,12 @@ async function main() {
         method: "POST", headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ customer: { website: "synthetic-bot" } }),
       });
-      assert.equal(blocked.status, 200);
-      assert.equal((await blocked.json()).requestId, "OK");
+      assert.equal(blocked.status, 503);
+      assert.equal((await blocked.json()).code, "PREVIEW_RFQ_DISABLED");
       const invalid = await fetch(`${base}/api/quote`, {
         method: "POST", headers: { "Content-Type": "application/json" }, body: "{",
       });
-      assert.equal(invalid.status, 400);
+      assert.equal(invalid.status, 503);
       const disabledMeta = await fetch(`${base}/api/analytics/meta`, {
         method: "POST", headers: { "Content-Type": "application/json", origin: base },
         body: JSON.stringify({ consent: "accepted", event_name: "PageView",
@@ -59,24 +59,24 @@ async function main() {
   });
   try {
     process.env.VERCEL_ENV = "preview";
-    assert.equal((await quote(quoteRequest("{"))).status, 400);
-    // Honeypot response proves local handler execution without database writes.
+    assert.equal((await quote(quoteRequest("{"))).status, 503);
+    // Every Preview payload must be rejected before database or notification work.
     process.env.RFQ_HONEYPOT_FIELD = "website";
     const local = await quote(quoteRequest(JSON.stringify({ customer: { website: "synthetic-bot" } })));
-    assert.equal(local.status, 200);
-    assert.equal((await local.json()).requestId, "OK");
+    assert.equal(local.status, 503);
+    assert.equal((await local.json()).code, "PREVIEW_RFQ_DISABLED");
     assert.equal((await meta(metaRequest())).status, 204);
     assert.deepEqual(calls, [], "Preview must not forward or transmit to Meta, even with configured fixtures");
 
     for (const environment of ["production", "development"]) {
       process.env.VERCEL_ENV = environment;
       const before: number = calls.length;
-      assert.equal((await quote(quoteRequest("{}"))).status, 200);
-      assert.equal(calls[before], "https://production.example.invalid/api/rfq/submit");
+      assert.equal((await quote(quoteRequest(JSON.stringify({ customer: { website: "synthetic-bot" } })))).status, 200);
+      assert.equal(calls.length, before, "Quote must not make an HTTP forwarding request");
       assert.equal((await meta(metaRequest())).status, 200);
-      assert.equal(calls[before + 1], "https://graph.facebook.com/v25.0/123456789/events");
+      assert.equal(calls[before], "https://graph.facebook.com/v25.0/123456789/events");
     }
-    console.log("PASS: Preview local quote handling and disabled Meta; non-Preview transport preserved (all network mocked)");
+    console.log("PASS: Preview RFQ blocked and Meta disabled; non-Preview local RFQ and Meta transport preserved (all network mocked)");
   } finally {
     globalThis.fetch = originalFetch;
   }

@@ -5,6 +5,11 @@ const globalForPrisma = globalThis as unknown as {
 };
 
 function getPrismaDatabaseUrl() {
+  // Read-only Preview: never use an inherited Production database URL.
+  // A non-routable local endpoint also lets Prisma initialize during builds.
+  if (process.env.VERCEL_ENV === "preview") {
+    return "postgresql://preview:disabled@127.0.0.1:1/preview_disabled?connect_timeout=1";
+  }
   const rawUrl = process.env.DATABASE_URL?.trim();
   if (!rawUrl) return undefined;
 

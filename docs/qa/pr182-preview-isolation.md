@@ -1,3 +1,7 @@
+> Superseded for RFQ/DB behavior by [RFQ request safety](rfq-request-safety.md).
+> Preview now rejects RFQ with 503 and cannot connect to the configured database.
+> The results below describe the original PR182 implementation only.
+
 # PR182 Preview isolation
 
 Preview is identified by `VERCEL_ENV=preview`, supplied at build and runtime.
