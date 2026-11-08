@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import createMiddleware from "next-intl/middleware";
 import { routing } from "@/i18n/routing";
+import { isAdminAuthorized } from "@/lib/admin/basicAuth";
 
 const intlMiddleware = createMiddleware(routing);
 
@@ -42,6 +43,7 @@ function unauthorizedResponse() {
     status: 401,
     headers: {
       "WWW-Authenticate": 'Basic realm="Admin Area"',
+      "Cache-Control": "private, no-store",
     },
   });
 }
@@ -50,47 +52,18 @@ function isProtectedAdminPath(pathname: string) {
   return pathname === "/admin" || pathname.startsWith("/admin/");
 }
 
+function isLocalizedAdminPath(pathname: string) {
+  return routing.locales.some(
+    (locale) => pathname === `/${locale}/admin` || pathname.startsWith(`/${locale}/admin/`)
+  );
+}
+
 function isProtectedAdminApiPath(pathname: string) {
-  return pathname.startsWith("/api/admin/");
+  return pathname === "/api/admin" || pathname.startsWith("/api/admin/");
 }
 
 function isApiPath(pathname: string) {
   return pathname.startsWith("/api/");
-}
-
-function decodeBase64(value: string) {
-  try {
-    return atob(value);
-  } catch {
-    return "";
-  }
-}
-
-function isAuthorized(req: NextRequest) {
-  const authHeader = req.headers.get("authorization");
-  const expectedUser = process.env.ADMIN_BASIC_USER;
-  const expectedPass = process.env.ADMIN_BASIC_PASS;
-
-  if (!expectedUser || !expectedPass) {
-    return false;
-  }
-
-  if (!authHeader || !authHeader.startsWith("Basic ")) {
-    return false;
-  }
-
-  const base64 = authHeader.split(" ")[1] || "";
-  const decoded = decodeBase64(base64);
-
-  if (!decoded.includes(":")) {
-    return false;
-  }
-
-  const separatorIndex = decoded.indexOf(":");
-  const user = decoded.slice(0, separatorIndex);
-  const pass = decoded.slice(separatorIndex + 1);
-
-  return user === expectedUser && pass === expectedPass;
 }
 
 export function proxy(req: NextRequest) {
@@ -106,12 +79,13 @@ export function proxy(req: NextRequest) {
     return legacyRedirectResponse(req, legacyDestination);
   }
 
-  if (isProtectedAdminPath(pathname) || isProtectedAdminApiPath(pathname)) {
-    if (!isAuthorized(req)) {
+  const localizedAdmin = isLocalizedAdminPath(pathname);
+  if (localizedAdmin || isProtectedAdminPath(pathname) || isProtectedAdminApiPath(pathname)) {
+    if (!isAdminAuthorized(req.headers.get("authorization"))) {
       return unauthorizedResponse();
     }
 
-    return NextResponse.next();
+    return localizedAdmin ? intlMiddleware(req) : NextResponse.next();
   }
 
   if (isApiPath(pathname)) {
@@ -127,6 +101,9 @@ export const config = {
     // Catalog part numbers can contain dots; they still need locale resolution.
     "/th/products/:path*",
     "/en/products/:path*",
+    "/admin/:path*",
+    "/th/admin/:path*",
+    "/en/admin/:path*",
     "/api/admin/:path*",
     "/index.html",
     "/en/index.html",
