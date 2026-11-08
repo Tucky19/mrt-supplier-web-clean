@@ -103,10 +103,26 @@ function getClientIp(req: Request) {
 
 export async function POST(req: Request) {
   const traceId = getTraceId(req);
+  // Preview is read-only until a dedicated test database and notification
+  // sandbox are provisioned. Guard before parsing, rate limiting or DB work.
+  if (process.env.VERCEL_ENV === "preview") {
+    return errorJson({
+      traceId,
+      status: 503,
+      error: "RFQ submission is disabled in Preview.",
+      extra: { code: "PREVIEW_RFQ_DISABLED" },
+      headers: { "Cache-Control": "no-store" },
+    });
+  }
   let requestId: string | undefined;
 
   try {
-    const body = await req.json();
+    let body;
+    try {
+      body = await req.json();
+    } catch {
+      return errorJson({ traceId, status: 400, error: "Invalid JSON body." });
+    }
 
     const ip = getClientIp(req);
     const ipHash = hashIp(ip);
