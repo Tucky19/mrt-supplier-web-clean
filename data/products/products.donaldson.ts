@@ -1247,6 +1247,7 @@ const donaldsonBatch1: RawDonaldson[] = [
   {
     id: "donaldson-p828889",
     partNo: "P828889",
+    officialUrl: "https://shop.donaldson.com/store/en-us/product/P828889/22390",
     brand: "Donaldson",
     title: "Air Filter",
     category: "air_filter",
