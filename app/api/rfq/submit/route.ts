@@ -154,6 +154,24 @@ export async function POST(req: Request) {
 
     // 1) Rate limit
     const rl = await consumeRfqRateLimit({ ipHash });
+    if (rl.storageUnavailable) {
+      logApiEvent("error", "rfq.submit.rate_limit_unavailable", {
+        traceId,
+        route: "/api/rfq/submit",
+        ipHash,
+      });
+      return errorJson({
+        traceId,
+        status: 503,
+        code: "RFQ_RATE_LIMIT_UNAVAILABLE",
+        error: "ระบบรับคำขอไม่พร้อมชั่วคราว กรุณารอแล้วลองใหม่",
+        extra: { retryAfterSec: rl.retryAfterSec },
+        headers: {
+          "Retry-After": String(rl.retryAfterSec),
+          "Cache-Control": "no-store",
+        },
+      });
+    }
     if (!rl.ok) {
       logApiEvent("warn", "rfq.submit.rate_limited", {
         traceId,
