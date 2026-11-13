@@ -69,7 +69,7 @@ try {
         assert.equal(await feedback.getAttribute('role'), 'status');
         assert.equal(await feedback.getAttribute('aria-live'), 'polite');
         const panel = button.locator('xpath=../../..');
-        const line = panel.getByRole('link', { name: locale === 'th' ? 'ให้ทีมช่วยค้นหาทาง LINE' : 'Ask our team to search on LINE', exact: true });
+        const line = panel.getByRole('link', { name: locale === 'th' ? 'ให้ทีมช่วยค้นหาทาง LINE' : 'Ask our team to search on LINE', exact: true, includeHidden: true });
         assert.equal(await line.getAttribute('href'), 'https://lin.ee/PsQGAuu');
         if (width >= 768) {
           assert.equal(await line.isVisible(), false, 'Desktop must not navigate to LINE STORE');
