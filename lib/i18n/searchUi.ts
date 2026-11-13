@@ -2,11 +2,20 @@ export function getSearchUiText(locale: string) {
   const isThai = locale === "th";
 
   return {
+    contactLine: isThai ? "ติดต่อทีมทาง LINE" : "Contact our team on LINE",
+    lineHelpLink: isThai ? "เปิด LINE ไม่ได้? ดูวิธีติดต่อ" : "Can't open LINE? View contact options",
+    lineQrAlt: isThai ? "QR สำหรับเปิด LINE OA ของ MRT Supplier" : "QR code for MRT Supplier LINE OA",
+    lineDesktopHelp: isThai
+      ? "ใช้ LINE บนมือถือสแกน QR นี้ หรือเปิดแอป LINE แล้วค้นหา ID ด้านล่าง"
+      : "Scan this QR code with LINE on your phone, or open the LINE app and search for the ID below.",
+    linePasteHelp: isThai
+      ? "เมื่อเข้าบัญชี MRT Supplier แล้ว ให้วางหรือพิมพ์คำค้นในแชต ตรวจข้อความก่อนกดส่ง"
+      : "Once in MRT Supplier's chat, paste or type your search text. Review it before sending.",
     copySearchText: isThai ? "คัดลอกคำค้น" : "Copy search text",
     copyingSearchText: isThai ? "กำลังคัดลอก…" : "Copying…",
     copySearchHint: isThai
-      ? "คัดลอกคำค้น แล้วเปิด LINE เพื่อวางข้อความให้ทีมช่วยตรวจสอบ"
-      : "Copy your search, then open LINE and paste it for our team to check.",
+      ? "คัดลอกคำค้น แล้วติดต่อทีมทาง LINE เพื่อให้ช่วยตรวจสอบ"
+      : "Copy your search, then contact our team on LINE for help.",
     searchTextCopied: isThai
       ? "คัดลอกแล้ว เปิด LINE แล้ววางข้อความได้เลย"
       : "Copied. Open LINE and paste your search text.",

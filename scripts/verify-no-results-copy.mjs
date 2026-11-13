@@ -71,6 +71,20 @@ try {
         const panel = button.locator('xpath=../../..');
         const line = panel.getByRole('link', { name: locale === 'th' ? 'ให้ทีมช่วยค้นหาทาง LINE' : 'Ask our team to search on LINE', exact: true });
         assert.equal(await line.getAttribute('href'), 'https://lin.ee/PsQGAuu');
+        if (width >= 768) {
+          assert.equal(await line.isVisible(), false, 'Desktop must not navigate to LINE STORE');
+          const contact = panel.getByRole('button', { name: locale === 'th' ? 'ติดต่อทีมทาง LINE' : 'Contact our team on LINE', exact: true });
+          const beforeUrl = page.url();
+          await contact.click();
+          assert.equal(page.url(), beforeUrl, 'Desktop contact stays on MRT');
+          assert.equal(await contact.getAttribute('aria-expanded'), 'true');
+          assert.ok(await panel.getByText('@mrtsupplier', { exact: true }).isVisible());
+          assert.ok(await panel.getByRole('img', { name: locale === 'th' ? 'QR สำหรับเปิด LINE OA ของ MRT Supplier' : 'QR code for MRT Supplier LINE OA' }).isVisible());
+        } else {
+          assert.ok(await line.isVisible(), 'Mobile keeps existing LINE link');
+          await panel.getByRole('button', { name: locale === 'th' ? 'เปิด LINE ไม่ได้? ดูวิธีติดต่อ' : "Can't open LINE? View contact options", exact: true }).click();
+          assert.ok(await panel.getByText('@mrtsupplier', { exact: true }).isVisible());
+        }
         assert.equal(await page.locator('#missing-product-request').count(), 1);
         assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth), 'No horizontal overflow');
         const box = await button.boundingBox();
