@@ -20,7 +20,7 @@ const browser = await chromium.launch({ executablePath: process.env.CHROMIUM_PAT
 const output = process.env.QA_OUTPUT || '/tmp/mrt-no-results-copy';
 await fs.mkdir(output, { recursive: true });
 const results = [];
-const query = '  ZZNOTFOUND  ทดสอบ /14 + & # % " < >  ';
+const query = '  ZZZXQ999999999  ฒฒฒ /XYZ + & # % " < >  ';
 try {
   for (const locale of ['th', 'en']) {
     for (const width of [390, 1440]) {
@@ -79,7 +79,7 @@ try {
         results.push({ locale, width, mode, passed: true });
       }
       // Client navigation clears old feedback and copies the newly searched text.
-      const changed = 'ZZNOTFOUND  ใหม่ /22 + & # %';
+      const changed = 'ZZZXQ999999998 ใหม่ /XYY + & # %';
       const search = page.getByRole('textbox', { name: locale === 'th' ? 'ค้นหาสินค้า' : 'Search products', exact: true }).first();
       await search.fill(changed);
       await search.press('Enter');
