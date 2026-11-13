@@ -15,6 +15,7 @@ import SiteFooter from "@/components/layout/SiteFooter";
 import SiteHeader from "@/components/layout/SiteHeader";
 import MultiPartNumberSearch from "@/components/search/MultiPartNumberSearch";
 import SearchBar from "@/components/search/SearchBar";
+import NoResultsContactActions from "@/components/search/NoResultsContactActions";
 import JsonLd from "@/components/seo/JsonLd";
 import { products } from "@/data/products/index";
 import { isPreliminaryRelation } from "@/lib/products/relations";
@@ -148,7 +149,8 @@ export default async function ProductsPage({
   await getTranslations({ locale });
 
   const resolvedSearchParams = await searchParams;
-  const query = resolvedSearchParams?.q?.trim() ?? "";
+  const originalQuery = resolvedSearchParams?.q ?? "";
+  const query = originalQuery.trim();
   const requestMissingProduct = resolvedSearchParams?.request === "1";
   const hasQuery = query.length >= 2;
   const isThai = locale === "th";
@@ -372,17 +374,19 @@ export default async function ProductsPage({
                     ? "ส่ง Part Number, Cross Reference, รูปสินค้า หรือข้อมูลการใช้งานให้ทีม MRT ช่วยตรวจสอบได้"
                     : "Send the part number, cross reference, product photo, or application details for our team to check."}
                 </p>
-                <TrackedLineLink
-                  href={LINE_URL}
-                  source="search_no_results"
-                  locale={locale}
-                  className="mt-4 inline-flex min-h-11 items-center justify-center gap-2 rounded-[var(--mrt-radius-md)] bg-[var(--color-success)] px-5 py-2.5 text-sm font-semibold text-[var(--color-text-inverse)] transition hover:bg-[var(--color-success-hover)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-surface)]"
-                >
-                  <MessageCircle className="h-5 w-5" aria-hidden="true" />
-                  {isThai
-                    ? "ให้ทีมช่วยค้นหาทาง LINE"
-                    : "Ask our team to search on LINE"}
-                </TrackedLineLink>
+                <NoResultsContactActions key={`${locale}:${originalQuery}`} query={originalQuery} locale={locale}>
+                  <TrackedLineLink
+                    href={LINE_URL}
+                    source="search_no_results"
+                    locale={locale}
+                    className="inline-flex min-h-11 items-center justify-center gap-2 rounded-[var(--mrt-radius-md)] bg-[var(--color-success)] px-5 py-2.5 text-sm font-semibold text-[var(--color-text-inverse)] transition hover:bg-[var(--color-success-hover)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-surface)]"
+                  >
+                    <MessageCircle className="h-5 w-5" aria-hidden="true" />
+                    {isThai
+                      ? "ให้ทีมช่วยค้นหาทาง LINE"
+                      : "Ask our team to search on LINE"}
+                  </TrackedLineLink>
+                </NoResultsContactActions>
               </div>
             )}
 
