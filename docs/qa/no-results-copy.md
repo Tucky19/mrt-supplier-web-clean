@@ -1,5 +1,8 @@
 # No-results copy action — 2026-11-14 Asia/Bangkok
 
+Historical checkpoint. Current scope, retested LINE destination and acceptance
+results: [15 November unified LINE QA](./line-contact-2026-11-15.md).
+
 Related to Issue #180 (partial delivery, not closure of the entire issue).
 Base main: f8edba199a1481ce7448a4193bf6344eed855365.
 
