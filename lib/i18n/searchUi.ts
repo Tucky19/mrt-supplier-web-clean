@@ -2,6 +2,18 @@ export function getSearchUiText(locale: string) {
   const isThai = locale === "th";
 
   return {
+    copySearchText: isThai ? "คัดลอกคำค้น" : "Copy search text",
+    copyingSearchText: isThai ? "กำลังคัดลอก…" : "Copying…",
+    copySearchHint: isThai
+      ? "คัดลอกคำค้น แล้วติดต่อทีมทาง LINE เพื่อให้ช่วยตรวจสอบ"
+      : "Copy your search, then contact our team on LINE for help.",
+    searchTextCopied: isThai
+      ? "คัดลอกแล้ว เปิด LINE แล้ววางข้อความได้เลย"
+      : "Copied. Open LINE and paste your search text.",
+    searchTextCopyFailed: isThai
+      ? "คัดลอกอัตโนมัติไม่ได้ กรุณาเลือกข้อความด้านล่างแล้วคัดลอกด้วยตนเอง"
+      : "Could not copy automatically. Select the text below and copy it manually.",
+    searchTextToCopy: isThai ? "คำค้นสำหรับคัดลอก" : "Search text to copy",
     searchPlaceholder: isThai
       ? "Part No. / Cross Ref."
       : "Part No. / Cross Ref.",

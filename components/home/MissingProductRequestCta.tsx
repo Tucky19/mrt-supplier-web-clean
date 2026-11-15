@@ -1,3 +1,4 @@
+import LineContactLink from "@/components/contact/LineContactLink";
 import Link from "next/link";
 import { getMissingProductUiText } from "@/lib/i18n/missingProductUi";
 
@@ -46,10 +47,7 @@ export default function MissingProductRequestCta({
         >
           {text.primaryButton}
         </Link>
-        <a
-          href={LINE_URL}
-          target="_blank"
-          rel="noopener noreferrer"
+        <LineContactLink href={LINE_URL} locale={locale}
           className={`inline-flex rounded-full border px-4 py-2 text-sm font-medium transition ${
             isLight
               ? "border-blue-200 bg-white text-blue-900 hover:border-blue-300 hover:bg-blue-100"
@@ -57,7 +55,7 @@ export default function MissingProductRequestCta({
           }`}
         >
           {text.secondaryButton}
-        </a>
+        </LineContactLink>
       </div>
       <p
         className={`mt-3 text-xs leading-5 ${
