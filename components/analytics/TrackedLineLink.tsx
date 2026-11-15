@@ -1,6 +1,7 @@
 "use client";
 
 import type { ReactNode } from "react";
+import LineContactLink from "@/components/contact/LineContactLink";
 import { gaLineClick } from "@/lib/analytics/ga";
 
 type Props = {
@@ -21,13 +22,12 @@ export default function TrackedLineLink({
   title,
 }: Props) {
   return (
-    <a
+    <LineContactLink
       href={href}
-      target="_blank"
-      rel="noopener noreferrer"
+      locale={locale}
       className={className}
       title={title}
-      onClick={() => {
+      onNavigate={() => {
         gaLineClick({
           source,
           locale,
@@ -35,6 +35,6 @@ export default function TrackedLineLink({
       }}
     >
       {children}
-    </a>
+    </LineContactLink>
   );
 }

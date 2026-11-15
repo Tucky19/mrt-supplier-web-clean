@@ -1,5 +1,7 @@
 "use client";
 
+import LineContactLink from "@/components/contact/LineContactLink";
+
 import { useEffect, useMemo, useState } from "react";
 import { usePathname } from "next/navigation";
 import { gaLineClick, gaMissingProductRequestSubmit } from "@/lib/analytics/ga";
@@ -226,11 +228,8 @@ export default function MissingProductRequestForm({
           {successRequestId}
         </div>
         <div className="mt-4 flex flex-wrap gap-3">
-          <a
-            href={LINE_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => {
+          <LineContactLink href={LINE_URL} locale={locale}
+            onNavigate={() => {
               gaLineClick({
                 source: "missing_product_request_success",
                 locale,
@@ -239,7 +238,7 @@ export default function MissingProductRequestForm({
             className="inline-flex min-h-11 items-center rounded-full border border-[var(--color-success-text)] bg-[var(--color-success-soft)] px-4 py-2 text-sm font-semibold text-[var(--color-success-text)] transition hover:bg-[var(--color-surface)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-success-soft)]"
           >
             {text.secondaryButton}
-          </a>
+          </LineContactLink>
           <button
             type="button"
             onClick={() => setSuccessRequestId("")}
@@ -576,11 +575,8 @@ export default function MissingProductRequestForm({
           >
             {submitting ? text.sending : text.submitLabel}
           </button>
-          <a
-            href={LINE_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => {
+          <LineContactLink href={LINE_URL} locale={locale}
+            onNavigate={() => {
               gaLineClick({
                 source: "missing_product_request_form",
                 locale,
@@ -589,7 +585,7 @@ export default function MissingProductRequestForm({
             className="inline-flex min-h-11 items-center rounded-full border border-[var(--color-success-text)] bg-[var(--color-success-soft)] px-5 py-3 text-sm font-medium text-[var(--color-success-text)] transition hover:bg-[var(--color-surface)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-surface)]"
           >
             {text.secondaryButton}
-          </a>
+          </LineContactLink>
         </div>
       </form>
     </section>

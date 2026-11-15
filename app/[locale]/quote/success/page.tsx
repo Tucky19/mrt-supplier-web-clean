@@ -1,3 +1,4 @@
+import LineContactLink from "@/components/contact/LineContactLink";
 import customerTheme from "@/components/layout/CustomerTheme.module.css";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -133,14 +134,11 @@ export default async function QuoteSuccessPage({
               {text.backToProducts}
             </Link>
 
-            <a
-              href="https://lin.ee/PsQGAuu"
-              target="_blank"
-              rel="noopener noreferrer"
+            <LineContactLink href="https://lin.ee/PsQGAuu" locale={locale}
               className="rounded-full border border-[var(--color-success-text)] bg-[var(--color-success-soft)] px-5 py-3 text-sm font-medium text-[var(--color-success-text)] transition hover:bg-[var(--color-surface)] focus-visible:[outline:2px_solid_var(--color-focus-ring)] focus-visible:[outline-offset:2px] focus-visible:ring-2 focus-visible:ring-[color:var(--color-focus-ring)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-surface)]"
             >
               {text.sendDetailsOnLine}
-            </a>
+            </LineContactLink>
 
             <a
               href="mailto:rfq01@mrtsupplier.com"
