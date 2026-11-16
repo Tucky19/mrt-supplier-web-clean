@@ -723,6 +723,8 @@ export default function QuotePage() {
             <div className="mt-6 rounded-[var(--mrt-radius-lg)] border border-[var(--color-border)] bg-[var(--color-success-soft)] p-4">
               <p className="text-sm font-semibold text-[var(--color-success-text)]">{text.lineContinueTitle}</p>
               <p className="mt-1 text-xs leading-5 text-[var(--color-success-text)]">{text.lineContinueBody}</p>
+              <p className="mt-2 hidden text-xs leading-5 text-[var(--color-success-text)] md:block">{text.lineDesktopHelp}</p>
+              <p className="mt-2 text-xs leading-5 text-[var(--color-success-text)] md:hidden">{text.lineMobileHelp}</p>
               <div className="mt-4 grid gap-2 sm:grid-cols-2">
                 <CopyButton
                   value={lineSummary}

@@ -1,0 +1,36 @@
+async page => {
+ const assert=(ok,message)=>{if(!ok)throw new Error(message);};
+ const report=[];
+ for(const locale of ['en','th']) for(const width of [1440,360,390,430]) {
+   await page.setViewportSize({width,height:900});
+   await page.goto(`http://localhost:3102/${locale}/contact`);
+   const email=page.locator('section a[href="mailto:sales@mrtsupplier.com"]');
+   const copy=page.getByRole('button',{name:locale==='th'?'คัดลอกอีเมล':'Copy email',exact:true});
+   const status=copy.locator('..').getByRole('status');
+   assert(await email.count()===1,'mailto preserved');
+   assert(await page.locator('footer a[href="mailto:sales@mrtsupplier.com"]').count()===1,'footer mailto');
+   assert((await page.locator('section').innerText()).includes(locale==='th'?'บริษัท เอ็มอาร์ที ซัพพลายเออร์ จำกัด':'MRT Supplier Co., Ltd.'),'company');
+   assert(await copy.getAttribute('type')==='button','non-submit button');
+   await page.evaluate(()=>Object.defineProperty(navigator,'clipboard',{configurable:true,value:{writeText:async text=>{window.__emailCopied=text;}}}));
+   await email.focus(); await page.keyboard.press('Tab');
+   assert(await copy.evaluate(el=>el===document.activeElement),'keyboard tab');
+   await page.keyboard.press('Enter');
+   await page.waitForFunction(()=>window.__emailCopied==='sales@mrtsupplier.com');
+   await page.waitForFunction(()=>document.querySelector('[role="status"]').textContent.length>0);
+   assert((await status.innerText()).includes(locale==='th'?'คัดลอกอีเมลแล้ว':'Email copied'),'success feedback');
+   await copy.locator('..').locator('..').screenshot({path:`output/playwright/rfq-batch/email-success-${locale}-${width}.png`});
+   await page.evaluate(()=>Object.defineProperty(navigator,'clipboard',{configurable:true,value:{writeText:async()=>{throw new Error('QA denied');}}}));
+   await copy.focus(); await page.keyboard.press('Space');
+   await page.waitForFunction(()=>{const text=document.querySelector('[role="status"]').textContent;return text.includes('Could not copy')||text.includes('คัดลอกไม่ได้');});
+   assert((await status.innerText()).includes('sales@mrtsupplier.com'),'manual fallback address');
+   await copy.locator('..').locator('..').screenshot({path:`output/playwright/rfq-batch/email-failure-${locale}-${width}.png`});
+   await page.evaluate(()=>{window.__submitCount=0;const button=document.querySelector('button[type="button"]');const form=document.createElement('form');button.parentElement.insertBefore(form,button);form.append(button);form.addEventListener('submit',event=>{event.preventDefault();window.__submitCount++;});});
+   await copy.click();
+   assert(await page.evaluate(()=>window.__submitCount)===0,'no unintended submit');
+   assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),'contact overflow');
+   await page.evaluate(()=>scrollTo(0,0));
+   await page.screenshot({path:`output/playwright/rfq-batch/contact-${locale}-${width}.png`,fullPage:true});
+   report.push(`${locale} ${width}: legal name, preserved mailto, footer mailto, clipboard success/failure, Tab/Enter/Space, non-submit and overflow PASS`);
+ }
+ return report.join('\n');
+}

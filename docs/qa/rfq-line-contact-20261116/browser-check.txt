@@ -1,0 +1,103 @@
+async page => {
+ const assert = (ok, message) => { if (!ok) throw new Error(message); };
+ const report=[];
+ const writes=[];
+ await page.route('**/*', async route => {
+   const url=new URL(route.request().url());
+   if(url.hostname !== 'localhost' && !url.protocol.startsWith('data')) return route.abort();
+   if(route.request().method()==='POST' && url.pathname.startsWith('/api/') && url.pathname!=='/api/search/multi-part') { if(url.pathname==='/api/missing-product-request') writes.push(route.request().postDataJSON()); return route.fulfill({status:418,body:'QA blocked write'}); }
+   return route.continue();
+ });
+ for (const locale of ['en','th']) for(const width of [1440,360,390,430]) {
+   await page.setViewportSize({width,height:900});
+   await page.goto(`http://localhost:3102/${locale}/quote`);
+   await page.evaluate(()=>localStorage.removeItem('mrt_quote_v1'));
+   await page.reload();
+   const area=page.locator('section').filter({has:page.locator('textarea')}).last();
+   const input=area.locator('textarea');
+   const check=area.getByRole('button').nth(1);
+   const lookup=async text=>{await input.fill(text); const response=page.waitForResponse(r=>r.url().includes('/api/search/multi-part')); await check.click(); const data=await(await response).json(); await area.getByRole('button').nth(2).waitFor(); return data;};
+   let release, signal;
+   const gate=new Promise(resolve=>{release=resolve;});
+   const requested=new Promise(resolve=>{signal=resolve;});
+   const staleHandler=async route=>{
+     if(route.request().postDataJSON().partNumbers[0].partNo==='STALE-TEST') {
+       signal(); await gate;
+       return route.fulfill({json:{results:[{status:'missing',originalPartNo:'STALE-TEST',normalizedPartNo:'staletest',qty:1}]}});
+     }
+     return route.fallback();
+   };
+   await page.route('**/api/search/multi-part',staleHandler);
+   await input.fill('STALE-TEST'); await check.click(); await requested;
+   await input.fill('P551315');
+   const staleResponse=page.waitForResponse(r=>r.url().includes('/api/search/multi-part'));
+   release(); await staleResponse;
+   await page.waitForTimeout(100);
+   assert(await area.getByRole('button').count()===2,'late response ignored after edit');
+   await page.unroute('**/api/search/multi-part',staleHandler);
+   let data=await lookup('P551315 x 2\n2P4004\nFS1006\nUNKNOWN-TEST-001');
+   assert(data.results.map(r=>r.status).join(',')==='found,found,ambiguous,missing','statuses');
+   assert(data.results[1].product.partNo==='P554004','reference');
+   assert(await area.getByRole('button').nth(2).isDisabled(),'ambiguous blocked');
+   await area.screenshot({path:`output/playwright/rfq-batch/results-${locale}-${width}.png`});
+   await input.fill('P551315');
+   assert(await area.getByRole('button').count()===2,'edit invalidates');
+   await lookup('P551315 x 2\nP551315\n2P4004\nUNKNOWN-TEST-001');
+   await area.getByRole('button').nth(2).click();
+   await page.waitForFunction(()=>document.querySelector('section textarea')?.closest('section')?.querySelectorAll('button')[2]?.disabled);
+   assert(await area.getByRole('button').nth(2).isDisabled(),'repeat add disabled');
+   let items=await page.evaluate(()=>JSON.parse(localStorage.getItem('mrt_quote_v1')||'[]'));
+   assert(items.length===3 && items.find(i=>i.partNo==='P551315').qty===3,'merged duplicate');
+   assert(items.find(i=>i.partNo==='P554004').meta.searchQuery==='2P4004','original preserved');
+   const qty=page.locator('input[inputmode="numeric"]').first();
+   await qty.fill('7'); await qty.blur();
+   await page.waitForFunction(()=>JSON.parse(localStorage.getItem('mrt_quote_v1')||'[]')[0]?.qty===7);
+   await page.reload();
+   items=await page.evaluate(()=>JSON.parse(localStorage.getItem('mrt_quote_v1')||'[]'));
+   assert(items[0].qty===7 && items.length===3,'quantity reload');
+   await lookup('P554004 x 2');
+   await area.getByRole('button').nth(2).click();
+   await page.waitForFunction(()=>JSON.parse(localStorage.getItem('mrt_quote_v1')||'[]').find(i=>i.partNo==='P554004')?.qty===3);
+   items=await page.evaluate(()=>JSON.parse(localStorage.getItem('mrt_quote_v1')||'[]'));
+   assert(items.find(i=>i.partNo==='P554004').meta.searchQuery==='2P4004','repeat batch retains original');
+   await page.evaluate(()=>Object.defineProperty(navigator,'clipboard',{configurable:true,value:{writeText:async text=>{window.__copied=text;}}}));
+   const copy=page.locator('form button[type="button"]').last();
+   await copy.click();
+   await page.waitForFunction(()=>Boolean(window.__copied));
+   const payload=await page.evaluate(()=>window.__copied);
+   assert(payload.includes('2P4004') && payload.includes('P554004') && payload.includes('UNKNOWN-TEST-001'),'copy payload');
+   const line=page.locator('form a[href="https://lin.ee/PsQGAuu"]');
+   assert(await line.count()===1,'OA link');
+   const card=line.locator('..').locator('..');
+   assert((await card.innerText()).includes('@mrtsupplier'),'visible OA ID');
+   await card.screenshot({path:`output/playwright/rfq-batch/line-${locale}-${width}.png`});
+   if(width===1440) { await line.click(); await page.getByRole('dialog').waitFor(); await page.getByRole('dialog').screenshot({path:`output/playwright/rfq-batch/line-dialog-${locale}.png`}); await page.keyboard.press('Escape'); }
+   assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),'RFQ overflow');
+   await page.goto(`http://localhost:3102/${locale}/products?q=UNKNOWN-TEST-001`);
+   const details=page.locator('#missing-product-request details');
+   assert(!await details.evaluate(el=>el.open),'optional initially collapsed');
+   await details.locator('summary').click();
+   await page.locator('#missing-product-brand').fill('QA optional brand');
+   await page.locator('#missing-product-outer-diameter').fill('125');
+   await details.locator('summary').click();
+   await details.locator('summary').click();
+   assert(await page.locator('#missing-product-brand').inputValue()==='QA optional brand','optional retained');
+   assert(await page.locator('#missing-product-outer-diameter').inputValue()==='125','dimensions retained');
+   await details.locator('summary').click();
+   const writesBefore=writes.length;
+   await page.locator('#missing-product-request button[type="submit"]').click();
+   await page.locator('#missing-product-request [role="alert"]').waitFor();
+   assert(writes.length===writesBefore,'contact validation prevents request');
+   await page.locator('#missing-product-phone').fill('0000000000');
+   const mocked=page.waitForResponse(r=>r.url().includes('/api/missing-product-request'));
+   await page.locator('#missing-product-request button[type="submit"]').click();
+   await mocked;
+   assert(writes.at(-1).brand==='QA optional brand' && writes.at(-1).outerDiameter==='125','optional mock payload');
+   assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),'form overflow');
+   await page.evaluate(()=>scrollTo(0,0));
+   await page.screenshot({path:`output/playwright/rfq-batch/form-full-${locale}-${width}.png`,fullPage:true});
+   await page.locator('#missing-product-request').screenshot({path:`output/playwright/rfq-batch/form-${locale}-${width}.png`});
+   report.push(`${locale} ${width}: exact/reference/ambiguous/unknown, duplicates, edit invalidation, repeated-add guard, quantity/reload, copy, LINE guidance/link, optional retention/contact validation, overflow PASS`);
+ }
+ return report.join('\n');
+}

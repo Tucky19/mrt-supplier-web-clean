@@ -12,7 +12,7 @@ export function getLineContactUiText(locale?: string) {
       : "If LINE did not open, try the button below or search for the ID in the app.",
     open: th ? "เปิด LINE" : "Open LINE",
     note: th
-      ? "พิมพ์หรือวางข้อมูลที่ต้องการสอบถาม ตรวจข้อความก่อนกดส่ง"
-      : "Type or paste your enquiry and review it before sending.",
+      ? "คัดลอกรายการจากคอมพิวเตอร์? วางใน LINE บนเครื่องเดียวกันแล้วกดส่งถึง @mrtsupplier การสแกน QR บนมือถือไม่ได้นำคลิปบอร์ดไปด้วย การเปิด LINE ไม่ได้ส่งข้อความหรือสร้างเลข RFQ"
+      : "Copied a list on your computer? Paste it in LINE on the same computer and send to @mrtsupplier. Scanning this QR on a phone does not transfer the clipboard. Opening LINE does not send a message or create an RFQ number.",
   };
 }

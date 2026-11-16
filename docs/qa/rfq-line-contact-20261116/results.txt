@@ -1,0 +1,28 @@
+browser-final
+### Result
+"en 1440: exact/reference/ambiguous/unknown, duplicates, edit invalidation, repeated-add guard, quantity/reload, copy, LINE guidance/link, optional retention/contact validation, overflow PASS\nen 360: exact/reference/ambiguous/unknown, duplicates, edit invalidation, repeated-add guard, quantity/reload, copy, LINE guidance/link, optional retention/contact validation, overflow PASS\nen 390: exact/reference/ambiguous/unknown, duplicates, edit invalidation, repeated-add guard, quantity/reload, copy, LINE guidance/link, optional retention/contact validation, overflow PASS\nen 430: exact/reference/ambiguous/unknown, duplicates, edit invalidation, repeated-add guard, quantity/reload, copy, LINE guidance/link, optional retention/contact validation, overflow PASS\nth 1440: exact/reference/ambiguous/unknown, duplicates, edit invalidation, repeated-add guard, quantity/reload, copy, LINE guidance/link, optional retention/contact validation, overflow PASS\nth 360: exact/reference/ambiguous/unknown, duplicates, edit invalidation, repeated-add guard, quantity/reload, copy, LINE guidance/link, optional retention/contact validation, overflow PASS\nth 390: exact/reference/ambiguous/unknown, duplicates, edit invalidation, repeated-add guard, quantity/reload, copy, LINE guidance/link, optional retention/contact validation, overflow PASS\nth 430: exact/reference/ambiguous/unknown, duplicates, edit invalidation, repeated-add guard, quantity/reload, copy, LINE guidance/link, optional retention/contact validation, overflow PASS"
+
+
+contact-browser
+### Result
+"en 1440: legal name, preserved mailto, footer mailto, clipboard success/failure, Tab/Enter/Space, non-submit and overflow PASS\nen 360: legal name, preserved mailto, footer mailto, clipboard success/failure, Tab/Enter/Space, non-submit and overflow PASS\nen 390: legal name, preserved mailto, footer mailto, clipboard success/failure, Tab/Enter/Space, non-submit and overflow PASS\nen 430: legal name, preserved mailto, footer mailto, clipboard success/failure, Tab/Enter/Space, non-submit and overflow PASS\nth 1440: legal name, preserved mailto, footer mailto, clipboard success/failure, Tab/Enter/Space, non-submit and overflow PASS\nth 360: legal name, preserved mailto, footer mailto, clipboard success/failure, Tab/Enter/Space, non-submit and overflow PASS\nth 390: legal name, preserved mailto, footer mailto, clipboard success/failure, Tab/Enter/Space, non-submit and overflow PASS\nth 430: legal name, preserved mailto, footer mailto, clipboard success/failure, Tab/Enter/Space, non-submit and overflow PASS"
+
+
+extra-browser
+### Result
+"en 1440: product/contact validation, zero quantity correction and unavailable clipboard fallback PASS\nen 360: product/contact validation, zero quantity correction and unavailable clipboard fallback PASS\nen 390: product/contact validation, zero quantity correction and unavailable clipboard fallback PASS\nen 430: product/contact validation, zero quantity correction and unavailable clipboard fallback PASS\nth 1440: product/contact validation, zero quantity correction and unavailable clipboard fallback PASS\nth 360: product/contact validation, zero quantity correction and unavailable clipboard fallback PASS\nth 390: product/contact validation, zero quantity correction and unavailable clipboard fallback PASS\nth 430: product/contact validation, zero quantity correction and unavailable clipboard fallback PASS"
+
+
+bulk-final
+RFQ bulk entry: catalog parity, reference context, ambiguity, unknown, deployed exclusion, quantity formats and duplicates passed.
+
+
+multi-final
+Multi-part search verification passed.
+
+
+exact-final
+Focused exact-result and reference autocomplete validation passed
+33651XE resolves only to P550467
+Partial 33651 includes the stored 33651XE reference
+Ambiguous 33358 and ordinary specification search remain available

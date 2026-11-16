@@ -314,18 +314,6 @@ export default function MissingProductRequestForm({
 
             <div className="grid gap-4 sm:grid-cols-2">
               <div className="space-y-2">
-                <label htmlFor="missing-product-brand" className="block text-xs font-semibold uppercase tracking-[0.12em] text-[var(--color-text-muted)]">
-                  {text.brand}
-                </label>
-                <input
-                  id="missing-product-brand"
-                  value={form.brand}
-                  onChange={(event) => handleChange("brand", event.target.value)}
-                  placeholder={text.brand}
-                  className="min-h-11 w-full rounded-[var(--mrt-radius-md)] border border-[var(--color-border-strong)] bg-[var(--color-surface)] px-4 py-3 text-sm text-[var(--color-text)] outline-none transition placeholder:text-[var(--color-text-muted)] focus-visible:border-[var(--color-focus-ring)] focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-surface-muted)]"
-                />
-              </div>
-              <div className="space-y-2">
                 <label htmlFor="missing-product-qty" className="block text-xs font-semibold uppercase tracking-[0.12em] text-[var(--color-text-muted)]">
                   {text.qty}
                 </label>
@@ -341,18 +329,6 @@ export default function MissingProductRequestForm({
               </div>
             </div>
 
-            <div className="space-y-2">
-              <label htmlFor="missing-product-machine-application" className="block text-xs font-semibold uppercase tracking-[0.12em] text-[var(--color-text-muted)]">
-                {text.machineApplication}
-              </label>
-              <input
-                id="missing-product-machine-application"
-                value={form.machineApplication}
-                onChange={(event) => handleChange("machineApplication", event.target.value)}
-                placeholder={text.machineApplication}
-                className="min-h-11 w-full rounded-[var(--mrt-radius-md)] border border-[var(--color-border-strong)] bg-[var(--color-surface)] px-4 py-3 text-sm text-[var(--color-text)] outline-none transition placeholder:text-[var(--color-text-muted)] focus-visible:border-[var(--color-focus-ring)] focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-surface-muted)]"
-              />
-            </div>
 
             <div className="space-y-2">
               <label htmlFor="missing-product-note" className="block text-xs font-semibold uppercase tracking-[0.12em] text-[var(--color-text-muted)]">
@@ -369,8 +345,100 @@ export default function MissingProductRequestForm({
             </div>
           </div>
 
-          <div className="space-y-4 rounded-[var(--mrt-radius-md)] border border-[var(--color-border)] bg-[var(--color-surface-muted)] p-4">
-            <h3 className="text-sm font-semibold text-[var(--color-text)]">{text.dimensions}</h3>
+        <div className="rounded-[var(--mrt-radius-md)] border border-[var(--color-border)] bg-[var(--color-surface-muted)] p-4">
+          <h3 className="text-sm font-semibold text-[var(--color-text)]">{text.contactInfo}</h3>
+
+          <div className="mt-4 grid gap-4 sm:grid-cols-2">
+            <div className="space-y-2">
+              <label htmlFor="missing-product-contact-name" className="block text-xs font-semibold uppercase tracking-[0.12em] text-[var(--color-text-muted)]">
+                {text.contactName}
+              </label>
+              <input
+                id="missing-product-contact-name"
+                value={form.contactName}
+                onChange={(event) => handleChange("contactName", event.target.value)}
+                placeholder={text.contactName}
+                className="min-h-11 w-full rounded-[var(--mrt-radius-md)] border border-[var(--color-border-strong)] bg-[var(--color-surface)] px-4 py-3 text-sm text-[var(--color-text)] outline-none transition placeholder:text-[var(--color-text-muted)] focus-visible:border-[var(--color-focus-ring)] focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-surface-muted)]"
+              />
+            </div>
+            <div className="space-y-2">
+              <label htmlFor="missing-product-company" className="block text-xs font-semibold uppercase tracking-[0.12em] text-[var(--color-text-muted)]">
+                {text.company}
+              </label>
+              <input
+                id="missing-product-company"
+                value={form.company}
+                onChange={(event) => handleChange("company", event.target.value)}
+                placeholder={text.company}
+                className="min-h-11 w-full rounded-[var(--mrt-radius-md)] border border-[var(--color-border-strong)] bg-[var(--color-surface)] px-4 py-3 text-sm text-[var(--color-text)] outline-none transition placeholder:text-[var(--color-text-muted)] focus-visible:border-[var(--color-focus-ring)] focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-surface-muted)]"
+              />
+            </div>
+            <div className="space-y-2">
+              <label htmlFor="missing-product-phone" className="block text-xs font-semibold uppercase tracking-[0.12em] text-[var(--color-text-muted)]">
+                {text.phone}
+              </label>
+              <input
+                id="missing-product-phone"
+                value={form.phone}
+                onChange={(event) => handleChange("phone", event.target.value)}
+                placeholder={text.phone}
+                className="min-h-11 w-full rounded-[var(--mrt-radius-md)] border border-[var(--color-border-strong)] bg-[var(--color-surface)] px-4 py-3 text-sm text-[var(--color-text)] outline-none transition placeholder:text-[var(--color-text-muted)] focus-visible:border-[var(--color-focus-ring)] focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-surface-muted)]"
+              />
+            </div>
+            <div className="space-y-2">
+              <label htmlFor="missing-product-email" className="block text-xs font-semibold uppercase tracking-[0.12em] text-[var(--color-text-muted)]">
+                {text.email}
+              </label>
+              <input
+                id="missing-product-email"
+                value={form.email}
+                onChange={(event) => handleChange("email", event.target.value)}
+                placeholder={text.email}
+                className="min-h-11 w-full rounded-[var(--mrt-radius-md)] border border-[var(--color-border-strong)] bg-[var(--color-surface)] px-4 py-3 text-sm text-[var(--color-text)] outline-none transition placeholder:text-[var(--color-text-muted)] focus-visible:border-[var(--color-focus-ring)] focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-surface-muted)]"
+              />
+            </div>
+            <div className="space-y-2 sm:col-span-2">
+              <label htmlFor="missing-product-line-id" className="block text-xs font-semibold uppercase tracking-[0.12em] text-[var(--color-text-muted)]">
+                {text.lineId}
+              </label>
+              <input
+                id="missing-product-line-id"
+                value={form.lineId}
+                onChange={(event) => handleChange("lineId", event.target.value)}
+                placeholder={text.lineId}
+                className="min-h-11 w-full rounded-[var(--mrt-radius-md)] border border-[var(--color-border-strong)] bg-[var(--color-surface)] px-4 py-3 text-sm text-[var(--color-text)] outline-none transition placeholder:text-[var(--color-text-muted)] focus-visible:border-[var(--color-focus-ring)] focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-surface-muted)]"
+              />
+            </div>
+          </div>
+        </div>
+        </div>
+
+          <details open={Boolean(searchQuery && (form.outerDiameter || form.innerDiameter || form.lengthHeight || form.threadSize))} className="self-start space-y-4 rounded-[var(--mrt-radius-md)] border border-[var(--color-border)] bg-[var(--color-surface-muted)] p-4">
+            <summary className="cursor-pointer text-sm font-semibold text-[var(--color-text)]">{text.optionalDetails}</summary>
+            <div className="space-y-2">
+                <label htmlFor="missing-product-brand" className="block text-xs font-semibold uppercase tracking-[0.12em] text-[var(--color-text-muted)]">
+                  {text.brand}
+                </label>
+                <input
+                  id="missing-product-brand"
+                  value={form.brand}
+                  onChange={(event) => handleChange("brand", event.target.value)}
+                  placeholder={text.brand}
+                  className="min-h-11 w-full rounded-[var(--mrt-radius-md)] border border-[var(--color-border-strong)] bg-[var(--color-surface)] px-4 py-3 text-sm text-[var(--color-text)] outline-none transition placeholder:text-[var(--color-text-muted)] focus-visible:border-[var(--color-focus-ring)] focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-surface-muted)]"
+                />
+              </div>
+            <div className="space-y-2">
+              <label htmlFor="missing-product-machine-application" className="block text-xs font-semibold uppercase tracking-[0.12em] text-[var(--color-text-muted)]">
+                {text.machineApplication}
+              </label>
+              <input
+                id="missing-product-machine-application"
+                value={form.machineApplication}
+                onChange={(event) => handleChange("machineApplication", event.target.value)}
+                placeholder={text.machineApplication}
+                className="min-h-11 w-full rounded-[var(--mrt-radius-md)] border border-[var(--color-border-strong)] bg-[var(--color-surface)] px-4 py-3 text-sm text-[var(--color-text)] outline-none transition placeholder:text-[var(--color-text-muted)] focus-visible:border-[var(--color-focus-ring)] focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-surface-muted)]"
+              />
+            </div>
 
             <div className="grid gap-4 sm:grid-cols-2">
               <div className="space-y-2">
@@ -491,75 +559,7 @@ export default function MissingProductRequestForm({
                 />
               </div>
             </div>
-          </div>
-        </div>
-
-        <div className="rounded-[var(--mrt-radius-md)] border border-[var(--color-border)] bg-[var(--color-surface-muted)] p-4">
-          <h3 className="text-sm font-semibold text-[var(--color-text)]">{text.contactInfo}</h3>
-
-          <div className="mt-4 grid gap-4 sm:grid-cols-2">
-            <div className="space-y-2">
-              <label htmlFor="missing-product-contact-name" className="block text-xs font-semibold uppercase tracking-[0.12em] text-[var(--color-text-muted)]">
-                {text.contactName}
-              </label>
-              <input
-                id="missing-product-contact-name"
-                value={form.contactName}
-                onChange={(event) => handleChange("contactName", event.target.value)}
-                placeholder={text.contactName}
-                className="min-h-11 w-full rounded-[var(--mrt-radius-md)] border border-[var(--color-border-strong)] bg-[var(--color-surface)] px-4 py-3 text-sm text-[var(--color-text)] outline-none transition placeholder:text-[var(--color-text-muted)] focus-visible:border-[var(--color-focus-ring)] focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-surface-muted)]"
-              />
-            </div>
-            <div className="space-y-2">
-              <label htmlFor="missing-product-company" className="block text-xs font-semibold uppercase tracking-[0.12em] text-[var(--color-text-muted)]">
-                {text.company}
-              </label>
-              <input
-                id="missing-product-company"
-                value={form.company}
-                onChange={(event) => handleChange("company", event.target.value)}
-                placeholder={text.company}
-                className="min-h-11 w-full rounded-[var(--mrt-radius-md)] border border-[var(--color-border-strong)] bg-[var(--color-surface)] px-4 py-3 text-sm text-[var(--color-text)] outline-none transition placeholder:text-[var(--color-text-muted)] focus-visible:border-[var(--color-focus-ring)] focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-surface-muted)]"
-              />
-            </div>
-            <div className="space-y-2">
-              <label htmlFor="missing-product-phone" className="block text-xs font-semibold uppercase tracking-[0.12em] text-[var(--color-text-muted)]">
-                {text.phone}
-              </label>
-              <input
-                id="missing-product-phone"
-                value={form.phone}
-                onChange={(event) => handleChange("phone", event.target.value)}
-                placeholder={text.phone}
-                className="min-h-11 w-full rounded-[var(--mrt-radius-md)] border border-[var(--color-border-strong)] bg-[var(--color-surface)] px-4 py-3 text-sm text-[var(--color-text)] outline-none transition placeholder:text-[var(--color-text-muted)] focus-visible:border-[var(--color-focus-ring)] focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-surface-muted)]"
-              />
-            </div>
-            <div className="space-y-2">
-              <label htmlFor="missing-product-email" className="block text-xs font-semibold uppercase tracking-[0.12em] text-[var(--color-text-muted)]">
-                {text.email}
-              </label>
-              <input
-                id="missing-product-email"
-                value={form.email}
-                onChange={(event) => handleChange("email", event.target.value)}
-                placeholder={text.email}
-                className="min-h-11 w-full rounded-[var(--mrt-radius-md)] border border-[var(--color-border-strong)] bg-[var(--color-surface)] px-4 py-3 text-sm text-[var(--color-text)] outline-none transition placeholder:text-[var(--color-text-muted)] focus-visible:border-[var(--color-focus-ring)] focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-surface-muted)]"
-              />
-            </div>
-            <div className="space-y-2 sm:col-span-2">
-              <label htmlFor="missing-product-line-id" className="block text-xs font-semibold uppercase tracking-[0.12em] text-[var(--color-text-muted)]">
-                {text.lineId}
-              </label>
-              <input
-                id="missing-product-line-id"
-                value={form.lineId}
-                onChange={(event) => handleChange("lineId", event.target.value)}
-                placeholder={text.lineId}
-                className="min-h-11 w-full rounded-[var(--mrt-radius-md)] border border-[var(--color-border-strong)] bg-[var(--color-surface)] px-4 py-3 text-sm text-[var(--color-text)] outline-none transition placeholder:text-[var(--color-text-muted)] focus-visible:border-[var(--color-focus-ring)] focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-surface-muted)]"
-              />
-            </div>
-          </div>
-        </div>
+          </details>
 
         {error && (
           <div className="rounded-[var(--mrt-radius-md)] border border-[var(--color-danger)] bg-[var(--color-danger-soft)] px-4 py-3 text-sm text-[var(--color-danger)]" role="alert">

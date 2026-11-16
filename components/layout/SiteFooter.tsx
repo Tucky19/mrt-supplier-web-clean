@@ -81,7 +81,9 @@ export default function SiteFooter({ locale = "th", className = "" }: Props) {
             {isThai ? "ข้อมูลติดต่อ" : "Contact Information"}
           </p>
           <div className="mt-4 space-y-3 text-sm text-slate-400">
-            <p>sales@mrtsupplier.com</p>
+            <a href="mailto:sales@mrtsupplier.com" className={`block rounded-sm hover:text-white ${darkFocusClass}`}>
+              sales@mrtsupplier.com
+            </a>
             <a href="tel:0970122111" className={`block rounded-sm hover:text-white ${darkFocusClass}`}>
               097 012 2111
             </a>

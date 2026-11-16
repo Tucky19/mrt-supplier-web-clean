@@ -73,8 +73,14 @@ export function getRfqUiText(locale: string) {
       : "Our team will use these details to review and follow up on this RFQ.",
     lineContinueTitle: isThai ? "ต้องการส่งรูปหรือรายละเอียดทาง LINE?" : "Prefer to continue on LINE?",
     lineContinueBody: isThai
-      ? "คัดลอกรายการ RFQ ก่อนเปิด LINE เพื่อให้ Part No. และจำนวนติดไปพร้อมการสนทนา"
-      : "Copy the RFQ list before opening LINE so the part numbers and quantities stay with the conversation.",
+      ? "การส่งบนเว็บไซต์จะสร้างเลข RFQ ส่วนการคัดลอกหรือเปิด LINE ยังไม่ใช่การส่ง RFQ หรือข้อความ คุณต้องวางรายการและกดส่งเอง"
+      : "Submitting on this website creates an RFQ number. Copying or opening LINE does not submit an RFQ or send a message. Paste the list and send it yourself.",
+    lineDesktopHelp: isThai
+      ? "คอมพิวเตอร์: คัดลอกรายการ แล้วเปิด LINE บนคอมพิวเตอร์เครื่องเดียวกัน ค้นหา @mrtsupplier วางรายการและกดส่ง การสแกน QR บนมือถือไม่ได้นำคลิปบอร์ดจากคอมพิวเตอร์ไปด้วย"
+      : "Computer: copy the list, then open LINE on the same computer. Find @mrtsupplier, paste and send. Scanning the QR on a phone does not transfer your computer clipboard.",
+    lineMobileHelp: isThai
+      ? "มือถือ: คัดลอกรายการ เปิด LINE วางรายการและกดส่งถึง @mrtsupplier หากเปิดไม่ได้ ให้เปิดแอป LINE เองแล้วค้นหา ID นี้ หากวางไม่ได้ ให้พิมพ์รายการเอง"
+      : "Phone: copy the list, open LINE, paste and send to @mrtsupplier. If it does not open, open the LINE app and search for this ID. If paste is unavailable, type the list yourself.",
     copyRfqList: isThai ? "คัดลอกรายการ RFQ" : "Copy RFQ list",
     copiedRfqList: isThai ? "คัดลอกแล้ว" : "Copied",
     openLine: isThai ? "เปิด LINE Official" : "Open LINE Official",
