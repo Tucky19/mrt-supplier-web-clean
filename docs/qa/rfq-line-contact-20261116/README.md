@@ -83,3 +83,13 @@ PASS: final build with the localhost-only database placeholder, TypeScript, Cont
 The external Open in Google Maps link was activated once in a new tab and displayed `บริษัท เอ็มอาร์ที ซัพพลายเออร์ จำกัด`, its existing address and `mrtsupplier.com`. No save, edit, review, listing-management or other write action was taken. Google displayed its limited-view notice; native phone Maps-app launch and full interactive Maps functions were not tested. The text-only web reader could not access the Maps URL, but the real browser successfully displayed the embed and listing.
 
 [Desktop business-pin embed](map-en-1440.png), [Thai mobile embed](map-th-390.png), [external business listing](map-business-link.png), [run results](map-results.txt). Reproduction: `map-check.txt`. No merge or production deployment; the same draft PR remains the review target.
+
+## Manual-request labels after language switches
+
+Reviewed remote draft head `093f26334026e0e147b9d4e481289ddc94c2d95e` before this fix. Manual items store their creation-language label in `brand`; rendering that field directly caused the stale-language display. The only product-code change is the quote-card label in `app/[locale]/quote/page.tsx`: `manual:` items display the existing `text.manualRequest` for the current locale; catalog products continue displaying their stored brand/title. No saved data, provider, payload, catalog, or API behavior was changed, and no migration is performed.
+
+PASS: build with the same localhost-only database placeholder; TypeScript; patch whitespace. The affected page retains its existing `react-hooks/set-state-in-effect` lint error at line 131, reproduced identically on unchanged main. The old local dev server had stopped before the first browser attempt; after restarting it, all final browser scenarios passed.
+
+Real Chromium passed TH→EN→TH and EN→TH→EN at 1440/360/390/430 widths. Each scenario adds an unknown request (qty 2), ambiguous `FS1006` (qty 3), exact catalog control `P551315` (qty 4), and reference `2P4004`. Assertions cover both manual labels, preserved legacy saved source-language labels, unchanged catalog brand, byte-identical localStorage before/after switching/reload/roundtrip, unchanged copied RFQ text, preserved quantities/reference metadata, and no horizontal overflow. All write endpoints were blocked; no RFQ or message was sent. These checks are local browser evidence, not hosted Preview acceptance.
+
+[Thai-created request displayed in English on mobile](locale-th-to-en-390.png), [English-created request displayed in Thai on desktop](locale-en-to-th-1440.png), [run results](locale-results.txt). Reproduction: `locale-check.txt`. The updated head and Preview status are recorded in the draft PR; no merge or deployment is authorized.

@@ -1,0 +1,45 @@
+async page => {
+ const assert=(ok,message)=>{if(!ok)throw new Error(message);};
+ const report=[];
+ await page.route('**/api/**',route=>route.request().method()==='POST'&&!route.request().url().includes('/api/search/multi-part')?route.fulfill({status:418,json:{error:'QA blocked write'}}):route.continue());
+ const stored=()=>page.evaluate(()=>localStorage.getItem('mrt_quote_v1'));
+ const label=part=>page.getByText(part,{exact:true}).last().locator('..').locator(':scope > div').nth(1);
+ const copy=async()=>{
+  await page.evaluate(()=>{window.__localeCopy='';Object.defineProperty(navigator,'clipboard',{configurable:true,value:{writeText:async text=>{window.__localeCopy=text;}}});});
+  await page.locator('form button[type="button"]').last().click();
+  await page.waitForFunction(()=>Boolean(window.__localeCopy));return page.evaluate(()=>window.__localeCopy);
+ };
+ for(const origin of ['th','en'])for(const width of [1440,360,390,430]) {
+  const target=origin==='th'?'en':'th';
+  await page.setViewportSize({width,height:900});
+  await page.goto(`http://localhost:3102/${origin}/quote`);await page.waitForLoadState('networkidle');
+  await page.evaluate(()=>localStorage.removeItem('mrt_quote_v1'));await page.reload();await page.waitForLoadState('networkidle');
+  const area=page.locator('section').filter({has:page.locator('textarea')}).last();
+  await area.locator('textarea').fill('UNKNOWN-LOCALE-001 x 2\nFS1006 x 3\nP551315 x 4\n2P4004');
+  const response=page.waitForResponse(r=>r.url().includes('/api/search/multi-part'));
+  await area.getByRole('button').nth(1).click();await response;
+  await area.getByRole('button').nth(2).click();
+  await page.waitForFunction(()=>JSON.parse(localStorage.getItem('mrt_quote_v1')||'[]').length===4);
+  const before=await stored();const original=JSON.parse(before);
+  assert(original.find(i=>i.partNo==='UNKNOWN-LOCALE-001').brand===(origin==='th'?'ให้ทีมช่วยตรวจสอบ':'Manual Request'),'saved source-language label');
+  const catalogLabel=await label('P551315').innerText();
+  const payload=await copy();
+  await page.getByRole('link',{name:target,exact:true}).click();
+  await page.waitForURL(`**/${target}/quote`);await page.waitForLoadState('networkidle');
+  for(const part of ['UNKNOWN-LOCALE-001','FS1006'])assert(await label(part).innerText()===(target==='th'?'คำขอด้วยตนเอง':'Manual Request'),'target manual label');
+  assert(await label('P551315').innerText()===catalogLabel,'catalog brand unchanged');
+  assert(await stored()===before,'saved data unchanged after switch');
+  assert(await copy()===payload,'copy payload unchanged');
+  await page.evaluate(()=>scrollTo(0,0));
+  await page.screenshot({path:`output/playwright/rfq-batch/locale-${origin}-to-${target}-${width}.png`,fullPage:true});
+  await page.reload();await page.waitForLoadState('networkidle');
+  assert(await label('UNKNOWN-LOCALE-001').innerText()===(target==='th'?'คำขอด้วยตนเอง':'Manual Request'),'reloaded target label');
+  assert(await stored()===before,'saved data unchanged after reload');
+  await page.getByRole('link',{name:origin,exact:true}).click();await page.waitForURL(`**/${origin}/quote`);await page.waitForLoadState('networkidle');
+  assert(await label('UNKNOWN-LOCALE-001').innerText()===(origin==='th'?'คำขอด้วยตนเอง':'Manual Request'),'return locale label');
+  assert(await stored()===before,'saved data unchanged after roundtrip');
+  assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),'no overflow');
+  report.push(`${origin}->${target}->${origin} ${width}: unknown/ambiguous labels, legacy saved labels, catalog control, quantities/reference metadata, byte-identical storage/copy and reload PASS`);
+ }
+ return report.join('\n');
+}

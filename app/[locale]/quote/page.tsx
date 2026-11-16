@@ -460,7 +460,9 @@ export default function QuotePage() {
                     <div className="min-w-0">
                       <div className="text-base font-semibold text-[var(--color-text)]">{item.partNo}</div>
                       <div className="mt-1 text-sm text-[var(--color-text-muted)]">
-                        {item.brand || item.title || text.requestedItem}
+                        {item.productId.startsWith('manual:')
+                          ? text.manualRequest
+                          : item.brand || item.title || text.requestedItem}
                       </div>
                       {getRfqReferenceContexts(item.meta).length > 0 ? (
                         <div className="mt-2 text-sm font-medium text-[var(--color-primary)]">
