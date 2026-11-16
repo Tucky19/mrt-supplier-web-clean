@@ -24,12 +24,10 @@ export const importedProducts = [
     ],
     "applications": [],
     "refs": [
-      "Fleetguard: LF3000",
       "SURE: SFO3000",
       "Sakura: C5707"
     ],
     "crossReferences": [
-      "Fleetguard: LF3000",
       "SURE: SFO3000",
       "Sakura: C5707"
     ],
