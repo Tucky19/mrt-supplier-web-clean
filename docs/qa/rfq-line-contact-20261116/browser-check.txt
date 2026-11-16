@@ -35,13 +35,24 @@ async page => {
    await page.waitForTimeout(100);
    assert(await area.getByRole('button').count()===2,'late response ignored after edit');
    await page.unroute('**/api/search/multi-part',staleHandler);
-   let data=await lookup('P551315 x 2\n2P4004\nFS1006\nUNKNOWN-TEST-001');
+   const placeholder=await input.getAttribute('placeholder');
+   assert(placeholder.split('\n').slice(1).every(line=>!/[\t ]|x \d/.test(line)),'part-number-only examples');
+   let data=await lookup('P551315 x 2\n2P4004\nFS1006 x 4\nFS1006,2\nUNKNOWN-TEST-001');
    assert(data.results.map(r=>r.status).join(',')==='found,found,ambiguous,missing','statuses');
    assert(data.results[1].product.partNo==='P554004','reference');
-   assert(await area.getByRole('button').nth(2).isDisabled(),'ambiguous blocked');
+   assert(await area.getByRole('button').nth(2).isEnabled(),'mixed batch remains addable');
+   await area.getByRole('button').nth(2).click();
+   await page.waitForFunction(()=>JSON.parse(localStorage.getItem('mrt_quote_v1')||'[]').length===4);
+   const mixed=await page.evaluate(()=>JSON.parse(localStorage.getItem('mrt_quote_v1')||'[]'));
+   assert(mixed.find(i=>i.partNo==='FS1006')?.qty===6,'original ambiguous quantity preserved');
+   assert(mixed.find(i=>i.partNo==='FS1006')?.productId==='manual:fs1006','ambiguous is manual');
+   assert(!mixed.some(i=>['P550687','P551006','P552006'].includes(i.partNo)),'no automatic candidate substitution');
+   assert(mixed.find(i=>i.partNo==='P551315')?.qty===2 && mixed.find(i=>i.partNo==='P554004')?.qty===1 && mixed.find(i=>i.partNo==='UNKNOWN-TEST-001')?.qty===1,'other mixed rows preserved');
    await area.screenshot({path:`output/playwright/rfq-batch/results-${locale}-${width}.png`});
    await input.fill('P551315');
    assert(await area.getByRole('button').count()===2,'edit invalidates');
+   await page.evaluate(()=>localStorage.removeItem('mrt_quote_v1'));
+   await page.reload();
    await lookup('P551315 x 2\nP551315\n2P4004\nUNKNOWN-TEST-001');
    await area.getByRole('button').nth(2).click();
    await page.waitForFunction(()=>document.querySelector('section textarea')?.closest('section')?.querySelectorAll('button')[2]?.disabled);
@@ -97,7 +108,7 @@ async page => {
    await page.evaluate(()=>scrollTo(0,0));
    await page.screenshot({path:`output/playwright/rfq-batch/form-full-${locale}-${width}.png`,fullPage:true});
    await page.locator('#missing-product-request').screenshot({path:`output/playwright/rfq-batch/form-${locale}-${width}.png`});
-   report.push(`${locale} ${width}: exact/reference/ambiguous/unknown, duplicates, edit invalidation, repeated-add guard, quantity/reload, copy, LINE guidance/link, optional retention/contact validation, overflow PASS`);
+   report.push(`${locale} ${width}: part-only examples, mixed batch with manual ambiguous original/quantity and no substitution, exact/reference/unknown, duplicates, edit invalidation, repeated-add guard, quantity/reload, copy, LINE guidance/link, optional retention/contact validation, overflow PASS`);
  }
  return report.join('\n');
 }

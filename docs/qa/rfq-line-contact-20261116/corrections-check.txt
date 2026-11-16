@@ -1,0 +1,27 @@
+async page => {
+ const assert=(ok,message)=>{if(!ok)throw new Error(message);};
+ const report=[];
+ for(const locale of ['en','th']) for(const width of [1440,360,390,430]) {
+  await page.setViewportSize({width,height:900});
+  await page.goto(`http://localhost:3102/${locale}/quote`);
+  await page.waitForLoadState('networkidle');
+  await page.evaluate(()=>localStorage.removeItem('mrt_quote_v1')); await page.reload();
+  const area=page.locator('section').filter({has:page.locator('textarea')}).last();
+  const input=area.locator('textarea');
+  const rows=(await input.getAttribute('placeholder')).split('\n').slice(1);
+  assert(rows.join(',')==='P553000,AF25555,CR522,UNKNOWN-TEST-001','part-only examples');
+  if((locale==='en'&&width===1440)||(locale==='th'&&width===390)) await area.screenshot({path:`output/playwright/rfq-batch/examples-${locale}-${width}.png`});
+  for(const [text,expected] of [['FS1006',1],['FS1006 x 2',3]]) {
+   await input.fill(text);const response=page.waitForResponse(r=>r.url().includes('/api/search/multi-part'));
+   await area.getByRole('button').nth(1).click();await response;
+   await area.getByRole('button').nth(2).click();
+   await page.waitForFunction(qty=>JSON.parse(localStorage.getItem('mrt_quote_v1')||'[]')[0]?.qty===qty,expected);
+   const items=await page.evaluate(()=>JSON.parse(localStorage.getItem('mrt_quote_v1')||'[]'));
+   assert(items.length===1&&items[0].partNo==='FS1006'&&items[0].productId==='manual:fs1006','ambiguous-only original');
+  }
+  await page.reload();await page.waitForLoadState('networkidle');
+  assert(await page.locator('input[inputmode="numeric"]').first().inputValue()==='3','manual quantity persists');
+  report.push(`${locale} ${width}: part-only examples, ambiguous-only default qty1, repeated manual batch qty3 and reload PASS`);
+ }
+ return report.join('\n');
+}

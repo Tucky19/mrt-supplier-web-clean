@@ -78,7 +78,7 @@ export function useMultiPartSearch({ locale, initiallyExpanded = false, parseInp
   const ambiguousCount = results.filter(
     (result) => result.status === "ambiguous",
   ).length;
-  const canAddResults = !loading && !added && results.length > 0 && ambiguousCount === 0;
+  const canAddResults = !loading && !added && results.length > 0;
 
   const text = isThai
     ? {
@@ -86,9 +86,9 @@ export function useMultiPartSearch({ locale, initiallyExpanded = false, parseInp
         trigger: "ค้นหาหลายรายการ",
         title: "ค้นหาหลายรายการ",
         description:
-          "วาง Part Number ทีละบรรทัด หรือคัดลอก 2 คอลัมน์ Part Number และจำนวนจาก Excel",
+          "วาง Part Number บรรทัดละเบอร์ แล้วปรับจำนวนในรายการขอราคาได้",
         placeholder:
-          "ตัวอย่าง:\nP553000\t2\nAF25555\t1\nCR522 x 3\nUNKNOWN-TEST-001",
+          "ตัวอย่าง:\nP553000\nAF25555\nCR522\nUNKNOWN-TEST-001",
         check: "ตรวจสอบรายการ",
         checking: "กำลังตรวจสอบ...",
         reset: "ล้างรายการ",
@@ -97,13 +97,13 @@ export function useMultiPartSearch({ locale, initiallyExpanded = false, parseInp
         found: "พบสินค้า",
         referenceFound: "พบ Cross Reference",
         missing: "ไม่พบในรายการเว็บไซต์ — ให้ทีมช่วยตรวจสอบ",
-        ambiguous: "พบหลายรายการที่เป็นไปได้ กรุณาตรวจสอบก่อนเพิ่ม",
+        ambiguous: "พบหลายเบอร์เทียบ — จะเพิ่มเบอร์เดิมให้ทีมตรวจสอบ",
         addAll: "เพิ่มทั้งหมดไปยังรายการขอราคา",
         added: "เพิ่มรายการไปยังใบขอราคาแล้ว",
         quoteCta: "ไปที่รายการขอราคา",
         summary: (found: number, missing: number, ambiguous: number) =>
           `พบ ${found} รายการ, ให้ทีมตรวจสอบ ${missing} รายการ${
-            ambiguous ? `, ข้อมูลซ้ำ ${ambiguous} รายการ` : ""
+            ambiguous ? `, หลายเบอร์เทียบ ${ambiguous} รายการ` : ""
           }`,
         failed: "ตรวจสอบรายการไม่สำเร็จ กรุณาลองอีกครั้ง",
         quantity: (qty: number) => `จำนวน ${qty}`,
@@ -115,9 +115,9 @@ export function useMultiPartSearch({ locale, initiallyExpanded = false, parseInp
         trigger: "Search multiple items",
         title: "Search multiple items",
         description:
-          "Paste one Part Number per line, or copy two Excel columns containing Part Number and quantity.",
+          "Paste one Part Number per line, then adjust quantities in your quote list.",
         placeholder:
-          "Example:\nP553000\t2\nAF25555\t1\nCR522 x 3\nUNKNOWN-TEST-001",
+          "Example:\nP553000\nAF25555\nCR522\nUNKNOWN-TEST-001",
         check: "Check items",
         checking: "Checking...",
         reset: "Clear",
@@ -126,7 +126,7 @@ export function useMultiPartSearch({ locale, initiallyExpanded = false, parseInp
         found: "Found",
         referenceFound: "Reference result",
         missing: "Not listed — our team will check",
-        ambiguous: "Multiple candidates — review before adding",
+        ambiguous: "Multiple candidates — add original number for team review",
         addAll: "Add all to quote request",
         added: "Items added to quote request",
         quoteCta: "Go to quote request",
@@ -218,7 +218,7 @@ export function useMultiPartSearch({ locale, initiallyExpanded = false, parseInp
         continue;
       }
 
-      if (result.status === "missing") {
+      if (result.status === "missing" || result.status === "ambiguous") {
         addItem({
           productId: `manual:${result.normalizedPartNo.toLowerCase()}`,
           partNo: result.originalPartNo,
