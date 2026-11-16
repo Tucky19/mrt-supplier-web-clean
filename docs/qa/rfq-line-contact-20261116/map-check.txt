@@ -1,0 +1,32 @@
+async page => {
+ const assert=(ok,message)=>{if(!ok)throw new Error(message);};
+ const report=[];
+ const reject=page.getByRole('button',{name:'Reject analytics and advertising cookies'});if(await reject.count())await reject.click();
+ await page.route('**/api/**',route=>route.request().method()==='POST'?route.fulfill({status:418,json:{error:'QA blocked write'}}):route.continue());
+ for(const locale of ['en','th'])for(const width of [1440,360,390,430]) {
+  await page.setViewportSize({width,height:900});
+  await page.goto(`http://localhost:3102/${locale}/contact`);
+  const iframe=page.locator('iframe');const link=page.locator('a[href="https://www.google.com/maps?cid=12083572000753456527"]');
+  assert(await iframe.getAttribute('src')==='https://www.google.com/maps?cid=12083572000753456527&output=embed','business embed URL');
+  assert(await link.count()===1&&await link.getAttribute('target')==='_blank','business link');
+  await iframe.scrollIntoViewIfNeeded();
+  await page.waitForTimeout(1000);
+  const bounds=await iframe.boundingBox();
+  assert(bounds.width>0&&bounds.height===(width>=1024?430:320),'responsive map size');
+  assert(await iframe.getAttribute('title')===(locale==='th'?'แผนที่ MRT Supplier':'MRT Supplier Location'),'localized accessible title');
+  assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),'no overflow');
+  await link.focus();assert(await link.evaluate(el=>el===document.activeElement),'keyboard link focus');
+  await iframe.locator('..').screenshot({path:`output/playwright/rfq-batch/map-${locale}-${width}.png`});
+  const frame=await(await iframe.elementHandle()).contentFrame();
+  let frameText='';try{frameText=(await frame.locator('body').innerText({timeout:3000})).slice(0,1000);}catch(error){frameText='Frame body unavailable: '+error.message;}
+  report.push({locale,width,src:await iframe.getAttribute('src'),frameUrl:frame.url(),frameText,layout:'PASS'});
+ }
+ const popupPromise=page.waitForEvent('popup');
+ await page.locator('a[href="https://www.google.com/maps?cid=12083572000753456527"]').click();
+ const popup=await popupPromise;
+ try{await popup.waitForLoadState('domcontentloaded',{timeout:15000});}catch{}
+ report.push({linkNavigation:{url:popup.url(),title:await popup.title().catch(()=>''),body:(await popup.locator('body').innerText({timeout:5000}).catch(error=>error.message)).slice(0,1500)}});
+ await popup.screenshot({path:'output/playwright/rfq-batch/map-business-link.png'}).catch(()=>{});
+ await popup.close();
+ return report;
+}

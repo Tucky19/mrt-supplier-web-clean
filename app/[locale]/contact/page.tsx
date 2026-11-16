@@ -272,13 +272,13 @@ export default async function ContactPage({
               </div>
               <iframe
                 title={text.mapTitle}
-                src="https://www.google.com/maps?q=15+Borommaratchachonnani+39,+Taling+Chan,+Bangkok+10170&output=embed"
+                src="https://www.google.com/maps?cid=12083572000753456527&output=embed"
                 className="h-[320px] w-full border-0 lg:h-[430px]"
                 loading="lazy"
               />
               <div className="border-t border-[var(--color-border)] px-5 py-4">
                 <a
-                  href="https://www.google.com/maps?q=15+Borommaratchachonnani+39,+Taling+Chan,+Bangkok+10170"
+                  href="https://www.google.com/maps?cid=12083572000753456527"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex min-h-11 w-full items-center justify-center rounded-[var(--mrt-radius-md)] border border-[var(--color-border-strong)] bg-[var(--color-surface)] px-4 py-2.5 text-sm font-semibold text-[var(--color-text)] transition hover:border-[var(--color-primary)] hover:bg-[var(--color-primary-soft)] sm:w-auto focus-visible:[outline:2px_solid_var(--color-focus-ring)] focus-visible:[outline-offset:2px] focus-visible:ring-2 focus-visible:ring-[color:var(--color-focus-ring)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-surface)]"
