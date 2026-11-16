@@ -6,6 +6,7 @@ type Props = {
   value: string;
   label?: string;
   copiedLabel?: string;
+  failedLabel?: string;
   className?: string;
   disabled?: boolean;
 };
@@ -14,10 +15,11 @@ export default function CopyButton({
   value,
   label = "Copy",
   copiedLabel = "Copied",
+  failedLabel,
   className = "",
   disabled = false,
 }: Props) {
-  const [copied, setCopied] = useState(false);
+  const [status, setStatus] = useState<"idle" | "copying" | "copied" | "failed">("idle");
   const resetTimerRef = useRef<number | null>(null);
 
   useEffect(() => {
@@ -29,32 +31,37 @@ export default function CopyButton({
   }, []);
 
   async function onCopy() {
-    if (disabled) return;
-
-    await navigator.clipboard.writeText(value);
-    setCopied(true);
+    if (disabled || status === "copying") return;
 
     if (resetTimerRef.current) {
       window.clearTimeout(resetTimerRef.current);
     }
 
-    resetTimerRef.current = window.setTimeout(() => {
-      setCopied(false);
-      resetTimerRef.current = null;
-    }, 1200);
+    setStatus("copying");
+    try {
+      await navigator.clipboard.writeText(value);
+      setStatus("copied");
+      resetTimerRef.current = window.setTimeout(() => {
+        setStatus("idle");
+        resetTimerRef.current = null;
+      }, 1200);
+    } catch {
+      setStatus("failed");
+    }
   }
 
   return (
     <button
       type="button"
       onClick={onCopy}
-      disabled={disabled}
+      disabled={disabled || status === "copying"}
+      aria-live="polite"
       className={
         className ||
         "rounded-lg border border-neutral-700 bg-neutral-900 px-3 py-2 text-sm transition hover:bg-neutral-800 disabled:cursor-not-allowed disabled:opacity-50"
       }
     >
-      {copied ? copiedLabel : label}
+      {status === "copied" ? copiedLabel : status === "failed" ? failedLabel ?? label : label}
     </button>
   );
 }

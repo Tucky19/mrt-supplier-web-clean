@@ -93,3 +93,33 @@ PASS: build with the same localhost-only database placeholder; TypeScript; patch
 Real Chromium passed TH→EN→TH and EN→TH→EN at 1440/360/390/430 widths. Each scenario adds an unknown request (qty 2), ambiguous `FS1006` (qty 3), exact catalog control `P551315` (qty 4), and reference `2P4004`. Assertions cover both manual labels, preserved legacy saved source-language labels, unchanged catalog brand, byte-identical localStorage before/after switching/reload/roundtrip, unchanged copied RFQ text, preserved quantities/reference metadata, and no horizontal overflow. All write endpoints were blocked; no RFQ or message was sent. These checks are local browser evidence, not hosted Preview acceptance.
 
 [Thai-created request displayed in English on mobile](locale-th-to-en-390.png), [English-created request displayed in Thai on desktop](locale-en-to-th-1440.png), [run results](locale-results.txt). Reproduction: `locale-check.txt`. The updated head and Preview status are recorded in the draft PR; no merge or deployment is authorized.
+
+## RFQ clipboard diagnosis and failure handling
+
+Inspected remote head `28055a508fe8f0299604ab38830fc5b8009897ee`. The RFQ copy handler was unchanged from main at that head. It awaited `navigator.clipboard.writeText` before showing Copied, but had no catch or failure message. A rejected write produced an unhandled error and no feedback; a previous success could remain visible until its old timer expired. This is an existing app defect, not a proven regression introduced by earlier PR #189 edits.
+
+### Native behavior versus automation
+
+Before changing code, a fresh headed Chromium session confirmed the clipboard implementation was native (no navigator override and `writeText` reported native code). The real contact Copy email button put `sales@mrtsupplier.com` on the clipboard. The real RFQ Copy button then replaced it with the exact RFQ text: known part/quantity, `P554004` with original `2P4004`, and the unknown part/quantity. Trusted Ctrl+V pasted that text. Independent Windows `Get-Clipboard` matched after CRLF/LF normalization and was not the old email. An initial raw string comparison failed only because of Windows newline normalization; it was not evidence of a stale clipboard.
+
+A separate controlled negative test replaced `writeText` with an async no-op. The app displayed Copied while actual Ctrl+V still pasted the prior email. This reproduces the *symptom* when automation reports a successful write without performing one. It does **not** prove that the hosted QA session used such an override. The earlier QA snippets using clipboard stubs verified payload construction and feedback only; they did not establish OS clipboard contents. The final native tests below supersede that limitation.
+
+The correct `mrt-supplier-web-clean-lfcm` deployment for `28055a5` was canceled by Ignored Build Step. The separate similarly named project's READY deployment for the same SHA was identified, but fresh-browser access redirected to Vercel login. No authentication bypass, permission/configuration change, or deployment was performed. The exact cause of the reported hosted stale-email event remains **unconfirmed**.
+
+### Narrow app fix
+
+Product files changed only:
+
+- `components/ui/CopyButton.tsx`: explicit pending/success/failure state, catch rejected/unavailable clipboard writes, clear the previous success timer before retry, disable duplicate pending clicks, and polite live feedback. Copied is shown only after the API resolves. No clipboard read permission or deprecated fallback was introduced. An optional failure label keeps the other caller's existing labels compatible.
+- `lib/i18n/rfqUi.ts`: localized RFQ failure/retry label.
+- `app/[locale]/quote/page.tsx`: pass that failure label to the existing button.
+
+The app cannot establish real clipboard contents if a test double falsely resolves a write; test native paste/readback instead. The fix addresses verified failure handling and does not claim to solve an unconfirmed hosted/browser issue.
+
+### Final checks
+
+PASS: build with the localhost-only placeholder, TypeScript, focused ESLint for the shared button and copy strings, patch whitespace. Real Chromium TH/EN at 1440/360/390/430 passed native email→RFQ copy and trusted Ctrl+V with exact payload; controlled rejected/unavailable/pending failures; no stale Copied on failure; old timer cannot erase the failure; retry by Enter/Space; polite feedback and non-submit button; unchanged saved quote data; no horizontal overflow and zero unhandled clipboard errors. Success tests used the native API, while only failures were injected. The final Windows clipboard matched the RFQ after newline normalization. Native Part No. copy/paste on the existing product-detail caller also passed in TH/EN.
+
+No RFQ, email or LINE message was submitted. Actual hosted acceptance and an actual user-browser permission-denial scenario remain unverified; permission failures were safely injected without changing browser/OS settings.
+
+[Native success desktop](native-copy-success-en-1440.png), [Thai mobile success](native-copy-success-th-390.png), [failure desktop](native-copy-failure-en-1440.png), [Thai mobile failure](native-copy-failure-th-390.png), [results](clipboard-results.txt). Reproduction: `native-copy-check.txt`, `copy-diagnosis.txt` (pre-fix diagnosis/negative control), `clipboard-regression.txt`, and `product-copy-control.txt`.

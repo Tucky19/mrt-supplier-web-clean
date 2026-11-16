@@ -83,6 +83,7 @@ export function getRfqUiText(locale: string) {
       : "Phone: copy the list, open LINE, paste and send to @mrtsupplier. If it does not open, open the LINE app and search for this ID. If paste is unavailable, type the list yourself.",
     copyRfqList: isThai ? "คัดลอกรายการ RFQ" : "Copy RFQ list",
     copiedRfqList: isThai ? "คัดลอกแล้ว" : "Copied",
+    copyRfqFailed: isThai ? "คัดลอกไม่สำเร็จ กรุณาลองอีกครั้ง" : "Copy failed. Please try again.",
     openLine: isThai ? "เปิด LINE Official" : "Open LINE Official",
     sending: isThai ? "กำลังส่ง..." : "Sending...",
     submitRfq: isThai ? "ส่ง RFQ" : "Submit RFQ",

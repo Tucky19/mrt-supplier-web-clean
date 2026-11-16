@@ -732,6 +732,7 @@ export default function QuotePage() {
                   value={lineSummary}
                   label={text.copyRfqList}
                   copiedLabel={text.copiedRfqList}
+                  failedLabel={text.copyRfqFailed}
                   disabled={!hasQuoteItems}
                   className="inline-flex min-h-11 items-center justify-center rounded-[var(--mrt-radius-md)] border border-[var(--color-border-strong)] bg-[var(--color-surface)] px-4 py-2.5 text-sm font-semibold text-[var(--color-success-text)] transition hover:bg-[var(--color-success-soft)] disabled:cursor-not-allowed disabled:opacity-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-success-soft)]"
                 />

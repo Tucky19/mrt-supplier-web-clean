@@ -1,0 +1,26 @@
+async page => {
+ const assert=(ok,message)=>{if(!ok)throw new Error(message);};
+ const paste=async()=>{
+  await page.evaluate(()=>{document.querySelector('#native-clipboard-probe')?.remove();const field=document.createElement('textarea');field.id='native-clipboard-probe';field.setAttribute('aria-label','Native clipboard probe');document.body.append(field);});
+  await page.locator('#native-clipboard-probe').focus();await page.keyboard.press('Control+V');
+  return page.locator('#native-clipboard-probe').inputValue();
+ };
+ await page.route('**/api/**',route=>route.request().method()==='POST'&&!route.request().url().includes('/api/search/multi-part')?route.fulfill({status:418,json:{error:'QA blocked write'}}):route.continue());
+ await page.goto('http://localhost:3102/en/contact');await page.waitForLoadState('networkidle');
+ const reject=page.getByRole('button',{name:'Reject analytics and advertising cookies'});if(await reject.count())await reject.click();
+ const nativeBefore=await page.evaluate(()=>({ownClipboardOverride:Object.hasOwn(navigator,'clipboard'),writeImplementation:Function.prototype.toString.call(navigator.clipboard.writeText)}));
+ await page.getByRole('button',{name:'Copy email',exact:true}).click();
+ await page.getByRole('status').filter({hasText:'Email copied.'}).waitFor();
+ const emailPaste=await paste();assert(emailPaste==='sales@mrtsupplier.com','native email paste baseline');
+ await page.goto('http://localhost:3102/en/quote');await page.waitForLoadState('networkidle');
+ await page.evaluate(()=>localStorage.removeItem('mrt_quote_v1'));await page.reload();await page.waitForLoadState('networkidle');
+ const area=page.locator('section').filter({has:page.locator('textarea')}).last();
+ await area.locator('textarea').fill('P551315 x 2\n2P4004\nUNKNOWN-CLIPBOARD-001 x 3');
+ const response=page.waitForResponse(r=>r.url().includes('/api/search/multi-part'));await area.getByRole('button').nth(1).click();await response;
+ await area.getByRole('button').nth(2).click();await page.waitForFunction(()=>JSON.parse(localStorage.getItem('mrt_quote_v1')||'[]').length===3);
+ const expected='MRT Supplier RFQ\nP551315 x 2\nP554004 x 1 (searched: 2P4004)\nUNKNOWN-CLIPBOARD-001 x 3';
+ await page.getByRole('button',{name:'Copy RFQ list',exact:true}).click();
+ const copiedShown=await page.getByRole('button',{name:'Copied',exact:true}).isVisible();
+ const rfqPaste=await paste();
+ return {nativeBefore,emailPasteMatches:true,copiedShown,rfqPasteMatches:rfqPaste===expected,rfqPasteIsOldEmail:rfqPaste==='sales@mrtsupplier.com',expected,ownClipboardOverrideAfter:await page.evaluate(()=>Object.hasOwn(navigator,'clipboard'))};
+}
