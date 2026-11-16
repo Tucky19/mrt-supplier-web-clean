@@ -265,3 +265,19 @@ export const supplierCrossReferences: Record<string, ProductRelationInput[]> = O
     })),
   ]),
 );
+
+// Official Donaldson cross-reference shown in the owner's supplied screenshots.
+// This identifies a reference match; equipment suitability still needs checking.
+supplierCrossReferences.p551807 = [
+  {
+    partNumber: "1R1807",
+    brand: "CATERPILLAR",
+    relationType: "equivalent",
+    verificationStatus: "verified",
+    source: "Donaldson official search result (owner-supplied screenshots)",
+    evidenceUrl: "https://shop.donaldson.com/store/en-th/search?Ntt=1R1807",
+    evidenceNote: "CATERPILLAR 1R1807 returns Donaldson P551807, Lube Filter, Spin-On Full Flow. Product: https://shop.donaldson.com/store/en-th/product/P551807/79 . Both screenshots show the same pair. Verify equipment application before use.",
+    approvedBy: "Site owner",
+    approvedAt: "2026-11-16",
+  },
+];
