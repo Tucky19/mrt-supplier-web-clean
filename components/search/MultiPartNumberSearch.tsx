@@ -8,10 +8,11 @@ type Props = {
   locale: string;
   initiallyExpanded?: boolean;
   parseInput?: typeof parseMultiPartText;
+  quoteItemsTargetId?: string;
 };
 
 export default function MultiPartNumberSearch(props: Props) {
-  const { locale } = props;
+  const { locale, quoteItemsTargetId } = props;
   const { isThai, expanded, setExpanded, value, results, loading, error, added,
     canAddResults, foundCount, missingCount,
     ambiguousCount, text, handleLookup, handleAddAll, handleReset,
@@ -180,12 +181,22 @@ export default function MultiPartNumberSearch(props: Props) {
               {added ? (
                 <div className="flex flex-col gap-2 text-sm text-emerald-700 sm:flex-row sm:items-center">
                   <span>{text.added}</span>
-                  <Link
-                    href={`/${locale}/quote`}
-                    className="font-semibold text-slate-900 underline underline-offset-4"
-                  >
-                    {text.quoteCta}
-                  </Link>
+                  {quoteItemsTargetId ? (
+                    <a
+                      href={`#${quoteItemsTargetId}`}
+                      onClick={() => document.getElementById(quoteItemsTargetId)?.focus({ preventScroll: true })}
+                      className="font-semibold text-slate-900 underline underline-offset-4"
+                    >
+                      {text.quoteCta}
+                    </a>
+                  ) : (
+                    <Link
+                      href={`/${locale}/quote`}
+                      className="font-semibold text-slate-900 underline underline-offset-4"
+                    >
+                      {text.quoteCta}
+                    </Link>
+                  )}
                 </div>
               ) : null}
             </div>

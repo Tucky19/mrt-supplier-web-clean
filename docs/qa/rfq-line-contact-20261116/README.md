@@ -123,3 +123,23 @@ PASS: build with the localhost-only placeholder, TypeScript, focused ESLint for 
 No RFQ, email or LINE message was submitted. Actual hosted acceptance and an actual user-browser permission-denial scenario remain unverified; permission failures were safely injected without changing browser/OS settings.
 
 [Native success desktop](native-copy-success-en-1440.png), [Thai mobile success](native-copy-success-th-390.png), [failure desktop](native-copy-failure-en-1440.png), [Thai mobile failure](native-copy-failure-th-390.png), [results](clipboard-results.txt). Reproduction: `native-copy-check.txt`, `copy-diagnosis.txt` (pre-fix diagnosis/negative control), `clipboard-regression.txt`, and `product-copy-control.txt`.
+
+## Bulk link already on the RFQ page
+
+Inspected draft head `65fc205aca0e01f2b61a2c96753adca8e5616444`. The shared multi-part component rendered a plain Next link to `/${locale}/quote` with no anchor or focus handler. When reused inside RFQ, the link therefore pointed to the page already open. There was no list target ID. This is a navigation regression from the RFQ reuse, not a failed RFQ submission or a catalog problem.
+
+Reproduced desktop with the reported input `LF3000`, `2P4004`, `P551329`: actual matches were `P553000`, `P554004`, `P551329`. Both local and the accessible hosted Preview at that exact SHA returned href `/th/quote` while already at `/th/quote`; scrollY stayed 761 and focus stayed on the anchor. The hosted deployment was the separate `mrt-supplier-web-clean` project; the production project's `lfcm` Preview was canceled. Live `https://www.mrtsupplier.com/th/quote` was inspected read-only: it showed the older one-step bulk form rather than this shared search/results UI. No live quote was added or submitted. Hosted testing initially timed out waiting for unrelated network-idle traffic; waiting for the actual UI allowed the reproduction to complete.
+
+### Expected and fixed behavior
+
+On RFQ, Go to quote request should bring the actual rows below the bulk results into view and move keyboard/screen-reader focus there. It should not navigate to the same page root, clear the list, or submit anything.
+
+Three product files changed:
+
+- `components/quote/BulkAddToQuote.tsx` supplies the RFQ-only target ID.
+- `components/search/MultiPartNumberSearch.tsx` renders a native `#rfq-items` anchor in that context, explicitly focuses the target without pre-scrolling, and lets native fragment navigation scroll. Its normal cross-page Next link is retained outside RFQ.
+- `app/[locale]/quote/page.tsx` wraps the real quote rows/empty state in a named region with ID `rfq-items`, `tabIndex=-1`, sticky-header scroll margin, and visible keyboard focus styling. The target is below the bulk tool, not the outer section heading above it.
+
+PASS: build with localhost-only placeholder, TypeScript, focused component lint, patch whitespace. TH/EN local Chromium checks passed at 1440/360/390/430 widths: exact reported matches; correct anchor; pointer and Enter scrolling/focus to the region below the sticky header; Tab enters the first quote item; repeated same-fragment activation; reload; byte-identical item/quantity/reference storage; no horizontal overflow. Product-search bulk links still navigate normally to the RFQ route with the item retained in TH/EN at 1440 and 390 widths. Write endpoints were blocked, except the read-only multi-part lookup; no real RFQ was sent.
+
+[Hosted before-fix desktop](quote-nav-preview-before-desktop.png), [fixed English desktop](quote-nav-en-1440.png), [fixed Thai mobile](quote-nav-th-390.png), [results](quote-nav-results.txt). Reproduction: `quote-nav-before-check.txt`, `quote-nav-preview-before-check.txt`, `quote-nav-check.txt`, `quote-nav-cross-page-control.txt`. No merge or manual deployment; final head/Preview status is recorded in the draft PR.

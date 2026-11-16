@@ -1,0 +1,9 @@
+async page => {
+ await page.route('**/api/**',route=>route.request().method()==='POST'&&!route.request().url().includes('/api/search/multi-part')?route.fulfill({status:418,json:{error:'QA blocked write'}}):route.continue());
+ await page.setViewportSize({width:1440,height:900});await page.goto('https://mrt-supplier-web-clean-g5zvkyap6-tuckys-projects.vercel.app/th/quote');await page.locator('textarea').first().waitFor();await page.waitForTimeout(500);await page.evaluate(()=>localStorage.removeItem('mrt_quote_v1'));await page.reload();await page.locator('textarea').first().waitFor();await page.waitForTimeout(500);
+ const area=page.locator('section').filter({has:page.locator('textarea')}).last();await area.locator('textarea').fill('LF3000\n2P4004\nP551329');
+ const response=page.waitForResponse(r=>r.url().includes('/api/search/multi-part'));await area.getByRole('button').nth(1).click();const data=await(await response).json();await area.getByRole('button').nth(2).click();await page.waitForFunction(()=>JSON.parse(localStorage.getItem('mrt_quote_v1')||'[]').length===3);
+ const link=area.getByRole('link',{name:'ไปที่รายการขอราคา',exact:true});const href=await link.getAttribute('href');const before=await page.evaluate(()=>scrollY);await link.click();await page.waitForTimeout(300);
+ await page.screenshot({path:'output/playwright/rfq-batch/quote-nav-preview-before-desktop.png'});
+ return {href,currentPath:new URL(page.url()).pathname,beforeScroll:before,afterScroll:await page.evaluate(()=>scrollY),activeTag:await page.evaluate(()=>document.activeElement.tagName),focusStayedOnLink:await link.evaluate(el=>el===document.activeElement),quoteListTargetExists:await page.locator('#rfq-items').count(),matches:data.results.map(r=>r.product?.partNo||r.originalPartNo)};
+}

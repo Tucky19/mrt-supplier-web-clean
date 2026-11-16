@@ -1,0 +1,9 @@
+async page => {
+ const report=[];await page.route('**/api/**',route=>route.request().method()==='POST'&&!route.request().url().includes('/api/search/multi-part')?route.fulfill({status:418,json:{error:'QA blocked write'}}):route.continue());
+ for(const locale of ['th','en'])for(const width of [1440,390]) {
+  await page.setViewportSize({width,height:900});await page.goto(`http://localhost:3102/${locale}/products?q=P551329`);await page.waitForLoadState('networkidle');await page.evaluate(()=>localStorage.removeItem('mrt_quote_v1'));await page.reload();await page.waitForLoadState('networkidle');
+  await page.getByRole('button',{name:locale==='th'?'ค้นหาหลายรายการ':'Search multiple items',exact:true}).click();const area=page.locator('section').filter({has:page.locator('textarea')}).last();await area.locator('textarea').fill('P551329');const response=page.waitForResponse(r=>r.url().includes('/api/search/multi-part'));await area.getByRole('button').nth(1).click();await response;await area.getByRole('button').nth(2).click();await page.waitForFunction(()=>JSON.parse(localStorage.getItem('mrt_quote_v1')||'[]').length===1);
+  const link=area.getByRole('link',{name:locale==='th'?'ไปที่รายการขอราคา':'Go to quote request',exact:true});if(await link.getAttribute('href')!==`/${locale}/quote`)throw new Error('cross-page href changed');await link.click();await page.waitForURL(`**/${locale}/quote`);await page.locator('#rfq-items').getByText('P551329',{exact:true}).waitFor();report.push(`${locale} ${width}: normal products bulk link still navigates to /${locale}/quote with item retained PASS`);
+ }
+ return report;
+}

@@ -429,6 +429,13 @@ export default function QuotePage() {
             <div className="mt-5 space-y-4">
               <BulkAddToQuote locale={locale} />
 
+              <div
+                id="rfq-items"
+                role="region"
+                aria-label={text.quoteItems}
+                tabIndex={-1}
+                className="scroll-mt-28 space-y-4 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--color-focus-ring)]"
+              >
               {items.length === 0 && (
                 <div className="rounded-[var(--mrt-radius-lg)] border border-dashed border-[var(--color-border-strong)] bg-[var(--color-surface-muted)] px-6 py-10 text-center">
                   <p className="text-base font-medium text-[var(--color-text)]">{text.noItemsTitle}</p>
@@ -523,6 +530,7 @@ export default function QuotePage() {
                   </div>
                 </div>
               ))}
+              </div>
             </div>
           </section>
 
