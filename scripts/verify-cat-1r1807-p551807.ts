@@ -27,3 +27,48 @@ const context = buildRfqReferenceContext({ searchQuery: "CAT 1R1807", offeredPar
 assert.ok(context);
 assert.equal(context.matchedRelation?.partNumber, "1R1807");
 console.log("PASS: single canonical P551807, official evidence, existing reference, search variants, exact lookup, index and RFQ reference context");
+
+// Existing Caterpillar mapping must retain its original pending status.
+for (const query of ["CAT 2P4004", "CATERPILLAR 2P4004", "cat 2p-4004"]) {
+  const match = searchProducts(query, { limit: 1000 }).find((item) => item.partNo === "P554004");
+  assert.ok(match, query);
+  assert.equal(match._matchedRelation?.partNumber, "2P4004");
+  assert.equal(match._matchedRelation?.verificationStatus, "pending");
+  assert.ok(!searchProducts(query, { limit: 1000 }).some((item) => item.partNo === "P551807"));
+}
+for (const query of ["CAT 1R1808", "CAT 1R180", "CAT P551807", "CATERPILLAR P551807", "Fleetguard 1R1807", "BOBCAT 1R1807"]) {
+  assert.ok(!searchProducts(query, { limit: 1000 }).some((item) => item.partNo === "P551807"), query);
+}
+
+// In-memory controls exercise equal-code collisions without adding catalog mappings.
+const originalCount = products.length;
+const otherBrand = {
+  ...product,
+  id: "test-only-other-brand-reference",
+  partNo: "TEST-OTHER-BRAND",
+  refs: [],
+  crossReferences: [{ ...relation, brand: "Fleetguard" }],
+};
+const directCode = {
+  ...product,
+  id: "test-only-direct-part-code",
+  partNo: "1R1807",
+  refs: [],
+  crossReferences: [],
+};
+try {
+  products.push(otherBrand, directCode);
+  for (const query of ["CAT 1R1807", "CATERPILLAR 1R1807"]) {
+    const results = searchProducts(query, { limit: 1000 });
+    assert.ok(results.some((item) => item.id === product.id), query);
+    assert.ok(!results.some((item) => item.id === otherBrand.id || item.id === directCode.id), query);
+  }
+  const fleetguard = searchProducts("Fleetguard 1R1807", { limit: 1000 });
+  assert.ok(fleetguard.some((item) => item.id === otherBrand.id));
+  assert.ok(!fleetguard.some((item) => item.id === product.id));
+  assert.equal(searchProducts("1R1807", { limit: 1000 })[0]?.id, directCode.id);
+} finally {
+  products.splice(originalCount);
+}
+assert.equal(products.length, originalCount);
+console.log("PASS: existing CAT/CATERPILLAR qualifier, pending status, negative/partial queries and cross-brand/direct-code collisions; no catalog mappings added");
