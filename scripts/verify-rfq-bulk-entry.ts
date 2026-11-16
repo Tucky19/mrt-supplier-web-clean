@@ -30,4 +30,3 @@ assert.equal(parseBulkPartText("P551315 x 2000")[0].qty, 999);
 assert.deepEqual(parseBulkPartText("\n  \n"), []);
 assert.equal(parseBulkPartText("FS1006 x 4\nFS1006,2")[0].qty, 6);
 console.log("RFQ bulk entry: catalog parity, reference context, ambiguity, unknown, deployed exclusion, quantity formats and duplicates passed.");
-
