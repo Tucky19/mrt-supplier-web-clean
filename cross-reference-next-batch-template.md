@@ -88,23 +88,23 @@ Status: `skip`
 Part No:
 `P551425`
 
-Current refs:
+Historical snapshot refs (not verified; do not copy into canonical data):
 - `Donaldson: P553639`
 - `Fleetguard: LF9009`
-- `Fleetguard: LF3000`
 - `SURE: SFO3000`
 - `Sakura: C5707`
 
-Current crossReferences:
+Historical snapshot crossReferences (not verified; do not copy into canonical data):
 - `Donaldson: P553639`
 - `Fleetguard: LF9009`
-- `Fleetguard: LF3000`
 - `SURE: SFO3000`
 - `Sakura: C5707`
 
 Verified refs to add:
 
 Source/notes:
+- Rejected pair (2026-11-16): `P551425` ↔ `LF3000`. Do not reintroduce it in refs or crossReferences. [Donaldson P551425](https://shop.donaldson.com/store/en-mx/product/P551425/39795) is a fuel/water separator cartridge; [Fleetguard LF3000](https://www.fleetguard.com/product/LF3000) is a lube spin-on filter.
+- This snapshot is stale (including P553639/LF9009); it is not an import source. Other pairs require separate verification and are outside this correction.
 - Active product already contains populated `refs` and `crossReferences`.
 - Product has prior official URL history in older source/report files, so avoid mixing URL cleanup and cross-reference edits without verification.
 
