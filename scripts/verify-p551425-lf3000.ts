@@ -9,7 +9,7 @@ import { createExactProductLookup, searchProducts } from "@/lib/search/search";
 // recorded in cross-reference-next-batch-template.md, reviewed 2026-11-16).
 for (const field of ["refs", "crossReferences"] as const) {
   const source = importedProducts.find((item) => item.partNo === "P553000")!;
-  assert.ok(source[field]?.includes("Fleetguard: LF3000"));
+  assert.ok(relationPartNumbers(source[field] ?? [], "unknown").includes("Fleetguard: LF3000"));
 }
 const product = products.find((item) => item.partNo === "P551425")!;
 const preserved = products.find((item) => item.partNo === "P553000")!;
