@@ -166,7 +166,12 @@ function buildRelationSearchEntries(
 ) {
   return normalizeProductRelations(values, defaultRelationType).map((relation) => ({
     relation,
-    tokens: buildPartRelationTokens(relationSearchTerms([relation], defaultRelationType)),
+    tokens: buildPartRelationTokens([
+      ...relationSearchTerms([relation], defaultRelationType),
+      ...(relation.brand?.toLowerCase() === "caterpillar"
+        ? [`CAT ${relation.partNumber}`]
+        : []),
+    ]),
   }));
 }
 
