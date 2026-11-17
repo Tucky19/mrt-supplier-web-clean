@@ -31,3 +31,10 @@ No article route, sitemap entry or publication is included in this PR.
 - Focused ESLint: new helper, metadata page and unit test passed. Existing ProductDetailClient gallery effect fails react-hooks/set-state-in-effect with lockfile-installed dependencies; the same finding was reproduced in unchanged HEAD at line49. It is not caused or fixed by this patch.
 - npm ci reported 27 dependency advisories (10 moderate,16 high,1 critical). No lockfile/package upgrades were made in this content task.
 - No Preview, production, email/LINE delivery or submitted RFQ verification is claimed. No merge or production deployment performed.
+
+## Follow-up: search badge and RFQ trace
+- Canonical P502649 title is already Coolant Concentrate, OAT 1L; its category remains filter in the catalog. This follow-up changes only ProductCardV2's visible category badge for verified Donaldson P502649, reusing localized copy. It does not change catalog classification, search ranking or analytics data.
+- Existing search and detail add-to-RFQ paths preserve the correct coolant title, quantity 1 and part number. No misleading filter title was found in the RFQ item; RFQ renders the part number and brand.
+- PR preview at b3e7250 auto-built on the legacy mrt-supplier-web-clean project. The intended mrt-supplier-web-clean-lfcm build was canceled by Ignored Build Step. These are not equivalent to successful intended-project Preview QA.
+- Local analytics persistence is unverified: the QA server uses a dummy localhost database and logs connection errors for search events. No live database is contacted.
+- Final follow-up QA: clean build and TypeScript passed; 12 product-page assertions and 4 TH/EN desktop/mobile search-to-RFQ + reload cases passed with zero RFQ POSTs. ProductCardV2 lint has zero errors and two pre-existing no-img-element warnings. Catalog files remain unchanged.
