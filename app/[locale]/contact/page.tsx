@@ -10,6 +10,7 @@ import {
   MessageCircle,
   Phone,
 } from "lucide-react";
+import CopyEmailButton from "@/components/contact/CopyEmailButton";
 import TrackedLineLink from "@/components/analytics/TrackedLineLink";
 import SiteFooter from "@/components/layout/SiteFooter";
 import SiteHeader from "@/components/layout/SiteHeader";
@@ -70,6 +71,10 @@ function getCopy(locale: string) {
       : "Choose the channel that works best, or send an RFQ for product review and follow-up.",
     phone: isThai ? "โทรศัพท์" : "Phone",
     salesPhone: isThai ? "ฝ่ายขาย" : "Sales",
+    copyEmail: isThai ? "คัดลอกอีเมล" : "Copy email",
+    emailCopied: isThai ? "คัดลอกอีเมลแล้ว วางในแอปอีเมลที่คุณใช้ได้" : "Email copied. Paste it into your email app.",
+    emailCopyFailed: isThai ? "คัดลอกไม่ได้ กรุณาเลือกและคัดลอก sales@mrtsupplier.com ด้วยตนเอง" : "Could not copy. Select and copy sales@mrtsupplier.com manually.",
+    company: isThai ? "บริษัท เอ็มอาร์ที ซัพพลายเออร์ จำกัด" : contactDetails.company,
     email: isThai ? "อีเมล" : "Email",
     line: isThai ? "LINE Official" : "LINE Official",
     website: isThai ? "เว็บไซต์" : "Website",
@@ -156,9 +161,10 @@ export default async function ContactPage({
                 </div>
               </div>
 
+              <div className="rounded-[var(--mrt-radius-md)] border border-[var(--color-border)] bg-[var(--color-surface-muted)]">
               <a
                 href={`mailto:${contactDetails.email}`}
-                className="rounded-[var(--mrt-radius-md)] border border-[var(--color-border)] bg-[var(--color-surface-muted)] p-4 transition hover:border-[var(--color-border-strong)] hover:bg-[var(--color-surface)] focus-visible:[outline:2px_solid_var(--color-focus-ring)] focus-visible:[outline-offset:2px] focus-visible:ring-2 focus-visible:ring-[color:var(--color-focus-ring)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-surface)]"
+                className="block rounded-[var(--mrt-radius-md)] p-4 transition hover:border-[var(--color-border-strong)] hover:bg-[var(--color-surface)] focus-visible:[outline:2px_solid_var(--color-focus-ring)] focus-visible:[outline-offset:2px] focus-visible:ring-2 focus-visible:ring-[color:var(--color-focus-ring)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-surface)]"
               >
                 <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--color-text-muted)]">
                   <Mail className="h-4 w-4" aria-hidden="true" />
@@ -168,6 +174,8 @@ export default async function ContactPage({
                   {contactDetails.email}
                 </p>
               </a>
+                <CopyEmailButton email={contactDetails.email} label={text.copyEmail} success={text.emailCopied} failure={text.emailCopyFailed} />
+              </div>
 
               <TrackedLineLink
                 href={LINE_URL}
@@ -206,7 +214,7 @@ export default async function ContactPage({
                 {text.address}
               </div>
               <p className="mt-3 font-semibold text-[var(--color-text)]">
-                {contactDetails.company}
+                {text.company}
               </p>
               <p className="mt-2 whitespace-pre-line text-sm leading-7 text-[var(--color-text-muted)]">
                 {address}
@@ -264,13 +272,13 @@ export default async function ContactPage({
               </div>
               <iframe
                 title={text.mapTitle}
-                src="https://www.google.com/maps?q=15+Borommaratchachonnani+39,+Taling+Chan,+Bangkok+10170&output=embed"
+                src="https://www.google.com/maps?cid=12083572000753456527&output=embed"
                 className="h-[320px] w-full border-0 lg:h-[430px]"
                 loading="lazy"
               />
               <div className="border-t border-[var(--color-border)] px-5 py-4">
                 <a
-                  href="https://www.google.com/maps?q=15+Borommaratchachonnani+39,+Taling+Chan,+Bangkok+10170"
+                  href="https://www.google.com/maps?cid=12083572000753456527"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex min-h-11 w-full items-center justify-center rounded-[var(--mrt-radius-md)] border border-[var(--color-border-strong)] bg-[var(--color-surface)] px-4 py-2.5 text-sm font-semibold text-[var(--color-text)] transition hover:border-[var(--color-primary)] hover:bg-[var(--color-primary-soft)] sm:w-auto focus-visible:[outline:2px_solid_var(--color-focus-ring)] focus-visible:[outline-offset:2px] focus-visible:ring-2 focus-visible:ring-[color:var(--color-focus-ring)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-surface)]"

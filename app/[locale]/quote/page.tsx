@@ -429,6 +429,13 @@ export default function QuotePage() {
             <div className="mt-5 space-y-4">
               <BulkAddToQuote locale={locale} />
 
+              <div
+                id="rfq-items"
+                role="region"
+                aria-label={text.quoteItems}
+                tabIndex={-1}
+                className="scroll-mt-28 space-y-4 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--color-focus-ring)]"
+              >
               {items.length === 0 && (
                 <div className="rounded-[var(--mrt-radius-lg)] border border-dashed border-[var(--color-border-strong)] bg-[var(--color-surface-muted)] px-6 py-10 text-center">
                   <p className="text-base font-medium text-[var(--color-text)]">{text.noItemsTitle}</p>
@@ -460,7 +467,9 @@ export default function QuotePage() {
                     <div className="min-w-0">
                       <div className="text-base font-semibold text-[var(--color-text)]">{item.partNo}</div>
                       <div className="mt-1 text-sm text-[var(--color-text-muted)]">
-                        {item.brand || item.title || text.requestedItem}
+                        {item.productId.startsWith('manual:')
+                          ? text.manualRequest
+                          : item.brand || item.title || text.requestedItem}
                       </div>
                       {getRfqReferenceContexts(item.meta).length > 0 ? (
                         <div className="mt-2 text-sm font-medium text-[var(--color-primary)]">
@@ -521,6 +530,7 @@ export default function QuotePage() {
                   </div>
                 </div>
               ))}
+              </div>
             </div>
           </section>
 
@@ -723,11 +733,14 @@ export default function QuotePage() {
             <div className="mt-6 rounded-[var(--mrt-radius-lg)] border border-[var(--color-border)] bg-[var(--color-success-soft)] p-4">
               <p className="text-sm font-semibold text-[var(--color-success-text)]">{text.lineContinueTitle}</p>
               <p className="mt-1 text-xs leading-5 text-[var(--color-success-text)]">{text.lineContinueBody}</p>
+              <p className="mt-2 hidden text-xs leading-5 text-[var(--color-success-text)] md:block">{text.lineDesktopHelp}</p>
+              <p className="mt-2 text-xs leading-5 text-[var(--color-success-text)] md:hidden">{text.lineMobileHelp}</p>
               <div className="mt-4 grid gap-2 sm:grid-cols-2">
                 <CopyButton
                   value={lineSummary}
                   label={text.copyRfqList}
                   copiedLabel={text.copiedRfqList}
+                  failedLabel={text.copyRfqFailed}
                   disabled={!hasQuoteItems}
                   className="inline-flex min-h-11 items-center justify-center rounded-[var(--mrt-radius-md)] border border-[var(--color-border-strong)] bg-[var(--color-surface)] px-4 py-2.5 text-sm font-semibold text-[var(--color-success-text)] transition hover:bg-[var(--color-success-soft)] disabled:cursor-not-allowed disabled:opacity-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-success-soft)]"
                 />

@@ -1,0 +1,24 @@
+async page => {
+ const assert=(ok,message)=>{if(!ok)throw new Error(message);};const report=[];
+ await page.route('**/api/**',route=>route.request().method()==='POST'&&!route.request().url().includes('/api/search/multi-part')?route.fulfill({status:418,json:{error:'QA blocked write'}}):route.continue());
+ for(const locale of ['th','en'])for(const width of [1440,360,390,430]) {
+  await page.setViewportSize({width,height:900});await page.goto(`http://localhost:3102/${locale}/quote`);await page.waitForLoadState('networkidle');await page.evaluate(()=>localStorage.removeItem('mrt_quote_v1'));await page.reload();await page.waitForLoadState('networkidle');
+  const area=page.locator('section').filter({has:page.locator('textarea')}).last();await area.locator('textarea').fill('LF3000\n2P4004\nP551329');
+  const response=page.waitForResponse(r=>r.url().includes('/api/search/multi-part'));await area.getByRole('button').nth(1).click();const data=await(await response).json();assert(data.results.map(r=>r.product?.partNo).join(',')==='P553000,P554004,P551329','reported matches');await area.getByRole('button').nth(2).click();await page.waitForFunction(()=>JSON.parse(localStorage.getItem('mrt_quote_v1')||'[]').length===3);
+  const before=await page.evaluate(()=>localStorage.getItem('mrt_quote_v1'));const link=area.getByRole('link',{name:locale==='th'?'ไปที่รายการขอราคา':'Go to quote request',exact:true});const target=page.locator('#rfq-items');
+  assert(await link.getAttribute('href')==='#rfq-items','same-page anchor href');assert(await target.getAttribute('tabindex')==='-1'&&Boolean(await target.getAttribute('aria-label')),'named focusable list target');
+  await link.click();await page.waitForFunction(()=>location.hash==='#rfq-items'&&document.activeElement.id==='rfq-items');
+  await page.waitForFunction(()=>{const top=document.getElementById('rfq-items').getBoundingClientRect().top;return top>=80&&top<=160;});
+  assert(new URL(page.url()).pathname===`/${locale}/quote`,'no route change');assert(await target.getByText('P553000',{exact:true}).isVisible(),'actual quote rows target');
+  const top=(await target.boundingBox()).y;
+  await page.keyboard.press('Tab');assert(await target.getByRole('button').first().evaluate(el=>el===document.activeElement),'Tab enters first quote item');
+  await page.evaluate(()=>scrollTo(0,0));await link.focus();await page.keyboard.press('Enter');await page.waitForFunction(()=>document.activeElement.id==='rfq-items');
+  await page.waitForFunction(()=>{const top=document.getElementById('rfq-items').getBoundingClientRect().top;return top>=80&&top<=160;});
+  assert(await page.evaluate(()=>localStorage.getItem('mrt_quote_v1'))===before,'items/quantities/references unchanged');
+  await page.screenshot({path:`output/playwright/rfq-batch/quote-nav-${locale}-${width}.png`});
+  await page.reload();await page.waitForLoadState('networkidle');assert(await page.locator('#rfq-items').getByText('P554004',{exact:true}).isVisible(),'fragment reload retains quote');assert(await page.evaluate(()=>localStorage.getItem('mrt_quote_v1'))===before,'reload data unchanged');
+  assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),'no overflow');
+  report.push(`${locale} ${width}: reported three matches, anchor href, pointer/Enter scroll and focus (top ${Math.round(top)}px), Tab enters quote rows, repeated activation, reload/persistence PASS`);
+ }
+ return report;
+}

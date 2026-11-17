@@ -1,0 +1,26 @@
+async page => {
+ const assert=(ok,message)=>{if(!ok)throw new Error(message);};
+ const report=[];
+ for(const locale of ['en','th']) for(const width of [1440,360,390,430]) {
+   await page.setViewportSize({width,height:900});
+   await page.goto(`http://localhost:3102/${locale}/products?request=1`);
+   await page.waitForLoadState('networkidle');
+   const form=page.locator('#missing-product-request');
+   await form.locator('button[type="submit"]').click();
+   await form.getByRole('alert').waitFor();
+   assert((await form.getByRole('alert').innerText()).includes(locale==='th'?'Part Number':'part number'),'product validation');
+   await page.locator('#missing-product-note').fill('QA product identifier');
+   await form.locator('button[type="submit"]').click();
+   assert((await form.getByRole('alert').innerText()).includes(locale==='th'?'ติดต่อ':'contact'),'contact validation');
+   await page.locator('#missing-product-qty').fill('0'); await page.locator('#missing-product-qty').blur();
+   assert(await page.locator('#missing-product-qty').inputValue()==='1','quantity correction preserved');
+   await page.reload(); await page.evaluate(()=>scrollTo(0,0));
+   await page.screenshot({path:`output/playwright/rfq-batch/form-clean-${locale}-${width}.png`,fullPage:true});
+   await page.goto(`http://localhost:3102/${locale}/contact`);
+   await page.evaluate(()=>Object.defineProperty(navigator,'clipboard',{configurable:true,value:undefined}));
+   await page.getByRole('button',{name:locale==='th'?'คัดลอกอีเมล':'Copy email',exact:true}).click();
+   await page.waitForFunction(()=>{const s=document.querySelector('[role="status"]').textContent;return s.includes('Could not copy')||s.includes('คัดลอกไม่ได้');});
+   report.push(`${locale} ${width}: product/contact validation, zero quantity correction and unavailable clipboard fallback PASS`);
+ }
+ return report.join('\n');
+}

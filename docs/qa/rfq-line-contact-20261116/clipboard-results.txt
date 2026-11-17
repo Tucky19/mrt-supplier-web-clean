@@ -1,0 +1,18 @@
+native-copy-before
+### Result
+{"nativeBefore":{"ownClipboardOverride":false,"writeImplementation":"function writeText() { [native code] }"},"emailPasteMatches":true,"copiedShown":true,"rfqPasteMatches":true,"rfqPasteIsOldEmail":false,"expected":"MRT Supplier RFQ\nP551315 x 2\nP554004 x 1 (searched: 2P4004)\nUNKNOWN-CLIPBOARD-001 x 3","ownClipboardOverrideAfter":false}
+
+copy-diagnosis-before
+### Result
+{"noOpAutomation":{"showsCopied":true,"pastedOldEmail":true,"meaning":"Resolved no-op test double can reproduce report without native clipboard write"},"rejectedWriteBeforeFix":{"buttonText":"Copy RFQ list","unhandledErrors":1},"nativeRestored":true}
+
+clipboard-final
+### Result
+{"checks":["en 1440: native email->RFQ Ctrl+V exact payload, denied/unavailable/pending failures, no stale Copied, retry Enter/Space, data preservation PASS","en 360: native email->RFQ Ctrl+V exact payload, denied/unavailable/pending failures, no stale Copied, retry Enter/Space, data preservation PASS","en 390: native email->RFQ Ctrl+V exact payload, denied/unavailable/pending failures, no stale Copied, retry Enter/Space, data preservation PASS","en 430: native email->RFQ Ctrl+V exact payload, denied/unavailable/pending failures, no stale Copied, retry Enter/Space, data preservation PASS","th 1440: native email->RFQ Ctrl+V exact payload, denied/unavailable/pending failures, no stale Copied, retry Enter/Space, data preservation PASS","th 360: native email->RFQ Ctrl+V exact payload, denied/unavailable/pending failures, no stale Copied, retry Enter/Space, data preservation PASS","th 390: native email->RFQ Ctrl+V exact payload, denied/unavailable/pending failures, no stale Copied, retry Enter/Space, data preservation PASS","th 430: native email->RFQ Ctrl+V exact payload, denied/unavailable/pending failures, no stale Copied, retry Enter/Space, data preservation PASS"],"unhandledClipboardErrors":0,"successUsed":"native clipboard and trusted Ctrl+V; failures injected only","noRfqSubmitted":true}
+
+product-copy-control
+### Result
+["en: existing product Part No. native copy/paste PASS","th: existing product Part No. native copy/paste PASS"]
+
+Independent Windows clipboard comparison (contents not logged)
+{"RfqPayloadMatchesAfterNewlineNormalization": true, "IsOldSalesEmail": false}

@@ -21,6 +21,7 @@ export function getMissingProductUiText(locale: string) {
       ? "หากยังไม่มีเบอร์หรือยังไม่เจอสินค้าที่ตรง ส่งรายละเอียดให้ทีมช่วยหาเทียบได้ทันที"
       : "If you do not have a part number or the result is still missing, send the details and our team can help identify it.",
     productInfo: isThai ? "ข้อมูลสินค้า" : "Product Information",
+    optionalDetails: isThai ? "รายละเอียดเพิ่มเติม / ขนาด (ถ้ามี)" : "More details / dimensions (optional)",
     dimensions: isThai ? "ขนาด / สเปกที่วัดได้" : "Measured Dimensions",
     contactInfo: isThai ? "ข้อมูลติดต่อ" : "Contact Information",
     partNo: isThai ? "Part Number (ถ้ามี)" : "Part Number (optional)",

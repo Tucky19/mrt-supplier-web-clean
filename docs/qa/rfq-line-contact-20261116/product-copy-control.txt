@@ -1,0 +1,13 @@
+async page => {
+ const results=[];
+ for(const locale of ['en','th']) {
+  await page.goto(`http://localhost:3102/${locale}/products/P551315`);await page.waitForLoadState('networkidle');
+  await page.getByRole('button',{name:locale==='th'?'คัดลอก Part No.':'Copy Part No.',exact:true}).click();
+  await page.getByRole('button',{name:locale==='th'?'คัดลอกแล้ว':'Copied',exact:true}).waitFor();
+  await page.evaluate(()=>{const field=document.createElement('textarea');field.id='product-copy-probe';document.body.append(field);});await page.locator('#product-copy-probe').focus();await page.keyboard.press('Control+V');
+  if(await page.locator('#product-copy-probe').inputValue()!=='P551315')throw new Error('product copy mismatch');
+  results.push(`${locale}: existing product Part No. native copy/paste PASS`);
+ }
+ await page.goto('http://localhost:3102/en/quote');await page.waitForLoadState('networkidle');await page.getByRole('button',{name:'Copy RFQ list',exact:true}).click();await page.getByRole('button',{name:'Copied',exact:true}).waitFor();
+ return results;
+}

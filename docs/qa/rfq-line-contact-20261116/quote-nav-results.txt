@@ -1,0 +1,19 @@
+quote-nav-live
+### Result
+{"url":"https://www.mrtsupplier.com/th/quote","title":"เธชเนเธเธฃเธฒเธขเธเธฒเธฃเธเธญเนเธเน€เธชเธเธญเธฃเธฒเธเธฒ | MRT Supplier","bulkHeading":["เธเนเธเธซเธฒเธซเธฅเธฒเธข Part Number เนเธเธเธฃเธฑเนเธเน€เธ”เธตเธขเธง"],"firstTextareaPlaceholder":"เธเธฃเธญเธเน€เธเธเธฒเธฐ Part Number เธเธฃเธฃเธ—เธฑเธ”เธฅเธฐ 1 เน€เธเธญเธฃเน","goToQuoteLinkCount":0,"interaction":"read-only initial page inspection; no add or submission"}
+
+quote-nav-before
+### Result
+{"href":"/th/quote","currentPath":"/th/quote","beforeScroll":761,"afterScroll":761,"activeTag":"A","focusStayedOnLink":true,"quoteListTargetExists":0,"matches":["P553000","P554004","P551329"]}
+
+quote-nav-preview-before
+### Result
+{"href":"/th/quote","currentPath":"/th/quote","beforeScroll":761,"afterScroll":761,"activeTag":"A","focusStayedOnLink":true,"quoteListTargetExists":0,"matches":["P553000","P554004","P551329"]}
+
+quote-nav-final
+### Result
+["th 1440: reported three matches, anchor href, pointer/Enter scroll and focus (top 160px), Tab enters quote rows, repeated activation, reload/persistence PASS","th 360: reported three matches, anchor href, pointer/Enter scroll and focus (top 159px), Tab enters quote rows, repeated activation, reload/persistence PASS","th 390: reported three matches, anchor href, pointer/Enter scroll and focus (top 154px), Tab enters quote rows, repeated activation, reload/persistence PASS","th 430: reported three matches, anchor href, pointer/Enter scroll and focus (top 159px), Tab enters quote rows, repeated activation, reload/persistence PASS","en 1440: reported three matches, anchor href, pointer/Enter scroll and focus (top 160px), Tab enters quote rows, repeated activation, reload/persistence PASS","en 360: reported three matches, anchor href, pointer/Enter scroll and focus (top 159px), Tab enters quote rows, repeated activation, reload/persistence PASS","en 390: reported three matches, anchor href, pointer/Enter scroll and focus (top 159px), Tab enters quote rows, repeated activation, reload/persistence PASS","en 430: reported three matches, anchor href, pointer/Enter scroll and focus (top 159px), Tab enters quote rows, repeated activation, reload/persistence PASS"]
+
+quote-nav-cross-page
+### Result
+["th 1440: normal products bulk link still navigates to /th/quote with item retained PASS","th 390: normal products bulk link still navigates to /th/quote with item retained PASS","en 1440: normal products bulk link still navigates to /en/quote with item retained PASS","en 390: normal products bulk link still navigates to /en/quote with item retained PASS"]

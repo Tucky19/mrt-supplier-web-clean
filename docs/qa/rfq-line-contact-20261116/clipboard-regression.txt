@@ -1,0 +1,50 @@
+async page => {
+ const assert=(ok,message)=>{if(!ok)throw new Error(message);};
+ const report=[];let unhandled=0;page.on('pageerror',()=>{unhandled++;});
+ await page.route('**/api/**',route=>route.request().method()==='POST'&&!route.request().url().includes('/api/search/multi-part')?route.fulfill({status:418,json:{error:'QA blocked write'}}):route.continue());
+ const expected='MRT Supplier RFQ\nP551315 x 2\nP554004 x 1 (searched: 2P4004)\nUNKNOWN-CLIPBOARD-001 x 3';
+ const paste=async()=>{await page.evaluate(()=>{document.querySelector('#native-copy-probe')?.remove();const el=document.createElement('textarea');el.id='native-copy-probe';el.setAttribute('aria-label','Native copy probe');document.body.append(el);});await page.locator('#native-copy-probe').focus();await page.keyboard.press('Control+V');return page.locator('#native-copy-probe').inputValue();};
+ for(const locale of ['en','th'])for(const width of [1440,360,390,430]) {
+  await page.setViewportSize({width,height:900});
+  await page.goto(`http://localhost:3102/${locale}/contact`);await page.waitForLoadState('networkidle');
+  await page.getByRole('button',{name:locale==='th'?'คัดลอกอีเมล':'Copy email',exact:true}).click();
+  await page.getByRole('status').filter({hasText:locale==='th'?'คัดลอกอีเมลแล้ว':'Email copied.'}).waitFor();
+  assert(await paste()==='sales@mrtsupplier.com','email seed pasted natively');
+  await page.goto(`http://localhost:3102/${locale}/quote`);await page.waitForLoadState('networkidle');
+  await page.evaluate(()=>localStorage.removeItem('mrt_quote_v1'));await page.reload();await page.waitForLoadState('networkidle');
+  const area=page.locator('section').filter({has:page.locator('textarea')}).last();
+  await area.locator('textarea').fill('P551315 x 2\n2P4004\nUNKNOWN-CLIPBOARD-001 x 3');
+  const response=page.waitForResponse(r=>r.url().includes('/api/search/multi-part'));await area.getByRole('button').nth(1).click();await response;await area.getByRole('button').nth(2).click();
+  await page.waitForFunction(()=>JSON.parse(localStorage.getItem('mrt_quote_v1')||'[]').length===3);
+  const stored=await page.evaluate(()=>localStorage.getItem('mrt_quote_v1'));
+  const button=page.locator('form button[type="button"]').last();
+  const copied=locale==='th'?'คัดลอกแล้ว':'Copied';const failed=locale==='th'?'คัดลอกไม่สำเร็จ กรุณาลองอีกครั้ง':'Copy failed. Please try again.';
+  assert(await page.evaluate(()=>Function.prototype.toString.call(navigator.clipboard.writeText).includes('[native code]')),'success uses native API');
+  await button.click();await page.getByRole('button',{name:copied,exact:true}).waitFor();
+  assert(await paste()===expected,'native RFQ paste replaces email');
+  if((locale==='en'&&width===1440)||(locale==='th'&&width===390))await button.locator('..').locator('..').screenshot({path:`output/playwright/rfq-batch/native-copy-success-${locale}-${width}.png`});
+  await page.evaluate(async()=>{await navigator.clipboard.writeText('sales@mrtsupplier.com');Object.defineProperty(navigator.clipboard,'writeText',{configurable:true,value:async()=>{throw new DOMException('QA denied','NotAllowedError');}});});
+  await button.click();await page.getByRole('button',{name:failed,exact:true}).waitFor();
+  assert(await paste()==='sales@mrtsupplier.com','rejected write preserves prior clipboard');
+  await page.waitForTimeout(1300);assert(await button.innerText()===failed,'old success timer cannot erase failure');
+  assert(await button.getAttribute('aria-live')==='polite'&&await button.getAttribute('type')==='button','accessible non-submit feedback');
+  if((locale==='en'&&width===1440)||(locale==='th'&&width===390))await button.locator('..').locator('..').screenshot({path:`output/playwright/rfq-batch/native-copy-failure-${locale}-${width}.png`});
+  await page.evaluate(()=>delete navigator.clipboard.writeText);
+  await button.focus();await page.keyboard.press('Enter');await page.getByRole('button',{name:copied,exact:true}).waitFor();assert(await paste()===expected,'native retry recovers');
+  await page.evaluate(()=>Object.defineProperty(navigator,'clipboard',{configurable:true,value:undefined}));
+  await button.click();await page.getByRole('button',{name:failed,exact:true}).waitFor();assert(await paste()===expected,'unavailable API no false copied');
+  await page.reload();await page.waitForLoadState('networkidle');
+  await page.evaluate(()=>Object.defineProperty(navigator.clipboard,'writeText',{configurable:true,value:()=>new Promise((resolve,reject)=>{window.__rejectCopy=reject;})}));
+  await button.click();await page.waitForFunction(()=>document.querySelector('form button[aria-live="polite"]').disabled);
+  assert((await button.innerText())!==copied,'pending write not copied');
+  await page.evaluate(()=>window.__rejectCopy(new Error('QA pending write rejected')));await page.getByRole('button',{name:failed,exact:true}).waitFor();
+  assert(await button.isEnabled(),'retry enabled after rejection');
+  await page.reload();await page.waitForLoadState('networkidle');
+  await button.focus();await page.keyboard.press('Space');await page.getByRole('button',{name:copied,exact:true}).waitFor();assert(await paste()===expected,'restored native clipboard');
+  assert(await page.evaluate(()=>localStorage.getItem('mrt_quote_v1'))===stored,'quote data unchanged');
+  assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),'no overflow');
+  report.push(`${locale} ${width}: native email->RFQ Ctrl+V exact payload, denied/unavailable/pending failures, no stale Copied, retry Enter/Space, data preservation PASS`);
+ }
+ assert(unhandled===0,'no unhandled clipboard failures');
+ return {checks:report,unhandledClipboardErrors:unhandled,successUsed:'native clipboard and trusted Ctrl+V; failures injected only',noRfqSubmitted:true};
+}
