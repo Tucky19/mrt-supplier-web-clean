@@ -8,6 +8,7 @@ import ProductDetailClient from "@/components/products/ProductDetailClient";
 import JsonLd from "@/components/seo/JsonLd";
 import { products as catalogProducts } from "@/data/products/index";
 import { relationPartNumbers } from "@/lib/products/relations";
+import { getVerifiedProductCopy } from "@/lib/products/verifiedCopy";
 import { getProductDiscoveryLabel } from "@/lib/products/discovery";
 import type { Product } from "@/types/product";
 
@@ -137,18 +138,19 @@ export async function generateMetadata({
   const productPath = `/products/${encodedPartNo}`;
   const canonical = `${SITE_URL}/${locale}${productPath}`;
   const discoveryLabel = getProductDiscoveryLabel(product.partNo, locale);
-  const title = product.partNumberOnly ? `${product.partNo} | MRT Supplier` : discoveryLabel
+  const verifiedCopy = getVerifiedProductCopy(product, locale);
+  const title = verifiedCopy?.metaTitle ?? (product.partNumberOnly ? `${product.partNo} | MRT Supplier` : discoveryLabel
     ? `${product.brand} ${product.partNo} ${discoveryLabel} | MRT Supplier`
     : isThai
     ? `${product.partNo} ${product.brand} | สเปกสินค้าและขอใบเสนอราคา | MRT Supplier`
-    : `${product.partNo} ${product.brand} | Product Specs and RFQ | MRT Supplier`;
-  const description = product.partNumberOnly ? `${product.partNo} — ${isThai ? "ตรวจสอบสินค้า" : "Check availability"}` : discoveryLabel
+    : `${product.partNo} ${product.brand} | Product Specs and RFQ | MRT Supplier`);
+  const description = verifiedCopy?.metaDescription ?? (product.partNumberOnly ? `${product.partNo} — ${isThai ? "ตรวจสอบสินค้า" : "Check availability"}` : discoveryLabel
     ? isThai
       ? `${product.brand} ${product.partNo} ${discoveryLabel} ดูรูปและสเปกสินค้า ส่งเบอร์กรองหรือรุ่นเครื่องพร้อมจำนวนให้ MRT Supplier ตรวจสอบและขอใบเสนอราคา`
       : `${product.brand} ${product.partNo} ${discoveryLabel}. View photos and specifications. Send your part number or machine model and quantity to MRT Supplier for verification and a quote.`
     : isThai
     ? `${product.brand} ${product.partNo} สำหรับงานอุตสาหกรรม ดูสเปก เทียบเบอร์ และส่งขอใบเสนอราคา MRT Supplier`
-    : `View ${product.brand} ${product.partNo} product specifications, cross references, and request a quote from MRT Supplier.`;
+    : `View ${product.brand} ${product.partNo} product specifications, cross references, and request a quote from MRT Supplier.`);
   const image = getProductImage(product);
 
   return {
