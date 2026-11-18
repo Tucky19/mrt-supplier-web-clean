@@ -61,7 +61,7 @@ export default function SiteFooter({ locale = "th", className = "" }: Props) {
               href={`/${locale}/applications/air-compressor-generator`}
               className={`block rounded-sm hover:text-white ${darkFocusClass}`}
             >
-              {isThai ? "Compressor / Generator" : "Compressor / Generator"}
+              {isThai ? "ไส้กรอง Compressor / Generator / แทรกเตอร์ / แบ็กโฮ / โฟล์คลิฟท์" : "Compressor / Generator / Tractor / Backhoe / Forklift Filters"}
             </Link>
             <Link href={`/${locale}/contact`} className={`block rounded-sm hover:text-white ${darkFocusClass}`}>
               {isThai ? "ติดต่อเรา" : "Contact"}
