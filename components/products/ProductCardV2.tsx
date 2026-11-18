@@ -8,6 +8,7 @@ import { gaEvent } from "@/lib/analytics/ga";
 import { track } from "@/lib/analytics";
 import { searchAttribution, rememberProductAttribution, growthEventId } from "@/lib/analytics/growth";
 import { gaAddToQuote } from "@/lib/analytics/ga";
+import { getVerifiedProductCopy } from "@/lib/products/verifiedCopy";
 import { getProductUiText } from "@/lib/i18n/productUi";
 import ApplicationReferenceNote from "./detail/ApplicationReferenceNote";
 import { getSearchUiText } from "@/lib/i18n/searchUi";
@@ -204,7 +205,9 @@ export default function ProductCardV2({
     referenceQuery,
     searchText,
   );
-  const categoryLabel = formatCategoryLabel(product.category);
+  const categoryLabel = (product.partNo === "P502649"
+    ? getVerifiedProductCopy(product, locale)?.category
+    : undefined) ?? formatCategoryLabel(product.category);
 
   useEffect(() => {
     return () => {

@@ -9,6 +9,7 @@ import CopyButton from "@/components/ui/CopyButton";
 import { gaAddToQuote, gaViewItem } from "@/lib/analytics/ga";
 import { track } from "@/lib/analytics";
 import { productAttribution, growthEventId } from "@/lib/analytics/growth";
+import { getVerifiedProductCopy } from "@/lib/products/verifiedCopy";
 import { getProductUiText } from "@/lib/i18n/productUi";
 import { getProductImageUrl } from "@/lib/products/image";
 import {
@@ -100,7 +101,7 @@ function getCategorySummary(category: string | undefined, locale: string) {
 }
 
 function buildHeaderSummary(product: Product, locale: string) {
-  const categorySummary = getCategorySummary(product.category, locale);
+  const categorySummary = getVerifiedProductCopy(product, locale)?.category ?? getCategorySummary(product.category, locale);
   const specs = Array.isArray(product.specifications) ? product.specifications : [];
   const skipLabels = new Set([
     "height",
@@ -158,12 +159,12 @@ function SurfaceCard({
   );
 }
 
-function VerificationNote({ locale }: { locale: string }) {
+function VerificationNote({ locale, note }: { locale: string; note?: string }) {
   return (
     <div className="rounded-[var(--mrt-radius-lg)] border border-slate-200 bg-slate-50/85 px-4 py-3 text-sm leading-6 text-slate-600">
-      {locale === "th"
+      {note ?? (locale === "th"
         ? "หมายเหตุ: กรุณายืนยันขนาด เกลียว รุ่นเครื่องจักร และการใช้งานก่อนสั่งซื้อ"
-        : "Note: Please confirm dimensions, thread size, machine model, and application before ordering."}
+        : "Note: Please confirm dimensions, thread size, machine model, and application before ordering.")}
     </div>
   );
 }
@@ -216,6 +217,10 @@ function buildTopProductInfo(product: Product, locale: string) {
 }
 
 function buildDescriptionBlock(product: Product, locale: string) {
+  const verifiedCopy = getVerifiedProductCopy(product, locale);
+  if (verifiedCopy && !product.dimensionReviewRequired) {
+    return { title: locale === "th" ? "เกี่ยวกับสินค้า" : "About This Product", paragraphs: verifiedCopy.paragraphs };
+  }
   const fallbackInfo = buildTopProductInfo(product, locale);
   const isThai = locale === "th";
   const specText = normalizeComparableText(String(product.spec ?? ""));
@@ -256,6 +261,8 @@ function buildDescriptionBlock(product: Product, locale: string) {
 }
 
 export default function ProductDetailClient({ locale, product }: Props) {
+  const verifiedCopy = getVerifiedProductCopy(product, locale);
+  const displayTitle = verifiedCopy?.title ?? product.title;
   const router = useRouter();
   const { addItem } = useQuote();
   const text = {
@@ -484,9 +491,9 @@ export default function ProductDetailClient({ locale, product }: Props) {
               {product.partNo}
             </h1>
 
-            {product.title && (
+            {displayTitle && (
               <p className="mt-2 line-clamp-2 text-sm font-medium leading-6 text-slate-700">
-                {product.title}
+                {displayTitle}
               </p>
             )}
           </div>
@@ -578,9 +585,9 @@ export default function ProductDetailClient({ locale, product }: Props) {
                 {product.brand.toUpperCase()}
               </Link>
 
-              {product.title && (
+              {displayTitle && (
                 <p className="mt-4 max-w-3xl text-lg font-medium leading-8 text-slate-900">
-                  {product.title}
+                  {displayTitle}
                 </p>
               )}
             </div>
@@ -666,7 +673,7 @@ export default function ProductDetailClient({ locale, product }: Props) {
                 officialUrl={product.officialUrl}
               />
 
-              <VerificationNote locale={locale} />
+              <VerificationNote locale={locale} note={verifiedCopy?.verificationNote} />
             </div>
           </SurfaceCard>
 
