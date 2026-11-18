@@ -6,6 +6,7 @@ export const verifiedManufacturerTypes: Record<string, {
   label: string;
   thai: string;
   source: string;
+  sourceKind: "manufacturer_page" | "user_label_photo";
   checkedAt: string;
   originalWording?: string;
 }> = Object.fromEntries([
@@ -26,8 +27,19 @@ export const verifiedManufacturerTypes: Record<string, {
   thai: label === "LUBE FILTER" ? "ไส้กรองน้ำมันเครื่อง" : label === "FUEL FILTER" ? "ไส้กรองเชื้อเพลิง" : "ไส้กรองอากาศ",
   source: `https://shop.donaldson.com/store/en-us/product/${partNo === "P181080" ? "P127315" : partNo}/${page}`,
   checkedAt: "2026-11-18",
+  sourceKind: "manufacturer_page" as const,
   originalWording: label === "LUBE FILTER" ? "LUBE FILTER, SPIN-ON FULL FLOW" : undefined,
 }]));
+
+// Owner-provided label photo visually verified by dot; primary type only.
+// Private image/reference stays outside the public repository.
+verifiedManufacturerTypes.P551006 = {
+  label: "FUEL FILTER",
+  thai: "ไส้กรองเชื้อเพลิง",
+  source: "User-supplied Donaldson P551006 label photo, visually verified by dot: Fuel Filter",
+  sourceKind: "user_label_photo",
+  checkedAt: "2026-11-18",
+};
 
 export function getManufacturerType(product: Pick<Product, "brand" | "partNo">, locale: string) {
   if (product.brand.trim().toLowerCase() !== "donaldson") return undefined;
