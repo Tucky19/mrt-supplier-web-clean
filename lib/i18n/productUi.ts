@@ -31,6 +31,7 @@ export function getProductUiText(locale: string) {
     viewOfficial: isThai ? "ดูข้อมูลทางการ" : "View Official",
     details: isThai ? "รายละเอียด" : "Details",
     addToQuote: isThai ? "เพิ่มใน RFQ" : "Add to Quote",
+    viewQuoteList: isThai ? "ไปที่รายการขอราคา" : "View quote list",
     requestQuote: isThai ? "ขอใบเสนอราคา" : "Request Quote",
     industrialGrade: isThai ? "เกรดอุตสาหกรรม" : "Industrial Grade",
     readyToQuote: isThai ? "พร้อมขอราคา" : "Ready to quote",

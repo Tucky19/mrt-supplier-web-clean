@@ -264,7 +264,8 @@ export default function ProductDetailClient({ locale, product }: Props) {
   const verifiedCopy = getVerifiedProductCopy(product, locale);
   const displayTitle = verifiedCopy?.title ?? product.title;
   const router = useRouter();
-  const { addItem } = useQuote();
+  const { addItem, items, ready } = useQuote();
+  const isInQuote = items.some((item) => item.productId === product.id);
   const text = {
     ...getProductUiText(locale),
     ...(product.inquiryOnly ? { statusCheck: locale === "th" ? "สอบถาม" : "Inquire" } : {}),
@@ -366,6 +367,8 @@ export default function ProductDetailClient({ locale, product }: Props) {
       : "Added"
     : text.addToQuote;
 
+  const requestQuoteLabel = isInQuote ? text.viewQuoteList : text.requestQuote;
+
   const getPairedRelationLabel = (relation: "outer" | "inner" | "paired") => {
     if (relation === "inner") {
       return isThai ? "ลูกใน (Safety Filter)" : "Inner element (Safety Filter)";
@@ -401,6 +404,9 @@ export default function ProductDetailClient({ locale, product }: Props) {
   }, []);
 
   const handleAdd = () => {
+    // Guard rapid clicks before React updates the disabled button.
+    if (!ready || resetTimerRef.current !== null) return;
+
     const context = productAttribution(product.partNo,locale);
     const eventId = growthEventId("add_to_cart");
     track({ type:"add_to_quote",query:context.search_term,partNo:product.partNo,matchType:context.match_type,
@@ -439,7 +445,8 @@ export default function ProductDetailClient({ locale, product }: Props) {
   };
 
   const handleRequestQuote = () => {
-    handleAdd();
+    if (!ready) return;
+    if (!isInQuote) handleAdd();
     router.push(`/${locale}/quote`);
   };
 
@@ -460,8 +467,8 @@ export default function ProductDetailClient({ locale, product }: Props) {
         )}
         <ProductCatalogApplications entries={product.catalogApplications} locale={locale} partNo={product.partNo} />
         <div className="mt-8 flex flex-wrap gap-3">
-          <button data-primary-action onClick={handleAdd} disabled={justAdded} className="rounded-xl bg-slate-900 px-5 py-3 font-semibold text-white">{addToQuoteLabel}</button>
-          <button onClick={handleRequestQuote} className="rounded-xl border border-slate-300 px-5 py-3 font-medium">{text.requestQuote}</button>
+          <button data-primary-action onClick={handleAdd} disabled={!ready || justAdded} className="rounded-xl bg-slate-900 px-5 py-3 font-semibold text-white">{addToQuoteLabel}</button>
+          <button onClick={handleRequestQuote} disabled={!ready} className="rounded-xl border border-slate-300 px-5 py-3 font-medium">{requestQuoteLabel}</button>
           <TrackedLineLink href={LINE_URL} source="product_detail_rfq_card" locale={locale} className="rounded-xl border border-emerald-200 bg-emerald-50 px-5 py-3 font-medium text-emerald-800">LINE</TrackedLineLink>
         </div>
       </section>
@@ -616,7 +623,7 @@ export default function ProductDetailClient({ locale, product }: Props) {
                 <div className="mt-5 hidden space-y-3 md:block">
                   <button
                     data-primary-action onClick={handleAdd}
-                    disabled={justAdded}
+                    disabled={!ready || justAdded}
                     className={`w-full rounded-[var(--mrt-radius-lg)] px-4 py-3.5 text-sm font-semibold text-white shadow-sm transition-colors ${
                       justAdded
                         ? "bg-emerald-600"
@@ -627,10 +634,10 @@ export default function ProductDetailClient({ locale, product }: Props) {
                   </button>
 
                   <button
-                    onClick={handleRequestQuote}
+                    onClick={handleRequestQuote} disabled={!ready}
                     className="w-full rounded-[var(--mrt-radius-lg)] border border-slate-300 bg-white px-4 py-3.5 text-sm font-medium text-slate-700 transition-colors hover:border-slate-400 hover:bg-slate-50"
                   >
-                    {text.requestQuote}
+                    {requestQuoteLabel}
                   </button>
                 </div>
 
@@ -703,7 +710,7 @@ export default function ProductDetailClient({ locale, product }: Props) {
         <div className="mx-auto flex max-w-6xl items-center gap-3">
           <button
             data-primary-action onClick={handleAdd}
-            disabled={justAdded}
+            disabled={!ready || justAdded}
             className={`inline-flex min-h-11 flex-1 items-center justify-center rounded-[var(--mrt-radius-lg)] px-4 py-3 text-sm font-medium transition-colors ${
               justAdded
                 ? "border border-emerald-200 bg-emerald-600 text-white"
@@ -714,10 +721,10 @@ export default function ProductDetailClient({ locale, product }: Props) {
           </button>
 
           <button
-            onClick={handleRequestQuote}
+            onClick={handleRequestQuote} disabled={!ready}
             className="inline-flex min-h-11 flex-1 items-center justify-center rounded-[var(--mrt-radius-lg)] bg-slate-900 px-4 py-3 text-sm font-semibold text-white transition-colors hover:bg-slate-800"
           >
-            {text.requestQuote}
+            {requestQuoteLabel}
           </button>
         </div>
       </div>
