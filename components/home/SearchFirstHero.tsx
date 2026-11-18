@@ -24,7 +24,7 @@ export default function SearchFirstHero({ locale, children }: { locale: string; 
         <div className={styles.heroInner}>
           <div className={styles.heroContent}>
             <p className={styles.eyebrow}>Industrial Parts Supplier</p>
-            <h1>{th ? <>ค้นหาอะไหล่<span>อุตสาหกรรม</span></> : <>Find your <span>industrial parts</span></>}</h1>
+            <h1>{th ? <>ค้นหาไส้กรองและตลับลูกปืน<span className="block">อุตสาหกรรม</span></> : <>Find industrial filters <span className="block">and bearings</span></>}</h1>
             <p className={styles.heroDescription}>{th ? "ค้นหาด้วย Part Number หรือส่งรายการให้เราช่วยจัดหา" : "Search by part number, or send your list for sourcing support."}</p>
             <div className={styles.heroSearch}>
               <SearchBar locale={locale} autoFocus={false} exampleQueries={["P181080", "P551864", "FS1242"]} compactMobileExamples className={styles.search} />
