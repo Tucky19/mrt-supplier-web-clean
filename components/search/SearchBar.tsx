@@ -5,6 +5,7 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { searchAttribution } from "@/lib/analytics/growth";
 import { gaSearch } from "@/lib/analytics/ga";
 import { useSearchSuggestions } from "@/hooks/useSearchSuggestions";
+import { getManufacturerType } from "@/lib/products/manufacturerType";
 import { getSearchUiText } from "@/lib/i18n/searchUi";
 import {
   isPreliminaryRelation,
@@ -569,7 +570,7 @@ export default function SearchBar({
                       suggestion._matchedRelation?.partNumber ?? draftQuery.trim();
                     const secondaryText = isRelationMatch
                       ? `${label} ${matchedPartNumber} \u2192 ${brandLabel} ${suggestion.partNo}`
-                      : [brandLabel, suggestion.title]
+                      : [brandLabel, getManufacturerType(suggestion, locale) ?? suggestion.title]
                           .filter(Boolean)
                           .join(" \u00B7 ");
 
