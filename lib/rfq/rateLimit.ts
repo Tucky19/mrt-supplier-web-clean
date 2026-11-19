@@ -1,6 +1,7 @@
 import { prisma } from "@/lib/db";
 
 type RateLimitResult = {
+  storageUnavailable?: boolean;
   ok: boolean;
   allowed: boolean;
   count: number;
@@ -75,14 +76,15 @@ return {
   } catch (error) {
     console.error("[RFQ_RATE_LIMIT_ERROR]", error);
 
-    // Fail-open: do not block real RFQ submissions if rate-limit storage has an issue.
+    // Fail closed before persistence or notifications when quota cannot be checked.
    return {
-  ok: true,
-  allowed: true,
+  storageUnavailable: true,
+  ok: false,
+  allowed: false,
   count: 0,
   limit,
-  remaining: limit,
-  retryAfterSec: 0,
+  remaining: 0,
+  retryAfterSec: 60,
 };
   }
 }
