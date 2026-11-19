@@ -126,10 +126,15 @@ function buildSearchDocument(product: Product) {
   };
 }
 
-function buildIndex(catalog: Product[]) {
+function buildIndex(catalog: Product[], previousDocuments?: ReturnType<typeof buildSearchDocument>[]) {
+  const previousById = new Map(previousDocuments?.map(document => [document.id, document]));
   const items = catalog
     .map(buildSearchDocument)
-    .filter((item) => item.id && item.partNoNorm);
+    .filter((item) => item.id && item.partNoNorm)
+    .map(document => {
+      const previous = previousById.get(document.id);
+      return previous ? { ...previous, refs: document.refs, crossReferences: document.crossReferences } : document;
+    });
 
   const prefix2: Record<string, string[]> = {};
   const prefix3: Record<string, string[]> = {};
@@ -229,8 +234,20 @@ function buildIndex(catalog: Product[]) {
 }
 
 function main() {
-  const index = buildIndex(Array.isArray(products) ? products : []);
   const outPath = path.join(process.cwd(), "data", "search-index.v2.json");
+  // Relationship-only catalog updates must not pull unrelated stale spec changes in.
+  const previousIndex = process.argv.includes("--relations-only")
+    ? JSON.parse(fs.readFileSync(outPath, "utf8")) as ReturnType<typeof buildIndex>
+    : undefined;
+  const index = buildIndex(Array.isArray(products) ? products : [], previousIndex?.items);
+  if (previousIndex) {
+    // Keep existing key order so a scoped refresh does not churn unrelated maps.
+    for (const name of ["prefix2", "prefix3", "prefix4", "tokenIndex", "refIndex", "xrefIndex", "pairedPartIndex"] as const) {
+      const current = index[name];
+      const keys = [...Object.keys(previousIndex[name]), ...Object.keys(current).filter(key => !(key in previousIndex[name]))];
+      index[name] = Object.fromEntries(keys.filter(key => key in current).map(key => [key, current[key]]));
+    }
+  }
   fs.writeFileSync(outPath, JSON.stringify(index, null, 2), "utf8");
   console.log(`Built search index: ${outPath}`);
   console.log(index.counts);

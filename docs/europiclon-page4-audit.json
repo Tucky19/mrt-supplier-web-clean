@@ -1,0 +1,566 @@
+{
+  "baseline": "11876f7177ca05bc20321683a50099e23a2e5a44",
+  "source": {
+    "publication": "Donaldson F111409 ENG (3/21), page 4",
+    "url": "https://www.donaldson.com/content/dam/donaldson/engine-hydraulics-bulk/literature/north-america/air/F111409-ENG/Air-Filters-for-Mann-Hummel-Europiclon.pdf#page=4",
+    "approvedBy": "Boss/MRT Supplier",
+    "approvedAt": "2026-11-19"
+  },
+  "primaryRows": 19,
+  "safetyRows": 9,
+  "pdfRowsChecked": 28,
+  "sourceEdges": 125,
+  "alreadyPresentSourceEdges": 24,
+  "newSourceEdges": 30,
+  "servedSourceEdges": 54,
+  "heldSourceEdges": 71,
+  "directedPresent": 34,
+  "directedNew": 30,
+  "changedProducts": 24,
+  "activeProducts": 798,
+  "baselineOverlaps": 36,
+  "remainingOverlaps": 28,
+  "heldRows": 14,
+  "rows": [
+    {
+      "role": "primary",
+      "row": 1,
+      "donaldson": "P778972",
+      "activeEndpoints": [
+        "P778972",
+        "C 16 400"
+      ],
+      "held": false
+    },
+    {
+      "role": "primary",
+      "row": 2,
+      "donaldson": "P778979",
+      "activeEndpoints": [],
+      "held": true
+    },
+    {
+      "role": "primary",
+      "row": 3,
+      "donaldson": "P778984",
+      "activeEndpoints": [
+        "P778984",
+        "C 14 200"
+      ],
+      "held": false
+    },
+    {
+      "role": "primary",
+      "row": 4,
+      "donaldson": "P778989",
+      "activeEndpoints": [
+        "C 15 300"
+      ],
+      "held": false
+    },
+    {
+      "role": "primary",
+      "row": 5,
+      "donaldson": "P778994",
+      "activeEndpoints": [
+        "P778994",
+        "C 20 500"
+      ],
+      "held": false
+    },
+    {
+      "role": "primary",
+      "row": 6,
+      "donaldson": "P782104",
+      "activeEndpoints": [
+        "P782104",
+        "C 23 610"
+      ],
+      "held": false
+    },
+    {
+      "role": "primary",
+      "row": 7,
+      "donaldson": "P782105",
+      "activeEndpoints": [
+        "P782105",
+        "C 25 710/3"
+      ],
+      "held": false
+    },
+    {
+      "role": "primary",
+      "row": 8,
+      "donaldson": "P782106",
+      "activeEndpoints": [
+        "C 30 810/3"
+      ],
+      "held": false
+    },
+    {
+      "role": "primary",
+      "row": 9,
+      "donaldson": "P782328",
+      "activeEndpoints": [],
+      "held": true
+    },
+    {
+      "role": "primary",
+      "row": 10,
+      "donaldson": "P782880",
+      "activeEndpoints": [],
+      "held": true
+    },
+    {
+      "role": "primary",
+      "row": 11,
+      "donaldson": "P782881",
+      "activeEndpoints": [],
+      "held": true
+    },
+    {
+      "role": "primary",
+      "row": 12,
+      "donaldson": "P782936",
+      "activeEndpoints": [],
+      "held": true
+    },
+    {
+      "role": "primary",
+      "row": 13,
+      "donaldson": "P784198",
+      "activeEndpoints": [],
+      "held": true
+    },
+    {
+      "role": "primary",
+      "row": 14,
+      "donaldson": "P784456",
+      "activeEndpoints": [],
+      "held": true
+    },
+    {
+      "role": "primary",
+      "row": 15,
+      "donaldson": "P784457",
+      "activeEndpoints": [],
+      "held": true
+    },
+    {
+      "role": "primary",
+      "row": 16,
+      "donaldson": "P784525",
+      "activeEndpoints": [],
+      "held": true
+    },
+    {
+      "role": "primary",
+      "row": 17,
+      "donaldson": "P785352",
+      "activeEndpoints": [],
+      "held": true
+    },
+    {
+      "role": "primary",
+      "row": 18,
+      "donaldson": "P786421",
+      "activeEndpoints": [],
+      "held": true
+    },
+    {
+      "role": "primary",
+      "row": 19,
+      "donaldson": "P789377",
+      "activeEndpoints": [],
+      "held": true
+    },
+    {
+      "role": "safety",
+      "row": 1,
+      "donaldson": "P780012",
+      "activeEndpoints": [
+        "P780012",
+        "CF 400"
+      ],
+      "held": false
+    },
+    {
+      "role": "safety",
+      "row": 2,
+      "donaldson": "P780018",
+      "activeEndpoints": [],
+      "held": true
+    },
+    {
+      "role": "safety",
+      "row": 3,
+      "donaldson": "P780024",
+      "activeEndpoints": [
+        "P780024",
+        "CF 200"
+      ],
+      "held": false
+    },
+    {
+      "role": "safety",
+      "row": 4,
+      "donaldson": "P780030",
+      "activeEndpoints": [
+        "CF 300"
+      ],
+      "held": false
+    },
+    {
+      "role": "safety",
+      "row": 5,
+      "donaldson": "P780036",
+      "activeEndpoints": [
+        "P780036",
+        "CF 500"
+      ],
+      "held": false
+    },
+    {
+      "role": "safety",
+      "row": 6,
+      "donaldson": "P782107",
+      "activeEndpoints": [
+        "CF 610"
+      ],
+      "held": false
+    },
+    {
+      "role": "safety",
+      "row": 7,
+      "donaldson": "P782108",
+      "activeEndpoints": [
+        "P782108",
+        "CF 710"
+      ],
+      "held": false
+    },
+    {
+      "role": "safety",
+      "row": 8,
+      "donaldson": "P782109",
+      "activeEndpoints": [
+        "P782109",
+        "CF 810"
+      ],
+      "held": false
+    },
+    {
+      "role": "safety",
+      "row": 9,
+      "donaldson": "P782937",
+      "activeEndpoints": [],
+      "held": true
+    }
+  ],
+  "dimensionDifferences": [
+    {
+      "part": "P778972",
+      "field": "ID",
+      "sourceMm": 95,
+      "current": [
+        {
+          "label": "Inner Diameter",
+          "value": "94.7 mm",
+          "mm": 94.7
+        }
+      ],
+      "classification": "source rounding; preserve precision"
+    },
+    {
+      "part": "P778972",
+      "field": "OD",
+      "sourceMm": 161,
+      "current": [
+        {
+          "label": "Outer Diameter",
+          "value": "161.1 mm",
+          "mm": 161.1
+        }
+      ],
+      "classification": "source rounding; preserve precision"
+    },
+    {
+      "part": "P778972",
+      "field": "Length",
+      "sourceMm": 373,
+      "current": [
+        {
+          "label": "Overall Length",
+          "value": "372 mm",
+          "mm": 372
+        },
+        {
+          "label": "Length",
+          "value": "341.8 mm",
+          "mm": 341.8
+        }
+      ],
+      "classification": "ambiguous dimension semantics; preserve"
+    },
+    {
+      "part": "P778984",
+      "field": "ID",
+      "sourceMm": 75,
+      "current": [
+        {
+          "label": "Inner Diameter",
+          "value": "74.9 mm",
+          "mm": 74.9
+        }
+      ],
+      "classification": "source rounding; preserve precision"
+    },
+    {
+      "part": "P778984",
+      "field": "OD",
+      "sourceMm": 128,
+      "current": [
+        {
+          "label": "Outer Diameter",
+          "value": "128.4 mm",
+          "mm": 128.4
+        }
+      ],
+      "classification": "source rounding; preserve precision"
+    },
+    {
+      "part": "P778984",
+      "field": "Length",
+      "sourceMm": 321,
+      "current": [
+        {
+          "label": "Length",
+          "value": "316.2 mm",
+          "mm": 316.2
+        }
+      ],
+      "classification": "conflict; preserve pending review"
+    },
+    {
+      "part": "P778994",
+      "field": "ID",
+      "sourceMm": 115,
+      "current": [
+        {
+          "label": "Inner Diameter",
+          "value": "115.9 mm",
+          "mm": 115.9
+        }
+      ],
+      "classification": "conflict; preserve pending review"
+    },
+    {
+      "part": "P778994",
+      "field": "OD",
+      "sourceMm": 197,
+      "current": [
+        {
+          "label": "Outer Diameter",
+          "value": "197.2 mm",
+          "mm": 197.2
+        }
+      ],
+      "classification": "source rounding; preserve precision"
+    },
+    {
+      "part": "P778994",
+      "field": "Length",
+      "sourceMm": 401,
+      "current": [
+        {
+          "label": "Length",
+          "value": "372.2 mm",
+          "mm": 372.2
+        }
+      ],
+      "classification": "conflict; preserve pending review"
+    },
+    {
+      "part": "P782104",
+      "field": "ID",
+      "sourceMm": 125,
+      "current": [
+        {
+          "label": "Inner Diameter",
+          "value": "125.8 mm",
+          "mm": 125.8
+        }
+      ],
+      "classification": "conflict; preserve pending review"
+    },
+    {
+      "part": "P782104",
+      "field": "OD",
+      "sourceMm": 222,
+      "current": [
+        {
+          "label": "Outer Diameter",
+          "value": "221.4 mm",
+          "mm": 221.4
+        }
+      ],
+      "classification": "conflict; preserve pending review"
+    },
+    {
+      "part": "P782104",
+      "field": "Length",
+      "sourceMm": 404,
+      "current": [
+        {
+          "label": "Length",
+          "value": "375.5 mm",
+          "mm": 375.5
+        }
+      ],
+      "classification": "conflict; preserve pending review"
+    },
+    {
+      "part": "P782105",
+      "field": "ID",
+      "sourceMm": 145,
+      "current": [
+        {
+          "label": "Inner Diameter",
+          "value": "146 mm",
+          "mm": 146
+        }
+      ],
+      "classification": "conflict; preserve pending review"
+    },
+    {
+      "part": "P782105",
+      "field": "OD",
+      "sourceMm": 242,
+      "current": [
+        {
+          "label": "Outer Diameter",
+          "value": "241.7 mm",
+          "mm": 241.7
+        }
+      ],
+      "classification": "source rounding; preserve precision"
+    },
+    {
+      "part": "P782105",
+      "field": "Length",
+      "sourceMm": 541,
+      "current": [
+        {
+          "label": "Length",
+          "value": "511.9 mm",
+          "mm": 511.9
+        }
+      ],
+      "classification": "conflict; preserve pending review"
+    },
+    {
+      "part": "P780024",
+      "field": "ID",
+      "sourceMm": 52,
+      "current": [
+        {
+          "label": "Inner Diameter",
+          "value": "49 mm",
+          "mm": 49
+        }
+      ],
+      "classification": "conflict; preserve pending review"
+    },
+    {
+      "part": "P780024",
+      "field": "OD",
+      "sourceMm": 67,
+      "current": [
+        {
+          "label": "Outer Diameter",
+          "value": "64 mm",
+          "mm": 64
+        }
+      ],
+      "classification": "conflict; preserve pending review"
+    },
+    {
+      "part": "P780024",
+      "field": "Length",
+      "sourceMm": 305,
+      "current": [
+        {
+          "label": "Length",
+          "value": "302 mm",
+          "mm": 302
+        }
+      ],
+      "classification": "conflict; preserve pending review"
+    },
+    {
+      "part": "P780036",
+      "field": "ID",
+      "sourceMm": 92,
+      "current": [
+        {
+          "label": "Inner Diameter",
+          "value": "90 mm",
+          "mm": 90
+        }
+      ],
+      "classification": "conflict; preserve pending review"
+    },
+    {
+      "part": "P782108",
+      "field": "OD",
+      "sourceMm": 138,
+      "current": [
+        {
+          "label": "Outer Diameter",
+          "value": "137.5 mm",
+          "mm": 137.5
+        }
+      ],
+      "classification": "source rounding; preserve precision"
+    },
+    {
+      "part": "P782109",
+      "field": "ID",
+      "sourceMm": 180,
+      "current": [
+        {
+          "label": "Inner Diameter",
+          "value": "176 mm",
+          "mm": 176
+        }
+      ],
+      "classification": "conflict; preserve pending review"
+    },
+    {
+      "part": "P782109",
+      "field": "OD",
+      "sourceMm": 197,
+      "current": [
+        {
+          "label": "Outer Diameter",
+          "value": "192.5 mm",
+          "mm": 192.5
+        }
+      ],
+      "classification": "conflict; preserve pending review"
+    },
+    {
+      "part": "P782109",
+      "field": "Length",
+      "sourceMm": 576,
+      "current": [
+        {
+          "label": "Length",
+          "value": "570 mm",
+          "mm": 570
+        }
+      ],
+      "classification": "conflict; preserve pending review"
+    }
+  ]
+}
