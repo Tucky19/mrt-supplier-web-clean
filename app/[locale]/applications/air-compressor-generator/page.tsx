@@ -32,7 +32,19 @@ function getCopy(locale: string) {
   const isThai = locale === "th";
 
   return {
-    eyebrow: "Air Compressor & Generator",
+    eyebrow: "Compressor / Generator / Equipment Filters",
+    equipmentTitle: isThai ? "ไส้กรอง Donaldson สำหรับรถแทรกเตอร์ รถแบ็กโฮ และรถโฟล์คลิฟท์" : "Donaldson filters for tractors, backhoes and forklifts",
+    equipmentBody: isThai
+      ? "MRT Supplier ช่วยตรวจสอบและจัดหาไส้กรองโดยเน้น Donaldson จาก Part Number รุ่นเครื่องยนต์ รุ่นรถ หรือรูปฉลาก/Nameplate ทีมงานจะตรวจสอบข้อมูลก่อนเสนอราคา การระบุประเภทรถไม่ได้ยืนยันว่าไส้กรองทุกเบอร์ใช้แทนกันได้"
+      : "MRT Supplier helps check and source filters with an emphasis on Donaldson, using a part number, engine model, vehicle model, or label/nameplate photo. Our team reviews the details before quotation; an equipment category does not confirm part compatibility.",
+    equipmentItems: [
+      { title: isThai ? "รถแทรกเตอร์" : "Tractors", body: isThai ? "ส่งรุ่นรถ รุ่นเครื่องยนต์ หรือเบอร์กรองเดิม เพื่อให้ทีมงานตรวจสอบกรองอากาศ น้ำมันเครื่อง เชื้อเพลิง หรือไฮดรอลิกตามระบบที่ใช้งานจริง" : "Share the tractor model, engine model, or existing filter number so our team can check air, lube, fuel, or hydraulic filtration for the actual system." },
+      { title: isThai ? "รถแบ็กโฮ (Backhoe)" : "Backhoes", body: isThai ? "ตรวจสอบงานกรองตามรุ่นรถ เครื่องยนต์ และระบบไฮดรอลิก โดยใช้เบอร์เดิมหรือรูปฉลากประกอบก่อนเลือกสินค้า" : "Check filtration requirements against the backhoe model, engine, and hydraulic system, using the existing part number or label photo before selecting a product." },
+      { title: isThai ? "รถโฟล์คลิฟท์" : "Forklifts", body: isThai ? "ระบุชนิดรถ เช่น ดีเซล LPG หรือไฟฟ้า พร้อมรุ่นรถและระบบที่ต้องการตรวจสอบ รถแต่ละชนิดใช้ระบบกรองต่างกัน ไม่ใช่ทุกคันมีกรองเครื่องยนต์" : "Specify the power type, such as diesel, LPG, or electric, along with the model and system to be checked. Filtration varies by equipment; not every forklift has engine filters." },
+    ],
+    equipmentSearch: isThai ? "ค้นหาด้วยเบอร์ไส้กรอง" : "Search by filter part number",
+    equipmentContact: isThai ? "ส่งรุ่น / เบอร์ / รูป ให้ตรวจสอบ" : "Send model / part number / photo for review",
+    equipmentHint: isThai ? "มีเบอร์ไส้กรองแล้วใช้การค้นหาได้ หากมีเพียงรุ่นรถหรือรูปฉลาก ให้ติดต่อทีมงานเพื่อตรวจสอบ" : "Use product search when you have a filter part number. If you only have a vehicle model or label photo, contact our team for review.",
     title: isThai
       ? "ไส้กรองและอะไหล่สำหรับระบบอัดอากาศและเครื่องกำเนิดไฟฟ้า"
       : "Filters and spare parts for compressed-air and generator systems",
@@ -88,7 +100,7 @@ function getCopy(locale: string) {
           : "Air, lube, and fuel filtration for generator sets, checked against the engine model and existing part number before quotation.",
       },
     },
-    mannTitle: isThai ? "เน้น MANN-FILTER สำหรับงานกลุ่มนี้" : "MANN-FILTER emphasis for these applications",
+    mannTitle: isThai ? "เน้น MANN-FILTER สำหรับ Compressor / Generator" : "MANN-FILTER emphasis for Compressor / Generator",
     mannBody: isThai
       ? "เมื่อมีรุ่นเครื่องหรือเบอร์อ้างอิง ทีมงานจะตรวจสอบตัวเลือก MANN-FILTER เป็นลำดับต้น ๆ และสามารถตรวจสอบแบรนด์อื่นเพิ่มเติมได้ตามหลักฐานที่มี เพื่อให้ข้อมูลก่อนเสนอราคาไม่เกินกว่าที่ตรวจสอบได้"
       : "When a machine model or reference number is available, our team will check MANN-FILTER options early in the sourcing process and can review other brands where evidence supports the match. Quotation information is kept within what can be verified.",
@@ -166,6 +178,10 @@ export default async function AirCompressorGeneratorPage({
             {text.intro}
           </p>
 
+          <a href="#equipment-filters" className="mt-4 inline-flex rounded-sm text-sm font-semibold leading-6 text-[var(--color-primary)] underline underline-offset-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)]">
+            {text.equipmentTitle}
+          </a>
+
           <div className="mt-7 flex flex-col gap-3 sm:flex-row">
             <Link
               href={`/${locale}/products`}
@@ -221,6 +237,28 @@ export default async function AirCompressorGeneratorPage({
                 </Link>
               );
             })}
+          </div>
+        </section>
+
+        <section id="equipment-filters" className="mt-12 scroll-mt-24 rounded-[var(--mrt-radius-lg)] border border-[var(--color-border)] bg-[var(--color-surface)] p-5 sm:p-6">
+          <h2 className="text-2xl font-semibold text-[var(--color-text)]">{text.equipmentTitle}</h2>
+          <p className="mt-3 max-w-3xl text-sm leading-7 text-[var(--color-text-muted)]">{text.equipmentBody}</p>
+          <div className="mt-6 grid gap-5 md:grid-cols-3">
+            {text.equipmentItems.map((item) => (
+              <article key={item.title} className="min-w-0 rounded-[var(--mrt-radius-md)] bg-[var(--color-surface-muted)] p-4">
+                <h3 className="text-base font-semibold">{item.title}</h3>
+                <p className="mt-2 text-sm leading-6 text-[var(--color-text-muted)]">{item.body}</p>
+              </article>
+            ))}
+          </div>
+          <p className="mt-5 text-sm leading-6 text-[var(--color-text-muted)]">{text.equipmentHint}</p>
+          <div className="mt-4 flex flex-col gap-3 sm:flex-row">
+            <Link href={`/${locale}/products`} className="inline-flex min-h-12 items-center justify-center gap-2 rounded-[var(--mrt-radius-md)] border border-[var(--color-border-strong)] px-5 py-3 text-sm font-semibold hover:bg-[var(--color-surface-muted)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)]">
+              <Search className="h-4 w-4" aria-hidden="true" />{text.equipmentSearch}
+            </Link>
+            <Link href={`/${locale}/contact`} className="inline-flex min-h-12 items-center justify-center rounded-[var(--mrt-radius-md)] bg-[var(--color-primary)] px-5 py-3 text-sm font-semibold text-[var(--color-text-inverse)] hover:bg-[var(--color-primary-hover)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-ring)]">
+              {text.equipmentContact}
+            </Link>
           </div>
         </section>
 
