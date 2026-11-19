@@ -10,6 +10,7 @@ import { gaAddToQuote, gaViewItem } from "@/lib/analytics/ga";
 import { track } from "@/lib/analytics";
 import { productAttribution, growthEventId } from "@/lib/analytics/growth";
 import { getVerifiedProductCopy } from "@/lib/products/verifiedCopy";
+import { getManufacturerType } from "@/lib/products/manufacturerType";
 import { getProductUiText } from "@/lib/i18n/productUi";
 import { getProductImageUrl } from "@/lib/products/image";
 import {
@@ -101,7 +102,7 @@ function getCategorySummary(category: string | undefined, locale: string) {
 }
 
 function buildHeaderSummary(product: Product, locale: string) {
-  const categorySummary = getVerifiedProductCopy(product, locale)?.category ?? getCategorySummary(product.category, locale);
+  const categorySummary = getManufacturerType(product, locale) ?? getVerifiedProductCopy(product, locale)?.category ?? getCategorySummary(product.category, locale);
   const specs = Array.isArray(product.specifications) ? product.specifications : [];
   const skipLabels = new Set([
     "height",
@@ -262,7 +263,7 @@ function buildDescriptionBlock(product: Product, locale: string) {
 
 export default function ProductDetailClient({ locale, product }: Props) {
   const verifiedCopy = getVerifiedProductCopy(product, locale);
-  const displayTitle = verifiedCopy?.title ?? product.title;
+  const displayTitle = getManufacturerType(product, locale) ?? verifiedCopy?.title ?? product.title;
   const router = useRouter();
   const { addItem, items, ready } = useQuote();
   const isInQuote = items.some((item) => item.productId === product.id);

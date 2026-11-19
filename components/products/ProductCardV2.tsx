@@ -9,6 +9,7 @@ import { track } from "@/lib/analytics";
 import { searchAttribution, rememberProductAttribution, growthEventId } from "@/lib/analytics/growth";
 import { gaAddToQuote } from "@/lib/analytics/ga";
 import { getVerifiedProductCopy } from "@/lib/products/verifiedCopy";
+import { getManufacturerType } from "@/lib/products/manufacturerType";
 import { getProductUiText } from "@/lib/i18n/productUi";
 import ApplicationReferenceNote from "./detail/ApplicationReferenceNote";
 import { getSearchUiText } from "@/lib/i18n/searchUi";
@@ -205,7 +206,8 @@ export default function ProductCardV2({
     referenceQuery,
     searchText,
   );
-  const categoryLabel = (product.partNo === "P502649"
+  const manufacturerType = getManufacturerType(product, locale);
+  const categoryLabel = manufacturerType ?? (product.partNo === "P502649"
     ? getVerifiedProductCopy(product, locale)?.category
     : undefined) ?? formatCategoryLabel(product.category);
 
@@ -348,9 +350,9 @@ export default function ProductCardV2({
               {product.partNo}
             </Link>
 
-            {product.title ? (
+            {manufacturerType || product.title ? (
               <div className="mt-1 line-clamp-2 text-sm leading-5 text-[var(--color-text-muted)]">
-                {product.title}
+                {manufacturerType ?? product.title}
               </div>
             ) : null}
 
@@ -418,9 +420,9 @@ export default function ProductCardV2({
               {product.partNo}
             </Link>
 
-            {product.title ? (
+            {manufacturerType || product.title ? (
               <div className="mt-2 min-h-[2.75rem] line-clamp-2 text-sm leading-6 text-[var(--color-text-muted)]">
-                {product.title}
+                {manufacturerType ?? product.title}
               </div>
             ) : null}
 

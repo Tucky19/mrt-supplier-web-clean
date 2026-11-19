@@ -14,6 +14,7 @@ import { safeEventParams } from "@/lib/analytics/contract";
 import { growthFromMeta, anonymousSessionId } from "@/lib/analytics/growth";
 import { gaBeginCheckout, gaSubmitRFQ, gaViewCart, type GAItem } from '@/lib/analytics/ga';
 import { getRfqUiText } from '@/lib/i18n/rfqUi';
+import { getManufacturerType } from '@/lib/products/manufacturerType';
 import { getRfqReferenceContexts } from '@/lib/rfq/referenceContext';
 import { BEGIN_CHECKOUT_SESSION_KEY, useQuote } from '@/providers/QuoteProvider';
 
@@ -471,6 +472,11 @@ export default function QuotePage() {
                           ? text.manualRequest
                           : item.brand || item.title || text.requestedItem}
                       </div>
+                      {getManufacturerType({ brand: item.brand ?? '', partNo: item.partNo }, locale) && (
+                        <div className="mt-1 text-sm text-[var(--color-text-muted)]">
+                          {getManufacturerType({ brand: item.brand ?? '', partNo: item.partNo }, locale)}
+                        </div>
+                      )}
                       {getRfqReferenceContexts(item.meta).length > 0 ? (
                         <div className="mt-2 text-sm font-medium text-[var(--color-primary)]">
                           {locale === 'th' ? 'เบอร์ที่ลูกค้าค้นหา' : 'Customer searched'}:{' '}
