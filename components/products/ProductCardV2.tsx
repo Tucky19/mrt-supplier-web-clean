@@ -85,6 +85,7 @@ function getMatchPresentation(
   matchType: string | undefined,
   query: string,
   text: ReturnType<typeof getSearchUiText>,
+  verifiedEquivalent = false,
 ): MatchPresentation | null {
   if (!matchType || !query) return null;
 
@@ -107,7 +108,11 @@ function getMatchPresentation(
   }
 
   if (matchType === "Cross Ref" || matchType === "Same-brand Ref") {
-    return null;
+    return verifiedEquivalent ? {
+      label: `${matchType === "Cross Ref" ? text.crossReferenceMatch : text.sameBrandReferenceMatch}${querySuffix}`,
+      className:
+        "border-[var(--color-border-strong)] bg-[var(--color-primary-soft)] text-[var(--color-text)]",
+    } : null;
   }
 
   if (matchType === "Dimensions") {
@@ -204,6 +209,8 @@ export default function ProductCardV2({
     product._matchType,
     referenceQuery,
     searchText,
+    product._matchedRelation?.verificationStatus === "verified" &&
+      product._matchedRelation?.relationType === "equivalent",
   );
   const categoryLabel = (product.partNo === "P502649"
     ? getVerifiedProductCopy(product, locale)?.category

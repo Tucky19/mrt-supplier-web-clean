@@ -1,0 +1,9 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "git": {
+    "deploymentEnabled": {
+      "fix/verified-direct-search-cards": false,
+      "review/search-cards-release-readiness": false
+    }
+  }
+}
