@@ -676,6 +676,53 @@ export function createExactProductLookup(): ExactProductLookup {
   };
 }
 
+function verifiedDirectCards(exactProducts: SearchResult[]): SearchResult[] {
+  const cards = new Map<string, SearchResult>();
+  const relationsTo = (from: Product, to: Product) =>
+    (["crossReferences", "refs"] as const).flatMap((field) =>
+      normalizeProductRelations(from[field] ?? [], "unknown")
+        .filter((relation) =>
+          normalize(relation.partNumber) === normalize(to.partNo) &&
+          (!relation.brand || normalize(relation.brand) === normalize(to.brand)),
+        )
+        .map((relation) => ({ relation, field })),
+    );
+
+  for (const exact of exactProducts) {
+    for (const candidate of products) {
+      if (exactProducts.some((item) => item.id === candidate.id)) continue;
+      const incoming = relationsTo(candidate, exact);
+      const outgoing = relationsTo(exact, candidate);
+      const edges = [...incoming, ...outgoing];
+      // Explicit moderation wins over another copy of the same direct edge.
+      if (edges.some(({ relation }) =>
+        relation.verificationStatus === "hidden" ||
+        relation.verificationStatus === "rejected")) continue;
+      const verified = edges.find(({ relation }) =>
+        Boolean(relation.brand) &&
+        relation.relationType === "equivalent" &&
+        relation.verificationStatus === "verified");
+      if (!verified) continue;
+
+      cards.set(candidate.id, {
+        ...candidate,
+        _score: 7000,
+        _matchType: normalize(candidate.brand) === normalize(exact.brand)
+          ? "Same-brand Ref" : "Cross Ref",
+        // Equivalence is symmetric; replacement/companion edges are not expanded.
+        // Keep the source evidence, orient RFQ context toward the searched product.
+        _matchedRelation: {
+          ...verified.relation,
+          partNumber: exact.partNo,
+          brand: exact.brand,
+        },
+        _matchedRelationField: verified.field,
+      });
+    }
+  }
+  return sortByMrtPriority(Array.from(cards.values()));
+}
+
 export function focusSearchResults(results: SearchResult[]): SearchResult[] {
   const exactPartResults = results.filter((item) => item._matchType === "Exact");
   if (exactPartResults.length > 0) {
@@ -696,6 +743,19 @@ export function focusSearchResults(results: SearchResult[]): SearchResult[] {
           candidatePartNo.length > exactPartNo.length,
       );
     });
+    const directCards = verifiedDirectCards(exactPartResults);
+    if (directCards.length > 0) {
+      const exactIds = new Set(exactPartResults.map((item) => item.id));
+      const additional = new Map(
+        [...directCards, ...sameBrandPartVariants]
+          .filter((item) => !exactIds.has(item.id))
+          .map((item) => [item.id, item]),
+      );
+      return [
+        ...sortByMrtPriority(exactPartResults),
+        ...sortByMrtPriority(Array.from(additional.values())),
+      ];
+    }
     const verifiedStockedNonCoreResults = exactPartResults.filter(
       (item) => hasVerifiedMrtStock(item) && !isMrtCoreBrand(item.brand),
     );
@@ -757,7 +817,7 @@ export function searchFocusedProducts(
   const focusedExactResults = focusSearchResults(exactResults);
 
   if (focusedExactResults !== exactResults) {
-    return focusedExactResults;
+    return focusedExactResults.slice(0, limit);
   }
 
   const partialCandidates = searchProducts(q, {
